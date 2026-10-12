@@ -9,6 +9,10 @@ for (const file of walk(root)) {
   fs.writeFileSync(file,html);
 }
 let html = fs.readFileSync(path.join(root,'index.html'),'utf8');
+if (html.includes('class="purpose-grid"')) {
+  console.log('Shared styles verified; homepage already upgraded.');
+  process.exit(0);
+}
 const groups = [
  ['role-based','01 / ĐỊNH HƯỚNG','Role-based','Chọn nghề nghiệp và học theo lộ trình có thứ tự.',[['fullstack-js/index.html','Full Stack Developer'],['ai-engineer/index.html','AI Engineer'],['security/index.html','Security Engineer'],['system-design/index.html','System / DevOps']],'#roadmap','Khám phá lộ trình'],
  ['skill-based','02 / NỀN TẢNG','Skill-based','Bổ sung đúng kỹ năng bạn cần, theo tốc độ của bạn.',[['python/index.html','Python'],['javascript-nnlt/index.html','JavaScript'],['react/index.html','React'],['thuat-toan/index.html','Thuật toán & cấu trúc dữ liệu']],'#roadmap','Xem tất cả kỹ năng'],
