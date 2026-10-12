@@ -4,16 +4,16 @@
 <script>
 (function(){
   try{
-    var t = localStorage.getItem('algo-mastery-theme') || 'dark';
+    var t = localStorage.getItem('synaptrail-theme') || 'light';
     document.documentElement.setAttribute('data-theme', t);
   }catch(e){
-    document.documentElement.setAttribute('data-theme', 'dark');
+    document.documentElement.setAttribute('data-theme', 'light');
   }
 })();
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Engineer Full Stack — Lộ Trình Học Toàn Diện</title>
+<title>Synaptrail — Lộ Trình Học Toàn Diện</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -910,10 +910,10 @@ html[data-theme="dark"] .prompt-copy-btn{ background: var(--line); color:#04121f
     <span class="hamburger"><span></span><span></span><span></span></span>
   </button>
 
-  <a href="index.html" class="brand" aria-label="Trang chủ AI Engineer Full Stack">
+  <a href="index.html" class="brand" aria-label="Trang chủ Synaptrail">
     <span class="brand-mark">AI</span>
     <span class="brand-text">
-      <strong>AI Engineer Full Stack</strong>
+      <strong>Synaptrail</strong>
       <span> Lập trình viên </span>
     </span>
   </a>
@@ -987,7 +987,7 @@ html[data-theme="dark"] .prompt-copy-btn{ background: var(--line); color:#04121f
         <li><span class="step-num">9</span><a href="machine-learning/phan-15-reinforcement-learning.html">Reinforcement Learning</a></li>
         <li><span class="step-num">10</span><a href="machine-learning/phan-13-kaggle-portfolio.html">ML: Thực Hành Kaggle &amp; Portfolio</a></li>
         <li><span class="step-num">11</span><a href="ai-engineer/chapter01.html">AI Engineer (LLM &amp; RAG)</a></li>
-        <li class="step-milestone"><span class="step-num">🎯</span><div>AI Engineer Full Stack</div></li>
+        <li class="step-milestone"><span class="step-num">🎯</span><div>Synaptrail</div></li>
       </ol>
     </div>
 
@@ -1028,7 +1028,7 @@ html[data-theme="dark"] .prompt-copy-btn{ background: var(--line); color:#04121f
   <section class="hero">
     <div class="hero-copy">
       <span class="eyebrow mono">BẢN VẼ KỸ THUẬT · KHÓA HỌC 2026</span>
-      <h1> <em>AI Engineer Full Stack and Programming Language</em> </h1>
+      <h1> <em>Học đúng kỹ năng. Đi xa hơn mỗi ngày.</em> </h1>
       <p class="lead">
         Một lộ trình học được thiết kế như bản vẽ kỹ thuật: rõ ràng, có thứ tự, có kiểm chứng.
         Kết hợp lộ trình Full Stack (HTML/CSS · JavaScript · React) với nền tảng ngôn ngữ lập trình, thuật toán, hệ thống, bảo mật và AI Engineer — từ giao diện người dùng đến máy chủ, dữ liệu và trí tuệ nhân tạo.
@@ -1576,7 +1576,7 @@ html[data-theme="dark"] .prompt-copy-btn{ background: var(--line); color:#04121f
 </main>
 
 <footer class="site-footer">
-  © 2026 AI Engineer Full Stack — Lộ trình tự học Full Stack &amp; AI Engineer. Được xây dựng như một bản vẽ kỹ thuật, từng lớp một.
+  © 2026 Synaptrail — Lộ trình tự học Full Stack &amp; AI Engineer. Được xây dựng như một bản vẽ kỹ thuật, từng lớp một.
 </footer>
 
 <button class="top-btn" id="topBtn" aria-label="Về đầu trang">↑</button>
@@ -1586,9 +1586,9 @@ html[data-theme="dark"] .prompt-copy-btn{ background: var(--line); color:#04121f
    DARK / LIGHT MODE — lưu lựa chọn bằng localStorage
    ============================================================ */
 (function initTheme(){
-  let saved; try { saved = localStorage.getItem('algo-mastery-theme'); } catch {}
+  let saved; try { saved = localStorage.getItem('synaptrail-theme'); } catch {}
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const theme = saved || 'dark';
+  const theme = saved || 'light';
   document.documentElement.setAttribute('data-theme', theme);
   updateThemeIcon(theme);
 })();
@@ -1602,7 +1602,7 @@ document.getElementById('themeBtn').addEventListener('click', function(){
   const current = document.documentElement.getAttribute('data-theme');
   const next = current === 'dark' ? 'light' : 'dark';
   document.documentElement.setAttribute('data-theme', next);
-  try { localStorage.setItem('algo-mastery-theme', next); } catch {}
+  try { localStorage.setItem('synaptrail-theme', next); } catch {}
   updateThemeIcon(next);
 });
 

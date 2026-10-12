@@ -5,10 +5,10 @@
 <script>
 (function(){
   try{
-    var t = localStorage.getItem('algo-mastery-theme') || 'dark';
+    var t = localStorage.getItem('synaptrail-theme') || 'light';
     document.documentElement.setAttribute('data-theme', t);
   }catch(e){
-    document.documentElement.setAttribute('data-theme', 'dark');
+    document.documentElement.setAttribute('data-theme', 'light');
   }
 })();
 </script>
@@ -192,7 +192,7 @@ tr td{transition:background .15s;}
   .flip-answer{font-size:20px;}
 }
 </style>
-<title>Flashcards Ôn Tập — Quiz &amp; Tiện ích</title>
+<title>Flashcards Ôn Tập — Quiz &amp; Tiện ích | Synaptrail</title>
 <link rel="stylesheet" href="../assets/ui.css">
 </head>
 <body>
@@ -286,7 +286,7 @@ function toggleTheme(){
   const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
   const newTheme = isDark ? 'light' : 'dark';
   document.documentElement.setAttribute('data-theme', newTheme);
-  try{ localStorage.setItem('algo-mastery-theme', newTheme); }catch(e){}
+  try{ localStorage.setItem('synaptrail-theme', newTheme); }catch(e){}
   const label = document.getElementById('theme-label');
   const icon = document.getElementById('theme-icon');
   if(label) label.textContent = newTheme === 'dark' ? 'Chế độ tối' : 'Chế độ sáng';
@@ -295,7 +295,7 @@ function toggleTheme(){
 (function(){
   const label = document.getElementById('theme-label');
   const icon = document.getElementById('theme-icon');
-  const current = document.documentElement.getAttribute('data-theme') || 'dark';
+  const current = document.documentElement.getAttribute('data-theme') || 'light';
   if(label) label.textContent = current === 'dark' ? 'Chế độ tối' : 'Chế độ sáng';
   if(icon) icon.textContent = current === 'dark' ? '🌙' : '☀️';
 })();
