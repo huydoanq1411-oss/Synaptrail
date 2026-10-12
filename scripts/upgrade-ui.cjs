@@ -8,7 +8,7 @@ for (const file of walk(root)) {
   if (!html.includes('assets/ui.css')) html = html.replace('</head>', `<link rel="stylesheet" href="${href}">\n</head>`);
   fs.writeFileSync(file,html);
 }
-let html = fs.readFileSync(path.join(root,'index.html'),'utf8');
+let html = fs.readFileSync(path.join(root,'courses.html'),'utf8');
 if (html.includes('class="purpose-grid"')) {
   console.log('Shared styles verified; homepage already upgraded.');
   process.exit(0);
@@ -35,5 +35,5 @@ html = html.replace('const saved = localStorage.getItem(\'algo-mastery-theme\');
  .replace("menuBtn.addEventListener('click', function(){","roadmapDrawer.inert = true;\nroadmapDrawer.addEventListener('keydown', function(e){\n  if(e.key !== 'Tab') return;\n  const items = Array.from(roadmapDrawer.querySelectorAll('button,a[href]')).filter(el => el.getClientRects().length);\n  const first = items[0], last = items[items.length - 1];\n  if(e.shiftKey && document.activeElement === first){e.preventDefault();last.focus();}\n  else if(!e.shiftKey && document.activeElement === last){e.preventDefault();first.focus();}\n});\nmenuBtn.addEventListener('click', function(){")
  .replace("try{ document.execCommand('copy'); }catch(e){}","let copied = false; try{ copied = document.execCommand('copy'); }catch(e){}")
  .replace('if(cb) cb();',"if(copied && cb) cb(); else alert('Không thể sao chép. Hãy chọn nội dung và sao chép thủ công.');");
-fs.writeFileSync(path.join(root,'index.html'),html);
+fs.writeFileSync(path.join(root,'courses.html'),html);
 console.log('Updated',walk(root).length,'HTML pages.');

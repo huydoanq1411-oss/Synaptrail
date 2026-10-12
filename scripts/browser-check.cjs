@@ -17,18 +17,26 @@ const pause=ms=>new Promise(r=>setTimeout(r,ms));
   const evaluate=async expression=>(await call('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true})).result.value;
   await call('Runtime.enable');await call('Page.enable');
   const results=[];
-  for(const route of ['index.html','react/index.html','python/chapter001.html','fullstack-js/index.html','Quiz_and_other/quiz-tong-hop.html']){
+  for(const route of ['index.html','courses.html','react/index.html','python/chapter001.html','fullstack-js/index.html','Quiz_and_other/quiz-tong-hop.html']){
    for(const width of [375,768,1440]){
     await call('Emulation.setDeviceMetricsOverride',{width,height:900,deviceScaleFactor:1,mobile:width<500});
     await call('Page.navigate',{url:`http://127.0.0.1:${server.address().port}/${route}`});await pause(800);
     const state=await evaluate(`({overflow:document.documentElement.scrollWidth>innerWidth,background:getComputedStyle(document.body).backgroundColor,css:!!document.querySelector('link[href$="assets/ui.css"]')})`);
     results.push({route,width,...state});
     if(state.overflow)failures.push('Overflow '+route+' @ '+width);
+    if(state.background!=='rgb(255, 255, 255)')failures.push('Expected white background '+route+' @ '+width);
+    if(route==='index.html'&&width===1440){const screenshot=await call('Page.captureScreenshot',{format:'png'});fs.mkdirSync(path.join(root,'artifacts'),{recursive:true});fs.writeFileSync(path.join(root,'artifacts/home-desktop.png'),Buffer.from(screenshot.data,'base64'));}
    }
   }
-  await call('Page.navigate',{url:`http://127.0.0.1:${server.address().port}/index.html`});await pause(500);
+  await call('Page.navigate',{url:`http://127.0.0.1:${server.address().port}/courses.html`});await pause(500);
   const interactions=await evaluate(`(()=>{const input=document.getElementById('searchInput');input.value='zzzz-nothing';input.dispatchEvent(new Event('input'));const empty=getComputedStyle(document.getElementById('emptyState')).display!=='none';input.value='thuat toan';input.dispatchEvent(new Event('input'));const search=[...document.querySelectorAll('#roadmap .card')].filter(c=>c.style.display!=='none').length;document.getElementById('menuBtn').click();const opened=document.activeElement.id==='closeDrawerBtn';document.getElementById('closeDrawerBtn').click();const closed=document.activeElement.id==='menuBtn'&&document.getElementById('roadmapDrawer').inert;document.getElementById('themeBtn').click();const light=document.documentElement.dataset.theme==='light';return {empty,search,opened,closed,light,boxes:document.querySelectorAll('.purpose-box').length}})()`);
-  if(!interactions.empty||interactions.search!==1||!interactions.opened||!interactions.closed||!interactions.light||interactions.boxes!==4)failures.push('Interaction check failed');
+  if(!interactions.empty||interactions.search!==1||!interactions.opened||!interactions.closed||interactions.light||interactions.boxes!==4)failures.push('Interaction check failed');
+  await call('Page.navigate',{url:`http://127.0.0.1:${server.address().port}/index.html`});await pause(300);
+  await evaluate("document.querySelector('.header-cta').click()");await pause(500);
+  const catalogueNavigation=await evaluate("location.pathname.endsWith('/courses.html')");
+  await call('Page.navigate',{url:`http://127.0.0.1:${server.address().port}/index.html#roadmap`});await pause(500);
+  const legacyNavigation=await evaluate("location.pathname.endsWith('/courses.html')&&location.hash==='#roadmap'");
+  if(!catalogueNavigation||!legacyNavigation)failures.push('Homepage navigation failed');
   console.log(JSON.stringify({results,interactions,failures},null,2));process.exitCode=failures.length?1:0;
  }finally{if(ws)ws.close();chrome.kill();server.close()}
 })().catch(e=>{console.error(e);server.close();process.exitCode=1});

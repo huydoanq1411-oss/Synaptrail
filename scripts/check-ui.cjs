@@ -13,11 +13,18 @@ for(const file of walk(root)){
  const css=html.match(/<link rel="stylesheet" href="([^"]*assets\/ui.css)">/);
  if(!css||!fs.existsSync(path.resolve(path.dirname(file),css[1])))errors.push('Missing shared CSS: '+file);
 }
-const home=fs.readFileSync(path.join(root,'index.html'),'utf8');
+const home=fs.readFileSync(path.join(root,'courses.html'),'utf8');
 const boxes=home.match(/<nav class="category-nav"[\s\S]*?<section class="section" id="agent-toolbox">/)[0];
 for(const [,href]of boxes.matchAll(/href="([^"]+)"/g)){
  if(href.startsWith('#')){if(!home.includes('id="'+href.slice(1)+'"'))errors.push('Missing anchor '+href)}
  else if(!fs.existsSync(path.join(root,href)))errors.push('Missing route '+href);
+}
+const landing=fs.readFileSync(path.join(root,'index.html'),'utf8');
+for(const [,href]of landing.matchAll(/href="([^"]+)"/g)){
+ const [route,anchor]=href.split('#');
+ const target=route?path.resolve(root,route):path.join(root,'index.html');
+ if(!fs.existsSync(target)){errors.push('Missing homepage route '+href);continue;}
+ if(anchor&&!fs.readFileSync(target,'utf8').includes('id="'+anchor+'"'))errors.push('Missing homepage anchor '+href);
 }
 console.log(JSON.stringify({pages:walk(root).length,inlineScripts:scripts,errors},null,2));
 process.exitCode=errors.length?1:0;
