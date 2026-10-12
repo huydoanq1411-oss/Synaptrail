@@ -1,27 +1,29 @@
-# AI Engineer Full Stack Learning Roadmap
+# Synaptrail — Không gian học lập trình
 
 ## Cập nhật giao diện — 12/10/2026
 
 Dự án dùng HTML, CSS và JavaScript tĩnh, không có framework, package manager hay bước build. Giữ nguyên nội dung bài học, đường dẫn và các script hiện có; không thêm thư viện.
 
-- Trang chủ có bốn box **Role-based**, **Skill-based**, **Best Practices**, **Project Ideas**, mỗi box có mô tả, tài liệu liên quan và hành động chính. Giả định: phân nhóm là điều hướng theo mục đích sử dụng, không di chuyển thư mục để tránh làm hỏng liên kết. Project Ideas dẫn đến dự án cuối khóa, bài tập và tài liệu API sẵn có.
-- `assets/ui.css` là lớp giao diện dùng chung cho 383 trang: nền navy, nhấn cyan, thẻ và nút nhất quán, chữ rõ ràng, khoảng cách thoáng; vẫn hỗ trợ chế độ sáng.
+- `index.html` là trang chủ giới thiệu **Synaptrail**, theo bố cục mẫu: nội dung bên trái, thẻ minh họa học lập trình bên phải, khoảng cách thoáng và bốn box điều hướng nhỏ gọn. Nút “Khám phá khóa học” mở `courses.html` trước khi vào bài học.
+- `courses.html` giữ danh mục 22 chủ đề cùng bốn nhóm **Role-based**, **Skill-based**, **Best Practices**, **Project Ideas**, với các box nhỏ hơn. Không di chuyển thư mục bài học. Bookmark cũ như `index.html#roadmap` tự chuyển đến đúng phần trong danh mục mới.
+- `assets/ui.css` dùng chung cho 384 trang: nền **trắng**, màu nhấn **teal**, thẻ và nút nhất quán. `assets/home.css` dành riêng cho trang chủ. Toàn bộ bài học mặc định dùng giao diện sáng; tùy chọn sáng/tối hiện có được giữ, lưu bằng khóa `synaptrail-theme` để lựa chọn navy cũ không ghi đè thiết kế mới. Dữ liệu học tập và quiz không đổi.
+- Tên ứng dụng và tiêu đề trang dùng **Synaptrail**; tên môn học và nội dung chuyên môn được giữ nguyên. Trang chủ dùng font hệ thống, hình minh họa bằng CSS/SVG, không thêm thư viện hay ảnh tải nặng.
 - Responsive cho điện thoại, tablet và desktop; tìm kiếm luôn hiển thị trên điện thoại; bảng và code dài có vùng cuộn riêng.
 - Bổ sung focus rõ ràng, liên kết bỏ qua điều hướng, giữ focus trong menu, trả focus về nút mở menu khi đóng, hỗ trợ giảm chuyển động. Tìm kiếm hỗ trợ tiếng Việt không dấu, thông báo số kết quả và trạng thái trống. Sao chép thất bại có thông báo thay vì báo thành công giả.
 - CSS có trạng thái disabled/loading và trường nhập lỗi qua `aria-busy`, `aria-invalid`. Không thêm luồng tải dữ liệu giả vào các trang tĩnh.
 
 ### Kết quả kiểm tra
 
-- `node scripts/check-ui.cjs`: đạt; 383 trang tải đúng CSS chung, 771 script inline không có lỗi cú pháp; các liên kết và anchor trong bốn box đều tồn tại.
-- `node scripts/browser-check.cjs`: đạt trên Chrome headless. Kiểm tra trang chủ, mục lục React, bài Python đầu tiên, mục lục Full Stack và quiz tổng hợp ở **375 / 768 / 1440 px**; không phát hiện tràn ngang hay exception JavaScript.
-- Kiểm tra tương tác đạt: bốn box, tìm kiếm không dấu, kết quả trống, focus khi mở/đóng menu và chuyển chế độ sáng.
+- `node scripts/check-ui.cjs`: đạt; 384 trang tải đúng CSS chung, 772 script inline không có lỗi cú pháp; liên kết và anchor trên trang chủ và trong bốn box đều tồn tại.
+- `node scripts/browser-check.cjs`: đạt trên Chrome headless. Kiểm tra **6 trang**: trang chủ, danh mục khóa học, mục lục React, bài Python đầu tiên, mục lục Full Stack và quiz tổng hợp ở **375 / 768 / 1440 px** (18 trường hợp). Tất cả có nền trắng mặc định, không tràn ngang và không có exception JavaScript.
+- Tương tác đạt: trang chủ mở danh mục, bookmark `index.html#roadmap` chuyển đúng trang và phần nội dung, tìm kiếm không dấu, kết quả trống, focus khi mở/đóng menu, bốn box và chuyển sáng/tối. Đã sửa lỗi tràn ngang của trang chủ ở 768 px và kiểm tra lại thành công.
 - Không có lệnh build cần chạy vì website không dùng bundler. Kiểm tra trình duyệt lấy mẫu các trang đại diện; chưa kiểm tra thủ công toàn bộ bài học, mọi chức năng quiz hoặc thiết bị vật lý.
 
 Mở `index.html` để xem trực tiếp. Các script kiểm tra yêu cầu Node.js; kiểm tra trình duyệt dùng Chrome tại đường dẫn Windows mặc định và chạy một server cục bộ tạm thời. `scripts/upgrade-ui.cjs` có thể chạy lại để gắn CSS chung cho trang HTML mới.
 
 <div align="center">
 
-![AI Engineer Full Stack Banner](https://img.shields.io/badge/AI%20Engineer-Full%20Stack%20Roadmap-0ea5e9?style=for-the-badge&logo=rocket&logoColor=white)
+![Synaptrail Banner](https://img.shields.io/badge/Synaptrail-Learning%20Roadmap-0f766e?style=for-the-badge&logo=rocket&logoColor=white)
 
 </div>
 
@@ -47,7 +49,9 @@ Mỗi thư mục trong repo tương ứng với một chuyên đề hoặc một
 
 ```text
 .
-├── index.html                     # Trang chủ tổng hợp lộ trình học
+├── index.html                     # Trang chủ giới thiệu Synaptrail
+├── courses.html                   # Danh mục khóa học và bốn nhóm mục đích
+├── assets/                        # CSS chung và CSS trang chủ
 ├── ai-engineer/                   # AI Engineer, prompt, agent, công cụ AI
 ├── cpp/                          # C++ và lập trình hệ thống
 ├── fullstack-js/                 # Fullstack JavaScript
