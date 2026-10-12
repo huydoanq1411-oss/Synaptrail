@@ -1,10 +1,10 @@
-const fs=require('node:fs');const path=require('node:path');const http=require('node:http');const {spawn}=require('node:child_process');
+const fs=require('node:fs');const path=require('node:path');const os=require('node:os');const http=require('node:http');const {spawn}=require('node:child_process');
 const root=path.resolve(__dirname,'..');
 const server=http.createServer((req,res)=>{const file=path.resolve(root,'.'+decodeURIComponent(req.url.split('?')[0] === '/' ? '/index.html' : req.url.split('?')[0]));if(!file.startsWith(root+path.sep)){res.writeHead(403);return res.end()}fs.readFile(file,(err,data)=>{res.writeHead(err?404:200,{'Content-Type':file.endsWith('.css')?'text/css; charset=utf-8':'text/html; charset=utf-8'});res.end(err?'Not found':data)})});
 const pause=ms=>new Promise(r=>setTimeout(r,ms));
 (async()=>{
  await new Promise(r=>server.listen(0,'127.0.0.1',r));
- const profile=path.join(root,'.browser-check');
+ const profile=fs.mkdtempSync(path.join(os.tmpdir(),'synaptrail-ui-'));
  const chrome=spawn('C:/Program Files/Google/Chrome/Application/chrome.exe',['--headless=new','--disable-gpu','--no-first-run','--remote-debugging-port=9333','--user-data-dir='+profile,'about:blank'],{stdio:'ignore'});
  let ws;
  try{

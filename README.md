@@ -1,5 +1,24 @@
 # AI Engineer Full Stack Learning Roadmap
 
+## Cập nhật giao diện — 12/10/2026
+
+Dự án dùng HTML, CSS và JavaScript tĩnh, không có framework, package manager hay bước build. Giữ nguyên nội dung bài học, đường dẫn và các script hiện có; không thêm thư viện.
+
+- Trang chủ có bốn box **Role-based**, **Skill-based**, **Best Practices**, **Project Ideas**, mỗi box có mô tả, tài liệu liên quan và hành động chính. Giả định: phân nhóm là điều hướng theo mục đích sử dụng, không di chuyển thư mục để tránh làm hỏng liên kết. Project Ideas dẫn đến dự án cuối khóa, bài tập và tài liệu API sẵn có.
+- `assets/ui.css` là lớp giao diện dùng chung cho 383 trang: nền navy, nhấn cyan, thẻ và nút nhất quán, chữ rõ ràng, khoảng cách thoáng; vẫn hỗ trợ chế độ sáng.
+- Responsive cho điện thoại, tablet và desktop; tìm kiếm luôn hiển thị trên điện thoại; bảng và code dài có vùng cuộn riêng.
+- Bổ sung focus rõ ràng, liên kết bỏ qua điều hướng, giữ focus trong menu, trả focus về nút mở menu khi đóng, hỗ trợ giảm chuyển động. Tìm kiếm hỗ trợ tiếng Việt không dấu, thông báo số kết quả và trạng thái trống. Sao chép thất bại có thông báo thay vì báo thành công giả.
+- CSS có trạng thái disabled/loading và trường nhập lỗi qua `aria-busy`, `aria-invalid`. Không thêm luồng tải dữ liệu giả vào các trang tĩnh.
+
+### Kết quả kiểm tra
+
+- `node scripts/check-ui.cjs`: đạt; 383 trang tải đúng CSS chung, 771 script inline không có lỗi cú pháp; các liên kết và anchor trong bốn box đều tồn tại.
+- `node scripts/browser-check.cjs`: đạt trên Chrome headless. Kiểm tra trang chủ, mục lục React, bài Python đầu tiên, mục lục Full Stack và quiz tổng hợp ở **375 / 768 / 1440 px**; không phát hiện tràn ngang hay exception JavaScript.
+- Kiểm tra tương tác đạt: bốn box, tìm kiếm không dấu, kết quả trống, focus khi mở/đóng menu và chuyển chế độ sáng.
+- Không có lệnh build cần chạy vì website không dùng bundler. Kiểm tra trình duyệt lấy mẫu các trang đại diện; chưa kiểm tra thủ công toàn bộ bài học, mọi chức năng quiz hoặc thiết bị vật lý.
+
+Mở `index.html` để xem trực tiếp. Các script kiểm tra yêu cầu Node.js; kiểm tra trình duyệt dùng Chrome tại đường dẫn Windows mặc định và chạy một server cục bộ tạm thời. `scripts/upgrade-ui.cjs` có thể chạy lại để gắn CSS chung cho trang HTML mới.
+
 <div align="center">
 
 ![AI Engineer Full Stack Banner](https://img.shields.io/badge/AI%20Engineer-Full%20Stack%20Roadmap-0ea5e9?style=for-the-badge&logo=rocket&logoColor=white)
