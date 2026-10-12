@@ -1,322 +1,150 @@
-# Synaptrail — Không gian học lập trình
+# Synaptrail
 
-## Cập nhật giao diện — 12/10/2026
+Không gian tự học lập trình, Full Stack và AI. Synaptrail tập hợp lộ trình theo nghề nghiệp, bài học theo kỹ năng, hướng dẫn thực hành và tài nguyên xây dựng dự án.
 
-Dự án dùng HTML, CSS và JavaScript tĩnh, không có framework, package manager hay bước build. Giữ nguyên nội dung bài học, đường dẫn và các script hiện có; không thêm thư viện.
+Website sử dụng **HTML, CSS và JavaScript thuần**, không cần cài dependency hoặc chạy build để xem nội dung.
 
-- `index.html` là trang chủ giới thiệu **Synaptrail**, theo bố cục mẫu: nội dung bên trái, thẻ minh họa học lập trình bên phải, khoảng cách thoáng và bốn box điều hướng nhỏ gọn. Nút “Khám phá khóa học” mở `courses.html` trước khi vào bài học.
-- `courses.html` chia thành bốn khu vực nối tiếp **Role-based**, **Skill-based**, **Best Practices**, **Project Ideas**; mỗi khu vực có các box nội dung bên dưới, thay cho bốn box giới thiệu nhóm. Không di chuyển thư mục bài học. Bookmark cũ như `index.html#roadmap` tự chuyển đến đúng phần kỹ năng trong danh mục mới.
-- Role-based có 5 vai trò: Frontend, Full Stack, AI Engineer, Security và System/DevOps. Chọn một role sẽ hiển thị các kỹ năng liên quan trong Skill-based và chuyển focus đến tiêu đề; chọn box kỹ năng để vào bài học. Nút “Xem tất cả kỹ năng” bỏ bộ lọc role. Bộ lọc kết hợp với tìm kiếm không dấu, có thông báo khi không tìm thấy kết quả. Logic nằm trong `assets/catalog.js`.
-- Skill-based giữ 20 chủ đề kỹ năng. Best Practices có 6 box hướng dẫn; Project Ideas có 4 box cho dự án cuối khóa, công cụ ôn tập, bài tập và thực hành API. Nội dung được phân loại từ tài liệu hiện có; các môn học cũ vẫn truy cập được. Tài liệu AI bổ sung giữ ở cuối trang.
-- `assets/ui.css` dùng chung cho 384 trang: nền **trắng**, màu nhấn **teal**, thẻ và nút nhất quán. `assets/home.css` dành riêng cho trang chủ. Toàn bộ bài học mặc định dùng giao diện sáng; tùy chọn sáng/tối hiện có được giữ, lưu bằng khóa `synaptrail-theme` để lựa chọn navy cũ không ghi đè thiết kế mới. Dữ liệu học tập và quiz không đổi.
-- Tên ứng dụng và tiêu đề trang dùng **Synaptrail**; tên môn học và nội dung chuyên môn được giữ nguyên. Trang chủ dùng font hệ thống, hình minh họa bằng CSS/SVG, không thêm thư viện hay ảnh tải nặng.
-- Bố cục danh mục được chỉnh lại trong `assets/courses.css`: khung nội dung căn giữa tối đa 1200 px, thanh điều hướng cân đối, phần giới thiệu gọn kèm gợi ý bắt đầu, bốn box thống nhất và lưới khóa học 4/3/2/1 cột theo màn hình. Danh sách khóa học được đặt trước tài liệu AI bổ sung. Đã xem ảnh chụp desktop/điện thoại và chạy lại 18 trường hợp responsive cùng kiểm tra tương tác, tất cả đạt.
-- Responsive cho điện thoại, tablet và desktop; tìm kiếm luôn hiển thị trên điện thoại; bảng và code dài có vùng cuộn riêng.
-- Bổ sung focus rõ ràng, liên kết bỏ qua điều hướng, giữ focus trong menu, trả focus về nút mở menu khi đóng, hỗ trợ giảm chuyển động. Tìm kiếm hỗ trợ tiếng Việt không dấu, thông báo số kết quả và trạng thái trống. Sao chép thất bại có thông báo thay vì báo thành công giả.
-- CSS có trạng thái disabled/loading và trường nhập lỗi qua `aria-busy`, `aria-invalid`. Không thêm luồng tải dữ liệu giả vào các trang tĩnh.
+## Mở website
 
-### Kết quả kiểm tra
+### Mở trực tiếp
 
-- `node scripts/check-ui.cjs`: đạt; 384 trang tải đúng CSS chung, 772 script inline không có lỗi cú pháp; liên kết và anchor trên trang chủ và trong bốn box đều tồn tại.
-- `node scripts/browser-check.cjs`: đạt trên Chrome headless. Kiểm tra **6 trang**: trang chủ, danh mục khóa học, mục lục React, bài Python đầu tiên, mục lục Full Stack và quiz tổng hợp ở **375 / 768 / 1440 px** (18 trường hợp). Tất cả có nền trắng mặc định, không tràn ngang và không có exception JavaScript.
-- Tương tác đạt: trang chủ mở danh mục, bookmark `index.html#roadmap` chuyển đúng trang và phần nội dung, tìm kiếm không dấu, kết quả trống, focus khi mở/đóng menu, bốn box và chuyển sáng/tối. Đã sửa lỗi tràn ngang của trang chủ ở 768 px và kiểm tra lại thành công.
-- Kiểm tra bổ sung sau khi phân nhóm: cả 5 role hiển thị đúng kỹ năng tương ứng (Frontend 4, Full Stack 12, AI 5, Security 5, DevOps 4); tìm kiếm khi chọn role, trạng thái trống và nút bỏ bộ lọc đều đạt. Chạy lại 18 trường hợp responsive: không tràn ngang hoặc exception JavaScript.
-- Không có lệnh build cần chạy vì website không dùng bundler. Kiểm tra trình duyệt lấy mẫu các trang đại diện; chưa kiểm tra thủ công toàn bộ bài học, mọi chức năng quiz hoặc thiết bị vật lý.
+1. Mở thư mục dự án và nhấp đúp vào [index.html](index.html).
+2. Bấm **Khám phá khóa học** để đến trang danh mục.
+3. Chọn role hoặc kỹ năng, sau đó mở bài học.
 
-Mở `index.html` để xem trực tiếp. Các script kiểm tra yêu cầu Node.js; kiểm tra trình duyệt dùng Chrome tại đường dẫn Windows mặc định và chạy một server cục bộ tạm thời. `scripts/upgrade-ui.cjs` có thể chạy lại để gắn CSS chung cho trang HTML mới.
+### Dùng VS Code và Live Server
 
-<div align="center">
+1. Mở thư mục Synaptrail trong VS Code.
+2. Cài extension **Live Server** nếu chưa có.
+3. Nhấp chuột phải vào `index.html` → **Open with Live Server**.
 
-![Synaptrail Banner](https://img.shields.io/badge/Synaptrail-Learning%20Roadmap-0f766e?style=for-the-badge&logo=rocket&logoColor=white)
+Trang web tự cập nhật khi lưu mã. Nếu trình duyệt vẫn hiển thị giao diện cũ, nhấn **Ctrl + F5**.
 
-</div>
+### Dùng server cục bộ
 
-Repository này là kho tài liệu học tập và lộ trình phát triển kỹ năng công nghệ, tập trung vào các mảng quan trọng như Full Stack, AI Engineer, Python, JavaScript, React, Java, C++, Machine Learning, System Design, Security, Algorithms và nhiều chủ đề khác.
+Nếu máy đã cài Python, mở terminal trong thư mục gốc dự án và chạy:
 
-Mỗi thư mục trong repo tương ứng với một chuyên đề hoặc một nhánh học, và toàn bộ tài liệu được tổ chức theo kiểu HTML tĩnh, rất dễ đọc và dễ truy cập trong trình duyệt.
-
-## Mục tiêu của repo
-
-- Cung cấp lộ trình học rõ ràng từ nền tảng đến nâng cao
-- Tổng hợp tài liệu theo từng lĩnh vực công nghệ
-- Hỗ trợ tự học cá nhân hiệu quả, không phụ thuộc framework hay môi trường phức tạp
-- Tạo nền tảng cho người học muốn trở thành AI Engineer, Full Stack Developer hoặc Software Engineer toàn diện
-
-## Tính năng nổi bật
-
-- Giao diện học tập trực quan bằng HTML/CSS
-- Phân chia theo từng chương học và từng chủ đề cụ thể
-- Dễ mở trực tiếp từ trình duyệt mà không cần cài đặt phức tạp
-- Tài liệu phong phú, bao phủ nhiều mảng kiến thức quan trọng
-
-## Cấu trúc repo
-
-```text
-.
-├── index.html                     # Trang chủ giới thiệu Synaptrail
-├── courses.html                   # Danh mục khóa học và bốn nhóm mục đích
-├── assets/                        # CSS chung và CSS trang chủ
-├── ai-engineer/                   # AI Engineer, prompt, agent, công cụ AI
-├── cpp/                          # C++ và lập trình hệ thống
-├── fullstack-js/                 # Fullstack JavaScript
-├── html-css-nnlt/                # HTML/CSS cơ bản và nâng cao
-├── java/                         # Java, OOP, backend
-├── javascript-nnlt/              # JavaScript nền tảng và nâng cao
-├── languages/                    # Kỹ năng ngôn ngữ, thuật ngữ, tư duy lập trình
-├── machine-learning/             # Machine Learning và AI cơ bản
-├── python/                       # Python, automation, scripting, AI
-├── Quiz_and_other/               # Quiz, bài tập, tài liệu bổ sung
-├── react/                        # React, UI, frontend hiện đại
-├── security/                     # Bảo mật ứng dụng và an ninh mạng
-├── system-design/                # Thiết kế hệ thống, kiến trúc phần mềm
-├── thuat-toan/                   # Thuật toán và cấu trúc dữ liệu
-├── README.md                     # Tài liệu hướng dẫn repo
-└── ...
-```
-
-## Roadmap học chi tiết
-
-### 1. Nền tảng lập trình
-
-Mục tiêu: xây dựng tư duy lập trình và kỹ năng cơ bản.
-
-- HTML / CSS / JavaScript
-- Git & GitHub
-- Cấu trúc dữ liệu và thuật toán
-- OOP, lập trình hướng đối tượng
-- Debugging và kỹ năng đọc code
-
-Dành cho:
-- Người mới bắt đầu
-- Người muốn củng cố kỹ năng nền tảng
-
-### 2. Frontend Development
-
-Mục tiêu: xây dựng giao diện người dùng hiện đại và tương tác tốt.
-
-- HTML/CSS nâng cao
-- JavaScript ES6+
-- DOM / Events / Async / Fetch
-- React, component, hooks
-- UI/UX cơ bản
-- Responsive design
-
-Dành cho:
-- Giao diện web
-- Frontend Developer
-
-### 3. Backend & Full Stack
-
-Mục tiêu: xây dựng API, xử lý dữ liệu và kiến thức server-side.
-
-- Node.js / JavaScript backend
-- REST API
-- Database: SQL / NoSQL
-- Authentication & Authorization
-- Caching, session, JWT
-- Deployment cơ bản
-
-Dành cho:
-- Full Stack Developer
-- Backend Developer
-- Developer muốn build sản phẩm thực tế
-
-### 4. Ngôn ngữ và kỹ thuật chuyên sâu
-
-Mục tiêu: mở rộng kỹ năng theo nhiều ngôn ngữ và hướng công nghệ.
-
-- Python
-- Java
-- C++
-- TypeScript
-- Tối ưu code và kỹ thuật phân tích
-
-Dành cho:
-- Người muốn đa dạng hoá kỹ năng
-- Người phát triển theo nhiều stack
-
-### 5. AI & Machine Learning
-
-Mục tiêu: hiểu và ứng dụng AI trong thực tế.
-
-- Khái niệm AI, ML, Deep Learning
-- Data preprocessing
-- Model training và evaluation
-- Prompt Engineering
-- AI Agents và công cụ AI
-- LLM, RAG, AI workflow
-
-Dành cho:
-- AI Engineer
-- Product Builder
-- Developer muốn tích hợp AI vào ứng dụng
-
-### 6. System Design & Architecture
-
-Mục tiêu: nâng cấp khả năng thiết kế hệ thống phức tạp.
-
-- Kiến trúc ứng dụng
-- Scaling hệ thống
-- Load balancing
-- Cơ sở dữ liệu phân tán
-- Caching và messaging
-- Microservices / modular architecture
-
-Dành cho:
-- Senior Developer
-- Software Engineer
-- Người muốn đi vào vị trí kiến trúc
-
-### 7. Security & Production Readiness
-
-Mục tiêu: bảo vệ ứng dụng và nâng chất lượng sản phẩm.
-
-- Bảo mật Web App
-- XSS, CSRF, SQL Injection
-- JWT, OAuth, session
-- Secure coding practices
-- Logging và monitoring
-- CI/CD và deployment an toàn
-
-Dành cho:
-- Developer làm sản phẩm thực tế
-- Team phát triển bảo mật
-
-### 8. Cấp độ nâng cao - AI Engineer Full Stack
-
-Mục tiêu: kết hợp frontend, backend, AI và hệ thống để xây dựng sản phẩm hoàn chỉnh.
-
-- UI + API + Database
-- Tích hợp AI/LLM vào ứng dụng
-- Xây dựng workflow tự động hóa
-- Quản lý hiệu suất và bảo mật
-- Tối ưu trải nghiệm người dùng và độ ổn định hệ thống
-
-Mô hình mục tiêu:
-
-```text
-Frontend + Backend + Database + AI + DevOps + Security
-            ↓
-         Product Ready
-```
-
-## Lộ trình học gợi ý theo thời gian
-
-### Giai đoạn 1: 1 - 2 tháng
-
-- HTML/CSS
-- JavaScript cơ bản
-- Git/GitHub
-- Làm quen với lập trình hướng đối tượng
-
-### Giai đoạn 2: 2 - 4 tháng
-
-- Frontend nâng cao
-- React
-- API và database
-- JavaScript backend cơ bản
-
-### Giai đoạn 3: 4 - 6 tháng
-
-- Full Stack project cơ bản
-- Java / Python / Node
-- Security và deployment
-- Thuật toán và hệ thống dữ liệu
-
-### Giai đoạn 4: 6 - 9 tháng
-
-- AI / Machine Learning
-- Prompt engineering
-- AI Agents
-- System design
-
-### Giai đoạn 5: 9+ tháng
-
-- Xây dựng project thực tế
-- Dự án end-to-end
-- Nâng cao kiến thức chuyên môn và portfolio
-
-## Cách sử dụng repo
-
-### Phương pháp 1: Mở trực tiếp
-
-- Vào thư mục gốc của repo
-- Mở file `index.html` trong trình duyệt
-- Tìm chủ đề mình muốn học và duyệt từng chapter
-
-### Phương pháp 2: Chạy local server
-
-Windows PowerShell:
-
-```powershell
-cd "f:\Quoc_Huy\Go\AI-Engineer-Full-Stack-updated"
+```sh
 python -m http.server 8000
 ```
 
-Sau đó truy cập:
+Truy cập `http://localhost:8000/`. Nhấn **Ctrl + C** trong terminal để dừng server. Python chỉ cần cho cách mở này, không phải dependency của website.
+
+## Cách học trên Synaptrail
+
+[Trang chủ](index.html) giới thiệu website và dẫn đến [danh mục khóa học](courses.html). Danh mục gồm bốn khu vực nối tiếp, mỗi khu vực có các box nội dung bên dưới:
+
+| Khu vực | Nội dung | Cách sử dụng |
+| --- | --- | --- |
+| **Role-based** | 5 vai trò nghề nghiệp | Chọn role để hiển thị kỹ năng liên quan trong Skill-based |
+| **Skill-based** | 20 chủ đề kỹ năng | Chọn box kỹ năng để vào bài học |
+| **Best Practices** | 6 box hướng dẫn | Đọc về Git, bảo mật, thiết kế hệ thống, triển khai, AI production và cheatsheet |
+| **Project Ideas** | 4 box thực hành | Mở dự án cuối khóa, công cụ ôn tập, bài tập hoặc tài liệu API |
+
+### Liên kết giữa role và kỹ năng
+
+| Role | Kỹ năng được hiển thị |
+| --- | --- |
+| Frontend Developer | HTML/CSS, JavaScript, React, Bootstrap & SASS/SCSS |
+| Full Stack Developer | HTML/CSS, JavaScript, React, Git, TypeScript, MySQL, GraphQL, Socket.IO, NestJS, Docker, System Design, Security |
+| AI Engineer | Python, Machine Learning, AI Engineer (LLM/RAG), System Design, Security |
+| Security Engineer | Python, C++, thuật toán, System Design, Security |
+| System / DevOps | Git, Docker, System Design, Security |
+
+Chọn **Xem tất cả kỹ năng** để bỏ bộ lọc role. Ô tìm kiếm hỗ trợ tiếng Việt không dấu và kết hợp với role đang chọn; tìm kiếm cũng lọc các box Best Practices và Project Ideas. Khi không có kết quả, trang hiển thị thông báo để bạn đổi từ khóa hoặc bỏ bộ lọc.
+
+Các nhóm được phân loại từ tài liệu có sẵn. Project Ideas dẫn đến tài liệu thực hành, không phải danh sách ứng dụng đã được triển khai. Tài liệu AI Agent Toolbox và kiến thức AI production nằm ở cuối danh mục.
+
+## Nội dung học tập
+
+- **Nền tảng:** HTML/CSS, JavaScript, thuật toán và cấu trúc dữ liệu.
+- **Ngôn ngữ:** Python, Java, C++, TypeScript và kỹ năng ngôn ngữ/kỹ năng mềm.
+- **Frontend:** React, Bootstrap, SASS/SCSS.
+- **Full Stack:** Git, MySQL/ORM, GraphQL, Socket.IO, NestJS, Docker và dự án cuối khóa.
+- **AI:** Machine Learning, LLM, RAG, prompt engineering và AI agents.
+- **Hệ thống:** System Design và bảo mật ứng dụng.
+- **Ôn tập:** quiz, flashcards, glossary, cheatsheet, bài tập và tài liệu API.
+
+Bạn có thể học từng kỹ năng độc lập hoặc theo nhóm kỹ năng của một role. Kết hợp bài học với bài tập và dự án để củng cố kiến thức.
+
+## Giao diện và điều hướng
+
+- Nền trắng, màu nhấn teal; bố cục responsive cho điện thoại, tablet và desktop.
+- Trang chủ riêng, danh mục có các box nhỏ gọn và khung nội dung căn giữa.
+- Các trang học và danh mục giữ tùy chọn sáng/tối, lưu bằng khóa `synaptrail-theme` trong localStorage.
+- Hỗ trợ focus bàn phím, bỏ qua điều hướng, quản lý focus khi mở/đóng menu và giảm chuyển động theo cài đặt thiết bị.
+- Bảng và code dài có vùng cuộn riêng để tránh tràn nội dung.
+- Đường dẫn bài học được giữ nguyên. Bookmark cũ như `index.html#roadmap` tự chuyển đến phần kỹ năng trong `courses.html`.
+
+## Cấu trúc dự án
 
 ```text
-http://localhost:8000/
+Synaptrail/
+├── index.html              # Trang chủ giới thiệu
+├── courses.html            # Danh mục và bốn khu vực nội dung
+├── assets/
+│   ├── ui.css              # Giao diện chung cho các trang
+│   ├── home.css            # Bố cục trang chủ
+│   ├── courses.css         # Bố cục danh mục và các box
+│   └── catalog.js          # Chọn role, lọc kỹ năng và tìm kiếm
+├── ai-engineer/            # AI Engineer, LLM/RAG, prompt và agent
+├── cpp/                    # C++
+├── fullstack-js/           # Full Stack JavaScript
+├── html-css-nnlt/          # HTML/CSS
+├── java/                   # Java
+├── javascript-nnlt/        # JavaScript
+├── languages/              # Ngôn ngữ và kỹ năng mềm
+├── machine-learning/      # Machine Learning
+├── python/                 # Python
+├── Quiz_and_other/         # Quiz và tài liệu thực hành
+├── react/                  # React
+├── security/               # Bảo mật
+├── system-design/          # Thiết kế hệ thống
+├── thuat-toan/             # Thuật toán và cấu trúc dữ liệu
+├── scripts/                # Công cụ kiểm tra giao diện
+└── README.md
 ```
 
-## Gợi ý học tập hiệu quả
+## Chỉnh sửa mã nguồn
 
-- Học theo từng module, không nên nhảy quá nhiều nhánh cùng lúc
-- Kết hợp lý thuyết với thực hành mini-project
-- Mỗi chủ đề nên có ít nhất 1 dự án nhỏ để áp dụng
-- Tạo note cá nhân cho các khái niệm quan trọng
-- Làm lại bài tập và xây dựng portfolio từ các project đã học
+Chạy các lệnh từ thư mục gốc dự án.
 
-## Dự án nên làm sau khi học xong từng phần
+| Muốn chỉnh | File liên quan |
+| --- | --- |
+| Nội dung và bố cục trang chủ | `index.html`, `assets/home.css` |
+| Các role, box kỹ năng và liên kết tài liệu | `courses.html` |
+| Bố cục danh mục | `assets/courses.css` |
+| Hành vi chọn role và tìm kiếm | `assets/catalog.js` |
+| Màu sắc và thành phần dùng chung | `assets/ui.css` |
+| Nội dung bài học | File HTML trong thư mục môn học tương ứng |
 
-- Portfolio website
-- Todo app / Blog app
-- E-commerce mini
-- Chatbot AI đơn giản
-- API quản lý người dùng
-- Dashboard analytics
-- AI assistant tích hợp với web app
+Các nút role trong `courses.html` dùng `data-skills` để liệt kê khóa kỹ năng. Mỗi box kỹ năng có `data-skill` tương ứng; giữ hai giá trị khớp nhau khi thêm hoặc đổi nhóm.
 
-## Lưu ý
+Sau khi thêm trang HTML mới, có thể chạy công cụ sau để gắn stylesheet chung:
 
-Repo này chủ yếu là kho tài liệu hướng dẫn và lộ trình học, không phải một ứng dụng web backend hoặc frontend cần cài đặt môi trường phức tạp. Vì vậy, cách sử dụng đơn giản và hiệu quả nhất là mở trực tiếp trong trình duyệt hoặc chạy local server.
-
-## Kết luận
-
-Repo này là nguồn tài liệu hữu ích cho người muốn xây dựng nền tảng vững chắc trong lĩnh vực công nghệ, đặc biệt phù hợp với lộ trình trở thành AI Engineer Full Stack.
-
-Nó giúp người học có cái nhìn tổng quan, theo từng nhánh kiến thức rõ ràng, và tạo động lực học tập theo một roadmap logic và có hệ thống.
-
----
-
-Nếu bạn muốn, mình có thể tiếp tục hỗ trợ bằng một trong các phiên bản sau:
-- README theo phong cách chuyên nghiệp cho GitHub
-- README bằng tiếng Anh
-- README kèm sơ đồ roadmap dạng Mermaid
-- README theo mục tiêu học riêng: Frontend, Backend, AI Engineer, hoặc Full Stack
-
-## Cập nhật thêm tính năng cho web
-
-Chạy các lệnh sau trong thư mục gốc repo (`/f/Quoc_Huy/Go/AI-Engineer-Full-Stack-updated`) để kiểm tra thay đổi và đẩy tính năng mới lên GitHub.
-
-Trước tiên, lấy thông tin mới nhất từ GitHub và kiểm tra trạng thái:
-
-```bash
-git fetch origin
-git status
+```sh
+node scripts/upgrade-ui.cjs
 ```
 
-Chỉ chạy lệnh sau nếu muốn đưa nhánh hiện tại về đúng commit `origin/main` và không cần giữ các commit local chưa có trên GitHub. Lệnh này không xóa nội dung file trong working tree, nhưng sẽ di chuyển `HEAD` của nhánh và có thể làm các commit local không còn nằm trên nhánh hiện tại:
+## Kiểm tra
 
-```bash
-git reset origin/main
-git status
+Các công cụ kiểm tra yêu cầu **Node.js**. Website không dùng bundler nên không có lệnh build.
+
+```sh
+node scripts/check-ui.cjs
+node scripts/browser-check.cjs
 ```
 
-Xem kỹ danh sách file `modified` và `untracked` trước khi thêm thay đổi, rồi commit và push:
+- `check-ui.cjs` kiểm tra cú pháp script inline và `catalog.js`, liên kết CSS chung, liên kết/anchor ở trang chủ và danh mục, cùng khóa kỹ năng của các role.
+- `browser-check.cjs` dùng Chrome headless tại đường dẫn Windows mặc định `C:/Program Files/Google/Chrome/Application/chrome.exe`, mở server cục bộ tạm thời và kiểm tra responsive/tương tác. Máy khác cần điều chỉnh đường dẫn Chrome trong script. Ảnh chụp lưu ở `artifacts/`, được bỏ qua bởi Git.
 
-```bash
-git add .
-git commit -m "Add new features"
-git push -u origin main
-```
+### Kết quả kiểm tra gần nhất
+
+Sau lần chỉnh danh mục thành bốn khu vực:
+
+- **384 trang HTML**, **772 script inline**: không phát hiện lỗi cú pháp; CSS chung và các liên kết được kiểm tra đều tồn tại.
+- **6 trang đại diện × 3 độ rộng** (375, 768, 1440 px): không phát hiện tràn ngang hoặc exception JavaScript, nền trắng mặc định hiển thị đúng.
+- Cả **5 role** hiển thị đúng bộ kỹ năng; tìm kiếm khi chọn role, trạng thái trống và nút bỏ bộ lọc đều đạt.
+- Điều hướng trang chủ → danh mục, bookmark cũ, menu/focus và chuyển sáng/tối đều đạt.
+
+Các kiểm tra trình duyệt lấy mẫu trang chủ, danh mục, mục lục React, bài Python đầu tiên, mục lục Full Stack và quiz tổng hợp. Chưa kiểm tra thủ công toàn bộ bài học, mọi chức năng quiz hoặc thiết bị vật lý.
