@@ -1,4 +1,12 @@
 /* Catalogue layout, scoped to avoid changing lesson pages. */
+.catalog-page [hidden]{display:none!important}
+.role-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.role-box{display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:10px;padding:20px;border:1px solid var(--border);border-radius:12px;background:var(--bg-card);color:var(--text);font:inherit;cursor:pointer;transition:border-color .18s,background .18s}
+.role-box:hover,.role-box[aria-pressed="true"]{border-color:var(--accent);background:var(--paper-soft)}.role-box[aria-pressed="true"]{box-shadow:inset 0 0 0 1px var(--accent)}
+.role-box-title{font-size:16px;font-weight:700}.role-box-desc{font-size:12px;color:var(--text-dim);line-height:1.7}.role-box-action{font-size:12px;color:var(--accent);margin-top:auto;padding-top:6px;font-weight:600}
+.skill-toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:12px}.skill-toolbar p{font-size:13px;color:var(--accent);margin:0}.resource-section{scroll-margin-top:150px}.resource-empty{padding:18px;border:1px dashed var(--border);border-radius:12px;color:var(--text-dim)}
+@media(max-width:800px){.role-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.role-grid{grid-template-columns:minmax(0,1fr)}.skill-toolbar{align-items:flex-start;flex-direction:column}}
 .catalog-page{margin:0;background:var(--bg);font-size:14px}
 .catalog-page .site-header{position:sticky;height:76px;display:grid;grid-template-columns:40px minmax(160px,1fr) auto;gap:18px;padding:0 max(24px,calc((100vw - 1200px)/2));background:var(--bg-card);border-bottom:1px solid var(--border)}
 .catalog-page .brand{justify-self:start;gap:10px}.catalog-page .brand-mark{width:36px;height:36px;border-radius:10px;font-size:17px}.catalog-page .brand-text strong{font-size:20px;letter-spacing:-.6px}.catalog-page .brand-text span{font-family:inherit;font-size:10px;letter-spacing:1px;margin-top:4px}.catalog-page .icon-btn{width:38px;height:38px;min-height:38px;border-radius:9px;font-size:17px}.catalog-page .header-actions{gap:10px}.catalog-page .search-box{min-width:0;width:260px;border-radius:9px;padding:10px 12px;background:var(--bg-soft)}

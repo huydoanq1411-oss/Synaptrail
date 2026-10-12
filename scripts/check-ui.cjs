@@ -14,7 +14,10 @@ for(const file of walk(root)){
  if(!css||!fs.existsSync(path.resolve(path.dirname(file),css[1])))errors.push('Missing shared CSS: '+file);
 }
 const home=fs.readFileSync(path.join(root,'courses.html'),'utf8');
-const boxes=home.match(/<nav class="category-nav"[\s\S]*?<section class="section" id="agent-toolbox">/)[0];
+new vm.Script(fs.readFileSync(path.join(root,'assets/catalog.js'),'utf8'));
+const boxes=home.slice(home.indexOf('<main'),home.indexOf('</main>'));
+const skillKeys=[...home.matchAll(/data-skill="([^"]+)"/g)].map(m=>m[1]);
+for(const [,keys] of home.matchAll(/data-skills="([^"]+)"/g))for(const key of keys.split(' '))if(!skillKeys.includes(key))errors.push('Unknown role skill '+key);
 for(const [,href]of boxes.matchAll(/href="([^"]+)"/g)){
  if(href.startsWith('#')){if(!home.includes('id="'+href.slice(1)+'"'))errors.push('Missing anchor '+href)}
  else if(!fs.existsSync(path.join(root,href)))errors.push('Missing route '+href);
