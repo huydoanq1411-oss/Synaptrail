@@ -897,8 +897,10 @@ html[data-theme="dark"] .prompt-copy-btn{ background: var(--line); color:#04121f
 .sc-label{ font-family:'JetBrains Mono', monospace; font-size:12px; fill: var(--ink); }
 .sc-sub{ font-family:'JetBrains Mono', monospace; font-size:9px; fill: var(--ink-soft); }
 </style>
+<link rel="stylesheet" href="assets/ui.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content">Chuyển đến nội dung</a>
 
 <!-- ============================================================
      HEADER — cố định, logo + tìm kiếm + dark/light mode
@@ -922,7 +924,7 @@ html[data-theme="dark"] .prompt-copy-btn{ background: var(--line); color:#04121f
         <circle cx="11" cy="11" r="7"></circle>
         <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
       </svg>
-      <input type="text" id="searchInput" placeholder="Tìm chương học...">
+      <input type="text" aria-label="Tìm chủ đề học" id="searchInput" placeholder="Tìm chương học...">
     </div>
     <button class="icon-btn" id="homeBtn" title="Trang chủ" aria-label="Trang chủ">🏠</button>
     <button class="icon-btn" id="themeBtn" title="Chuyển giao diện sáng / tối" aria-label="Dark mode">🌙</button>
@@ -1019,7 +1021,7 @@ html[data-theme="dark"] .prompt-copy-btn{ background: var(--line); color:#04121f
   </div>
 </aside>
 
-<main>
+<main id="main-content">
   <!-- ============================================================
        HERO — sơ đồ blueprint 4 lớp Full Stack
        ============================================================ -->
@@ -1101,6 +1103,7 @@ html[data-theme="dark"] .prompt-copy-btn{ background: var(--line); color:#04121f
   <!-- ============================================================
        AI AGENT TOOLBOX — dùng đúng layout .section / .card như các box khác
        ============================================================ -->
+<nav class="category-nav" aria-label="Nhóm tài liệu"><a href="#role-based">Role-based</a><a href="#skill-based">Skill-based</a><a href="#best-practices">Best Practices</a><a href="#project-ideas">Project Ideas</a></nav><section class="purpose-grid" aria-label="Khám phá theo mục tiêu"><article class="purpose-box" id="role-based"><span class="overline">01 / ĐỊNH HƯỚNG</span><h2>Role-based</h2><p>Chọn nghề nghiệp và học theo lộ trình có thứ tự.</p><ul><li><a href="fullstack-js/index.html">Full Stack Developer →</a></li><li><a href="ai-engineer/index.html">AI Engineer →</a></li><li><a href="security/index.html">Security Engineer →</a></li><li><a href="system-design/index.html">System / DevOps →</a></li></ul><a class="purpose-action" href="#roadmap">Khám phá lộ trình →</a></article><article class="purpose-box" id="skill-based"><span class="overline">02 / NỀN TẢNG</span><h2>Skill-based</h2><p>Bổ sung đúng kỹ năng bạn cần, theo tốc độ của bạn.</p><ul><li><a href="python/index.html">Python →</a></li><li><a href="javascript-nnlt/index.html">JavaScript →</a></li><li><a href="react/index.html">React →</a></li><li><a href="thuat-toan/index.html">Thuật toán & cấu trúc dữ liệu →</a></li></ul><a class="purpose-action" href="#roadmap">Xem tất cả kỹ năng →</a></article><article class="purpose-box" id="best-practices"><span class="overline">03 / CHẤT LƯỢNG</span><h2>Best Practices</h2><p>Viết mã rõ ràng, thiết kế an toàn và triển khai đáng tin cậy.</p><ul><li><a href="security/chapter01.html">Bảo mật ứng dụng →</a></li><li><a href="system-design/chapter01.html">Thiết kế hệ thống →</a></li><li><a href="fullstack-js/chapter01.html">Git & GitHub →</a></li><li><a href="Quiz_and_other/cheatsheet.html">Cheatsheet thực hành →</a></li></ul><a class="purpose-action" href="#ai-engineering-knowledge">Đọc hướng dẫn AI production →</a></article><article class="purpose-box" id="project-ideas"><span class="overline">04 / THỰC HÀNH</span><h2>Project Ideas</h2><p>Biến kiến thức thành sản phẩm và xây dựng portfolio.</p><ul><li><a href="fullstack-js/chapter22.html">Dự án Full Stack cuối khóa →</a></li><li><a href="Quiz_and_other/exercises.html">Bài tập lập trình →</a></li><li><a href="Quiz_and_other/free-apis-giao-trinh.html">Thực hành với API →</a></li><li><a href="Quiz_and_other/quiz-tong-hop.html">Kiểm tra kiến thức →</a></li></ul><a class="purpose-action" href="fullstack-js/chapter22.html">Bắt đầu dự án →</a></article></section>
   <section class="section" id="agent-toolbox">
     <div class="section-head">
       <div>
@@ -1210,6 +1213,7 @@ html[data-theme="dark"] .prompt-copy-btn{ background: var(--line); color:#04121f
       </div>
     </div>
 
+    <p class="search-status" id="searchStatus" role="status" aria-live="polite">22 chủ đề học · Chọn một kỹ năng để bắt đầu</p>
     <div class="grid" id="allCourses">
 
       <article class="card" data-name="thuat toan cau truc du lieu algorithm">
@@ -1565,7 +1569,7 @@ html[data-theme="dark"] .prompt-copy-btn{ background: var(--line); color:#04121f
 
     </div>
 
-    <div class="empty-state" id="emptyState">
+    <div class="empty-state" id="emptyState" role="status">
       ¯\_(ツ)_/¯ Không tìm thấy chủ đề phù hợp với từ khóa của bạn.
     </div>
   </section>
@@ -1582,7 +1586,7 @@ html[data-theme="dark"] .prompt-copy-btn{ background: var(--line); color:#04121f
    DARK / LIGHT MODE — lưu lựa chọn bằng localStorage
    ============================================================ */
 (function initTheme(){
-  const saved = localStorage.getItem('algo-mastery-theme');
+  let saved; try { saved = localStorage.getItem('algo-mastery-theme'); } catch {}
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const theme = saved || 'dark';
   document.documentElement.setAttribute('data-theme', theme);
@@ -1598,7 +1602,7 @@ document.getElementById('themeBtn').addEventListener('click', function(){
   const current = document.documentElement.getAttribute('data-theme');
   const next = current === 'dark' ? 'light' : 'dark';
   document.documentElement.setAttribute('data-theme', next);
-  localStorage.setItem('algo-mastery-theme', next);
+  try { localStorage.setItem('algo-mastery-theme', next); } catch {}
   updateThemeIcon(next);
 });
 
@@ -1621,6 +1625,7 @@ function openDrawer(){
   roadmapDrawer.setAttribute('aria-hidden', 'false');
   menuBtn.setAttribute('aria-expanded', 'true');
   document.body.style.overflow = 'hidden';
+  roadmapDrawer.inert = false; closeDrawerBtn.focus();
 }
 function closeDrawer(){
   roadmapDrawer.classList.remove('open');
@@ -1628,8 +1633,17 @@ function closeDrawer(){
   roadmapDrawer.setAttribute('aria-hidden', 'true');
   menuBtn.setAttribute('aria-expanded', 'false');
   document.body.style.overflow = '';
+  roadmapDrawer.inert = true; menuBtn.focus();
 }
 
+roadmapDrawer.inert = true;
+roadmapDrawer.addEventListener('keydown', function(e){
+  if(e.key !== 'Tab') return;
+  const items = Array.from(roadmapDrawer.querySelectorAll('button,a[href]')).filter(el => el.getClientRects().length);
+  const first = items[0], last = items[items.length - 1];
+  if(e.shiftKey && document.activeElement === first){e.preventDefault();last.focus();}
+  else if(!e.shiftKey && document.activeElement === last){e.preventDefault();first.focus();}
+});
 menuBtn.addEventListener('click', function(){
   const isOpen = roadmapDrawer.classList.contains('open');
   isOpen ? closeDrawer() : openDrawer();
@@ -1660,17 +1674,19 @@ const cards = Array.from(document.querySelectorAll('#roadmap .card'));
 const emptyState = document.getElementById('emptyState');
 
 searchInput.addEventListener('input', function(){
-  const query = this.value.trim().toLowerCase();
+  const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').toLowerCase();
+  const query = normalize(this.value.trim());
   let visibleCount = 0;
 
   cards.forEach(function(card){
-    const haystack = (card.dataset.name + ' ' + card.querySelector('h3').textContent).toLowerCase();
+    const haystack = normalize(card.dataset.name + ' ' + card.querySelector('h3').textContent);
     const match = haystack.includes(query);
     card.style.display = match ? '' : 'none';
     if(match) visibleCount++;
   });
 
   emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+  document.getElementById('searchStatus').textContent = visibleCount + ' chủ đề phù hợp';
 });
 
 /* ============================================================
@@ -1769,9 +1785,9 @@ function fallbackCopy(text, cb){
   ta.style.opacity = '0';
   document.body.appendChild(ta);
   ta.select();
-  try{ document.execCommand('copy'); }catch(e){}
+  let copied = false; try{ copied = document.execCommand('copy'); }catch(e){}
   document.body.removeChild(ta);
-  if(cb) cb();
+  if(copied && cb) cb(); else alert('Không thể sao chép. Hãy chọn nội dung và sao chép thủ công.');
 }
 </script>
 
