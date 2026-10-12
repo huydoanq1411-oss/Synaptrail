@@ -27,7 +27,7 @@
 
 
 :root{
-  
+
   --bg: #eef1f6;
   --bg-grid: rgba(11,31,58,0.05);
   --paper: #ffffff;
@@ -898,6 +898,7 @@ html[data-theme="dark"] .prompt-copy-btn{ background: var(--line); color:#04121f
 .sc-sub{ font-family:'JetBrains Mono', monospace; font-size:9px; fill: var(--ink-soft); }
 </style>
 <link rel="stylesheet" href="assets/ui.css">
+<link rel="stylesheet" href="assets/courses.css">
 </head>
 <body class="catalog-page">
 <a class="skip-link" href="#main-content">Chuyển đến nội dung</a>
@@ -1025,108 +1026,15 @@ html[data-theme="dark"] .prompt-copy-btn{ background: var(--line); color:#04121f
   <!-- ============================================================
        HERO — sơ đồ blueprint 4 lớp Full Stack
        ============================================================ -->
-  <section class="catalog-intro"><a class="back-home" href="index.html">← Trang chủ</a><span class="eyebrow">THƯ VIỆN SYNAPTRAIL</span><h1>Tìm hướng đi.<br><em>Chọn kỹ năng tiếp theo.</em></h1><p>Lộ trình, kỹ năng và bài tập thực hành — tất cả trong một không gian học tập.</p><a class="btn btn-primary" href="#roadmap">Khám phá 22 chủ đề →</a></section>
+  <section class="catalog-intro"><div class="catalog-intro-copy"><a class="back-home" href="index.html">← Trang chủ</a><span class="eyebrow">THƯ VIỆN SYNAPTRAIL</span><h1>Tìm hướng đi.<br><em>Chọn kỹ năng tiếp theo.</em></h1><p>Lộ trình, kỹ năng và bài tập thực hành — tất cả trong một không gian học tập.</p><a class="btn btn-primary" href="#roadmap">Khám phá 22 chủ đề →</a></div><aside class="catalog-start" aria-label="Gợi ý bắt đầu"><span class="catalog-start-label">CHƯA BIẾT BẮT ĐẦU TỪ ĐÂU?</span><h2>Một bước nhỏ hôm nay.</h2><p>Chọn nền tảng hoặc ôn lại kiến thức trước khi đi tiếp.</p><a href="html-css-nnlt/chapter01.html">Học HTML &amp; CSS <span>→</span></a><a href="Quiz_and_other/quiz-tong-hop.html">Kiểm tra kiến thức <span>→</span></a></aside></section>
 
   <!-- ============================================================
        AI AGENT TOOLBOX — dùng đúng layout .section / .card như các box khác
        ============================================================ -->
 <nav class="category-nav" aria-label="Nhóm tài liệu"><a href="#role-based">Role-based</a><a href="#skill-based">Skill-based</a><a href="#best-practices">Best Practices</a><a href="#project-ideas">Project Ideas</a></nav><section class="purpose-grid" aria-label="Khám phá theo mục tiêu"><article class="purpose-box" id="role-based"><span class="overline">01 / ĐỊNH HƯỚNG</span><h2>Role-based</h2><p>Chọn nghề nghiệp và học theo lộ trình có thứ tự.</p><ul><li><a href="fullstack-js/index.html">Full Stack Developer →</a></li><li><a href="ai-engineer/index.html">AI Engineer →</a></li><li><a href="security/index.html">Security Engineer →</a></li><li><a href="system-design/index.html">System / DevOps →</a></li></ul><a class="purpose-action" href="#roadmap">Khám phá lộ trình →</a></article><article class="purpose-box" id="skill-based"><span class="overline">02 / NỀN TẢNG</span><h2>Skill-based</h2><p>Bổ sung đúng kỹ năng bạn cần, theo tốc độ của bạn.</p><ul><li><a href="python/index.html">Python →</a></li><li><a href="javascript-nnlt/index.html">JavaScript →</a></li><li><a href="react/index.html">React →</a></li><li><a href="thuat-toan/index.html">Thuật toán & cấu trúc dữ liệu →</a></li></ul><a class="purpose-action" href="#roadmap">Xem tất cả kỹ năng →</a></article><article class="purpose-box" id="best-practices"><span class="overline">03 / CHẤT LƯỢNG</span><h2>Best Practices</h2><p>Viết mã rõ ràng, thiết kế an toàn và triển khai đáng tin cậy.</p><ul><li><a href="security/chapter01.html">Bảo mật ứng dụng →</a></li><li><a href="system-design/chapter01.html">Thiết kế hệ thống →</a></li><li><a href="fullstack-js/chapter01.html">Git & GitHub →</a></li><li><a href="Quiz_and_other/cheatsheet.html">Cheatsheet thực hành →</a></li></ul><a class="purpose-action" href="#ai-engineering-knowledge">Đọc hướng dẫn AI production →</a></article><article class="purpose-box" id="project-ideas"><span class="overline">04 / THỰC HÀNH</span><h2>Project Ideas</h2><p>Biến kiến thức thành sản phẩm và xây dựng portfolio.</p><ul><li><a href="fullstack-js/chapter22.html">Dự án Full Stack cuối khóa →</a></li><li><a href="Quiz_and_other/exercises.html">Bài tập lập trình →</a></li><li><a href="Quiz_and_other/free-apis-giao-trinh.html">Thực hành với API →</a></li><li><a href="Quiz_and_other/quiz-tong-hop.html">Kiểm tra kiến thức →</a></li></ul><a class="purpose-action" href="fullstack-js/chapter22.html">Bắt đầu dự án →</a></article></section>
-  <section class="section" id="agent-toolbox">
-    <div class="section-head">
-      <div>
-        <span class="tag-line">HỌC CÙNG AI</span>
-        <h2>AI Agent Toolbox</h2>
-        <p>Tài liệu tổng hợp riêng về Prompt Engineering, AI Agent &amp; công cụ AI đang thịnh hành nhất.</p>
-      </div>
-    </div>
 
-    <div class="grid">
-      <article class="card card-clickable in-view" data-name="ai agent toolbox prompt engineering cong cu ai">
-        <div class="card-top">
-          <div class="card-icon">🤖</div>
-          <span class="card-index mono">NEW</span>
-        </div>
-        <h3>AI Agent Toolbox — Prompt, Agent &amp; Công cụ AI 2026</h3>
-        <p class="desc">Gộp Prompt Engineering, AI Agent &amp; Tool Use, Multi-Agent Systems và bản đồ framework/công cụ AI thịnh hành nhất (Claude Agent SDK, LangGraph, CrewAI, Claude Code, Cursor, n8n...) thành 1 tài liệu duy nhất.</p>
-        <div class="tags"><span class="tag">Prompt Engineering</span><span class="tag">AI Agent</span><span class="tag">Công cụ AI</span></div>
-        <div class="card-footer">
-          <a href="ai-engineer/tong-hop-prompt-agent-cong-cu-ai-2026.html" class="btn btn-start">Xem tài liệu →</a>
-        </div>
-      </article>
-    </div>
-  </section>
 
-  <section class="section" id="ai-engineering-knowledge">
-    <div class="section-head">
-      <div>
-        <span class="tag-line">KIẾN THỨC THỰC CHIẾN</span>
-        <h2>Từ mô hình đến AI production</h2>
-        <p>Xây hệ thống AI đáng tin cậy bằng cách thiết kế, đo lường và kiểm soát toàn bộ vòng đời, không chỉ chọn một mô hình tốt.</p>
-      </div>
-    </div>
 
-    <div class="knowledge-grid">
-      <article class="knowledge-item">
-        <h3>01 · RAG là một pipeline</h3>
-        <p>Chất lượng câu trả lời phụ thuộc vào dữ liệu và retrieval trước khi phụ thuộc vào prompt.</p>
-        <ul>
-          <li><strong>Ingestion:</strong> làm sạch, chia chunk có cấu trúc và lưu metadata nguồn.</li>
-          <li><strong>Retrieval:</strong> kết hợp semantic search, lọc metadata và reranking khi cần.</li>
-          <li><strong>Grounding:</strong> yêu cầu trích dẫn nguồn và nói rõ khi không tìm thấy bằng chứng.</li>
-        </ul>
-      </article>
-
-      <article class="knowledge-item">
-        <h3>02 · Agent cần quyền hạn rõ ràng</h3>
-        <p>Dùng agent khi tác vụ cần lựa chọn bước tiếp theo; với luồng cố định, workflow thường dễ kiểm soát hơn.</p>
-        <ul>
-          <li>Định nghĩa tool bằng schema rõ ràng, kiểm tra đầu vào và đầu ra.</li>
-          <li>Giới hạn số bước, thời gian, chi phí và quyền truy cập theo nguyên tắc tối thiểu.</li>
-          <li>Yêu cầu xác nhận của con người trước hành động nhạy cảm hoặc không thể hoàn tác.</li>
-        </ul>
-      </article>
-
-      <article class="knowledge-item">
-        <h3>03 · Đánh giá trước khi phát hành</h3>
-        <p>Đánh giá AI cần bộ dữ liệu kiểm thử đại diện, tiêu chí cụ thể và kiểm tra hồi quy qua từng phiên bản.</p>
-        <ul>
-          <li>Đo retrieval riêng: độ liên quan, độ bao phủ và chất lượng nguồn được lấy ra.</li>
-          <li>Đo câu trả lời: đúng sự thật, bám ngữ cảnh, hữu ích và có trích dẫn phù hợp.</li>
-          <li>Kết hợp kiểm thử tự động với rà soát mẫu bởi con người; không xem một điểm số là chân lý.</li>
-        </ul>
-      </article>
-
-      <article class="knowledge-item">
-        <h3>04 · Bảo mật ở cả đầu vào lẫn đầu ra</h3>
-        <p>Prompt injection có thể nằm trong câu hỏi hoặc trong tài liệu được truy xuất; prompt system không phải ranh giới bảo mật.</p>
-        <ul>
-          <li>Không đưa bí mật vào prompt hoặc log; phân quyền dữ liệu trước khi retrieval.</li>
-          <li>Xem nội dung từ người dùng và tài liệu ngoài là dữ liệu không đáng tin cậy.</li>
-          <li>Kiểm tra quyền ở server trước tool call; lọc dữ liệu nhạy cảm trước khi trả kết quả.</li>
-        </ul>
-      </article>
-
-      <article class="knowledge-item">
-        <h3>05 · Quan sát được mỗi lần chạy</h3>
-        <p>Ghi nhận đủ dấu vết để tìm lỗi, nhưng không thu thập dữ liệu cá nhân vượt quá nhu cầu.</p>
-        <ul>
-          <li>Theo dõi độ trễ, lỗi, token, chi phí và phiên bản model/prompt.</li>
-          <li>Liên kết truy vết giữa request, retrieval và tool call bằng mã định danh.</li>
-          <li>Đặt ngưỡng cảnh báo và phương án dự phòng như retry có giới hạn hoặc chuyển người xử lý.</li>
-        </ul>
-      </article>
-
-      <article class="knowledge-item">
-        <h3>06 · Tối ưu chất lượng trên chi phí</h3>
-        <p>Chọn model và ngữ cảnh theo yêu cầu tác vụ, độ trễ và ngân sách thay vì mặc định dùng model lớn nhất.</p>
-        <ul>
-          <li>Đặt giới hạn token, timeout và retry; tránh vòng lặp agent không giới hạn.</li>
-          <li>Cache kết quả phù hợp, rút gọn ngữ cảnh dư thừa và xử lý tác vụ độc lập song song.</li>
-          <li>So sánh chất lượng trên bộ đánh giá cố định trước khi đổi model hoặc prompt.</li>
-        </ul>
-      </article>
-    </div>
-  </section>
 
   <!-- ============================================================
        DANH SÁCH CHỦ ĐỀ — grid card responsive
@@ -1498,6 +1406,101 @@ html[data-theme="dark"] .prompt-copy-btn{ background: var(--line); color:#04121f
 
     <div class="empty-state" id="emptyState" role="status">
       ¯\_(ツ)_/¯ Không tìm thấy chủ đề phù hợp với từ khóa của bạn.
+    </div>
+  </section>
+<section class="section" id="agent-toolbox">
+    <div class="section-head">
+      <div>
+        <span class="tag-line">HỌC CÙNG AI</span>
+        <h2>AI Agent Toolbox</h2>
+        <p>Tài liệu tổng hợp riêng về Prompt Engineering, AI Agent &amp; công cụ AI đang thịnh hành nhất.</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <article class="card card-clickable in-view" data-name="ai agent toolbox prompt engineering cong cu ai">
+        <div class="card-top">
+          <div class="card-icon">🤖</div>
+          <span class="card-index mono">NEW</span>
+        </div>
+        <h3>AI Agent Toolbox — Prompt, Agent &amp; Công cụ AI 2026</h3>
+        <p class="desc">Gộp Prompt Engineering, AI Agent &amp; Tool Use, Multi-Agent Systems và bản đồ framework/công cụ AI thịnh hành nhất (Claude Agent SDK, LangGraph, CrewAI, Claude Code, Cursor, n8n...) thành 1 tài liệu duy nhất.</p>
+        <div class="tags"><span class="tag">Prompt Engineering</span><span class="tag">AI Agent</span><span class="tag">Công cụ AI</span></div>
+        <div class="card-footer">
+          <a href="ai-engineer/tong-hop-prompt-agent-cong-cu-ai-2026.html" class="btn btn-start">Xem tài liệu →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+<section class="section" id="ai-engineering-knowledge">
+    <div class="section-head">
+      <div>
+        <span class="tag-line">KIẾN THỨC THỰC CHIẾN</span>
+        <h2>Từ mô hình đến AI production</h2>
+        <p>Xây hệ thống AI đáng tin cậy bằng cách thiết kế, đo lường và kiểm soát toàn bộ vòng đời, không chỉ chọn một mô hình tốt.</p>
+      </div>
+    </div>
+
+    <div class="knowledge-grid">
+      <article class="knowledge-item">
+        <h3>01 · RAG là một pipeline</h3>
+        <p>Chất lượng câu trả lời phụ thuộc vào dữ liệu và retrieval trước khi phụ thuộc vào prompt.</p>
+        <ul>
+          <li><strong>Ingestion:</strong> làm sạch, chia chunk có cấu trúc và lưu metadata nguồn.</li>
+          <li><strong>Retrieval:</strong> kết hợp semantic search, lọc metadata và reranking khi cần.</li>
+          <li><strong>Grounding:</strong> yêu cầu trích dẫn nguồn và nói rõ khi không tìm thấy bằng chứng.</li>
+        </ul>
+      </article>
+
+      <article class="knowledge-item">
+        <h3>02 · Agent cần quyền hạn rõ ràng</h3>
+        <p>Dùng agent khi tác vụ cần lựa chọn bước tiếp theo; với luồng cố định, workflow thường dễ kiểm soát hơn.</p>
+        <ul>
+          <li>Định nghĩa tool bằng schema rõ ràng, kiểm tra đầu vào và đầu ra.</li>
+          <li>Giới hạn số bước, thời gian, chi phí và quyền truy cập theo nguyên tắc tối thiểu.</li>
+          <li>Yêu cầu xác nhận của con người trước hành động nhạy cảm hoặc không thể hoàn tác.</li>
+        </ul>
+      </article>
+
+      <article class="knowledge-item">
+        <h3>03 · Đánh giá trước khi phát hành</h3>
+        <p>Đánh giá AI cần bộ dữ liệu kiểm thử đại diện, tiêu chí cụ thể và kiểm tra hồi quy qua từng phiên bản.</p>
+        <ul>
+          <li>Đo retrieval riêng: độ liên quan, độ bao phủ và chất lượng nguồn được lấy ra.</li>
+          <li>Đo câu trả lời: đúng sự thật, bám ngữ cảnh, hữu ích và có trích dẫn phù hợp.</li>
+          <li>Kết hợp kiểm thử tự động với rà soát mẫu bởi con người; không xem một điểm số là chân lý.</li>
+        </ul>
+      </article>
+
+      <article class="knowledge-item">
+        <h3>04 · Bảo mật ở cả đầu vào lẫn đầu ra</h3>
+        <p>Prompt injection có thể nằm trong câu hỏi hoặc trong tài liệu được truy xuất; prompt system không phải ranh giới bảo mật.</p>
+        <ul>
+          <li>Không đưa bí mật vào prompt hoặc log; phân quyền dữ liệu trước khi retrieval.</li>
+          <li>Xem nội dung từ người dùng và tài liệu ngoài là dữ liệu không đáng tin cậy.</li>
+          <li>Kiểm tra quyền ở server trước tool call; lọc dữ liệu nhạy cảm trước khi trả kết quả.</li>
+        </ul>
+      </article>
+
+      <article class="knowledge-item">
+        <h3>05 · Quan sát được mỗi lần chạy</h3>
+        <p>Ghi nhận đủ dấu vết để tìm lỗi, nhưng không thu thập dữ liệu cá nhân vượt quá nhu cầu.</p>
+        <ul>
+          <li>Theo dõi độ trễ, lỗi, token, chi phí và phiên bản model/prompt.</li>
+          <li>Liên kết truy vết giữa request, retrieval và tool call bằng mã định danh.</li>
+          <li>Đặt ngưỡng cảnh báo và phương án dự phòng như retry có giới hạn hoặc chuyển người xử lý.</li>
+        </ul>
+      </article>
+
+      <article class="knowledge-item">
+        <h3>06 · Tối ưu chất lượng trên chi phí</h3>
+        <p>Chọn model và ngữ cảnh theo yêu cầu tác vụ, độ trễ và ngân sách thay vì mặc định dùng model lớn nhất.</p>
+        <ul>
+          <li>Đặt giới hạn token, timeout và retry; tránh vòng lặp agent không giới hạn.</li>
+          <li>Cache kết quả phù hợp, rút gọn ngữ cảnh dư thừa và xử lý tác vụ độc lập song song.</li>
+          <li>So sánh chất lượng trên bộ đánh giá cố định trước khi đổi model hoặc prompt.</li>
+        </ul>
+      </article>
     </div>
   </section>
 </main>

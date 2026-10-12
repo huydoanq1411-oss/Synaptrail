@@ -26,6 +26,7 @@ const pause=ms=>new Promise(r=>setTimeout(r,ms));
     if(state.overflow)failures.push('Overflow '+route+' @ '+width);
     if(state.background!=='rgb(255, 255, 255)')failures.push('Expected white background '+route+' @ '+width);
     if(route==='index.html'&&width===1440){const screenshot=await call('Page.captureScreenshot',{format:'png'});fs.mkdirSync(path.join(root,'artifacts'),{recursive:true});fs.writeFileSync(path.join(root,'artifacts/home-desktop.png'),Buffer.from(screenshot.data,'base64'));}
+    if(route==='courses.html'){const screenshot=await call('Page.captureScreenshot',{format:'png'});fs.mkdirSync(path.join(root,'artifacts'),{recursive:true});fs.writeFileSync(path.join(root,'artifacts/catalog-'+width+'.png'),Buffer.from(screenshot.data,'base64'));}
    }
   }
   await call('Page.navigate',{url:`http://127.0.0.1:${server.address().port}/courses.html`});await pause(500);
