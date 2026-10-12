@@ -9,7 +9,7 @@ for (const file of walk(root)) {
   fs.writeFileSync(file,html);
 }
 let html = fs.readFileSync(path.join(root,'courses.html'),'utf8');
-if (html.includes('class="purpose-grid"')) {
+if (html.includes('class="purpose-grid"') || html.includes('class="role-grid"')) {
   console.log('Shared styles verified; homepage already upgraded.');
   process.exit(0);
 }
