@@ -85,6 +85,7 @@ Synaptrail/
 ├── assets/
 │   ├── ui.css              # Giao diện chung cho các trang
 │   ├── lesson.css          # CSS gốc dùng chung cho 345 trang chapter
+│   ├── lesson.js           # Theme, sidebar, progress, copy và quiz dùng chung
 │   ├── home.css            # Bố cục trang chủ
 │   ├── courses.css         # Bố cục danh mục và các box
 │   └── catalog.js          # Chọn role, lọc kỹ năng và tìm kiếm
@@ -141,6 +142,31 @@ node scripts/extract-css.cjs
 Đã xác nhận 345 khối CSS gốc giống hệt nhau bằng SHA-256, không có file khác biệt. Sau thử nghiệm 3 file và chạy 342 file còn lại, tổng dung lượng 345 chapter giảm từ **9.872.059 byte** xuống **5.245.609 byte**. Tính thêm **13.446 byte** của stylesheet chung, còn **5.259.055 byte**, tiết kiệm **4.613.004 byte (46,73%)**. Số liệu không bao gồm script/báo cáo kiểm tra. Chạy lại không đổi file nào; `check-ui.cjs` đạt. Báo cáo chi tiết: `scripts/css-audit.json`, `scripts/css-extraction-result.json`, `scripts/css-extraction-rerun.json`.
 
 Các công cụ kiểm tra yêu cầu **Node.js**. Website không dùng bundler nên không có lệnh build.
+
+### Tách JavaScript bài học
+
+```sh
+node scripts/extract-js.cjs --dry-run
+node scripts/extract-js.cjs
+```
+
+`--dry-run` chỉ phân tích và in báo cáo, không ghi file. Script nhận diện các nhóm script theo SHA-256; phần không được xác minh giữ nguyên. Các trang đã chuyển đổi được bỏ qua khi chạy lại. `scripts/lesson-js-manifest.json` ghi hash các nhóm gốc, danh sách trang và hash của asset; script không tự ghi đè `lesson.js` nếu asset đã được sửa.
+
+Phân tích 345 chapter cho thấy 11 nhóm script gốc: một bootstrap theme 244 byte lặp trên mọi trang và 10 nhóm script cuối trang. Phần sidebar, progress, search, copy và quiz giống nhau sau khi loại khác biệt định dạng/comment; khác biệt ở theme và highlighter được giữ nguyên. Nhóm thuật toán có hàm theme ghi đè và dùng `body`; lần tách này giữ nguyên hành vi cũ.
+
+`lesson.js` được tải đồng bộ ở hai vị trí (setup / finish), bao quanh highlighter inline để giữ thứ tự chạy cũ. Không thêm `async` hoặc `defer` vào hai thẻ này. Bootstrap theme nhỏ ở đầu trang vẫn inline để tránh nháy màu; highlighter theo ngôn ngữ, nội dung và đáp án quiz trong `data-answer` vẫn ở từng chương.
+
+Đã chuyển **345 file**, không bỏ qua file nào ở lần đầu. JS inline giảm từ **1.997.212** xuống **428.033 byte**; asset chung **8.372 byte**. Tổng HTML cộng asset mới giảm **1.505.112 byte**. Chạy lại: 0 thay đổi, 345 file được bỏ qua vì đã tách. Báo cáo: `scripts/js-extraction-result.json`, `scripts/js-extraction-rerun.json`.
+
+### Test thủ công ba trang bài học
+
+Mở bằng Live Server hoặc server localhost để kiểm tra clipboard:
+
+1. `python/chapter001.html`: đổi sáng/tối rồi tải lại; lọc sidebar với từ khóa có/không có kết quả và xóa từ khóa; chọn đáp án quiz rồi chấm điểm.
+2. `react/chapter01.html`: bấm **Copy** trên một đoạn code, dán vào trình soạn thảo để đối chiếu; kiểm tra màu cú pháp và quiz. Tải lại để thử bộ đáp án khác sau khi chấm.
+3. `cpp/chapter01.html`: kiểm tra màu cú pháp C++, Copy và quiz; cuộn xuống để kiểm tra thanh tiến độ và nút về đầu trang. Thu màn hình xuống khoảng 375 px, mở/đóng menu sidebar và kiểm tra điều hướng chương trước/sau.
+
+Trên cả ba trang, mở Console để kiểm tra lỗi JavaScript và Network để xác nhận `lesson.js` tải thành công. Theme, kết quả quiz, copy và điều hướng phải hoạt động như trước khi tách.
 
 ```sh
 node scripts/check-ui.cjs
