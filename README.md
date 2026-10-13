@@ -73,6 +73,23 @@ Bạn có thể học từng kỹ năng độc lập hoặc theo nhóm kỹ năn
 
 ## Giao diện và điều hướng
 
+### Bản thử theo dõi tiến độ — Java
+
+Tính năng mới chỉ bật cho **31 chương Java**, mục lục Java và thẻ Java trong danh mục để duyệt trước khi triển khai các môn khác. Không có script áp dụng các môn còn lại ở giai đoạn này.
+
+- Bấm **Đánh dấu đã học** để đánh dấu hoặc bỏ đánh dấu chương; trạng thái được giữ khi tải lại. Sidebar và mục lục hiển thị dấu ✓ cho chương đã học.
+- Khi bấm **Chấm điểm**, lưu điểm quiz cao nhất theo phần trăm 0–100. Chấm quiz không tự đánh dấu đã học. Phần trăm hoàn thành môn chỉ tính số chương được đánh dấu / 31.
+- Thanh tiến độ Java xuất hiện ở trang chương, mục lục và danh mục khóa học.
+- **Xuất tiến độ** tải file JSON. **Nhập tiến độ** gộp bản ghi, giữ toàn bộ bản có `updatedAt` mới hơn; nếu cùng thời gian, giữ bản hiện có. Quy tắc nhập này có thể thay điểm bằng điểm trong bản mới hơn. File sai cấu trúc, điểm ngoài 0–100 hoặc file trên 5 MB bị từ chối mà không sửa dữ liệu.
+- **Reset tiến độ** yêu cầu xác nhận trước khi xóa toàn bộ key tiến độ (kể cả các môn trong file đã nhập). Không xóa theme hoặc dữ liệu quiz khác.
+- Lưu bằng key `synaptrail-progress`, dạng `{course: {chapter: {done, quizScore, updatedAt}}}`. Ví dụ mã môn `java`, chương `chapter01`, thời gian ISO 8601. Nếu localStorage bị chặn hoặc hết dung lượng, hiển thị lỗi và không báo đã lưu thành công.
+
+Mã nguồn: `assets/progress.js`, `assets/progress.css`. Dữ liệu chỉ nằm trong trình duyệt, không đồng bộ tài khoản; xuất file trước khi đổi trình duyệt hoặc xóa dữ liệu website. Các tab cùng origin cập nhật qua sự kiện storage.
+
+Để duyệt: mở `java/chapter01.html`, đánh dấu và chấm quiz; tải lại, mở `java/index.html` và `courses.html` để kiểm tra dấu ✓ và thanh %. Xuất file, bỏ đánh dấu, nhập lại để kiểm tra gộp theo thời gian; thử Reset và chọn Hủy trước khi xác nhận xóa. Sau khi xóa, nhập file xuất để khôi phục.
+
+`node scripts/check-progress.cjs` kiểm tra lưu/tải, giữ điểm cao nhất, gộp nhập, JSON sai, prototype, reset và localStorage bị chặn/hết dung lượng. Kiểm tra trình duyệt đã đạt cho đánh dấu, quiz, sidebar, mục lục, danh mục, nhập đúng/sai, hủy reset và reset.
+
 - Nền trắng, màu nhấn teal; bố cục responsive cho điện thoại, tablet và desktop.
 - Trang chủ riêng, danh mục có các box nhỏ gọn và khung nội dung căn giữa.
 - Các trang học và danh mục giữ tùy chọn sáng/tối, lưu bằng khóa `synaptrail-theme` trong localStorage.
