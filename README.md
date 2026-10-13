@@ -4,6 +4,10 @@ Không gian tự học lập trình, Full Stack và AI. Synaptrail tập hợp l
 
 Website sử dụng **HTML, CSS và JavaScript thuần**, không cần cài dependency hoặc chạy build để xem nội dung.
 
+## Giấy phép
+
+Dự án sử dụng [giấy phép MIT](LICENSE). Copyright (c) 2026 Synaptrail.
+
 ## Mở website
 
 ### Mở trực tiếp
@@ -162,6 +166,33 @@ node scripts/extract-css.cjs
 
 Các công cụ kiểm tra yêu cầu **Node.js**. Website không dùng bundler nên không có lệnh build.
 
+Yêu cầu **Node.js 22 trở lên** (CI dùng Node.js 24). `package.json` chỉ chứa các lệnh kiểm tra, không có dependency; không cần `npm install`.
+
+```sh
+npm run check
+npm run check:browser
+node scripts/check-checkers.cjs
+```
+
+`npm run check` kiểm tra cú pháp script, CSS/script được liên kết, khóa kỹ năng và toàn bộ link nội bộ (bao gồm anchor). Đồng thời báo lỗi khi thiếu h1, meta description hoặc ảnh thiếu alt. Ví dụ trong `pre`, `code`, script và template được bỏ qua để không xem code mẫu là nội dung trang. Link bên ngoài không được truy cập; ảnh trang trí được phép dùng `alt=""`.
+
+`npm run check:browser` tự dò Chrome/Chromium ở thư mục cài đặt Windows/macOS/Linux và trong PATH. Có thể chỉ định đường dẫn executable; nếu `CHROME_PATH` sai, script báo lỗi thay vì tự dùng trình duyệt khác:
+
+```powershell
+# PowerShell — thay bằng đường dẫn Chrome/Chromium trên máy bạn
+$env:CHROME_PATH = 'C:\Program Files\Google\Chrome\Application\chrome.exe'
+npm run check:browser
+```
+
+```sh
+# macOS/Linux — thay bằng đường dẫn executable trên máy bạn
+CHROME_PATH=/usr/bin/chromium npm run check:browser
+```
+
+Workflow `.github/workflows/check.yml` chạy `npm run check` trên mỗi push và pull request. Không chạy browser check trong CI và không cần cài dependency.
+
+**Trạng thái kiểm tra mới:** đang báo 346 trang thiếu h1 và 383 trang thiếu description, do SEO chưa được áp dụng khi chưa có URL triển khai. Không phát hiện link nội bộ hỏng hay ảnh thiếu alt. CI sẽ thất bại cho đến khi các lỗi nội dung này được xử lý; không bỏ qua hoặc hạ mức các lỗi này. Danh sách chi tiết nằm trong `scripts/check-results.json`.
+
 ### Tách JavaScript bài học
 
 ```sh
@@ -193,13 +224,13 @@ node scripts/browser-check.cjs
 ```
 
 - `check-ui.cjs` kiểm tra cú pháp script inline và `catalog.js`, liên kết CSS chung, liên kết/anchor ở trang chủ và danh mục, cùng khóa kỹ năng của các role.
-- `browser-check.cjs` dùng Chrome headless tại đường dẫn Windows mặc định `C:/Program Files/Google/Chrome/Application/chrome.exe`, mở server cục bộ tạm thời và kiểm tra responsive/tương tác. Máy khác cần điều chỉnh đường dẫn Chrome trong script. Ảnh chụp lưu ở `artifacts/`, được bỏ qua bởi Git.
+- `browser-check.cjs` tự dò Chrome/Chromium hoặc dùng `CHROME_PATH`, mở server cục bộ tạm thời và kiểm tra responsive/tương tác. Ảnh chụp lưu ở `artifacts/`, được bỏ qua bởi Git.
 
 ### Kết quả kiểm tra gần nhất
 
 Sau lần chỉnh danh mục thành bốn khu vực:
 
-- **384 trang HTML**, **742 script inline** cùng `assets/lesson.js`: không phát hiện lỗi cú pháp; CSS chung và các liên kết được kiểm tra đều tồn tại.
+- **384 trang HTML**, **742 script inline** cùng `assets/lesson.js`: không phát hiện lỗi cú pháp; CSS chung và các liên kết được kiểm tra đều tồn tại. Các kiểm tra mới về h1/description hiện báo lỗi như nêu ở trên.
 - **6 trang đại diện × 3 độ rộng** (375, 768, 1440 px): không phát hiện tràn ngang hoặc exception JavaScript, nền trắng mặc định hiển thị đúng.
 - Cả **5 role** hiển thị đúng bộ kỹ năng; tìm kiếm khi chọn role, trạng thái trống và nút bỏ bộ lọc đều đạt.
 - Điều hướng trang chủ → danh mục, bookmark cũ, menu/focus và chuyển sáng/tối đều đạt.
