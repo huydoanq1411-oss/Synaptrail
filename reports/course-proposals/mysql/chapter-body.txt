@@ -1,0 +1,43 @@
+<section class="chapter" id="mysql-s1">
+<h1 class="seo-chapter-title">Chương <span class="num">1</span> — MySQL và mô hình dữ liệu quan hệ</h1>
+<p class="lead">Hiểu bảng, hàng, cột và vai trò của SQL; đọc một tập dữ liệu nhỏ trước khi thiết kế hệ thống thật.</p>
+<h3>1. Mục tiêu học</h3>
+<ul><li>Phân biệt hệ quản trị MySQL, ngôn ngữ SQL và chương trình client.</li><li>Mô tả dữ liệu bằng bảng, hàng, cột và khóa chính.</li><li>Tạo bảng thực hành, thêm dữ liệu, đọc kết quả lọc có thứ tự rõ ràng.</li></ul>
+<p>Bài không yêu cầu biết ORM hoặc Node.js. Để chạy ví dụ, cần MySQL server đang hoạt động và client đã kết nối bằng tài khoản được phép tạo cơ sở dữ liệu thực hành. Nếu chưa có môi trường, đọc và dự đoán kết quả trước; đừng chạy trên cơ sở dữ liệu đang phục vụ người dùng.</p>
+<h3>2. Vấn đề thực tế</h3>
+<p>Một cửa hàng lưu tên hàng và giá trong bảng tính. Khi có ứng dụng web, nhiều người cần đọc dữ liệu theo điều kiện: món nào dưới một mức giá, món nào có mã cụ thể? Bạn cần mô hình lưu trữ rõ ràng và một cách truy vấn thống nhất, thay vì quét văn bản tự do.</p>
+<p>Trong bản mẫu, chỉ xét sản phẩm, chưa thêm khách hàng hay đơn mua. Thu hẹp bài toán giúp kiểm tra một bảng trước khi học quan hệ giữa nhiều bảng. Các chương schema và chuẩn hóa sẽ mở rộng tình huống này mà không giấu kiến thức thiết kế trong một đoạn ORM.</p>
+<h3>3. Lý thuyết nền</h3>
+<p>MySQL là hệ quản trị cơ sở dữ liệu. SQL là ngôn ngữ bạn gửi để định nghĩa cấu trúc hoặc truy vấn dữ liệu. Client là công cụ gửi câu lệnh tới server và nhận kết quả; đóng cửa sổ client không đồng nghĩa xóa cơ sở dữ liệu trên server.</p>
+<p>Một bảng có các cột mô tả thuộc tính, mỗi hàng biểu diễn một bản ghi. Kiểu dữ liệu quyết định loại giá trị có thể lưu. Khóa chính giúp nhận diện hàng duy nhất. Tên sản phẩm có thể trùng; vì thế ví dụ dùng id thay vì lấy tên làm mã nhận diện.</p>
+<p>SELECT chọn cột cần đọc, WHERE giới hạn hàng, ORDER BY xác định thứ tự trả về. Không đặt ORDER BY thì không nên dựa vào một thứ tự tình cờ thấy khi thử. Ở đây giá dùng DECIMAL để biểu diễn số thập phân; lựa chọn kiểu và ràng buộc chi tiết sẽ được học trong chương thiết kế schema.</p>
+<h3>4. Ví dụ từng bước</h3>
+<p>Đoạn đầu chỉ kiểm tra phiên bản và chuẩn bị một không gian bài tập mới. Tên database có hậu tố draft để nhận diện rõ. Lệnh IF NOT EXISTS không chứng minh cấu trúc cũ đúng; nếu bạn đã từng dùng tên này, hãy kiểm tra nội dung trước khi chạy tiếp.</p>
+<div class="code-wrap"><span class="code-label">setup.sql — chỉ dùng môi trường thực hành</span><button class="copy-btn" onclick="copyCode(this)" aria-label="Sao chép SQL chuẩn bị bài tập">Copy</button><pre><code>SELECT VERSION();
+CREATE DATABASE IF NOT EXISTS synaptrail_mysql_draft;
+USE synaptrail_mysql_draft;
+CREATE TABLE products (
+    id INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL
+);</code></pre></div>
+<ol><li>VERSION cho biết server đang chạy, không phải phiên bản client bạn cài.</li><li>CREATE DATABASE tạo không gian thực hành nếu chưa có; USE chọn nơi các câu lệnh sau tác động.</li><li>CREATE TABLE bắt đầu định nghĩa bảng products. Nếu bảng đã có, dừng và kiểm tra thay vì tự xóa.</li><li>id là số nguyên và khóa chính; mỗi hàng cần một id khác nhau.</li><li>name nhận chuỗi tối đa 100 ký tự; NOT NULL không cho thiếu giá trị.</li><li>price lưu số thập phân; hai chữ số sau dấu thập phân phù hợp dữ liệu giá trong bài.</li><li>Ngoặc đóng và dấu chấm phẩy kết thúc định nghĩa; dấu phẩy phân tách các cột.</li></ol>
+<div class="code-wrap"><span class="code-label">read.sql — thêm và đọc dữ liệu</span><button class="copy-btn" onclick="copyCode(this)" aria-label="Sao chép SQL thêm và truy vấn sản phẩm">Copy</button><pre><code>INSERT INTO products (id, name, price) VALUES
+    (1, 'Notebook', 25.00),
+    (2, 'Pen', 5.00),
+    (3, 'Bag', 120.00);
+SELECT id, name, price
+FROM products
+WHERE price &lt; 30.00
+ORDER BY id;</code></pre></div>
+<p>INSERT ghi ba hàng theo đúng danh sách cột. SELECT đọc ba cột đó; FROM xác định bảng, WHERE giữ giá nhỏ hơn 30 và ORDER BY id sắp theo mã. Kết quả dự kiến gồm hàng 1, Notebook, 25.00 và hàng 2, Pen, 5.00. Bag bị loại vì giá 120.00 không thỏa điều kiện.</p>
+<p>Không chạy lại INSERT một cách mù quáng: id đã có sẽ gây lỗi khóa trùng. Đây là dấu hiệu ràng buộc hoạt động, không phải lý do bỏ khóa chính. Trước mỗi lần thử, ghi trạng thái ban đầu và dữ liệu bạn dự định thêm; bài chỉ yêu cầu ba bản ghi nói trên.</p>
+<p>Thay điều kiện giá thành nhỏ hơn 10 và dự đoán chỉ còn Pen. Sau đó trở lại điều kiện ban đầu. Giữ SELECT riêng khỏi các lệnh ghi để quan sát thay đổi từng bước; không thêm UPDATE hoặc DELETE trước khi hiểu phạm vi tác động của chúng.</p>
+<h3>5. Lỗi thường gặp</h3>
+<ul><li>Kết nối client thành công nhưng quên USE: truy vấn có thể thiếu database mặc định hoặc tác động nơi khác.</li><li>Đổi thứ tự giá trị mà không đọc danh sách cột: dữ liệu không còn tương ứng thuộc tính dự định.</li><li>Dùng dấu nháy cong từ tài liệu: giữ dấu nháy đơn thông thường cho chuỗi SQL trong ví dụ.</li><li>Tưởng kết quả SELECT luôn theo thứ tự nhập: thêm ORDER BY khi thứ tự là yêu cầu.</li><li>Tự xóa bảng khi gặp lỗi đã tồn tại: kiểm tra dữ liệu trước, chỉ dọn môi trường bài tập khi bạn chủ động muốn làm lại.</li></ul>
+<h3>6. Bài tập ba mức</h3>
+<div class="box note"><div class="box-title">Dễ</div><p>Viết SELECT chỉ lấy name của sản phẩm giá dưới 10. Kết quả phải có Pen; giải thích cột nào không xuất hiện dù vẫn lưu trong bảng.</p></div>
+<div class="box note"><div class="box-title">Vừa</div><p>Thêm một sản phẩm với id chưa dùng, rồi đọc các hàng theo id giảm dần. Ghi lại dữ liệu thêm để tránh nhầm lần thử sau; không dùng id trùng.</p></div>
+<div class="box note"><div class="box-title">Khó</div><p>Đề xuất thêm bảng khách hàng, liệt kê thuộc tính và mã nhận diện riêng. Chỉ viết thiết kế trên giấy; giải thích vì sao không ghép tùy tiện khách hàng vào mỗi hàng sản phẩm.</p></div>
+<div class="summary-box"><h4>7. Tóm tắt</h4><p>MySQL quản lý dữ liệu; client gửi SQL. Bảng có hàng, cột và ràng buộc. Dùng khóa chính để nhận diện bản ghi, WHERE để lọc và ORDER BY khi cần thứ tự. Hiểu cấu trúc trước khi sử dụng ORM.</p></div>
+</section>

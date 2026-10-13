@@ -61,6 +61,15 @@ Các nhóm được phân loại từ tài liệu có sẵn. Project Ideas dẫn
 
 ## Nội dung học tập
 
+### Đề xuất mở rộng MySQL và Docker — chưa sửa catalog
+
+Xem [phân tích tám kỹ năng trong Full Stack](reports/course-proposals/README.md). Đề xuất giữ các chương Full Stack làm nội dung nhập môn/tích hợp; ưu tiên viết khóa MySQL và Docker độc lập đủ sâu trước khi đổi catalog.
+
+- MySQL: [mục lục 10 chương](reports/course-proposals/mysql/index.html), [chương 1 mẫu](reports/course-proposals/mysql/chapter01.html).
+- Docker: [mục lục 8 chương](reports/course-proposals/docker/index.html), [chương 1 mẫu](reports/course-proposals/docker/chapter01.html).
+
+Chỉ chương 1 có bài; các phần còn lại là đề cương. Bản HTML dùng style và chấm quiz hiện có, nằm trong `reports/`, có `noindex` và được loại khỏi script tạo sitemap. `courses.html` và các chương Full Stack giữ nguyên. Chưa kiểm thử runtime SQL/Docker vì không có MySQL client và Docker Engine không chạy; không tự cài/bật dịch vụ. Chờ duyệt phạm vi và chương mẫu trước khi viết tiếp.
+
 ### Khung chương chuẩn — đã duyệt
 
 1. **Mục tiêu học:** kiến thức đầu vào và điều người học làm được sau bài.

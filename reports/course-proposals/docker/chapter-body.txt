@@ -1,0 +1,35 @@
+<section class="chapter" id="docker-s1">
+<h1 class="seo-chapter-title">Chương <span class="num">1</span> — Image, container và vòng đời cơ bản</h1>
+<p class="lead">Phân biệt gói môi trường với tiến trình đang chạy, rồi quan sát container tạo, chạy, dừng và được xóa.</p>
+<h3>1. Mục tiêu học</h3>
+<ul><li>Giải thích vai trò image, container, client và Engine.</li><li>Chạy một container kiểm tra, đọc trạng thái và log.</li><li>Phân biệt dừng container, xóa container và xóa image.</li></ul>
+<p>Phần thực hành dùng Linux container và Docker CLI. Máy cần Docker Engine hoặc Docker Desktop hoạt động; trên Desktop hãy chọn môi trường Linux containers. Bài không tự cài Docker, thay cấu hình hệ thống hoặc chạy ứng dụng production. Lần lấy image đầu tiên cần mạng và quyền truy cập registry.</p>
+<h3>2. Vấn đề thực tế</h3>
+<p>Một nhóm chạy cùng ứng dụng nhưng mỗi máy có phiên bản công cụ khác nhau. Người mới thường mất thời gian tái tạo môi trường trước khi sửa được mã. Container giúp đóng gói và chạy những thành phần trong môi trường rõ hơn, nhưng bạn vẫn phải hiểu cấu hình nào nằm trong image và trạng thái nào phát sinh khi chạy.</p>
+<p>Chương này không bắt đầu bằng Dockerfile phức tạp hay ba dịch vụ Compose. Thay vào đó, dùng một chương trình ngắn chạy xong rồi thoát để thấy container không phải “một máy tính luôn bật”. Khi hiểu vòng đời, việc tìm lỗi dịch vụ ở chương sau sẽ ít dựa vào phỏng đoán hơn.</p>
+<h3>3. Lý thuyết nền</h3>
+<p>Image là gói file, thành phần và cấu hình để tạo container. Một image có thể tạo nhiều container. Container là một phiên chạy với tiến trình và trạng thái riêng; dừng hoặc xóa một container không tự xóa image đã dùng để tạo nó.</p>
+<p>Docker CLI gửi yêu cầu tới Engine. Vì vậy có executable docker trong PATH chưa chứng minh server đã sẵn sàng. Image cũng cần phù hợp nền tảng của runtime; “có image” không bảo đảm nó chạy trên mọi kiến trúc mà không điều kiện.</p>
+<p>Linux container dựa vào kernel của môi trường chạy, không phải mỗi container có một kernel riêng như máy ảo đầy đủ. Docker Desktop có thể cung cấp môi trường Linux qua máy ảo. Không nên hiểu sự cô lập container là lý do bỏ qua quyền, secrets hoặc bảo mật; những vấn đề này được học riêng trong chương 8.</p>
+<h3>4. Ví dụ từng bước</h3>
+<p>Đầu tiên kiểm tra client và server. Nếu lỗi kết nối Engine, dừng thực hành tại đây và khởi động môi trường Docker theo hướng dẫn cài đặt của bạn. Không đổi quyền toàn hệ thống chỉ vì một lệnh kiểm tra không kết nối được.</p>
+<div class="code-wrap"><span class="code-label">Terminal — kiểm tra và lấy image</span><button class="copy-btn" onclick="copyCode(this)" aria-label="Sao chép lệnh kiểm tra Docker và lấy image">Copy</button><pre><code>docker version
+docker pull hello-world:latest
+docker image ls hello-world</code></pre></div>
+<ol><li>version cho biết thông tin client/server; chỉ có phần client thì cần kiểm tra Engine.</li><li>pull lấy image hello-world từ registry mặc định nếu có quyền và kết nối mạng.</li><li>image ls lọc danh sách để bạn thấy image có trên máy. Nó chưa tạo container.</li></ol>
+<p>Tag latest ở đây chỉ dùng cho bài kiểm tra ngắn, không phải khóa phiên bản bất biến. Với dự án cần tái lập, khóa phiên bản hoặc digest được học ở chương image. Bài không dùng kết quả Hello World để tuyên bố môi trường production đã an toàn.</p>
+<div class="code-wrap"><span class="code-label">Terminal — tạo, quan sát và dọn container bài tập</span><button class="copy-btn" onclick="copyCode(this)" aria-label="Sao chép lệnh chạy và quan sát container bài tập">Copy</button><pre><code>docker run --name synaptrail-docker-intro hello-world:latest
+docker ps -a --filter name=synaptrail-docker-intro
+docker logs synaptrail-docker-intro
+docker rm synaptrail-docker-intro</code></pre></div>
+<ol><li>run tạo container mới với tên cụ thể, rồi chạy chương trình của image. Nếu tên đã tồn tại, không chạy lại ngay: kiểm tra container bài tập cũ trước.</li><li>Chương trình Hello World in thông báo và kết thúc. Trạng thái Exited với mã 0 là kết quả thành công dự kiến, không phải lỗi chỉ vì nó không còn running.</li><li>ps -a liệt kê cả container đã dừng; bộ lọc giới hạn việc quan sát vào tên bài tập.</li><li>logs đọc thông báo đầu ra của container đã tạo, giúp kiểm tra chương trình thực sự chạy.</li><li>rm xóa đúng container bài tập đã thoát. Lệnh này không yêu cầu xóa image; image vẫn có thể tạo container mới.</li></ol>
+<p>Không dùng --rm ở bước đầu vì cần giữ container đã thoát để xem trạng thái và log. Khi đã quan sát xong, mới dọn theo tên. Bài không cần publish port, mount dữ liệu hay chạy đặc quyền; thêm các tùy chọn này sớm chỉ làm bạn khó phân biệt tác dụng từng lệnh.</p>
+<p>Trong vòng đời thông thường, docker stop yêu cầu một container đang chạy dừng lại. Nó khác rm, vốn xóa container. Ví dụ Hello World tự kết thúc, nên không cần gọi stop cho nó. Khi làm dịch vụ chạy lâu ở chương sau, bạn sẽ luyện rõ hơn bước start/stop.</p>
+<h3>5. Lỗi thường gặp</h3>
+<ul><li>Nhầm docker ps không có -a là danh sách tất cả: container đã thoát sẽ không xuất hiện ở danh sách đang chạy.</li><li>Tưởng sửa hoặc xóa container sẽ cập nhật image gốc: image và phiên chạy là hai đối tượng khác nhau.</li><li>Chạy lại run cùng tên rồi nhận lỗi: kiểm tra container bài tập tồn tại; đừng xóa các container không thuộc bài.</li><li>Thấy Exited liền kết luận lỗi: đọc exit code và logs để phân biệt chương trình hoàn tất với chạy thất bại.</li><li>Cho rằng container tự bảo đảm an toàn: quyền và cách cấu hình vẫn là trách nhiệm cần kiểm tra.</li></ul>
+<h3>6. Bài tập ba mức</h3>
+<div class="box note"><div class="box-title">Dễ</div><p>Chỉ rõ lệnh nào lấy image và lệnh nào tạo container. Ghi lại tên container và trạng thái quan sát được, không sao chép ID minh họa từ tài liệu.</p></div>
+<div class="box note"><div class="box-title">Vừa</div><p>Tạo hai container kiểm tra với hai tên riêng từ cùng image, quan sát ps -a và logs. Dọn đúng hai container bài tập; kiểm tra image vẫn có trên máy.</p></div>
+<div class="box note"><div class="box-title">Khó</div><p>Viết checklist chẩn đoán khi run không có kết quả mong muốn: client/server, image, tên trùng, trạng thái, exit code và log. Phân biệt việc đọc thông tin với thao tác xóa; không dùng lệnh dọn toàn hệ thống.</p></div>
+<div class="summary-box"><h4>7. Tóm tắt</h4><p>Image dùng để tạo container; container sống theo tiến trình của nó. Có CLI chưa đủ nếu Engine chưa chạy. Quan sát bằng ps/logs trước khi dọn. Dừng, xóa container và xóa image là những thao tác khác nhau.</p></div>
+</section>
