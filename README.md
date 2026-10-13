@@ -61,7 +61,7 @@ Các nhóm được phân loại từ tài liệu có sẵn. Project Ideas dẫn
 
 ## Nội dung học tập
 
-### Khung chương chuẩn — bản mẫu chờ duyệt
+### Khung chương chuẩn — đã duyệt
 
 1. **Mục tiêu học:** kiến thức đầu vào và điều người học làm được sau bài.
 2. **Vấn đề thực tế:** tình huống cụ thể để giải thích vì sao cần kiến thức này.
@@ -72,7 +72,7 @@ Các nhóm được phân loại từ tài liệu có sẵn. Project Ideas dẫn
 7. **Tóm tắt:** những điểm cần nhớ.
 8. **Năm câu quiz:** kiểm tra hiểu biết, dùng cơ chế chấm điểm/tiến độ hiện có.
 
-Bản mẫu ở [Java — Chương 17: HashMap & HashSet](java/chapter17.html), 1.033 từ diễn giải (không tính khối code), hai chương trình Java hoàn chỉnh. Giữ ID `s17`, quiz `q17`, kết quả `result-q17`, sidebar, link và style hiện có. Nội dung kỹ thuật đối chiếu tài liệu Java API được dẫn ở cuối bài.
+Bản mẫu đã duyệt ở [Java — Chương 17: HashMap & HashSet](java/chapter17.html), 1.033 từ diễn giải (không tính khối code), hai chương trình Java hoàn chỉnh. Giữ ID `s17`, quiz `q17`, kết quả `result-q17`, sidebar, link và style hiện có. Nội dung kỹ thuật đối chiếu tài liệu Java API được dẫn ở cuối bài.
 
 Kiểm tra ví dụ bằng JDK 9 trở lên (biên dịch với `--release 8`), không dùng Java Runtime đơn lẻ:
 
@@ -80,7 +80,23 @@ Kiểm tra ví dụ bằng JDK 9 trở lên (biên dịch với `--release 8`), 
 node scripts/check-java17.cjs
 ```
 
-Script đọc code trực tiếp từ HTML, biên dịch hai ví dụ và đối chiếu stdout; đặt `JAVA_HOME` hoặc `SYNAPTRAIL_TEST_JDK` nếu JDK chưa có trong PATH. File tạm nằm trong `artifacts/java-chapter17/`. **Chưa nâng cấp chương khác**; sau khi bản mẫu được duyệt mới làm lần lượt, mỗi đợt ba chương Java.
+Script đọc code trực tiếp từ HTML, biên dịch hai ví dụ và đối chiếu stdout; đặt `JAVA_HOME` hoặc `SYNAPTRAIL_TEST_JDK` nếu JDK chưa có trong PATH. File tạm nằm trong `artifacts/java-chapter17/`. Sau khi bản mẫu được duyệt, các chương Java được nâng cấp lần lượt, mỗi đợt ba chương.
+
+**Đợt 1 — chương 1–3:**
+
+| Chương | Nội dung | Từ diễn giải, không tính khối code |
+| --- | --- | ---: |
+| [1](java/chapter01.html) | Giới thiệu Java, mã nguồn → bytecode → JVM | 1.183 |
+| [2](java/chapter02.html) | Cài JDK, kiểm tra môi trường và lựa chọn JDK của IDE | 1.165 |
+| [3](java/chapter03.html) | Hello World, giải thích từng dòng, print/println và debug | 1.176 |
+
+Mỗi chương có năm câu quiz và bài tập ba mức. Giữ ID `s1`/`s2`/`s3`, quiz `q1` và kết quả `result-q1` cũ; bổ sung `q2`/`q3` cho hai chương trước đây chưa có quiz. Không đổi đường dẫn, sidebar, điều hướng hoặc stylesheet. Mã Java dùng ví dụ hoàn chỉnh với class/main; lệnh terminal không nhúng comment khác cú pháp shell.
+
+```sh
+node scripts/check-java-batch.cjs
+```
+
+Script biên dịch và chạy bốn ví dụ của đợt 1, đối chiếu stdout, chạy các lệnh terminal trong bài và kiểm tra độ dài/năm câu quiz. Dùng JDK 21 với `--release 8` để xác nhận phần mã Java tương thích Java 8. Đợt tiếp theo là chương 4–6; chưa sửa các chương này.
 
 Kết quả bản mẫu: đã biên dịch bằng JDK 21 với `--release 8` và chạy cả hai chương trình; stdout khớp kết quả trong bài. Kiểm tra trình duyệt của Java 17 đạt cho năm câu quiz, theme, Copy và tiến độ học. Kiểm tra tĩnh không phát hiện lỗi link mới; 346 lỗi thiếu h1 và 383 lỗi thiếu description từ trước vẫn còn.
 
