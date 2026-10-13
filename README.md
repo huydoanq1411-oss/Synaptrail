@@ -375,3 +375,4 @@ Card k?nh tinh ch?nh: n?n xanh ?en pha t?m, b? m?t trong su?t h?n; hover n?ng 4p
 ### M?u th?ng nh?t cho c?c trang kh?a h?c
 
 assets/ui.css ??ng b? b?ng m?u xanh ?en pha t?m v? teal cho m?c l?c, b?i h?c, d? ?n v? c?ng c?; 390 trang chuy?n m?c ??nh sang t?i, v?n t?n tr?ng l?a ch?n theme ?? l?u. M?u code, sidebar, bi?u m?u v? quiz theo b?ng m?u chung. Ki?m tra node scripts/check-colors-browser.cjs: 13 trang ??i di?n ??t, chuy?n s?ng/t?i ho?t ??ng. Ki?m tra role/responsive: 15 tr??ng h?p ??t; check-ui c?n 728 l?i SEO s?n c?, kh?ng l?i ch?c n?ng/link/script m?i.
+Hiệu ứng viền card: mở từ giữa trong 900ms, không nâng/phóng card. Theo yêu cầu trực tiếp, riêng transition chiều rộng viền vẫn chạy khi hệ thống bật giảm chuyển động; các chuyển động khác vẫn được tắt.
