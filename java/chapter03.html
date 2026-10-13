@@ -21,6 +21,7 @@
 <title>Chương 3 — Chương trình đầu tiên — Giáo Trình Java | Synaptrail</title>
 <link rel="stylesheet" href="../assets/ui.css">
 <link rel="stylesheet" href="../assets/progress.css">
+<link rel="stylesheet" href="../assets/quiz-feedback.css">
 </head>
 <body>
 <div id="progress-bar"></div>
@@ -123,13 +124,31 @@ java HelloWorld</code></pre></div>
 <div class="box note"><div class="box-title">Vừa — Thiết kế đầu ra</div><p>Viết ba lệnh in để tạo đúng hai dòng “Java lesson” và “Chapter 3”. Dùng ít nhất một print, một println. Ghi dự đoán trước khi chạy.</p></div>
 <div class="box note"><div class="box-title">Khó — Phân loại lỗi</div><p>Tạo bản sao riêng, lần lượt thử sai tên file, thiếu chấm phẩy và quên biên dịch lại. Ghi bước phát hiện, thông báo hoặc đầu ra, rồi khôi phục bản đúng. Không ghi đè chương trình đã kiểm chứng.</p></div>
 <div class="summary-box"><h4>7. Tóm tắt</h4><p>Giữ đúng tên lớp/file và chữ ký main. javac biên dịch, java chạy. print không tự xuống dòng; println có xuống dòng. Kiểm chứng mỗi thay đổi bằng đầu ra và sửa một vấn đề mỗi lần.</p></div>
-<div class="quiz" data-quiz="q3"><h4>8. Quiz — Chương 3</h4>
-<div class="quiz-q" data-answer="0"><p>1. File cho public class HelloWorld phải tên gì?</p><span class="quiz-opt" data-idx="0">HelloWorld.java</span><span class="quiz-opt" data-idx="1">helloworld.txt</span><span class="quiz-opt" data-idx="2">Bất kỳ tên nào</span></div>
-<div class="quiz-q" data-answer="1"><p>2. Lệnh nào biên dịch file?</p><span class="quiz-opt" data-idx="0">java HelloWorld.class</span><span class="quiz-opt" data-idx="1">javac HelloWorld.java</span><span class="quiz-opt" data-idx="2">java javac</span></div>
-<div class="quiz-q" data-answer="2"><p>3. println khác print ở điểm nào?</p><span class="quiz-opt" data-idx="0">Không in được chuỗi</span><span class="quiz-opt" data-idx="1">Tự biên dịch</span><span class="quiz-opt" data-idx="2">Thêm xuống dòng</span></div>
-<div class="quiz-q" data-answer="0"><p>4. String[] args chứa dữ liệu nào trong mẫu main?</p><span class="quiz-opt" data-idx="0">Tham số dòng lệnh</span><span class="quiz-opt" data-idx="1">Luôn là đáp án quiz</span><span class="quiz-opt" data-idx="2">File bytecode</span></div>
-<div class="quiz-q" data-answer="1"><p>5. Sửa mã nhưng đầu ra cũ, nên kiểm tra gì?</p><span class="quiz-opt" data-idx="0">Màu theme</span><span class="quiz-opt" data-idx="1">Đã lưu, biên dịch lại và chạy đúng thư mục chưa</span><span class="quiz-opt" data-idx="2">Số tab trình duyệt</span></div>
-<button class="quiz-btn" onclick="gradeQuiz('q3')" aria-label="Chấm năm câu quiz chương 3">Chấm điểm</button><div class="quiz-result" id="result-q3"></div></div>
+<div class="quiz" data-quiz="q3" data-quiz-feedback>
+<h4>Quiz — Chương 3 · 5 câu</h4>
+<div class="quiz-q" data-answer="0" data-question-kind="concept" role="group" aria-labelledby="q3-question-1"><span class="quiz-kind">Nhớ khái niệm</span><p id="q3-question-1">1. Trong mẫu truyền thống của bài, phương thức nào là điểm bắt đầu?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. public static void main(String[] args)">A. public static void main(String[] args)</span>
+<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. public static void Main(String[] args)">B. public static void Main(String[] args)</span>
+<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. public static void start(String[] args)">C. public static void start(String[] args)</span>
+<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. System.out.println(String[] args)">D. System.out.println(String[] args)</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Đúng:</strong> Đúng: mẫu dùng chữ ký này làm điểm vào.</li><li><strong>B. Sai:</strong> Java phân biệt main và Main.</li><li><strong>C. Sai:</strong> Mẫu trong bài không dùng start làm điểm vào.</li><li><strong>D. Sai:</strong> Đây không phải chữ ký main.</li></ul></div></div>
+<div class="quiz-q" data-answer="2" data-question-kind="concept" role="group" aria-labelledby="q3-question-2"><span class="quiz-kind">Nhớ khái niệm</span><p id="q3-question-2">2. println khác print như thế nào?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. println không in được chuỗi">A. println không in được chuỗi</span>
+<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. print luôn thêm hai dòng trống">B. print luôn thêm hai dòng trống</span>
+<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. println thêm xuống dòng sau nội dung">C. println thêm xuống dòng sau nội dung</span>
+<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. println tự biên dịch chương trình">D. println tự biên dịch chương trình</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> Cả hai ví dụ đều in chuỗi.</li><li><strong>B. Sai:</strong> print không tự thêm xuống dòng.</li><li><strong>C. Đúng:</strong> Đúng: đó là khác biệt được bài minh họa.</li><li><strong>D. Sai:</strong> Biên dịch do javac, không phải phương thức in.</li></ul></div></div>
+<div class="quiz-q" data-answer="1" data-question-kind="application" role="group" aria-labelledby="q3-question-3"><span class="quiz-kind">Áp dụng / đọc code</span><p id="q3-question-3">3. Đầu ra của đoạn mã là gì?</p><pre aria-label="Đoạn mã cần đọc"><code>System.out.print(&quot;Hello, &quot;);
+System.out.println(&quot;Synaptrail!&quot;);</code></pre><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Hello, và Synaptrail! trên hai dòng">A. Hello, và Synaptrail! trên hai dòng</span>
+<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Hello, Synaptrail! trên một dòng">B. Hello, Synaptrail! trên một dòng</span>
+<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Chỉ Synaptrail!">C. Chỉ Synaptrail!</span>
+<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Hello, Synaptrail! trên hai dòng giống nhau">D. Hello, Synaptrail! trên hai dòng giống nhau</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> print đầu tiên chưa xuống dòng.</li><li><strong>B. Đúng:</strong> Đúng: println nối vào nội dung đã in, rồi xuống dòng.</li><li><strong>C. Sai:</strong> print vẫn ghi nội dung đầu tiên.</li><li><strong>D. Sai:</strong> Không có lệnh lặp lại nội dung.</li></ul></div></div>
+<div class="quiz-q" data-answer="3" data-question-kind="application" role="group" aria-labelledby="q3-question-4"><span class="quiz-kind">Áp dụng / đọc code</span><p id="q3-question-4">4. Đứng trong thư mục chứa HelloWorld.java, chọn thứ tự lệnh đúng.</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. java HelloWorld.java rồi javac HelloWorld.class">A. java HelloWorld.java rồi javac HelloWorld.class</span>
+<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. javac HelloWorld.class rồi java HelloWorld.java">B. javac HelloWorld.class rồi java HelloWorld.java</span>
+<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. java HelloWorld.class rồi java HelloWorld">C. java HelloWorld.class rồi java HelloWorld</span>
+<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. javac HelloWorld.java rồi java HelloWorld">D. javac HelloWorld.java rồi java HelloWorld</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> Không phải quy trình hai bước trong bài.</li><li><strong>B. Sai:</strong> javac cần mã nguồn; file class không phải đầu vào này.</li><li><strong>C. Sai:</strong> Tên lớp trong chế độ này không có đuôi .class.</li><li><strong>D. Đúng:</strong> Đúng: biên dịch nguồn rồi chạy tên lớp.</li></ul></div></div>
+<div class="quiz-q" data-answer="0" data-question-kind="error" role="group" aria-labelledby="q3-question-5"><span class="quiz-kind">Tìm lỗi</span><p id="q3-question-5">5. File helloWorld.java chứa public class HelloWorld. Lỗi cần sửa là gì?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Đổi tên file thành HelloWorld.java">A. Đổi tên file thành HelloWorld.java</span>
+<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Đổi println thành print">B. Đổi println thành print</span>
+<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Xóa mọi dấu ngoặc">C. Xóa mọi dấu ngoặc</span>
+<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Thêm .class vào tên lớp">D. Thêm .class vào tên lớp</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Đúng:</strong> Đúng: tên phải khớp cả chữ hoa và chữ thường.</li><li><strong>B. Sai:</strong> Phương thức in không sửa tên file.</li><li><strong>C. Sai:</strong> Ngoặc xác định cấu trúc lớp và main.</li><li><strong>D. Sai:</strong> Tên lớp không mang đuôi file.</li></ul></div></div>
+<button class="quiz-btn" onclick="gradeQuiz('q3')" aria-label="Chấm năm câu quiz chương 3">Chấm điểm</button><div class="quiz-result" id="result-q3"></div><p class="quiz-feedback-status" role="status" aria-live="polite"></p>
+</div>
 <p>Tài liệu: <a href="https://docs.oracle.com/javase/tutorial/getStarted/application/index.html">giải thích Hello World</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html">cách chạy bằng java</a>.</p>
 </section>
 
@@ -160,5 +179,6 @@ document.querySelectorAll('pre').forEach(pre=>{ if(!pre.querySelector('code')){ 
 <script src="../assets/lesson.js" data-lesson-phase="finish"></script>
 
 <script src="../assets/progress.js"></script>
+<script src="../assets/quiz-feedback.js"></script>
 </body>
 </html>

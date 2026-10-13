@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="../assets/lesson.css">
 <title>Chương 5 — Bubble Sort &amp; Selection Sort — Giáo Trình Thuật Toán &amp; Cấu Trúc Dữ Liệu | Synaptrail</title>
 <link rel="stylesheet" href="../assets/ui.css">
+<link rel="stylesheet" href="../assets/quiz-feedback.css">
 </head>
 <body>
 <div id="progress-bar"></div>
@@ -123,7 +124,31 @@
         <h4>📌 Tổng kết chương 5</h4>
         <p>Bubble Sort và Selection Sort đều O(n²), đơn giản để học nhưng không dùng trong thực tế với dữ liệu lớn. Bubble Sort ổn định và có thể tối ưu dừng sớm; Selection Sort ít swap hơn nhưng không ổn định.</p>
       </div>
-    </section>
+    <div class="quiz" data-quiz="q5" data-quiz-feedback>
+<h4>Quiz — Chương 5 · 5 câu</h4>
+<div class="quiz-q" data-answer="0" data-question-kind="concept" role="group" aria-labelledby="q5-question-1"><span class="quiz-kind">Nhớ khái niệm</span><p id="q5-question-1">1. Bubble Sort trong bài so sánh những phần tử nào?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Hai phần tử liền kề">A. Hai phần tử liền kề</span>
+<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Chỉ phần tử đầu và cuối">B. Chỉ phần tử đầu và cuối</span>
+<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Chỉ các phần tử bằng nhau">C. Chỉ các phần tử bằng nhau</span>
+<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Mọi phần tử với pivot">D. Mọi phần tử với pivot</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Đúng:</strong> Đúng: đổi chỗ hàng xóm khi sai thứ tự.</li><li><strong>B. Sai:</strong> Đó không phải quy trình trong mẫu.</li><li><strong>C. Sai:</strong> Mẫu so sánh lớn hơn để sửa thứ tự.</li><li><strong>D. Sai:</strong> Chương không mô tả pivot cho Bubble Sort.</li></ul></div></div>
+<div class="quiz-q" data-answer="3" data-question-kind="concept" role="group" aria-labelledby="q5-question-2"><span class="quiz-kind">Nhớ khái niệm</span><p id="q5-question-2">2. Thuật toán sắp xếp ổn định nghĩa là gì?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Mọi phần tử phải giống nhau">A. Mọi phần tử phải giống nhau</span>
+<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Không bao giờ có phép đổi chỗ">B. Không bao giờ có phép đổi chỗ</span>
+<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Luôn chạy O(1)">C. Luôn chạy O(1)</span>
+<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Giữ thứ tự tương đối của phần tử bằng nhau">D. Giữ thứ tự tương đối của phần tử bằng nhau</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> Ổn định không yêu cầu dữ liệu bằng nhau.</li><li><strong>B. Sai:</strong> Bubble Sort vẫn đổi chỗ.</li><li><strong>C. Sai:</strong> Ổn định nói về thứ tự, không phải độ phức tạp.</li><li><strong>D. Đúng:</strong> Đúng: đó là định nghĩa trong chương.</li></ul></div></div>
+<div class="quiz-q" data-answer="1" data-question-kind="application" role="group" aria-labelledby="q5-question-3"><span class="quiz-kind">Áp dụng / đọc code</span><p id="q5-question-3">3. Sau lượt ngoài đầu tiên của bubble_sort với [3, 1, 2], danh sách là gì?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. [1, 3, 2]">A. [1, 3, 2]</span>
+<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. [1, 2, 3]">B. [1, 2, 3]</span>
+<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. [3, 2, 1]">C. [3, 2, 1]</span>
+<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. [3, 1, 2]">D. [3, 1, 2]</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> Đây mới là trạng thái sau lần so sánh đầu.</li><li><strong>B. Đúng:</strong> Đúng: 3 đổi với 1 rồi với 2 trong cùng lượt.</li><li><strong>C. Sai:</strong> Mẫu sắp tăng, không sắp giảm.</li><li><strong>D. Sai:</strong> Có hai cặp sai thứ tự nên mẫu có đổi chỗ.</li></ul></div></div>
+<div class="quiz-q" data-answer="2" data-question-kind="application" role="group" aria-labelledby="q5-question-4"><span class="quiz-kind">Áp dụng / đọc code</span><p id="q5-question-4">4. Lượt đầu Selection Sort với [3, 1, 2] sẽ chọn và đưa phần tử nào lên đầu?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. 3">A. 3</span>
+<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. 2">B. 2</span>
+<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. 1">C. 1</span>
+<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Không chọn phần tử nào">D. Không chọn phần tử nào</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> 3 không nhỏ nhất trong phần chưa sắp.</li><li><strong>B. Sai:</strong> 1 còn nhỏ hơn 2.</li><li><strong>C. Đúng:</strong> Đúng: tìm nhỏ nhất rồi đổi với phần tử đầu.</li><li><strong>D. Sai:</strong> Mẫu thực hiện chọn min ở lượt đầu.</li></ul></div></div>
+<div class="quiz-q" data-answer="0" data-question-kind="error" role="group" aria-labelledby="q5-question-5"><span class="quiz-kind">Tìm lỗi</span><p id="q5-question-5">5. Tại sao break vô điều kiện sau lượt đầu Bubble Sort là sai với dữ liệu chưa biết?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Chỉ được dừng sớm khi lượt đó không có đổi chỗ">A. Chỉ được dừng sớm khi lượt đó không có đổi chỗ</span>
+<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Bubble Sort không được có break ở đâu cả">B. Bubble Sort không được có break ở đâu cả</span>
+<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Vì phải đổi sang Selection Sort luôn">C. Vì phải đổi sang Selection Sort luôn</span>
+<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Vì tất cả input đều đã sắp">D. Vì tất cả input đều đã sắp</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Đúng:</strong> Đúng: lượt có đổi chỗ chưa bảo đảm toàn bộ mảng đã xong.</li><li><strong>B. Sai:</strong> Mẫu có break với điều kiện thích hợp.</li><li><strong>C. Sai:</strong> Không cần đổi thuật toán để sửa điều kiện.</li><li><strong>D. Sai:</strong> Input chưa biết không bảo đảm đã sắp.</li></ul></div></div>
+<button class="quiz-btn" onclick="gradeQuiz('q5')" aria-label="Chấm năm câu quiz chương 5">Chấm điểm</button><div class="quiz-result" id="result-q5"></div><p class="quiz-feedback-status" role="status" aria-live="polite"></p>
+</div>
+</section>
 
     <!-- ================= CHƯƠNG 6 ================= -->
   </main>
@@ -151,5 +176,6 @@ document.querySelectorAll('pre').forEach(pre=>{ if(!pre.querySelector('code')){ 
 </script>
 <script src="../assets/lesson.js" data-lesson-phase="finish"></script>
 
+<script src="../assets/quiz-feedback.js"></script>
 </body>
 </html>

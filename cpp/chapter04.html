@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="../assets/lesson.css">
 <title>Chương 4 — Biến &amp; Kiểu dữ liệu — Giáo Trình C++ | Synaptrail</title>
 <link rel="stylesheet" href="../assets/ui.css">
+<link rel="stylesheet" href="../assets/quiz-feedback.css">
 </head>
 <body>
 <div id="progress-bar"></div>
@@ -125,17 +126,34 @@ int main() {
 // PI = 3.14;                  // LỖI biên dịch nếu bỏ comment dòng này</code></pre>
       </div>
 
-      <div class="quiz" data-quiz="q4">
-        <h4>📝 Quiz nhanh — Chương 4</h4>
-        <div class="quiz-q" data-answer="1">
-          <p>1. Kiểu dữ liệu nào phù hợp nhất để lưu một số thực có độ chính xác cao?</p>
-          <span class="quiz-opt" data-idx="0">int</span>
-          <span class="quiz-opt" data-idx="1">double</span>
-          <span class="quiz-opt" data-idx="2">char</span>
-        </div>
-        <button class="quiz-btn" onclick="gradeQuiz('q4')">Chấm điểm</button>
-        <div class="quiz-result" id="result-q4"></div>
-      </div>
+      <div class="quiz" data-quiz="q4" data-quiz-feedback>
+<h4>Quiz — Chương 4 · 5 câu</h4>
+<div class="quiz-q" data-answer="0" data-question-kind="concept" role="group" aria-labelledby="q4-question-1"><span class="quiz-kind">Nhớ khái niệm</span><p id="q4-question-1">1. Static typing được chương mô tả như thế nào?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Kiểu của biến được xác định khi khai báo">A. Kiểu của biến được xác định khi khai báo</span>
+<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Biến luôn tự đổi kiểu theo mọi giá trị mới">B. Biến luôn tự đổi kiểu theo mọi giá trị mới</span>
+<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Không được khai báo biến">C. Không được khai báo biến</span>
+<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Mọi biến đều là string">D. Mọi biến đều là string</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Đúng:</strong> Đúng: ví dụ int x giữ kiểu int.</li><li><strong>B. Sai:</strong> Đây không phải cách bài giải thích.</li><li><strong>C. Sai:</strong> Bài có nhiều khai báo biến.</li><li><strong>D. Sai:</strong> Bài liệt kê int, double, bool và các kiểu khác.</li></ul></div></div>
+<div class="quiz-q" data-answer="2" data-question-kind="concept" role="group" aria-labelledby="q4-question-2"><span class="quiz-kind">Nhớ khái niệm</span><p id="q4-question-2">2. const trong ví dụ có ý nghĩa gì?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Biến luôn tăng một">A. Biến luôn tăng một</span>
+<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Chỉ cho phép chuỗi">B. Chỉ cho phép chuỗi</span>
+<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Không được thay đổi giá trị sau khởi tạo">C. Không được thay đổi giá trị sau khởi tạo</span>
+<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Luôn làm giá trị bằng 0">D. Luôn làm giá trị bằng 0</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> Đây là hành vi của ++, không phải const.</li><li><strong>B. Sai:</strong> PI trong bài là double.</li><li><strong>C. Đúng:</strong> Đúng: phép gán lại PI được đánh dấu lỗi.</li><li><strong>D. Sai:</strong> Ví dụ PI khởi tạo 3.14159.</li></ul></div></div>
+<div class="quiz-q" data-answer="1" data-question-kind="application" role="group" aria-labelledby="q4-question-3"><span class="quiz-kind">Áp dụng / đọc code</span><p id="q4-question-3">3. Dòng xuất tương ứng ví dụ bien.cpp cho nội dung nào?</p><pre aria-label="Đoạn mã cần đọc"><code>string ten = &quot;Huy&quot;;
+int tuoi = 20;
+double diem_tb = 8.5;
+cout &lt;&lt; ten &lt;&lt; &quot; &quot; &lt;&lt; tuoi &lt;&lt; &quot; &quot; &lt;&lt; diem_tb;</code></pre><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. 20 Huy 8.5">A. 20 Huy 8.5</span>
+<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Huy 20 8.5">B. Huy 20 8.5</span>
+<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Huy208.5">C. Huy208.5</span>
+<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. ten tuoi diem_tb">D. ten tuoi diem_tb</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> Thứ tự trong biểu thức bắt đầu bằng ten.</li><li><strong>B. Đúng:</strong> Đúng: các giá trị được xuất theo thứ tự với khoảng trắng.</li><li><strong>C. Sai:</strong> Có khoảng trắng được xuất giữa các giá trị.</li><li><strong>D. Sai:</strong> cout dùng giá trị biến, không in tên biến.</li></ul></div></div>
+<div class="quiz-q" data-answer="3" data-question-kind="application" role="group" aria-labelledby="q4-question-4"><span class="quiz-kind">Áp dụng / đọc code</span><p id="q4-question-4">4. Cần lưu đúng/sai như dang_hoc trong ví dụ. Chọn khai báo nào?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. char dang_hoc = 'A';">A. char dang_hoc = 'A';</span>
+<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. string dang_hoc = &quot;true&quot;;">B. string dang_hoc = &quot;true&quot;;</span>
+<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. double dang_hoc = 8.5;">C. double dang_hoc = 8.5;</span>
+<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. bool dang_hoc = true;">D. bool dang_hoc = true;</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> char ở đây lưu ký tự.</li><li><strong>B. Sai:</strong> Đây là chuỗi chữ, không phải bool.</li><li><strong>C. Sai:</strong> Đây là số thực.</li><li><strong>D. Đúng:</strong> Đúng: bool biểu diễn giá trị logic trong mẫu.</li></ul></div></div>
+<div class="quiz-q" data-answer="0" data-question-kind="error" role="group" aria-labelledby="q4-question-5"><span class="quiz-kind">Tìm lỗi</span><p id="q4-question-5">5. Nếu bỏ comment ở dòng thứ hai, lỗi nào xảy ra?</p><pre aria-label="Đoạn mã cần đọc"><code>const double PI = 3.14159;
+PI = 3.14;</code></pre><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Gán lại một hằng const">A. Gán lại một hằng const</span>
+<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. PI chưa được khai báo">B. PI chưa được khai báo</span>
+<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. double không nhận số thực">C. double không nhận số thực</span>
+<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Hai giá trị giống nhau nên lỗi">D. Hai giá trị giống nhau nên lỗi</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Đúng:</strong> Đúng: PI không được thay đổi sau khởi tạo.</li><li><strong>B. Sai:</strong> PI đã khai báo ở dòng đầu.</li><li><strong>C. Sai:</strong> double được dùng chính cho số thực.</li><li><strong>D. Sai:</strong> Lỗi do const, không do việc so sánh hai giá trị.</li></ul></div></div>
+<button class="quiz-btn" onclick="gradeQuiz('q4')" aria-label="Chấm năm câu quiz chương 4">Chấm điểm</button><div class="quiz-result" id="result-q4"></div><p class="quiz-feedback-status" role="status" aria-live="polite"></p>
+</div>
 
       <div class="summary-box">
         <h4>📌 Tổng kết chương 4</h4>
@@ -169,5 +187,6 @@ document.querySelectorAll('pre').forEach(pre=>{ if(!pre.querySelector('code')){ 
 </script>
 <script src="../assets/lesson.js" data-lesson-phase="finish"></script>
 
+<script src="../assets/quiz-feedback.js"></script>
 </body>
 </html>

@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="../assets/lesson.css">
 <title>Chương 3 — Chương trình đầu tiên — Giáo Trình C++ | Synaptrail</title>
 <link rel="stylesheet" href="../assets/ui.css">
+<link rel="stylesheet" href="../assets/quiz-feedback.css">
 </head>
 <body>
 <div id="progress-bar"></div>
@@ -119,7 +120,31 @@ hello.exe                       # chạy trên Windows</code></pre>
         <h4>📌 Tổng kết chương 3</h4>
         <p>Chương trình C++ cần <code>#include</code> để nhúng thư viện, hàm <code>main()</code> bắt buộc, và phải biên dịch (g++) trước khi chạy được, khác với Python chạy trực tiếp.</p>
       </div>
-    </section>
+    <div class="quiz" data-quiz="q3" data-quiz-feedback>
+<h4>Quiz — Chương 3 · 5 câu</h4>
+<div class="quiz-q" data-answer="2" data-question-kind="concept" role="group" aria-labelledby="q3-question-1"><span class="quiz-kind">Nhớ khái niệm</span><p id="q3-question-1">1. Trong ví dụ hello.cpp, main đóng vai trò gì?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Lưu chuỗi đầu ra">A. Lưu chuỗi đầu ra</span>
+<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Chọn màu terminal">B. Chọn màu terminal</span>
+<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Điểm bắt đầu của chương trình">C. Điểm bắt đầu của chương trình</span>
+<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Thay thế file mã nguồn">D. Thay thế file mã nguồn</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> Chuỗi nằm trong lệnh cout.</li><li><strong>B. Sai:</strong> Ví dụ không có chức năng này.</li><li><strong>C. Đúng:</strong> Đúng: bài giải thích main như điểm vào.</li><li><strong>D. Sai:</strong> main là hàm trong nguồn, không thay file.</li></ul></div></div>
+<div class="quiz-q" data-answer="1" data-question-kind="concept" role="group" aria-labelledby="q3-question-2"><span class="quiz-kind">Nhớ khái niệm</span><p id="q3-question-2">2. Trong ví dụ, return 0 biểu thị điều gì?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Chắc chắn in số 0">A. Chắc chắn in số 0</span>
+<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Kết thúc main với mã thành công">B. Kết thúc main với mã thành công</span>
+<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Lặp main vô hạn">C. Lặp main vô hạn</span>
+<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Bắt đầu biên dịch">D. Bắt đầu biên dịch</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> return không phải lệnh cout.</li><li><strong>B. Đúng:</strong> Đúng: đây là ý nghĩa trong bài.</li><li><strong>C. Sai:</strong> Lệnh kết thúc hàm, không tạo vòng lặp.</li><li><strong>D. Sai:</strong> Biên dịch diễn ra trước khi chạy.</li></ul></div></div>
+<div class="quiz-q" data-answer="0" data-question-kind="application" role="group" aria-labelledby="q3-question-3"><span class="quiz-kind">Áp dụng / đọc code</span><p id="q3-question-3">3. Đoạn xuất dưới đây in gì?</p><pre aria-label="Đoạn mã cần đọc"><code>std::cout &lt;&lt; &quot;Hello, World!&quot; &lt;&lt; std::endl;</code></pre><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Hello, World! rồi xuống dòng">A. Hello, World! rồi xuống dòng</span>
+<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. std::cout">B. std::cout</span>
+<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Hello, World!0">C. Hello, World!0</span>
+<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Không có nội dung nào">D. Không có nội dung nào</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Đúng:</strong> Đúng: cout in chuỗi và endl xuống dòng.</li><li><strong>B. Sai:</strong> Tên đối tượng không phải chuỗi được in.</li><li><strong>C. Sai:</strong> return 0 không thêm vào đầu ra.</li><li><strong>D. Sai:</strong> Lệnh cout thực hiện xuất.</li></ul></div></div>
+<div class="quiz-q" data-answer="3" data-question-kind="application" role="group" aria-labelledby="q3-question-4"><span class="quiz-kind">Áp dụng / đọc code</span><p id="q3-question-4">4. Lệnh g++ hello.cpp -o hello tạo đầu ra nào theo bài?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Chỉ file HTML">A. Chỉ file HTML</span>
+<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Mã Java trong hello.java">B. Mã Java trong hello.java</span>
+<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Chỉ thay tên nguồn thành hello">C. Chỉ thay tên nguồn thành hello</span>
+<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. File thực thi mang tên hello theo môi trường">D. File thực thi mang tên hello theo môi trường</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> Đó không phải đầu ra của quy trình này.</li><li><strong>B. Sai:</strong> Bài không chuyển C++ sang Java.</li><li><strong>C. Sai:</strong> Compiler không đơn thuần đổi tên nguồn.</li><li><strong>D. Đúng:</strong> Đúng: -o đặt tên đầu ra biên dịch.</li></ul></div></div>
+<div class="quiz-q" data-answer="1" data-question-kind="error" role="group" aria-labelledby="q3-question-5"><span class="quiz-kind">Tìm lỗi</span><p id="q3-question-5">5. Đã dùng cout/endl trong mẫu nhưng quên include thư viện được bài yêu cầu. Cần thêm gì?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. #include &lt;string&gt; thay mọi thư viện">A. #include &lt;string&gt; thay mọi thư viện</span>
+<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. #include &lt;iostream&gt;">B. #include &lt;iostream&gt;</span>
+<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Xóa hàm main">C. Xóa hàm main</span>
+<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Đổi return 0 thành cout">D. Đổi return 0 thành cout</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> string không phải header được mẫu này chỉ định.</li><li><strong>B. Đúng:</strong> Đúng: header nhập/xuất chuẩn trong hello.cpp.</li><li><strong>C. Sai:</strong> Xóa điểm vào không bổ sung thư viện.</li><li><strong>D. Sai:</strong> Không sửa việc thiếu include.</li></ul></div></div>
+<button class="quiz-btn" onclick="gradeQuiz('q3')" aria-label="Chấm năm câu quiz chương 3">Chấm điểm</button><div class="quiz-result" id="result-q3"></div><p class="quiz-feedback-status" role="status" aria-live="polite"></p>
+</div>
+</section>
 
     <!-- ================= CHƯƠNG 4 ================= -->
   </main>
@@ -147,5 +172,6 @@ document.querySelectorAll('pre').forEach(pre=>{ if(!pre.querySelector('code')){ 
 </script>
 <script src="../assets/lesson.js" data-lesson-phase="finish"></script>
 
+<script src="../assets/quiz-feedback.js"></script>
 </body>
 </html>

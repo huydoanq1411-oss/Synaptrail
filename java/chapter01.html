@@ -21,6 +21,7 @@
 <title>Chương 1 — Giới thiệu Java — Giáo Trình Java | Synaptrail</title>
 <link rel="stylesheet" href="../assets/ui.css">
 <link rel="stylesheet" href="../assets/progress.css">
+<link rel="stylesheet" href="../assets/quiz-feedback.css">
 </head>
 <body>
 <div id="progress-bar"></div>
@@ -113,13 +114,31 @@ java WelcomeJava</code></pre></div>
 <div class="box note"><div class="box-title">Vừa — Thử kết quả cũ</div><p>Biên dịch bản gốc, sửa nội dung mà chưa biên dịch lại, rồi chạy. So sánh với kết quả sau khi biên dịch mới. Giải thích sự khác nhau, không xóa file class trước thử nghiệm.</p></div>
 <div class="box note"><div class="box-title">Khó — Hướng dẫn bàn giao</div><p>Viết checklist để bạn học chạy chương trình từ mã nguồn trên máy khác: công cụ, phiên bản, tên file, thư mục và lệnh. Nếu có máy thứ hai, kiểm chứng; nếu không, dùng thư mục mới và ghi giới hạn thử nghiệm.</p></div>
 <div class="summary-box"><h4>7. Tóm tắt</h4><p>Mã nguồn .java được javac biên dịch thành bytecode .class; JVM thực thi bytecode khi bạn chạy lệnh java. Khả năng đa nền tảng cần môi trường tương thích. Học bằng cách dự đoán, chạy và quan sát file tạo ra.</p></div>
-<div class="quiz" data-quiz="q1"><h4>8. Quiz — Chương 1</h4>
-<div class="quiz-q" data-answer="2"><p>1. javac tạo dạng nào từ mã nguồn?</p><span class="quiz-opt" data-idx="0">HTML</span><span class="quiz-opt" data-idx="1">Ảnh</span><span class="quiz-opt" data-idx="2">Bytecode</span></div>
-<div class="quiz-q" data-answer="0"><p>2. Thành phần nào thực thi bytecode?</p><span class="quiz-opt" data-idx="0">JVM</span><span class="quiz-opt" data-idx="1">Trình soạn thảo</span><span class="quiz-opt" data-idx="2">File .java</span></div>
-<div class="quiz-q" data-answer="1"><p>3. Sửa mã rồi muốn chạy bản mới, cần làm gì?</p><span class="quiz-opt" data-idx="0">Chỉ đổi tên file class</span><span class="quiz-opt" data-idx="1">Lưu và biên dịch lại</span><span class="quiz-opt" data-idx="2">Xóa JVM</span></div>
-<div class="quiz-q" data-answer="0"><p>4. Có lệnh java nhưng thiếu javac nghĩa là gì?</p><span class="quiz-opt" data-idx="0">Chưa đủ công cụ cho quy trình biên dịch này</span><span class="quiz-opt" data-idx="1">Đã đủ JDK chắc chắn</span><span class="quiz-opt" data-idx="2">Máy không thể đọc văn bản</span></div>
-<div class="quiz-q" data-answer="2"><p>5. Đa nền tảng có bỏ qua yêu cầu phiên bản không?</p><span class="quiz-opt" data-idx="0">Có, mọi phiên bản đều tương đương</span><span class="quiz-opt" data-idx="1">Chỉ cần internet</span><span class="quiz-opt" data-idx="2">Không, cần runtime tương thích</span></div>
-<button class="quiz-btn" onclick="gradeQuiz('q1')" aria-label="Chấm năm câu quiz chương 1">Chấm điểm</button><div class="quiz-result" id="result-q1"></div></div>
+<div class="quiz" data-quiz="q1" data-quiz-feedback>
+<h4>Quiz — Chương 1 · 5 câu</h4>
+<div class="quiz-q" data-answer="2" data-question-kind="concept" role="group" aria-labelledby="q1-question-1"><span class="quiz-kind">Nhớ khái niệm</span><p id="q1-question-1">1. javac chuyển mã nguồn Java thành gì?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. HTML">A. HTML</span>
+<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Mã nguồn JavaScript">B. Mã nguồn JavaScript</span>
+<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Bytecode trong file .class">C. Bytecode trong file .class</span>
+<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Thông báo nhận hàng">D. Thông báo nhận hàng</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> HTML là tài liệu web, không phải đầu ra của javac.</li><li><strong>B. Sai:</strong> Java và JavaScript là hai ngôn ngữ khác nhau.</li><li><strong>C. Đúng:</strong> Đúng: bài mô tả javac tạo bytecode .class.</li><li><strong>D. Sai:</strong> Thông báo là đầu ra khi chương trình chạy.</li></ul></div></div>
+<div class="quiz-q" data-answer="0" data-question-kind="concept" role="group" aria-labelledby="q1-question-2"><span class="quiz-kind">Nhớ khái niệm</span><p id="q1-question-2">2. Vai trò của JVM trong quy trình ở bài là gì?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Thực thi bytecode">A. Thực thi bytecode</span>
+<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Soạn thảo file .java">B. Soạn thảo file .java</span>
+<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Tự sửa mọi lỗi lập trình">C. Tự sửa mọi lỗi lập trình</span>
+<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Biến Java thành JavaScript">D. Biến Java thành JavaScript</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Đúng:</strong> Đúng: JVM thực thi chương trình đã biên dịch.</li><li><strong>B. Sai:</strong> Trình soạn thảo phục vụ bước viết mã.</li><li><strong>C. Sai:</strong> Biên dịch và thực thi không bảo đảm đúng yêu cầu.</li><li><strong>D. Sai:</strong> Bài không có bước chuyển đổi này.</li></ul></div></div>
+<div class="quiz-q" data-answer="1" data-question-kind="application" role="group" aria-labelledby="q1-question-3"><span class="quiz-kind">Áp dụng / đọc code</span><p id="q1-question-3">3. Hai lệnh in này tạo đầu ra nào?</p><pre aria-label="Đoạn mã cần đọc"><code>System.out.println(&quot;Welcome to Java&quot;);
+System.out.println(&quot;Order received&quot;);</code></pre><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Hai thông báo trên cùng một dòng">A. Hai thông báo trên cùng một dòng</span>
+<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Welcome to Java rồi Order received, trên hai dòng">B. Welcome to Java rồi Order received, trên hai dòng</span>
+<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Chỉ Order received">C. Chỉ Order received</span>
+<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Tên file WelcomeJava.java">D. Tên file WelcomeJava.java</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> println xuống dòng sau mỗi thông báo.</li><li><strong>B. Đúng:</strong> Đúng: hai println chạy theo thứ tự.</li><li><strong>C. Sai:</strong> Lệnh đầu cũng được thực thi.</li><li><strong>D. Sai:</strong> Chương trình không in tên file.</li></ul></div></div>
+<div class="quiz-q" data-answer="3" data-question-kind="application" role="group" aria-labelledby="q1-question-4"><span class="quiz-kind">Áp dụng / đọc code</span><p id="q1-question-4">4. Muốn bàn giao bytecode cho máy khác, cần kiểm tra điều gì?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Chỉ cần cùng trình soạn thảo">A. Chỉ cần cùng trình soạn thảo</span>
+<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Chỉ cần có internet">B. Chỉ cần có internet</span>
+<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Chỉ cần cùng tên người dùng">C. Chỉ cần cùng tên người dùng</span>
+<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Phiên bản runtime và các phụ thuộc phù hợp">D. Phiên bản runtime và các phụ thuộc phù hợp</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> Trình soạn thảo không thực thi bytecode.</li><li><strong>B. Sai:</strong> Ví dụ không cần mạng; runtime mới là điều cần kiểm tra.</li><li><strong>C. Sai:</strong> Tên người dùng không bảo đảm môi trường tương thích.</li><li><strong>D. Đúng:</strong> Đúng: bài nêu phiên bản, phụ thuộc và hệ điều hành.</li></ul></div></div>
+<div class="quiz-q" data-answer="0" data-question-kind="error" role="group" aria-labelledby="q1-question-5"><span class="quiz-kind">Tìm lỗi</span><p id="q1-question-5">5. Đổi thông báo trong .java nhưng chạy vẫn thấy thông báo cũ. Thiếu bước nào?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Lưu rồi biên dịch lại file nguồn">A. Lưu rồi biên dịch lại file nguồn</span>
+<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Đổi tên JVM">B. Đổi tên JVM</span>
+<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Sửa trực tiếp file .class như văn bản">C. Sửa trực tiếp file .class như văn bản</span>
+<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Chuyển sang JavaScript">D. Chuyển sang JavaScript</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Đúng:</strong> Đúng: cần cập nhật file .class trước khi chạy.</li><li><strong>B. Sai:</strong> Tên JVM không cập nhật mã đã biên dịch.</li><li><strong>C. Sai:</strong> Bài yêu cầu sửa mã nguồn, không sửa bytecode như văn bản.</li><li><strong>D. Sai:</strong> Không cần đổi ngôn ngữ để sửa thông báo.</li></ul></div></div>
+<button class="quiz-btn" onclick="gradeQuiz('q1')" aria-label="Chấm năm câu quiz chương 1">Chấm điểm</button><div class="quiz-result" id="result-q1"></div><p class="quiz-feedback-status" role="status" aria-live="polite"></p>
+</div>
 <p>Đối chiếu: <a href="https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html">lệnh java</a> và <a href="https://docs.oracle.com/en/java/javase/21/docs/specs/man/javac.html">lệnh javac</a>.</p>
 </section>
 
@@ -150,5 +169,6 @@ document.querySelectorAll('pre').forEach(pre=>{ if(!pre.querySelector('code')){ 
 <script src="../assets/lesson.js" data-lesson-phase="finish"></script>
 
 <script src="../assets/progress.js"></script>
+<script src="../assets/quiz-feedback.js"></script>
 </body>
 </html>

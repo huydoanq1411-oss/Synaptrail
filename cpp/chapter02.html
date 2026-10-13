@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="../assets/lesson.css">
 <title>Chương 2 — Cài đặt trình biên dịch — Giáo Trình C++ | Synaptrail</title>
 <link rel="stylesheet" href="../assets/ui.css">
+<link rel="stylesheet" href="../assets/quiz-feedback.css">
 </head>
 <body>
 <div id="progress-bar"></div>
@@ -114,7 +115,31 @@
         <h4>📌 Tổng kết chương 2</h4>
         <p>Cần cài trình biên dịch (GCC/Clang/MSVC) và một IDE như VS Code. Luôn kiểm tra bằng lệnh <code>g++ --version</code> trước khi bắt đầu.</p>
       </div>
-    </section>
+    <div class="quiz" data-quiz="q2" data-quiz-feedback>
+<h4>Quiz — Chương 2 · 5 câu</h4>
+<div class="quiz-q" data-answer="0" data-question-kind="concept" role="group" aria-labelledby="q2-question-1"><span class="quiz-kind">Nhớ khái niệm</span><p id="q2-question-1">1. Để biên dịch mã C++, cần thành phần nào?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Trình biên dịch như GCC, Clang hoặc MSVC">A. Trình biên dịch như GCC, Clang hoặc MSVC</span>
+<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Chỉ theme của VS Code">B. Chỉ theme của VS Code</span>
+<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Chỉ trình duyệt">C. Chỉ trình duyệt</span>
+<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Chỉ file ảnh">D. Chỉ file ảnh</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Đúng:</strong> Đúng: các compiler này được bài liệt kê.</li><li><strong>B. Sai:</strong> Theme không biên dịch mã.</li><li><strong>C. Sai:</strong> Trình duyệt không thay compiler trong bài.</li><li><strong>D. Sai:</strong> File ảnh không phải công cụ phát triển.</li></ul></div></div>
+<div class="quiz-q" data-answer="2" data-question-kind="concept" role="group" aria-labelledby="q2-question-2"><span class="quiz-kind">Nhớ khái niệm</span><p id="q2-question-2">2. Lệnh nào kiểm tra bản cài g++?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. g++ hello.exe">A. g++ hello.exe</span>
+<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. java -version">B. java -version</span>
+<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. g++ --version">C. g++ --version</span>
+<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. g++ --theme">D. g++ --theme</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> Đây không phải lệnh kiểm tra phiên bản trong bài.</li><li><strong>B. Sai:</strong> Lệnh này kiểm tra Java, không phải g++.</li><li><strong>C. Đúng:</strong> Đúng: bài dùng lệnh này để kiểm tra.</li><li><strong>D. Sai:</strong> Không phải tùy chọn kiểm tra phiên bản.</li></ul></div></div>
+<div class="quiz-q" data-answer="1" data-question-kind="application" role="group" aria-labelledby="q2-question-3"><span class="quiz-kind">Áp dụng / đọc code</span><p id="q2-question-3">3. Theo bảng trong bài, môi trường nào đi với Clang qua Xcode Command Line Tools?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Chỉ Windows với MinGW">A. Chỉ Windows với MinGW</span>
+<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. macOS">B. macOS</span>
+<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Mọi trang web không cần cài gì">C. Mọi trang web không cần cài gì</span>
+<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Chỉ Java runtime">D. Chỉ Java runtime</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> Bảng gắn Windows với MinGW/MSVC.</li><li><strong>B. Đúng:</strong> Đúng: bảng gắn macOS với Clang/Xcode tools.</li><li><strong>C. Sai:</strong> Bảng đang nói về công cụ trên máy.</li><li><strong>D. Sai:</strong> Java runtime không phải môi trường này.</li></ul></div></div>
+<div class="quiz-q" data-answer="3" data-question-kind="application" role="group" aria-labelledby="q2-question-4"><span class="quiz-kind">Áp dụng / đọc code</span><p id="q2-question-4">4. Muốn chọn chuẩn C++23 theo cú pháp đã nêu, chọn lệnh nào?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. g++ --version=c++23 chuong_trinh.cpp">A. g++ --version=c++23 chuong_trinh.cpp</span>
+<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. g++ chuong_trinh.cpp -theme=c++23">B. g++ chuong_trinh.cpp -theme=c++23</span>
+<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. java -std=c++23 chuong_trinh.cpp">C. java -std=c++23 chuong_trinh.cpp</span>
+<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. g++ -std=c++23 chuong_trinh.cpp">D. g++ -std=c++23 chuong_trinh.cpp</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> --version không phải cách chọn chuẩn ở bài.</li><li><strong>B. Sai:</strong> Theme không chọn chuẩn biên dịch.</li><li><strong>C. Sai:</strong> Bài dùng compiler C++, không dùng java.</li><li><strong>D. Đúng:</strong> Đúng: cờ chọn chuẩn được bài minh họa.</li></ul></div></div>
+<div class="quiz-q" data-answer="0" data-question-kind="error" role="group" aria-labelledby="q2-question-5"><span class="quiz-kind">Tìm lỗi</span><p id="q2-question-5">5. Trên Windows, g++ báo “not recognized” dù MinGW đã có. Cần kiểm tra gì?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Thư mục bin của MinGW trong PATH">A. Thư mục bin của MinGW trong PATH</span>
+<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Mọi dấu chấm phẩy trong chương trình">B. Mọi dấu chấm phẩy trong chương trình</span>
+<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Màu biểu tượng IDE">C. Màu biểu tượng IDE</span>
+<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Tên biến trong Java">D. Tên biến trong Java</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Đúng:</strong> Đúng: bài nêu bổ sung/kiểm tra đường dẫn này.</li><li><strong>B. Sai:</strong> Lệnh chưa được tìm thấy, chưa đến bước biên dịch nguồn.</li><li><strong>C. Sai:</strong> Màu không ảnh hưởng việc tìm lệnh.</li><li><strong>D. Sai:</strong> Không liên quan công cụ C++.</li></ul></div></div>
+<button class="quiz-btn" onclick="gradeQuiz('q2')" aria-label="Chấm năm câu quiz chương 2">Chấm điểm</button><div class="quiz-result" id="result-q2"></div><p class="quiz-feedback-status" role="status" aria-live="polite"></p>
+</div>
+</section>
 
     <!-- ================= CHƯƠNG 3 ================= -->
   </main>
@@ -142,5 +167,6 @@ document.querySelectorAll('pre').forEach(pre=>{ if(!pre.querySelector('code')){ 
 </script>
 <script src="../assets/lesson.js" data-lesson-phase="finish"></script>
 
+<script src="../assets/quiz-feedback.js"></script>
 </body>
 </html>
