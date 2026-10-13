@@ -1,0 +1,681 @@
+diff --git a/artifacts/bootstrap-before/fullstack-js/chapter05.html b/fullstack-js/chapter05.html
+index 284eba0..4054688 100644
+--- a/artifacts/bootstrap-before/fullstack-js/chapter05.html
++++ b/fullstack-js/chapter05.html
+@@ -1,138 +1,9 @@
+-<!DOCTYPE html>
+-<html lang="vi">
+-<head>
+-
+-<script>
+-(function(){
+-  try{
+-    var t = localStorage.getItem('synaptrail-theme') || 'light';
+-    document.documentElement.setAttribute('data-theme', t);
+-  }catch(e){
+-    document.documentElement.setAttribute('data-theme', 'light');
+-  }
+-})();
+-</script>
+-<meta charset="UTF-8">
+-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+-<link rel="preconnect" href="https://fonts.googleapis.com">
+-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+-<link rel="stylesheet" href="../assets/lesson.css">
+-<title>Chương 5 — Bootstrap — Grid System — Giáo Trình Full-Stack JS Roadmap | Synaptrail</title>
+-<link rel="stylesheet" href="../assets/ui.css">
+-</head>
+-<body>
+-<div id="progress-bar"></div>
+-<div id="topbar">
+-  <span class="brand">🚀 Full-Stack JS</span>
+-  <div class="topbar-right">
+-    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
+-    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
+-  </div>
+-</div>
+-<div class="layout">
+-  <aside id="sidebar">
+-    <div class="brand">🚀 Full-Stack JS</div>
+-    <div class="sub" aria-live="polite">Đang đếm chương…</div>
+-    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
+-    <div class="nav-group-title">Danh sách chương</div>
+-    <a class="nav-link" href="chapter01.html">Chương 1 — Git — Kiểm soát phiên bản</a>
+-    <a class="nav-link" href="chapter02.html">Chương 2 — GitHub &amp; Quy trình làm việc nhóm</a>
+-    <a class="nav-link" href="chapter03.html">Chương 3 — TypeScript — Kiểu dữ liệu cơ bản</a>
+-    <a class="nav-link" href="chapter04.html">Chương 4 — TypeScript — Interface, Type &amp; Generics</a>
+-    <a class="nav-link active" href="chapter05.html">Chương 5 — Bootstrap — Grid System</a>
+-    <a class="nav-link" href="chapter06.html">Chương 6 — Bootstrap — Components &amp; Utilities</a>
+-    <a class="nav-link" href="chapter07.html">Chương 7 — SASS/SCSS — Biến &amp; Nesting</a>
+-    <a class="nav-link" href="chapter08.html">Chương 8 — SASS/SCSS — Mixin &amp; Tổ chức Folder</a>
+-    <a class="nav-link" href="chapter09.html">Chương 9 — MySQL — Truy vấn cơ bản</a>
+-    <a class="nav-link" href="chapter10.html">Chương 10 — MySQL — JOIN &amp; Truy vấn nâng cao</a>
+-    <a class="nav-link" href="chapter11.html">Chương 11 — Kết nối Node.js với MySQL</a>
+-    <a class="nav-link" href="chapter12.html">Chương 12 — ORM Sequelize</a>
+-    <a class="nav-link" href="chapter13.html">Chương 13 — ORM Prisma</a>
+-    <a class="nav-link" href="chapter14.html">Chương 14 — GraphQL — Query &amp; Mutation</a>
+-    <a class="nav-link" href="chapter15.html">Chương 15 — GraphQL Server với Apollo</a>
+-    <a class="nav-link" href="chapter16.html">Chương 16 — Socket.IO — Giao tiếp Real-time</a>
+-    <a class="nav-link" href="chapter17.html">Chương 17 — NestJS — Kiến trúc Module/Controller/Service</a>
+-    <a class="nav-link" href="chapter18.html">Chương 18 — NestJS — Dependency Injection &amp; DTO</a>
+-    <a class="nav-link" href="chapter19.html">Chương 19 — Docker — Đóng gói ứng dụng</a>
+-    <a class="nav-link" href="chapter20.html">Chương 20 — Docker Compose — Multi-container</a>
+-    <a class="nav-link" href="chapter21.html">Chương 21 — Triển khai VPS DigitalOcean</a>
+-    <a class="nav-link" href="chapter22.html">Chương 22 — Dự án cuối khóa Full-Stack</a>
+-    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
+-  </aside>
+-  <div class="main-col">
+-<div class="chpage">
+-  <div class="crumb">
+-    <a href="../index.html">🏠 Trang chủ</a> ·
+-    <a href="index.html">🚀 Full-Stack JS</a> ·
+-    <span>Chương 5 — Bootstrap — Grid System</span>
+-  </div>
+-  <main style="padding:0;max-width:none;">
+-<section class="chapter" id="s5">
+-      <h2>Chương <span class="num">5</span> — Bootstrap — Grid System</h2>
+-      <p class="lead">Framework CSS phổ biến nhất thế giới — xây giao diện responsive nhanh chóng nhờ hệ lưới 12 cột có sẵn.</p>
+-
+-      <div class="code-wrap">
+-        <span class="code-label">index.html</span>
+-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+-        <pre><code>&lt;!-- Nhúng Bootstrap qua CDN --&gt;
+-&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+-&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;</code></pre>
+-      </div>
+-
+-      <h3>Hệ lưới 12 cột (Grid System)</h3>
+-      <div class="code-wrap">
+-        <span class="code-label">grid_system.html</span>
+-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+-        <pre><code>&lt;div class="container"&gt;
+-    &lt;div class="row"&gt;
+-        &lt;div class="col-4"&gt;Chiếm 4/12 cột&lt;/div&gt;
+-        &lt;div class="col-8"&gt;Chiếm 8/12 cột&lt;/div&gt;
+-    &lt;/div&gt;
+-
+-    &lt;!-- Responsive: khác nhau theo kích thước màn hình --&gt;
+-    &lt;div class="row"&gt;
+-        &lt;div class="col-12 col-md-6 col-lg-4"&gt;
+-            Mobile: full width | Tablet: 1/2 | Desktop: 1/3
+-        &lt;/div&gt;
+-    &lt;/div&gt;
+-&lt;/div&gt;</code></pre>
+-      </div>
+-
+-      <table>
+-        <tr><th>Breakpoint</th><th>Tiền tố class</th><th>Kích thước màn hình</th></tr>
+-        <tr><td>Extra small</td><td>col- (không tiền tố)</td><td>&lt; 576px</td></tr>
+-        <tr><td>Small</td><td>col-sm-</td><td>≥ 576px</td></tr>
+-        <tr><td>Medium</td><td>col-md-</td><td>≥ 768px</td></tr>
+-        <tr><td>Large</td><td>col-lg-</td><td>≥ 992px</td></tr>
+-        <tr><td>Extra large</td><td>col-xl-</td><td>≥ 1200px</td></tr>
+-      </table>
+-
+-      <div class="box note">
+-        <div class="box-title">Ghi chú</div>
+-        Bootstrap Grid dựa trên Flexbox (đã học ở giáo trình HTML/CSS chương 12) — <code>.container</code> giới hạn chiều rộng tối đa, <code>.row</code> là flex container, <code>.col-*</code> là các flex item chia theo 12 phần.
+-      </div>
+-
+-      <div class="summary-box">
+-        <h4>📌 Tổng kết chương 5</h4>
+-        <p>Bootstrap Grid dùng hệ 12 cột với các class col-*, kết hợp tiền tố breakpoint (sm/md/lg/xl) để tạo layout responsive nhanh chóng mà không cần tự viết CSS Grid/Flexbox từ đầu.</p>
+-      </div>
+-    </section>
+-
+-    <!-- ================= CHƯƠNG 6 ================= -->
+-  </main>
+-  <div class="chnav">
+-    <a class="nav-btn prev" href="chapter04.html">← Chương 4 — TypeScript — Interface, Type &amp; Generics</a>
+-    <a class="nav-btn next" href="chapter06.html">Chương 6 — Bootstrap — Components &amp; Utilities →</a>
+-  </div>
+-</div>
+-</div>
+-</div>
+-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+-<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
+-
+-<script src="../assets/code-highlighter.js"></script>
+-<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
+-
+-</body>
+-</html>
++<!doctype html>
++<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
++<meta http-equiv="refresh" content="0;url=../bootstrap/chapter01.html">
++<meta name="description" content="Bài học Bootstrap đã chuyển sang khóa riêng tại Synaptrail. Dùng liên kết bên dưới để mở bài học nếu trình duyệt không tự chuyển hướng.">
++<title>Bài học đã chuyển — Bootstrap | Synaptrail</title>
++<link rel="stylesheet" href="../assets/ui.css"></head>
++<body><main><h1>Bài học Bootstrap đã chuyển</h1><p><a href="../bootstrap/chapter01.html">Mở bài học tại vị trí mới →</a></p></main>
++<script>location.replace("../bootstrap/chapter01.html" + location.hash);</script>
++</body></html>
+diff --git a/artifacts/bootstrap-before/fullstack-js/chapter06.html b/fullstack-js/chapter06.html
+index e7a20bb..52c88f4 100644
+--- a/artifacts/bootstrap-before/fullstack-js/chapter06.html
++++ b/fullstack-js/chapter06.html
+@@ -1,153 +1,9 @@
+-<!DOCTYPE html>
+-<html lang="vi">
+-<head>
+-
+-<script>
+-(function(){
+-  try{
+-    var t = localStorage.getItem('synaptrail-theme') || 'light';
+-    document.documentElement.setAttribute('data-theme', t);
+-  }catch(e){
+-    document.documentElement.setAttribute('data-theme', 'light');
+-  }
+-})();
+-</script>
+-<meta charset="UTF-8">
+-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+-<link rel="preconnect" href="https://fonts.googleapis.com">
+-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+-<link rel="stylesheet" href="../assets/lesson.css">
+-<title>Chương 6 — Bootstrap — Components &amp; Utilities — Giáo Trình Full-Stack JS Roadmap | Synaptrail</title>
+-<link rel="stylesheet" href="../assets/ui.css">
+-</head>
+-<body>
+-<div id="progress-bar"></div>
+-<div id="topbar">
+-  <span class="brand">🚀 Full-Stack JS</span>
+-  <div class="topbar-right">
+-    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
+-    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
+-  </div>
+-</div>
+-<div class="layout">
+-  <aside id="sidebar">
+-    <div class="brand">🚀 Full-Stack JS</div>
+-    <div class="sub" aria-live="polite">Đang đếm chương…</div>
+-    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
+-    <div class="nav-group-title">Danh sách chương</div>
+-    <a class="nav-link" href="chapter01.html">Chương 1 — Git — Kiểm soát phiên bản</a>
+-    <a class="nav-link" href="chapter02.html">Chương 2 — GitHub &amp; Quy trình làm việc nhóm</a>
+-    <a class="nav-link" href="chapter03.html">Chương 3 — TypeScript — Kiểu dữ liệu cơ bản</a>
+-    <a class="nav-link" href="chapter04.html">Chương 4 — TypeScript — Interface, Type &amp; Generics</a>
+-    <a class="nav-link" href="chapter05.html">Chương 5 — Bootstrap — Grid System</a>
+-    <a class="nav-link active" href="chapter06.html">Chương 6 — Bootstrap — Components &amp; Utilities</a>
+-    <a class="nav-link" href="chapter07.html">Chương 7 — SASS/SCSS — Biến &amp; Nesting</a>
+-    <a class="nav-link" href="chapter08.html">Chương 8 — SASS/SCSS — Mixin &amp; Tổ chức Folder</a>
+-    <a class="nav-link" href="chapter09.html">Chương 9 — MySQL — Truy vấn cơ bản</a>
+-    <a class="nav-link" href="chapter10.html">Chương 10 — MySQL — JOIN &amp; Truy vấn nâng cao</a>
+-    <a class="nav-link" href="chapter11.html">Chương 11 — Kết nối Node.js với MySQL</a>
+-    <a class="nav-link" href="chapter12.html">Chương 12 — ORM Sequelize</a>
+-    <a class="nav-link" href="chapter13.html">Chương 13 — ORM Prisma</a>
+-    <a class="nav-link" href="chapter14.html">Chương 14 — GraphQL — Query &amp; Mutation</a>
+-    <a class="nav-link" href="chapter15.html">Chương 15 — GraphQL Server với Apollo</a>
+-    <a class="nav-link" href="chapter16.html">Chương 16 — Socket.IO — Giao tiếp Real-time</a>
+-    <a class="nav-link" href="chapter17.html">Chương 17 — NestJS — Kiến trúc Module/Controller/Service</a>
+-    <a class="nav-link" href="chapter18.html">Chương 18 — NestJS — Dependency Injection &amp; DTO</a>
+-    <a class="nav-link" href="chapter19.html">Chương 19 — Docker — Đóng gói ứng dụng</a>
+-    <a class="nav-link" href="chapter20.html">Chương 20 — Docker Compose — Multi-container</a>
+-    <a class="nav-link" href="chapter21.html">Chương 21 — Triển khai VPS DigitalOcean</a>
+-    <a class="nav-link" href="chapter22.html">Chương 22 — Dự án cuối khóa Full-Stack</a>
+-    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
+-  </aside>
+-  <div class="main-col">
+-<div class="chpage">
+-  <div class="crumb">
+-    <a href="../index.html">🏠 Trang chủ</a> ·
+-    <a href="index.html">🚀 Full-Stack JS</a> ·
+-    <span>Chương 6 — Bootstrap — Components &amp; Utilities</span>
+-  </div>
+-  <main style="padding:0;max-width:none;">
+-<section class="chapter" id="s6">
+-      <h2>Chương <span class="num">6</span> — Bootstrap — Components &amp; Utilities</h2>
+-      <p class="lead">Thư viện component dựng sẵn (nút, form, modal, navbar...) và các class tiện ích giúp code HTML thuần gần như không cần viết CSS riêng.</p>
+-
+-      <div class="code-wrap">
+-        <span class="code-label">components.html</span>
+-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+-        <pre><code>&lt;!-- Navbar --&gt;
+-&lt;nav class="navbar navbar-expand-lg navbar-dark bg-dark"&gt;
+-    &lt;div class="container"&gt;
+-        &lt;a class="navbar-brand" href="#"&gt;TechShop&lt;/a&gt;
+-    &lt;/div&gt;
+-&lt;/nav&gt;
+-
+-&lt;!-- Card --&gt;
+-&lt;div class="card" style="width: 18rem;"&gt;
+-    &lt;div class="card-body"&gt;
+-        &lt;h5 class="card-title"&gt;Sản phẩm A&lt;/h5&gt;
+-        &lt;p class="card-text"&gt;Mô tả ngắn gọn về sản phẩm.&lt;/p&gt;
+-        &lt;button class="btn btn-primary"&gt;Mua ngay&lt;/button&gt;
+-    &lt;/div&gt;
+-&lt;/div&gt;
+-
+-&lt;!-- Modal (popup) --&gt;
+-&lt;button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal"&gt;Mở popup&lt;/button&gt;
+-&lt;div class="modal" id="myModal"&gt;
+-    &lt;div class="modal-dialog"&gt;
+-        &lt;div class="modal-content"&gt;
+-            &lt;div class="modal-body"&gt;Nội dung popup&lt;/div&gt;
+-        &lt;/div&gt;
+-    &lt;/div&gt;
+-&lt;/div&gt;</code></pre>
+-      </div>
+-
+-      <h3>Utility classes — tiện ích nhanh</h3>
+-      <table>
+-        <tr><th>Class</th><th>Công dụng</th></tr>
+-        <tr><td><code>d-flex</code>, <code>justify-content-center</code></td><td>Tương đương display:flex, justify-content:center</td></tr>
+-        <tr><td><code>mt-3</code>, <code>p-4</code></td><td>margin-top cấp 3, padding cấp 4 (thang đo 0-5 của Bootstrap)</td></tr>
+-        <tr><td><code>text-center</code>, <code>fw-bold</code></td><td>Căn giữa chữ, chữ đậm</td></tr>
+-        <tr><td><code>d-none d-md-block</code></td><td>Ẩn trên mobile, hiện từ tablet trở lên (responsive utility)</td></tr>
+-      </table>
+-
+-      <div class="box tip">
+-        <div class="box-title">Mẹo</div>
+-        Component tương tác (modal, dropdown, carousel...) cần JavaScript của Bootstrap (<code>bootstrap.bundle.min.js</code>) — chỉ nhúng CSS thôi thì các component này sẽ có giao diện đúng nhưng KHÔNG hoạt động (mở/đóng) được.
+-      </div>
+-
+-      <div class="quiz" data-quiz="q6">
+-        <h4>📝 Quiz nhanh — Chương 5-6</h4>
+-        <div class="quiz-q" data-answer="1">
+-          <p>1. Class nào chiếm 1/2 chiều rộng (6/12 cột) trên màn hình từ tablet (md) trở lên?</p>
+-          <span class="quiz-opt" data-idx="0">col-half</span>
+-          <span class="quiz-opt" data-idx="1">col-md-6</span>
+-          <span class="quiz-opt" data-idx="2">col-50</span>
+-        </div>
+-        <button class="quiz-btn" onclick="gradeQuiz('q6')">Chấm điểm</button>
+-        <div class="quiz-result" id="result-q6"></div>
+-      </div>
+-
+-      <div class="summary-box">
+-        <h4>📌 Tổng kết chương 6</h4>
+-        <p>Bootstrap cung cấp component dựng sẵn (navbar, card, modal) và utility class (d-flex, mt-3, text-center) giúp xây giao diện nhanh — component tương tác cần nhúng thêm phần JavaScript.</p>
+-      </div>
+-    </section>
+-
+-    <!-- ================= CHƯƠNG 7 ================= -->
+-  </main>
+-  <div class="chnav">
+-    <a class="nav-btn prev" href="chapter05.html">← Chương 5 — Bootstrap — Grid System</a>
+-    <a class="nav-btn next" href="chapter07.html">Chương 7 — SASS/SCSS — Biến &amp; Nesting →</a>
+-  </div>
+-</div>
+-</div>
+-</div>
+-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+-<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
+-
+-<script src="../assets/code-highlighter.js"></script>
+-<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
+-
+-</body>
+-</html>
++<!doctype html>
++<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
++<meta http-equiv="refresh" content="0;url=../bootstrap/chapter02.html">
++<meta name="description" content="Bài học Bootstrap đã chuyển sang khóa riêng tại Synaptrail. Dùng liên kết bên dưới để mở bài học nếu trình duyệt không tự chuyển hướng.">
++<title>Bài học đã chuyển — Bootstrap | Synaptrail</title>
++<link rel="stylesheet" href="../assets/ui.css"></head>
++<body><main><h1>Bài học Bootstrap đã chuyển</h1><p><a href="../bootstrap/chapter02.html">Mở bài học tại vị trí mới →</a></p></main>
++<script>location.replace("../bootstrap/chapter02.html" + location.hash);</script>
++</body></html>
+diff --git a/artifacts/bootstrap-before/fullstack-js/index.html b/fullstack-js/index.html
+index 9f86730..fc790c2 100644
+--- a/artifacts/bootstrap-before/fullstack-js/index.html
++++ b/fullstack-js/index.html
+@@ -174,8 +174,8 @@ tr td{transition:background .15s;}
+     <li><a href="chapter02.html"><span class="toc-num">02</span>Chương 2 — GitHub &amp; Quy trình làm việc nhóm</a></li>
+     <li><a href="chapter03.html"><span class="toc-num">03</span>Chương 3 — TypeScript — Kiểu dữ liệu cơ bản</a></li>
+     <li><a href="chapter04.html"><span class="toc-num">04</span>Chương 4 — TypeScript — Interface, Type &amp; Generics</a></li>
+-    <li><a href="chapter05.html"><span class="toc-num">05</span>Chương 5 — Bootstrap — Grid System</a></li>
+-    <li><a href="chapter06.html"><span class="toc-num">06</span>Chương 6 — Bootstrap — Components &amp; Utilities</a></li>
++    <li><a href="../bootstrap/chapter01.html"><span class="toc-num">05</span>Chương 5 — Bootstrap — Grid System</a></li>
++    <li><a href="../bootstrap/chapter02.html"><span class="toc-num">06</span>Chương 6 — Bootstrap — Components &amp; Utilities</a></li>
+     <li><a href="chapter07.html"><span class="toc-num">07</span>Chương 7 — SASS/SCSS — Biến &amp; Nesting</a></li>
+     <li><a href="chapter08.html"><span class="toc-num">08</span>Chương 8 — SASS/SCSS — Mixin &amp; Tổ chức Folder</a></li>
+     <li><a href="chapter09.html"><span class="toc-num">09</span>Chương 9 — MySQL — Truy vấn cơ bản</a></li>
+diff --git a/artifacts/bootstrap-before/courses.html b/courses.html
+index 6c383db..96ab295 100644
+--- a/artifacts/bootstrap-before/courses.html
++++ b/courses.html
+@@ -1182,18 +1182,15 @@ html[data-theme="dark"] .prompt-copy-btn{ background: var(--line); color:#04121f
+           <a href="fullstack-js/chapter03.html" class="btn btn-start">Bắt đầu học →</a>
+         </div>
+       </article>
+-<article class="card resource-card" data-skill="bootstrap" data-name="bootstrap sass scss grid components mixin">
+-        <div class="card-top">
+-          <div class="card-icon">🎨</div>
+-          <span class="card-index mono">09</span>
+-        </div>
+-        <h3>Bootstrap &amp; SASS/SCSS</h3>
+-        <p class="desc">Grid System, Components & Utilities của Bootstrap, cùng biến, nesting và mixin trong SASS/SCSS.</p>
+-        <div class="tags"><span class="tag">Bootstrap</span><span class="tag">SASS</span></div>
+-        <div class="card-footer">
+-          <a href="fullstack-js/chapter05.html" class="btn btn-start">Bắt đầu học →</a>
+-        </div>
+-      </article>
++<article class="card resource-card" data-skill="bootstrap" data-name="bootstrap grid components utilities">
++<div class="card-top"><div class="card-icon">🎨</div><span class="card-index mono">09</span></div>
++<h3>Bootstrap</h3><p class="desc">2 chương nhập môn về Grid System, Components và Utilities.</p>
++<div class="tags"><span class="tag">Bootstrap</span></div><div class="card-footer"><a href="bootstrap/index.html" class="btn btn-start">Bắt đầu học →</a></div>
++</article>
++<article class="card resource-card" data-skill="sass" data-name="sass scss variables nesting mixin">
++<div class="card-top"><div class="card-icon">🎨</div></div><h3>SASS / SCSS</h3>
++<p class="desc">Biến, nesting, mixin và tổ chức SCSS. Khóa riêng sẽ được tách sau khi duyệt bản thử.</p>
++<div class="card-footer"><a href="fullstack-js/chapter07.html" class="btn btn-start">Bắt đầu học →</a></div></article>
+ <article class="card resource-card" data-skill="mysql" data-name="mysql orm sequelize prisma database sql">
+         <div class="card-top">
+           <div class="card-icon">🗄️</div>
+diff --git a/artifacts/bootstrap-before/README.md b/README.md
+index c4ec491..5b244ba 100644
+--- a/artifacts/bootstrap-before/README.md
++++ b/README.md
+@@ -340,3 +340,12 @@ Sau lần chỉnh danh mục thành bốn khu vực:
+ - Sau tách JS, kiểm tra theme, sidebar, search, progress, highlighter và chấm quiz trên Python, React, C++ và thuật toán đều đạt. Copy được kiểm tra bằng clipboard giả lập ở trang có nút Copy; cần test dán vào trình soạn thảo để xác minh quyền clipboard thực tế.
+ 
+ Các kiểm tra trình duyệt lấy mẫu trang chủ, danh mục, mục lục React, bài Python đầu tiên, mục lục Full Stack và quiz tổng hợp. Chưa kiểm tra thủ công toàn bộ bài học, mọi chức năng quiz hoặc thiết bị vật lý.
++
++### Bản thử tách Bootstrap
++
++- Mục lục mới: [Bootstrap](bootstrap/index.html), hai chương đánh số 1–2.
++- URL cũ fullstack-js/chapter05.html và chapter06.html chuyển hướng, giữ fragment bookmark.
++- Sidebar và nút trước/sau chỉ điều hướng trong Bootstrap; ID nội dung và quiz được giữ nguyên.
++- Catalog tách Bootstrap khỏi SASS/SCSS; SASS tạm dùng bài cũ cho đến khi duyệt tách toàn bộ.
++- Xem kế hoạch: `node scripts/split-fullstack.cjs --dry-run`; áp dụng bản thử: `node scripts/split-fullstack.cjs`. Chạy lại không thay đổi file đã chuyển.
++- Các khóa còn lại và panel role chưa triển khai, chờ duyệt diff Bootstrap.
+diff --git a/artifacts/bootstrap-before/empty b/bootstrap/index.html
+index e69de29..eeafdcc 100644
+--- a/artifacts/bootstrap-before/empty
++++ b/bootstrap/index.html
+@@ -0,0 +1,32 @@
++<!DOCTYPE html>
++<html lang="vi">
++<head>
++
++<script>
++(function(){
++  try{
++    var t = localStorage.getItem('synaptrail-theme') || 'light';
++    document.documentElement.setAttribute('data-theme', t);
++  }catch(e){
++    document.documentElement.setAttribute('data-theme', 'light');
++  }
++})();
++</script>
++<meta charset="UTF-8">
++<meta name="viewport" content="width=device-width, initial-scale=1.0">
++<link rel="preconnect" href="https://fonts.googleapis.com">
++<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
++<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
++<link rel="stylesheet" href="../assets/lesson.css">
++<title>Mục lục — Bootstrap | Synaptrail</title>
++<link rel="stylesheet" href="../assets/ui.css">
++<meta name="description" content="Khóa Bootstrap nhập môn tại Synaptrail gồm hai chương về hệ lưới responsive, components và utilities, với ví dụ HTML và quiz ôn tập.">
++</head>
++<body>
++<div id="topbar"><span class="brand">Bootstrap</span><div class="topbar-right"><a class="home-btn" href="../courses.html">Danh mục khóa học</a></div></div>
++<main class="toc-wrap"><div class="crumb"><a href="../index.html">Trang chủ</a> · <a href="../courses.html">Khóa học</a> · Bootstrap</div>
++<h1>Mục lục Bootstrap</h1><p>2 chương nhập môn: hệ lưới responsive, components và utilities.</p>
++<a class="btn-start" href="chapter01.html">Bắt đầu học →</a>
++<ol class="toc-list"><li><a href="chapter01.html"><span class="toc-num">01</span>Chương 1 — Bootstrap — Grid System</a></li>
++<li><a href="chapter02.html"><span class="toc-num">02</span>Chương 2 — Bootstrap — Components &amp; Utilities</a></li></ol>
++</main></body></html>
+diff --git a/artifacts/bootstrap-before/empty b/bootstrap/chapter01.html
+index e69de29..f1caa3d 100644
+--- a/artifacts/bootstrap-before/empty
++++ b/bootstrap/chapter01.html
+@@ -0,0 +1,118 @@
++<!DOCTYPE html>
++<html lang="vi">
++<head>
++
++<script>
++(function(){
++  try{
++    var t = localStorage.getItem('synaptrail-theme') || 'light';
++    document.documentElement.setAttribute('data-theme', t);
++  }catch(e){
++    document.documentElement.setAttribute('data-theme', 'light');
++  }
++})();
++</script>
++<meta charset="UTF-8">
++<meta name="viewport" content="width=device-width, initial-scale=1.0">
++<link rel="preconnect" href="https://fonts.googleapis.com">
++<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
++<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
++<link rel="stylesheet" href="../assets/lesson.css">
++<title>Chương 1 — Bootstrap — Grid System — Bootstrap | Synaptrail</title>
++<link rel="stylesheet" href="../assets/ui.css">
++</head>
++<body>
++<div id="progress-bar"></div>
++<div id="topbar">
++  <span class="brand">🚀 Bootstrap</span>
++  <div class="topbar-right">
++    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
++    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
++  </div>
++</div>
++<div class="layout">
++  <aside id="sidebar">
++    <div class="brand">🚀 Bootstrap</div>
++    <div class="sub" aria-live="polite">2 chương</div>
++    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
++    <div class="nav-group-title">Danh sách chương</div>
++    <a class="nav-link active" href="chapter01.html">Chương 1 — Bootstrap — Grid System</a>
++    <a class="nav-link" href="chapter02.html">Chương 2 — Bootstrap — Components &amp; Utilities</a>
++    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
++  </aside>
++  <div class="main-col">
++<div class="chpage">
++  <div class="crumb">
++    <a href="../index.html">🏠 Trang chủ</a> ·
++    <a href="index.html">🚀 Bootstrap</a> ·
++    <span>Chương 1 — Bootstrap — Grid System</span>
++  </div>
++  <main style="padding:0;max-width:none;">
++<section class="chapter" id="s5">
++      <h2>Chương <span class="num">1</span> — Bootstrap — Grid System</h2>
++      <p class="lead">Framework CSS phổ biến nhất thế giới — xây giao diện responsive nhanh chóng nhờ hệ lưới 12 cột có sẵn.</p>
++
++      <div class="code-wrap">
++        <span class="code-label">index.html</span>
++        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
++        <pre><code>&lt;!-- Nhúng Bootstrap qua CDN --&gt;
++&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
++&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;</code></pre>
++      </div>
++
++      <h3>Hệ lưới 12 cột (Grid System)</h3>
++      <div class="code-wrap">
++        <span class="code-label">grid_system.html</span>
++        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
++        <pre><code>&lt;div class="container"&gt;
++    &lt;div class="row"&gt;
++        &lt;div class="col-4"&gt;Chiếm 4/12 cột&lt;/div&gt;
++        &lt;div class="col-8"&gt;Chiếm 8/12 cột&lt;/div&gt;
++    &lt;/div&gt;
++
++    &lt;!-- Responsive: khác nhau theo kích thước màn hình --&gt;
++    &lt;div class="row"&gt;
++        &lt;div class="col-12 col-md-6 col-lg-4"&gt;
++            Mobile: full width | Tablet: 1/2 | Desktop: 1/3
++        &lt;/div&gt;
++    &lt;/div&gt;
++&lt;/div&gt;</code></pre>
++      </div>
++
++      <table>
++        <tr><th>Breakpoint</th><th>Tiền tố class</th><th>Kích thước màn hình</th></tr>
++        <tr><td>Extra small</td><td>col- (không tiền tố)</td><td>&lt; 576px</td></tr>
++        <tr><td>Small</td><td>col-sm-</td><td>≥ 576px</td></tr>
++        <tr><td>Medium</td><td>col-md-</td><td>≥ 768px</td></tr>
++        <tr><td>Large</td><td>col-lg-</td><td>≥ 992px</td></tr>
++        <tr><td>Extra large</td><td>col-xl-</td><td>≥ 1200px</td></tr>
++      </table>
++
++      <div class="box note">
++        <div class="box-title">Ghi chú</div>
++        Bootstrap Grid dựa trên Flexbox (đã học ở giáo trình HTML/CSS chương 12) — <code>.container</code> giới hạn chiều rộng tối đa, <code>.row</code> là flex container, <code>.col-*</code> là các flex item chia theo 12 phần.
++      </div>
++
++      <div class="summary-box">
++        <h4>📌 Tổng kết chương 1</h4>
++        <p>Bootstrap Grid dùng hệ 12 cột với các class col-*, kết hợp tiền tố breakpoint (sm/md/lg/xl) để tạo layout responsive nhanh chóng mà không cần tự viết CSS Grid/Flexbox từ đầu.</p>
++      </div>
++    </section>
++
++    <!-- ================= CHƯƠNG 6 ================= -->
++  </main>
++  <div class="chnav">
++    <a class="nav-btn prev" href="index.html">← Mục lục Bootstrap</a>
++    <a class="nav-btn next" href="chapter02.html">Chương 2 — Bootstrap — Components &amp; Utilities →</a>
++  </div>
++</div>
++</div>
++</div>
++<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
++<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
++
++<script src="../assets/code-highlighter.js"></script>
++<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
++
++</body>
++</html>
+diff --git a/artifacts/bootstrap-before/empty b/bootstrap/chapter02.html
+index e69de29..f7a9f18 100644
+--- a/artifacts/bootstrap-before/empty
++++ b/bootstrap/chapter02.html
+@@ -0,0 +1,133 @@
++<!DOCTYPE html>
++<html lang="vi">
++<head>
++
++<script>
++(function(){
++  try{
++    var t = localStorage.getItem('synaptrail-theme') || 'light';
++    document.documentElement.setAttribute('data-theme', t);
++  }catch(e){
++    document.documentElement.setAttribute('data-theme', 'light');
++  }
++})();
++</script>
++<meta charset="UTF-8">
++<meta name="viewport" content="width=device-width, initial-scale=1.0">
++<link rel="preconnect" href="https://fonts.googleapis.com">
++<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
++<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
++<link rel="stylesheet" href="../assets/lesson.css">
++<title>Chương 2 — Bootstrap — Components &amp; Utilities — Bootstrap | Synaptrail</title>
++<link rel="stylesheet" href="../assets/ui.css">
++</head>
++<body>
++<div id="progress-bar"></div>
++<div id="topbar">
++  <span class="brand">🚀 Bootstrap</span>
++  <div class="topbar-right">
++    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
++    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
++  </div>
++</div>
++<div class="layout">
++  <aside id="sidebar">
++    <div class="brand">🚀 Bootstrap</div>
++    <div class="sub" aria-live="polite">2 chương</div>
++    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
++    <div class="nav-group-title">Danh sách chương</div>
++    <a class="nav-link" href="chapter01.html">Chương 1 — Bootstrap — Grid System</a>
++    <a class="nav-link active" href="chapter02.html">Chương 2 — Bootstrap — Components &amp; Utilities</a>
++    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
++  </aside>
++  <div class="main-col">
++<div class="chpage">
++  <div class="crumb">
++    <a href="../index.html">🏠 Trang chủ</a> ·
++    <a href="index.html">🚀 Bootstrap</a> ·
++    <span>Chương 2 — Bootstrap — Components &amp; Utilities</span>
++  </div>
++  <main style="padding:0;max-width:none;">
++<section class="chapter" id="s6">
++      <h2>Chương <span class="num">2</span> — Bootstrap — Components &amp; Utilities</h2>
++      <p class="lead">Thư viện component dựng sẵn (nút, form, modal, navbar...) và các class tiện ích giúp code HTML thuần gần như không cần viết CSS riêng.</p>
++
++      <div class="code-wrap">
++        <span class="code-label">components.html</span>
++        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
++        <pre><code>&lt;!-- Navbar --&gt;
++&lt;nav class="navbar navbar-expand-lg navbar-dark bg-dark"&gt;
++    &lt;div class="container"&gt;
++        &lt;a class="navbar-brand" href="#"&gt;TechShop&lt;/a&gt;
++    &lt;/div&gt;
++&lt;/nav&gt;
++
++&lt;!-- Card --&gt;
++&lt;div class="card" style="width: 18rem;"&gt;
++    &lt;div class="card-body"&gt;
++        &lt;h5 class="card-title"&gt;Sản phẩm A&lt;/h5&gt;
++        &lt;p class="card-text"&gt;Mô tả ngắn gọn về sản phẩm.&lt;/p&gt;
++        &lt;button class="btn btn-primary"&gt;Mua ngay&lt;/button&gt;
++    &lt;/div&gt;
++&lt;/div&gt;
++
++&lt;!-- Modal (popup) --&gt;
++&lt;button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal"&gt;Mở popup&lt;/button&gt;
++&lt;div class="modal" id="myModal"&gt;
++    &lt;div class="modal-dialog"&gt;
++        &lt;div class="modal-content"&gt;
++            &lt;div class="modal-body"&gt;Nội dung popup&lt;/div&gt;
++        &lt;/div&gt;
++    &lt;/div&gt;
++&lt;/div&gt;</code></pre>
++      </div>
++
++      <h3>Utility classes — tiện ích nhanh</h3>
++      <table>
++        <tr><th>Class</th><th>Công dụng</th></tr>
++        <tr><td><code>d-flex</code>, <code>justify-content-center</code></td><td>Tương đương display:flex, justify-content:center</td></tr>
++        <tr><td><code>mt-3</code>, <code>p-4</code></td><td>margin-top cấp 3, padding cấp 4 (thang đo 0-5 của Bootstrap)</td></tr>
++        <tr><td><code>text-center</code>, <code>fw-bold</code></td><td>Căn giữa chữ, chữ đậm</td></tr>
++        <tr><td><code>d-none d-md-block</code></td><td>Ẩn trên mobile, hiện từ tablet trở lên (responsive utility)</td></tr>
++      </table>
++
++      <div class="box tip">
++        <div class="box-title">Mẹo</div>
++        Component tương tác (modal, dropdown, carousel...) cần JavaScript của Bootstrap (<code>bootstrap.bundle.min.js</code>) — chỉ nhúng CSS thôi thì các component này sẽ có giao diện đúng nhưng KHÔNG hoạt động (mở/đóng) được.
++      </div>
++
++      <div class="quiz" data-quiz="q6">
++        <h4>📝 Quiz nhanh — Chương 1–2</h4>
++        <div class="quiz-q" data-answer="1">
++          <p>1. Class nào chiếm 1/2 chiều rộng (6/12 cột) trên màn hình từ tablet (md) trở lên?</p>
++          <span class="quiz-opt" data-idx="0">col-half</span>
++          <span class="quiz-opt" data-idx="1">col-md-6</span>
++          <span class="quiz-opt" data-idx="2">col-50</span>
++        </div>
++        <button class="quiz-btn" onclick="gradeQuiz('q6')">Chấm điểm</button>
++        <div class="quiz-result" id="result-q6"></div>
++      </div>
++
++      <div class="summary-box">
++        <h4>📌 Tổng kết chương 2</h4>
++        <p>Bootstrap cung cấp component dựng sẵn (navbar, card, modal) và utility class (d-flex, mt-3, text-center) giúp xây giao diện nhanh — component tương tác cần nhúng thêm phần JavaScript.</p>
++      </div>
++    </section>
++
++    <!-- ================= CHƯƠNG 7 ================= -->
++  </main>
++  <div class="chnav">
++    <a class="nav-btn prev" href="chapter01.html">← Chương 1 — Bootstrap — Grid System</a>
++    <a class="nav-btn next" href="index.html">Mục lục Bootstrap →</a>
++  </div>
++</div>
++</div>
++</div>
++<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
++<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
++
++<script src="../assets/code-highlighter.js"></script>
++<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
++
++</body>
++</html>
