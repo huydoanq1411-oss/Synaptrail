@@ -15,6 +15,8 @@ for(const number of [1,2,3]){
  function run(name,args){const result=spawnSync(executable(name),args,{cwd:output,encoding:'utf8'});if(result.error)throw result.error;if(result.status!==0)throw Error(result.stderr);return result.stdout.replace(/\r\n/g,'\n').trim()}
  run('javac',['--release','8','-encoding','UTF-8','-d','.',...examples.map(e=>e[1])]);
  for(const [,file]of examples){const name=file.replace(/\.java$/,'');const stdout=run('java',['-cp','.',name]);if(name==='EnvironmentCheck'){const lines=stdout.split('\n');assert.equal(lines[0],'Compiler and runtime are ready');assert(/^[\d][\d.+_-]*$/.test(lines[1]),'Runtime version output');assert.equal(lines.length,2);}else assert.equal(stdout,expected[name]);}
- results.push({chapter,wordsExcludingCode:words,quiz:5,compiledAndRun:examples.map(e=>e[1])});
+ let terminalCommands=0;
+ for(const [,commands] of section.matchAll(/<span class="code-label">Terminal[^<]*<\/span>[\s\S]*?<pre><code>([\s\S]*?)<\/code><\/pre>/g))for(const line of commands.trim().split('\n')){const [name,...args]=line.trim().split(/\s+/);assert(['java','javac'].includes(name));run(name,args);terminalCommands++;}
+ results.push({chapter,wordsExcludingCode:words,quiz:5,compiledAndRun:examples.map(e=>e[1]),terminalCommands});
 }
 console.log(JSON.stringify({target:'Java 8',results,errors:[]},null,2));
