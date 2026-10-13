@@ -28,7 +28,7 @@
     document.getElementById('resourceEmpty').hidden=!query||extra>0;
   }
   function setHash(key){const url=new URL(location.href);url.hash=key?'role='+key:'';history.replaceState(null,'',url);}
-  function close(updateURL=true,restore=true){if(modal.open)modal.close();panel.hidden=true;active=null;buttons.forEach(b=>{b.setAttribute('aria-expanded','false');b.setAttribute('aria-pressed','false');});reset.hidden=true;document.getElementById('roleStatus').textContent='Đang xem tất cả kỹ năng';if(updateURL)setHash(null);if(restore)opener?.focus({preventScroll:true});}
+  function close(updateURL=true,restore=true){if(modal.open)modal.close();panel.hidden=true;active=null;buttons.forEach(b=>{b.setAttribute('aria-expanded','false');b.setAttribute('aria-pressed','false');});reset.hidden=true;document.getElementById('roleStatus').textContent='Đang xem tất cả kỹ năng';if(updateURL)setHash(null);if(restore){const button=opener;button?.focus({preventScroll:true});setTimeout(()=>button?.focus({preventScroll:true}),50);}}
   function open(key,focus=true){
     const role=roles[key];if(!role){close(false,false);return;}
     if(modal.open)modal.close();panel.hidden=true;active=key;opener=buttons.find(b=>b.dataset.role===key);
@@ -37,7 +37,7 @@
     const list=target.querySelector('.role-skills');list.replaceChildren();
     role.skills.forEach((skill,i)=>{const card=data.get(skill);if(!card)return;const link=document.createElement('a');link.className='role-skill';link.href=card.querySelector('.btn-start').getAttribute('href');const img=document.createElement('img');img.src=card.querySelector('img').getAttribute('src');img.alt='';img.width=320;img.height=180;img.loading='lazy';fallback(img);const title=document.createElement('span');title.className='role-skill-title';title.textContent=(i+1)+'. '+card.querySelector('h3').textContent;const count=document.createElement('span');count.className='role-skill-count';count.textContent=card.dataset.chapters+' chương';link.append(img,title,count);list.append(link);});
     buttons.forEach(b=>{b.setAttribute('aria-expanded',String(b===opener));b.setAttribute('aria-pressed',String(b===opener));b.setAttribute('aria-controls',target.id);});reset.hidden=false;document.getElementById('roleStatus').textContent='Lộ trình '+role.name+' đang mở';setHash(key);
-    if(media.matches)modal.showModal();else panel.hidden=false;
+    if(media.matches){opener?.focus({preventScroll:true});modal.showModal();}else panel.hidden=false;
     if(focus){target.querySelector('[data-close-role]').focus({preventScroll:true});if(!media.matches)panel.scrollIntoView({block:'nearest',behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'});}
   }
   buttons.forEach(b=>b.addEventListener('click',()=>active===b.dataset.role?close():open(b.dataset.role)));
