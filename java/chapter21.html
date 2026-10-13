@@ -136,19 +136,8 @@ public class Main {
 </div>
 <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 <script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
-<script>function highlightJava(code){
-  const keywords = /\b(public|private|protected|class|static|void|int|double|float|char|boolean|long|String|new|return|if|else|for|while|do|switch|case|break|continue|try|catch|finally|throw|throws|extends|implements|interface|this|super|import|package|final|abstract|true|false|null)\b/g;
-  let html = code.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  html = html.replace(/(\/\/.*)$/gm, '<span class="tok-com">$1</span>');
-  html = html.replace(/(&quot;.*?&quot;|'.*?')/g, '<span class="tok-str">$1</span>');
-  html = html.replace(keywords, '<span class="tok-kw">$1</span>');
-  html = html.replace(/\b(\d+\.?\d*[fFlLdD]?)\b/g, '<span class="tok-num">$1</span>');
-  html = html.replace(/\b([a-zA-Z_][a-zA-Z0-9_]*)(?=\()/g, '<span class="tok-fn">$1</span>');
-  return html;
-}
-document.querySelectorAll('pre code').forEach(block=>{ block.innerHTML = highlightJava(block.textContent); });
-document.querySelectorAll('pre').forEach(pre=>{ if(!pre.querySelector('code')){ pre.innerHTML = highlightJava(pre.textContent); } });
-</script>
+
+<script src="../assets/code-highlighter.js"></script>
 <script src="../assets/lesson.js" data-lesson-phase="finish"></script>
 
 <script src="../assets/progress.js"></script>

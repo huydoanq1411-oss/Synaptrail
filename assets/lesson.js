@@ -138,12 +138,21 @@ function filterNav(query){
 }
 function copyCode(btn){
   const pre = btn.parentElement.querySelector('pre code') || btn.parentElement.querySelector('pre');
-  const text = pre.innerText;
+  const text = pre.textContent;
   navigator.clipboard.writeText(text).then(()=>{
     const old = btn.textContent;
     btn.textContent = '✓ Đã copy';
     setTimeout(()=>{ btn.textContent = old; }, 1500);
   });
+}
+
+
+// Count distinct chapter links in the actual sidebar, rather than legacy labels.
+const sidebar = document.getElementById('sidebar');
+if (sidebar && location.pathname.includes('/fullstack-js/')) {
+  const chapterLinks = new Set(Array.from(sidebar.querySelectorAll('a[href]')).map(link => new URL(link.getAttribute('href'), location.href)).filter(url => url.origin === location.origin && /\/fullstack-js\/chapter\d+\.html$/.test(url.pathname)).map(url => url.pathname));
+  const subtitle = sidebar.querySelector('.sub');
+  if (subtitle) subtitle.textContent = chapterLinks.size + ' chương';
 }
 
 Object.assign(window,{updateActiveNav,filterNav,copyCode});

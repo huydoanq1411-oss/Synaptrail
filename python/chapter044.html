@@ -229,31 +229,8 @@ except SoDuKhongDuException as e:
 </div>
 <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 <script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="2"></script>
-<script>function highlightPython(code){
-  const keywords = /\b(def|return|if|elif|else|for|while|in|import|from|as|class|try|except|finally|raise|with|pass|break|continue|lambda|True|False|None|and|or|not|is|global|yield|async|await)\b/g;
-  let html = code
-    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  html = html.replace(/(#.*)$/gm, '<span class="tok-com">$1</span>');
-  html = html.replace(/("""[\s\S]*?"""|'''[\s\S]*?''')/g, '<span class="tok-str">$1</span>');
-  html = html.replace(/(&quot;.*?&quot;|'.*?')/g, '<span class="tok-str">$1</span>');
-  html = html.replace(keywords, '<span class="tok-kw">$1</span>');
-  html = html.replace(/\b(\d+\.?\d*)\b/g, '<span class="tok-num">$1</span>');
-  html = html.replace(/\b([a-zA-Z_][a-zA-Z0-9_]*)(?=\()/g, '<span class="tok-fn">$1</span>');
-  return html;
-}
-document.querySelectorAll('pre code').forEach(block=>{
-  block.innerHTML = highlightPython(block.textContent);
-});
-document.querySelectorAll('pre').forEach(pre=>{
-  if(!pre.querySelector('code')){
-    pre.innerHTML = highlightPython(pre.textContent);
-  }
-});
 
-// ---------- Accordion (already toggled via onclick, nothing extra needed) ----------
-
-// ---------- Quiz grading ----------
-</script>
+<script src="../assets/code-highlighter.js"></script>
 <script src="../assets/lesson.js" data-lesson-phase="finish"></script>
 
 </body>

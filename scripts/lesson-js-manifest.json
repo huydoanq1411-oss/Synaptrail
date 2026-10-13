@@ -1,5 +1,5 @@
 {
-  "assetHash": "86a62b294556e61d6a0e7ac9f2b65b4cd8f663257ded93eb330e291fd1a4cb4a",
+  "assetHash": "1e63c0735c16177658a5e3002d6349a1892310e02abcda91d34e1fd0c475c982",
   "variants": {
     "379402e304fd2325680c35a25245cd1481879e92d5178027124586dea16b7511": {
       "mode": 0,
@@ -800,5 +800,5 @@
       ]
     }
   ],
-  "note": "Head theme bootstrap and language highlighters remain inline. Quiz answers remain in HTML."
+  "note": "Shared lesson runtime maintained after extraction. Language highlighters migrated to code-highlighter.js; original source hashes kept for audit."
 }

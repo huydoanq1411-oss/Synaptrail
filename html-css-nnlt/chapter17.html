@@ -160,20 +160,8 @@ body { font-family: 'Segoe UI', sans-serif; color: var(--mau-chu); line-height: 
 </div>
 <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 <script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
-<script>function highlightMarkup(code){
-  let html = code.replace(/&(?!amp;|lt;|gt;|quot;)/g,'&amp;');
-  html = html.replace(/(&lt;!--.*?--&gt;)/g, '<span class="tok-com">$1</span>');
-  html = html.replace(/(&lt;\/?)([a-zA-Z0-9-]+)/g, '$1<span class="tok-kw">$2</span>');
-  html = html.replace(/([a-zA-Z-]+)(=)(&quot;.*?&quot;)/g, '<span class="tok-fn">$1</span>$2<span class="tok-str">$3</span>');
-  // CSS-style highlighting fallback for property: value; and selectors
-  html = html.replace(/([.#]?[a-zA-Z0-9_-]+)(\s*\{)/g, '<span class="tok-type">$1</span>$2');
-  html = html.replace(/([a-zA-Z-]+)(\s*:\s*)([^;]+)(;)/g, '<span class="tok-fn">$1</span>$2<span class="tok-str">$3</span>$4');
-  html = html.replace(/(\/\*.*?\*\/)/g, '<span class="tok-com">$1</span>');
-  return html;
-}
-document.querySelectorAll('pre code').forEach(block=>{ block.innerHTML = highlightMarkup(block.textContent); });
-document.querySelectorAll('pre').forEach(pre=>{ if(!pre.querySelector('code')){ /* ASCII diagram - skip highlight */ } });
-</script>
+
+<script src="../assets/code-highlighter.js"></script>
 <script src="../assets/lesson.js" data-lesson-phase="finish"></script>
 
 </body>
