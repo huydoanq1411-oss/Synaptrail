@@ -18,7 +18,7 @@ function toggleTheme(){
 (function(){
   const label = document.getElementById('theme-label');
   const icon = document.getElementById('theme-icon');
-  const current = document.documentElement.getAttribute('data-theme') || 'light';
+  const current = document.documentElement.getAttribute('data-theme') || 'dark';
   if(label) label.textContent = current === 'dark' ? 'Chế độ tối' : 'Chế độ sáng';
   if(icon) icon.textContent = current === 'dark' ? '🌙' : '☀️';
 })();
@@ -41,7 +41,7 @@ function toggleTheme(){
 (function(){
   const label = document.getElementById('theme-label');
   const icon = document.getElementById('theme-icon');
-  const current = document.documentElement.getAttribute('data-theme') || 'light';
+  const current = document.documentElement.getAttribute('data-theme') || 'dark';
   if(label) label.textContent = current === 'dark' ? 'Chế độ tối' : 'Chế độ sáng';
   if(icon) icon.textContent = current === 'dark' ? '🌙' : '☀️';
 })();
@@ -64,7 +64,7 @@ function toggleTheme(){
 (function(){
   const label = document.getElementById('theme-label');
   const icon = document.getElementById('theme-icon');
-  const current = document.documentElement.getAttribute('data-theme') || 'light';
+  const current = document.documentElement.getAttribute('data-theme') || 'dark';
   if(label) label.textContent = current === 'dark' ? 'Chế độ tối' : 'Chế độ sáng';
   if(icon) icon.textContent = current === 'dark' ? '🌙' : '☀️';
 })();
@@ -87,7 +87,7 @@ function toggleTheme(){
 }
 (function(){
   const label = document.getElementById('theme-label');
-  const current = document.documentElement.getAttribute('data-theme') || 'light';
+  const current = document.documentElement.getAttribute('data-theme') || 'dark';
   if(label) label.textContent = current === 'dark' ? 'Chế độ tối' : 'Chế độ sáng';
 })();
 

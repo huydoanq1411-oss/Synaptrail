@@ -5,10 +5,10 @@
 <script>
 (function(){
   try{
-    var t = localStorage.getItem('synaptrail-theme') || 'light';
+    var t = localStorage.getItem('synaptrail-theme') || 'dark';
     document.documentElement.setAttribute('data-theme', t);
   }catch(e){
-    document.documentElement.setAttribute('data-theme', 'light');
+    document.documentElement.setAttribute('data-theme', 'dark');
   }
 })();
 </script>
