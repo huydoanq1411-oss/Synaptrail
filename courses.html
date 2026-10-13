@@ -1239,7 +1239,7 @@ const emptyState = document.getElementById('emptyState');
    quán với chính trạng thái của nó, không giả vờ có thể bấm).
    ============================================================ */
 cards.forEach(function(card){
-  const startLink = card.querySelector('.card-footer a.btn-start[href]');
+  const startLink = card.querySelector('a.btn-start[href]');
   if(!startLink){
     card.classList.add('card-disabled');
     return;
@@ -1333,7 +1333,7 @@ function fallbackCopy(text, cb){
 }
 </script>
 
-<script src="assets/catalog.js"></script>
+<script src="assets/catalog.js" defer></script>
 <script src="assets/progress.js"></script>
 <dialog id="roleModal" class="role-modal" aria-labelledby="roleModalTitle"><div class="role-panel-head"><h2 id="roleModalTitle" data-role-title></h2><button type="button" data-close-role aria-label="Đóng lộ trình">Đóng ×</button></div><div class="role-skills"></div></dialog></body>
 </html>
