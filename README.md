@@ -84,11 +84,11 @@ Script đọc code trực tiếp từ HTML, biên dịch hai ví dụ và đối
 
 **Đợt 1 — chương 1–3:**
 
-| Chương | Nội dung | Từ diễn giải, không tính khối code |
+| Chương | Nội dung | Từ diễn giải, không tính code và quiz |
 | --- | --- | ---: |
-| [1](java/chapter01.html) | Giới thiệu Java, mã nguồn → bytecode → JVM | 1.183 |
-| [2](java/chapter02.html) | Cài JDK, kiểm tra môi trường và lựa chọn JDK của IDE | 1.165 |
-| [3](java/chapter03.html) | Hello World, giải thích từng dòng, print/println và debug | 1.176 |
+| [1](java/chapter01.html) | Giới thiệu Java, mã nguồn → bytecode → JVM | 1.063 |
+| [2](java/chapter02.html) | Cài JDK, kiểm tra môi trường và lựa chọn JDK của IDE | 1.049 |
+| [3](java/chapter03.html) | Hello World, giải thích từng dòng, print/println và debug | 1.064 |
 
 Mỗi chương có năm câu quiz và bài tập ba mức. Giữ ID `s1`/`s2`/`s3`, quiz `q1` và kết quả `result-q1` cũ; bổ sung `q2`/`q3` cho hai chương trước đây chưa có quiz. Không đổi đường dẫn, sidebar, điều hướng hoặc stylesheet. Mã Java dùng ví dụ hoàn chỉnh với class/main; lệnh terminal không nhúng comment khác cú pháp shell.
 
@@ -111,6 +111,21 @@ Kết quả bản mẫu: đã biên dịch bằng JDK 21 với `--release 8` và
 Bạn có thể học từng kỹ năng độc lập hoặc theo nhóm kỹ năng của một role. Kết hợp bài học với bài tập và dự án để củng cố kiến thức.
 
 ## Giao diện và điều hướng
+
+### Quiz mẫu — chờ duyệt 5 chương đầu của ba môn
+
+Đã bổ sung **75 câu** cho chương 1–5 của **Java, C++ và thuật toán**. Mỗi chương có 2 câu nhớ khái niệm, 2 câu áp dụng/đọc code và 1 câu tìm lỗi; mỗi câu có 4 lựa chọn, giải thích vì sao từng lựa chọn đúng/sai. Các chương nhập môn chưa có code dùng tình huống áp dụng trong phạm vi nội dung bài. Không có câu sử dụng kiến thức ngoài chương trong đợt này.
+
+Giải thích ẩn trước khi chấm và hiện sau **Chấm điểm**. `assets/quiz-feedback.js` chỉ bổ sung hiển thị và thao tác bàn phím cho các lựa chọn; việc chọn đáp án, tính điểm và lưu tiến độ vẫn dùng `lesson.js`/`progress.js` hiện có. Quiz dùng `data-answer`, `data-idx`, `gradeQuiz`, `qN` và `result-qN` như trước. Không bật theo dõi tiến độ C++ hoặc thuật toán trong đợt quiz này.
+
+Đọc [toàn bộ câu hỏi và giải thích để duyệt](reports/quiz-first-five/review.md). Nguồn biên soạn và căn cứ nội dung từng câu ở `scripts/quiz-first-five-data.cjs`. Không sửa các chương sau chương 5 trước khi duyệt.
+
+```sh
+node scripts/check-first-five-quizzes.cjs
+node scripts/apply-first-five-quizzes.cjs --dry-run
+```
+
+Kiểm tra cấu trúc đạt: 15 chương, 75 câu, 300 lựa chọn, 75 phần giải thích ẩn. Kiểm tra trình duyệt đạt cho cả 15 trang: chọn bằng Enter, điểm 5/5 và 0/5, bốn lựa chọn/câu, giải thích chỉ hiện sau chấm. Chạy lại generator không đổi trang. Các ví dụ Java chương 1–3 vẫn biên dịch/chạy đúng; lỗi SEO trước đây vẫn chưa xử lý.
 
 ### Bản thử theo dõi tiến độ — Java
 
