@@ -20,6 +20,18 @@ const pause=ms=>new Promise(r=>setTimeout(r,ms));
   const evaluate=async expression=>{const evaluated=await call('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});if(evaluated.exceptionDetails)throw Error(evaluated.exceptionDetails.exception?.description||evaluated.exceptionDetails.text);return evaluated.result.value;};
   await call('Runtime.enable');await call('Page.enable');
   const results=[];
+  const navigateProgress=async route=>{await call('Page.navigate',{url:`http://127.0.0.1:${server.address().port}/${route}`});for(let i=0;i<60;i++){if(await evaluate("!!document.querySelector('.learning-progress')"))return;await pause(250)}throw Error('Progress UI not ready '+route)};
+  await navigateProgress('java/chapter01.html');
+  const progressChapter=await evaluate(`(()=>{localStorage.removeItem('synaptrail-progress');document.querySelector('[data-progress-done]').click();const data=JSON.parse(localStorage.getItem('synaptrail-progress'));const done=data.java.chapter01.done;const quiz=document.querySelector('[data-quiz]');let score=true;if(quiz){const questions=[...quiz.querySelectorAll('.quiz-q')];questions.forEach(q=>q.dataset.selected=q.dataset.answer);gradeQuiz(quiz.dataset.quiz);questions.forEach(q=>delete q.dataset.selected);gradeQuiz(quiz.dataset.quiz);score=JSON.parse(localStorage.getItem('synaptrail-progress')).java.chapter01.quizScore===100;}return {done,score,pressed:document.querySelector('[data-progress-done]').getAttribute('aria-pressed')==='true'}})()`);
+  await navigateProgress('java/chapter02.html');
+  const progressSidebar=await evaluate("[...document.querySelectorAll('#sidebar a[href]')].some(a=>a.getAttribute('href')==='chapter01.html'&&!!a.querySelector('.completed-chapter:not([hidden])'))");
+  await navigateProgress('java/index.html');
+  const progressToc=await evaluate("document.querySelector('.learning-progress progress').value===1&&!!document.querySelector('.toc-list a[href=\"chapter01.html\"] .completed-chapter:not([hidden])')");
+  await navigateProgress('courses.html');
+  const progressCatalog=await evaluate("document.querySelector('[data-skill=java] progress').value===1");
+  const progressImport=await evaluate(`(async()=>{const input=document.querySelector('[data-progress-file]');const imported={java:{chapter02:{done:true,quizScore:50,updatedAt:'2026-10-13T00:00:00Z'}}};Object.defineProperty(input,'files',{configurable:true,value:[{size:100,text:async()=>JSON.stringify(imported)}]});input.dispatchEvent(new Event('change'));await new Promise(r=>setTimeout(r,50));const merged=JSON.parse(localStorage.getItem('synaptrail-progress'));const importOk=merged.java.chapter01.done&&merged.java.chapter02.done;const before=localStorage.getItem('synaptrail-progress');Object.defineProperty(input,'files',{configurable:true,value:[{size:2,text:async()=>'{'}]});input.dispatchEvent(new Event('change'));await new Promise(r=>setTimeout(r,50));const invalid=localStorage.getItem('synaptrail-progress')===before&&!!document.querySelector('.learning-progress-message.progress-error');window.confirm=()=>false;document.querySelector('[data-progress-reset]').click();const cancelled=localStorage.getItem('synaptrail-progress')===before;window.confirm=()=>true;document.querySelector('[data-progress-reset]').click();return {importOk,invalid,cancelled,reset:localStorage.getItem('synaptrail-progress')===null,meterReset:document.querySelector('[data-skill=java] progress').value===0}})()`);
+  const progressResults={...progressChapter,sidebar:progressSidebar,toc:progressToc,catalog:progressCatalog,...progressImport};
+  if(Object.values(progressResults).some(value=>value!==true))failures.push('Java progress failed');
   const lessonResults=[];
   for(const route of ['python/chapter001.html','react/chapter01.html','cpp/chapter01.html','thuat-toan/chapter01.html']){
    await call('Page.navigate',{url:`http://127.0.0.1:${server.address().port}/${route}`});await pause(500);
@@ -50,6 +62,6 @@ const pause=ms=>new Promise(r=>setTimeout(r,ms));
   await call('Page.navigate',{url:`http://127.0.0.1:${server.address().port}/index.html#roadmap`});await pause(500);
   const legacyNavigation=await evaluate("location.pathname.endsWith('/courses.html')&&location.hash==='#roadmap'");
   if(!catalogueNavigation||!legacyNavigation)failures.push('Homepage navigation failed');
-  console.log(JSON.stringify({results,interactions,roleSelection,lessonResults,failures},null,2));process.exitCode=failures.length?1:0;
+  console.log(JSON.stringify({results,interactions,roleSelection,lessonResults,progressResults,failures},null,2));process.exitCode=failures.length?1:0;
  }finally{if(ws)ws.close();chrome.kill();server.close()}
 })().catch(e=>{console.error(e);server.close();process.exitCode=1});
