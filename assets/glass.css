@@ -57,3 +57,8 @@ html[data-theme="dark"] .catalog-page .role-panel{background:#a4bbd009;border-co
 
 /* Explicitly requested border draw remains animated; no card movement. */
 :is(.catalog-page,.landing-page) :is(.resource-card,.role-box,.role-skill,.path-card)::after{transition:width 650ms cubic-bezier(.45,0,.55,1)!important}
+
+/* Landing and catalogue use the same deep indigo palette as lessons. */
+.landing-page,html[data-theme="dark"] .catalog-page{background-color:#111225;color:#f4f5fb;background-image:radial-gradient(ellipse at 75% 12%,#48417335,transparent 48%),linear-gradient(#11122565,#111225b3),url('img/neural-trails.svg')}
+.landing-header,html[data-theme="dark"] .catalog-page .site-header{background:#14172bcf;border-color:#51567566}
+.landing-brand,.landing-copy h1,.learning-preview h2,.paths-heading h2,.path-card h3,.landing-bottom h2{color:#f4f5fb}.landing-nav a,.landing-eyebrow,.landing-lead,.landing-text-link,.learning-note,.preview-overline,.learning-preview>p:not(.preview-overline),.preview-bottom,.path-card p,.landing-bottom p,.landing-footer{color:#bac1d6}.landing-footer{background:#111225;border-color:#454b69}.catalog-page .role-modal{background:#1a1d35f2}
