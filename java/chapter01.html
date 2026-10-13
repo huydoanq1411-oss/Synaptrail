@@ -79,56 +79,49 @@
   </div>
   <main style="padding:0;max-width:none;">
 <section class="chapter" id="s1">
-      <h2>Chương <span class="num">1</span> — Giới thiệu Java</h2>
-      <p class="lead">Java là gì, triết lý "Write Once, Run Anywhere", và vì sao nó vẫn là một trong những ngôn ngữ phổ biến nhất thế giới.</p>
-
-      <h3>Java là gì?</h3>
-      <p>Java là ngôn ngữ lập trình hướng đối tượng, được Sun Microsystems (nay thuộc Oracle) phát hành năm 1995. Điểm đặc biệt: code Java không biên dịch trực tiếp thành mã máy, mà thành <strong>bytecode</strong> chạy trên JVM (Java Virtual Machine) — nhờ đó cùng một chương trình chạy được trên Windows, macOS, Linux mà không cần sửa code.</p>
-
-      <div class="box note">
-        <div class="box-title">Ghi chú — "Write Once, Run Anywhere" (WORA)</div>
-        Đây là khẩu hiệu nổi tiếng của Java: viết code một lần, biên dịch ra bytecode, và bytecode đó chạy được trên bất kỳ máy nào có cài JVM tương ứng — không cần biên dịch lại cho từng hệ điều hành như C++.
-      </div>
-
-      <h3>Tại sao nên học Java?</h3>
-      <ul>
-        <li><strong>Đa nền tảng thực sự</strong> nhờ JVM — một trong những lý do Java được doanh nghiệp lớn ưa chuộng.</li>
-        <li><strong>Hướng đối tượng thuần túy</strong> — mọi thứ (trừ kiểu nguyên thủy) đều là object, giúp tư duy OOP rất rõ ràng.</li>
-        <li><strong>Hệ sinh thái doanh nghiệp khổng lồ</strong> — Spring Framework, hầu hết hệ thống ngân hàng, bảo hiểm lớn dùng Java.</li>
-        <li><strong>Ổn định, tương thích ngược tốt</strong> — code Java viết cách đây 10+ năm vẫn thường chạy được trên JVM mới.</li>
-      </ul>
-
-      <h3>Java dùng để làm gì?</h3>
-      <table>
-        <tr><th>Lĩnh vực</th><th>Ví dụ công nghệ</th></tr>
-        <tr><td>Backend doanh nghiệp</td><td>Spring Boot, Jakarta EE</td></tr>
-        <tr><td>Ứng dụng Android</td><td>Java là một trong hai ngôn ngữ chính thức (cùng Kotlin)</td></tr>
-        <tr><td>Hệ thống lớn, ngân hàng</td><td>Core banking, hệ thống giao dịch</td></tr>
-        <tr><td>Big Data</td><td>Hadoop, Kafka (viết bằng Java/Scala trên JVM)</td></tr>
-      </table>
-
-      <div class="box tip">
-        <div class="box-title">Mẹo ghi nhớ</div>
-        Nhớ Java qua cụm "JVM + OOP + Doanh nghiệp": chạy trên máy ảo Java (JVM), hướng đối tượng thuần túy, và là xương sống của rất nhiều hệ thống doanh nghiệp lớn trên thế giới.
-      </div>
-
-      <div class="quiz" data-quiz="q1">
-        <h4>📝 Quiz nhanh — Chương 1</h4>
-        <div class="quiz-q" data-answer="2">
-          <p>1. Code Java được biên dịch thành gì trước khi chạy?</p>
-          <span class="quiz-opt" data-idx="0">Mã máy trực tiếp</span>
-          <span class="quiz-opt" data-idx="1">Mã HTML</span>
-          <span class="quiz-opt" data-idx="2">Bytecode (chạy trên JVM)</span>
-        </div>
-        <button class="quiz-btn" onclick="gradeQuiz('q1')">Chấm điểm</button>
-        <div class="quiz-result" id="result-q1"></div>
-      </div>
-
-      <div class="summary-box">
-        <h4>📌 Tổng kết chương 1</h4>
-        <p>Java biên dịch ra bytecode chạy trên JVM, giúp "viết một lần, chạy mọi nơi". Là ngôn ngữ hướng đối tượng thuần túy, xương sống của hệ thống doanh nghiệp và Android.</p>
-      </div>
-    </section>
+<h2>Chương <span class="num">1</span> — Giới thiệu Java</h2>
+<p class="lead">Hiểu đường đi từ mã nguồn đến chương trình chạy được, trước khi học cú pháp và viết ứng dụng lớn.</p>
+<h3>1. Mục tiêu học</h3>
+<ul><li>Phân biệt mã nguồn, bytecode, JVM và công cụ biên dịch.</li><li>Giải thích khả năng chạy trên nhiều hệ điều hành cùng những giới hạn thực tế.</li><li>Đọc một chương trình nhỏ, dự đoán đầu ra và thử thay đổi thông báo.</li></ul>
+<p>Không cần biết Java trước khi đọc bài này. Bạn chỉ cần thao tác với file văn bản và mở terminal. Nếu máy chưa có JDK, hãy đọc chương 2 trước khi thực hành, rồi quay lại các ví dụ dưới đây.</p>
+<h3>2. Vấn đề thực tế</h3>
+<p>Một nhóm làm công cụ in thông báo nhận hàng cho cửa hàng. Người viết mã dùng Windows, người kiểm thử dùng Linux. Nhóm muốn giữ một bộ mã nguồn, thay vì viết lại toàn bộ chương trình cho từng máy. Đây là tình huống phù hợp để hiểu vai trò của Java và máy ảo.</p>
+<p>Hãy chia công việc thành hai bước: chuyển văn bản chương trình sang dạng JVM hiểu được, rồi nhờ JVM thực thi. Khi kết quả không xuất hiện, việc biết hai bước này giúp bạn hỏi đúng câu: biên dịch chưa thành công, hay chương trình đã chạy nhưng làm sai điều mong muốn?</p>
+<h3>3. Lý thuyết nền</h3>
+<p>Java vừa là tên ngôn ngữ, vừa gắn với một hệ sinh thái công cụ và thư viện. File có đuôi <code>.java</code> chứa mã nguồn để con người đọc và sửa. Trình biên dịch <code>javac</code> kiểm tra mã rồi tạo file <code>.class</code> chứa bytecode; lệnh <code>java</code> khởi động JVM để chạy lớp được chỉ định.</p>
+<p>JVM có bản triển khai phù hợp với từng hệ điều hành và kiến trúc máy. Vì thế bytecode có thể được dùng trên nhiều môi trường có runtime tương thích. Điều này không có nghĩa mọi chương trình tự động chạy trên mọi thiết bị: phiên bản runtime, thư viện phụ thuộc và những thành phần riêng của hệ điều hành vẫn quan trọng.</p>
+<p>Java hỗ trợ lập trình hướng đối tượng nhưng cũng có kiểu nguyên thủy như int và boolean. Bạn không cần hiểu toàn bộ OOP để chạy chương trình đầu tiên. Trong đợt học này, hãy xem lớp là nơi tổ chức mã; các chương sau sẽ giải thích đối tượng, phương thức và trách nhiệm của từng lớp.</p>
+<div class="box important"><div class="box-title">Một giới hạn cần nhớ</div><p>Bytecode tạo cho phiên bản Java mới hơn không mặc nhiên chạy được trên runtime cũ. Khi chia sẻ chương trình, hãy ghi rõ phiên bản dùng để biên dịch và chạy; đừng chỉ nói “máy có Java”.</p></div>
+<h3>4. Ví dụ từng bước</h3>
+<p>Ví dụ mô phỏng thông báo nhận hàng, chưa dùng nhập liệu hoặc cơ sở dữ liệu. Lưu đúng tên <code>WelcomeJava.java</code>. Mỗi dòng có một nhiệm vụ đơn giản để bạn quan sát được toàn bộ quá trình.</p>
+<div class="code-wrap"><span class="code-label">WelcomeJava.java</span><button class="copy-btn" onclick="copyCode(this)" aria-label="Sao chép WelcomeJava.java">Copy</button><pre><code>public class WelcomeJava {
+    public static void main(String[] args) {
+        System.out.println("Welcome to Java");
+        System.out.println("Order received");
+    }
+}</code></pre></div>
+<ol><li>Dòng đầu đặt tên lớp công khai. Với cách tổ chức này, tên file phải là WelcomeJava.java, phân biệt chữ hoa và chữ thường.</li><li>Dòng thứ hai khai báo main, điểm bắt đầu mà lệnh java sẽ gọi. Tạm giữ nguyên chữ ký; chương 3 sẽ giải thích từng thành phần.</li><li>Dòng thứ ba in lời chào rồi xuống dòng. Văn bản trong dấu nháy kép là dữ liệu, không phải câu lệnh Java.</li><li>Dòng thứ tư in thông báo nhận hàng. Nó chạy sau dòng chào vì hai lệnh được viết theo thứ tự.</li><li>Dấu ngoặc đóng đầu tiên kết thúc main; dấu còn lại kết thúc lớp. Cặp ngoặc mở và đóng xác định phạm vi mã.</li></ol>
+<div class="code-wrap"><span class="code-label">Terminal — chạy trong thư mục chứa file</span><pre><code>javac WelcomeJava.java
+java WelcomeJava</code></pre></div>
+<p>Lệnh đầu biên dịch; nếu thành công, xuất hiện WelcomeJava.class. Lệnh thứ hai chạy tên lớp, không thêm đuôi .class. Kết quả là hai dòng: <strong>Welcome to Java</strong>, rồi <strong>Order received</strong>. Không cần mạng hoặc thư viện ngoài để thực hiện ví dụ này.</p>
+<p>Đổi thông báo nhận hàng thành “Order ready”, lưu file và chạy lại cả hai lệnh. Nếu chỉ chạy lệnh java, bạn có thể vẫn thấy kết quả cũ vì JVM đang dùng file class đã biên dịch trước đó. Thử nghiệm này giúp phân biệt việc sửa mã với việc cập nhật chương trình chạy.</p>
+<p>Trước khi mở rộng ví dụ, tự trả lời ba câu hỏi: file nào là đầu vào của trình biên dịch, file nào được tạo ra và lệnh nào thực thi chương trình? Nếu chưa chắc, kiểm tra danh sách file sau mỗi bước thay vì đoán từ giao diện của IDE.</p>
+<h3>5. Lỗi thường gặp</h3>
+<ul><li>Nhầm Java với JavaScript vì tên gần nhau: đây là hai ngôn ngữ khác nhau, không dùng chung trình biên dịch hoặc quy tắc cú pháp.</li><li>Cho rằng bytecode là mã nguồn: sửa file .java và biên dịch lại; không mở file .class để chỉnh như văn bản.</li><li>Thấy lệnh java chạy được rồi kết luận đã đủ công cụ phát triển: kiểm tra thêm javac; runtime đơn lẻ có thể thiếu trình biên dịch.</li><li>Khẳng định Java “hoàn toàn hướng đối tượng”: ghi nhớ các kiểu nguyên thủy và học mô hình thực tế thay vì khẩu hiệu.</li></ul>
+<h3>6. Bài tập ba mức</h3>
+<div class="box note"><div class="box-title">Dễ — Đổi thông báo</div><p>Đổi dòng chào thành “Hello Synaptrail”, giữ dòng nhận hàng. Biên dịch và chạy lại; kết quả phải có đúng hai dòng. Ghi rõ file bạn đã sửa và file được tạo.</p></div>
+<div class="box note"><div class="box-title">Vừa — Thử kết quả cũ</div><p>Biên dịch bản gốc, sửa nội dung mà chưa biên dịch lại, rồi chạy. So sánh với kết quả sau khi biên dịch mới. Giải thích sự khác nhau, không xóa file class trước thử nghiệm.</p></div>
+<div class="box note"><div class="box-title">Khó — Hướng dẫn bàn giao</div><p>Viết checklist để bạn học chạy chương trình từ mã nguồn trên máy khác: công cụ, phiên bản, tên file, thư mục và lệnh. Nếu có máy thứ hai, kiểm chứng; nếu không, dùng thư mục mới và ghi giới hạn thử nghiệm.</p></div>
+<div class="summary-box"><h4>7. Tóm tắt</h4><p>Mã nguồn .java được javac biên dịch thành bytecode .class; JVM thực thi bytecode khi bạn chạy lệnh java. Khả năng đa nền tảng cần môi trường tương thích. Học bằng cách dự đoán, chạy và quan sát file tạo ra.</p></div>
+<div class="quiz" data-quiz="q1"><h4>8. Quiz — Chương 1</h4>
+<div class="quiz-q" data-answer="2"><p>1. javac tạo dạng nào từ mã nguồn?</p><span class="quiz-opt" data-idx="0">HTML</span><span class="quiz-opt" data-idx="1">Ảnh</span><span class="quiz-opt" data-idx="2">Bytecode</span></div>
+<div class="quiz-q" data-answer="0"><p>2. Thành phần nào thực thi bytecode?</p><span class="quiz-opt" data-idx="0">JVM</span><span class="quiz-opt" data-idx="1">Trình soạn thảo</span><span class="quiz-opt" data-idx="2">File .java</span></div>
+<div class="quiz-q" data-answer="1"><p>3. Sửa mã rồi muốn chạy bản mới, cần làm gì?</p><span class="quiz-opt" data-idx="0">Chỉ đổi tên file class</span><span class="quiz-opt" data-idx="1">Lưu và biên dịch lại</span><span class="quiz-opt" data-idx="2">Xóa JVM</span></div>
+<div class="quiz-q" data-answer="0"><p>4. Có lệnh java nhưng thiếu javac nghĩa là gì?</p><span class="quiz-opt" data-idx="0">Chưa đủ công cụ cho quy trình biên dịch này</span><span class="quiz-opt" data-idx="1">Đã đủ JDK chắc chắn</span><span class="quiz-opt" data-idx="2">Máy không thể đọc văn bản</span></div>
+<div class="quiz-q" data-answer="2"><p>5. Đa nền tảng có bỏ qua yêu cầu phiên bản không?</p><span class="quiz-opt" data-idx="0">Có, mọi phiên bản đều tương đương</span><span class="quiz-opt" data-idx="1">Chỉ cần internet</span><span class="quiz-opt" data-idx="2">Không, cần runtime tương thích</span></div>
+<button class="quiz-btn" onclick="gradeQuiz('q1')" aria-label="Chấm năm câu quiz chương 1">Chấm điểm</button><div class="quiz-result" id="result-q1"></div></div>
+<p>Đối chiếu: <a href="https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html">lệnh java</a> và <a href="https://docs.oracle.com/en/java/javase/21/docs/specs/man/javac.html">lệnh javac</a>.</p>
+</section>
 
     <!-- ================= CHƯƠNG 2 ================= -->
   </main>

@@ -79,41 +79,57 @@
   </div>
   <main style="padding:0;max-width:none;">
 <section class="chapter" id="s2">
-      <h2>Chương <span class="num">2</span> — Cài đặt JDK &amp; IDE</h2>
-      <p class="lead">Chuẩn bị JDK (Java Development Kit) và công cụ soạn thảo trước khi viết code.</p>
-
-      <h3>JDK, JRE, JVM khác nhau thế nào?</h3>
-      <table>
-        <tr><th>Thành phần</th><th>Ý nghĩa</th></tr>
-        <tr><td><strong>JVM</strong> (Java Virtual Machine)</td><td>Máy ảo thực thi bytecode</td></tr>
-        <tr><td><strong>JRE</strong> (Java Runtime Environment)</td><td>JVM + thư viện chuẩn, đủ để CHẠY chương trình Java</td></tr>
-        <tr><td><strong>JDK</strong> (Java Development Kit)</td><td>JRE + trình biên dịch (javac) + công cụ khác, cần để PHÁT TRIỂN</td></tr>
-      </table>
-
-      <div class="code-wrap">
-        <span class="code-label">terminal</span>
-        <pre><code>java --version
-javac --version
-# Kết quả mong đợi: phiên bản JDK đã cài (khuyến nghị JDK 21 hoặc 25 LTS)</code></pre>
-      </div>
-
-      <div class="box tip">
-        <div class="box-title">Mẹo</div>
-        Nên chọn phiên bản <strong>LTS (Long Term Support)</strong> — hiện tại là JDK 17, 21 hoặc 25 — thay vì phiên bản mới nhất không LTS. LTS được hỗ trợ lâu dài, ổn định hơn cho học tập và dự án thực tế. Dự án mới nên bắt đầu với <strong>JDK 21</strong> (được các framework như Spring Boot hỗ trợ rộng rãi nhất hiện nay) hoặc JDK 25 nếu muốn dùng tính năng mới nhất.
-      </div>
-
-      <div class="box note">
-        <div class="box-title">Ghi chú — Chọn bản phân phối JDK nào?</div>
-        Oracle JDK chỉ miễn phí thương mại trong khoảng 1 năm sau khi có bản LTS kế tiếp ra mắt. Để dùng miễn phí lâu dài, nhiều lập trình viên chọn các bản phân phối OpenJDK khác như <strong>Eclipse Temurin</strong>, <strong>Amazon Corretto</strong>, hoặc <strong>Azul Zulu</strong> — đều tương thích 100% với Oracle JDK về mặt code.
-      </div>
-
-      <p>IDE phổ biến nhất cho Java là <strong>IntelliJ IDEA</strong> (Community Edition miễn phí) — hỗ trợ auto-complete, debug, refactor rất mạnh. VS Code với extension "Extension Pack for Java" cũng là lựa chọn nhẹ hơn.</p>
-
-      <div class="summary-box">
-        <h4>📌 Tổng kết chương 2</h4>
-        <p>Cần cài JDK (bao gồm trình biên dịch javac) để phát triển Java, ưu tiên bản LTS. IntelliJ IDEA hoặc VS Code là hai IDE phổ biến nhất.</p>
-      </div>
-    </section>
+<h2>Chương <span class="num">2</span> — Cài đặt JDK &amp; IDE</h2>
+<p class="lead">Chuẩn bị môi trường học Java, xác nhận đúng công cụ và chạy thử trước khi dựa vào nút Run của IDE.</p>
+<h3>1. Mục tiêu học</h3>
+<ul><li>Phân biệt JVM, runtime và bộ công cụ phát triển JDK.</li><li>Kiểm tra java, javac, PATH và phiên bản mà terminal đang sử dụng.</li><li>Chạy chương trình kiểm tra môi trường rồi cấu hình trình soạn thảo phù hợp.</li></ul>
+<p>Bạn cần quyền cài phần mềm hoặc giải nén vào thư mục được phép ghi. Nếu dùng máy của trường hoặc công ty, kiểm tra quyền với người quản trị. Không thay cấu hình toàn hệ thống chỉ để làm theo một ví dụ.</p>
+<h3>2. Vấn đề thực tế</h3>
+<p>Bạn bấm Run trong IDE và chương trình chạy, nhưng terminal báo không tìm thấy javac. Bạn học khác có java phiên bản cũ dù đã cài JDK mới. Cả hai tình huống có thể xuất phát từ việc mỗi công cụ đang chọn một đường dẫn khác nhau.</p>
+<p>Thay vì cài lại nhiều lần, hãy kiểm tra tuần tự: phần mềm có tồn tại không, terminal đang tìm ở đâu, và IDE đang dùng JDK nào? Một chương trình nhỏ cùng bản ghi phiên bản sẽ giúp bạn trao đổi lỗi chính xác hơn ảnh chụp nút Run.</p>
+<h3>3. Lý thuyết nền</h3>
+<p>JVM là thành phần thực thi bytecode. Runtime gồm JVM và những thư viện, thành phần cần khi chạy. JDK cung cấp công cụ phát triển, nổi bật là javac, cùng môi trường chạy. Cách đóng gói runtime phụ thuộc bản phân phối; đừng mặc định JDK hiện đại luôn có một thư mục jre riêng.</p>
+<p>PATH là danh sách nơi hệ điều hành tìm executable khi bạn gõ tên lệnh. JAVA_HOME thường trỏ tới thư mục gốc JDK để công cụ phát triển sử dụng; tự đặt biến này không bảo đảm lệnh java đã đổi. Bạn vẫn cần kiểm tra PATH và cấu hình riêng của IDE.</p>
+<p>Ví dụ của đợt này được kiểm tra bằng JDK 21, đồng thời biên dịch nhắm Java 8. Bạn có thể dùng JDK 21 làm môi trường thống nhất cho khóa học; đây là lựa chọn thực hành của bài, không phải yêu cầu rằng mọi dự án Java đều phải dùng phiên bản đó.</p>
+<h3>4. Ví dụ từng bước</h3>
+<h4>A. Chuẩn bị và kiểm tra công cụ</h4>
+<p>Từ trang chính thức của bản phân phối như Eclipse Temurin, chọn JDK phù hợp hệ điều hành và kiến trúc máy. Đọc hướng dẫn của gói cài đặt; bản archive cần giải nén vào thư mục ổn định. Không chọn runtime-only nếu mục tiêu là biên dịch mã.</p>
+<ol><li>Cài hoặc giải nén JDK; ghi lại thư mục chứa bin/java và bin/javac.</li><li>Mở terminal mới sau khi thay cấu hình, tránh dùng phiên làm việc vẫn giữ môi trường cũ.</li><li>Chạy hai lệnh dưới đây. Cả hai phải được tìm thấy; đọc dòng phiên bản, không chỉ kiểm tra có chữ Java.</li></ol>
+<div class="code-wrap"><span class="code-label">Terminal — kiểm tra JDK</span><pre><code>java -version
+javac -version</code></pre></div>
+<p>Lệnh thứ nhất báo phiên bản runtime; lệnh thứ hai báo trình biên dịch. Số bản vá có thể khác ví dụ trong tài liệu, nhưng nếu một lệnh là Java 8 và lệnh kia là Java 21, hãy kiểm tra lại lựa chọn đường dẫn trước khi tiếp tục.</p>
+<p>Trên PowerShell, dùng <code>Get-Command java,javac</code> để xem executable được chọn. Trên macOS/Linux, dùng <code>command -v java</code> và <code>command -v javac</code>. Những lệnh này dùng cú pháp riêng của shell; không dán lệnh PowerShell vào Bash hoặc ngược lại.</p>
+<h4>B. Xác nhận môi trường bằng chương trình</h4>
+<p>Tạo thư mục làm bài riêng, lưu file dưới đây thành EnvironmentCheck.java. Chạy từ chính thư mục đó để tách lỗi đường dẫn khỏi lỗi lập trình.</p>
+<div class="code-wrap"><span class="code-label">EnvironmentCheck.java</span><button class="copy-btn" onclick="copyCode(this)" aria-label="Sao chép EnvironmentCheck.java">Copy</button><pre><code>public class EnvironmentCheck {
+    public static void main(String[] args) {
+        System.out.println("Compiler and runtime are ready");
+        System.out.println(System.getProperty("java.version"));
+    }
+}</code></pre></div>
+<ol><li>Dòng đầu khai báo lớp public; tên lớp quyết định tên file trong ví dụ.</li><li>Dòng main tạo điểm bắt đầu chương trình, giữ nguyên chữ ký này khi thử môi trường.</li><li>Dòng in thông báo xác nhận mã đã biên dịch và được thực thi đến vị trí đó.</li><li>Dòng getProperty đọc phiên bản runtime đang chạy chương trình, rồi in nó ra. Đây không phải cách hỏi phiên bản javac.</li><li>Hai dấu ngoặc cuối đóng phương thức và lớp; không bỏ chúng khi sao chép.</li></ol>
+<div class="code-wrap"><span class="code-label">Terminal — biên dịch và chạy</span><pre><code>javac EnvironmentCheck.java
+java EnvironmentCheck</code></pre></div>
+<p>Kết quả đầu là <strong>Compiler and runtime are ready</strong>; dòng sau là phiên bản của runtime trên máy. Không cần khớp một số bản vá cố định. Kiểm tra file EnvironmentCheck.class được tạo, rồi ghi phiên bản vào ghi chú thực hành.</p>
+<h4>C. Dùng IDE sau khi terminal hoạt động</h4>
+<p>Mở thư mục làm bài trong IDE thay vì chỉ mở một file rời. Với VS Code, dùng các Java extension theo hướng dẫn chính thức và kiểm tra JDK mà chúng chọn. Với IDE khác, tìm cấu hình JDK của dự án. Chạy cùng file kiểm tra, đối chiếu dòng phiên bản với terminal.</p>
+<p>IDE hỗ trợ gợi ý, điều hướng và debug; nó không thay thế việc hiểu biên dịch. Khi báo lỗi cho người khác, gửi tên file, lệnh đã chạy, thông báo lỗi đầy đủ và phiên bản. Cách ghi này giúp xác định lỗi công cụ hay lỗi mã mà không cần đoán.</p>
+<h3>5. Lỗi thường gặp</h3>
+<ul><li>Chỉ cài runtime: java chạy nhưng javac thiếu. Kiểm tra lại gói tải trước khi chỉnh PATH.</li><li>PATH ưu tiên bản cũ: kiểm tra đường dẫn thực tế, không dựa riêng vào tên thư mục mới cài.</li><li>JAVA_HOME trỏ tới bin thay vì thư mục gốc JDK: sửa theo yêu cầu công cụ rồi kiểm tra lại.</li><li>Chỉnh biến môi trường nhưng không mở terminal mới: phiên cũ có thể chưa nhận cấu hình mới.</li><li>Tải gói sai kiến trúc hoặc dùng nguồn không rõ: xác nhận thông tin máy và lấy hướng dẫn từ nhà phân phối.</li></ul>
+<h3>6. Bài tập ba mức</h3>
+<div class="box note"><div class="box-title">Dễ — Ghi phiên bản</div><p>Chạy hai lệnh kiểm tra và lưu đầu ra vào ghi chú. Ghi executable mà terminal chọn. Tiêu chí đạt: xác định được cả công cụ chạy và biên dịch.</p></div>
+<div class="box note"><div class="box-title">Vừa — So sánh terminal và IDE</div><p>Chạy EnvironmentCheck ở cả hai nơi. So sánh phiên bản; nếu khác, tìm cấu hình JDK của IDE. Không đổi toàn hệ thống chỉ để làm hai kết quả giống nhau.</p></div>
+<div class="box note"><div class="box-title">Khó — Hướng dẫn tái lập</div><p>Viết checklist cho máy mới: hệ điều hành, kiến trúc, nguồn JDK, đường dẫn, phiên bản và các bước kiểm tra. Nhờ bạn học làm theo, hoặc thử trong thư mục mới; ghi rõ phần chưa kiểm chứng.</p></div>
+<div class="summary-box"><h4>7. Tóm tắt</h4><p>Cài JDK đúng gói, xác nhận java và javac rồi chạy chương trình nhỏ. PATH, JAVA_HOME và lựa chọn JDK của IDE là những cấu hình liên quan nhưng không đồng nhất.</p></div>
+<div class="quiz" data-quiz="q2"><h4>8. Quiz — Chương 2</h4>
+<div class="quiz-q" data-answer="0"><p>1. Bộ công cụ nào cung cấp javac?</p><span class="quiz-opt" data-idx="0">JDK</span><span class="quiz-opt" data-idx="1">Chỉ trình soạn thảo</span><span class="quiz-opt" data-idx="2">File class</span></div>
+<div class="quiz-q" data-answer="1"><p>2. PATH phục vụ mục đích gì?</p><span class="quiz-opt" data-idx="0">Lưu đáp án quiz</span><span class="quiz-opt" data-idx="1">Tìm executable theo tên lệnh</span><span class="quiz-opt" data-idx="2">Thay mã nguồn</span></div>
+<div class="quiz-q" data-answer="2"><p>3. Chỉnh JAVA_HOME có chắc đổi lệnh java không?</p><span class="quiz-opt" data-idx="0">Có, luôn luôn</span><span class="quiz-opt" data-idx="1">Không cần kiểm tra</span><span class="quiz-opt" data-idx="2">Không, còn PATH và cấu hình công cụ</span></div>
+<div class="quiz-q" data-answer="0"><p>4. EnvironmentCheck in phiên bản của thành phần nào?</p><span class="quiz-opt" data-idx="0">Runtime đang chạy</span><span class="quiz-opt" data-idx="1">IDE chắc chắn</span><span class="quiz-opt" data-idx="2">Trình duyệt</span></div>
+<div class="quiz-q" data-answer="1"><p>5. Sau khi sửa môi trường, nên làm gì?</p><span class="quiz-opt" data-idx="0">Xóa mã nguồn</span><span class="quiz-opt" data-idx="1">Mở terminal mới và kiểm tra lại</span><span class="quiz-opt" data-idx="2">Bỏ qua phiên bản</span></div>
+<button class="quiz-btn" onclick="gradeQuiz('q2')" aria-label="Chấm năm câu quiz chương 2">Chấm điểm</button><div class="quiz-result" id="result-q2"></div></div>
+<p>Tài liệu: <a href="https://adoptium.net/installation">cài Eclipse Temurin</a>, <a href="https://code.visualstudio.com/docs/java/java-tutorial">Java trong VS Code</a>.</p>
+</section>
 
     <!-- ================= CHƯƠNG 3 ================= -->
   </main>
