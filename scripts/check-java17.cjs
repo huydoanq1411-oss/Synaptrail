@@ -10,8 +10,8 @@ const decode=s=>s.replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&'
 for(const [,file,code]of examples)fs.writeFileSync(path.join(output,file),decode(code));
 const jdk=process.env.SYNAPTRAIL_TEST_JDK||process.env.JAVA_HOME;
 const executable=name=>jdk?path.join(jdk,'bin',name+(process.platform==='win32'?'.exe':'')):name;
-function run(name,args){const result=spawnSync(executable(name),args,{encoding:'utf8'});if(result.error)throw Error('Cannot run '+name+': set JAVA_HOME or SYNAPTRAIL_TEST_JDK to a JDK. '+result.error.message);if(result.status!==0)throw Error(result.stderr);return result.stdout.replace(/\r\n/g,'\n').trim()}
-run('javac',['--release','8','-encoding','UTF-8','-d',output,...examples.map(e=>path.join(output,e[1]))]);
-assert.equal(run('java',['-cp',output,'HashMapDemo']),'2\n0\n3');
-assert.equal(run('java',['-cp',output,'HashSetDemo']),'true\nfalse\n2\ntrue\nfalse');
+function run(name,args){const result=spawnSync(executable(name),args,{encoding:'utf8',cwd:output});if(result.error)throw Error('Cannot run '+name+': set JAVA_HOME or SYNAPTRAIL_TEST_JDK to a JDK. '+result.error.message);if(result.status!==0)throw Error(result.stderr);return result.stdout.replace(/\r\n/g,'\n').trim()}
+run('javac',['--release','8','-encoding','UTF-8','-d','.',...examples.map(e=>e[1])]);
+assert.equal(run('java',['-cp','.','HashMapDemo']),'2\n0\n3');
+assert.equal(run('java',['-cp','.','HashSetDemo']),'true\nfalse\n2\ntrue\nfalse');
 console.log(JSON.stringify({wordsExcludingCode:words,quizQuestions:5,compiled:examples.map(e=>e[1]),target:'Java 8',outputAssertions:'passed'},null,2));

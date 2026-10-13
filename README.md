@@ -61,6 +61,29 @@ Các nhóm được phân loại từ tài liệu có sẵn. Project Ideas dẫn
 
 ## Nội dung học tập
 
+### Khung chương chuẩn — bản mẫu chờ duyệt
+
+1. **Mục tiêu học:** kiến thức đầu vào và điều người học làm được sau bài.
+2. **Vấn đề thực tế:** tình huống cụ thể để giải thích vì sao cần kiến thức này.
+3. **Lý thuyết nền:** khái niệm, điều kiện áp dụng và giới hạn.
+4. **Ví dụ từng bước:** chương trình hoàn chỉnh, giải thích dòng code, lệnh chạy và kết quả dự kiến.
+5. **Lỗi thường gặp:** nguyên nhân, cách tránh và tình huống biên.
+6. **Bài tập dễ/vừa/khó:** đầu vào, yêu cầu và tiêu chí kiểm tra.
+7. **Tóm tắt:** những điểm cần nhớ.
+8. **Năm câu quiz:** kiểm tra hiểu biết, dùng cơ chế chấm điểm/tiến độ hiện có.
+
+Bản mẫu ở [Java — Chương 17: HashMap & HashSet](java/chapter17.html), 1.033 từ diễn giải (không tính khối code), hai chương trình Java hoàn chỉnh. Giữ ID `s17`, quiz `q17`, kết quả `result-q17`, sidebar, link và style hiện có. Nội dung kỹ thuật đối chiếu tài liệu Java API được dẫn ở cuối bài.
+
+Kiểm tra ví dụ bằng JDK 9 trở lên (biên dịch với `--release 8`), không dùng Java Runtime đơn lẻ:
+
+```sh
+node scripts/check-java17.cjs
+```
+
+Script đọc code trực tiếp từ HTML, biên dịch hai ví dụ và đối chiếu stdout; đặt `JAVA_HOME` hoặc `SYNAPTRAIL_TEST_JDK` nếu JDK chưa có trong PATH. File tạm nằm trong `artifacts/java-chapter17/`. **Chưa nâng cấp chương khác**; sau khi bản mẫu được duyệt mới làm lần lượt, mỗi đợt ba chương Java.
+
+Kết quả bản mẫu: đã biên dịch bằng JDK 21 với `--release 8` và chạy cả hai chương trình; stdout khớp kết quả trong bài. Kiểm tra trình duyệt của Java 17 đạt cho năm câu quiz, theme, Copy và tiến độ học. Kiểm tra tĩnh không phát hiện lỗi link mới; 346 lỗi thiếu h1 và 383 lỗi thiếu description từ trước vẫn còn.
+
 - **Nền tảng:** HTML/CSS, JavaScript, thuật toán và cấu trúc dữ liệu.
 - **Ngôn ngữ:** Python, Java, C++, TypeScript và kỹ năng ngôn ngữ/kỹ năng mềm.
 - **Frontend:** React, Bootstrap, SASS/SCSS.
