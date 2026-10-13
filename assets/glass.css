@@ -51,9 +51,9 @@ html[data-theme="dark"] .catalog-page .role-panel{background:#a4bbd009;border-co
 @media(prefers-reduced-motion:reduce){:is(.catalog-page,.landing-page) :is(.resource-card,.role-box,.role-skill,.path-card)::after{transition:none}}
 
 /* Center-out border matching the supplied example, without card motion. */
-:is(.catalog-page,.landing-page) :is(.resource-card,.role-box,.role-skill,.path-card)::after{content:'';position:absolute;top:0;left:50%;right:auto;bottom:auto;display:block;width:0;height:3px;background:#14b8a6;transform:translateX(-50%);transform-origin:center;transition:width 900ms cubic-bezier(.45,0,.55,1);z-index:10;pointer-events:none}
+:is(.catalog-page,.landing-page) :is(.resource-card,.role-box,.role-skill,.path-card)::after{content:'';position:absolute;top:0;left:50%;right:auto;bottom:auto;display:block;width:0;height:3px;background:#0d9488;transform:translateX(-50%);transform-origin:center;transition:width 650ms cubic-bezier(.45,0,.55,1);z-index:10;pointer-events:none}
 :is(.catalog-page,.landing-page) :is(.resource-card,.role-box,.role-skill,.path-card):is(:hover,:focus-visible,:focus-within)::after{width:100%;transform:translateX(-50%)}
 @media(prefers-reduced-motion:reduce){:is(.catalog-page,.landing-page) :is(.resource-card,.role-box,.role-skill,.path-card)::after{transition:none}}
 
 /* Explicitly requested border draw remains animated; no card movement. */
-:is(.catalog-page,.landing-page) :is(.resource-card,.role-box,.role-skill,.path-card)::after{transition:width 900ms cubic-bezier(.45,0,.55,1)!important}
+:is(.catalog-page,.landing-page) :is(.resource-card,.role-box,.role-skill,.path-card)::after{transition:width 650ms cubic-bezier(.45,0,.55,1)!important}
