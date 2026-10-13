@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('synaptrail-theme') || 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/lesson.css">
+<title>Mục lục — Bootstrap | Synaptrail</title>
+<link rel="stylesheet" href="../assets/ui.css">
+<meta name="description" content="Khóa Bootstrap nhập môn tại Synaptrail gồm hai chương về hệ lưới responsive, components và utilities, với ví dụ HTML và quiz ôn tập.">
+</head>
+<body>
+<div id="topbar"><span class="brand">Bootstrap</span><div class="topbar-right"><a class="home-btn" href="../courses.html">Danh mục khóa học</a></div></div>
+<main class="toc-wrap"><div class="crumb"><a href="../index.html">Trang chủ</a> · <a href="../courses.html">Khóa học</a> · Bootstrap</div>
+<h1>Mục lục Bootstrap</h1><p>2 chương nhập môn: hệ lưới responsive, components và utilities.</p>
+<a class="btn-start" href="chapter01.html">Bắt đầu học →</a>
+<ol class="toc-list"><li><a href="chapter01.html"><span class="toc-num">01</span>Chương 1 — Bootstrap — Grid System</a></li>
+<li><a href="chapter02.html"><span class="toc-num">02</span>Chương 2 — Bootstrap — Components &amp; Utilities</a></li></ol>
+</main></body></html>

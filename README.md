@@ -340,3 +340,12 @@ Sau lần chỉnh danh mục thành bốn khu vực:
 - Sau tách JS, kiểm tra theme, sidebar, search, progress, highlighter và chấm quiz trên Python, React, C++ và thuật toán đều đạt. Copy được kiểm tra bằng clipboard giả lập ở trang có nút Copy; cần test dán vào trình soạn thảo để xác minh quyền clipboard thực tế.
 
 Các kiểm tra trình duyệt lấy mẫu trang chủ, danh mục, mục lục React, bài Python đầu tiên, mục lục Full Stack và quiz tổng hợp. Chưa kiểm tra thủ công toàn bộ bài học, mọi chức năng quiz hoặc thiết bị vật lý.
+
+### Bản thử tách Bootstrap
+
+- Mục lục mới: [Bootstrap](bootstrap/index.html), hai chương đánh số 1–2.
+- URL cũ fullstack-js/chapter05.html và chapter06.html chuyển hướng, giữ fragment bookmark.
+- Sidebar và nút trước/sau chỉ điều hướng trong Bootstrap; ID nội dung và quiz được giữ nguyên.
+- Catalog tách Bootstrap khỏi SASS/SCSS; SASS tạm dùng bài cũ cho đến khi duyệt tách toàn bộ.
+- Xem kế hoạch: `node scripts/split-fullstack.cjs --dry-run`; áp dụng bản thử: `node scripts/split-fullstack.cjs`. Chạy lại không thay đổi file đã chuyển.
+- Các khóa còn lại và panel role chưa triển khai, chờ duyệt diff Bootstrap.
