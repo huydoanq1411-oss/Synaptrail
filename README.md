@@ -176,7 +176,7 @@ Synaptrail/
 │   └── catalog.js          # Chọn role, lọc kỹ năng và tìm kiếm
 ├── ai-engineer/            # AI Engineer, LLM/RAG, prompt và agent
 ├── cpp/                    # C++
-├── fullstack-js/           # Full Stack JavaScript
+├── fullstack-js/           # Redirect c?c URL c?; kh?a ??c l?p n?m ? git/, nestjs/, docker/?
 ├── html-css-nnlt/          # HTML/CSS
 ├── java/                   # Java
 ├── javascript-nnlt/        # JavaScript

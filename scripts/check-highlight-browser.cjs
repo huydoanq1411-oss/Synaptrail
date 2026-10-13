@@ -16,7 +16,7 @@ const server=http.createServer((req,res)=>{let file;try{file=path.resolve(root,'
   const evaluate=async expression=>{const result=await call('Runtime.evaluate',{expression,awaitPromise:true,returnByValue:true});if(result.exceptionDetails)throw Error(result.exceptionDetails.exception?.description||result.exceptionDetails.text);return result.result.value};
   await call('Page.enable');await call('Runtime.enable');await call('Network.enable');await call('Network.setBlockedURLs',{urls:['*fonts.googleapis.com*','*fonts.gstatic.com*']});
   const results=[];
-  for(const route of baseline?['fullstack-js/chapter05.html']:['fullstack-js/chapter05.html','python/chapter008.html','java/chapter01.html','cpp/chapter03.html','security/chapter05.html']){
+  for(const route of baseline?['fullstack-js/chapter05.html']:['bootstrap/chapter01.html','python/chapter008.html','java/chapter01.html','cpp/chapter03.html','security/chapter05.html']){
    const url='http://127.0.0.1:'+server.address().port+'/'+route;
    await call('Emulation.setScriptExecutionDisabled',{value:true});await call('Page.navigate',{url});
    let loaded=false;for(let i=0;i<60;i++){loaded=await evaluate("document.readyState==='complete'");if(loaded)break;await delay(100)}if(!loaded)throw Error('Page did not load');
@@ -27,10 +27,10 @@ const server=http.createServer((req,res)=>{let file;try{file=path.resolve(root,'
    if(baseline){results.push({route,reproduced:JSON.stringify(original)!==JSON.stringify(actual),original:original[0],broken:actual[0]});continue;}
    const copy=await evaluate(`(async()=>{let captured;Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async text=>{captured=text}}});const buttons=[...document.querySelectorAll('[onclick^="copyCode"]')];const values=[];for(const button of buttons){copyCode(button);await Promise.resolve();const pre=button.parentElement.querySelector('pre code')||button.parentElement.querySelector('pre');values.push(captured===pre.textContent);}return {buttons:buttons.length,passed:values.every(Boolean)}})()`);
    const fixtures=await evaluate('(' + JSON.stringify(fixtureSources) + ').map(([language,source])=>{const node=document.createElement("code");node.innerHTML=SynaptrailHighlighter.highlight(source,language);const comment=node.querySelector(".tok-com")?.textContent;return {language,preserved:node.textContent===source,comment:!!comment&&!comment.includes("https:")}})');
-   const count=route.startsWith('fullstack-js/')?await evaluate("document.querySelector('#sidebar .sub').textContent"):null;
+   const count=route.startsWith('bootstrap/')?await evaluate("document.querySelector('#sidebar .sub').textContent"):null;
    results.push({route,blocks:original.length,textPreserved:JSON.stringify(original)===JSON.stringify(actual),copy,fixtures,sidebarCount:count});
   }
-  const failures=baseline?[]:results.filter(r=>!r.textPreserved||!r.copy.passed||r.fixtures.some(f=>!f.preserved||!f.comment)||r.sidebarCount&&r.sidebarCount!=='22 chương');
+  const failures=baseline?[]:results.filter(r=>!r.textPreserved||!r.copy.passed||r.fixtures.some(f=>!f.preserved||!f.comment)||r.sidebarCount&&Number.parseInt(r.sidebarCount)!==2);
   fs.mkdirSync(path.join(root,'artifacts'),{recursive:true});fs.writeFileSync(path.join(root,'artifacts',baseline?'highlight-before.json':'highlight-after.json'),JSON.stringify(results,null,2));
   console.log(JSON.stringify({results,failures:failures.length},null,2));process.exitCode=failures.length?1:0;
  }finally{ws?.close();chrome.kill();server.close()}
