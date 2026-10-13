@@ -41,3 +41,11 @@ html[data-theme="dark"] .catalog-page .role-panel{background:#a4bbd009;border-co
 @media(min-width:1051px){.catalog-page .role-box:nth-child(n),.landing-page .path-card:nth-child(n){transform:translateY(0)}.catalog-page .role-box:nth-child(n):hover,.landing-page .path-card:nth-child(n):hover{transform:translateY(-4px)}}
 @media(hover:none){.catalog-page :is(.role-box,.resource-card,.role-skill):hover,.landing-page .path-card:nth-child(n):hover{transform:none}}
 @media(prefers-reduced-motion:reduce){.catalog-page :is(.role-box,.resource-card,.role-skill),.catalog-page :is(.role-box,.resource-card,.role-skill) img,.landing-page .path-card{transition:none!important}.catalog-page .role-box:nth-child(n):hover,.catalog-page :is(.resource-card,.role-skill):hover,.landing-page .path-card:nth-child(n):hover,.catalog-page :is(.role-box,.resource-card,.role-skill):hover img{transform:none}}
+
+/* Only the top border moves; card and illustration stay fixed. */
+.catalog-page :is(.role-box,.resource-card,.role-skill):is(:hover,:active),.catalog-page .role-box:nth-child(n):hover,.landing-page .path-card:nth-child(n):is(:hover,:active){transform:none!important;box-shadow:inset 0 1px #f0faff14,0 8px 20px #02050d25}
+.catalog-page :is(.role-box,.resource-card,.role-skill):hover img{transform:none!important;filter:none;transition:none}
+:is(.catalog-page,.landing-page) :is(.resource-card,.role-box,.role-skill,.path-card){transition:border-color 350ms ease,background-color 350ms ease}
+:is(.catalog-page,.landing-page) :is(.resource-card,.role-box,.role-skill,.path-card)::after{transform:scaleX(0);transform-origin:center;transition:transform 550ms cubic-bezier(.16,1,.3,1)}
+:is(.catalog-page,.landing-page) :is(.resource-card,.role-box,.role-skill,.path-card):is(:hover,:focus-visible,:focus-within)::after{transform:scaleX(1)}
+@media(prefers-reduced-motion:reduce){:is(.catalog-page,.landing-page) :is(.resource-card,.role-box,.role-skill,.path-card)::after{transition:none}}
