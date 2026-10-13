@@ -60,3 +60,8 @@ html[data-theme="dark"] :is(#sidebar,#topbar){background:#171e2cf0;border-color:
 :root,html[data-theme="dark"],body[data-theme="dark"]{--bg:#111225;--bg-soft:#1a1d35;--bg-card:#20243d;--border:#454b69;--text:#f4f5fb;--text-dim:#bac1d6;--accent:#70d6cf;--accent2:#70d6cf;--paper:var(--bg-card);--paper-soft:var(--bg-soft);--ink:var(--text);--ink-soft:var(--text-dim);--code-bg:#0d1021}
 html[data-theme="dark"] body:not(.landing-page):not(.catalog-page){background-color:#111225;background-image:linear-gradient(#111225d9,#111225f7),url('img/neural-trails.svg')}
 html[data-theme="dark"] :is(#sidebar,#topbar){background:#1a1d35f0}
+
+/* Reference palette: charcoal, ivory and muted forest green. */
+:root,html[data-theme="dark"],body[data-theme="dark"]{--bg:#20211d;--bg-soft:#262822;--bg-card:#2c2f28;--border:#484c42;--text:#dae8dd;--text-dim:#a5afa1;--accent:#91b69b;--accent2:#91b69b;--paper:var(--bg-card);--paper-soft:var(--bg-soft);--ink:var(--text);--ink-soft:var(--text-dim);--line:var(--accent);--line-soft:var(--border);--code-bg:#191c18;--kw:#bdb0cf;--str:#b6cdab;--num:#d3bb83;--com:#a1ab98;--fn:#9fbdb0;--type:#acc9b1;--ok:#a9c6a3;--warn:#d3bb83;--danger:#dfa6a0;--info:#9fbdb0}
+html[data-theme="dark"] body:not(.landing-page):not(.catalog-page){background:#20211d}html[data-theme="dark"] :is(#sidebar,#topbar){background:#242620f2;border-color:#484c42}
+html[data-theme="dark"] :is(.btn-primary,.btn-start,.quiz-btn){background:#355f47;color:#f2f5ed}html[data-theme="dark"] :is(.chapter h2 .num,.lang-switch a.current){background:#355f47;color:#f2f5ed}
