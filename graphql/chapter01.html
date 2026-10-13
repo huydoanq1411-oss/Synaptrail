@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('synaptrail-theme') || 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/lesson.css">
+<title>Chương 1 — GraphQL — Query &amp; Mutation — GraphQL | Synaptrail</title>
+<link rel="stylesheet" href="../assets/ui.css">
+</head>
+<body>
+<div id="progress-bar"></div>
+<div id="topbar">
+  <span class="brand">🚀 GraphQL</span>
+  <div class="topbar-right">
+    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
+    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
+  </div>
+</div>
+<div class="layout">
+  <aside id="sidebar">
+    <div class="brand">🚀 GraphQL</div>
+    <div class="sub">2 chương</div>
+    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
+    <div class="nav-group-title">Danh sách chương</div>
+    <a class="nav-link active" href="chapter01.html">Chương 1 — GraphQL — Query &amp; Mutation</a>
+<a class="nav-link" href="chapter02.html">Chương 2 — GraphQL Server với Apollo</a>
+    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
+  </aside>
+  <div class="main-col">
+<div class="chpage">
+  <div class="crumb">
+    <a href="../index.html">🏠 Trang chủ</a> ·
+    <a href="index.html">🚀 GraphQL</a> ·
+    <span>Chương 1 — GraphQL — Query &amp; Mutation</span>
+  </div>
+  <main style="padding:0;max-width:none;">
+<section class="chapter" id="s14">
+      <h2>Chương <span class="num">1</span> — GraphQL — Query &amp; Mutation</h2>
+      <p class="lead">Ngôn ngữ truy vấn API thay thế REST — client tự quyết định CHÍNH XÁC dữ liệu nào cần lấy, không thừa không thiếu.</p>
+
+      <h3>Vấn đề REST gặp phải: Over-fetching & Under-fetching</h3>
+      <table>
+        <tr><th>Vấn đề</th><th>Mô tả</th></tr>
+        <tr><td><strong>Over-fetching</strong></td><td>API REST trả về NHIỀU trường hơn client cần, lãng phí băng thông</td></tr>
+        <tr><td><strong>Under-fetching</strong></td><td>Client phải gọi NHIỀU endpoint khác nhau mới đủ dữ liệu cần hiển thị</td></tr>
+      </table>
+
+      <h3>GraphQL Query — chỉ lấy đúng field cần</h3>
+      <div class="code-wrap">
+        <span class="code-label">query.graphql</span>
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>query {
+  sanPham(id: 1) {
+    ten                        # CHỈ lấy đúng những field liệt kê ở đây
+    gia
+    danhMuc {                    # lấy LUÔN dữ liệu quan hệ trong CÙNG 1 lần gọi
+      ten
+    }
+  }
+}
+
+# Kết quả trả về CHÍNH XÁC những gì đã yêu cầu, không thừa field nào khác</code></pre>
+      </div>
+
+      <h3>Mutation — thay đổi dữ liệu (tương đương POST/PUT/DELETE)</h3>
+      <div class="code-wrap">
+        <span class="code-label">mutation.graphql</span>
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>mutation {
+  taoSanPham(ten: "Áo thun", gia: 150000) {
+    id            # yêu cầu server trả về id vừa tạo
+    ten
+  }
+}</code></pre>
+      </div>
+
+      <div class="box important">
+        <div class="box-title">Quan trọng</div>
+        GraphQL chỉ có <strong>MỘT endpoint duy nhất</strong> (thường là <code>/graphql</code>), khác hẳn REST có nhiều endpoint riêng cho từng resource (<code>/san-pham</code>, <code>/don-hang</code>...). Loại truy vấn (Query để đọc, Mutation để ghi) được xác định qua NỘI DUNG gửi lên, không phải qua URL hay phương thức HTTP.
+      </div>
+
+      <div class="summary-box">
+        <h4>📌 Tổng kết chương 1</h4>
+        <p>GraphQL Query cho phép client lấy CHÍNH XÁC dữ liệu cần (giải quyết over/under-fetching của REST), Mutation dùng để thay đổi dữ liệu — tất cả qua một endpoint duy nhất.</p>
+      </div>
+    </section>
+
+    <!-- ================= CHƯƠNG 19 ================= -->
+  </main>
+  <div class="chnav"><a class="nav-btn prev" href="index.html">← Mục lục</a><a class="nav-btn next" href="chapter02.html">Chương 2 — GraphQL Server với Apollo →</a></div>
+</div>
+</div>
+</div>
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
+
+<script src="../assets/code-highlighter.js"></script>
+<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
+
+</body>
+</html>

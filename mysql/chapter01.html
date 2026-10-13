@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('synaptrail-theme') || 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/lesson.css">
+<title>Chương 1 — MySQL — Truy vấn cơ bản — MySQL | Synaptrail</title>
+<link rel="stylesheet" href="../assets/ui.css">
+</head>
+<body>
+<div id="progress-bar"></div>
+<div id="topbar">
+  <span class="brand">🚀 MySQL</span>
+  <div class="topbar-right">
+    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
+    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
+  </div>
+</div>
+<div class="layout">
+  <aside id="sidebar">
+    <div class="brand">🚀 MySQL</div>
+    <div class="sub">3 chương</div>
+    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
+    <div class="nav-group-title">Danh sách chương</div>
+    <a class="nav-link active" href="chapter01.html">Chương 1 — MySQL — Truy vấn cơ bản</a>
+<a class="nav-link" href="chapter02.html">Chương 2 — MySQL — JOIN &amp; Truy vấn nâng cao</a>
+<a class="nav-link" href="chapter03.html">Chương 3 — Kết nối Node.js với MySQL</a>
+    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
+  </aside>
+  <div class="main-col">
+<div class="chpage">
+  <div class="crumb">
+    <a href="../index.html">🏠 Trang chủ</a> ·
+    <a href="index.html">🚀 MySQL</a> ·
+    <span>Chương 1 — MySQL — Truy vấn cơ bản</span>
+  </div>
+  <main style="padding:0;max-width:none;">
+<section class="chapter" id="s9">
+      <h2>Chương <span class="num">1</span> — MySQL — Truy vấn cơ bản</h2>
+      <p class="lead">Hệ quản trị cơ sở dữ liệu quan hệ phổ biến nhất — nền tảng lưu trữ dữ liệu có cấu trúc cho hầu hết ứng dụng web.</p>
+
+      <div class="code-wrap">
+        <span class="code-label">tao_bang.sql</span>
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>CREATE DATABASE cua_hang;
+USE cua_hang;
+
+CREATE TABLE san_pham (
+    id INT AUTO_INCREMENT PRIMARY KEY,       -- tự động tăng, khóa chính
+    ten VARCHAR(200) NOT NULL,
+    gia DECIMAL(10, 2) NOT NULL,
+    so_luong INT DEFAULT 0,
+    ngay_tao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);</code></pre>
+      </div>
+
+      <h3>4 lệnh CRUD cơ bản</h3>
+      <div class="code-wrap">
+        <span class="code-label">crud.sql</span>
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>-- CREATE - thêm dữ liệu
+INSERT INTO san_pham (ten, gia, so_luong) VALUES ('Áo thun', 150000, 50);
+
+-- READ - đọc dữ liệu
+SELECT * FROM san_pham;
+SELECT ten, gia FROM san_pham WHERE gia > 100000 ORDER BY gia DESC LIMIT 10;
+
+-- UPDATE - cập nhật dữ liệu
+UPDATE san_pham SET gia = 180000 WHERE id = 1;
+
+-- DELETE - xóa dữ liệu
+DELETE FROM san_pham WHERE id = 1;</code></pre>
+      </div>
+
+      <table>
+        <tr><th>Mệnh đề</th><th>Công dụng</th></tr>
+        <tr><td><code>WHERE</code></td><td>Lọc dòng theo điều kiện</td></tr>
+        <tr><td><code>ORDER BY</code></td><td>Sắp xếp kết quả (ASC tăng dần, DESC giảm dần)</td></tr>
+        <tr><td><code>LIMIT</code></td><td>Giới hạn số dòng trả về</td></tr>
+        <tr><td><code>GROUP BY</code></td><td>Nhóm dòng để tính tổng hợp (COUNT, SUM, AVG...)</td></tr>
+      </table>
+
+      <div class="box important">
+        <div class="box-title">Quan trọng</div>
+        <code>UPDATE</code>/<code>DELETE</code> <strong>KHÔNG có mệnh đề WHERE</strong> sẽ áp dụng cho TOÀN BỘ bảng — đây là lỗi thao tác database nguy hiểm nhất, luôn kiểm tra kỹ WHERE trước khi chạy, đặc biệt trên database thật.
+      </div>
+
+      <div class="summary-box">
+        <h4>📌 Tổng kết chương 1</h4>
+        <p>MySQL dùng SQL với 4 lệnh CRUD cơ bản (INSERT/SELECT/UPDATE/DELETE). Luôn cẩn trọng với UPDATE/DELETE thiếu WHERE — có thể ảnh hưởng toàn bộ dữ liệu.</p>
+      </div>
+    </section>
+
+    <!-- ================= CHƯƠNG 14 ================= -->
+  </main>
+  <div class="chnav"><a class="nav-btn prev" href="index.html">← Mục lục</a><a class="nav-btn next" href="chapter02.html">Chương 2 — MySQL — JOIN &amp; Truy vấn nâng cao →</a></div>
+</div>
+</div>
+</div>
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
+
+<script src="../assets/code-highlighter.js"></script>
+<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
+
+</body>
+</html>

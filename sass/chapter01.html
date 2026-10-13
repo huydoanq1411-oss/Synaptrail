@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('synaptrail-theme') || 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/lesson.css">
+<title>Chương 1 — SASS/SCSS — Biến &amp; Nesting — SASS / SCSS | Synaptrail</title>
+<link rel="stylesheet" href="../assets/ui.css">
+</head>
+<body>
+<div id="progress-bar"></div>
+<div id="topbar">
+  <span class="brand">🚀 SASS / SCSS</span>
+  <div class="topbar-right">
+    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
+    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
+  </div>
+</div>
+<div class="layout">
+  <aside id="sidebar">
+    <div class="brand">🚀 SASS / SCSS</div>
+    <div class="sub">2 chương</div>
+    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
+    <div class="nav-group-title">Danh sách chương</div>
+    <a class="nav-link active" href="chapter01.html">Chương 1 — SASS/SCSS — Biến &amp; Nesting</a>
+<a class="nav-link" href="chapter02.html">Chương 2 — SASS/SCSS — Mixin &amp; Tổ chức Folder</a>
+    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
+  </aside>
+  <div class="main-col">
+<div class="chpage">
+  <div class="crumb">
+    <a href="../index.html">🏠 Trang chủ</a> ·
+    <a href="index.html">🚀 SASS / SCSS</a> ·
+    <span>Chương 1 — SASS/SCSS — Biến &amp; Nesting</span>
+  </div>
+  <main style="padding:0;max-width:none;">
+<section class="chapter" id="s7">
+      <h2>Chương <span class="num">1</span> — SASS/SCSS — Biến &amp; Nesting</h2>
+      <p class="lead">CSS Preprocessor — viết CSS với cú pháp mạnh mẽ hơn (biến, lồng nhau, hàm...), rồi biên dịch ra CSS thuần.</p>
+
+      <h3>Biến trong SCSS</h3>
+      <div class="code-wrap">
+        <span class="code-label">style.scss</span>
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>$mau-chinh: #4f46e5;          // biến SCSS dùng dấu $ (khác CSS Variables dùng --)
+$khoang-cach: 16px;
+$bo-goc: 8px;
+
+.nut {
+    background-color: $mau-chinh;
+    padding: $khoang-cach;
+    border-radius: $bo-goc;
+}</code></pre>
+      </div>
+
+      <h3>Nesting — lồng selector theo cấu trúc HTML</h3>
+      <div class="code-wrap">
+        <span class="code-label">nesting.scss</span>
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>.navbar {
+    background: white;
+
+    .logo {                    // tương đương .navbar .logo trong CSS thường
+        font-weight: bold;
+    }
+
+    ul {
+        list-style: none;
+
+        li {                      // tương đương .navbar ul li
+            display: inline-block;
+
+            &:hover {                 // & = tham chiếu tới chính selector cha (.navbar ul li:hover)
+                color: $mau-chinh;
+            }
+
+            &.active {                 // tương đương .navbar ul li.active
+                font-weight: bold;
+            }
+        }
+    }
+}</code></pre>
+      </div>
+
+      <div class="box important">
+        <div class="box-title">Quan trọng</div>
+        Trình duyệt <strong>KHÔNG hiểu file .scss trực tiếp</strong> — cần công cụ biên dịch (Sass CLI, hoặc tích hợp sẵn trong Vite/Webpack) để chuyển .scss thành file .css thuần trước khi trình duyệt có thể sử dụng.
+      </div>
+
+      <div class="code-wrap">
+        <span class="code-label">terminal</span>
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>npm install -g sass
+sass style.scss style.css          # biên dịch 1 lần
+sass --watch style.scss:style.css     # tự động biên dịch lại mỗi khi file .scss thay đổi</code></pre>
+      </div>
+
+      <div class="summary-box">
+        <h4>📌 Tổng kết chương 1</h4>
+        <p>SCSS thêm biến ($ten) và nesting (lồng selector theo cấu trúc HTML, dùng & để tham chiếu selector cha) — cần biên dịch ra CSS thuần trước khi trình duyệt dùng được.</p>
+      </div>
+    </section>
+
+    <!-- ================= CHƯƠNG 8 ================= -->
+  </main>
+  <div class="chnav"><a class="nav-btn prev" href="index.html">← Mục lục</a><a class="nav-btn next" href="chapter02.html">Chương 2 — SASS/SCSS — Mixin &amp; Tổ chức Folder →</a></div>
+</div>
+</div>
+</div>
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
+
+<script src="../assets/code-highlighter.js"></script>
+<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('synaptrail-theme') || 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/lesson.css">
+<title>Chương 1 — Docker — Đóng gói ứng dụng — Docker | Synaptrail</title>
+<link rel="stylesheet" href="../assets/ui.css">
+</head>
+<body>
+<div id="progress-bar"></div>
+<div id="topbar">
+  <span class="brand">🚀 Docker</span>
+  <div class="topbar-right">
+    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
+    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
+  </div>
+</div>
+<div class="layout">
+  <aside id="sidebar">
+    <div class="brand">🚀 Docker</div>
+    <div class="sub">3 chương</div>
+    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
+    <div class="nav-group-title">Danh sách chương</div>
+    <a class="nav-link active" href="chapter01.html">Chương 1 — Docker — Đóng gói ứng dụng</a>
+<a class="nav-link" href="chapter02.html">Chương 2 — Docker Compose — Multi-container</a>
+<a class="nav-link" href="chapter03.html">Chương 3 — Triển khai VPS DigitalOcean</a>
+    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
+  </aside>
+  <div class="main-col">
+<div class="chpage">
+  <div class="crumb">
+    <a href="../index.html">🏠 Trang chủ</a> ·
+    <a href="index.html">🚀 Docker</a> ·
+    <span>Chương 1 — Docker — Đóng gói ứng dụng</span>
+  </div>
+  <main style="padding:0;max-width:none;">
+<section class="chapter" id="s19">
+      <h2>Chương <span class="num">1</span> — Docker — Đóng gói ứng dụng</h2>
+      <p class="lead">Giải quyết vĩnh viễn câu nói kinh điển "chạy được trên máy tôi mà" — đóng gói ứng dụng cùng toàn bộ môi trường cần thiết.</p>
+
+      <h3>Container khác Máy ảo (Virtual Machine) thế nào?</h3>
+      <p>Máy ảo mô phỏng TOÀN BỘ hệ điều hành (nặng, khởi động chậm). Container chia sẻ kernel của hệ điều hành host, chỉ đóng gói ứng dụng + thư viện cần thiết — nhẹ hơn nhiều, khởi động gần như tức thì.</p>
+
+      <div class="code-wrap">
+        <span class="code-label">Dockerfile</span>
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>FROM node:20-alpine              # image nền - Node.js bản nhẹ (alpine)
+
+WORKDIR /app                       # thư mục làm việc BÊN TRONG container
+
+COPY package*.json ./                # copy trước để tận dụng cache - nếu package.json không đổi, không cần cài lại
+RUN npm install
+
+COPY . .                                # copy toàn bộ code còn lại
+
+EXPOSE 3000                              # khai báo cổng ứng dụng lắng nghe
+CMD ["node", "server.js"]                  # lệnh chạy khi container khởi động</code></pre>
+      </div>
+
+      <div class="code-wrap">
+        <span class="code-label">terminal</span>
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>docker build -t ten-du-an .              # build image từ Dockerfile
+docker run -p 3000:3000 ten-du-an           # chạy container, ánh xạ cổng máy thật:cổng container
+docker ps                                     # xem các container đang chạy
+docker stop &lt;container_id&gt;                     # dừng container</code></pre>
+      </div>
+
+      <div class="box important">
+        <div class="box-title">Quan trọng</div>
+        Thứ tự các lệnh trong Dockerfile ảnh hưởng tới <strong>tốc độ build</strong> — Docker cache từng bước; copy <code>package.json</code> và <code>npm install</code> TRƯỚC khi copy toàn bộ code giúp lần build sau không phải cài lại dependency nếu chỉ code thay đổi (không phải package.json).
+      </div>
+
+      <div class="summary-box">
+        <h4>📌 Tổng kết chương 1</h4>
+        <p>Docker đóng gói ứng dụng + môi trường vào "image", chạy thành "container" nhẹ và nhất quán trên mọi máy. Dockerfile mô tả từng bước xây dựng image, cần sắp xếp đúng thứ tự để tận dụng cache hiệu quả.</p>
+      </div>
+    </section>
+
+    <!-- ================= CHƯƠNG 24 ================= -->
+  </main>
+  <div class="chnav"><a class="nav-btn prev" href="index.html">← Mục lục</a><a class="nav-btn next" href="chapter02.html">Chương 2 — Docker Compose — Multi-container →</a></div>
+</div>
+</div>
+</div>
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
+
+<script src="../assets/code-highlighter.js"></script>
+<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
+
+</body>
+</html>

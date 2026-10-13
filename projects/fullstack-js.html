@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('synaptrail-theme') || 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/lesson.css">
+<title>Dự án cuối khóa Full-Stack — Dự án Full Stack | Synaptrail</title>
+<link rel="stylesheet" href="../assets/ui.css">
+</head>
+<body>
+<div id="progress-bar"></div>
+<div id="topbar">
+  <span class="brand">🚀 Dự án Full Stack</span>
+  <div class="topbar-right">
+    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
+    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
+  </div>
+</div>
+<div class="layout">
+  <aside id="sidebar">
+    <div class="brand">🚀 Dự án Full Stack</div>
+    <div class="sub">Dự án thực hành</div>
+    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
+    <div class="nav-group-title">Danh sách chương</div>
+    <a class="nav-link active" href="fullstack-js.html">Dự án Full Stack</a>
+    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
+  </aside>
+  <div class="main-col">
+<div class="chpage">
+  <div class="crumb">
+    <a href="../index.html">🏠 Trang chủ</a> ·
+    <a href="../courses.html#project-ideas">🚀 Dự án Full Stack</a> ·
+    <span>Dự án cuối khóa Full-Stack</span>
+  </div>
+  <main style="padding:0;max-width:none;">
+<section class="chapter" id="s22">
+      <h2>Dự án cuối khóa Full-Stack</h2>
+      <p class="lead">Tổng hợp toàn bộ lộ trình thành một dự án thực tế hoàn chỉnh — từ giao diện tới triển khai production.</p>
+
+      <h3>Kiến trúc dự án: Nền tảng Quản lý Công việc (Task Manager)</h3>
+      <pre><code>┌─────────────────────────────────────────────────────────┐
+│  FRONTEND (React + TypeScript + React Router + Redux)       │
+│  - Đăng nhập/đăng ký, Danh sách công việc, Chi tiết          │
+└───────────────────────┬───────────────────────────────────┘
+                         │ REST API / GraphQL
+┌───────────────────────▼───────────────────────────────────┐
+│  BACKEND (NestJS)                                              │
+│  - AuthModule, TaskModule, UserModule                            │
+│  - Socket.IO: thông báo real-time khi có công việc mới              │
+└───────────────────────┬───────────────────────────────────┘
+                         │ Prisma ORM
+┌───────────────────────▼───────────────────────────────────┐
+│  DATABASE (MySQL)                                                 │
+└─────────────────────────────────────────────────────────────┘
+                         │
+              Đóng gói bằng Docker Compose
+                         │
+              Triển khai lên VPS DigitalOcean + Nginx</code></pre>
+
+      <h3>Checklist tính năng tổng hợp toàn bộ kiến thức</h3>
+      <ul>
+        <li>✅ <strong>Git/GitHub</strong> (<a href="../git/index.html">Git</a>): Quản lý code qua nhánh feature, Pull Request</li>
+        <li>✅ <strong>TypeScript</strong> (<a href="../typescript/index.html">TypeScript</a>): Toàn bộ frontend/backend dùng type an toàn</li>
+        <li>✅ <strong>Bootstrap/SASS</strong> (<a href="../bootstrap/index.html">Bootstrap</a>, <a href="../sass/index.html">SASS / SCSS</a>): Giao diện responsive, style có tổ chức</li>
+        <li>✅ <strong>React (JSX, Hooks, Router, Context, Redux)</strong> — theo track <a href="../react/chapter01.html">React.js Từ Zero Đến Hero</a>: Điều hướng, quản lý state đăng nhập và danh sách công việc</li>
+        <li>✅ <strong>MySQL/Prisma</strong> (<a href="../mysql/index.html">MySQL</a>, <a href="../orm/index.html">ORM</a>): Lưu trữ user, công việc với quan hệ 1-nhiều</li>
+        <li>✅ <strong>Socket.IO</strong> (<a href="../socketio/index.html">Socket.IO</a>): Thông báo real-time khi đồng nghiệp giao việc mới</li>
+        <li>✅ <strong>NestJS</strong> (<a href="../nestjs/index.html">NestJS</a>): Backend có cấu trúc, DTO xác thực dữ liệu</li>
+        <li>✅ <strong>Docker/VPS</strong> (<a href="../docker/index.html">Docker</a>): Đóng gói và triển khai lên server thật</li>
+      </ul>
+
+      <div class="box important">
+        <div class="box-title">Quan trọng — Lời khuyên khi làm dự án cuối khóa</div>
+        Đừng cố nhồi TẤT CẢ công nghệ đã học vào một dự án nhỏ chỉ để "khoe" — hãy chọn công nghệ PHÙ HỢP với bài toán. Một dự án Task Manager không nhất thiết cần GraphQL nếu REST đã đủ đơn giản và hiệu quả; điều nhà tuyển dụng đánh giá cao là biết KHI NÀO dùng công cụ nào, không phải dùng được bao nhiêu công cụ.
+      </div>
+
+      <div class="quiz" data-quiz="q26">
+        <h4>📝 Quiz tổng kết cuối khóa Full-Stack JavaScript</h4>
+        <div class="quiz-q" data-answer="1">
+          <p>1. Theo lời khuyên của chương này, tiêu chí quan trọng nhất khi chọn công nghệ cho dự án là gì?</p>
+          <span class="quiz-opt" data-idx="0">Dùng càng nhiều công nghệ mới càng tốt để gây ấn tượng</span>
+          <span class="quiz-opt" data-idx="1">Chọn công nghệ phù hợp với bài toán thực tế, biết khi nào nên và không nên dùng</span>
+          <span class="quiz-opt" data-idx="2">Luôn chọn công nghệ nhanh nhất bất kể độ phức tạp</span>
+        </div>
+        <button class="quiz-btn" onclick="gradeQuiz('q26')">Chấm điểm</button>
+        <div class="quiz-result" id="result-q26"></div>
+      </div>
+
+      <div class="summary-box">
+        <h4>🎉 Hoàn thành toàn bộ Lộ Trình Full-Stack JavaScript Developer!</h4>
+        <p>Bạn đã đi qua <strong>các khóa kỹ năng độc lập</strong>: từ Git/TypeScript/Bootstrap/SASS, React chuyên sâu, MySQL/ORM, GraphQL/Socket.IO, đến NestJS và triển khai Docker/VPS thực tế — đúng theo lộ trình Full-Stack JavaScript Developer hoàn chỉnh. Kết hợp cùng giáo trình JavaScript nền tảng đã có trong hệ thống, đây là bộ kiến thức đầy đủ để bắt đầu sự nghiệp Full-Stack Developer. Chúc bạn thành công! 🚀</p>
+      </div>
+    </section>
+  </main>
+  <div class="chnav"><a class="nav-btn" href="../courses.html#project-ideas">← Các dự án</a></div>
+</div>
+</div>
+</div>
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
+
+<script src="../assets/code-highlighter.js"></script>
+<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
+
+</body>
+</html>

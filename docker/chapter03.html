@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('synaptrail-theme') || 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/lesson.css">
+<title>Chương 3 — Triển khai VPS DigitalOcean — Docker | Synaptrail</title>
+<link rel="stylesheet" href="../assets/ui.css">
+</head>
+<body>
+<div id="progress-bar"></div>
+<div id="topbar">
+  <span class="brand">🚀 Docker</span>
+  <div class="topbar-right">
+    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
+    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
+  </div>
+</div>
+<div class="layout">
+  <aside id="sidebar">
+    <div class="brand">🚀 Docker</div>
+    <div class="sub">3 chương</div>
+    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
+    <div class="nav-group-title">Danh sách chương</div>
+    <a class="nav-link" href="chapter01.html">Chương 1 — Docker — Đóng gói ứng dụng</a>
+<a class="nav-link" href="chapter02.html">Chương 2 — Docker Compose — Multi-container</a>
+<a class="nav-link active" href="chapter03.html">Chương 3 — Triển khai VPS DigitalOcean</a>
+    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
+  </aside>
+  <div class="main-col">
+<div class="chpage">
+  <div class="crumb">
+    <a href="../index.html">🏠 Trang chủ</a> ·
+    <a href="index.html">🚀 Docker</a> ·
+    <span>Chương 3 — Triển khai VPS DigitalOcean</span>
+  </div>
+  <main style="padding:0;max-width:none;">
+<section class="chapter" id="s21">
+      <h2>Chương <span class="num">3</span> — Triển khai VPS DigitalOcean</h2>
+      <p class="lead">Đưa ứng dụng lên internet thật — từ máy tính cá nhân tới một server có thể truy cập toàn cầu.</p>
+
+      <h3>VPS là gì?</h3>
+      <p>VPS (Virtual Private Server) là một máy chủ ảo thuê từ nhà cung cấp (DigitalOcean, Linode, AWS EC2...) — bạn có toàn quyền kiểm soát như một máy Linux thật, cài đặt bất cứ thứ gì cần thiết để chạy ứng dụng.</p>
+
+      <h3>Quy trình triển khai cơ bản</h3>
+      <div class="code-wrap">
+        <span class="code-label">terminal (trên VPS, qua SSH)</span>
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code># 1. Kết nối vào VPS
+ssh root@dia_chi_ip_vps
+
+# 2. Cài đặt Docker trên VPS (nếu dùng Docker để triển khai)
+curl -fsSL https://get.docker.com | sh
+
+# 3. Clone code từ GitHub về VPS
+git clone https://github.com/user/du-an.git
+cd du-an
+
+# 4. Chạy ứng dụng bằng Docker Compose đã chuẩn bị sẵn
+docker compose up -d
+
+# 5. Cấu hình Nginx làm reverse proxy - chuyển traffic từ cổng 80 (web chuẩn) vào app
+sudo apt install nginx</code></pre>
+      </div>
+
+      <div class="code-wrap">
+        <span class="code-label">/etc/nginx/sites-available/du-an</span>
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>server {
+    listen 80;
+    server_name tenmien.com;
+
+    location / {
+        proxy_pass http://localhost:3000;    # chuyển tiếp request tới app Node.js đang chạy nội bộ
+        proxy_set_header Host $host;
+    }
+}</code></pre>
+      </div>
+
+      <table>
+        <tr><th>Bước</th><th>Công cụ</th></tr>
+        <tr><td>Thuê server</td><td>DigitalOcean Droplet, AWS EC2, Linode...</td></tr>
+        <tr><td>Kết nối quản trị</td><td>SSH (Secure Shell)</td></tr>
+        <tr><td>Chạy ứng dụng</td><td>Docker/Docker Compose (đã học chương 1–2)</td></tr>
+        <tr><td>Định tuyến traffic web</td><td>Nginx (reverse proxy) — ẩn cổng thật, hỗ trợ tên miền/HTTPS</td></tr>
+        <tr><td>HTTPS miễn phí</td><td>Let's Encrypt (qua certbot)</td></tr>
+      </table>
+
+      <div class="box tip">
+        <div class="box-title">Mẹo</div>
+        Reverse proxy (Nginx) là mắt xích quan trọng: nó nhận request ở cổng 80/443 (chuẩn web), rồi chuyển tiếp NỘI BỘ tới ứng dụng đang chạy ở cổng khác (VD: 3000) — cho phép chạy nhiều ứng dụng trên cùng 1 VPS, mỗi ứng dụng một tên miền/subdomain.
+      </div>
+
+      <div class="summary-box">
+        <h4>📌 Tổng kết chương 3</h4>
+        <p>Triển khai lên VPS gồm: SSH vào server, cài Docker, chạy ứng dụng qua Docker Compose, và dùng Nginx làm reverse proxy để định tuyến traffic web tới ứng dụng nội bộ.</p>
+      </div>
+    </section>
+
+    <!-- ================= CHƯƠNG 26 ================= -->
+  </main>
+  <div class="chnav"><a class="nav-btn prev" href="chapter02.html">← Chương 2 — Docker Compose — Multi-container</a><a class="nav-btn next" href="index.html">Mục lục →</a></div>
+</div>
+</div>
+</div>
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
+
+<script src="../assets/code-highlighter.js"></script>
+<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
+
+</body>
+</html>

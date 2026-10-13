@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('synaptrail-theme') || 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/lesson.css">
+<title>Chương 1 — Git — Kiểm soát phiên bản — Git | Synaptrail</title>
+<link rel="stylesheet" href="../assets/ui.css">
+</head>
+<body>
+<div id="progress-bar"></div>
+<div id="topbar">
+  <span class="brand">🚀 Git</span>
+  <div class="topbar-right">
+    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
+    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
+  </div>
+</div>
+<div class="layout">
+  <aside id="sidebar">
+    <div class="brand">🚀 Git</div>
+    <div class="sub">2 chương</div>
+    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
+    <div class="nav-group-title">Danh sách chương</div>
+    <a class="nav-link active" href="chapter01.html">Chương 1 — Git — Kiểm soát phiên bản</a>
+<a class="nav-link" href="chapter02.html">Chương 2 — GitHub &amp; Quy trình làm việc nhóm</a>
+    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
+  </aside>
+  <div class="main-col">
+<div class="chpage">
+  <div class="crumb">
+    <a href="../index.html">🏠 Trang chủ</a> ·
+    <a href="index.html">🚀 Git</a> ·
+    <span>Chương 1 — Git — Kiểm soát phiên bản</span>
+  </div>
+  <main style="padding:0;max-width:none;">
+<section class="chapter" id="s1">
+      <h2>Chương <span class="num">1</span> — Git — Kiểm soát phiên bản</h2>
+      <p class="lead">Công cụ bắt buộc với mọi lập trình viên — theo dõi lịch sử thay đổi code và cho phép làm việc nhóm an toàn.</p>
+
+      <h3>3 khu vực làm việc của Git</h3>
+      <table>
+        <tr><th>Khu vực</th><th>Ý nghĩa</th></tr>
+        <tr><td><strong>Working Directory</strong></td><td>Thư mục code thực tế bạn đang chỉnh sửa</td></tr>
+        <tr><td><strong>Staging Area</strong></td><td>Nơi "chuẩn bị" các thay đổi trước khi commit chính thức</td></tr>
+        <tr><td><strong>Repository (.git)</strong></td><td>Lịch sử toàn bộ các commit đã lưu vĩnh viễn</td></tr>
+      </table>
+
+      <div class="code-wrap">
+        <span class="code-label">terminal</span>
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>git init                              # khởi tạo repository trong thư mục hiện tại
+git status                              # xem trạng thái: file nào đã sửa, chưa staged...
+git add file.js                           # đưa 1 file vào staging area
+git add .                                   # đưa TẤT CẢ thay đổi vào staging area
+git commit -m "Thêm chức năng đăng nhập"      # lưu lại 1 "điểm mốc" với mô tả rõ ràng
+git log --oneline                                # xem lịch sử commit dạng rút gọn</code></pre>
+      </div>
+
+      <h3>Làm việc với nhánh (Branch)</h3>
+      <div class="code-wrap">
+        <span class="code-label">terminal</span>
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>git branch                            # xem danh sách nhánh hiện có
+git branch tinh-nang-moi                 # tạo nhánh mới
+git checkout tinh-nang-moi                  # chuyển sang nhánh đó
+git checkout -b tinh-nang-moi                 # tạo VÀ chuyển nhánh cùng lúc (rút gọn)
+git switch tinh-nang-moi                        # cách hiện đại hơn để chuyển nhánh (Git 2.23+)
+
+git merge tinh-nang-moi                            # gộp nhánh "tinh-nang-moi" vào nhánh hiện tại
+git branch -d tinh-nang-moi                           # xóa nhánh sau khi đã gộp xong</code></pre>
+      </div>
+
+      <div class="box important">
+        <div class="box-title">Quan trọng — Xung đột (Merge Conflict)</div>
+        Khi hai nhánh cùng sửa MỘT dòng code khác nhau, Git không thể tự động gộp — nó đánh dấu vùng xung đột bằng <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>/<code>=======</code>/<code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> ngay trong file, bạn phải tự chỉnh sửa và chọn giữ phần nào trước khi commit tiếp.
+      </div>
+
+      <div class="box tip">
+        <div class="box-title">Mẹo</div>
+        Luôn viết commit message mô tả <strong>"tại sao"</strong> thay đổi, không chỉ "cái gì" — giúp cả nhóm (và chính bạn 6 tháng sau) hiểu lịch sử phát triển dự án dễ dàng hơn.
+      </div>
+
+      <div class="summary-box">
+        <h4>📌 Tổng kết chương 1</h4>
+        <p>Git quản lý phiên bản qua 3 khu vực (working/staging/repository), commit lưu lại điểm mốc, branch cho phép phát triển song song mà không ảnh hưởng code chính.</p>
+      </div>
+    </section>
+
+    <!-- ================= CHƯƠNG 2 ================= -->
+  </main>
+  <div class="chnav"><a class="nav-btn prev" href="index.html">← Mục lục</a><a class="nav-btn next" href="chapter02.html">Chương 2 — GitHub &amp; Quy trình làm việc nhóm →</a></div>
+</div>
+</div>
+</div>
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
+
+<script src="../assets/code-highlighter.js"></script>
+<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
+
+</body>
+</html>

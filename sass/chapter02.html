@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('synaptrail-theme') || 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/lesson.css">
+<title>Chương 2 — SASS/SCSS — Mixin &amp; Tổ chức Folder — SASS / SCSS | Synaptrail</title>
+<link rel="stylesheet" href="../assets/ui.css">
+</head>
+<body>
+<div id="progress-bar"></div>
+<div id="topbar">
+  <span class="brand">🚀 SASS / SCSS</span>
+  <div class="topbar-right">
+    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
+    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
+  </div>
+</div>
+<div class="layout">
+  <aside id="sidebar">
+    <div class="brand">🚀 SASS / SCSS</div>
+    <div class="sub">2 chương</div>
+    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
+    <div class="nav-group-title">Danh sách chương</div>
+    <a class="nav-link" href="chapter01.html">Chương 1 — SASS/SCSS — Biến &amp; Nesting</a>
+<a class="nav-link active" href="chapter02.html">Chương 2 — SASS/SCSS — Mixin &amp; Tổ chức Folder</a>
+    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
+  </aside>
+  <div class="main-col">
+<div class="chpage">
+  <div class="crumb">
+    <a href="../index.html">🏠 Trang chủ</a> ·
+    <a href="index.html">🚀 SASS / SCSS</a> ·
+    <span>Chương 2 — SASS/SCSS — Mixin &amp; Tổ chức Folder</span>
+  </div>
+  <main style="padding:0;max-width:none;">
+<section class="chapter" id="s8">
+      <h2>Chương <span class="num">2</span> — SASS/SCSS — Mixin &amp; Tổ chức Folder</h2>
+      <p class="lead">Tái sử dụng khối CSS bằng Mixin, và cách tổ chức nhiều file .scss cho dự án lớn theo chuẩn thực tế.</p>
+
+      <h3>Mixin — "hàm" cho CSS</h3>
+      <div class="code-wrap">
+        <span class="code-label">mixin.scss</span>
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>@mixin flex-center($huong: row) {     // mixin có THAM SỐ, giá trị mặc định row
+    display: flex;
+    flex-direction: $huong;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero {
+    @include flex-center();              // dùng mixin, giống gọi hàm
+    height: 100vh;
+}
+
+.sidebar {
+    @include flex-center(column);          // truyền tham số khác giá trị mặc định
+}</code></pre>
+      </div>
+
+      <h3>@use để chia nhỏ file SCSS (cách hiện đại, thay cho @import cũ)</h3>
+      <div class="code-wrap">
+        <span class="code-label">cấu trúc thư mục dự án SCSS chuẩn</span>
+        <pre><code>styles/
+├── main.scss              # file gốc, @use các file khác
+├── _variables.scss          # biến màu, khoảng cách... (dấu _ = "partial", không tự biên dịch riêng)
+├── _mixins.scss               # các mixin dùng chung
+├── _navbar.scss                 # style riêng cho navbar
+└── _footer.scss                   # style riêng cho footer</code></pre>
+      </div>
+
+      <div class="code-wrap">
+        <span class="code-label">main.scss</span>
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>@use 'variables' as v;
+@use 'mixins' as m;
+@use 'navbar';
+@use 'footer';
+
+.hero {
+    @include m.flex-center();
+    background: v.$mau-chinh;
+}</code></pre>
+      </div>
+
+      <div class="box tip">
+        <div class="box-title">Mẹo</div>
+        Tên file bắt đầu bằng dấu gạch dưới (VD: <code>_variables.scss</code>) được gọi là "partial" — Sass biết đây chỉ là file để <code>@use</code>/<code>@import</code> vào file khác, không tự biên dịch thành file .css riêng lẻ.
+      </div>
+
+      <div class="quiz" data-quiz="q8">
+        <h4>📝 Quiz tổng kết — Phần SASS/SCSS</h4>
+        <div class="quiz-q" data-answer="0">
+          <p>1. Mixin trong SCSS có vai trò tương tự khái niệm gì trong lập trình thông thường?</p>
+          <span class="quiz-opt" data-idx="0">Hàm (function) — có thể nhận tham số, tái sử dụng nhiều lần</span>
+          <span class="quiz-opt" data-idx="1">Vòng lặp (loop)</span>
+          <span class="quiz-opt" data-idx="2">Kiểu dữ liệu (data type)</span>
+        </div>
+        <button class="quiz-btn" onclick="gradeQuiz('q8')">Chấm điểm</button>
+        <div class="quiz-result" id="result-q8"></div>
+      </div>
+
+      <div class="summary-box">
+        <h4>📌 Tổng kết chương 2</h4>
+        <p>Mixin (@mixin/@include) tái sử dụng khối CSS như hàm, có thể nhận tham số. Dự án lớn nên tách nhiều file .scss theo chức năng (biến, mixin, từng component), dùng @use để ghép lại.</p>
+      </div>
+
+      <div class="summary-box">
+        <h4>🎉 Hoàn thành Phần 1!</h4>
+        <p>Bạn đã nắm vững Git/GitHub, TypeScript, Bootstrap, SASS. Trước khi qua Phần 2, hãy hoàn thành lộ trình riêng <a href="../react/chapter01.html">React.js Từ Zero Đến Hero</a> (JSX, Hooks, Router, Context, Redux). Sau đó quay lại đây để học <strong>Phần 2 — Backend chuyên sâu</strong>: MySQL, ORM, GraphQL, real-time và NestJS.</p>
+      </div>
+    </section>
+
+    <!-- ================= CHƯƠNG 9 ================= -->
+  </main>
+  <div class="chnav"><a class="nav-btn prev" href="chapter01.html">← Chương 1 — SASS/SCSS — Biến &amp; Nesting</a><a class="nav-btn next" href="index.html">Mục lục →</a></div>
+</div>
+</div>
+</div>
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
+
+<script src="../assets/code-highlighter.js"></script>
+<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
+
+</body>
+</html>
