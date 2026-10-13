@@ -154,71 +154,8 @@ print(top_k_lon_nhat([5, 2, 8, 1, 9, 3], 3))   # [9, 8, 5]</code></pre>
 </div>
 </div>
 <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<script>
-function toggleTheme(){
-  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-  const newTheme = isDark ? 'light' : 'dark';
-  document.documentElement.setAttribute('data-theme', newTheme);
-  try{ localStorage.setItem('synaptrail-theme', newTheme); }catch(e){}
-  const label = document.getElementById('theme-label');
-  const icon = document.getElementById('theme-icon');
-  if(label) label.textContent = newTheme === 'dark' ? 'Chế độ tối' : 'Chế độ sáng';
-  if(icon) icon.textContent = newTheme === 'dark' ? '🌙' : '☀️';
-}
-(function(){
-  const label = document.getElementById('theme-label');
-  const current = document.documentElement.getAttribute('data-theme') || 'light';
-  if(label) label.textContent = current === 'dark' ? 'Chế độ tối' : 'Chế độ sáng';
-})();
-
-function toggleTheme(){
-  const body = document.body;
-  const isDark = body.getAttribute('data-theme') === 'dark';
-  body.setAttribute('data-theme', isDark ? 'light' : 'dark');
-  document.getElementById('theme-label').textContent = isDark ? 'Chế độ tối' : 'Chế độ sáng';
-}
-const links = document.querySelectorAll('.nav-link[data-target]');
-links.forEach(link=>{
-  link.addEventListener('click', ()=>{
-    const target = document.getElementById(link.dataset.target);
-    if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
-    document.getElementById('sidebar').classList.remove('open');
-  });
-});
-const sections = document.querySelectorAll('.chapter');
-function updateActiveNav(){
-  let current = sections[0]?.id;
-  sections.forEach(sec=>{
-    const rect = sec.getBoundingClientRect();
-    if(rect.top <= 140) current = sec.id;
-  });
-  links.forEach(l=>l.classList.toggle('active', l.dataset.target===current));
-}
-window.addEventListener('scroll', ()=>{
-  const scrollTop = window.scrollY;
-  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const pct = docHeight>0 ? (scrollTop/docHeight)*100 : 0;
-  document.getElementById('progress-bar').style.width = pct+'%';
-  document.getElementById('back-to-top').classList.toggle('show', scrollTop>500);
-  updateActiveNav();
-});
-function filterNav(query){
-  const q = query.trim().toLowerCase();
-  links.forEach(link=>{
-    const text = link.textContent.toLowerCase();
-    link.style.display = (q==='' || text.includes(q)) ? 'block' : 'none';
-  });
-}
-function copyCode(btn){
-  const pre = btn.parentElement.querySelector('pre code') || btn.parentElement.querySelector('pre');
-  const text = pre.innerText;
-  navigator.clipboard.writeText(text).then(()=>{
-    const old = btn.textContent;
-    btn.textContent = '✓ Đã copy';
-    setTimeout(()=>{ btn.textContent = old; }, 1500);
-  });
-}
-function highlightPython(code){
+<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="3"></script>
+<script>function highlightPython(code){
   const keywords = /\b(def|return|if|elif|else|for|while|in|import|from|as|class|try|except|finally|raise|with|pass|break|continue|lambda|True|False|None|and|or|not|is|global|yield|async|await|enumerate|len|range|extend|append)\b/g;
   let html = code.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   html = html.replace(/(#.*)$/gm, '<span class="tok-com">$1</span>');
@@ -230,51 +167,8 @@ function highlightPython(code){
 }
 document.querySelectorAll('pre code').forEach(block=>{ block.innerHTML = highlightPython(block.textContent); });
 document.querySelectorAll('pre').forEach(pre=>{ if(!pre.querySelector('code')){ pre.innerHTML = highlightPython(pre.textContent); } });
-function gradeQuiz(quizId){
-  const quiz = document.querySelector(`[data-quiz="${quizId}"]`);
-  const questions = quiz.querySelectorAll('.quiz-q');
-  let correct = 0;
-  questions.forEach(q=>{
-    const answer = q.dataset.answer;
-    const opts = q.querySelectorAll('.quiz-opt');
-    opts.forEach(opt=>{
-      opt.classList.remove('correct','wrong');
-      opt.style.pointerEvents = 'none';
-      if(opt.dataset.idx === answer){ opt.classList.add('correct'); }
-    });
-    const selected = q.dataset.selected;
-    if(selected === answer){ correct++; }
-    else if(selected !== undefined){
-      const wrongOpt = q.querySelector(`.quiz-opt[data-idx="${selected}"]`);
-      if(wrongOpt) wrongOpt.classList.add('wrong');
-    }
-  });
-  const resultEl = document.getElementById('result-'+quizId);
-  resultEl.textContent = `Kết quả: ${correct}/${questions.length} câu đúng`;
-  resultEl.style.color = correct===questions.length ? 'var(--ok)' : 'var(--warn)';
-}
-document.querySelectorAll('.quiz-q').forEach(q=>{
-  q.querySelectorAll('.quiz-opt').forEach(opt=>{
-    opt.addEventListener('click', ()=>{
-      q.dataset.selected = opt.dataset.idx;
-      q.querySelectorAll('.quiz-opt').forEach(o=>o.style.borderColor='var(--border)');
-      opt.style.borderColor = 'var(--accent)';
-    });
-  });
-});
-updateActiveNav();
-const chapterObserver = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-      const link = document.querySelector(`.nav-link[data-target="${entry.target.id}"]`);
-      if(link) link.classList.add('visited');
-    }
-  });
-}, {threshold:0.08, rootMargin:'0px 0px -10% 0px'});
-document.querySelectorAll('.chapter').forEach(sec=>chapterObserver.observe(sec));
-
 </script>
+<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
 
 </body>
 </html>

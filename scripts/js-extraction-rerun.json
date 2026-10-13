@@ -1,0 +1,1449 @@
+{
+  "dryRun": false,
+  "chapters": 345,
+  "inlineHashGroups": [
+    {
+      "hash": "38c64af613ce916ff72c2816a223a08afd0fbcf3b6038b29b5a0999f08399404",
+      "bytes": 244,
+      "count": 345,
+      "example": "ai-engineer/chapter01.html"
+    },
+    {
+      "hash": "6109e88a207f6fb47bfd38c9ab7d1142846c422169bded8a838e4ad3a6eccdc3",
+      "bytes": 878,
+      "count": 21,
+      "example": "ai-engineer/chapter01.html"
+    },
+    {
+      "hash": "3872313bc441ef5ccfa1ee3aea8b20e876285ffac7e7269f5c4162889a6adb93",
+      "bytes": 1059,
+      "count": 32,
+      "example": "cpp/chapter01.html"
+    },
+    {
+      "hash": "c380b8ed4c92862fd411aee4de761d0eb32044d55f063bde280b3122b79a8200",
+      "bytes": 977,
+      "count": 22,
+      "example": "fullstack-js/chapter01.html"
+    },
+    {
+      "hash": "24e58a818107e2616657035df34a9814232e9838c718101a2b20844f6b2f1450",
+      "bytes": 1027,
+      "count": 18,
+      "example": "html-css-nnlt/chapter01.html"
+    },
+    {
+      "hash": "ff6ec78e775ef28b7c82086e27901deec11ea04a55b7084d1841d23a38aaecff",
+      "bytes": 1084,
+      "count": 31,
+      "example": "java/chapter01.html"
+    },
+    {
+      "hash": "4dc389425d3ffc19db78c8895acad47e8bf724b76f595fd0c6f6695ba2bbda63",
+      "bytes": 1018,
+      "count": 60,
+      "example": "javascript-nnlt/chapter01.html"
+    },
+    {
+      "hash": "cd1e22192b4124c6fb1250d515b0f72494655d7ea2f61a64510f63bfbab68aa0",
+      "bytes": 1235,
+      "count": 108,
+      "example": "python/chapter001.html"
+    },
+    {
+      "hash": "2a1ed29c09442b0232200ad088ef914e290744ff8749dde698da8d6e51962d11",
+      "bytes": 1021,
+      "count": 23,
+      "example": "thuat-toan/chapter01.html"
+    }
+  ],
+  "changedFiles": [],
+  "skipped": [
+    {
+      "file": "ai-engineer/chapter01.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "ai-engineer/chapter02.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "ai-engineer/chapter03.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "ai-engineer/chapter04.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "ai-engineer/chapter05.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "ai-engineer/chapter06.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "ai-engineer/chapter07.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "ai-engineer/chapter08.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "ai-engineer/chapter09.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "ai-engineer/chapter10.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "ai-engineer/chapter11.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "ai-engineer/chapter12.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "ai-engineer/chapter13.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "ai-engineer/chapter14.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "ai-engineer/chapter15.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "ai-engineer/chapter16.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "ai-engineer/chapter17.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "ai-engineer/chapter18.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "ai-engineer/chapter19.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "ai-engineer/chapter20.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "ai-engineer/chapter21.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "cpp/chapter01.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "cpp/chapter02.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "cpp/chapter03.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "cpp/chapter04.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "cpp/chapter05.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "cpp/chapter06.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "cpp/chapter07.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "cpp/chapter08.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "cpp/chapter09.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "cpp/chapter10.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "cpp/chapter11.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "cpp/chapter12.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "cpp/chapter13.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "cpp/chapter14.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "cpp/chapter15.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "cpp/chapter16.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "cpp/chapter17.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "cpp/chapter18.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "cpp/chapter19.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "cpp/chapter20.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "cpp/chapter21.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "cpp/chapter22.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "cpp/chapter23.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "cpp/chapter24.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "cpp/chapter25.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "cpp/chapter26.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "cpp/chapter27.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "cpp/chapter28.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "cpp/chapter29.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "cpp/chapter30.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "cpp/chapter31.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "cpp/chapter32.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "fullstack-js/chapter01.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "fullstack-js/chapter02.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "fullstack-js/chapter03.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "fullstack-js/chapter04.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "fullstack-js/chapter05.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "fullstack-js/chapter06.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "fullstack-js/chapter07.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "fullstack-js/chapter08.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "fullstack-js/chapter09.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "fullstack-js/chapter10.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "fullstack-js/chapter11.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "fullstack-js/chapter12.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "fullstack-js/chapter13.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "fullstack-js/chapter14.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "fullstack-js/chapter15.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "fullstack-js/chapter16.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "fullstack-js/chapter17.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "fullstack-js/chapter18.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "fullstack-js/chapter19.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "fullstack-js/chapter20.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "fullstack-js/chapter21.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "fullstack-js/chapter22.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "html-css-nnlt/chapter01.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "html-css-nnlt/chapter02.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "html-css-nnlt/chapter03.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "html-css-nnlt/chapter04.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "html-css-nnlt/chapter05.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "html-css-nnlt/chapter06.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "html-css-nnlt/chapter07.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "html-css-nnlt/chapter08.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "html-css-nnlt/chapter09.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "html-css-nnlt/chapter10.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "html-css-nnlt/chapter11.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "html-css-nnlt/chapter12.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "html-css-nnlt/chapter13.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "html-css-nnlt/chapter14.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "html-css-nnlt/chapter15.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "html-css-nnlt/chapter16.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "html-css-nnlt/chapter17.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "html-css-nnlt/chapter18.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "java/chapter01.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "java/chapter02.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "java/chapter03.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "java/chapter04.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "java/chapter05.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "java/chapter06.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "java/chapter07.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "java/chapter08.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "java/chapter09.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "java/chapter10.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "java/chapter11.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "java/chapter12.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "java/chapter13.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "java/chapter14.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "java/chapter15.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "java/chapter16.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "java/chapter17.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "java/chapter18.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "java/chapter19.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "java/chapter20.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "java/chapter21.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "java/chapter22.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "java/chapter23.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "java/chapter24.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "java/chapter25.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "java/chapter26.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "java/chapter27.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "java/chapter28.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "java/chapter29.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "java/chapter30.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "java/chapter31.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter01.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter02.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter03.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter04.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter05.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter06.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter07.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter08.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter09.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter10.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter11.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter12.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter13.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter14.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter15.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter16.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter17.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter18.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter19.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter20.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter21.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter22.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter23.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter24.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter25.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter26.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter27.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter28.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter29.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter30.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter31.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter32.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter33.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "javascript-nnlt/chapter34.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "languages/chapter01.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "languages/chapter02.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "languages/chapter03.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "languages/chapter04.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "languages/chapter05.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "languages/chapter06.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "languages/chapter07.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "languages/chapter08.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "languages/chapter09.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "languages/chapter10.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter001.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter002.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter003.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter004.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter005.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter006.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter007.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter008.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter009.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter010.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter011.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter012.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter013.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter014.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter015.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter016.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter017.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter018.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter019.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter020.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter021.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter022.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter023.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter024.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter025.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter026.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter027.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter028.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter029.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter030.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter031.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter032.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter033.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter034.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter035.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter036.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter037.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter038.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter039.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter040.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter041.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter042.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter043.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter044.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter045.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter046.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter047.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter048.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter049.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter050.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter051.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter052.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter053.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter054.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter055.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter056.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter057.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter058.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter059.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter060.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter061.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter062.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter063.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter064.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter065.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter066.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter067.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter068.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter069.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter070.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter071.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter072.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter073.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter074.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter075.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter076.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter077.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter078.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter079.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter080.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter081.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter082.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter083.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter084.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter085.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter086.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter087.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter088.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter089.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter090.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter091.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter092.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter093.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter094.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter095.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter096.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter097.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter098.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter099.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter100.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter101.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter102.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter103.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter104.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter105.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter106.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter107.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "python/chapter108.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "react/chapter01.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "react/chapter02.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "react/chapter03.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "react/chapter04.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "react/chapter05.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "react/chapter06.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "react/chapter07.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "react/chapter08.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "react/chapter09.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "react/chapter10.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "react/chapter11.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "react/chapter12.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "react/chapter13.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "react/chapter14.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "react/chapter15.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "react/chapter16.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "react/chapter17.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "react/chapter18.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "react/chapter19.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "react/chapter20.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "react/chapter21.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "react/chapter22.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "react/chapter23.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "react/chapter24.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "react/chapter25.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "react/chapter26.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "security/chapter01.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "security/chapter02.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "security/chapter03.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "security/chapter04.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "security/chapter05.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "security/chapter06.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "security/chapter07.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "security/chapter08.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "security/chapter09.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "security/chapter10.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "system-design/chapter01.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "system-design/chapter02.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "system-design/chapter03.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "system-design/chapter04.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "system-design/chapter05.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "system-design/chapter06.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "system-design/chapter07.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "system-design/chapter08.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "system-design/chapter09.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "system-design/chapter10.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "thuat-toan/chapter01.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "thuat-toan/chapter02.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "thuat-toan/chapter03.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "thuat-toan/chapter04.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "thuat-toan/chapter05.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "thuat-toan/chapter06.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "thuat-toan/chapter07.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "thuat-toan/chapter08.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "thuat-toan/chapter09.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "thuat-toan/chapter10.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "thuat-toan/chapter11.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "thuat-toan/chapter12.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "thuat-toan/chapter13.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "thuat-toan/chapter14.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "thuat-toan/chapter15.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "thuat-toan/chapter16.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "thuat-toan/chapter17.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "thuat-toan/chapter18.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "thuat-toan/chapter19.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "thuat-toan/chapter20.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "thuat-toan/chapter21.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "thuat-toan/chapter22.html",
+      "reason": "Already extracted"
+    },
+    {
+      "file": "thuat-toan/chapter23.html",
+      "reason": "Already extracted"
+    }
+  ],
+  "chapterBytesBefore": 3732125,
+  "chapterBytesAfter": 3732125,
+  "inlineBytesBefore": 428033,
+  "inlineBytesAfter": 428033,
+  "sharedAssetBytes": 8372,
+  "netSavingBytes": 0
+}

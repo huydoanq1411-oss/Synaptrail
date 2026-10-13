@@ -2,10 +2,15 @@ const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
 const root = path.resolve(__dirname,'..');
+if(fs.existsSync(path.join(root,'assets/lesson.js')))new vm.Script(fs.readFileSync(path.join(root,'assets/lesson.js'),'utf8'),{filename:'assets/lesson.js'});
 function walk(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.name.startsWith('.')?[]:e.isDirectory()?walk(path.join(dir,e.name)):e.name.endsWith('.html')?[path.join(dir,e.name)]:[])}
 let scripts=0;const errors=[];
 for(const file of walk(root)){
  const html=fs.readFileSync(file,'utf8');
+ for(const [,src]of html.matchAll(/<script\b[^>]*\bsrc="([^"]+)"/gi)){
+  if(/^(https?:)?\/\//.test(src))continue;
+  if(!fs.existsSync(path.resolve(path.dirname(file),src)))errors.push('Missing script '+src+' in '+file);
+ }
  for(const match of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)){
   if(/type\s*=\s*["'](?:application\/ld\+json|importmap)/.test(match[1])||/\bsrc=/.test(match[1]))continue;
   try{new vm.Script(match[2],{filename:path.relative(root,file)});scripts++}catch(e){errors.push(e.message+' in '+path.relative(root,file))}
