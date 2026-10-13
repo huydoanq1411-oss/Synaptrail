@@ -21,3 +21,9 @@
 @media(max-width:380px){.landing-actions{align-items:start;flex-direction:column}.path-card-grid{grid-template-columns:1fr}.landing-eyebrow{letter-spacing:1px}.hero-visual{min-height:380px}.floating-note{font-size:10px;padding:12px}}
 @media(prefers-reduced-motion:reduce){.landing-button,.path-card{transition:none;transform:none!important}}
 @media(min-width:721px) and (max-width:900px){.landing-header-inner{padding:22px 28px;gap:20px}.landing-brand{font-size:23px}.landing-nav{gap:18px}.header-cta{padding:14px 18px;gap:14px;font-size:13px}.landing-hero{grid-template-columns:minmax(0,1fr);padding-top:60px;gap:35px}.hero-visual{width:100%;max-width:460px;margin:auto}.landing-copy{max-width:650px}.landing-copy h1{font-size:56px}}
+
+/* Top edge grows symmetrically from its midpoint, without layout shifts. */
+:is(.catalog-page,.landing-page) :is(.resource-card,.role-box,.role-skill,.path-card){position:relative;isolation:isolate;overflow:hidden}
+:is(.catalog-page,.landing-page) :is(.resource-card,.role-box,.role-skill,.path-card)::after{content:"";display:block;position:absolute;inset:0 0 auto;height:3px;background:#27b6a4;border:0;border-radius:0;opacity:1;z-index:3;pointer-events:none;transform:scaleX(0);transform-origin:50% 50%;transition:transform 300ms cubic-bezier(.2,.7,.2,1)}
+:is(.catalog-page,.landing-page) :is(.resource-card,.role-box,.role-skill,.path-card):is(:hover,:focus-visible,:focus-within)::after{transform:scaleX(1)}
+@media(prefers-reduced-motion:reduce){:is(.catalog-page,.landing-page) :is(.resource-card,.role-box,.role-skill,.path-card)::after{transition:none}}
