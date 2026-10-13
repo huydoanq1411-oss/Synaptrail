@@ -170,6 +170,7 @@ Synaptrail/
 │   ├── ui.css              # Giao diện chung cho các trang
 │   ├── lesson.css          # CSS gốc dùng chung cho 345 trang chapter
 │   ├── lesson.js           # Theme, sidebar, progress, copy và quiz dùng chung
+│   ├── code-highlighter.js # Tokenizer code một lượt, bảo toàn văn bản gốc
 │   ├── home.css            # Bố cục trang chủ
 │   ├── courses.css         # Bố cục danh mục và các box
 │   └── catalog.js          # Chọn role, lọc kỹ năng và tìm kiếm
@@ -217,6 +218,24 @@ node scripts/upgrade-ui.cjs
 ```
 
 ## Kiểm tra
+
+### Kiểm tra tô màu code và Copy
+
+Đã tái hiện lỗi URL CDN của `fullstack-js/chapter05.html`: highlighter regex cũ nhận `//` trong chuỗi là comment, rồi sửa chính markup span vừa tạo. Bản mới dùng tokenizer một lượt trong `assets/code-highlighter.js`, nhận diện ngôn ngữ theo nhãn file/khối code hoặc `data-language`/class `language-*`.
+
+- Chuỗi được đọc trọn token; regex không chạy lên markup đã chèn. Mỗi token được escape `&`, `<`, `>` trước khi tạo span.
+- JS/Java/C++: `//` chỉ là comment ngoài chuỗi và không ngay sau `:`; hỗ trợ `/* */`. HTML dùng `<!-- -->`; Python/Bash dùng `#`; CSS dùng `/* */`. URL và dấu comment trong chuỗi được giữ nguyên.
+- Copy dùng `textContent`, không dùng `innerText`/`innerHTML`. Kiểm tra payload gửi cho clipboard bằng stub, đối chiếu với văn bản gốc trước khi tô màu; không kiểm tra quyền clipboard hệ điều hành trong lượt này.
+- Sidebar Full Stack đếm các URL chương khác nhau trong danh sách thực tế; hiện hiển thị **22 chương**, không còn nhãn 26 cố định.
+
+```sh
+node scripts/check-highlighter.cjs
+node scripts/check-highlight-browser.cjs
+```
+
+14 ca tokenizer đạt. Kiểm tra trình duyệt đạt trên Full Stack chương 5 (CDN), Python chương 8 (comment, thêm fixture URL/# trong chuỗi), Java chương 1, C++ chương 3 và Security chương 5. Văn bản tất cả khối code không đổi sau tô màu; các nút Copy truyền đúng nội dung. Fixture HTML/JS/Python/Bash/CSS đều giữ nguyên textContent và phân loại comment ngoài chuỗi. Kết quả trước/sau nằm trong `artifacts/highlight-before.json` và `artifacts/highlight-after.json`.
+
+`node scripts/migrate-highlighter.cjs` chuyển highlighter inline sang module chung; chạy lại không sửa trang đã chuyển. Các hàm legacy còn được nội dung động gọi trong ML/ôn tập chỉ ủy quyền cho tokenizer, không giữ pipeline regex cũ. Nội dung code trong HTML không bị thay đổi.
 
 ### Chuẩn bị SEO
 
@@ -288,7 +307,7 @@ node scripts/extract-js.cjs
 
 Phân tích 345 chapter cho thấy 11 nhóm script gốc: một bootstrap theme 244 byte lặp trên mọi trang và 10 nhóm script cuối trang. Phần sidebar, progress, search, copy và quiz giống nhau sau khi loại khác biệt định dạng/comment; khác biệt ở theme và highlighter được giữ nguyên. Nhóm thuật toán có hàm theme ghi đè và dùng `body`; lần tách này giữ nguyên hành vi cũ.
 
-`lesson.js` được tải đồng bộ ở hai vị trí (setup / finish), bao quanh highlighter inline để giữ thứ tự chạy cũ. Không thêm `async` hoặc `defer` vào hai thẻ này. Bootstrap theme nhỏ ở đầu trang vẫn inline để tránh nháy màu; highlighter theo ngôn ngữ, nội dung và đáp án quiz trong `data-answer` vẫn ở từng chương.
+`lesson.js` được tải đồng bộ ở hai vị trí (setup / finish), bao quanh highlighter inline để giữ thứ tự chạy cũ. Không thêm `async` hoặc `defer` vào hai thẻ này. Bootstrap theme nhỏ ở đầu trang vẫn inline để tránh nháy màu; highlighter được chuyển sang `assets/code-highlighter.js`. Nội dung và đáp án quiz trong `data-answer` vẫn ở từng chương.
 
 Đã chuyển **345 file**, không bỏ qua file nào ở lần đầu. JS inline giảm từ **1.997.212** xuống **428.033 byte**; asset chung **8.372 byte**. Tổng HTML cộng asset mới giảm **1.505.112 byte**. Chạy lại: 0 thay đổi, 345 file được bỏ qua vì đã tách. Báo cáo: `scripts/js-extraction-result.json`, `scripts/js-extraction-rerun.json`.
 

@@ -18,7 +18,7 @@ for(const file of walk(root)){
  }
  if(html!==before){fs.writeFileSync(file,html);changed++;}
 }
-const lesson=path.join(root,'assets/lesson.js');let source=fs.readFileSync(lesson,'utf8');
+const lesson=path.join(root,'assets/lesson.js');let source=fs.readFileSync(lesson,'utf8').replace(/\r\n/g,'\n');
 source=source.replace('const text = pre.innerText;','const text = pre.textContent;');
 const counter=`\n// Count distinct chapter links in the actual sidebar, rather than legacy labels.\nconst sidebar = document.getElementById('sidebar');\nif (sidebar && location.pathname.includes('/fullstack-js/')) {\n  const chapterLinks = new Set(Array.from(sidebar.querySelectorAll('a[href]')).map(link => new URL(link.getAttribute('href'), location.href)).filter(url => url.origin === location.origin && /\\/fullstack-js\\/chapter\\d+\\.html$/.test(url.pathname)).map(url => url.pathname));\n  const subtitle = sidebar.querySelector('.sub');\n  if (subtitle) subtitle.textContent = chapterLinks.size + ' chương';\n}\n`;
 if(!source.includes('Count distinct chapter links'))source=source.replace('Object.assign(window,{updateActiveNav,filterNav,copyCode});',counter+'\nObject.assign(window,{updateActiveNav,filterNav,copyCode});');

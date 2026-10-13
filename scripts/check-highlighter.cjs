@@ -20,4 +20,5 @@ assert.equal(tokenize('https://example.test/path','javascript').filter(t=>t.type
 assert.equal(tokenize('url="https://example.test"','html').filter(t=>t.type==='com').length,0);
 assert.equal(tokenize('/* note */','css')[0].type,'com');
 assert.equal(tokenize('"// not comment"','java')[0].type,'str');
+assert.equal(tokenize("echo 'a\\' # actual comment",'bash').filter(token=>token.type==='com').length,1);
 console.log(JSON.stringify({tokenizerCases:cases.length,textPreserved:true,errors:[]},null,2));

@@ -31,7 +31,7 @@
       if(char==='"'||char==="'"||char==='`'&&['javascript','bash'].includes(language)){
         const quote=language==='python'&&source.startsWith(char.repeat(3),i)?char.repeat(3):char;
         let end=i+quote.length;
-        while(end<source.length){if(source[end]==='\\'){end=Math.min(end+2,source.length);continue;}if(source.startsWith(quote,end)){end+=quote.length;break;}end++;}
+        while(end<source.length){if(source[end]==='\\'&&!(language==='bash'&&quote==="'")){end=Math.min(end+2,source.length);continue;}if(source.startsWith(quote,end)){end+=quote.length;break;}end++;}
         emit(end,'str');continue;
       }
       if(/\d/.test(char)||char==='.'&&/\d/.test(source[i+1]||'')){
