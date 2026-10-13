@@ -180,9 +180,10 @@ node scripts/browser-check.cjs
 
 Sau lần chỉnh danh mục thành bốn khu vực:
 
-- **384 trang HTML**, **772 script inline**: không phát hiện lỗi cú pháp; CSS chung và các liên kết được kiểm tra đều tồn tại.
+- **384 trang HTML**, **742 script inline** cùng `assets/lesson.js`: không phát hiện lỗi cú pháp; CSS chung và các liên kết được kiểm tra đều tồn tại.
 - **6 trang đại diện × 3 độ rộng** (375, 768, 1440 px): không phát hiện tràn ngang hoặc exception JavaScript, nền trắng mặc định hiển thị đúng.
 - Cả **5 role** hiển thị đúng bộ kỹ năng; tìm kiếm khi chọn role, trạng thái trống và nút bỏ bộ lọc đều đạt.
 - Điều hướng trang chủ → danh mục, bookmark cũ, menu/focus và chuyển sáng/tối đều đạt.
+- Sau tách JS, kiểm tra theme, sidebar, search, progress, highlighter và chấm quiz trên Python, React, C++ và thuật toán đều đạt. Copy được kiểm tra bằng clipboard giả lập ở trang có nút Copy; cần test dán vào trình soạn thảo để xác minh quyền clipboard thực tế.
 
 Các kiểm tra trình duyệt lấy mẫu trang chủ, danh mục, mục lục React, bài Python đầu tiên, mục lục Full Stack và quiz tổng hợp. Chưa kiểm tra thủ công toàn bộ bài học, mọi chức năng quiz hoặc thiết bị vật lý.
