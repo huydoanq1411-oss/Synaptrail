@@ -31,4 +31,11 @@
 
 Chỉ chương 1 có nội dung; các chương còn lại là đề cương, không có link giả đến file chưa viết. MySQL mẫu giới thiệu mô hình quan hệ và SQL cơ bản, không giả định đã có server chạy; phần chạy cần MySQL và client như ghi trong bài. Docker mẫu dùng Linux container; phần chạy cần Engine/Desktop đang hoạt động. Đây là phạm vi bản mẫu được nêu rõ, không tự cài môi trường hay phát hành khóa.
 
+## Kiểm tra bản mẫu
+
+- MySQL: 1.035 từ diễn giải; Docker: 1.048 từ (không tính code và quiz). Mỗi chương có năm câu quiz.
+- Cả bốn trang HTML đạt kiểm tra responsive ở 375/768/1440 px, không tràn ngang; hai quiz chấm 5/5 và hiện giải thích sau chấm.
+- Không có lỗi HTML/link mới từ các bản mẫu. Lỗi thiếu h1/description trên các trang cũ vẫn còn.
+- Chưa chạy SQL hoặc các lệnh container: chưa có MySQL client và Docker Engine đang tắt. Cần xác minh runtime trước khi phát hành khóa.
+
 Nguồn đối chiếu: [MySQL Reference Manual](https://dev.mysql.com/doc/refman/8.4/en/), [EXPLAIN](https://dev.mysql.com/doc/refman/8.4/en/explain.html), [container](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/), [image](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-an-image/), [multi-stage build](https://docs.docker.com/build/building/multi-stage/).
