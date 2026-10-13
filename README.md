@@ -130,6 +130,10 @@ Synaptrail/
 
 ## Chỉnh sửa mã nguồn
 
+Tiêu đề chương được chuẩn hóa thành **Chương N — Tên bài** trên 360 bài (345 chapter và 15 bài ML), đồng bộ tab, tiêu đề chính, mục lục/sidebar và điều hướng trước/sau. Chạy `node scripts/normalize-chapter-titles.cjs --dry-run` để kiểm tra thay đổi dự kiến; chạy lại sau chuẩn hóa không đổi file. Các mục nội dung trong từng chương giữ nguyên tên.
+
+Đề xuất đổi thư mục đang **chờ duyệt**, chưa áp dụng: `html-css-nnlt` → `html-css`, `javascript-nnlt` → `javascript`, `Quiz_and_other` → `practice`. Xem [bảng đề xuất](reports/consistency/proposal.md) và [mọi dòng tham chiếu](reports/consistency/references.md). Sau khi được duyệt mới di chuyển thư mục và tạo redirect cho các URL cũ.
+
 Chạy các lệnh từ thư mục gốc dự án.
 
 | Muốn chỉnh | File liên quan |

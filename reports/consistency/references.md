@@ -31,11 +31,1764 @@ Chưa đổi tên hoặc cập nhật tham chiếu. Báo cáo bao gồm tham chi
 | Quiz_and_other | courses.html:1359 | 1 |           &lt;a href="Quiz_and_other/quiz-tong-hop.html"&gt;Quiz tổng hợp&lt;/a&gt; |
 | Quiz_and_other | courses.html:1360 | 1 |           &lt;a href="Quiz_and_other/free-apis-giao-trinh.html"&gt;Free APIs&lt;/a&gt; |
 | Quiz_and_other | courses.html:1362 | 2 |       &lt;/article&gt;&lt;article class="card resource-card" data-name="Bài tập lập trình"&gt;&lt;h3&gt;Bài tập lập trình&lt;/h3&gt;&lt;p class="desc"&gt;Rèn luyện kỹ năng qua các bài tập trong thư viện.&lt;/p&gt;&lt;div class="card-footer"&gt;&lt;a class="btn btn-start" href="Quiz_and_other/exercises.html"&gt;Khám phá →&lt;/a&gt;&lt;/div&gt;&lt;/article&gt;&lt;article class="card resource-card" data-name="Thực hành với API"&gt;&lt;h3&gt;Thực hành với API&lt;/h3&gt;&lt;p class="desc"&gt;Khám phá danh sách API và giáo trình để xây dựng ứng dụng.&lt;/p&gt;&lt;div class="card-footer"&gt;&lt;a class="btn btn-start" href="Quiz_and_other/free-apis-giao-trinh.html"&gt;Khám phá →&lt;/a&gt;&lt;/div&gt;&lt;/article&gt;&lt;/div&gt;&lt;/section&gt;&lt;p id="resourceEmpty" class="resource-empty" role="status" hidden&gt;Không có tài liệu phù hợp ở các nhóm này. Hãy thử từ khóa khác.&lt;/p&gt; |
+| html-css-nnlt | html-css-nnlt/chapter01.html:39 | 1 |     &lt;a class="nav-link active" href="chapter01.html"&gt;Chương 1 — Giới thiệu HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter01.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cấu trúc trang HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter01.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Thẻ văn bản &amp; Danh sách&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter01.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Liên kết &amp; Hình ảnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter01.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Bảng (Table)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter01.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Form &amp; Input&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter01.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Thẻ ngữ nghĩa (Semantic HTML)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter01.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Giới thiệu CSS &amp; Selector&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter01.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Màu sắc &amp; Typography&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter01.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Box Model&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter01.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Display &amp; Vị trí (Position)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter01.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — Flexbox&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter01.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — CSS Grid&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter01.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Responsive Design &amp; Media Query&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter01.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — CSS Variables &amp; Transition/Animation&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter01.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Dự án: Landing Page — Cấu trúc HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter01.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Dự án: Landing Page — Style CSS hoàn chỉnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter01.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Checklist &amp; Lỗi thường gặp&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter01.html:63 | 1 |     &lt;a href="index.html"&gt;🧱 HTML & CSS&lt;/a&gt; · |
+| html-css-nnlt | html-css-nnlt/chapter01.html:102 | 1 |     &lt;a class="nav-btn next" href="chapter02.html"&gt;Chương 2 — Cấu trúc trang HTML →&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter02.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter02.html:40 | 1 |     &lt;a class="nav-link active" href="chapter02.html"&gt;Chương 2 — Cấu trúc trang HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter02.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Thẻ văn bản &amp; Danh sách&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter02.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Liên kết &amp; Hình ảnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter02.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Bảng (Table)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter02.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Form &amp; Input&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter02.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Thẻ ngữ nghĩa (Semantic HTML)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter02.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Giới thiệu CSS &amp; Selector&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter02.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Màu sắc &amp; Typography&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter02.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Box Model&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter02.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Display &amp; Vị trí (Position)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter02.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — Flexbox&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter02.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — CSS Grid&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter02.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Responsive Design &amp; Media Query&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter02.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — CSS Variables &amp; Transition/Animation&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter02.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Dự án: Landing Page — Cấu trúc HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter02.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Dự án: Landing Page — Style CSS hoàn chỉnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter02.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Checklist &amp; Lỗi thường gặp&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter02.html:63 | 1 |     &lt;a href="index.html"&gt;🧱 HTML & CSS&lt;/a&gt; · |
+| html-css-nnlt | html-css-nnlt/chapter02.html:109 | 1 |     &lt;a class="nav-btn prev" href="chapter01.html"&gt;← Chương 1 — Giới thiệu HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter02.html:110 | 1 |     &lt;a class="nav-btn next" href="chapter03.html"&gt;Chương 3 — Thẻ văn bản &amp; Danh sách →&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter03.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter03.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cấu trúc trang HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter03.html:41 | 1 |     &lt;a class="nav-link active" href="chapter03.html"&gt;Chương 3 — Thẻ văn bản &amp; Danh sách&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter03.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Liên kết &amp; Hình ảnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter03.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Bảng (Table)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter03.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Form &amp; Input&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter03.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Thẻ ngữ nghĩa (Semantic HTML)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter03.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Giới thiệu CSS &amp; Selector&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter03.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Màu sắc &amp; Typography&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter03.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Box Model&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter03.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Display &amp; Vị trí (Position)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter03.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — Flexbox&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter03.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — CSS Grid&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter03.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Responsive Design &amp; Media Query&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter03.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — CSS Variables &amp; Transition/Animation&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter03.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Dự án: Landing Page — Cấu trúc HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter03.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Dự án: Landing Page — Style CSS hoàn chỉnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter03.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Checklist &amp; Lỗi thường gặp&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter03.html:63 | 1 |     &lt;a href="index.html"&gt;🧱 HTML & CSS&lt;/a&gt; · |
+| html-css-nnlt | html-css-nnlt/chapter03.html:108 | 1 |     &lt;a class="nav-btn prev" href="chapter02.html"&gt;← Chương 2 — Cấu trúc trang HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter03.html:109 | 1 |     &lt;a class="nav-btn next" href="chapter04.html"&gt;Chương 4 — Liên kết &amp; Hình ảnh →&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter04.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter04.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cấu trúc trang HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter04.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Thẻ văn bản &amp; Danh sách&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter04.html:42 | 1 |     &lt;a class="nav-link active" href="chapter04.html"&gt;Chương 4 — Liên kết &amp; Hình ảnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter04.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Bảng (Table)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter04.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Form &amp; Input&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter04.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Thẻ ngữ nghĩa (Semantic HTML)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter04.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Giới thiệu CSS &amp; Selector&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter04.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Màu sắc &amp; Typography&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter04.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Box Model&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter04.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Display &amp; Vị trí (Position)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter04.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — Flexbox&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter04.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — CSS Grid&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter04.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Responsive Design &amp; Media Query&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter04.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — CSS Variables &amp; Transition/Animation&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter04.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Dự án: Landing Page — Cấu trúc HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter04.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Dự án: Landing Page — Style CSS hoàn chỉnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter04.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Checklist &amp; Lỗi thường gặp&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter04.html:63 | 1 |     &lt;a href="index.html"&gt;🧱 HTML & CSS&lt;/a&gt; · |
+| html-css-nnlt | html-css-nnlt/chapter04.html:75 | 1 | &lt;a href="trang-khac.html"&gt;Trang khác trong cùng website&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter04.html:98 | 1 |         &lt;p&gt;&lt;code&gt;&lt;a href="..."&gt;&lt;/code&gt; tạo liên kết, &lt;code&gt;&lt;img src="..." alt="..."&gt;&lt;/code&gt; nhúng hình ảnh — luôn viết &lt;code&gt;alt&lt;/code&gt; đầy đủ ý nghĩa cho mọi hình ảnh.&lt;/p&gt; |
+| html-css-nnlt | html-css-nnlt/chapter04.html:105 | 1 |     &lt;a class="nav-btn prev" href="chapter03.html"&gt;← Chương 3 — Thẻ văn bản &amp; Danh sách&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter04.html:106 | 1 |     &lt;a class="nav-btn next" href="chapter05.html"&gt;Chương 5 — Bảng (Table) →&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter05.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter05.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cấu trúc trang HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter05.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Thẻ văn bản &amp; Danh sách&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter05.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Liên kết &amp; Hình ảnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter05.html:43 | 1 |     &lt;a class="nav-link active" href="chapter05.html"&gt;Chương 5 — Bảng (Table)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter05.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Form &amp; Input&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter05.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Thẻ ngữ nghĩa (Semantic HTML)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter05.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Giới thiệu CSS &amp; Selector&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter05.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Màu sắc &amp; Typography&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter05.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Box Model&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter05.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Display &amp; Vị trí (Position)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter05.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — Flexbox&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter05.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — CSS Grid&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter05.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Responsive Design &amp; Media Query&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter05.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — CSS Variables &amp; Transition/Animation&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter05.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Dự án: Landing Page — Cấu trúc HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter05.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Dự án: Landing Page — Style CSS hoàn chỉnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter05.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Checklist &amp; Lỗi thường gặp&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter05.html:63 | 1 |     &lt;a href="index.html"&gt;🧱 HTML & CSS&lt;/a&gt; · |
+| html-css-nnlt | html-css-nnlt/chapter05.html:108 | 1 |     &lt;a class="nav-btn prev" href="chapter04.html"&gt;← Chương 4 — Liên kết &amp; Hình ảnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter05.html:109 | 1 |     &lt;a class="nav-btn next" href="chapter06.html"&gt;Chương 6 — Form &amp; Input →&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter06.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter06.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cấu trúc trang HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter06.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Thẻ văn bản &amp; Danh sách&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter06.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Liên kết &amp; Hình ảnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter06.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Bảng (Table)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter06.html:44 | 1 |     &lt;a class="nav-link active" href="chapter06.html"&gt;Chương 6 — Form &amp; Input&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter06.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Thẻ ngữ nghĩa (Semantic HTML)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter06.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Giới thiệu CSS &amp; Selector&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter06.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Màu sắc &amp; Typography&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter06.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Box Model&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter06.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Display &amp; Vị trí (Position)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter06.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — Flexbox&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter06.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — CSS Grid&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter06.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Responsive Design &amp; Media Query&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter06.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — CSS Variables &amp; Transition/Animation&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter06.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Dự án: Landing Page — Cấu trúc HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter06.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Dự án: Landing Page — Style CSS hoàn chỉnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter06.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Checklist &amp; Lỗi thường gặp&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter06.html:63 | 1 |     &lt;a href="index.html"&gt;🧱 HTML & CSS&lt;/a&gt; · |
+| html-css-nnlt | html-css-nnlt/chapter06.html:120 | 1 |     &lt;a class="nav-btn prev" href="chapter05.html"&gt;← Chương 5 — Bảng (Table)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter06.html:121 | 1 |     &lt;a class="nav-btn next" href="chapter07.html"&gt;Chương 7 — Thẻ ngữ nghĩa (Semantic HTML) →&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter07.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter07.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cấu trúc trang HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter07.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Thẻ văn bản &amp; Danh sách&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter07.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Liên kết &amp; Hình ảnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter07.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Bảng (Table)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter07.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Form &amp; Input&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter07.html:45 | 1 |     &lt;a class="nav-link active" href="chapter07.html"&gt;Chương 7 — Thẻ ngữ nghĩa (Semantic HTML)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter07.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Giới thiệu CSS &amp; Selector&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter07.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Màu sắc &amp; Typography&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter07.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Box Model&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter07.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Display &amp; Vị trí (Position)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter07.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — Flexbox&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter07.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — CSS Grid&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter07.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Responsive Design &amp; Media Query&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter07.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — CSS Variables &amp; Transition/Animation&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter07.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Dự án: Landing Page — Cấu trúc HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter07.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Dự án: Landing Page — Style CSS hoàn chỉnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter07.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Checklist &amp; Lỗi thường gặp&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter07.html:63 | 1 |     &lt;a href="index.html"&gt;🧱 HTML & CSS&lt;/a&gt; · |
+| html-css-nnlt | html-css-nnlt/chapter07.html:131 | 1 |     &lt;a class="nav-btn prev" href="chapter06.html"&gt;← Chương 6 — Form &amp; Input&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter07.html:132 | 1 |     &lt;a class="nav-btn next" href="chapter08.html"&gt;Chương 8 — Giới thiệu CSS &amp; Selector →&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter08.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter08.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cấu trúc trang HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter08.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Thẻ văn bản &amp; Danh sách&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter08.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Liên kết &amp; Hình ảnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter08.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Bảng (Table)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter08.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Form &amp; Input&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter08.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Thẻ ngữ nghĩa (Semantic HTML)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter08.html:46 | 1 |     &lt;a class="nav-link active" href="chapter08.html"&gt;Chương 8 — Giới thiệu CSS &amp; Selector&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter08.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Màu sắc &amp; Typography&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter08.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Box Model&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter08.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Display &amp; Vị trí (Position)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter08.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — Flexbox&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter08.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — CSS Grid&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter08.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Responsive Design &amp; Media Query&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter08.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — CSS Variables &amp; Transition/Animation&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter08.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Dự án: Landing Page — Cấu trúc HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter08.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Dự án: Landing Page — Style CSS hoàn chỉnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter08.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Checklist &amp; Lỗi thường gặp&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter08.html:63 | 1 |     &lt;a href="index.html"&gt;🧱 HTML & CSS&lt;/a&gt; · |
+| html-css-nnlt | html-css-nnlt/chapter08.html:87 | 1 |     &lt;link rel="stylesheet" href="style.css"&gt; |
+| html-css-nnlt | html-css-nnlt/chapter08.html:123 | 1 |     &lt;a class="nav-btn prev" href="chapter07.html"&gt;← Chương 7 — Thẻ ngữ nghĩa (Semantic HTML)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter08.html:124 | 1 |     &lt;a class="nav-btn next" href="chapter09.html"&gt;Chương 9 — Màu sắc &amp; Typography →&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter09.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter09.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cấu trúc trang HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter09.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Thẻ văn bản &amp; Danh sách&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter09.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Liên kết &amp; Hình ảnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter09.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Bảng (Table)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter09.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Form &amp; Input&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter09.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Thẻ ngữ nghĩa (Semantic HTML)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter09.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Giới thiệu CSS &amp; Selector&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter09.html:47 | 1 |     &lt;a class="nav-link active" href="chapter09.html"&gt;Chương 9 — Màu sắc &amp; Typography&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter09.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Box Model&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter09.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Display &amp; Vị trí (Position)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter09.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — Flexbox&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter09.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — CSS Grid&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter09.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Responsive Design &amp; Media Query&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter09.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — CSS Variables &amp; Transition/Animation&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter09.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Dự án: Landing Page — Cấu trúc HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter09.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Dự án: Landing Page — Style CSS hoàn chỉnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter09.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Checklist &amp; Lỗi thường gặp&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter09.html:63 | 1 |     &lt;a href="index.html"&gt;🧱 HTML & CSS&lt;/a&gt; · |
+| html-css-nnlt | html-css-nnlt/chapter09.html:107 | 1 |     &lt;a class="nav-btn prev" href="chapter08.html"&gt;← Chương 8 — Giới thiệu CSS &amp; Selector&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter09.html:108 | 1 |     &lt;a class="nav-btn next" href="chapter10.html"&gt;Chương 10 — Box Model →&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter10.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter10.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cấu trúc trang HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter10.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Thẻ văn bản &amp; Danh sách&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter10.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Liên kết &amp; Hình ảnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter10.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Bảng (Table)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter10.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Form &amp; Input&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter10.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Thẻ ngữ nghĩa (Semantic HTML)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter10.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Giới thiệu CSS &amp; Selector&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter10.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Màu sắc &amp; Typography&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter10.html:48 | 1 |     &lt;a class="nav-link active" href="chapter10.html"&gt;Chương 10 — Box Model&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter10.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Display &amp; Vị trí (Position)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter10.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — Flexbox&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter10.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — CSS Grid&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter10.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Responsive Design &amp; Media Query&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter10.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — CSS Variables &amp; Transition/Animation&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter10.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Dự án: Landing Page — Cấu trúc HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter10.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Dự án: Landing Page — Style CSS hoàn chỉnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter10.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Checklist &amp; Lỗi thường gặp&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter10.html:63 | 1 |     &lt;a href="index.html"&gt;🧱 HTML & CSS&lt;/a&gt; · |
+| html-css-nnlt | html-css-nnlt/chapter10.html:120 | 1 |     &lt;a class="nav-btn prev" href="chapter09.html"&gt;← Chương 9 — Màu sắc &amp; Typography&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter10.html:121 | 1 |     &lt;a class="nav-btn next" href="chapter11.html"&gt;Chương 11 — Display &amp; Vị trí (Position) →&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter11.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter11.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cấu trúc trang HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter11.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Thẻ văn bản &amp; Danh sách&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter11.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Liên kết &amp; Hình ảnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter11.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Bảng (Table)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter11.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Form &amp; Input&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter11.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Thẻ ngữ nghĩa (Semantic HTML)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter11.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Giới thiệu CSS &amp; Selector&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter11.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Màu sắc &amp; Typography&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter11.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Box Model&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter11.html:49 | 1 |     &lt;a class="nav-link active" href="chapter11.html"&gt;Chương 11 — Display &amp; Vị trí (Position)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter11.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — Flexbox&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter11.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — CSS Grid&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter11.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Responsive Design &amp; Media Query&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter11.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — CSS Variables &amp; Transition/Animation&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter11.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Dự án: Landing Page — Cấu trúc HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter11.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Dự án: Landing Page — Style CSS hoàn chỉnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter11.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Checklist &amp; Lỗi thường gặp&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter11.html:63 | 1 |     &lt;a href="index.html"&gt;🧱 HTML & CSS&lt;/a&gt; · |
+| html-css-nnlt | html-css-nnlt/chapter11.html:117 | 1 |     &lt;a class="nav-btn prev" href="chapter10.html"&gt;← Chương 10 — Box Model&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter11.html:118 | 1 |     &lt;a class="nav-btn next" href="chapter12.html"&gt;Chương 12 — Flexbox →&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter12.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter12.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cấu trúc trang HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter12.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Thẻ văn bản &amp; Danh sách&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter12.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Liên kết &amp; Hình ảnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter12.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Bảng (Table)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter12.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Form &amp; Input&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter12.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Thẻ ngữ nghĩa (Semantic HTML)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter12.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Giới thiệu CSS &amp; Selector&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter12.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Màu sắc &amp; Typography&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter12.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Box Model&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter12.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Display &amp; Vị trí (Position)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter12.html:50 | 1 |     &lt;a class="nav-link active" href="chapter12.html"&gt;Chương 12 — Flexbox&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter12.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — CSS Grid&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter12.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Responsive Design &amp; Media Query&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter12.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — CSS Variables &amp; Transition/Animation&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter12.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Dự án: Landing Page — Cấu trúc HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter12.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Dự án: Landing Page — Style CSS hoàn chỉnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter12.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Checklist &amp; Lỗi thường gặp&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter12.html:63 | 1 |     &lt;a href="index.html"&gt;🧱 HTML & CSS&lt;/a&gt; · |
+| html-css-nnlt | html-css-nnlt/chapter12.html:138 | 1 |     &lt;a class="nav-btn prev" href="chapter11.html"&gt;← Chương 11 — Display &amp; Vị trí (Position)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter12.html:139 | 1 |     &lt;a class="nav-btn next" href="chapter13.html"&gt;Chương 13 — CSS Grid →&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter13.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter13.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cấu trúc trang HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter13.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Thẻ văn bản &amp; Danh sách&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter13.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Liên kết &amp; Hình ảnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter13.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Bảng (Table)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter13.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Form &amp; Input&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter13.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Thẻ ngữ nghĩa (Semantic HTML)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter13.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Giới thiệu CSS &amp; Selector&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter13.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Màu sắc &amp; Typography&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter13.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Box Model&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter13.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Display &amp; Vị trí (Position)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter13.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — Flexbox&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter13.html:51 | 1 |     &lt;a class="nav-link active" href="chapter13.html"&gt;Chương 13 — CSS Grid&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter13.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Responsive Design &amp; Media Query&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter13.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — CSS Variables &amp; Transition/Animation&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter13.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Dự án: Landing Page — Cấu trúc HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter13.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Dự án: Landing Page — Style CSS hoàn chỉnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter13.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Checklist &amp; Lỗi thường gặp&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter13.html:63 | 1 |     &lt;a href="index.html"&gt;🧱 HTML & CSS&lt;/a&gt; · |
+| html-css-nnlt | html-css-nnlt/chapter13.html:133 | 1 |     &lt;a class="nav-btn prev" href="chapter12.html"&gt;← Chương 12 — Flexbox&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter13.html:134 | 1 |     &lt;a class="nav-btn next" href="chapter14.html"&gt;Chương 14 — Responsive Design &amp; Media Query →&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter14.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter14.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cấu trúc trang HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter14.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Thẻ văn bản &amp; Danh sách&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter14.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Liên kết &amp; Hình ảnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter14.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Bảng (Table)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter14.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Form &amp; Input&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter14.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Thẻ ngữ nghĩa (Semantic HTML)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter14.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Giới thiệu CSS &amp; Selector&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter14.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Màu sắc &amp; Typography&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter14.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Box Model&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter14.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Display &amp; Vị trí (Position)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter14.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — Flexbox&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter14.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — CSS Grid&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter14.html:52 | 1 |     &lt;a class="nav-link active" href="chapter14.html"&gt;Chương 14 — Responsive Design &amp; Media Query&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter14.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — CSS Variables &amp; Transition/Animation&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter14.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Dự án: Landing Page — Cấu trúc HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter14.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Dự án: Landing Page — Style CSS hoàn chỉnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter14.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Checklist &amp; Lỗi thường gặp&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter14.html:63 | 1 |     &lt;a href="index.html"&gt;🧱 HTML & CSS&lt;/a&gt; · |
+| html-css-nnlt | html-css-nnlt/chapter14.html:147 | 1 |     &lt;a class="nav-btn prev" href="chapter13.html"&gt;← Chương 13 — CSS Grid&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter14.html:148 | 1 |     &lt;a class="nav-btn next" href="chapter15.html"&gt;Chương 15 — CSS Variables &amp; Transition/Animation →&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter15.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter15.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cấu trúc trang HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter15.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Thẻ văn bản &amp; Danh sách&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter15.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Liên kết &amp; Hình ảnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter15.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Bảng (Table)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter15.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Form &amp; Input&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter15.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Thẻ ngữ nghĩa (Semantic HTML)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter15.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Giới thiệu CSS &amp; Selector&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter15.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Màu sắc &amp; Typography&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter15.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Box Model&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter15.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Display &amp; Vị trí (Position)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter15.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — Flexbox&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter15.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — CSS Grid&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter15.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Responsive Design &amp; Media Query&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter15.html:53 | 1 |     &lt;a class="nav-link active" href="chapter15.html"&gt;Chương 15 — CSS Variables &amp; Transition/Animation&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter15.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Dự án: Landing Page — Cấu trúc HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter15.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Dự án: Landing Page — Style CSS hoàn chỉnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter15.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Checklist &amp; Lỗi thường gặp&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter15.html:63 | 1 |     &lt;a href="index.html"&gt;🧱 HTML & CSS&lt;/a&gt; · |
+| html-css-nnlt | html-css-nnlt/chapter15.html:157 | 1 |     &lt;a class="nav-btn prev" href="chapter14.html"&gt;← Chương 14 — Responsive Design &amp; Media Query&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter15.html:158 | 1 |     &lt;a class="nav-btn next" href="chapter16.html"&gt;Chương 16 — Dự án: Landing Page — Cấu trúc HTML →&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter16.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter16.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cấu trúc trang HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter16.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Thẻ văn bản &amp; Danh sách&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter16.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Liên kết &amp; Hình ảnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter16.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Bảng (Table)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter16.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Form &amp; Input&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter16.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Thẻ ngữ nghĩa (Semantic HTML)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter16.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Giới thiệu CSS &amp; Selector&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter16.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Màu sắc &amp; Typography&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter16.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Box Model&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter16.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Display &amp; Vị trí (Position)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter16.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — Flexbox&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter16.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — CSS Grid&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter16.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Responsive Design &amp; Media Query&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter16.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — CSS Variables &amp; Transition/Animation&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter16.html:54 | 1 |     &lt;a class="nav-link active" href="chapter16.html"&gt;Chương 16 — Dự án: Landing Page — Cấu trúc HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter16.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Dự án: Landing Page — Style CSS hoàn chỉnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter16.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Checklist &amp; Lỗi thường gặp&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter16.html:63 | 1 |     &lt;a href="index.html"&gt;🧱 HTML & CSS&lt;/a&gt; · |
+| html-css-nnlt | html-css-nnlt/chapter16.html:80 | 1 |     &lt;link rel="stylesheet" href="style.css"&gt; |
+| html-css-nnlt | html-css-nnlt/chapter16.html:142 | 1 |     &lt;a class="nav-btn prev" href="chapter15.html"&gt;← Chương 15 — CSS Variables &amp; Transition/Animation&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter16.html:143 | 1 |     &lt;a class="nav-btn next" href="chapter17.html"&gt;Chương 17 — Dự án: Landing Page — Style CSS hoàn chỉnh →&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter17.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter17.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cấu trúc trang HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter17.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Thẻ văn bản &amp; Danh sách&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter17.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Liên kết &amp; Hình ảnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter17.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Bảng (Table)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter17.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Form &amp; Input&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter17.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Thẻ ngữ nghĩa (Semantic HTML)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter17.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Giới thiệu CSS &amp; Selector&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter17.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Màu sắc &amp; Typography&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter17.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Box Model&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter17.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Display &amp; Vị trí (Position)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter17.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — Flexbox&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter17.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — CSS Grid&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter17.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Responsive Design &amp; Media Query&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter17.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — CSS Variables &amp; Transition/Animation&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter17.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Dự án: Landing Page — Cấu trúc HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter17.html:55 | 1 |     &lt;a class="nav-link active" href="chapter17.html"&gt;Chương 17 — Dự án: Landing Page — Style CSS hoàn chỉnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter17.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Checklist &amp; Lỗi thường gặp&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter17.html:63 | 1 |     &lt;a href="index.html"&gt;🧱 HTML & CSS&lt;/a&gt; · |
+| html-css-nnlt | html-css-nnlt/chapter17.html:155 | 1 |     &lt;a class="nav-btn prev" href="chapter16.html"&gt;← Chương 16 — Dự án: Landing Page — Cấu trúc HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter17.html:156 | 1 |     &lt;a class="nav-btn next" href="chapter18.html"&gt;Chương 18 — Checklist &amp; Lỗi thường gặp →&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter18.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter18.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cấu trúc trang HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter18.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Thẻ văn bản &amp; Danh sách&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter18.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Liên kết &amp; Hình ảnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter18.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Bảng (Table)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter18.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Form &amp; Input&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter18.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Thẻ ngữ nghĩa (Semantic HTML)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter18.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Giới thiệu CSS &amp; Selector&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter18.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Màu sắc &amp; Typography&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter18.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Box Model&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter18.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Display &amp; Vị trí (Position)&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter18.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — Flexbox&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter18.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — CSS Grid&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter18.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Responsive Design &amp; Media Query&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter18.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — CSS Variables &amp; Transition/Animation&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter18.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Dự án: Landing Page — Cấu trúc HTML&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter18.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Dự án: Landing Page — Style CSS hoàn chỉnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter18.html:56 | 1 |     &lt;a class="nav-link active" href="chapter18.html"&gt;Chương 18 — Checklist &amp; Lỗi thường gặp&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/chapter18.html:63 | 1 |     &lt;a href="index.html"&gt;🧱 HTML & CSS&lt;/a&gt; · |
+| html-css-nnlt | html-css-nnlt/chapter18.html:133 | 1 |     &lt;a class="nav-btn prev" href="chapter17.html"&gt;← Chương 17 — Dự án: Landing Page — Style CSS hoàn chỉnh&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/index.html:170 | 1 |   &lt;a href="chapter01.html" class="btn-start" style="display:inline-flex;margin-top:20px;padding:12px 22px;border-radius:10px;background:var(--grad-accent, var(--accent));color:#0a0c10;font-weight:700;text-decoration:none;font-size:.9rem;"&gt;Bắt đầu học →&lt;/a&gt; |
+| html-css-nnlt | html-css-nnlt/index.html:172 | 1 |     &lt;li&gt;&lt;a href="chapter01.html"&gt;&lt;span class="toc-num"&gt;01&lt;/span&gt;Chương 1 — Giới thiệu HTML&lt;/a&gt;&lt;/li&gt; |
+| html-css-nnlt | html-css-nnlt/index.html:173 | 1 |     &lt;li&gt;&lt;a href="chapter02.html"&gt;&lt;span class="toc-num"&gt;02&lt;/span&gt;Chương 2 — Cấu trúc trang HTML&lt;/a&gt;&lt;/li&gt; |
+| html-css-nnlt | html-css-nnlt/index.html:174 | 1 |     &lt;li&gt;&lt;a href="chapter03.html"&gt;&lt;span class="toc-num"&gt;03&lt;/span&gt;Chương 3 — Thẻ văn bản &amp; Danh sách&lt;/a&gt;&lt;/li&gt; |
+| html-css-nnlt | html-css-nnlt/index.html:175 | 1 |     &lt;li&gt;&lt;a href="chapter04.html"&gt;&lt;span class="toc-num"&gt;04&lt;/span&gt;Chương 4 — Liên kết &amp; Hình ảnh&lt;/a&gt;&lt;/li&gt; |
+| html-css-nnlt | html-css-nnlt/index.html:176 | 1 |     &lt;li&gt;&lt;a href="chapter05.html"&gt;&lt;span class="toc-num"&gt;05&lt;/span&gt;Chương 5 — Bảng (Table)&lt;/a&gt;&lt;/li&gt; |
+| html-css-nnlt | html-css-nnlt/index.html:177 | 1 |     &lt;li&gt;&lt;a href="chapter06.html"&gt;&lt;span class="toc-num"&gt;06&lt;/span&gt;Chương 6 — Form &amp; Input&lt;/a&gt;&lt;/li&gt; |
+| html-css-nnlt | html-css-nnlt/index.html:178 | 1 |     &lt;li&gt;&lt;a href="chapter07.html"&gt;&lt;span class="toc-num"&gt;07&lt;/span&gt;Chương 7 — Thẻ ngữ nghĩa (Semantic HTML)&lt;/a&gt;&lt;/li&gt; |
+| html-css-nnlt | html-css-nnlt/index.html:179 | 1 |     &lt;li&gt;&lt;a href="chapter08.html"&gt;&lt;span class="toc-num"&gt;08&lt;/span&gt;Chương 8 — Giới thiệu CSS &amp; Selector&lt;/a&gt;&lt;/li&gt; |
+| html-css-nnlt | html-css-nnlt/index.html:180 | 1 |     &lt;li&gt;&lt;a href="chapter09.html"&gt;&lt;span class="toc-num"&gt;09&lt;/span&gt;Chương 9 — Màu sắc &amp; Typography&lt;/a&gt;&lt;/li&gt; |
+| html-css-nnlt | html-css-nnlt/index.html:181 | 1 |     &lt;li&gt;&lt;a href="chapter10.html"&gt;&lt;span class="toc-num"&gt;10&lt;/span&gt;Chương 10 — Box Model&lt;/a&gt;&lt;/li&gt; |
+| html-css-nnlt | html-css-nnlt/index.html:182 | 1 |     &lt;li&gt;&lt;a href="chapter11.html"&gt;&lt;span class="toc-num"&gt;11&lt;/span&gt;Chương 11 — Display &amp; Vị trí (Position)&lt;/a&gt;&lt;/li&gt; |
+| html-css-nnlt | html-css-nnlt/index.html:183 | 1 |     &lt;li&gt;&lt;a href="chapter12.html"&gt;&lt;span class="toc-num"&gt;12&lt;/span&gt;Chương 12 — Flexbox&lt;/a&gt;&lt;/li&gt; |
+| html-css-nnlt | html-css-nnlt/index.html:184 | 1 |     &lt;li&gt;&lt;a href="chapter13.html"&gt;&lt;span class="toc-num"&gt;13&lt;/span&gt;Chương 13 — CSS Grid&lt;/a&gt;&lt;/li&gt; |
+| html-css-nnlt | html-css-nnlt/index.html:185 | 1 |     &lt;li&gt;&lt;a href="chapter14.html"&gt;&lt;span class="toc-num"&gt;14&lt;/span&gt;Chương 14 — Responsive Design &amp; Media Query&lt;/a&gt;&lt;/li&gt; |
+| html-css-nnlt | html-css-nnlt/index.html:186 | 1 |     &lt;li&gt;&lt;a href="chapter15.html"&gt;&lt;span class="toc-num"&gt;15&lt;/span&gt;Chương 15 — CSS Variables &amp; Transition/Animation&lt;/a&gt;&lt;/li&gt; |
+| html-css-nnlt | html-css-nnlt/index.html:187 | 1 |     &lt;li&gt;&lt;a href="chapter16.html"&gt;&lt;span class="toc-num"&gt;16&lt;/span&gt;Chương 16 — Dự án: Landing Page — Cấu trúc HTML&lt;/a&gt;&lt;/li&gt; |
+| html-css-nnlt | html-css-nnlt/index.html:188 | 1 |     &lt;li&gt;&lt;a href="chapter17.html"&gt;&lt;span class="toc-num"&gt;17&lt;/span&gt;Chương 17 — Dự án: Landing Page — Style CSS hoàn chỉnh&lt;/a&gt;&lt;/li&gt; |
+| html-css-nnlt | html-css-nnlt/index.html:189 | 1 |     &lt;li&gt;&lt;a href="chapter18.html"&gt;&lt;span class="toc-num"&gt;18&lt;/span&gt;Chương 18 — Checklist &amp; Lỗi thường gặp&lt;/a&gt;&lt;/li&gt; |
 | Quiz_and_other | index.html:13 | 1 | &lt;nav class="landing-nav" aria-label="Điều hướng chính"&gt;&lt;a href="courses.html"&gt;Khám phá&lt;/a&gt;&lt;a href="#learning-paths"&gt;Lộ trình học&lt;/a&gt;&lt;a href="Quiz_and_other/quiz-tong-hop.html"&gt;Ôn tập&lt;/a&gt;&lt;/nav&gt; |
 | Quiz_and_other | index.html:21 | 1 | &lt;div class="landing-actions"&gt;&lt;a class="landing-button" href="courses.html"&gt;Khám phá khóa học &lt;span aria-hidden="true"&gt;→&lt;/span&gt;&lt;/a&gt;&lt;a class="landing-text-link" href="Quiz_and_other/quiz-tong-hop.html"&gt;Kiểm tra kiến thức &lt;span aria-hidden="true"&gt;↗&lt;/span&gt;&lt;/a&gt;&lt;/div&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:39 | 1 |     &lt;a class="nav-link active" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter01.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter01.html:139 | 1 |     &lt;a class="nav-btn next" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js) →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:40 | 1 |     &lt;a class="nav-link active" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter02.html:125 | 1 |     &lt;a class="nav-btn prev" href="chapter01.html"&gt;← Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter02.html:126 | 1 |     &lt;a class="nav-btn next" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:41 | 1 |     &lt;a class="nav-link active" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter03.html:124 | 1 |     &lt;a class="nav-btn prev" href="chapter02.html"&gt;← Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter03.html:125 | 1 |     &lt;a class="nav-btn next" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const) →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:42 | 1 |     &lt;a class="nav-link active" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter04.html:136 | 1 |     &lt;a class="nav-btn prev" href="chapter03.html"&gt;← Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter04.html:137 | 1 |     &lt;a class="nav-btn next" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:43 | 1 |     &lt;a class="nav-link active" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter05.html:133 | 1 |     &lt;a class="nav-btn prev" href="chapter04.html"&gt;← Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter05.html:134 | 1 |     &lt;a class="nav-btn next" href="chapter06.html"&gt;Chương 6 — Toán tử →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:44 | 1 |     &lt;a class="nav-link active" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter06.html:117 | 1 |     &lt;a class="nav-btn prev" href="chapter05.html"&gt;← Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter06.html:118 | 1 |     &lt;a class="nav-btn next" href="chapter07.html"&gt;Chương 7 — Điều kiện →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:45 | 1 |     &lt;a class="nav-link active" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter07.html:128 | 1 |     &lt;a class="nav-btn prev" href="chapter06.html"&gt;← Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter07.html:129 | 1 |     &lt;a class="nav-btn next" href="chapter08.html"&gt;Chương 8 — Vòng lặp →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:46 | 1 |     &lt;a class="nav-link active" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter08.html:141 | 1 |     &lt;a class="nav-btn prev" href="chapter07.html"&gt;← Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter08.html:142 | 1 |     &lt;a class="nav-btn next" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function) →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:47 | 1 |     &lt;a class="nav-link active" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter09.html:140 | 1 |     &lt;a class="nav-btn prev" href="chapter08.html"&gt;← Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter09.html:141 | 1 |     &lt;a class="nav-btn next" href="chapter10.html"&gt;Chương 10 — Mảng (Array) →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:48 | 1 |     &lt;a class="nav-link active" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter10.html:141 | 1 |     &lt;a class="nav-btn prev" href="chapter09.html"&gt;← Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter10.html:142 | 1 |     &lt;a class="nav-btn next" href="chapter11.html"&gt;Chương 11 — Object →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:49 | 1 |     &lt;a class="nav-link active" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter11.html:129 | 1 |     &lt;a class="nav-btn prev" href="chapter10.html"&gt;← Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter11.html:130 | 1 |     &lt;a class="nav-btn next" href="chapter12.html"&gt;Chương 12 — DOM cơ bản →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:50 | 1 |     &lt;a class="nav-link active" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter12.html:142 | 1 |     &lt;a class="nav-btn prev" href="chapter11.html"&gt;← Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter12.html:143 | 1 |     &lt;a class="nav-btn next" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:51 | 1 |     &lt;a class="nav-link active" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter13.html:130 | 1 |     &lt;a class="nav-btn prev" href="chapter12.html"&gt;← Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter13.html:131 | 1 |     &lt;a class="nav-btn next" href="chapter14.html"&gt;Chương 14 — Promise →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:52 | 1 |     &lt;a class="nav-link active" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter14.html:141 | 1 |     &lt;a class="nav-btn prev" href="chapter13.html"&gt;← Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter14.html:142 | 1 |     &lt;a class="nav-btn next" href="chapter15.html"&gt;Chương 15 — async/await →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:53 | 1 |     &lt;a class="nav-link active" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter15.html:144 | 1 |     &lt;a class="nav-btn prev" href="chapter14.html"&gt;← Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter15.html:145 | 1 |     &lt;a class="nav-btn next" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:54 | 1 |     &lt;a class="nav-link active" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter16.html:134 | 1 |     &lt;a class="nav-btn prev" href="chapter15.html"&gt;← Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter16.html:135 | 1 |     &lt;a class="nav-btn next" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:55 | 1 |     &lt;a class="nav-link active" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter17.html:124 | 1 |     &lt;a class="nav-btn prev" href="chapter16.html"&gt;← Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter17.html:125 | 1 |     &lt;a class="nav-btn next" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:56 | 1 |     &lt;a class="nav-link active" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter18.html:138 | 1 |     &lt;a class="nav-btn prev" href="chapter17.html"&gt;← Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter18.html:139 | 1 |     &lt;a class="nav-btn next" href="chapter19.html"&gt;Chương 19 — Module (import/export) →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:57 | 1 |     &lt;a class="nav-link active" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter19.html:141 | 1 |     &lt;a class="nav-btn prev" href="chapter18.html"&gt;← Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter19.html:142 | 1 |     &lt;a class="nav-btn next" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:58 | 1 |     &lt;a class="nav-link active" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter20.html:125 | 1 |     &lt;a class="nav-btn prev" href="chapter19.html"&gt;← Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter20.html:126 | 1 |     &lt;a class="nav-btn next" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:59 | 1 |     &lt;a class="nav-link active" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter21.html:132 | 1 |     &lt;a class="nav-btn prev" href="chapter20.html"&gt;← Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter21.html:133 | 1 |     &lt;a class="nav-btn next" href="chapter22.html"&gt;Chương 22 — File System (fs module) →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:60 | 1 |     &lt;a class="nav-link active" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter22.html:127 | 1 |     &lt;a class="nav-btn prev" href="chapter21.html"&gt;← Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter22.html:128 | 1 |     &lt;a class="nav-btn next" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:61 | 1 |     &lt;a class="nav-link active" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter23.html:129 | 1 |     &lt;a class="nav-btn prev" href="chapter22.html"&gt;← Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter23.html:130 | 1 |     &lt;a class="nav-btn next" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:62 | 1 |     &lt;a class="nav-link active" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter24.html:162 | 1 |     &lt;a class="nav-btn prev" href="chapter23.html"&gt;← Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter24.html:163 | 1 |     &lt;a class="nav-btn next" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS) →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:63 | 1 |     &lt;a class="nav-link active" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter25.html:143 | 1 |     &lt;a class="nav-btn prev" href="chapter24.html"&gt;← Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter25.html:144 | 1 |     &lt;a class="nav-btn next" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React) →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:64 | 1 |     &lt;a class="nav-link active" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter26.html:168 | 1 |     &lt;a class="nav-btn prev" href="chapter25.html"&gt;← Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter26.html:169 | 1 |     &lt;a class="nav-btn next" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ) →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:65 | 1 |     &lt;a class="nav-link active" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter27.html:190 | 1 |     &lt;a class="nav-btn prev" href="chapter26.html"&gt;← Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter27.html:191 | 1 |     &lt;a class="nav-btn next" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:66 | 1 |     &lt;a class="nav-link active" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter28.html:204 | 1 |     &lt;a class="nav-btn prev" href="chapter27.html"&gt;← Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter28.html:205 | 1 |     &lt;a class="nav-btn next" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage) →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:67 | 1 |     &lt;a class="nav-link active" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter29.html:127 | 1 |     &lt;a class="nav-btn prev" href="chapter28.html"&gt;← Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter29.html:128 | 1 |     &lt;a class="nav-btn next" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:68 | 1 |     &lt;a class="nav-link active" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter30.html:131 | 1 |     &lt;a class="nav-btn prev" href="chapter29.html"&gt;← Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter30.html:132 | 1 |     &lt;a class="nav-btn next" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:69 | 1 |     &lt;a class="nav-link active" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter31.html:139 | 1 |     &lt;a class="nav-btn prev" href="chapter30.html"&gt;← Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter31.html:140 | 1 |     &lt;a class="nav-btn next" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần) →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:70 | 1 |     &lt;a class="nav-link active" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter32.html:135 | 1 |     &lt;a class="nav-btn prev" href="chapter31.html"&gt;← Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter32.html:136 | 1 |     &lt;a class="nav-btn next" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:71 | 1 |     &lt;a class="nav-link active" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:72 | 1 |     &lt;a class="nav-link" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter33.html:155 | 1 |     &lt;a class="nav-btn prev" href="chapter32.html"&gt;← Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter33.html:156 | 1 |     &lt;a class="nav-btn next" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:39 | 1 |     &lt;a class="nav-link" href="chapter01.html"&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:40 | 1 |     &lt;a class="nav-link" href="chapter02.html"&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:41 | 1 |     &lt;a class="nav-link" href="chapter03.html"&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:42 | 1 |     &lt;a class="nav-link" href="chapter04.html"&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:43 | 1 |     &lt;a class="nav-link" href="chapter05.html"&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:44 | 1 |     &lt;a class="nav-link" href="chapter06.html"&gt;Chương 6 — Toán tử&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:45 | 1 |     &lt;a class="nav-link" href="chapter07.html"&gt;Chương 7 — Điều kiện&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:46 | 1 |     &lt;a class="nav-link" href="chapter08.html"&gt;Chương 8 — Vòng lặp&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:47 | 1 |     &lt;a class="nav-link" href="chapter09.html"&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:48 | 1 |     &lt;a class="nav-link" href="chapter10.html"&gt;Chương 10 — Mảng (Array)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:49 | 1 |     &lt;a class="nav-link" href="chapter11.html"&gt;Chương 11 — Object&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:50 | 1 |     &lt;a class="nav-link" href="chapter12.html"&gt;Chương 12 — DOM cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:51 | 1 |     &lt;a class="nav-link" href="chapter13.html"&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:52 | 1 |     &lt;a class="nav-link" href="chapter14.html"&gt;Chương 14 — Promise&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:53 | 1 |     &lt;a class="nav-link" href="chapter15.html"&gt;Chương 15 — async/await&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:54 | 1 |     &lt;a class="nav-link" href="chapter16.html"&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:55 | 1 |     &lt;a class="nav-link" href="chapter17.html"&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:56 | 1 |     &lt;a class="nav-link" href="chapter18.html"&gt;Chương 18 — Class trong JavaScript&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:57 | 1 |     &lt;a class="nav-link" href="chapter19.html"&gt;Chương 19 — Module (import/export)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:58 | 1 |     &lt;a class="nav-link" href="chapter20.html"&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:59 | 1 |     &lt;a class="nav-link" href="chapter21.html"&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:60 | 1 |     &lt;a class="nav-link" href="chapter22.html"&gt;Chương 22 — File System (fs module)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:61 | 1 |     &lt;a class="nav-link" href="chapter23.html"&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:62 | 1 |     &lt;a class="nav-link" href="chapter24.html"&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:63 | 1 |     &lt;a class="nav-link" href="chapter25.html"&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:64 | 1 |     &lt;a class="nav-link" href="chapter26.html"&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:65 | 1 |     &lt;a class="nav-link" href="chapter27.html"&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:66 | 1 |     &lt;a class="nav-link" href="chapter28.html"&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:67 | 1 |     &lt;a class="nav-link" href="chapter29.html"&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:68 | 1 |     &lt;a class="nav-link" href="chapter30.html"&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:69 | 1 |     &lt;a class="nav-link" href="chapter31.html"&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:70 | 1 |     &lt;a class="nav-link" href="chapter32.html"&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:71 | 1 |     &lt;a class="nav-link" href="chapter33.html"&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:72 | 1 |     &lt;a class="nav-link active" href="chapter34.html"&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/chapter34.html:79 | 1 |     &lt;a href="index.html"&gt;⚡ JavaScript&lt;/a&gt; · |
+| javascript-nnlt | javascript-nnlt/chapter34.html:171 | 1 |     &lt;a class="nav-btn prev" href="chapter33.html"&gt;← Chương 33 — Unit Testing với Jest&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:170 | 1 |   &lt;a href="chapter01.html" class="btn-start" style="display:inline-flex;margin-top:20px;padding:12px 22px;border-radius:10px;background:var(--grad-accent, var(--accent));color:#0a0c10;font-weight:700;text-decoration:none;font-size:.9rem;"&gt;Bắt đầu học →&lt;/a&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:172 | 1 |     &lt;li&gt;&lt;a href="chapter01.html"&gt;&lt;span class="toc-num"&gt;01&lt;/span&gt;Chương 1 — Giới thiệu JavaScript&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:173 | 1 |     &lt;li&gt;&lt;a href="chapter02.html"&gt;&lt;span class="toc-num"&gt;02&lt;/span&gt;Chương 2 — Cách chạy JS (Browser &amp; Node.js)&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:174 | 1 |     &lt;li&gt;&lt;a href="chapter03.html"&gt;&lt;span class="toc-num"&gt;03&lt;/span&gt;Chương 3 — Chương trình đầu tiên&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:175 | 1 |     &lt;li&gt;&lt;a href="chapter04.html"&gt;&lt;span class="toc-num"&gt;04&lt;/span&gt;Chương 4 — Biến (var/let/const)&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:176 | 1 |     &lt;li&gt;&lt;a href="chapter05.html"&gt;&lt;span class="toc-num"&gt;05&lt;/span&gt;Chương 5 — Kiểu dữ liệu&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:177 | 1 |     &lt;li&gt;&lt;a href="chapter06.html"&gt;&lt;span class="toc-num"&gt;06&lt;/span&gt;Chương 6 — Toán tử&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:178 | 1 |     &lt;li&gt;&lt;a href="chapter07.html"&gt;&lt;span class="toc-num"&gt;07&lt;/span&gt;Chương 7 — Điều kiện&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:179 | 1 |     &lt;li&gt;&lt;a href="chapter08.html"&gt;&lt;span class="toc-num"&gt;08&lt;/span&gt;Chương 8 — Vòng lặp&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:180 | 1 |     &lt;li&gt;&lt;a href="chapter09.html"&gt;&lt;span class="toc-num"&gt;09&lt;/span&gt;Chương 9 — Hàm (Function &amp; Arrow Function)&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:181 | 1 |     &lt;li&gt;&lt;a href="chapter10.html"&gt;&lt;span class="toc-num"&gt;10&lt;/span&gt;Chương 10 — Mảng (Array)&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:182 | 1 |     &lt;li&gt;&lt;a href="chapter11.html"&gt;&lt;span class="toc-num"&gt;11&lt;/span&gt;Chương 11 — Object&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:183 | 1 |     &lt;li&gt;&lt;a href="chapter12.html"&gt;&lt;span class="toc-num"&gt;12&lt;/span&gt;Chương 12 — DOM cơ bản&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:184 | 1 |     &lt;li&gt;&lt;a href="chapter13.html"&gt;&lt;span class="toc-num"&gt;13&lt;/span&gt;Chương 13 — Callback &amp; Callback Hell&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:185 | 1 |     &lt;li&gt;&lt;a href="chapter14.html"&gt;&lt;span class="toc-num"&gt;14&lt;/span&gt;Chương 14 — Promise&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:186 | 1 |     &lt;li&gt;&lt;a href="chapter15.html"&gt;&lt;span class="toc-num"&gt;15&lt;/span&gt;Chương 15 — async/await&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:187 | 1 |     &lt;li&gt;&lt;a href="chapter16.html"&gt;&lt;span class="toc-num"&gt;16&lt;/span&gt;Chương 16 — Fetch API &amp; JSON&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:188 | 1 |     &lt;li&gt;&lt;a href="chapter17.html"&gt;&lt;span class="toc-num"&gt;17&lt;/span&gt;Chương 17 — Destructuring &amp; Spread nâng cao&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:189 | 1 |     &lt;li&gt;&lt;a href="chapter18.html"&gt;&lt;span class="toc-num"&gt;18&lt;/span&gt;Chương 18 — Class trong JavaScript&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:190 | 1 |     &lt;li&gt;&lt;a href="chapter19.html"&gt;&lt;span class="toc-num"&gt;19&lt;/span&gt;Chương 19 — Module (import/export)&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:191 | 1 |     &lt;li&gt;&lt;a href="chapter20.html"&gt;&lt;span class="toc-num"&gt;20&lt;/span&gt;Chương 20 — Giới thiệu Node.js&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:192 | 1 |     &lt;li&gt;&lt;a href="chapter21.html"&gt;&lt;span class="toc-num"&gt;21&lt;/span&gt;Chương 21 — NPM &amp; package.json&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:193 | 1 |     &lt;li&gt;&lt;a href="chapter22.html"&gt;&lt;span class="toc-num"&gt;22&lt;/span&gt;Chương 22 — File System (fs module)&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:194 | 1 |     &lt;li&gt;&lt;a href="chapter23.html"&gt;&lt;span class="toc-num"&gt;23&lt;/span&gt;Chương 23 — Express — Server cơ bản&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:195 | 1 |     &lt;li&gt;&lt;a href="chapter24.html"&gt;&lt;span class="toc-num"&gt;24&lt;/span&gt;Chương 24 — Express — REST API &amp; Middleware&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:196 | 1 |     &lt;li&gt;&lt;a href="chapter25.html"&gt;&lt;span class="toc-num"&gt;25&lt;/span&gt;Chương 25 — Dự án: Todo App (Vanilla JS)&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:197 | 1 |     &lt;li&gt;&lt;a href="chapter26.html"&gt;&lt;span class="toc-num"&gt;26&lt;/span&gt;Chương 26 — Dự án: Todo App (React)&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:198 | 1 |     &lt;li&gt;&lt;a href="chapter27.html"&gt;&lt;span class="toc-num"&gt;27&lt;/span&gt;Chương 27 — Bài tập Cơ bản (Dễ)&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:199 | 1 |     &lt;li&gt;&lt;a href="chapter28.html"&gt;&lt;span class="toc-num"&gt;28&lt;/span&gt;Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:200 | 1 |     &lt;li&gt;&lt;a href="chapter29.html"&gt;&lt;span class="toc-num"&gt;29&lt;/span&gt;Chương 29 — Web Storage (localStorage/sessionStorage)&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:201 | 1 |     &lt;li&gt;&lt;a href="chapter30.html"&gt;&lt;span class="toc-num"&gt;30&lt;/span&gt;Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:202 | 1 |     &lt;li&gt;&lt;a href="chapter31.html"&gt;&lt;span class="toc-num"&gt;31&lt;/span&gt;Chương 31 — Web Workers — Đa luồng trong trình duyệt&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:203 | 1 |     &lt;li&gt;&lt;a href="chapter32.html"&gt;&lt;span class="toc-num"&gt;32&lt;/span&gt;Chương 32 — WebSocket API (client thuần)&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:204 | 1 |     &lt;li&gt;&lt;a href="chapter33.html"&gt;&lt;span class="toc-num"&gt;33&lt;/span&gt;Chương 33 — Unit Testing với Jest&lt;/a&gt;&lt;/li&gt; |
+| javascript-nnlt | javascript-nnlt/index.html:205 | 1 |     &lt;li&gt;&lt;a href="chapter34.html"&gt;&lt;span class="toc-num"&gt;34&lt;/span&gt;Chương 34 — Design Patterns thường gặp trong JS&lt;/a&gt;&lt;/li&gt; |
+| Quiz_and_other | Quiz_and_other/cheatsheet.html:225 | 1 |     &lt;a class="nav-link active" href="cheatsheet.html"&gt;📋 Cheat Sheet thuật toán&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/cheatsheet.html:226 | 1 |     &lt;a class="nav-link" href="flashcards.html"&gt;🃏 Flashcards ôn tập&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/cheatsheet.html:227 | 1 |     &lt;a class="nav-link" href="quiz-tong-hop.html"&gt;📝 Quiz tổng hợp&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/cheatsheet.html:228 | 1 |     &lt;a class="nav-link" href="exercises.html"&gt;💻 Bài tập thực hành&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/cheatsheet.html:229 | 1 |     &lt;a class="nav-link" href="glossary.html"&gt;📖 Thuật ngữ Anh-Việt&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/cheatsheet.html:230 | 1 |     &lt;a class="nav-link" href="free-apis-giao-trinh.html"&gt;🔌 API miễn phí cho lập trình viên&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/cheatsheet.html:237 | 1 |     &lt;a href="index.html"&gt;🧰 Quiz & Tiện ích&lt;/a&gt; · |
+| Quiz_and_other | Quiz_and_other/cheatsheet.html:377 | 1 | &lt;p class="footer-note"&gt;Algorithm Mastery — Cheat Sheet · Xem chi tiết đầy đủ tại Phần 12 hoặc &lt;a href="glossary.html" style="color:var(--accent-2);"&gt;Từ điển thuật ngữ&lt;/a&gt;&lt;/p&gt; |
+| Quiz_and_other | Quiz_and_other/cheatsheet.html:383 | 1 |     &lt;a class="nav-btn next" href="flashcards.html"&gt;🃏 Flashcards ôn tập →&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/exercises.html:216 | 1 |     &lt;a class="nav-link" href="cheatsheet.html"&gt;📋 Cheat Sheet thuật toán&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/exercises.html:217 | 1 |     &lt;a class="nav-link" href="flashcards.html"&gt;🃏 Flashcards ôn tập&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/exercises.html:218 | 1 |     &lt;a class="nav-link" href="quiz-tong-hop.html"&gt;📝 Quiz tổng hợp&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/exercises.html:219 | 1 |     &lt;a class="nav-link active" href="exercises.html"&gt;💻 Bài tập thực hành&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/exercises.html:220 | 1 |     &lt;a class="nav-link" href="glossary.html"&gt;📖 Thuật ngữ Anh-Việt&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/exercises.html:221 | 1 |     &lt;a class="nav-link" href="free-apis-giao-trinh.html"&gt;🔌 API miễn phí cho lập trình viên&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/exercises.html:228 | 1 |     &lt;a href="index.html"&gt;🧰 Quiz & Tiện ích&lt;/a&gt; · |
+| Quiz_and_other | Quiz_and_other/exercises.html:251 | 1 |     &lt;a class="nav-btn prev" href="quiz-tong-hop.html"&gt;← 📝 Quiz tổng hợp&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/exercises.html:252 | 1 |     &lt;a class="nav-btn next" href="glossary.html"&gt;📖 Thuật ngữ Anh-Việt →&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/flashcards.html:213 | 1 |     &lt;a class="nav-link" href="cheatsheet.html"&gt;📋 Cheat Sheet thuật toán&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/flashcards.html:214 | 1 |     &lt;a class="nav-link active" href="flashcards.html"&gt;🃏 Flashcards ôn tập&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/flashcards.html:215 | 1 |     &lt;a class="nav-link" href="quiz-tong-hop.html"&gt;📝 Quiz tổng hợp&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/flashcards.html:216 | 1 |     &lt;a class="nav-link" href="exercises.html"&gt;💻 Bài tập thực hành&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/flashcards.html:217 | 1 |     &lt;a class="nav-link" href="glossary.html"&gt;📖 Thuật ngữ Anh-Việt&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/flashcards.html:218 | 1 |     &lt;a class="nav-link" href="free-apis-giao-trinh.html"&gt;🔌 API miễn phí cho lập trình viên&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/flashcards.html:225 | 1 |     &lt;a href="index.html"&gt;🧰 Quiz & Tiện ích&lt;/a&gt; · |
+| Quiz_and_other | Quiz_and_other/flashcards.html:277 | 1 |     &lt;a class="nav-btn prev" href="cheatsheet.html"&gt;← 📋 Cheat Sheet thuật toán&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/flashcards.html:278 | 1 |     &lt;a class="nav-btn next" href="quiz-tong-hop.html"&gt;📝 Quiz tổng hợp →&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/free-apis-giao-trinh.html:203 | 1 |     &lt;a class="nav-link" href="cheatsheet.html"&gt;📋 Cheat Sheet thuật toán&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/free-apis-giao-trinh.html:204 | 1 |     &lt;a class="nav-link" href="flashcards.html"&gt;🃏 Flashcards ôn tập&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/free-apis-giao-trinh.html:205 | 1 |     &lt;a class="nav-link" href="quiz-tong-hop.html"&gt;📝 Quiz tổng hợp&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/free-apis-giao-trinh.html:206 | 1 |     &lt;a class="nav-link" href="exercises.html"&gt;💻 Bài tập thực hành&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/free-apis-giao-trinh.html:207 | 1 |     &lt;a class="nav-link" href="glossary.html"&gt;📖 Thuật ngữ Anh-Việt&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/free-apis-giao-trinh.html:208 | 1 |     &lt;a class="nav-link active" href="free-apis-giao-trinh.html"&gt;🔌 API miễn phí cho lập trình viên&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/free-apis-giao-trinh.html:215 | 1 |     &lt;a href="index.html"&gt;🧰 Quiz & Tiện ích&lt;/a&gt; · |
+| Quiz_and_other | Quiz_and_other/free-apis-giao-trinh.html:238 | 1 |     &lt;a class="nav-btn prev" href="glossary.html"&gt;← 📖 Thuật ngữ Anh-Việt&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/glossary.html:199 | 1 |     &lt;a class="nav-link" href="cheatsheet.html"&gt;📋 Cheat Sheet thuật toán&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/glossary.html:200 | 1 |     &lt;a class="nav-link" href="flashcards.html"&gt;🃏 Flashcards ôn tập&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/glossary.html:201 | 1 |     &lt;a class="nav-link" href="quiz-tong-hop.html"&gt;📝 Quiz tổng hợp&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/glossary.html:202 | 1 |     &lt;a class="nav-link" href="exercises.html"&gt;💻 Bài tập thực hành&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/glossary.html:203 | 1 |     &lt;a class="nav-link active" href="glossary.html"&gt;📖 Thuật ngữ Anh-Việt&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/glossary.html:204 | 1 |     &lt;a class="nav-link" href="free-apis-giao-trinh.html"&gt;🔌 API miễn phí cho lập trình viên&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/glossary.html:211 | 1 |     &lt;a href="index.html"&gt;🧰 Quiz & Tiện ích&lt;/a&gt; · |
+| Quiz_and_other | Quiz_and_other/glossary.html:244 | 1 |     &lt;a class="nav-btn prev" href="exercises.html"&gt;← 💻 Bài tập thực hành&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/glossary.html:245 | 1 |     &lt;a class="nav-btn next" href="free-apis-giao-trinh.html"&gt;🔌 API miễn phí cho lập trình viên →&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/index.html:170 | 1 |   &lt;a href="cheatsheet.html" class="btn-start" style="display:inline-flex;margin-top:20px;padding:12px 22px;border-radius:10px;background:var(--grad-accent, var(--accent));color:#0a0c10;font-weight:700;text-decoration:none;font-size:.9rem;"&gt;Bắt đầu học →&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/index.html:172 | 1 | &lt;li&gt;&lt;a href="cheatsheet.html"&gt;&lt;span class="toc-num"&gt;01&lt;/span&gt;📋 Cheat Sheet thuật toán&lt;/a&gt;&lt;/li&gt; |
+| Quiz_and_other | Quiz_and_other/index.html:173 | 1 | &lt;li&gt;&lt;a href="flashcards.html"&gt;&lt;span class="toc-num"&gt;02&lt;/span&gt;🃏 Flashcards ôn tập&lt;/a&gt;&lt;/li&gt; |
+| Quiz_and_other | Quiz_and_other/index.html:174 | 1 | &lt;li&gt;&lt;a href="quiz-tong-hop.html"&gt;&lt;span class="toc-num"&gt;03&lt;/span&gt;📝 Quiz tổng hợp&lt;/a&gt;&lt;/li&gt; |
+| Quiz_and_other | Quiz_and_other/index.html:175 | 1 | &lt;li&gt;&lt;a href="exercises.html"&gt;&lt;span class="toc-num"&gt;04&lt;/span&gt;💻 Bài tập thực hành&lt;/a&gt;&lt;/li&gt; |
+| Quiz_and_other | Quiz_and_other/index.html:176 | 1 | &lt;li&gt;&lt;a href="glossary.html"&gt;&lt;span class="toc-num"&gt;05&lt;/span&gt;📖 Thuật ngữ Anh-Việt&lt;/a&gt;&lt;/li&gt; |
+| Quiz_and_other | Quiz_and_other/index.html:177 | 1 | &lt;li&gt;&lt;a href="free-apis-giao-trinh.html"&gt;&lt;span class="toc-num"&gt;06&lt;/span&gt;🔌 API miễn phí cho lập trình viên&lt;/a&gt;&lt;/li&gt; |
+| Quiz_and_other | Quiz_and_other/quiz-tong-hop.html:271 | 1 |     &lt;a class="nav-link" href="cheatsheet.html"&gt;📋 Cheat Sheet thuật toán&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/quiz-tong-hop.html:272 | 1 |     &lt;a class="nav-link" href="flashcards.html"&gt;🃏 Flashcards ôn tập&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/quiz-tong-hop.html:273 | 1 |     &lt;a class="nav-link active" href="quiz-tong-hop.html"&gt;📝 Quiz tổng hợp&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/quiz-tong-hop.html:274 | 1 |     &lt;a class="nav-link" href="exercises.html"&gt;💻 Bài tập thực hành&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/quiz-tong-hop.html:275 | 1 |     &lt;a class="nav-link" href="glossary.html"&gt;📖 Thuật ngữ Anh-Việt&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/quiz-tong-hop.html:276 | 1 |     &lt;a class="nav-link" href="free-apis-giao-trinh.html"&gt;🔌 API miễn phí cho lập trình viên&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/quiz-tong-hop.html:283 | 1 |     &lt;a href="index.html"&gt;🧰 Quiz & Tiện ích&lt;/a&gt; · |
+| Quiz_and_other | Quiz_and_other/quiz-tong-hop.html:331 | 1 |     &lt;a class="nav-btn prev" href="flashcards.html"&gt;← 🃏 Flashcards ôn tập&lt;/a&gt; |
+| Quiz_and_other | Quiz_and_other/quiz-tong-hop.html:332 | 1 |     &lt;a class="nav-btn next" href="exercises.html"&gt;💻 Bài tập thực hành →&lt;/a&gt; |
 | html-css-nnlt | README.md:116 | 1 | ├── html-css-nnlt/          # HTML/CSS |
 | javascript-nnlt | README.md:118 | 1 | ├── javascript-nnlt/        # JavaScript |
 | Quiz_and_other | README.md:122 | 1 | ├── Quiz_and_other/         # Quiz và tài liệu thực hành |
+| html-css-nnlt | README.md:135 | 1 | Đề xuất đổi thư mục đang **chờ duyệt**, chưa áp dụng: `html-css-nnlt` → `html-css`, `javascript-nnlt` → `javascript`, `Quiz_and_other` → `practice`. Xem [bảng đề xuất](reports/consistency/proposal.md) và [mọi dòng tham chiếu](reports/consistency/references.md). Sau khi được duyệt mới di chuyển thư mục và tạo redirect cho các URL cũ. |
+| javascript-nnlt | README.md:135 | 1 | Đề xuất đổi thư mục đang **chờ duyệt**, chưa áp dụng: `html-css-nnlt` → `html-css`, `javascript-nnlt` → `javascript`, `Quiz_and_other` → `practice`. Xem [bảng đề xuất](reports/consistency/proposal.md) và [mọi dòng tham chiếu](reports/consistency/references.md). Sau khi được duyệt mới di chuyển thư mục và tạo redirect cho các URL cũ. |
+| Quiz_and_other | README.md:135 | 1 | Đề xuất đổi thư mục đang **chờ duyệt**, chưa áp dụng: `html-css-nnlt` → `html-css`, `javascript-nnlt` → `javascript`, `Quiz_and_other` → `practice`. Xem [bảng đề xuất](reports/consistency/proposal.md) và [mọi dòng tham chiếu](reports/consistency/references.md). Sau khi được duyệt mới di chuyển thư mục và tạo redirect cho các URL cũ. |
 | html-css-nnlt | scripts/add-seo.cjs:11 | 1 | const subjects={'ai-engineer':'AI Engineer','cpp':'C++','fullstack-js':'Full Stack JavaScript','html-css-nnlt':'HTML & CSS','java':'Java','javascript-nnlt':'JavaScript','languages':'Ngôn ngữ & kỹ năng mềm','machine-learning':'Machine Learning','python':'Python','Quiz_and_other':'Quiz & tiện ích','react':'React','security':'Bảo mật ứng dụng Web','system-design':'System Design','thuat-toan':'Thuật toán & cấu trúc dữ liệu'}; |
 | javascript-nnlt | scripts/add-seo.cjs:11 | 1 | const subjects={'ai-engineer':'AI Engineer','cpp':'C++','fullstack-js':'Full Stack JavaScript','html-css-nnlt':'HTML & CSS','java':'Java','javascript-nnlt':'JavaScript','languages':'Ngôn ngữ & kỹ năng mềm','machine-learning':'Machine Learning','python':'Python','Quiz_and_other':'Quiz & tiện ích','react':'React','security':'Bảo mật ứng dụng Web','system-design':'System Design','thuat-toan':'Thuật toán & cấu trúc dữ liệu'}; |
 | Quiz_and_other | scripts/add-seo.cjs:11 | 1 | const subjects={'ai-engineer':'AI Engineer','cpp':'C++','fullstack-js':'Full Stack JavaScript','html-css-nnlt':'HTML & CSS','java':'Java','javascript-nnlt':'JavaScript','languages':'Ngôn ngữ & kỹ năng mềm','machine-learning':'Machine Learning','python':'Python','Quiz_and_other':'Quiz & tiện ích','react':'React','security':'Bảo mật ứng dụng Web','system-design':'System Design','thuat-toan':'Thuật toán & cấu trúc dữ liệu'}; |
