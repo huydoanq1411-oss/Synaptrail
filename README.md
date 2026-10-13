@@ -130,6 +130,25 @@ node scripts/upgrade-ui.cjs
 
 ## Kiểm tra
 
+### Chuẩn bị SEO
+
+`scripts/add-seo.cjs` chuẩn bị h1, description 120–155 ký tự, Open Graph, canonical, favicon, sitemap và robots. URL gốc cấu hình trong `scripts/seo-config.json` qua `baseUrl`, hoặc truyền `--base-url`. **Hiện chưa có domain nên chỉ chạy dry-run; SEO chưa được áp dụng lên HTML và chưa tạo sitemap/robots.** Không dùng URL mẫu để triển khai.
+
+```sh
+node scripts/add-seo.cjs --dry-run
+```
+
+Khi có URL triển khai thật (bao gồm đường dẫn repository nếu dùng GitHub Pages), điền `baseUrl` rồi chạy:
+
+```sh
+node scripts/add-seo.cjs
+node scripts/check-ui.cjs
+```
+
+Script từ chối áp dụng khi URL trống. Các heading đã có h1 được giữ; tiêu đề chương h2 được nâng thành h1 với class/style tương ứng trong `assets/seo.css`. CSS bài học gốc không bị sửa. `assets/favicon.svg` là favicon đã chuẩn bị, chỉ được gắn vào HTML khi áp dụng. Title mục lục được chuẩn hóa, thực thể HTML được giải mã rồi escape một lần; các tag SEO được thay thay vì chèn trùng.
+
+Dry-run hiện tại: 384 trang, 346 h1 cần nâng, 155 title cần sửa, 383 description cần thêm. Có thể chạy `node scripts/check-seo.cjs` để kiểm tra áp dụng và chạy lại bằng filesystem giả lập trong bộ nhớ, không ghi URL thử nghiệm ra file thật.
+
 ### Tách CSS bài học
 
 `scripts/extract-css.cjs` chuyển khối CSS đã xác minh từ `chapter*.html` sang `assets/lesson.css`, giữ vị trí stylesheet, biến CSS và theme. Các khối style riêng được giữ nguyên; khối không khớp hash được bỏ qua và báo lý do. Script chạy lại an toàn, không chèn link trùng hoặc ghi đè CSS đã thay đổi.
