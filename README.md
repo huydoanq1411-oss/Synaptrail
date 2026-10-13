@@ -349,3 +349,15 @@ Các kiểm tra trình duyệt lấy mẫu trang chủ, danh mục, mục lục 
 - Catalog tách Bootstrap khỏi SASS/SCSS; SASS tạm dùng bài cũ cho đến khi duyệt tách toàn bộ.
 - Xem kế hoạch: `node scripts/split-fullstack.cjs --dry-run`; áp dụng bản thử: `node scripts/split-fullstack.cjs`. Chạy lại không thay đổi file đã chuyển.
 - Các khóa còn lại và panel role chưa triển khai, chờ duyệt diff Bootstrap.
+
+### Kh?a ri?ng v? l? tr?nh role
+
+- ?? t?ch fullstack-js th?nh Git (2), TypeScript (2), Bootstrap (2), SASS (2), MySQL (3), ORM (2), GraphQL (2), Socket.IO (1), NestJS (2), Docker (3 ch??ng). M?i kh?a c? th? m?c, m?c l?c, sidebar v? ?i?u h??ng ri?ng, ??nh s? t? 1.
+- D? ?n cu?i kh?a: [Task Manager](projects/fullstack-js.html), ch? thu?c Project Ideas. C?c kh?a ng?n c?n m? r?ng sau; l?n n?y gi? nguy?n n?i dung v? quiz.
+- fullstack-js gi? index.html chuy?n t?i danh m?c v? 22 redirect ch??ng, gi? anchor bookmark.
+- B?m role m? panel tr?n tablet/desktop, modal tr?n ?i?n tho?i ?600px. C?c box k? n?ng c? ?nh, th? t? v? s? ch??ng, d?n t?i m?c l?c ri?ng. Khu Skill-based v?n ??y ?? 22 kh?a, chia n?m c?m.
+- Chia s? v? d?: courses.html#role=ai-engineer. Esc ho?c ??ng tr? focus v? role; Xem t?t c? k? n?ng ??a v? danh m?c.
+- ?nh SVG n?n nh?t teal/t?m trong assets/img; ?nh l?i d?ng assets/img/default.svg. T?m ki?m kh?ng d?u ho?t ??ng ??c l?p v?i role.
+- D? li?u role ch? s?a trong object roles c?a assets/catalog.js.
+- Migration: node scripts/split-courses.cjs --dry-run; b? --dry-run ?? ?p d?ng. Ch?y l?i: 0 thay ??i.
+- Ki?m tra: node scripts/check-role-browser.cjs (CHROME_PATH t?y ch?n), node scripts/check-ui.cjs. ?? ki?m tra 5 role ? 375/768/1440px: kh?ng tr?n ngang, kh?ng l?i JS, modal/panel, Esc/focus, URL v? t?m ki?m kh?ng d?u ??t. check-ui c?n l?i SEO c? s?n; kh?ng c? link h?ng.
