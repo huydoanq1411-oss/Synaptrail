@@ -1,10 +1,17 @@
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const root=path.resolve(__dirname,'..');
-const walk=d=>fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>e.name.startsWith('.')||['node_modules','artifacts'].includes(e.name)?[]:e.isDirectory()?walk(path.join(d,e.name)):/^chapter\d+\.html$/.test(e.name)?[path.join(d,e.name)]:[]);
+const walk=d=>fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>e.name.startsWith('.')||['node_modules','artifacts'].includes(e.name)?[]:e.isDirectory()?walk(path.join(d,e.name)):e.name.endsWith('.html')?[path.join(d,e.name)]:[]);
 let changed=0,removed=0;
 for(const file of walk(root)){
  let html=fs.readFileSync(file,'utf8'),before=html;
- html=html.replace(/<script>\s*function highlight\w*\([\s\S]*?<\/script>/g,()=>{removed++;return ''});
+ if(path.relative(root,file).split(path.sep)[0]==='fullstack-js')html=html.replace(/<div class="sub">\d+ chương<\/div>/,'<div class="sub" aria-live="polite">Đang đếm chương…</div>');
+ if(html.includes('data-lesson-phase="finish"'))html=html.replace(/<script>\s*function highlight\w*\([\s\S]*?<\/script>/g,()=>{removed++;return ''});
+ else {
+  let adapted=false;
+  html=html.replace(/function (highlight\w*)\(code\)\{[\s\S]*?return html;\s*\}/g,(_,name)=>{adapted=true;const language=name.includes('Python')?'python':name.includes('Java')?'java':name.includes('Cpp')?'cpp':name.includes('Markup')?'html':'javascript';return 'function '+name+'(code){ return window.SynaptrailHighlighter.highlight(code,"'+language+'"); }';});
+  if(adapted&&!html.includes('assets/code-highlighter.js')){const src=path.relative(path.dirname(file),path.join(root,'assets/code-highlighter.js')).split(path.sep).join('/');html=html.replace('</head>','<script src="'+src+'"></script>\n</head>');}
+  html=html.replaceAll('const text = pre.innerText;','const text = pre.textContent;');
+ }
  if(html.includes('data-lesson-phase="finish"')&&!html.includes('assets/code-highlighter.js')){
   const src=path.relative(path.dirname(file),path.join(root,'assets/code-highlighter.js')).split(path.sep).join('/');
   html=html.replace(/<script\b[^>]*data-lesson-phase="finish"[^>]*>/,'<script src="'+src+'"></script>\n$&');

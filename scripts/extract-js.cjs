@@ -59,7 +59,9 @@ function main(){
    const p=parts(source);if(hash(p.local)!==variant.localHash)throw Error('Unexpected local script change');
    const src=path.relative(path.dirname(r.file),asset).split(path.sep).join('/');
    changed=true;
-   return `<script src="${src}" data-lesson-phase="setup" data-lesson-theme="${variant.mode}"></script>`+(p.local?`\n<script>${p.local}</script>`:'')+`\n<script src="${src}" data-lesson-phase="finish"></script>`;
+   const highlighterPath=path.join(root,'assets/code-highlighter.js');
+   const highlighter=fs.existsSync(highlighterPath)?`\n<script src="${path.relative(path.dirname(r.file),highlighterPath).split(path.sep).join('/')}"></script>`:(p.local?`\n<script>${p.local}</script>`:'');
+   return `<script src="${src}" data-lesson-phase="setup" data-lesson-theme="${variant.mode}"></script>`+highlighter+`\n<script src="${src}" data-lesson-phase="finish"></script>`;
   });
   if(changed)plans.push({file:r.file,next});else skipped.push({file:relative(r.file),reason:'No verified common body; inline scripts preserved'});
   after+=Buffer.byteLength(next);

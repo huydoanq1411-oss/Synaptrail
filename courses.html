@@ -1626,7 +1626,7 @@ document.querySelectorAll('.prompt-copy-btn').forEach(function(btn){
     const targetId = btn.getAttribute('data-target');
     const pre = document.getElementById(targetId);
     if(!pre) return;
-    const text = pre.innerText;
+    const text = pre.textContent;
     const done = function(){
       const old = btn.textContent;
       btn.textContent = '✓ Đã sao chép';

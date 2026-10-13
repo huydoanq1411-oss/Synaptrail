@@ -1,6 +1,6 @@
 {
   "pages": 388,
-  "inlineScripts": 742,
+  "inlineScripts": 427,
   "errors": [
     "ai-engineer/chapter01.html: Missing <h1>",
     "ai-engineer/chapter01.html: Missing meta description",

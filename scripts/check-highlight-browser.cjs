@@ -16,7 +16,7 @@ const server=http.createServer((req,res)=>{let file;try{file=path.resolve(root,'
   const evaluate=async expression=>{const result=await call('Runtime.evaluate',{expression,awaitPromise:true,returnByValue:true});if(result.exceptionDetails)throw Error(result.exceptionDetails.exception?.description||result.exceptionDetails.text);return result.result.value};
   await call('Page.enable');await call('Runtime.enable');await call('Network.enable');await call('Network.setBlockedURLs',{urls:['*fonts.googleapis.com*','*fonts.gstatic.com*']});
   const results=[];
-  for(const route of baseline?['fullstack-js/chapter05.html']:['fullstack-js/chapter05.html','python/chapter001.html','java/chapter01.html','cpp/chapter03.html','security/chapter05.html']){
+  for(const route of baseline?['fullstack-js/chapter05.html']:['fullstack-js/chapter05.html','python/chapter008.html','java/chapter01.html','cpp/chapter03.html','security/chapter05.html']){
    const url='http://127.0.0.1:'+server.address().port+'/'+route;
    await call('Emulation.setScriptExecutionDisabled',{value:true});await call('Page.navigate',{url});
    let loaded=false;for(let i=0;i<60;i++){loaded=await evaluate("document.readyState==='complete'");if(loaded)break;await delay(100)}if(!loaded)throw Error('Page did not load');
