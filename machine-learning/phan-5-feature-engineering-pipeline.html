@@ -314,7 +314,7 @@ html.dark .chat-msg.bot code{background:rgba(255,255,255,.08);}
 .chnav .spacer{ flex:1; }
 
 </style>
-<title>Phần 5 · Feature Engineering, Feature Selection &amp; ML Pipeline — Giáo Trình Machine Learning | Synaptrail</title>
+<title>Chương 5 — Feature Engineering, Selection &amp; ML Pipeline — Giáo Trình Machine Learning | Synaptrail</title>
 <link rel="stylesheet" href="../assets/ui.css">
 </head>
 <body>
@@ -332,21 +332,21 @@ html.dark .chat-msg.bot code{background:rgba(255,255,255,.08);}
     <div class="sub">16 chương</div>
     <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
     <div class="nav-group-title">Danh sách chương</div>
-    <a class="nav-link" href="phan-1-nen-tang-ml.html">Phần 1. Nền Tảng ML</a>
-    <a class="nav-link" href="phan-2-toan-cho-ml.html">Phần 2. Toán Cho ML</a>
-    <a class="nav-link" href="phan-3-truc-quan-hoa-du-lieu.html">Phần 3. Trực Quan Hóa Dữ Liệu</a>
-    <a class="nav-link" href="phan-4-tien-xu-ly-du-lieu.html">Phần 4. Tiền Xử Lý &amp; EDA</a>
-    <a class="nav-link active" href="phan-5-feature-engineering-pipeline.html">Phần 5. Feature Engineering</a>
-    <a class="nav-link" href="phan-6-supervised-learning.html">Phần 6. Supervised Learning</a>
-    <a class="nav-link" href="phan-7-knn-bayes-tree-svm.html">Phần 7. KNN, Bayes, Tree, SVM</a>
-    <a class="nav-link" href="phan-8-ensemble-random-forest.html">Phần 8. Ensemble &amp; Random Forest</a>
-    <a class="nav-link" href="phan-9-unsupervised-clustering-pca.html">Phần 9. Unsupervised &amp; PCA</a>
-    <a class="nav-link" href="phan-10-model-evaluation-tuning.html">Phần 10. Model Evaluation &amp; Tuning</a>
-    <a class="nav-link" href="phan-11-explainable-ai-deployment.html">Phần 11. Explainable AI &amp; Deploy</a>
-    <a class="nav-link" href="phan-12-sql-mlops.html">Phần 12. SQL &amp; MLOps</a>
-    <a class="nav-link" href="phan-13-kaggle-portfolio.html">Phần 13. Kaggle &amp; Portfolio</a>
-    <a class="nav-link" href="phan-14-deep-learning.html">Phần 14. Deep Learning</a>
-    <a class="nav-link" href="phan-15-reinforcement-learning.html">Phần 15. Reinforcement Learning</a>
+    <a class="nav-link" href="phan-1-nen-tang-ml.html">Chương 1 — Nền tảng AI · ML · DL · Data Science →</a>
+    <a class="nav-link" href="phan-2-toan-cho-ml.html">Chương 2 — Toán cho Machine Learning</a>
+    <a class="nav-link" href="phan-3-truc-quan-hoa-du-lieu.html">Chương 3 — Trực quan hóa dữ liệu</a>
+    <a class="nav-link" href="phan-4-tien-xu-ly-du-lieu.html">Chương 4 — Data Preprocessing, Cleaning &amp; EDA</a>
+    <a class="nav-link active" href="phan-5-feature-engineering-pipeline.html">Chương 5 — Feature Engineering, Selection &amp; ML Pipeline</a>
+    <a class="nav-link" href="phan-6-supervised-learning.html">Chương 6 — Supervised Learning: Linear &amp; Logistic Regression</a>
+    <a class="nav-link" href="phan-7-knn-bayes-tree-svm.html">Chương 7 — KNN, Naive Bayes, Decision Tree &amp; SVM</a>
+    <a class="nav-link" href="phan-8-ensemble-random-forest.html">Chương 8 — Ensemble Learning, Random Forest &amp; Gradient Boosting</a>
+    <a class="nav-link" href="phan-9-unsupervised-clustering-pca.html">Chương 9 — Unsupervised Learning: Clustering &amp; PCA</a>
+    <a class="nav-link" href="phan-10-model-evaluation-tuning.html">Chương 10 — Model Evaluation, Cross Validation &amp; Hyperparameter Tuning</a>
+    <a class="nav-link" href="phan-11-explainable-ai-deployment.html">Chương 11 — Explainable AI &amp; Model Deployment</a>
+    <a class="nav-link" href="phan-12-sql-mlops.html">Chương 12 — SQL cho ML, MLOps, MLflow, DVC &amp; Kubernetes</a>
+    <a class="nav-link" href="phan-13-kaggle-portfolio.html">Chương 13 — Thực hành Kaggle &amp; Portfolio</a>
+    <a class="nav-link" href="phan-14-deep-learning.html">Chương 14 — Deep Learning: Mạng nơ-ron, CNN &amp; RNN</a>
+    <a class="nav-link" href="phan-15-reinforcement-learning.html">Chương 15 — Reinforcement Learning &amp; RLHF</a>
     <a class="nav-link" href="tong-hop-cheat-sheet.html">📋 Tổng hợp công thức</a>
     <div class="nav-group-title">Trong phần này</div>
     <a class="nav-link" href="#gioi-thieu" data-target="gioi-thieu">Giới thiệu Phần 5</a>
@@ -360,12 +360,12 @@ html.dark .chat-msg.bot code{background:rgba(255,255,255,.08);}
   <div class="crumb">
     <a href="../index.html">🏠 Trang chủ</a> ·
     <a href="index.html">📊 Machine Learning</a> ·
-    <span>Phần 5. Feature Engineering</span>
+    <span>Chương 5 — Feature Engineering, Selection &amp; ML Pipeline</span>
   </div>
   <main style="padding:0;max-width:none;">
 <div class="mlhero" id="gioi-thieu">
       <span class="eyebrow">● Phần 5 / 15 — Hoàn thiện khâu dữ liệu</span>
-      <h1>Biến dữ liệu sạch<br/>thành "nguyên liệu" mạnh cho mô hình</h1>
+      <h1>Chương 5 — Feature Engineering, Selection &amp; ML Pipeline</h1>
       <p class="lead">Có dữ liệu sạch (Phần 4) là chưa đủ — <b>Feature Engineering</b> giúp bạn tạo ra những đặc trưng mới giàu thông tin hơn,
         <b>Feature Selection</b> giúp loại bỏ đặc trưng thừa/nhiễu, và <b>ML Pipeline</b> gói toàn bộ quy trình lại thành một khối duy nhất,
         gọn gàng và không còn rủi ro data leakage. Đây là "ga" cuối cùng trước khi chính thức bước vào các thuật toán Supervised Learning.</p>
@@ -802,8 +802,8 @@ print("MAE trung bình qua 3-fold CV:", -diem_cv.mean())</code></pre>
 <div class="next-hint"><p>✅ Bạn vừa hoàn thành <b>Phần 5</b>: Feature Engineering, Feature Selection và Machine Learning Pipeline.</p></div>
   </main>
   <div class="chnav">
-    <a class="nav-btn prev" href="phan-4-tien-xu-ly-du-lieu.html">← Phần 4. Tiền Xử Lý &amp; EDA</a>
-    <a class="nav-btn next" href="phan-6-supervised-learning.html">Phần 6. Supervised Learning →</a>
+    <a class="nav-btn prev" href="phan-4-tien-xu-ly-du-lieu.html">← Chương 4 — Data Preprocessing, Cleaning &amp; EDA</a>
+    <a class="nav-btn next" href="phan-6-supervised-learning.html">Chương 6 — Supervised Learning: Linear &amp; Logistic Regression →</a>
   </div>
 </div>
 </div>
