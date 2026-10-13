@@ -1,0 +1,127 @@
+<section class="chapter" id="s17">
+  <h2>Chương <span class="num">17</span> — HashMap &amp; HashSet</h2>
+  <p class="lead">Chọn cấu trúc để tra cứu theo khóa, loại dữ liệu trùng và xử lý thống kê đơn giản bằng Java.</p>
+
+  <h3>1. Mục tiêu học</h3>
+  <ul>
+    <li>Phân biệt cặp khóa–giá trị của <code>HashMap</code> với phần tử duy nhất của <code>HashSet</code>.</li>
+    <li>Thêm, cập nhật, tìm kiếm và xóa dữ liệu; dự đoán kết quả trước khi chạy.</li>
+    <li>Giải thích khóa trùng, giá trị mặc định và lựa chọn thứ tự duyệt.</li>
+  </ul>
+  <p>Bạn cần biết biến, vòng lặp và lớp cơ bản. Ví dụ dưới đây là chương trình hoàn chỉnh, tương thích Java 8 trở lên; tên file phải trùng tên lớp public.</p>
+
+  <h3>2. Vấn đề thực tế</h3>
+  <p>Một cửa hàng nhận danh sách món hàng: sách, bút, sách, vở. Người quản lý cần biết mỗi món xuất hiện bao nhiêu lần và có bao nhiêu loại hàng khác nhau. Dùng danh sách rồi quét lại từ đầu cho từng món sẽ làm cách xử lý dài và khó mở rộng.</p>
+  <p>Hãy tách hai câu hỏi: “sách có số lượng bao nhiêu?” cần liên hệ tên hàng với số lượng; “đã gặp sách chưa?” chỉ cần kiểm tra sự tồn tại. Câu hỏi đầu phù hợp với map, câu hỏi sau phù hợp với set.</p>
+
+  <h3>3. Lý thuyết nền</h3>
+  <p><code>Map&lt;K, V&gt;</code> biểu diễn quan hệ từ khóa K đến giá trị V. Mỗi khóa chỉ có một giá trị hiện tại; hai khóa khác nhau có thể cùng giá trị. Gọi <code>put</code> lần nữa với cùng khóa sẽ cập nhật giá trị, không tăng số khóa.</p>
+  <p><code>Set&lt;E&gt;</code> chứa các phần tử không trùng theo quy tắc so sánh của chúng. <code>add</code> trả về true khi thêm thành công, false khi phần tử đã có. Nó không đếm số lần xuất hiện; muốn đếm, hãy dùng map.</p>
+  <p>Cả hai cấu trúc dùng mã băm để xác định vị trí lưu và dùng <code>equals</code> để phân biệt các đối tượng. Cùng mã băm chưa chắc là cùng phần tử. Với lớp tự tạo, hai đối tượng bằng nhau phải có cùng <code>hashCode</code>; tránh sửa thuộc tính tham gia so sánh khi đối tượng đang là khóa.</p>
+  <div class="box important">
+    <div class="box-title">Chọn đúng cấu trúc</div>
+    <p>Tra cứu cơ bản thường đạt O(1) khi mã băm phân bố tốt, không phải bảo đảm cho mọi dữ liệu. HashMap và HashSet không cam kết thứ tự. Cần thứ tự chèn: chọn LinkedHashMap/LinkedHashSet; cần sắp xếp: cân nhắc TreeMap/TreeSet.</p>
+  </div>
+
+  <h3>4. Ví dụ từng bước</h3>
+  <h4>A. Đếm số lần xuất hiện bằng HashMap</h4>
+  <p>Lưu mã dưới đây thành <code>HashMapDemo.java</code>. Dự đoán ba dòng kết quả trước khi biên dịch, rồi đối chiếu dự đoán của bạn.</p>
+  <div class="code-wrap">
+    <span class="code-label">HashMapDemo.java</span>
+    <button class="copy-btn" onclick="copyCode(this)" aria-label="Sao chép ví dụ HashMap hoàn chỉnh">Copy</button>
+    <pre><code>import java.util.HashMap;
+import java.util.Map;
+
+public class HashMapDemo {
+    public static void main(String[] args) {
+        Map&lt;String, Integer&gt; counts = new HashMap&lt;&gt;();
+        String[] items = {"sach", "but", "sach", "vo"};
+        for (String item : items) {
+            int previous = counts.getOrDefault(item, 0);
+            counts.put(item, previous + 1);
+        }
+        System.out.println(counts.get("sach"));
+        System.out.println(counts.getOrDefault("thuoc", 0));
+        System.out.println(counts.size());
+    }
+}</code></pre>
+  </div>
+  <ol>
+    <li>Hai dòng <code>import</code> đưa lớp triển khai và interface vào phạm vi sử dụng.</li>
+    <li><code>public class</code> đặt tên chương trình; <code>main</code> là điểm bắt đầu chạy.</li>
+    <li>Dòng khai báo <code>counts</code> chọn khóa String và giá trị Integer, khởi tạo map rỗng.</li>
+    <li>Mảng <code>items</code> mô phỏng dữ liệu cửa hàng; vòng for lấy từng tên hàng.</li>
+    <li><code>getOrDefault</code> lấy số đếm cũ; tên chưa có được tính là 0.</li>
+    <li><code>put</code> ghi số cũ cộng một. Lần gặp “sach” thứ hai cập nhật 1 thành 2.</li>
+    <li>Ba dòng <code>println</code> lần lượt in số sách, số thước và số khóa: <strong>2, 0, 3</strong>.</li>
+    <li>Các dấu ngoặc đóng kết thúc vòng lặp, phương thức và lớp; không đặt lệnh ngoài phương thức.</li>
+  </ol>
+
+  <h4>B. Loại trùng bằng HashSet</h4>
+  <div class="code-wrap">
+    <span class="code-label">HashSetDemo.java</span>
+    <button class="copy-btn" onclick="copyCode(this)" aria-label="Sao chép ví dụ HashSet hoàn chỉnh">Copy</button>
+    <pre><code>import java.util.HashSet;
+import java.util.Set;
+
+public class HashSetDemo {
+    public static void main(String[] args) {
+        Set&lt;String&gt; names = new HashSet&lt;&gt;();
+        System.out.println(names.add("sach"));
+        System.out.println(names.add("sach"));
+        names.add("but");
+        System.out.println(names.size());
+        System.out.println(names.contains("but"));
+        names.remove("but");
+        System.out.println(names.contains("but"));
+    }
+}</code></pre>
+  </div>
+  <ol>
+    <li>Hai import chọn HashSet và interface Set; khai báo lớp và main giống ví dụ A.</li>
+    <li>Dòng tạo <code>names</code> chuẩn bị tập hợp String rỗng.</li>
+    <li>Hai lần thêm “sach” in <strong>true</strong> rồi <strong>false</strong>: bản trùng không được thêm.</li>
+    <li>Thêm “but” làm kích thước thành <strong>2</strong>; kiểm tra tồn tại in <strong>true</strong>.</li>
+    <li><code>remove</code> xóa “but”; lần kiểm tra cuối in <strong>false</strong>. Các ngoặc đóng kết thúc chương trình.</li>
+  </ol>
+  <p>Chạy bằng <code>javac HashMapDemo.java HashSetDemo.java</code>, sau đó <code>java HashMapDemo</code> và <code>java HashSetDemo</code>. Không so sánh thứ tự khi in cả map hoặc set.</p>
+
+  <h3>5. Lỗi thường gặp</h3>
+  <ul>
+    <li>Đọc khóa thiếu bằng <code>get</code> rồi gán vào int có thể gây NullPointerException do tự mở hộp null. Với số đếm, dùng giá trị mặc định.</li>
+    <li>Cho rằng <code>getOrDefault</code> thay mọi null: khóa có giá trị null vẫn trả null. Ví dụ đếm trên luôn lưu số nguyên.</li>
+    <li>Trông chờ thứ tự chèn hoặc dùng vị trí chỉ số với HashSet. Set không phải danh sách.</li>
+    <li>Sửa cấu trúc trong lúc duyệt for-each có thể gây ConcurrentModificationException. Nếu cần xóa lúc duyệt, dùng iterator phù hợp.</li>
+  </ul>
+
+  <h3>6. Bài tập ba mức</h3>
+  <div class="box note">
+    <div class="box-title">Dễ — Đếm màu</div>
+    <p>Đếm mảng “do, xanh, do”. In số “do” và số màu khác nhau. Kết quả phải là 2 và 2; thử thêm mảng rỗng.</p>
+  </div>
+  <div class="box note">
+    <div class="box-title">Vừa — Chuẩn hóa tên hàng</div>
+    <p>Loại khoảng trắng hai đầu và chuyển tên về chữ thường trước khi đếm. Với “ Sach ” và “sach”, chỉ còn một khóa, giá trị 2. Quy định rõ cách xử lý chuỗi rỗng.</p>
+  </div>
+  <div class="box note">
+    <div class="box-title">Khó — Thống kê giỏ hàng</div>
+    <p>Viết phương thức trả map số lượng và tập hợp món xuất hiện ít nhất hai lần. Thử dữ liệu rỗng, toàn khác nhau và toàn trùng. Giải thích vì sao dùng cả map lẫn set; không dựa vào thứ tự duyệt.</p>
+  </div>
+
+  <div class="summary-box">
+    <h4>7. Tóm tắt</h4>
+    <p>Map trả lời “khóa này gắn với gì?”, set trả lời “phần tử này đã có chưa?”. Khóa trùng cập nhật map; phần tử trùng không tăng set. Chọn cấu trúc theo câu hỏi, rồi kiểm tra dữ liệu thiếu và trùng.</p>
+  </div>
+
+  <div class="quiz" data-quiz="q17">
+    <h4>8. Quiz — Chương 17</h4>
+    <div class="quiz-q" data-answer="0"><p>1. Cấu trúc nào phù hợp để tra cứu tên hàng → số lượng?</p><span class="quiz-opt" data-idx="0">HashMap</span><span class="quiz-opt" data-idx="1">HashSet</span><span class="quiz-opt" data-idx="2">ArrayList không cần tìm kiếm</span></div>
+    <div class="quiz-q" data-answer="1"><p>2. put cùng khóa lần thứ hai làm gì?</p><span class="quiz-opt" data-idx="0">Tạo khóa trùng</span><span class="quiz-opt" data-idx="1">Cập nhật giá trị</span><span class="quiz-opt" data-idx="2">Luôn báo lỗi</span></div>
+    <div class="quiz-q" data-answer="2"><p>3. add cùng phần tử vào HashSet lần thứ hai trả về gì?</p><span class="quiz-opt" data-idx="0">true</span><span class="quiz-opt" data-idx="1">null</span><span class="quiz-opt" data-idx="2">false</span></div>
+    <div class="quiz-q" data-answer="0"><p>4. Khóa chưa tồn tại: getOrDefault(key, 0) trả gì?</p><span class="quiz-opt" data-idx="0">0</span><span class="quiz-opt" data-idx="1">Tự thêm khóa vào map</span><span class="quiz-opt" data-idx="2">Luôn trả null</span></div>
+    <div class="quiz-q" data-answer="1"><p>5. Muốn giữ thứ tự thêm các phần tử duy nhất, chọn gì?</p><span class="quiz-opt" data-idx="0">HashSet</span><span class="quiz-opt" data-idx="1">LinkedHashSet</span><span class="quiz-opt" data-idx="2">HashMap tự sắp xếp</span></div>
+    <button class="quiz-btn" onclick="gradeQuiz('q17')" aria-label="Chấm điểm năm câu quiz chương 17">Chấm điểm</button>
+    <div class="quiz-result" id="result-q17"></div>
+  </div>
+  <p>Tài liệu đối chiếu: <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/HashMap.html">HashMap</a> và <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/HashSet.html">HashSet trong Java API</a>.</p>
+</section>
