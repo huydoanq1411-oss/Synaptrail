@@ -20,6 +20,13 @@ const pause=ms=>new Promise(r=>setTimeout(r,ms));
   const evaluate=async expression=>{const evaluated=await call('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});if(evaluated.exceptionDetails)throw Error(evaluated.exceptionDetails.exception?.description||evaluated.exceptionDetails.text);return evaluated.result.value;};
   await call('Runtime.enable');await call('Page.enable');
   const results=[];
+  const quizReviewResults=[];
+  for(const course of ['java','cpp','thuat-toan'])for(let n=1;n<=5;n++){
+   const route=course+'/chapter'+String(n).padStart(2,'0')+'.html';await call('Page.navigate',{url:`http://127.0.0.1:${server.address().port}/${route}`});
+   let ready=false;for(let i=0;i<60;i++){ready=await evaluate("typeof gradeQuiz==='function'&&!!document.querySelector('[data-quiz-feedback]')&&document.readyState!=='loading'");if(ready)break;await pause(250)}if(!ready)throw Error('Quiz page not ready '+route);
+   const test=await evaluate(`(()=>{const quiz=document.querySelector('[data-quiz-feedback]'),questions=[...quiz.querySelectorAll('.quiz-q')];const hidden=questions.every(q=>q.querySelector('.quiz-explanation').hidden);for(const q of questions){q.querySelector('[data-idx="'+q.dataset.answer+'"]').dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true}));}const selected=questions.every(q=>q.dataset.selected===q.dataset.answer);gradeQuiz(quiz.dataset.quiz);const score=document.getElementById('result-'+quiz.dataset.quiz).textContent==='Kết quả: 5/5 câu đúng';const visible=questions.every(q=>!q.querySelector('.quiz-explanation').hidden);for(const q of questions)q.dataset.selected=String((Number(q.dataset.answer)+1)%4);gradeQuiz(quiz.dataset.quiz);const wrong=document.getElementById('result-'+quiz.dataset.quiz).textContent==='Kết quả: 0/5 câu đúng';return {hidden,selected,score,visible,wrong,count:questions.length===5,four:questions.every(q=>q.querySelectorAll('.quiz-opt').length===4)}})()`);
+   quizReviewResults.push({route,...test});if(Object.values(test).some(v=>v!==true))failures.push('Quiz review failed '+route);
+  }
   const navigateProgress=async route=>{await call('Page.navigate',{url:`http://127.0.0.1:${server.address().port}/${route}`});for(let i=0;i<60;i++){if(await evaluate("!!document.querySelector('.learning-progress')"))return;await pause(250)}throw Error('Progress UI not ready '+route)};
   await navigateProgress('java/chapter01.html');
   const progressChapter=await evaluate(`(()=>{localStorage.removeItem('synaptrail-progress');document.querySelector('[data-progress-done]').click();const data=JSON.parse(localStorage.getItem('synaptrail-progress'));const done=data.java.chapter01.done;const quiz=document.querySelector('[data-quiz]');let score=true;if(quiz){const questions=[...quiz.querySelectorAll('.quiz-q')];questions.forEach(q=>q.dataset.selected=q.dataset.answer);gradeQuiz(quiz.dataset.quiz);questions.forEach(q=>delete q.dataset.selected);gradeQuiz(quiz.dataset.quiz);score=JSON.parse(localStorage.getItem('synaptrail-progress')).java.chapter01.quizScore===100;}return {done,score,pressed:document.querySelector('[data-progress-done]').getAttribute('aria-pressed')==='true'}})()`);
@@ -62,6 +69,6 @@ const pause=ms=>new Promise(r=>setTimeout(r,ms));
   await call('Page.navigate',{url:`http://127.0.0.1:${server.address().port}/index.html#roadmap`});await pause(500);
   const legacyNavigation=await evaluate("location.pathname.endsWith('/courses.html')&&location.hash==='#roadmap'");
   if(!catalogueNavigation||!legacyNavigation)failures.push('Homepage navigation failed');
-  console.log(JSON.stringify({results,interactions,roleSelection,lessonResults,progressResults,failures},null,2));process.exitCode=failures.length?1:0;
+  console.log(JSON.stringify({results,interactions,roleSelection,lessonResults,progressResults,quizReviewResults,failures},null,2));process.exitCode=failures.length?1:0;
  }finally{if(ws)ws.close();chrome.kill();server.close()}
 })().catch(e=>{console.error(e);server.close();process.exitCode=1});

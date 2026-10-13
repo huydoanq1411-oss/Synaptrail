@@ -1,6 +1,7 @@
 const fs=require('node:fs'),path=require('node:path'),data=require('./quiz-first-five-data.cjs');
 const root=path.resolve(__dirname,'..'),dry=process.argv.includes('--dry-run');
 const escape=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const cleanWhy=s=>s.replace(/^Đúng:\s*/, '');
 const kinds={concept:'Nhớ khái niệm',application:'Áp dụng / đọc code',error:'Tìm lỗi'};
 const review=['# Quiz mẫu — 5 chương đầu Java, C++ và thuật toán','\nGiải thích trên website chỉ hiện sau khi chấm điểm; tài liệu này hiển thị đáp án để duyệt. Không có câu ngoài nội dung chương.\n'];
 const plans=[];
@@ -11,8 +12,8 @@ for(const [course,chapters]of Object.entries(data))for(const {n,questions}of cha
  const quiz='<div class="quiz" data-quiz="'+quizId+'" data-quiz-feedback>\n<h4>Quiz — Chương '+n+' · 5 câu</h4>\n'+questions.map((q,i)=>{
   if(q.options.length!==4||!Number.isInteger(q.answer)||q.answer<0||q.answer>3)throw Error('Invalid answers');
   review.push('### '+(i+1)+'. '+q.stem+' ('+kinds[q.type]+')\n\nCơ sở: '+q.basis+'\n');if(q.code)review.push('```\n'+q.code+'\n```\n');
-  q.options.forEach(([text,why],j)=>review.push('- **'+String.fromCharCode(65+j)+'. '+text+'** — '+(j===q.answer?'Đúng':'Sai')+': '+why));review.push('');
-  return '<div class="quiz-q" data-answer="'+q.answer+'" data-question-kind="'+q.type+'" role="group" aria-labelledby="'+quizId+'-question-'+(i+1)+'"><span class="quiz-kind">'+kinds[q.type]+'</span><p id="'+quizId+'-question-'+(i+1)+'">'+(i+1)+'. '+escape(q.stem)+'</p>'+(q.code?'<pre aria-label="Đoạn mã cần đọc"><code>'+escape(q.code)+'</code></pre>':'')+q.options.map(([text],j)=>'<span class="quiz-opt" data-idx="'+j+'" role="button" tabindex="0" aria-pressed="false" aria-label="'+escape(String.fromCharCode(65+j)+'. '+text)+'">'+String.fromCharCode(65+j)+'. '+escape(text)+'</span>').join('\n')+'<div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul>'+q.options.map(([,why],j)=>'<li><strong>'+String.fromCharCode(65+j)+'. '+(j===q.answer?'Đúng':'Sai')+':</strong> '+escape(why)+'</li>').join('')+'</ul></div></div>';
+  q.options.forEach(([text,why],j)=>review.push('- **'+String.fromCharCode(65+j)+'. '+text+'** — '+(j===q.answer?'Đúng':'Sai')+': '+cleanWhy(why)));review.push('');
+  return '<div class="quiz-q" data-answer="'+q.answer+'" data-question-kind="'+q.type+'" role="group" aria-labelledby="'+quizId+'-question-'+(i+1)+'"><span class="quiz-kind">'+kinds[q.type]+'</span><p id="'+quizId+'-question-'+(i+1)+'">'+(i+1)+'. '+escape(q.stem)+'</p>'+(q.code?'<pre aria-label="Đoạn mã cần đọc"><code>'+escape(q.code)+'</code></pre>':'')+q.options.map(([text],j)=>'<span class="quiz-opt" data-idx="'+j+'" role="button" tabindex="0" aria-pressed="false" aria-label="'+escape(String.fromCharCode(65+j)+'. '+text)+'">'+String.fromCharCode(65+j)+'. '+escape(text)+'</span>').join('\n')+'<div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul>'+q.options.map(([,why],j)=>'<li><strong>'+String.fromCharCode(65+j)+'. '+(j===q.answer?'Đúng':'Sai')+':</strong> '+escape(cleanWhy(why))+'</li>').join('')+'</ul></div></div>';
  }).join('\n')+'\n<button class="quiz-btn" onclick="gradeQuiz(\''+quizId+'\')" aria-label="Chấm năm câu quiz chương '+n+'">Chấm điểm</button><div class="quiz-result" id="result-'+quizId+'"></div><p class="quiz-feedback-status" role="status" aria-live="polite"></p>\n</div>';
  let html=before;
  const found=/<div class="quiz"[^>]*>/.exec(html);

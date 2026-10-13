@@ -6,7 +6,7 @@ const expected={WelcomeJava:'Welcome to Java\nOrder received',HelloWorld:'Hello,
 for(const number of [1,2,3]){
  const chapter='chapter'+String(number).padStart(2,'0');const html=fs.readFileSync(path.join(root,'java',chapter+'.html'),'utf8');
  const section=html.match(new RegExp('<section class="chapter" id="s'+number+'">[\\s\\S]*?</section>'))[0];
- const words=section.replace(/<pre>[\s\S]*?<\/pre>/g,' ').replace(/<[^>]+>/g,' ').trim().split(/\s+/).length;
+ const words=section.split('<div class="quiz"')[0].replace(/<pre>[\s\S]*?<\/pre>/g,' ').replace(/<[^>]+>/g,' ').trim().split(/\s+/).length;
  assert(words>=900&&words<=1200,chapter+' word count '+words);
  assert.equal((section.match(/class="quiz-q"/g)||[]).length,5);assert(section.includes('data-quiz="q'+number+'"'));assert(section.includes('id="result-q'+number+'"'));
  const output=path.join(root,'artifacts/java-batch1',chapter);fs.mkdirSync(output,{recursive:true});
