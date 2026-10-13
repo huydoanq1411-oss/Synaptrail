@@ -21,7 +21,7 @@ const server=http.createServer((req,res)=>{let file;try{file=path.resolve(root,'
    const check=await evaluate('('+String(function(){return {theme:document.documentElement.getAttribute('data-theme'),bg:getComputedStyle(document.body).getPropertyValue('--bg').trim(),color:getComputedStyle(document.body).color};})+')()');
    results.push({route,...check});
   }
-  console.log(JSON.stringify(results,null,2));if(results.some(r=>r.bg!=='#20211d'))throw Error('Palette mismatch');
+  console.log(JSON.stringify(results,null,2));if(results.some(r=>r.bg!=='#faf8ff'))throw Error('Palette mismatch');
   const toggle=await evaluate('('+String(function(){if(typeof toggleTheme!=='function')return null;toggleTheme();const light=document.documentElement.getAttribute('data-theme');toggleTheme();return {light,dark:document.documentElement.getAttribute('data-theme')};})+')()');console.log({toggle});
  }finally{ws?.close();chrome.kill();server.close()}
 })().catch(error=>{console.error(error);server.close();process.exitCode=1});
