@@ -84,6 +84,7 @@ Synaptrail/
 ├── courses.html            # Danh mục và bốn khu vực nội dung
 ├── assets/
 │   ├── ui.css              # Giao diện chung cho các trang
+│   ├── lesson.css          # CSS gốc dùng chung cho 345 trang chapter
 │   ├── home.css            # Bố cục trang chủ
 │   ├── courses.css         # Bố cục danh mục và các box
 │   └── catalog.js          # Chọn role, lọc kỹ năng và tìm kiếm
@@ -127,6 +128,17 @@ node scripts/upgrade-ui.cjs
 ```
 
 ## Kiểm tra
+
+### Tách CSS bài học
+
+`scripts/extract-css.cjs` chuyển khối CSS đã xác minh từ `chapter*.html` sang `assets/lesson.css`, giữ vị trí stylesheet, biến CSS và theme. Các khối style riêng được giữ nguyên; khối không khớp hash được bỏ qua và báo lý do. Script chạy lại an toàn, không chèn link trùng hoặc ghi đè CSS đã thay đổi.
+
+```sh
+node scripts/extract-css.cjs --audit
+node scripts/extract-css.cjs
+```
+
+Đã xác nhận 345 khối CSS gốc giống hệt nhau bằng SHA-256, không có file khác biệt. Sau thử nghiệm 3 file và chạy 342 file còn lại, tổng dung lượng 345 chapter giảm từ **9.872.059 byte** xuống **5.245.609 byte**. Tính thêm **13.446 byte** của stylesheet chung, còn **5.259.055 byte**, tiết kiệm **4.613.004 byte (46,73%)**. Số liệu không bao gồm script/báo cáo kiểm tra. Chạy lại không đổi file nào; `check-ui.cjs` đạt. Báo cáo chi tiết: `scripts/css-audit.json`, `scripts/css-extraction-result.json`, `scripts/css-extraction-rerun.json`.
 
 Các công cụ kiểm tra yêu cầu **Node.js**. Website không dùng bundler nên không có lệnh build.
 
