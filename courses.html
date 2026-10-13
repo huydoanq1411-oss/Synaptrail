@@ -4,10 +4,11 @@
 <script>
 (function(){
   try{
-    var t = localStorage.getItem('synaptrail-theme') || 'light';
+    var t = localStorage.getItem('synaptrail-theme') || 'dark';
+    if(!localStorage.getItem('synaptrail-glass-design')){t='dark';localStorage.setItem('synaptrail-theme',t);localStorage.setItem('synaptrail-glass-design','1');}
     document.documentElement.setAttribute('data-theme', t);
   }catch(e){
-    document.documentElement.setAttribute('data-theme', 'light');
+    document.documentElement.setAttribute('data-theme', 'dark');
   }
 })();
 </script>
@@ -900,6 +901,7 @@ html[data-theme="dark"] .prompt-copy-btn{ background: var(--line); color:#04121f
 <link rel="stylesheet" href="assets/ui.css">
 <link rel="stylesheet" href="assets/courses.css">
 <link rel="stylesheet" href="assets/progress.css">
+<link rel="stylesheet" href="assets/glass.css">
 </head>
 <body class="catalog-page">
 <a class="skip-link" href="#main-content">Chuyển đến nội dung</a>

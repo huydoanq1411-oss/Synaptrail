@@ -28,6 +28,7 @@ const server=http.createServer((req,res)=>{let file;try{file=path.resolve(root,'
    await evaluate('location.hash="role=ai-engineer"');await delay(100);const shared=await evaluate('document.querySelector("[data-role=ai-engineer]").getAttribute("aria-expanded")');if(shared!=='true')throw Error('Hash navigation failed');
    if(width===1440){const shot=await call('Page.captureScreenshot',{captureBeyondViewport:true});fs.writeFileSync(path.join(root,'artifacts/role-panel.png'),Buffer.from(shot.data,'base64'));}
   }
+  const home=[];for(const width of [375,768,1440]){await call('Emulation.setDeviceMetricsOverride',{width,height:1000,deviceScaleFactor:1,mobile:false});await call('Page.navigate',{url:'http://127.0.0.1:'+server.address().port+'/index.html'});await delay(300);home.push({width,overflow:await evaluate('document.documentElement.scrollWidth>innerWidth')});}console.log(home);if(home.some(r=>r.overflow))throw Error('Home overflow');console.log({home});
   const failures=results.filter(r=>r.overflow||!r.focus||!r.counts||r.skills.some(s=>!s.endsWith('/index.html'))||r.modal!==(r.width===375));
   fs.writeFileSync(path.join(root,'artifacts/role-browser.json'),JSON.stringify({results,jsErrors,failures},null,2));console.log(JSON.stringify({cases:results.length,failures,jsErrors},null,2));process.exitCode=failures.length||jsErrors.length?1:0;
  }finally{ws?.close();chrome.kill();server.close()}
