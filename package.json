@@ -1,0 +1,12 @@
+{
+  "name": "synaptrail",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Synaptrail static learning website",
+  "license": "MIT",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "check": "node scripts/check-ui.cjs",
+    "check:browser": "node scripts/browser-check.cjs"
+  }
+}

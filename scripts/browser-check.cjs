@@ -1,15 +1,18 @@
 const fs=require('node:fs');const path=require('node:path');const os=require('node:os');const http=require('node:http');const {spawn}=require('node:child_process');
 const root=path.resolve(__dirname,'..');
+const {findChrome}=require('./find-chrome.cjs');
 const server=http.createServer((req,res)=>{const file=path.resolve(root,'.'+decodeURIComponent(req.url.split('?')[0] === '/' ? '/index.html' : req.url.split('?')[0]));if(!file.startsWith(root+path.sep)){res.writeHead(403);return res.end()}fs.readFile(file,(err,data)=>{res.writeHead(err?404:200,{'Content-Type':file.endsWith('.js')?'text/javascript; charset=utf-8':file.endsWith('.css')?'text/css; charset=utf-8':'text/html; charset=utf-8'});res.end(err?'Not found':data)})});
 const pause=ms=>new Promise(r=>setTimeout(r,ms));
 (async()=>{
+ const chromePath=findChrome();
  await new Promise(r=>server.listen(0,'127.0.0.1',r));
  const profile=fs.mkdtempSync(path.join(os.tmpdir(),'synaptrail-ui-'));
- const chrome=spawn('C:/Program Files/Google/Chrome/Application/chrome.exe',['--headless=new','--disable-gpu','--no-first-run','--remote-debugging-port=9333','--user-data-dir='+profile,'about:blank'],{stdio:'ignore'});
+ const chrome=spawn(chromePath,['--headless=new','--disable-gpu','--no-first-run','--remote-debugging-port=9333','--user-data-dir='+profile,'about:blank'],{stdio:'ignore'});
+ let launchError;chrome.on('error',error=>{launchError=error});
  let ws;
  try{
   let targets;for(let i=0;i<30;i++){try{targets=await(await fetch('http://127.0.0.1:9333/json')).json();break}catch{await pause(200)}}
-  if(!targets)throw Error('Chrome debugging unavailable');
+  if(!targets)throw Error(launchError?.message||'Chrome debugging unavailable');
   ws=new WebSocket(targets.find(t=>t.type==='page').webSocketDebuggerUrl);await new Promise((r,j)=>{const timer=setTimeout(()=>j(Error('Chrome connection timed out')),10000);ws.onopen=()=>{clearTimeout(timer);r()};ws.onerror=()=>{clearTimeout(timer);j(Error('Chrome connection failed'))}});
   let id=0;const pending=new Map();const failures=[];
   ws.onmessage=e=>{const m=JSON.parse(e.data);if(m.id){const p=pending.get(m.id);pending.delete(m.id);m.error?p.reject(Error(m.error.message)):p.resolve(m.result)}else if(m.method==='Runtime.exceptionThrown')failures.push(m.params.exceptionDetails.text)};

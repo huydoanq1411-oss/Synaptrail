@@ -1,12 +1,15 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
+const {checkHtml}=require('./html-checks.cjs');
 const root = path.resolve(__dirname,'..');
 if(fs.existsSync(path.join(root,'assets/lesson.js')))new vm.Script(fs.readFileSync(path.join(root,'assets/lesson.js'),'utf8'),{filename:'assets/lesson.js'});
-function walk(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.name.startsWith('.')?[]:e.isDirectory()?walk(path.join(dir,e.name)):e.name.endsWith('.html')?[path.join(dir,e.name)]:[])}
+function walk(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.name.startsWith('.')||['node_modules','artifacts'].includes(e.name)?[]:e.isDirectory()?walk(path.join(dir,e.name)):e.name.endsWith('.html')?[path.join(dir,e.name)]:[])}
 let scripts=0;const errors=[];
+const htmlCache=new Map();
 for(const file of walk(root)){
  const html=fs.readFileSync(file,'utf8');
+ errors.push(...checkHtml(file,html,root,htmlCache));
  for(const [,src]of html.matchAll(/<script\b[^>]*\bsrc="([^"]+)"/gi)){
   if(/^(https?:)?\/\//.test(src))continue;
   if(!fs.existsSync(path.resolve(path.dirname(file),src)))errors.push('Missing script '+src+' in '+file);
