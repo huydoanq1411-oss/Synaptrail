@@ -8,11 +8,11 @@ const http = require('node:http');
 const root = path.resolve(__dirname, '..');
 const pause = ms => new Promise(r => setTimeout(r, ms));
 const browsers = [require('./find-chrome.cjs').findChrome(), 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe'];
-const deadline = setTimeout(() => { console.error('Preview browser check timed out'); process.exit(1); }, 45000);
+const deadline = setTimeout(() => { console.error('Preview browser check timed out'); process.exit(1); }, 55000);
 const server = http.createServer((req,res)=>{
   const file=path.resolve(root,'.'+decodeURIComponent(req.url.split('?')[0]));
   if(!file.startsWith(root+path.sep)){res.writeHead(403);return res.end();}
-  fs.readFile(file,(error,data)=>{res.writeHead(error?404:200,{'Content-Type':file.endsWith('.js')?'text/javascript; charset=utf-8':file.endsWith('.css')?'text/css; charset=utf-8':'text/html; charset=utf-8'});res.end(error?'Not found':data);});
+  fs.readFile(file,(error,data)=>{res.writeHead(error?404:200,{'Content-Type':file.endsWith('.js')?'text/javascript; charset=utf-8':file.endsWith('.css')?'text/css; charset=utf-8':file.endsWith('.svg')?'image/svg+xml':'text/html; charset=utf-8'});res.end(error?'Not found':data);});
 });
 (async () => {
   await new Promise(r=>server.listen(0,'127.0.0.1',r));
@@ -69,6 +69,22 @@ const server = http.createServer((req,res)=>{
       for(let i=0;i<40;i++){if(await evaluate(`typeof SynaptrailFX3D!=='undefined'`))break;await pause(100);}
       const noWebGL=await evaluate(`(async()=>{const e=document.createElement('div');e.dataset.fx3d='';document.body.append(e);const original=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(kind,...args){return /webgl/.test(kind)?null:original.call(this,kind,...args)};document.documentElement.dataset.fx3d='on';try{const state=await SynaptrailFX3D.mount(e,()=>{throw Error('setup must not execute')});return state.status==='tĩnh'&&state.reason==='no-webgl'&&!document.querySelector('script[src*="three.module"]')}finally{HTMLCanvasElement.prototype.getContext=original;e.remove()}})()`);
       const webgl=await evaluate(`(async()=>{document.documentElement.dataset.fx3d='on';const e=document.createElement('div');e.dataset.fx3d='';e.style.cssText='position:fixed;top:100px;left:0;width:240px;height:180px';document.body.append(e);const state=await SynaptrailFX3D.mount(e,T=>{const scene=new T.Scene();scene.add(new T.Mesh(new T.BoxGeometry(),new T.MeshBasicMaterial()));const camera=new T.PerspectiveCamera(45,1,.1,100);camera.position.z=4;return {scene,camera}});await new Promise(r=>setTimeout(r,2400));const result={status:state.status,reason:state.reason,quality:state.quality,canvas:!!e.querySelector('canvas'),pixelRatio:e.querySelector('canvas')?.width/240};state.dispose?.();result.disposed=!e.querySelector('canvas');e.remove();return result})()`);
+      await evaluate(`(()=>{const b=document.querySelector('[data-fx3d-toggle]');if(b.getAttribute('aria-pressed')!=='true')b.click();document.querySelector('[data-role="frontend"]').click();})()`);
+      const roleMap={listDefault:await evaluate(`document.querySelector('#rolePanel .role-map').hidden&&!document.querySelector('#rolePanel .role-skills').hidden`)};
+      await evaluate(`(()=>{const store=SynaptrailProgress.createStore(localStorage);store.update('git','chapter01',{done:true});store.update('git','chapter02',{done:true});document.querySelectorAll('#rolePanel .role-view-switch button')[1].click();document.querySelector('#rolePanel .role-map').scrollIntoView({block:'center',behavior:'instant'});})()`);await pause(700);
+      Object.assign(roleMap,await evaluate(`(()=>{const e=document.querySelector('#rolePanel .role-map');return {ready:e.dataset.fx3dReady==='true',nodes:e.querySelectorAll('svg g').length,complete:e.querySelector('svg g').dataset.progress==='complete',links:e.querySelectorAll('.role-map-links a').length,textures:performance.getEntriesByType('resource').filter(r=>r.name.includes('/assets/img/skills/')).length>0}})()`));
+      fs.writeFileSync(path.join(root,'artifacts','role3d-'+name+'.png'),Buffer.from((await call('Page.captureScreenshot',{format:'png'})).data,'base64'));
+      let rp=await evaluate(`(()=>{const r=document.querySelector('#rolePanel .role-map').getBoundingClientRect(),half=Math.max(4.6,4.7/(r.width/r.height));return {x:r.left+r.width/2-3*r.height/(2*half),y:r.top+r.height/2-2.8*r.height/(2*half)}})()`);
+      await call('Input.dispatchMouseEvent',{type:'mousePressed',button:'left',clickCount:1,...rp});await call('Input.dispatchMouseEvent',{type:'mouseReleased',button:'left',clickCount:1,...rp});await pause(1600);
+      roleMap.fly=await evaluate(`document.querySelector('#rolePanel .role-map-message').textContent.includes('Git:')`);
+      await call('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});await pause(100);
+      roleMap.reduced=await evaluate(`document.querySelector('#rolePanel .role-map').dataset.fx3dReady==='false'`);
+      await call('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'no-preference'}]});await pause(100);
+      rp=await evaluate(`(()=>{const r=document.querySelector('#rolePanel .role-map').getBoundingClientRect();return {x:r.left+r.width/2,y:r.top+r.height/2}})()`);
+      await call('Input.dispatchMouseEvent',{type:'mousePressed',button:'left',clickCount:1,...rp});await call('Input.dispatchMouseEvent',{type:'mouseReleased',button:'left',clickCount:1,...rp});await pause(250);
+      roleMap.secondClick=await evaluate(`location.pathname.endsWith('/git/index.html')`);
+      console.log(JSON.stringify({roleMapBrowser:name,...roleMap}));
+      if(!roleMap.listDefault||!roleMap.ready||roleMap.nodes!==7||roleMap.links!==7||!roleMap.complete||!roleMap.fly||!roleMap.reduced||!roleMap.secondClick)process.exitCode=1;
       await call('Page.navigate',{url:`http://127.0.0.1:${server.address().port}/index.html`});await pause(700);
       await evaluate(`(()=>{const b=document.querySelector('[data-fx3d-toggle]');if(b.getAttribute('aria-pressed')!=='true')b.click()})()`);
       await pause(900);
