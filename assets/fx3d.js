@@ -6,6 +6,7 @@
   const controllers = new Set();
   let library;
   let leaving = false;
+  let suspended = false;
   function webglAvailable() {
     try {
       const context = document.createElement('canvas').getContext('webgl2')
@@ -70,11 +71,11 @@
         content.camera.aspect = width / height;
         content.camera.updateProjectionMatrix();
       }
-      if (visible && !document.hidden) draw();
+      if (visible && !document.hidden && !suspended && document.documentElement.dataset.fx3d === 'on') draw();
     };
     const tick = time => {
       frame = 0;
-      if (disposed || !visible || document.hidden) return;
+      if (disposed || !visible || document.hidden || suspended) return;
       if (!start) start = time;
       const delta = last ? time - last : 0;
       elapsed += delta; last = time; frames++;
@@ -99,7 +100,7 @@
         element.dataset.fx3dReady = String(enabled);
         state.status = enabled && !motion.matches && !slow ? '3d' : 'tĩnh';
         element.dataset.fx3dStatus = state.status;
-        if (!enabled || !visible || document.hidden) return;
+        if (!enabled || !visible || document.hidden || suspended) return;
         draw();
         if (!motion.matches && !slow) frame = requestAnimationFrame(tick);
       },
@@ -150,23 +151,25 @@
   };
   const sync = event => { if (event.key === key || event.key === null) { read(); update(); } };
   const dispose = event => {
+    suspended = true;
     if (event.persisted) { controllers.forEach(controller => controller.refresh()); return; }
     leaving = true;
     controllers.forEach(controller => controller.dispose());
     document.removeEventListener('click', toggle);
     document.removeEventListener('visibilitychange', update);
     window.removeEventListener('storage', sync);
-    window.removeEventListener('pageshow', update);
+    window.removeEventListener('pageshow', resume);
     window.removeEventListener('pagehide', dispose);
     motion.removeEventListener('change', update);
     finePointer.removeEventListener('change', update);
   };
   read();
   update();
+  const resume = () => { suspended = false; update(); };
   document.addEventListener('click', toggle);
   document.addEventListener('visibilitychange', update);
   window.addEventListener('storage', sync);
-  window.addEventListener('pageshow', update);
+  window.addEventListener('pageshow', resume);
   window.addEventListener('pagehide', dispose);
   motion.addEventListener('change', update);
   finePointer.addEventListener('change', update);
