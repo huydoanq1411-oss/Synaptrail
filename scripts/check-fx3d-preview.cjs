@@ -38,6 +38,7 @@ const server = http.createServer((req,res)=>{
       const results=[];
       for(const width of [375,768,1440]) {
         await call('Emulation.setDeviceMetricsOverride',{width,height:900,deviceScaleFactor:1,mobile:width<500});
+        await pause(150); // Let matchMedia and dialog relocation settle before opening a role.
         results.push(await evaluate(`(()=>{const b=document.querySelector('[data-fx3d-toggle]');return {width:innerWidth,button:!!b,overflow:document.documentElement.scrollWidth>innerWidth,cards:document.querySelectorAll('#allCourses .resource-card').length,loaded:!!document.documentElement.dataset.fx3d}})()`));
         await evaluate(`document.querySelector('[data-role="frontend"]').click()`);
         const defaultList=await evaluate(`(()=>{const t=innerWidth<=600?document.querySelector('#roleModal'):document.querySelector('#rolePanel');return t.querySelector('.role-map').hidden&&!t.querySelector('.role-skills').hidden})()`);
