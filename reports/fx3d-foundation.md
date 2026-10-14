@@ -12,7 +12,7 @@ Ngày kiểm tra: 2026-10-14. Không thêm framework, build hoặc dependency np
 - Nút bật/tắt ở trang chủ, courses.html và 22 mục lục khóa học trong catalog.
 - fullstack-js/index.html là trang chuyển hướng sang courses.html, không có topbar riêng.
 - Trang chương không sửa và không nạp tài nguyên 3D.
-- Hero mạng kiến thức chưa triển khai: chờ người dùng duyệt mẫu box theo thứ tự yêu cầu.
+- Hero mạng kiến thức đã có bản thử nghiệm 8 nút theo yêu cầu tiếp theo; xem reports/hero3d-prototype.md.
 
 ## Thư viện và chi phí
 
@@ -57,8 +57,8 @@ Với bfcache, giữ scene nhưng dừng render và khôi phục qua pageshow.
 Đã xác nhận cả hai trình duyệt:
 - Box CSS và nút trên file://; bật/tắt, localStorage qua reload và reduced motion.
 - Catalog ở 375/768/1440 px không tràn ngang.
-- Trang chủ có nút ở ba kích thước; ở viewport 375 px innerWidth là 385 px,
-  cần xem lại khả năng tràn bố cục hero hiện hữu trước bước làm hero mới.
+- Trang chủ có nút ở ba kích thước; sau khi thay khối minh họa bằng hero mới,
+  viewport 375 px có innerWidth đúng 375 px và không tràn ngang.
 - Fixture WebGL thực tế qua server cục bộ nạp module, tạo scene và dispose canvas thành công.
 - Giả lập getContext(WebGL) trả null: API trả `tĩnh`, reason `no-webgl`, không chạy setup.
 - DPR fixture đo được 1 (không vượt giới hạn 2).

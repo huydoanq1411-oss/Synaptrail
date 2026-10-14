@@ -5,7 +5,7 @@
   if (!surface) return;
   const ids = ['git', 'html-css-nnlt', 'javascript-nnlt', 'typescript', 'react', 'python', 'machine-learning', 'ai-engineer'];
   const courses = ids.map(id => window.SynaptrailCatalog.courses.find(course => course.id === id));
-  const positions = [[-3,1.7,0],[-1.1,2,0],[.4,.5,0],[2.8,1.8,0],[3,-.9,0],[.5,-2,0],[-1.4,-.7,0],[-3,-1.8,0]];
+  const positions = [[-3,1.7,.2],[-1.1,2,-.5],[.4,.5,.6],[2.8,1.8,-.3],[3,-.9,.3],[.5,-2,-.4],[-1.4,-.7,.4],[-3,-1.8,-.2]];
   const edges = [[0,1],[0,6],[0,7],[1,2],[1,3],[2,3],[2,4],[2,5],[2,6],[3,4],[4,5],[5,6],[5,7],[6,7]];
   const namespace = 'http://www.w3.org/2000/svg';
   const svg = document.createElementNS(namespace, 'svg');
