@@ -1,7 +1,20 @@
-/* Synaptrail 3D foundation — phase 1: CSS tilt preview, no dependencies. */
+/* Synaptrail 3D foundation. Classic loader also works under file://. */
 (() => {
   'use strict';
   const key = 'synaptrail-fx3d';
+  const moduleURL = new URL('vendor/three/three.module.min.js', document.currentScript.src).href;
+  const controllers = new Set();
+  let library;
+  let leaving = false;
+  function webglAvailable() {
+    try {
+      const context = document.createElement('canvas').getContext('webgl2')
+        || document.createElement('canvas').getContext('webgl');
+      if (!context) return false;
+      context.getExtension('WEBGL_lose_context')?.loseContext();
+      return true;
+    } catch { return false; }
+  }
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
   const weak = (navigator.hardwareConcurrency > 0 && navigator.hardwareConcurrency <= 4)
@@ -23,7 +36,112 @@
       button.title = motion.matches ? 'Hiệu ứng 3D: chuyển động tắt theo cài đặt hệ thống'
         : `Hiệu ứng 3D: ${enabled ? 'bật' : 'tắt'}`;
     });
+    controllers.forEach(controller => controller.refresh());
   };
+  // setup(THREE, renderer, {quality}) must return {scene, camera, animate?, dispose?}.
+  // Custom textures, render targets, controls and listeners belong in setup.dispose().
+  async function mount(element, setup) {
+    if (!(element instanceof HTMLElement) || !element.hasAttribute('data-fx3d')) {
+      throw new TypeError('mount requires a [data-fx3d] element');
+    }
+    const state = {status: 'tĩnh', reason: '', quality: weak ? 'low' : 'high'};
+    const fallback = reason => {
+      state.status = 'tĩnh'; state.reason = reason;
+      element.dataset.fx3dReady = 'false';
+      element.dataset.fx3dStatus = state.status;
+      return state;
+    };
+    if (location.protocol === 'file:') return fallback('file-protocol');
+    if (document.documentElement.dataset.fx3d !== 'on') return fallback('disabled');
+    if (!webglAvailable()) return fallback('no-webgl');
+    let renderer, content, observer, resizeObserver, frame = 0;
+    let visible = false, disposed = false, last = 0, start = 0, frames = 0, elapsed = 0;
+    let slow = false;
+    const canvas = document.createElement('canvas');
+    canvas.setAttribute('aria-hidden', 'true');
+    const stop = () => { cancelAnimationFrame(frame); frame = 0; last = start = frames = elapsed = 0; };
+    const draw = () => renderer.render(content.scene, content.camera);
+    const resize = () => {
+      const {width, height} = element.getBoundingClientRect();
+      if (!width || !height) return;
+      renderer.setPixelRatio(Math.min(devicePixelRatio || 1, state.quality === 'low' ? 1 : 2));
+      renderer.setSize(width, height, false);
+      if (content.camera.isPerspectiveCamera) {
+        content.camera.aspect = width / height;
+        content.camera.updateProjectionMatrix();
+      }
+      if (visible && !document.hidden) draw();
+    };
+    const tick = time => {
+      frame = 0;
+      if (disposed || !visible || document.hidden) return;
+      if (!start) start = time;
+      const delta = last ? time - last : 0;
+      elapsed += delta; last = time; frames++;
+      content.animate?.(Math.min(delta / 1000, 0.1), time / 1000);
+      draw();
+      if (time - start >= 2000) {
+        const fps = elapsed ? (frames - 1) * 1000 / elapsed : 60;
+        start = time; frames = 1; elapsed = 0;
+        if (fps < 40) {
+          if (state.quality === 'high') {
+            state.quality = 'low'; content.setQuality?.('low'); resize();
+          } else { slow = true; state.status = 'tĩnh'; element.dataset.fx3dStatus = state.status; return; }
+        }
+      }
+      frame = requestAnimationFrame(tick);
+    };
+    const controller = {
+      refresh() {
+        stop();
+        if (disposed) return;
+        const enabled = document.documentElement.dataset.fx3d === 'on';
+        element.dataset.fx3dReady = String(enabled);
+        state.status = enabled && !motion.matches && !slow ? '3d' : 'tĩnh';
+        element.dataset.fx3dStatus = state.status;
+        if (!enabled || !visible || document.hidden) return;
+        draw();
+        if (!motion.matches && !slow) frame = requestAnimationFrame(tick);
+      },
+      dispose() {
+        if (disposed) return;
+        disposed = true; stop(); observer?.disconnect(); resizeObserver?.disconnect();
+        canvas.removeEventListener('webglcontextlost', lost);
+        content?.dispose?.();
+        const resources = new Set();
+        content?.scene?.traverse(object => {
+          if (object.geometry) resources.add(object.geometry);
+          for (const material of [].concat(object.material || [])) {
+            resources.add(material);
+            Object.values(material).forEach(value => { if (value?.isTexture) resources.add(value); });
+          }
+        });
+        resources.forEach(resource => resource.dispose());
+        renderer?.dispose(); renderer?.forceContextLoss(); canvas.remove();
+        controllers.delete(controller); fallback('disposed');
+      }
+    };
+    const lost = event => { event.preventDefault(); controller.dispose(); fallback('context-lost'); };
+    try {
+      const THREE = await (library ??= import(moduleURL));
+      if (leaving || document.documentElement.dataset.fx3d !== 'on') return fallback('disabled');
+      renderer = new THREE.WebGLRenderer({canvas, alpha: true, antialias: !weak, powerPreference: 'low-power'});
+      content = await setup(THREE, renderer, {quality: state.quality});
+      if (leaving) { controller.dispose(); return state; }
+      element.append(canvas);
+      canvas.addEventListener('webglcontextlost', lost);
+      controllers.add(controller);
+      resizeObserver = new ResizeObserver(resize); resizeObserver.observe(element);
+      observer = new IntersectionObserver(entries => {
+        visible = entries[0].isIntersecting; controller.refresh();
+      });
+      observer.observe(element); resize();
+      return Object.assign(state, {dispose: () => controller.dispose()});
+    } catch {
+      library = undefined; controller.dispose(); return fallback('initialization-failed');
+    }
+  }
+  window.SynaptrailFX3D = Object.freeze({mount, webglAvailable, maxPixelRatio: 2});
   const toggle = event => {
     if (!event.target.closest('[data-fx3d-toggle]')) return;
     choice = document.documentElement.dataset.fx3d !== 'on';
@@ -32,7 +150,9 @@
   };
   const sync = event => { if (event.key === key || event.key === null) { read(); update(); } };
   const dispose = event => {
-    if (event.persisted) return; // Keep listeners for back/forward cache restoration.
+    if (event.persisted) { controllers.forEach(controller => controller.refresh()); return; }
+    leaving = true;
+    controllers.forEach(controller => controller.dispose());
     document.removeEventListener('click', toggle);
     document.removeEventListener('visibilitychange', update);
     window.removeEventListener('storage', sync);
