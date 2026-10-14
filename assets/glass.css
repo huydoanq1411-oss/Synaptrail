@@ -1,90 +1,390 @@
-/* Teal glass art direction for the landing page and catalogue. */
-html[data-theme="dark"]{--bg:#071516;--bg-soft:#102426;--bg-card:#142b2d;--border:#345254;--text:#e0f2ee;--text-dim:#a1bbb6;--accent:#65d4c3;--paper-soft:#102426;--ink:#e0f2ee}
-.landing-page{background:#071516;color:#e0f2ee;background-image:radial-gradient(ellipse at 75% 18%,#164c4538,transparent 45%)}
-.landing-header{background:#091c1dd9;border-color:#284342}.landing-brand,.landing-copy h1,.learning-preview h2,.paths-heading h2,.path-card h3,.landing-bottom h2{color:#e0f2ee}.brand-trail,.landing-copy h1>span,.code-emblem,.path-card-action{color:#70cdbc}.landing-nav a,.landing-eyebrow,.landing-lead,.landing-text-link,.learning-note,.preview-overline,.learning-preview>p:not(.preview-overline),.preview-bottom,.path-card p,.landing-bottom p,.landing-footer{color:#a1bbb6}.landing-button{background:#207d75;color:#f0fffa;border:1px solid #58b9a45c;box-shadow:inset 0 1px #ffffff20}.landing-button:hover{background:#28968a}.synap-mark,.path-icon{background:#244943;color:#9ce7d5;border:1px solid #60988b6b}.tech-tokens span{background:#203937;color:#a1dfd0}
-.visual-disc{background:radial-gradient(ellipse,#3a867c33,transparent 68%)}.orbit{border-color:#5d9d9140}.learning-preview{background:linear-gradient(145deg,#b1d6cd26,#29444466);border:1px solid #a6cbc370;backdrop-filter:blur(12px);box-shadow:0 28px 60px #0006,inset 0 1px #e4fff630}.code-emblem{text-shadow:0 5px 12px #0006}.preview-code{background:#091c20b3;color:#b2d5c9;border:1px solid #608f8066}.preview-code>span{color:#89e1c8}.preview-bottom{border-color:#668a7e}.floating-note{background:#203637cc;border-color:#6d999080;color:#c8e6dd;backdrop-filter:blur(8px);box-shadow:0 8px 24px #0005}
-.landing-page .path-card,.landing-bottom{background:linear-gradient(145deg,#66877e26,#213c384d);border:1px solid #668e8275;box-shadow:inset 0 1px #c7e7dd18,0 12px 30px #0003;backdrop-filter:blur(10px)}.landing-page .path-card:hover{background:linear-gradient(145deg,#7fb5a52e,#294d465c);border-color:#70cdbc80}.learning-paths,.landing-bottom,.landing-footer{border-color:#304d48}.landing-footer{background:#091a1b}.landing-footer a{color:#d3ece3}
-html[data-theme="dark"] .catalog-page{background:radial-gradient(ellipse at 82% 0,#165b4833,transparent 45%),#071516}.catalog-page .site-header{backdrop-filter:blur(16px)}html[data-theme="dark"] .catalog-page .site-header{background:#0c1f20e8}.catalog-page :is(.resource-card,.role-box,.role-skill){border-radius:16px;box-shadow:0 10px 26px #0002;transition:transform .22s,border-color .22s,box-shadow .22s}html[data-theme="dark"] .catalog-page :is(.resource-card,.role-box,.role-skill){background:linear-gradient(140deg,#afdfce15,#31575120);border:1px solid #6e9c8d60;box-shadow:inset 0 1px #d1efe71a,0 12px 28px #0004;backdrop-filter:blur(10px)}.catalog-page :is(.resource-card,.role-box,.role-skill):hover{transform:translateY(-3px);box-shadow:0 16px 32px #0003}.catalog-page :is(.resource-card,.role-box,.role-skill) img{border-bottom:1px solid #638d7d30}.catalog-page .role-box-title{font-size:15px;padding:16px 18px}.catalog-page .resource-card h3{padding:16px 18px 8px}.catalog-page .resource-card .card-footer{padding:0 18px 16px}.catalog-page .resource-card .btn-start{font-weight:650;text-decoration:none}.catalog-page .role-panel{background:#0d2423;border-color:#456c5c}.catalog-page .role-modal{background:#102525}.catalog-page .role-panel-head button{background:#173b34;border-color:#658f7a;color:#dbf2e7}.catalog-page .role-skill-title{padding:12px 14px 6px}.catalog-page .role-skill-count{padding:0 14px 14px}.catalog-page .role-box[aria-pressed="true"]{border-color:#70cdbc;box-shadow:inset 0 0 0 1px #70cdbc55}
-@media(max-width:600px){.catalog-page .role-box-title{font-size:13px;padding:12px}.catalog-page .resource-card h3{padding:12px}.catalog-page .resource-card .card-footer{padding:0 12px 12px}.catalog-page .role-skill-title{padding:10px}}
-@media(prefers-reduced-motion:reduce){.catalog-page :is(.resource-card,.role-box,.role-skill){transition:none}.catalog-page :is(.resource-card,.role-box,.role-skill):hover{transform:none}}
+﻿/* ================================================================
+   glass.css — Modern glassmorphism surfaces for landing & catalog
+   Updated: 2026-10 visual upgrade
+   ================================================================ */
 
-@media(max-width:600px){.hero-visual{overflow:clip;min-width:0}.note-top{left:0}.note-bottom{right:0}.landing-hero>*{min-width:0}.landing-header-inner{gap:12px}.landing-copy h1{overflow-wrap:break-word}}
+/* --- Dark base with animated gradient mesh --- */
+.landing-page,
+html[data-theme="dark"] .catalog-page{
+  background-color:#0c1018;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 80% 10%, #1a3d4555, transparent),
+    radial-gradient(ellipse 60% 40% at 15% 85%, #1d2e4a40, transparent),
+    radial-gradient(ellipse 50% 50% at 50% 50%, #12201f25, transparent),
+    url('img/neural-trails.svg');
+  background-size: auto, auto, auto, 1600px 1000px;
+  background-position: center top;
+  background-repeat: no-repeat, no-repeat, no-repeat, repeat-y;
+  animation: bgShift 25s ease-in-out infinite alternate;
+}
 
-/* Reference-inspired connecting trails and layered glass cards. */
-.landing-page,html[data-theme="dark"] .catalog-page{background-color:#061414;background-image:linear-gradient(#06141420,#06141485),url('img/neural-trails.svg');background-size:cover,1600px 1000px;background-position:center top;background-repeat:no-repeat,repeat-y;background-attachment:scroll}
-.landing-header{background:#071819cc}.landing-main,.catalog-page #main-content{position:relative}.landing-hero{padding-top:76px;min-height:680px}.hero-visual{perspective:1100px;min-height:500px}.learning-preview{position:relative;z-index:2;transform:rotate(-7deg) rotateY(-10deg);background:linear-gradient(135deg,#c2e9dc33,#718e8820 48%,#182a2bd9);border-color:#bad5cb80;box-shadow:0 30px 65px #0008,inset 0 1px 1px #e6fff170;backdrop-filter:blur(14px);border-radius:16px}.learning-preview::before{content:'';position:absolute;inset:5px;border:1px solid #cfefe114;border-radius:11px;pointer-events:none}.code-emblem{color:#a5e7d4;text-shadow:0 6px 4px #0007}.floating-note{z-index:4;background:linear-gradient(130deg,#78978f45,#1a3231dd);border-color:#abc6bd65}.note-top{top:20px;left:-10px}.note-bottom{bottom:5px;right:0}
-.code-window{position:absolute;width:310px;right:-8px;top:12px;background:#13282aec;border:1px solid #90aca95c;border-radius:10px;box-shadow:0 18px 36px #0005;transform:rotate(5deg);z-index:0}.window-chrome{display:flex;align-items:center;gap:5px;padding:9px 12px;border-bottom:1px solid #7a9e9333;background:#bedace10}.window-chrome i{width:5px;height:5px;border-radius:50%;background:#87a9a0}.window-chrome span{font:9px Consolas,monospace;margin-left:auto;color:#b0cdc3}.code-window pre{font:11px/1.8 Consolas,monospace;color:#a2beb4;padding:17px;margin:0;overflow:hidden}.code-window pre span{color:#75c5b1}.terminal-window{position:absolute;z-index:3;right:-8px;bottom:80px;transform:rotate(3deg);background:#102120ed;border:1px solid #91b2a874;border-radius:8px;padding:12px 16px;box-shadow:0 14px 30px #0006}.terminal-window>span{display:block;font-size:9px;color:#9eb6af;margin-bottom:8px}.terminal-window code{font:10px/1.7 Consolas,monospace;color:#b4d3be}
-.landing-page .path-card{background:linear-gradient(140deg,#cadcd12b,#627e7726 45%,#1a3030a8);border-color:#a7c4b466;box-shadow:0 16px 28px #0005,inset 0 1px #f0fff333;border-radius:14px;transform:rotate(-1deg)}.landing-page .path-card:nth-child(even){transform:rotate(1deg)}.landing-page .path-card:hover{transform:translateY(-5px) rotate(0);border-color:#93d4bf}.path-icon{width:44px;height:44px;font-size:20px;border-radius:12px;background:linear-gradient(145deg,#648f8050,#15362f);box-shadow:0 6px 12px #0004,inset 0 1px #d4fce025}
-html[data-theme="dark"] .catalog-page :is(.role-box,.resource-card,.role-skill){background:linear-gradient(140deg,#c6dec029,#7a918e14 48%,#0c2525a8);border-color:#9dbbae66;box-shadow:0 16px 28px #0005,inset 0 1px #effff02e;backdrop-filter:blur(12px)}.catalog-page :is(.role-box,.resource-card,.role-skill) img{background:#8db1a010}.catalog-page .role-panel{background:#102725e0;backdrop-filter:blur(12px)}
-@media(max-width:1000px){.code-window{right:0;width:260px}.terminal-window{right:0}.note-top{left:0}.landing-hero{gap:26px}}
-@media(max-width:720px){.landing-hero{min-height:0;padding-top:48px}.hero-visual{min-height:450px}.code-window{top:25px;right:5px;width:230px}.terminal-window{bottom:55px;right:5px}.learning-preview{max-width:78%;transform:rotate(-5deg)}.note-top{top:5px}.note-bottom{bottom:5px}.landing-page .path-card,.landing-page .path-card:nth-child(even){transform:none}.landing-page,.catalog-page{background-size:cover,1000px 800px}}
-@media(prefers-reduced-motion:reduce){.landing-page .path-card:hover{transform:none}}
+@keyframes bgShift{
+  0%{background-position:80% 10%, 15% 85%, 50% 50%, center top}
+  100%{background-position:70% 15%, 25% 80%, 45% 55%, center top}
+}
 
-/* Compact landscape cards: floating artwork, label, and chapter count. */
-.catalog-page .grid,.catalog-page .role-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}.catalog-page :is(.resource-card,.role-box,.role-skill){border-radius:9px;min-height:126px;align-items:stretch;text-align:left}.catalog-page .resource-image-link{width:96px;height:54px;margin:12px 14px 0}.catalog-page :is(.resource-card,.role-box,.role-skill) img{width:96px;height:54px;aspect-ratio:16/9;object-fit:contain;background:none;border:none}.catalog-page .role-box>img,.catalog-page .role-skill>img{margin:12px 14px 0}.catalog-page .resource-card h3{padding:8px 14px 4px;line-height:1.4}.catalog-page .resource-card .btn-start{font-size:13px;font-weight:600}.catalog-page .resource-card .card-footer{padding:0 14px 12px;margin-top:auto}.catalog-page .chapter-count{font-size:11px}.catalog-page .role-box-title{padding:8px 14px 14px;font-size:13px;font-weight:600}.catalog-page .role-skill-title{padding:8px 14px 4px;font-size:12px}.catalog-page .role-skill-count{padding:0 14px 12px;font-size:10px}.catalog-page .role-skills{grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}.catalog-page .role-panel{padding:18px;border-radius:10px}.catalog-page .role-modal .role-skills{grid-template-columns:repeat(2,minmax(0,1fr))}.catalog-page .skill-cluster{margin-bottom:24px}
-.landing-page .path-card{border-radius:9px;padding:16px;min-height:140px}.landing-page .path-icon{width:32px;height:32px;margin-bottom:12px;font-size:16px;border-radius:8px}.landing-page .path-card h3{font-size:14px}.landing-page .path-card p{font-size:12px;margin-bottom:12px}.landing-page .path-card-action{font-size:11px}
-@media(min-width:1051px){.catalog-page .role-box:nth-child(odd){transform:rotate(-1deg)}.catalog-page .role-box:nth-child(even){transform:rotate(1deg)}.catalog-page .role-box:hover{transform:translateY(-3px) rotate(0)}}
-@media(max-width:1050px){.catalog-page .grid,.catalog-page .role-grid,.catalog-page .role-skills{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}}
-@media(max-width:600px){.catalog-page .grid,.catalog-page .role-grid,.catalog-page .role-skills{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.catalog-page :is(.resource-card,.role-box,.role-skill){min-height:120px}.catalog-page .role-panel{padding:14px}}
-@media(prefers-reduced-motion:reduce){.catalog-page .role-box:nth-child(n),.catalog-page .role-box:hover{transform:none}}
+/* --- Header --- */
+.landing-header,
+html[data-theme="dark"] .catalog-page .site-header{
+  background: #0c1018e0;
+  border-color: #ffffff12;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
 
-/* Softer translucent surfaces and a restrained, continuous hover motion. */
-.landing-page,html[data-theme="dark"] .catalog-page{background-color:#10131f;background-image:radial-gradient(ellipse at 78% 12%,#27345055,transparent 48%),linear-gradient(#11162535,#17132255),url('img/neural-trails.svg');background-size:auto,auto,1600px 1000px;background-position:center top;background-repeat:no-repeat,no-repeat,repeat-y}
-.landing-header,html[data-theme="dark"] .catalog-page .site-header{background:#111723bc;border-color:#819baa30;backdrop-filter:blur(16px)}
-html[data-theme="dark"] .catalog-page :is(.role-box,.resource-card,.role-skill),.landing-page .path-card{background:linear-gradient(140deg,#d2e7ed13,#a4c6d007 55%,#778fa90c);border:1px solid #a5c4d343;box-shadow:inset 0 1px #f0faff14,0 8px 20px #02050d25;backdrop-filter:blur(9px);transition:transform 420ms cubic-bezier(.22,1,.36,1),box-shadow 420ms cubic-bezier(.22,1,.36,1),border-color 300ms ease,background-color 300ms ease}
-.catalog-page :is(.role-box,.resource-card,.role-skill),.landing-page .path-card{transform:translateY(0);transform-origin:center;will-change:auto}
-html[data-theme="dark"] .catalog-page .role-panel{background:#a4bbd009;border-color:#9bbcd038;backdrop-filter:blur(10px)}.catalog-page .role-modal{background:#171e2bef;border-color:#a5c4d343}.catalog-page .role-panel-head button{background:#8dbbc712;border-color:#8dbbc74d}.landing-bottom{background:#b1d9dd0c;border-color:#a5c4d338}
-.catalog-page :is(.role-box,.resource-card,.role-skill) img{transition:transform 420ms cubic-bezier(.22,1,.36,1);transform-origin:center}
-:is(.catalog-page,.landing-page) :is(.resource-card,.role-box,.role-skill,.path-card)::after{height:2px;background:#81d9da;transition:transform 420ms cubic-bezier(.22,1,.36,1)}
-@media(hover:hover) and (pointer:fine){html[data-theme="dark"] .catalog-page :is(.role-box,.resource-card,.role-skill):hover,.landing-page .path-card:hover{transform:translateY(-4px);background-color:#b4e3ec0b;border-color:#8ce0df85;box-shadow:inset 0 1px #e9ffff27,0 16px 30px #02050d45}.catalog-page :is(.role-box,.resource-card,.role-skill):hover img{transform:translateY(-1px) scale(1.045)}}
-.catalog-page :is(.role-box,.resource-card,.role-skill):active,.landing-page .path-card:active{transform:translateY(-1px);transition-duration:120ms}
-@media(min-width:1051px){.catalog-page .role-box:nth-child(n),.landing-page .path-card:nth-child(n){transform:translateY(0)}.catalog-page .role-box:nth-child(n):hover,.landing-page .path-card:nth-child(n):hover{transform:translateY(-4px)}}
-@media(hover:none){.catalog-page :is(.role-box,.resource-card,.role-skill):hover,.landing-page .path-card:nth-child(n):hover{transform:none}}
-@media(prefers-reduced-motion:reduce){.catalog-page :is(.role-box,.resource-card,.role-skill),.catalog-page :is(.role-box,.resource-card,.role-skill) img,.landing-page .path-card{transition:none!important}.catalog-page .role-box:nth-child(n):hover,.catalog-page :is(.resource-card,.role-skill):hover,.landing-page .path-card:nth-child(n):hover,.catalog-page :is(.role-box,.resource-card,.role-skill):hover img{transform:none}}
+.landing-header::after{
+  content:'';
+  position:absolute;
+  bottom:0; left:0; right:0;
+  height:1px;
+  background:linear-gradient(90deg, transparent, #77e0b540, transparent);
+}
 
-/* Only the top border moves; card and illustration stay fixed. */
-.catalog-page :is(.role-box,.resource-card,.role-skill):is(:hover,:active),.catalog-page .role-box:nth-child(n):hover,.landing-page .path-card:nth-child(n):is(:hover,:active){transform:none!important;box-shadow:inset 0 1px #f0faff14,0 8px 20px #02050d25}
-.catalog-page :is(.role-box,.resource-card,.role-skill):hover img{transform:none!important;filter:none;transition:none}
-:is(.catalog-page,.landing-page) :is(.resource-card,.role-box,.role-skill,.path-card){transition:border-color 350ms ease,background-color 350ms ease}
-:is(.catalog-page,.landing-page) :is(.resource-card,.role-box,.role-skill,.path-card)::after{transform:scaleX(0);transform-origin:center;transition:transform 550ms cubic-bezier(.16,1,.3,1)}
-:is(.catalog-page,.landing-page) :is(.resource-card,.role-box,.role-skill,.path-card):is(:hover,:focus-visible,:focus-within)::after{transform:scaleX(1)}
-@media(prefers-reduced-motion:reduce){:is(.catalog-page,.landing-page) :is(.resource-card,.role-box,.role-skill,.path-card)::after{transition:none}}
+/* --- Hero section --- */
+.landing-main,.catalog-page #main-content{position:relative}
+.landing-hero{padding-top:76px;min-height:680px}
+.hero-visual{perspective:1100px;min-height:500px}
 
-/* Center-out border matching the supplied example, without card motion. */
-:is(.catalog-page,.landing-page) :is(.resource-card,.role-box,.role-skill,.path-card)::after{content:'';position:absolute;top:0;left:50%;right:auto;bottom:auto;display:block;width:0;height:3px;background:#0d9488;transform:translateX(-50%);transform-origin:center;transition:width 650ms cubic-bezier(.45,0,.55,1);z-index:10;pointer-events:none}
-:is(.catalog-page,.landing-page) :is(.resource-card,.role-box,.role-skill,.path-card):is(:hover,:focus-visible,:focus-within)::after{width:100%;transform:translateX(-50%)}
-@media(prefers-reduced-motion:reduce){:is(.catalog-page,.landing-page) :is(.resource-card,.role-box,.role-skill,.path-card)::after{transition:none}}
+/* --- Glass card: Learning Preview --- */
+.learning-preview{
+  position:relative;
+  z-index:2;
+  transform: rotate(-5deg);
+  background: linear-gradient(145deg, #ffffff0a, #77e0b508 50%, #0c101890);
+  border: 1px solid #ffffff15;
+  box-shadow: 0 30px 80px #00000050, inset 0 1px 0 #ffffff10;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 18px;
+  transition: transform 600ms cubic-bezier(.22,1,.36,1), box-shadow 400ms ease;
+}
 
-/* Explicitly requested border draw remains animated; no card movement. */
-:is(.catalog-page,.landing-page) :is(.resource-card,.role-box,.role-skill,.path-card)::after{transition:width 650ms cubic-bezier(.45,0,.55,1)!important}
+.learning-preview:hover{
+  transform: rotate(-3deg) translateY(-4px);
+  box-shadow: 0 40px 90px #00000060, inset 0 1px 0 #ffffff15;
+}
 
-/* Landing and catalogue use the same deep indigo palette as lessons. */
-.landing-page,html[data-theme="dark"] .catalog-page{background-color:#111225;color:#f4f5fb;background-image:radial-gradient(ellipse at 75% 12%,#48417335,transparent 48%),linear-gradient(#11122565,#111225b3),url('img/neural-trails.svg')}
-.landing-header,html[data-theme="dark"] .catalog-page .site-header{background:#14172bcf;border-color:#51567566}
-.landing-brand,.landing-copy h1,.learning-preview h2,.paths-heading h2,.path-card h3,.landing-bottom h2{color:#f4f5fb}.landing-nav a,.landing-eyebrow,.landing-lead,.landing-text-link,.learning-note,.preview-overline,.learning-preview>p:not(.preview-overline),.preview-bottom,.path-card p,.landing-bottom p,.landing-footer{color:#bac1d6}.landing-footer{background:#111225;border-color:#454b69}.catalog-page .role-modal{background:#1a1d35f2}
+.learning-preview::before{
+  content:'';
+  position:absolute;
+  inset:4px;
+  border:1px solid #ffffff08;
+  border-radius:14px;
+  pointer-events:none;
+}
 
-/* Separate surfaces from the background; keep labels unchanged on hover. */
-.landing-page,html[data-theme="dark"] .catalog-page{background-color:#0b1020;background-image:radial-gradient(ellipse at 80% 10%,#3b466530,transparent 48%),linear-gradient(#0b102040,#0b102080),url('img/neural-trails.svg')}
-html[data-theme="dark"] .catalog-page :is(.role-box,.resource-card,.role-skill){background:linear-gradient(135deg,#48546a52,#26324969);border-color:#8296b258}.catalog-page .role-panel{background:#202b3b9c;border-color:#6e839a66}.landing-page .path-card{background:linear-gradient(135deg,#48546a52,#26324969);border-color:#8296b258}
-.catalog-page .role-box-title,.catalog-page .role-skill-title,.catalog-page .resource-card h3,.landing-page .path-card h3{color:#f4f5fb}.catalog-page .chapter-count,.catalog-page .role-skill-count{color:#c3cdde}
-.catalog-page .resource-card a.btn-start,.catalog-page .resource-card:hover a.btn-start,.catalog-page .card-clickable:hover a.btn-start,.catalog-page .resource-card a.btn-start:hover{background:transparent!important;color:var(--text)!important;font-weight:600;box-shadow:none;text-shadow:none}
-.catalog-page .role-box:is(:hover,:focus) .role-box-title,.catalog-page .role-skill:is(:hover,:focus) .role-skill-title{font-weight:600;text-shadow:none}.catalog-page .role-skill-title{font-weight:600}.landing-page .path-card:hover h3{font-weight:700;text-shadow:none}
-html[data-theme="dark"] .catalog-page .icon-btn{color:#e5edf5;background:#263249;border-color:#8296b258}.landing-page .landing-button,.catalog-page .btn-primary{color:#10252b!important}
+.code-emblem{color:#77e0b5;text-shadow:0 0 30px #77e0b520}
 
-/* Match the supplied charcoal / sage / forest colour reference. */
-.landing-page,html[data-theme="dark"] .catalog-page{background-color:#20211d;color:#dae8dd;background-image:linear-gradient(#20211de8,#20211de8),url('img/neural-trails.svg');background-size:auto,1600px 1000px;background-repeat:no-repeat,repeat-y}
-.landing-header,html[data-theme="dark"] .catalog-page .site-header{background:#20211df2;border-color:#41443b}.landing-brand,.landing-copy h1,.learning-preview h2,.paths-heading h2,.path-card h3,.landing-bottom h2,.catalog-page .role-box-title,.catalog-page .role-skill-title{color:#dae8dd}.brand-trail,.landing-copy h1>span,.code-emblem,.path-card-action{color:#91b69b}.landing-nav a,.landing-eyebrow,.landing-lead,.landing-text-link,.learning-note,.preview-overline,.learning-preview>p:not(.preview-overline),.preview-bottom,.path-card p,.landing-bottom p,.landing-footer{color:#a5afa1}.landing-button,.landing-page .landing-button,.catalog-page .btn-primary{background:#355f47;color:#f2f5ed!important;border-color:#5e8264}.landing-button:hover{background:#416e53}.synap-mark,.path-icon{background:#355f47;color:#d3e4d5;border-color:#66836a}
-html[data-theme="dark"] .catalog-page :is(.role-box,.resource-card,.role-skill),.landing-page .path-card{background:linear-gradient(140deg,#a4b79516,#64735708);border-color:#72796866}.catalog-page .role-panel,.landing-bottom{background:#2b302650;border-color:#72796866}.catalog-page .role-modal{background:#262822f5}.catalog-page .role-panel-head button,html[data-theme="dark"] .catalog-page .icon-btn{background:#2c3027;color:#dae8dd;border-color:#5d6554}.catalog-page .chapter-count,.catalog-page .role-skill-count{color:#a5afa1}.catalog-page .role-box[aria-pressed="true"]{border-color:#91b69b;box-shadow:inset 0 0 0 1px #91b69b44}.learning-preview{background:linear-gradient(135deg,#a1b38e13,#20211de8);border-color:#73796988}.floating-note,.code-window,.terminal-window{background:#252822ec;border-color:#73796988;color:#c6d6c4}.preview-code{background:#191c18;color:#bdccba;border-color:#515a48}.preview-code>span,.code-window pre span{color:#91b69b}.window-chrome{background:#acb99d0c;border-color:#515a48}.terminal-window code{color:#bdccba}.orbit{border-color:#8a937142}.visual-disc{background:radial-gradient(ellipse,#89936b19,transparent 70%)}.landing-footer{background:#20211d;border-color:#41443b}
-:is(.catalog-page,.landing-page) :is(.resource-card,.role-box,.role-skill,.path-card)::after{background:#6f9e7d}
+/* --- Floating notes --- */
+.floating-note{
+  z-index:4;
+  background: linear-gradient(135deg, #ffffff0c, #0c101890);
+  border: 1px solid #ffffff12;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 10px;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
 
-/* White and purple surfaces, without changing layout or interactions. */
-.landing-page,.catalog-page,html[data-theme="dark"] .catalog-page{background-color:#f8fbff;color:#20334d;background-image:radial-gradient(ellipse at 80% 0,#d7e6ff70,transparent 50%)}
-.landing-header,.catalog-page .site-header,html[data-theme="dark"] .catalog-page .site-header{background:#ffffffed;border-color:#cddcef}.landing-brand,.landing-copy h1,.learning-preview h2,.paths-heading h2,.path-card h3,.landing-bottom h2,.catalog-page .role-box-title,.catalog-page .role-skill-title{color:#20334d}.brand-trail,.landing-copy h1>span,.code-emblem,.path-card-action{color:#2563eb}.landing-nav a,.landing-eyebrow,.landing-lead,.landing-text-link,.learning-note,.preview-overline,.learning-preview>p:not(.preview-overline),.preview-bottom,.path-card p,.landing-bottom p,.landing-footer{color:#5d7088}.landing-button,.landing-page .landing-button,.catalog-page .btn-primary{background:#2563eb;color:#fff!important;border-color:#2563eb}.landing-button:hover{background:#1d4ed8}.synap-mark,.path-icon{background:#e7efff;color:#2563eb;border-color:#cddcef}
-.catalog-page :is(.role-box,.resource-card,.role-skill),html[data-theme="dark"] .catalog-page :is(.role-box,.resource-card,.role-skill),.landing-page .path-card{background:linear-gradient(140deg,#fff,#f0f6ffb3);border-color:#cddcef;box-shadow:0 6px 18px #284f830b}.catalog-page .role-panel,.landing-bottom{background:#eef4fc;border-color:#cddcef}.catalog-page .role-modal{background:#f8fbfff5}.catalog-page .role-panel-head button,html[data-theme="dark"] .catalog-page .icon-btn{background:#eef4fc;color:#2563eb;border-color:#cddcef}.catalog-page .chapter-count,.catalog-page .role-skill-count{color:#5d7088}.catalog-page .role-box[aria-pressed="true"]{border-color:#2563eb;box-shadow:inset 0 0 0 1px #2563eb33}.learning-preview{background:linear-gradient(135deg,#fff,#e8f0fee8);border-color:#acc7ed;box-shadow:0 24px 45px #284f8318}.floating-note,.code-window,.terminal-window{background:#f2f7ffef;border-color:#cddcef;color:#405b7c;box-shadow:0 10px 22px #284f8312}.preview-code{background:#e5edfa;color:#405b7c;border-color:#cddcef}.preview-code>span,.code-window pre span{color:#2563eb}.window-chrome{background:#e7efff;border-color:#cddcef}.code-window pre,.terminal-window code,.window-chrome span{color:#405b7c}.orbit{border-color:#9cbce84d}.visual-disc{background:radial-gradient(ellipse,#c0d7fc4d,transparent 70%)}.landing-footer{background:#eef4fc;border-color:#cddcef}.landing-footer a{color:#20334d}.tech-tokens span{background:#e7efff;color:#2563eb}
-:is(.catalog-page,.landing-page) :is(.resource-card,.role-box,.role-skill,.path-card)::after{background:#2563eb}
+.floating-note:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px #00000030;
+}
 
-/* Legible menu control with consistent keyboard and pointer states. */
-#menuBtn,#menu-toggle{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;width:44px;height:44px;min-height:44px;padding:0;border:1px solid #b9ceec;border-radius:10px;background:#eaf2ff;color:#1d4ed8;cursor:pointer;transition:background-color .18s,border-color .18s;line-height:1}
-#menuBtn:hover,#menu-toggle:hover,#menuBtn[aria-expanded="true"]{background:#dceaff;border-color:#709de0;color:#1e40af}#menuBtn:focus-visible,#menu-toggle:focus-visible{outline:3px solid #2563eb;outline-offset:3px}
-#menuBtn .hamburger{display:block;position:relative;width:22px;height:16px;color:inherit}#menuBtn .hamburger span{position:absolute;left:0;width:22px;height:2px;background:currentColor;border-radius:2px;transition:transform .2s,opacity .2s,top .2s}#menuBtn .hamburger span:nth-child(1){top:0}#menuBtn .hamburger span:nth-child(2){top:7px}#menuBtn .hamburger span:nth-child(3){top:14px}#menuBtn[aria-expanded="true"] .hamburger span:nth-child(1){top:7px;transform:rotate(45deg)}#menuBtn[aria-expanded="true"] .hamburger span:nth-child(2){opacity:0}#menuBtn[aria-expanded="true"] .hamburger span:nth-child(3){top:7px;transform:rotate(-45deg)}
-@media(prefers-reduced-motion:reduce){#menuBtn .hamburger span{transition:none}}
+.note-top{top:20px;left:-10px}
+.note-bottom{bottom:5px;right:0}
+
+/* Float animation for notes */
+.float-animate{animation: floatSlow 6s ease-in-out infinite}
+.float-animate-alt{animation: floatSlow 7s ease-in-out infinite 1s}
+
+@keyframes floatSlow{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+
+/* --- Code window & Terminal --- */
+.code-window{
+  position:absolute;
+  width:310px;
+  right:-8px;
+  top:12px;
+  background: #0c1018e8;
+  border: 1px solid #ffffff12;
+  border-radius: 12px;
+  box-shadow: 0 20px 50px #00000040;
+  transform: rotate(4deg);
+  z-index:0;
+  transition: transform 600ms cubic-bezier(.22,1,.36,1);
+}
+
+.code-window:hover{transform: rotate(2deg) translateY(-3px)}
+
+.window-chrome{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:10px 14px;
+  border-bottom:1px solid #ffffff0a;
+  background: #ffffff06;
+}
+
+.window-chrome i{
+  width:6px;height:6px;
+  border-radius:50%;
+}
+
+.window-chrome i:nth-child(1){background:#ff5f57}
+.window-chrome i:nth-child(2){background:#febc2e}
+.window-chrome i:nth-child(3){background:#28c840}
+
+.window-chrome span{font:9px Consolas,monospace;margin-left:auto;color:#ffffff60}
+
+.code-window pre{
+  font:11px/1.8 Consolas,monospace;
+  color:#a0aab5;
+  padding:17px;
+  margin:0;
+  overflow:hidden;
+}
+
+.code-window pre span{color:#77e0b5}
+
+.terminal-window{
+  position:absolute;
+  z-index:3;
+  right:-8px;
+  bottom:80px;
+  transform:rotate(2deg);
+  background: #0c1018e8;
+  border: 1px solid #ffffff12;
+  border-radius: 10px;
+  padding:14px 18px;
+  box-shadow: 0 16px 40px #00000040;
+  transition: transform 400ms ease;
+}
+
+.terminal-window:hover{transform: rotate(0)}
+.terminal-window>span{display:block;font-size:9px;color:#ffffff40;margin-bottom:8px}
+.terminal-window code{font:10px/1.7 Consolas,monospace;color:#b0bcc8}
+
+/* --- Path cards (landing page) --- */
+.landing-page .path-card{
+  background: linear-gradient(140deg, #ffffff08, #ffffff04 50%, transparent);
+  border: 1px solid #ffffff12;
+  box-shadow: 0 8px 24px #00000015;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 22px;
+  min-height: 140px;
+  transform: translateY(0);
+  transition:
+    transform 350ms cubic-bezier(.22,1,.36,1),
+    box-shadow 350ms ease,
+    border-color 300ms ease,
+    background-color 300ms ease;
+}
+
+.landing-page .path-card:hover{
+  transform: translateY(-5px) scale(1.015);
+  border-color: #77e0b560;
+  box-shadow: 0 16px 48px #77e0b512, 0 8px 24px #00000020;
+  background: linear-gradient(140deg, #ffffff0c, #77e0b506 50%, transparent);
+}
+
+.landing-page .path-card:active{
+  transform: translateY(-2px);
+  transition-duration: 120ms;
+}
+
+.path-icon{
+  width:44px;height:44px;
+  font-size:20px;
+  border-radius:12px;
+  background: #77e0b518;
+  color: #77e0b5;
+  border: 1px solid #77e0b530;
+  display:grid;place-items:center;
+  margin-bottom:18px;
+  box-shadow: 0 4px 12px #77e0b510;
+}
+
+/* Colored path icons */
+.landing-page .path-card:nth-child(2) .path-icon{background:#b9a1ff15;color:#b9a1ff;border-color:#b9a1ff30;box-shadow:0 4px 12px #b9a1ff10}
+.landing-page .path-card:nth-child(3) .path-icon{background:#82cdf515;color:#82cdf5;border-color:#82cdf530;box-shadow:0 4px 12px #82cdf510}
+.landing-page .path-card:nth-child(4) .path-icon{background:#edbd7915;color:#edbd79;border-color:#edbd7930;box-shadow:0 4px 12px #edbd7910}
+
+.path-icon svg{width:24px;height:24px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+
+.landing-page .path-card h3{font-size:15px}
+.landing-page .path-card p{font-size:12px;margin-bottom:14px;line-height:1.7}
+.landing-page .path-card-action{font-size:11px;color:#ffffff60;border-top:1px solid #ffffff0a;padding-top:14px}
+
+/* --- Catalog cards --- */
+html[data-theme="dark"] .catalog-page :is(.role-box,.resource-card,.role-skill){
+  background: linear-gradient(140deg, #ffffff08, #ffffff04 50%, transparent);
+  border: 1px solid #ffffff12;
+  box-shadow: 0 6px 18px #00000015;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 11px;
+  transition:
+    transform 380ms cubic-bezier(.22,1,.36,1),
+    box-shadow 380ms ease,
+    border-color 300ms ease;
+}
+
+.catalog-page :is(.role-box,.resource-card,.role-skill) img{
+  background: #ffffff06;
+  transition: transform 380ms cubic-bezier(.22,1,.36,1);
+  transform-origin: center;
+}
+
+/* Hover states — only on fine pointer devices */
+@media(hover:hover) and (pointer:fine){
+  html[data-theme="dark"] .catalog-page :is(.role-box,.resource-card,.role-skill):hover{
+    transform: translateY(-4px);
+    border-color: #77e0b545;
+    box-shadow: 0 16px 40px #77e0b510, 0 4px 16px #00000025;
+  }
+
+  .catalog-page :is(.role-box,.resource-card,.role-skill):hover img{
+    transform: scale(1.04);
+  }
+
+  .landing-page .path-card:nth-child(2):hover{border-color:#b9a1ff50;box-shadow:0 16px 48px #b9a1ff10, 0 8px 24px #00000020}
+  .landing-page .path-card:nth-child(3):hover{border-color:#82cdf550;box-shadow:0 16px 48px #82cdf510, 0 8px 24px #00000020}
+  .landing-page .path-card:nth-child(4):hover{border-color:#edbd7950;box-shadow:0 16px 48px #edbd7910, 0 8px 24px #00000020}
+}
+
+.catalog-page :is(.role-box,.resource-card,.role-skill):active{
+  transform: translateY(-1px);
+  transition-duration: 120ms;
+}
+
+/* --- Panels & modals --- */
+html[data-theme="dark"] .catalog-page .role-panel{
+  background: #0c101890;
+  border-color: #ffffff12;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.catalog-page .role-modal{
+  background: #0c1018f0;
+  border-color: #ffffff15;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.catalog-page .role-panel-head button{
+  background: #ffffff08;
+  border-color: #ffffff12;
+}
+
+.landing-bottom{
+  background: #77e0b508;
+  border: 1px solid #ffffff12;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* --- Compact catalogue grid --- */
+.catalog-page .grid,
+.catalog-page .role-grid{
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.catalog-page :is(.resource-card,.role-box,.role-skill){
+  min-height: 126px;
+  align-items: stretch;
+  text-align: left;
+}
+
+.catalog-page .resource-image-link{width:96px;height:54px;margin:12px 14px 0}
+.catalog-page :is(.resource-card,.role-box,.role-skill) img{width:96px;height:54px;aspect-ratio:16/9;object-fit:contain;background:none;border:none}
+.catalog-page .role-box>img,.catalog-page .role-skill>img{margin:12px 14px 0}
+.catalog-page .resource-card h3{padding:8px 14px 4px;line-height:1.4}
+.catalog-page .resource-card .btn-start{font-size:13px;font-weight:600}
+.catalog-page .resource-card .card-footer{padding:0 14px 12px;margin-top:auto}
+.catalog-page .chapter-count{font-size:11px}
+.catalog-page .role-box-title{padding:8px 14px 14px;font-size:13px;font-weight:600}
+.catalog-page .role-skill-title{padding:8px 14px 4px;font-size:12px}
+.catalog-page .role-skill-count{padding:0 14px 12px;font-size:10px}
+.catalog-page .role-skills{grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.catalog-page .role-panel{padding:18px;border-radius:12px}
+.catalog-page .role-modal .role-skills{grid-template-columns:repeat(2,minmax(0,1fr))}
+.catalog-page .skill-cluster{margin-bottom:24px}
+
+/* Subtle tilt on desktop for role boxes */
+@media(min-width:1051px){
+  .catalog-page .role-box:nth-child(odd){transform:rotate(-0.5deg)}
+  .catalog-page .role-box:nth-child(even){transform:rotate(0.5deg)}
+  .catalog-page .role-box:hover{transform:translateY(-4px) rotate(0)}
+}
+
+/* --- Top edge accent bar --- */
+:is(.catalog-page,.landing-page) :is(.resource-card,.role-box,.role-skill,.path-card)::after{
+  height:2px;
+  background: linear-gradient(90deg, #77e0b5, #82cdf5);
+  transition: transform 400ms cubic-bezier(.22,1,.36,1);
+}
+
+/* --- Responsive --- */
+@media(max-width:1050px){
+  .catalog-page .grid,
+  .catalog-page .role-grid,
+  .catalog-page .role-skills{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:14px;
+  }
+}
+
+@media(max-width:1000px){
+  .code-window{right:0;width:260px}
+  .terminal-window{right:0}
+  .note-top{left:0}
+  .landing-hero{gap:26px}
+}
+
+@media(max-width:720px){
+  .landing-hero{min-height:0;padding-top:48px}
+  .hero-visual{min-height:450px}
+  .code-window{top:25px;right:5px;width:230px}
+  .terminal-window{bottom:55px;right:5px}
+  .learning-preview{max-width:80%;transform:rotate(-3deg)}
+  .note-top{top:5px}
+  .note-bottom{bottom:5px}
+  .landing-page .path-card{transform:none!important}
+}
+
+@media(max-width:600px){
+  .catalog-page .grid,
+  .catalog-page .role-grid,
+  .catalog-page .role-skills{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;
+  }
+
+  .catalog-page :is(.resource-card,.role-box,.role-skill){min-height:120px}
+  .catalog-page .role-panel{padding:14px}
+}
+
+/* --- Reduced motion --- */
+@media(prefers-reduced-motion:reduce){
+  @keyframes bgShift{0%,100%{background-position:center}}
+  @keyframes floatSlow{0%,100%{transform:none}}
+  .landing-page .path-card:hover,
+  .catalog-page .role-box:nth-child(n),
+  .catalog-page .role-box:hover,
+  .catalog-page :is(.role-box,.resource-card,.role-skill):hover{
+    transform:none!important;
+  }
+  .learning-preview{transition:none}
+  .learning-preview:hover{transform:rotate(-5deg)}
+}
+
+.landing-footer{background:transparent;border-color:#ffffff0a}
+.landing-footer a{color:#f0f3f5}
