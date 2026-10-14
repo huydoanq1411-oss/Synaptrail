@@ -16,7 +16,7 @@ const server = http.createServer((req,res)=>{
 });
 (async () => {
   await new Promise(r=>server.listen(0,'127.0.0.1',r));
-  for (const binary of browsers.filter(p => fs.existsSync(p))) {
+  for (const binary of browsers.filter(p => fs.existsSync(p) && (!process.argv.includes('--edge') || p.includes('msedge')))) {
     const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'synaptrail-fx3d-'));
     const child = spawn(binary, ['--headless=new', '--no-first-run', '--remote-debugging-port=9347', '--user-data-dir=' + profile, 'about:blank'], {stdio:'ignore'});
     let ws;
@@ -44,7 +44,7 @@ const server = http.createServer((req,res)=>{
         if(!defaultList)throw Error('Role must open in list mode');
         await evaluate(`(()=>{const t=innerWidth<=600?document.querySelector('#roleModal'):document.querySelector('#rolePanel');t.querySelectorAll('.role-view-switch button')[1].click()})()`);await pause(50);
         const fileMap=await evaluate(`(()=>{const t=innerWidth<=600?document.querySelector('#roleModal'):document.querySelector('#rolePanel');return !t.querySelector('.role-map').hidden&&!t.querySelector('.role-map canvas')&&t.querySelectorAll('.role-map svg g').length===7&&document.documentElement.scrollWidth<=innerWidth})()`);
-        if(!fileMap)throw Error('Static role map must work on file:// without overflow');
+        if(!fileMap)throw Error('Static role map must work on file:// without overflow: '+JSON.stringify(await evaluate(`(()=>{const t=innerWidth<=600?document.querySelector('#roleModal'):document.querySelector('#rolePanel');return {width:innerWidth,scroll:document.documentElement.scrollWidth,hidden:t.querySelector('.role-map')?.hidden,canvas:!!t.querySelector('.role-map canvas'),nodes:t.querySelectorAll('.role-map svg g').length}})()`)));
         await evaluate(`(()=>{const t=innerWidth<=600?document.querySelector('#roleModal'):document.querySelector('#rolePanel');t.querySelector('[data-close-role]').click()})()`);
       }
       const toggle=await evaluate(`(()=>{const b=document.querySelector('[data-fx3d-toggle]');if(b.getAttribute('aria-pressed')==='true')b.click();b.click();return localStorage.getItem('synaptrail-fx3d')==='on'&&b.getAttribute('aria-pressed')==='true';})()`);
