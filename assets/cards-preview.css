@@ -1,0 +1,39 @@
+﻿/* Nine-card preview. Other card families retain their existing structure. */
+html .catalog-page {--bg:var(--surface-page);--bg-card:var(--surface-card);--paper:var(--surface-card);--bg-soft:var(--surface-soft);--paper-soft:var(--surface-soft);--text:var(--content-primary);--ink:var(--content-primary);--text-dim:var(--content-secondary);--ink-soft:var(--content-secondary);--border:var(--surface-border);--line-soft:var(--surface-border);background:var(--surface-page);color:var(--content-primary);animation:none;--header-h:88px;}
+html .catalog-page #main-content{max-width:1248px;margin:auto;padding:120px 24px 64px;}
+html .catalog-page .site-header{height:88px;position:fixed;background:color-mix(in srgb,var(--surface-page) 94%,transparent);border-color:var(--surface-border);}
+.catalog-page :is(section[id],h2[id],.learning-progress){scroll-margin-top:112px;}
+html .catalog-page .section{margin-block:56px;}
+html .catalog-page .role-grid,html .catalog-page .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+html .catalog-page .sample-card{display:flex;flex-direction:column;align-items:stretch;justify-content:start;text-align:left;min-width:0;padding:0;gap:0;background:var(--surface-card);border:1px solid var(--surface-border);border-radius:var(--card-radius);box-shadow:var(--card-shadow);color:var(--content-primary);overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .2s;cursor:pointer;font:inherit;}
+html .catalog-page .sample-card:hover{transform:translateY(-4px);border-color:var(--accent);background:var(--surface-card);box-shadow:0 12px 32px #0003;}
+html .catalog-page .sample-card[aria-pressed="true"]{border-color:var(--accent);background:var(--surface-card);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 25%,transparent);}
+html .catalog-page .sample-card::after,html .catalog-page .sample-card::before,.catalog-page .sample-card .role-box-title::after{display:none;}
+.catalog-page .sample-card .card-art{position:relative;display:block;width:100%;aspect-ratio:16/10;background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 40%,#132139),#132139);overflow:hidden;}
+html .catalog-page .sample-card img{display:block;width:100%;height:100%;max-width:none;aspect-ratio:16/10;object-fit:cover;border:0;background:transparent;}
+.art-label{position:absolute;top:16px;left:16px;max-width:calc(100% - 32px);font-size:10px;font-weight:600;letter-spacing:.08em;background:#102337e8;color:#eaf3ff;border:1px solid #ffffff30;border-radius:6px;padding:6px 8px;}
+.catalog-page .sample-body{display:flex;flex-direction:column;padding:16px;gap:8px;flex:1;}
+html .catalog-page .sample-card .role-box-title,html .catalog-page .sample-card h3{padding:0;margin:0;font-size:var(--card-title);font-weight:600;line-height:1.4;color:var(--content-primary);}
+html .catalog-page .sample-card .btn-start{display:flex;align-items:center;justify-content:space-between;padding:0;color:var(--content-primary)!important;font-size:var(--card-title);font-weight:600;line-height:1.4;}
+.card-arrow{width:22px;height:22px;flex-shrink:0;fill:none;stroke:var(--accent);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.catalog-page .sample-desc{display:block;margin:0;color:var(--content-secondary);font-size:var(--card-description);line-height:1.5;}
+html .catalog-page .sample-chips{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin-top:auto;padding-top:4px;}
+.sample-chips>span{font-size:var(--card-label);line-height:1.5;padding:4px 8px;border-radius:6px;background:color-mix(in srgb,var(--accent) 10%,var(--surface-card));color:var(--accent);}
+.estimate-note{font-size:12px;line-height:1.6;color:var(--content-secondary);margin:0 0 24px;}
+html .catalog-page :is(.sample-card,.sample-card a):focus-visible{outline:3px solid var(--accent);outline-offset:4px;}
+html .catalog-page .role-panel{position:fixed;inset:112px 24px auto auto;width:min(760px,calc(100vw - 48px));max-height:calc(100dvh - 140px);overflow:auto;margin:0;padding:24px;z-index:110;background:var(--surface-card);border-color:var(--surface-border);box-shadow:0 24px 80px #0008;animation:panel-enter .2s ease-out;}
+html .catalog-page .role-panel[hidden]{display:none;}
+html .catalog-page .role-modal{background:var(--surface-card);color:var(--content-primary);}
+html .catalog-page .role-panel-head{display:flex;align-items:center;justify-content:space-between;position:sticky;top:-24px;gap:16px;padding:16px 0;margin:0 0 16px;background:var(--surface-card);z-index:4;}
+html .catalog-page .role-panel-head button{position:static;margin:0;flex-shrink:0;color:var(--content-primary);background:var(--surface-soft);border-color:var(--surface-border);}
+html .catalog-page :is(.catalog-start,.learning-progress,.role-skill){background:var(--surface-card);border-color:var(--surface-border);color:var(--content-primary);}
+html .catalog-page .role-skill-title{color:var(--content-primary);}
+html .catalog-page .role-skill-count{color:var(--content-secondary);}
+html .catalog-page :is(.category-nav a,.icon-btn,.search-box,#menuBtn){background:var(--surface-soft);color:var(--content-primary);border-color:var(--surface-border);}
+html .catalog-page .category-nav a:hover{color:var(--content-primary);}
+html .catalog-page #menuBtn .hamburger span{background:var(--content-primary);}
+html .catalog-page .section-head h2,html .catalog-page .catalog-intro h1{color:var(--content-primary);}
+html[data-theme="light"] .catalog-page .resource-card:not(.sample-card) .btn-start{color:var(--content-primary)!important;}
+@keyframes panel-enter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:600px){html .catalog-page{--header-h:128px;}html .catalog-page .site-header{height:128px;padding:12px 16px;}html .catalog-page #main-content{padding:152px 16px 48px;}.catalog-page :is(section[id],h2[id],.learning-progress){scroll-margin-top:152px;}html .catalog-page .role-panel-head{top:-18px;}html .catalog-page .sample-card .role-box-title{font-size:18px;}.catalog-page .sample-desc{font-size:14px;}html .catalog-page .section{margin-block:40px;}html .catalog-page .role-modal .role-panel-head{background:var(--surface-card);}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important;}html .catalog-page *,html .catalog-page *::after{animation:none!important;transition:none!important;}html .catalog-page .sample-card:hover{transform:none;}}
