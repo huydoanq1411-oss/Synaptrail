@@ -123,7 +123,7 @@
   if (!document.getElementById("searchInput")) return;
   const buttons=[...document.querySelectorAll('.role-box')];
   const cards=[...document.querySelectorAll('#allCourses .card')];
-  const others=[...document.querySelectorAll('#best-practices .resource-card,#project-ideas .resource-card')];
+  const others=[...document.querySelectorAll('#best-practices .resource-card,#project-ideas .resource-card,#agent-toolbox .resource-card')];
   const panel=document.getElementById('rolePanel'),modal=document.getElementById('roleModal');
   const reset=document.getElementById('showAllSkills'),input=document.getElementById('searchInput');
   const media=matchMedia('(max-width:600px)');
