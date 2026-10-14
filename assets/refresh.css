@@ -1,0 +1,25 @@
+/* Shared presentation for the homepage and course catalogue. */
+:is(.landing-page,.catalog-page){--bg:#f6f8fc;--bg-soft:#eef3fb;--bg-card:#fff;--paper:#fff;--paper-soft:#eef3fb;--border:#dce4f0;--line-soft:#dce4f0;--text:#1e304c;--ink:#1e304c;--text-dim:#526580;--ink-soft:#526580;--accent:#2563eb;--line:#2563eb}
+.landing-page,html .catalog-page,html[data-theme="dark"] .catalog-page{background:#f6f8fc;background-image:radial-gradient(ellipse at 85% 5%,#e0eaff,transparent 45%)}
+.landing-header{position:sticky;top:0;z-index:20;backdrop-filter:blur(16px)}
+.landing-hero{min-height:610px;padding-top:56px;padding-bottom:56px}
+.landing-copy h1{letter-spacing:-2.5px;line-height:1.16}.landing-lead{line-height:1.8}
+.landing-button{border-radius:12px;box-shadow:0 6px 16px #2563eb18}
+.landing-page .path-card,.landing-page .path-card:nth-child(even){transform:none;background:#fff;border:1px solid #dce4f0;border-radius:18px;padding:24px;box-shadow:0 4px 16px #1e304c04}
+.landing-page .path-card:hover{transform:translateY(-4px);border-color:#93b4f5;box-shadow:0 12px 28px #2563eb10}
+.path-icon{width:48px;height:48px;background:#edf3ff;border:0;box-shadow:none;border-radius:14px;margin-bottom:24px}
+.path-icon svg{width:25px;height:25px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.path-card p{line-height:1.7;min-height:44px}.path-card-action{padding-top:16px;border-top:1px solid #edf1f7}
+.landing-page .path-card:nth-child(2) .path-icon{color:#7c3aed;background:#f1eaff}.landing-page .path-card:nth-child(3) .path-icon{color:#0e876b;background:#e8f7f1}.landing-page .path-card:nth-child(4) .path-icon{color:#c56b18;background:#fff3e6}
+.landing-bottom{background:#eaf1ff;border:1px solid #d6e3fa;box-shadow:none;backdrop-filter:none}
+.catalog-page .catalog-intro{padding-top:12px}.catalog-page .section-head h2{font-weight:700}
+.catalog-page :is(.role-box,.resource-card,.role-skill),html[data-theme="dark"] .catalog-page :is(.role-box,.resource-card,.role-skill){background:#fff;border:1px solid #dce4f0;border-radius:16px;box-shadow:0 4px 14px #1e304c05;backdrop-filter:none;transform:none}
+.catalog-page :is(.role-box,.resource-card,.role-skill):hover{transform:translateY(-3px);border-color:#93b4f5;box-shadow:0 10px 24px #2563eb12}
+.catalog-page :is(.role-box,.resource-card,.role-skill) img{object-fit:contain;background:#f3f6fc;border-bottom:1px solid #e7edf6}
+.catalog-page .role-box-title{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;line-height:1.5}.catalog-page .role-box-title::after{content:'↗';color:#2563eb;font-size:18px}
+.catalog-page .resource-card h3{line-height:1.5}.catalog-page .resource-card .btn-start{color:#1e304c!important;background:transparent!important}
+.catalog-page .chapter-count{display:inline-flex;padding:4px 8px;border-radius:6px;background:#eef3fb;color:#526580;font-size:11px}
+.catalog-page .role-box[aria-pressed="true"]{border-color:#2563eb;background:#f5f8ff;box-shadow:0 0 0 2px #2563eb20}
+:is(.landing-page,.catalog-page) :is(a,button):focus-visible{outline:3px solid #2563eb;outline-offset:4px}
+@media(max-width:720px){.landing-hero{min-height:0;padding-top:40px;padding-bottom:32px}.landing-copy h1{letter-spacing:-1.5px}.landing-page .path-card{padding:20px}.path-card p{min-height:0}.path-card-grid{gap:12px}}
+@media(prefers-reduced-motion:reduce){.landing-page .path-card:hover,.catalog-page :is(.role-box,.resource-card,.role-skill):hover{transform:none}}
