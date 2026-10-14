@@ -7,6 +7,7 @@ const {spawn} = require('node:child_process');
 const root = path.resolve(__dirname, '..');
 const pause = ms => new Promise(r => setTimeout(r, ms));
 const browsers = [require('./find-chrome.cjs').findChrome(), 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe'];
+const deadline = setTimeout(() => { console.error('Preview browser check timed out'); process.exit(1); }, 45000);
 (async () => {
   for (const binary of browsers.filter(p => fs.existsSync(p))) {
     const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'synaptrail-fx3d-'));
@@ -46,4 +47,4 @@ const browsers = [require('./find-chrome.cjs').findChrome(), 'C:/Program Files (
       if(!toggle||!persisted||!reduced||results.some(r=>r.overflow||!r.button||!r.loaded||!r.cards))process.exitCode=1;
     } finally { ws?.close(); child.kill(); await pause(300); }
   }
-})().catch(e=>{console.error(e);process.exitCode=1;});
+})().catch(e=>{console.error(e);process.exitCode=1;}).finally(()=>clearTimeout(deadline));
