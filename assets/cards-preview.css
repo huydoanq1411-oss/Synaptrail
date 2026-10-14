@@ -37,3 +37,12 @@ html[data-theme="light"] .catalog-page .resource-card:not(.sample-card) .btn-sta
 @keyframes panel-enter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:600px){html .catalog-page{--header-h:128px;}html .catalog-page .site-header{height:128px;padding:12px 16px;}html .catalog-page #main-content{padding:152px 16px 48px;}.catalog-page :is(section[id],h2[id],.learning-progress){scroll-margin-top:152px;}html .catalog-page .role-panel-head{top:-18px;}html .catalog-page .sample-card .role-box-title{font-size:18px;}.catalog-page .sample-desc{font-size:14px;}html .catalog-page .section{margin-block:40px;}html .catalog-page .role-modal .role-panel-head{background:var(--surface-card);}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important;}html .catalog-page *,html .catalog-page *::after{animation:none!important;transition:none!important;}html .catalog-page .sample-card:hover{transform:none;}}
+html[data-theme] .catalog-page{background:var(--surface-page);background-image:none;}
+html[data-theme] .catalog-page .sample-card{background:var(--surface-card);}
+html .catalog-page .tag-line,html .catalog-page .eyebrow{color:var(--color-teal);}
+html .catalog-page .search-box input{background:transparent;color:var(--content-primary);}
+html .catalog-page .search-box input::placeholder{color:var(--content-secondary);}
+html .catalog-page .role-view-switch button{color:var(--content-primary);background:var(--surface-soft);border-color:var(--surface-border);}
+html .catalog-page .role-view-switch button[aria-pressed="true"]{color:var(--color-teal);border-color:var(--color-teal);}
+html .catalog-page .brand-mark{color:#102337;}
+@media(max-width:600px){.catalog-page [data-fx3d-toggle]{display:none;}html .catalog-page .header-actions{gap:8px;}html .catalog-page .search-box{min-width:0;}}

@@ -8,7 +8,7 @@ const pause=ms=>new Promise(r=>setTimeout(r,ms));
  await new Promise(r=>server.listen(0,'127.0.0.1',r));
  const profile=fs.mkdtempSync(path.join(os.tmpdir(),'synaptrail-ui-'));
  const chrome=spawn(chromePath,['--headless=new','--disable-gpu','--no-sandbox','--disable-extensions','--no-first-run','--remote-debugging-port=9447','--user-data-dir='+profile,'about:blank'],{stdio:['ignore','ignore','pipe']});
- chrome.stderr.on('data',d=>process.stderr.write(d)); let launchError;chrome.on('error',error=>{launchError=error});
+ let launchError;chrome.on('error',error=>{launchError=error});
  let ws;
  try{
   let targets;for(let i=0;i<30;i++){try{targets=await(await fetch('http://127.0.0.1:9447/json')).json();break}catch{await pause(200)}}
@@ -26,7 +26,7 @@ const pause=ms=>new Promise(r=>setTimeout(r,ms));
     await call('Emulation.setDeviceMetricsOverride',{width,height:1000,deviceScaleFactor:1,mobile:false});
     await call('Page.navigate',{url:'http://127.0.0.1:'+server.address().port+'/courses.html'});await pause(700);
     await evaluate('document.documentElement.dataset.theme='+JSON.stringify(theme));
-    await evaluate("document.querySelectorAll('img').forEach(i=>i.loading='eager')");await pause(500);
+    await evaluate("document.querySelectorAll('img').forEach(i=>i.loading='eager')");await evaluate("Promise.all([...document.images].map(i=>i.decode().catch(()=>{})))");await pause(500);
     for(const section of ['role-based','skill-based']){
       await evaluate("document.getElementById('"+section+"').scrollIntoView({block:'start',behavior:'instant'})");await pause(100);
       const shot=await call('Page.captureScreenshot',{format:'png'});fs.writeFileSync(path.join(root,'artifacts/cards-preview',theme+'-'+width+'-'+section+'.png'),Buffer.from(shot.data,'base64'));
@@ -44,6 +44,7 @@ const pause=ms=>new Promise(r=>setTimeout(r,ms));
   if(results.some(r=>r.overflow||!r.images||r.cards!==9||r.contrast.some(x=>x<4.5)||!r.panel.closeInside)||failures.length)process.exitCode=1;
  }finally{if(ws)ws.close();chrome.kill();server.close()}
 })().catch(e=>{console.error(e);server.close();process.exitCode=1});
+
 
 
 
