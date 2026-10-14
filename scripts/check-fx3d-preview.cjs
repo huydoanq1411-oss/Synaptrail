@@ -48,10 +48,17 @@ const server = http.createServer((req,res)=>{
       await call('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'no-preference'}]});
       await evaluate(`document.querySelector('#skill-based').scrollIntoView();`);
       await pause(300);
+      const tilt=await evaluate(`(async()=>{const c=document.querySelector('#allCourses .resource-card');c.scrollIntoView({block:'center'});const r=c.getBoundingClientRect();c.dispatchEvent(new PointerEvent('pointermove',{pointerType:'mouse',clientX:r.right,clientY:r.top}));await new Promise(requestAnimationFrame);const s=getComputedStyle(c);const result={rx:c.style.getPropertyValue('--rx'),ry:c.style.getPropertyValue('--ry'),mx:c.style.getPropertyValue('--mx'),tracking:c.classList.contains('fx3d-tracking'),transformed:s.transform!=='none',glow:getComputedStyle(c,'::before').opacity==='1',depth:getComputedStyle(c.querySelector('.resource-image-link')).transform!=='none'};return result})()`);
       fs.mkdirSync(path.join(root,'artifacts'),{recursive:true});
       const shot=await call('Page.captureScreenshot',{format:'png'});
       const name=binary.toLowerCase().includes('msedge')?'edge':'chrome';
       fs.writeFileSync(path.join(root,'artifacts','fx3d-skill-'+name+'.png'),Buffer.from(shot.data,'base64'));
+      const touch=await evaluate(`(async()=>{const c=document.querySelector('#allCourses .resource-card');c.dispatchEvent(new PointerEvent('pointermove',{pointerType:'touch',clientX:0,clientY:0}));await new Promise(requestAnimationFrame);return !c.classList.contains('fx3d-tracking')&&!c.style.getPropertyValue('--rx')})()`);
+      await call('Input.dispatchKeyEvent',{type:'keyDown',key:'Tab',code:'Tab',windowsVirtualKeyCode:9});
+      const focus=await evaluate(`(()=>{const a=document.querySelector('#allCourses .resource-card h3 a');a.focus();const c=a.closest('.resource-card');return {visible:a.matches(':focus-visible'),ring:getComputedStyle(c).outlineWidth==='3px',lift:getComputedStyle(c).transform!=='none'}})()`);
+      await call('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
+      const staticMotion=await evaluate(`getComputedStyle(document.querySelector('#allCourses .resource-card')).transform==='none'`);
+      await call('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'no-preference'}]});
       const home=[];
       await call('Page.navigate',{url:pathToFileURL(path.join(root,'index.html')).href});await pause(500);
       for(const width of [375,768,1440]) {
@@ -62,8 +69,9 @@ const server = http.createServer((req,res)=>{
       for(let i=0;i<40;i++){if(await evaluate(`typeof SynaptrailFX3D!=='undefined'`))break;await pause(100);}
       const noWebGL=await evaluate(`(async()=>{const e=document.createElement('div');e.dataset.fx3d='';document.body.append(e);const original=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(kind,...args){return /webgl/.test(kind)?null:original.call(this,kind,...args)};document.documentElement.dataset.fx3d='on';try{const state=await SynaptrailFX3D.mount(e,()=>{throw Error('setup must not execute')});return state.status==='tĩnh'&&state.reason==='no-webgl'&&!document.querySelector('script[src*="three.module"]')}finally{HTMLCanvasElement.prototype.getContext=original;e.remove()}})()`);
       const webgl=await evaluate(`(async()=>{document.documentElement.dataset.fx3d='on';const e=document.createElement('div');e.dataset.fx3d='';e.style.cssText='position:fixed;top:100px;left:0;width:240px;height:180px';document.body.append(e);const state=await SynaptrailFX3D.mount(e,T=>{const scene=new T.Scene();scene.add(new T.Mesh(new T.BoxGeometry(),new T.MeshBasicMaterial()));const camera=new T.PerspectiveCamera(45,1,.1,100);camera.position.z=4;return {scene,camera}});await new Promise(r=>setTimeout(r,2400));const result={status:state.status,reason:state.reason,quality:state.quality,canvas:!!e.querySelector('canvas'),pixelRatio:e.querySelector('canvas')?.width/240};state.dispose?.();result.disposed=!e.querySelector('canvas');e.remove();return result})()`);
-      console.log(JSON.stringify({browser:name,protocol:'file:',results,toggle,persisted,reduced,home,noWebGL,webgl}));
+      console.log(JSON.stringify({browser:name,protocol:'file:',results,toggle,persisted,reduced,tilt,touch,focus,staticMotion,home,noWebGL,webgl}));
       if(!toggle||!persisted||!reduced||!noWebGL||home.some(r=>r.overflow||!r.button)||results.some(r=>r.overflow||!r.button||!r.loaded||!r.cards)||webgl.reason==='initialization-failed'||!webgl.disposed)process.exitCode=1;
+      if(tilt.rx!=='8.00deg'||tilt.ry!=='8.00deg'||!tilt.tracking||!tilt.transformed||!tilt.glow||!tilt.depth||!touch||!focus.visible||!focus.ring||!focus.lift||!staticMotion)process.exitCode=1;
     } finally { ws?.close(); child.kill(); await pause(300); }
   }
 })().catch(e=>{console.error(e);process.exitCode=1;}).finally(()=>{clearTimeout(deadline);server.close();});

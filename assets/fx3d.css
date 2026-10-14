@@ -12,19 +12,59 @@
 }
 .fx3d-toggle[aria-pressed="true"] { border-color: #77e0b5; color: #77e0b5; }
 .fx3d-toggle:focus-visible { outline: 2px solid #77e0b5; outline-offset: 3px; }
+.catalog-page #allCourses .resource-card {
+  --rx: 0deg; --ry: 0deg; --mx: 50%; --my: 50%;
+  position: relative;
+  overflow: visible;
+  transform: none;
+  transform-style: preserve-3d;
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+.catalog-page #allCourses .resource-card:hover { transform: none; }
+.catalog-page #allCourses .resource-image-link {
+  border-radius: 11px 11px 0 0;
+  overflow: hidden;
+  backface-visibility: hidden;
+  transition: transform 180ms ease;
+}
+.catalog-page #allCourses .resource-card img { backface-visibility: hidden; transform: translateZ(0); }
+.catalog-page #allCourses .resource-card::before {
+  content: ''; display: block; position: absolute; inset: 0; border-radius: inherit;
+  background: radial-gradient(circle at var(--mx) var(--my), #b5ffe52b, transparent 65%);
+  pointer-events: none; opacity: 0; z-index: 2;
+}
+.catalog-page #allCourses .resource-card:has(a:focus-visible) {
+  outline: 3px solid #77e0b5; outline-offset: 4px; border-color: #77e0b5;
+}
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-  html[data-fx3d-motion="on"] .catalog-page #allCourses .resource-card {
-    transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
-    transform: perspective(900px) rotateX(0deg) rotateY(0deg);
+  html[data-fx3d-motion="on"] .catalog-page #allCourses .resource-card.fx3d-tracking {
+    transform: perspective(1100px) rotateX(var(--rx)) rotateY(var(--ry));
+    will-change: transform;
+    transition: border-color 180ms ease;
+    z-index: 3;
   }
-  html[data-fx3d-motion="on"] .catalog-page #allCourses .resource-card:hover {
-    transform: perspective(900px) rotateX(3deg) rotateY(-3deg) translateY(-3px);
+  html[data-fx3d-motion="on"] .catalog-page #allCourses .fx3d-tracking::before { opacity: 1; }
+  html[data-fx3d-motion="on"] .catalog-page #allCourses .fx3d-tracking .resource-image-link {
+    transform: translateZ(14px);
   }
 }
-html[data-fx3d-motion="off"] .catalog-page #allCourses .resource-card,
-html[data-fx3d-motion="off"] .catalog-page #allCourses .resource-card:hover {
-  transform: none;
-  transition: none;
+@media (prefers-reduced-motion: no-preference) {
+  html[data-fx3d="on"] .catalog-page #allCourses .resource-card:has(a:focus-visible) {
+    transform: translateY(-3px);
+  }
+}
+@media (hover: none), (pointer: coarse) {
+  html[data-fx3d="on"] .catalog-page #allCourses .resource-card:active { transform: scale(.985); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .catalog-page #allCourses .resource-card,
+  .catalog-page #allCourses .resource-card:hover,
+  html[data-fx3d="on"] .catalog-page #allCourses .resource-card:active {
+    transform: none; transition: none;
+  }
+  .catalog-page #allCourses .resource-card .resource-image-link { transform: none; transition: none; }
+  .catalog-page #allCourses .resource-card::before,
+  .catalog-page #allCourses .resource-card::after { display: none; }
 }
 /* Future canvas/fallback containers retain their allocated layout when empty. */
 .fx3d-surface { position: relative; min-height: 180px; overflow: hidden; }
