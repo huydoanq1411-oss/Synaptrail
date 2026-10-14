@@ -1,0 +1,18 @@
+/* Decorative page backgrounds only. Keep all surfaces, text and layout intact. */
+body{
+  background-image:url('img/site-background-light.svg')!important;
+  background-size:1600px 960px!important;
+  background-position:center top!important;
+  background-repeat:repeat-y!important;
+  background-attachment:scroll!important;
+}
+html[data-theme="dark"] body,
+body[data-theme="dark"]{
+  background-image:url('img/site-background-dark.svg')!important;
+}
+@media(max-width:600px){
+  body{background-size:1000px 600px!important;}
+}
+@media print{
+  body{background-image:none!important;}
+}
