@@ -141,55 +141,55 @@
     "key": "practice-security",
     "color": "amber",
     "scene": "shield",
-    "label": "B?o m?t ?ng d?ng"
+    "label": "Bảo mật ứng dụng"
   },
   {
     "key": "practice-system",
     "color": "blue",
     "scene": "topology",
-    "label": "Thi?t k? h? th?ng"
+    "label": "Thiết kế hệ thống"
   },
   {
     "key": "practice-docker",
     "color": "sky",
     "scene": "deploy",
-    "label": "Docker & tri?n khai"
+    "label": "Docker & triển khai"
   },
   {
     "key": "practice-ai",
     "color": "purple",
     "scene": "monitor",
-    "label": "AI trong s?n ph?m"
+    "label": "AI trong sản phẩm"
   },
   {
     "key": "review-cheatsheet",
     "color": "teal",
     "scene": "document",
-    "label": "B?ng tra c?u nhanh"
+    "label": "Bảng tra cứu nhanh"
   },
   {
     "key": "project-fullstack",
     "color": "green",
     "scene": "dashboard",
-    "label": "D? ?n Full Stack"
+    "label": "Dự án Full Stack"
   },
   {
     "key": "review-quiz",
     "color": "purple",
     "scene": "quiz",
-    "label": "C?ng c? ?n t?p"
+    "label": "Công cụ ôn tập"
   },
   {
     "key": "project-exercises",
     "color": "coral",
     "scene": "exercise",
-    "label": "B?i t?p l?p tr?nh"
+    "label": "Bài tập lập trình"
   },
   {
     "key": "project-api",
     "color": "cyan",
     "scene": "api",
-    "label": "Th?c h?nh v?i API"
+    "label": "Thực hành với API"
   },
   {
     "key": "toolbox-agent",
