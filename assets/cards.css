@@ -81,7 +81,7 @@ html .catalog-page :is(#allCourses,#best-practices,#project-ideas,#agent-toolbox
 html .catalog-page .learning-card{opacity:1;animation:none;transition-delay:0s;}
 html .catalog-page .learning-card .card-art{flex-shrink:0;}
 html .catalog-page .learning-card .btn-start{gap:8px;text-decoration:none;line-height:1.35;}
-html .catalog-page .card-desc{line-height:1.45;min-height:2.9em;}
+html .catalog-page .card-desc{line-height:1.45;}
 html .catalog-page .card-body{padding:12px;gap:8px;}
 html .catalog-page .art-label{top:12px;left:12px;max-width:calc(100% - 24px);font-size:10px;padding:4px 6px;}
 html .catalog-page #agent-toolbox .grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));}
