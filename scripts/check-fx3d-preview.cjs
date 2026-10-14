@@ -69,6 +69,28 @@ const server = http.createServer((req,res)=>{
       for(let i=0;i<40;i++){if(await evaluate(`typeof SynaptrailFX3D!=='undefined'`))break;await pause(100);}
       const noWebGL=await evaluate(`(async()=>{const e=document.createElement('div');e.dataset.fx3d='';document.body.append(e);const original=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(kind,...args){return /webgl/.test(kind)?null:original.call(this,kind,...args)};document.documentElement.dataset.fx3d='on';try{const state=await SynaptrailFX3D.mount(e,()=>{throw Error('setup must not execute')});return state.status==='tĩnh'&&state.reason==='no-webgl'&&!document.querySelector('script[src*="three.module"]')}finally{HTMLCanvasElement.prototype.getContext=original;e.remove()}})()`);
       const webgl=await evaluate(`(async()=>{document.documentElement.dataset.fx3d='on';const e=document.createElement('div');e.dataset.fx3d='';e.style.cssText='position:fixed;top:100px;left:0;width:240px;height:180px';document.body.append(e);const state=await SynaptrailFX3D.mount(e,T=>{const scene=new T.Scene();scene.add(new T.Mesh(new T.BoxGeometry(),new T.MeshBasicMaterial()));const camera=new T.PerspectiveCamera(45,1,.1,100);camera.position.z=4;return {scene,camera}});await new Promise(r=>setTimeout(r,2400));const result={status:state.status,reason:state.reason,quality:state.quality,canvas:!!e.querySelector('canvas'),pixelRatio:e.querySelector('canvas')?.width/240};state.dispose?.();result.disposed=!e.querySelector('canvas');e.remove();return result})()`);
+      await call('Page.navigate',{url:`http://127.0.0.1:${server.address().port}/index.html`});await pause(700);
+      await evaluate(`(()=>{const b=document.querySelector('[data-fx3d-toggle]');if(b.getAttribute('aria-pressed')!=='true')b.click()})()`);
+      await pause(900);
+      const hero=await evaluate(`(()=>{const e=document.querySelector('[data-knowledge-map]'),c=e.querySelector('canvas'),r=e.getBoundingClientRect();return {ready:e.dataset.fx3dReady==='true',links:e.querySelectorAll('.knowledge-links a').length,svgNodes:e.querySelectorAll('svg g').length,label:!!c?.getAttribute('aria-label'),height:r.height<=innerHeight*.6+1,overflow:document.documentElement.scrollWidth>innerWidth}})()`);
+      const point=await evaluate(`(()=>{const r=document.querySelector('[data-knowledge-map]').getBoundingClientRect(),halfY=Math.max(3.2,4.8/(r.width/r.height)),halfX=halfY*r.width/r.height;return {x:r.left+r.width*(1-3/halfX)/2,y:r.top+r.height*(1-1.7/halfY)/2}})()`);
+      await call('Input.dispatchMouseEvent',{type:'mouseMoved',...point});await pause(150);
+      hero.hover=await evaluate(`document.querySelector('.knowledge-label').textContent==='Git'&&!document.querySelector('.knowledge-label').hidden`);
+      fs.writeFileSync(path.join(root,'artifacts','hero3d-'+name+'.png'),Buffer.from((await call('Page.captureScreenshot',{format:'png'})).data,'base64'));
+      await evaluate(`document.documentElement.dataset.theme='light'`);await pause(100);
+      hero.light=await evaluate(`getComputedStyle(document.querySelector('[data-knowledge-map]')).getPropertyValue('--map-node').trim()==='#08795e'`);
+      await call('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});await pause(100);
+      hero.reduced=await evaluate(`document.querySelector('[data-knowledge-map]').dataset.fx3dReady==='false'&&getComputedStyle(document.querySelector('.knowledge-fallback')).visibility==='visible'`);
+      await call('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'no-preference'}]});
+      await pause(100);
+      await evaluate(`document.querySelector('[data-fx3d-toggle]').click()`);await pause(100);
+      hero.off=await evaluate(`document.querySelector('[data-knowledge-map]').dataset.fx3dReady==='false'`);
+      await evaluate(`document.querySelector('[data-fx3d-toggle]').click()`);await pause(100);
+      await call('Input.dispatchMouseEvent',{type:'mousePressed',button:'left',clickCount:1,...point});
+      await call('Input.dispatchMouseEvent',{type:'mouseReleased',button:'left',clickCount:1,...point});await pause(400);
+      hero.click=await evaluate(`location.pathname.endsWith('/git/index.html')`);
+      console.log(JSON.stringify({heroBrowser:name,...hero}));
+      if(!hero.ready||hero.links!==8||hero.svgNodes!==8||!hero.label||!hero.height||hero.overflow||!hero.hover||!hero.light||!hero.reduced||!hero.off||!hero.click)process.exitCode=1;
       console.log(JSON.stringify({browser:name,protocol:'file:',results,toggle,persisted,reduced,tilt,touch,focus,staticMotion,home,noWebGL,webgl}));
       if(!toggle||!persisted||!reduced||!noWebGL||home.some(r=>r.overflow||!r.button)||results.some(r=>r.overflow||!r.button||!r.loaded||!r.cards)||webgl.reason==='initialization-failed'||!webgl.disposed)process.exitCode=1;
       if(tilt.rx!=='8.00deg'||tilt.ry!=='8.00deg'||!tilt.tracking||!tilt.transformed||!tilt.glow||!tilt.depth||!touch||!focus.visible||!focus.ring||!focus.lift||!staticMotion)process.exitCode=1;
