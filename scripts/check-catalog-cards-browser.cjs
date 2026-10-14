@@ -53,9 +53,13 @@ const pause=ms=>new Promise(r=>setTimeout(r,ms));
     }
     const search=await evaluate("(()=>{const input=document.getElementById('searchInput');input.value='zzzz-no-match';input.dispatchEvent(new Event('input'));const hidden=[...document.querySelectorAll('.resource-card')].every(c=>getComputedStyle(c).display==='none');input.value='docker';input.dispatchEvent(new Event('input'));const found=!document.querySelector('[data-skill=docker]').hidden;input.value='';input.dispatchEvent(new Event('input'));return hidden&&found&&[...document.querySelectorAll('.resource-card')].every(c=>!c.hidden)})()");
     await call('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
-    const reduced=await evaluate("(()=>{const c=document.querySelector('.learning-card');c.focus({preventScroll:true});const s=getComputedStyle(c);return s.transitionDuration==='0s'&&s.animationName==='none'&&s.outlineStyle!=='none'})()");
+    await evaluate("document.querySelector('.learning-card').focus({preventScroll:true})");
+    await call('Input.dispatchKeyEvent',{type:'keyDown',key:'Tab',code:'Tab',windowsVirtualKeyCode:9});
+    await call('Input.dispatchKeyEvent',{type:'keyUp',key:'Tab',code:'Tab',windowsVirtualKeyCode:9});
+    const motion=await evaluate("(()=>{const s=getComputedStyle(document.querySelector('.learning-card')),f=getComputedStyle(document.activeElement);return {transition:s.transitionDuration,animation:s.animationName,outline:f.outlineStyle}})()");
+    const reduced=motion.transition==='0s'&&motion.animation==='none'&&motion.outline!=='none';
     await call('Emulation.setEmulatedMedia',{features:[]});
-    const result={theme,width,...state,roleResults,search,reduced};results.push(result);
+    const result={theme,width,...state,roleResults,search,reduced,motion};results.push(result);
     if(state.cards!==38||state.overflow||!state.images||!state.progress||state.descriptionContrast<4.5||state.chipContrast<4.5||!search||!reduced||roleResults.some(r=>!r.closeInside||!r.visible||!r.ordered||!r.focus||r.overflow))failures.push('Failed catalogue checks '+theme+' '+width);
   }
   fs.writeFileSync(path.join(out,'checks.json'),JSON.stringify({results,failures},null,2));

@@ -142,7 +142,7 @@
     document.getElementById('resourceEmpty').hidden=!query||extra>0;
   }
   function setHash(key){const url=new URL(location.href);url.hash=key?'role='+key:'';history.replaceState(null,'',url);}
-  function close(updateURL=true,restore=true){document.dispatchEvent(new CustomEvent("synaptrail:role-close"));if(modal.open)modal.close();panel.hidden=true;active=null;buttons.forEach(b=>{b.setAttribute('aria-expanded','false');b.setAttribute('aria-pressed','false');});reset.hidden=true;document.getElementById('roleStatus').textContent='Đang xem tất cả kỹ năng';if(updateURL)setHash(null);if(restore){const button=opener;button?.focus({preventScroll:true});setTimeout(()=>button?.focus({preventScroll:true}),50);}}
+  function close(updateURL=true,restore=true){document.dispatchEvent(new CustomEvent("synaptrail:role-close"));if(modal.open)modal.close();panel.hidden=true;active=null;buttons.forEach(b=>{b.setAttribute('aria-expanded','false');b.setAttribute('aria-pressed','false');});reset.hidden=true;document.getElementById('roleStatus').textContent='Đang xem tất cả kỹ năng';if(updateURL)setHash(null);if(restore){const button=opener;button?.focus({preventScroll:true});}}
   function open(key,focus=true){
     document.dispatchEvent(new CustomEvent('synaptrail:role-close'));
     const role=roles[key];if(!role){close(false,false);return;}

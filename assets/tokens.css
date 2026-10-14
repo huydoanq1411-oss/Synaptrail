@@ -4,25 +4,25 @@ html[data-theme="light"] { --surface-page:#eaf0f7; --surface-card:#fff; --surfac
 [data-color="cyan"]{--accent:var(--color-cyan)}[data-color="green"]{--accent:var(--color-green)}[data-color="purple"]{--accent:var(--color-purple)}[data-color="amber"]{--accent:var(--color-amber)}[data-color="blue"]{--accent:var(--color-blue)}[data-color="coral"]{--accent:var(--color-coral)}[data-color="sky"]{--accent:var(--color-sky)}[data-color="teal"]{--accent:var(--color-teal)}[data-color="rose"]{--accent:var(--color-rose)}
 
 /* Per-course accents: accessible foreground colors in each theme. */
-[data-skill="thuat-toan"]{--accent:hsl(43 78% 78%)}html[data-theme="light"] [data-skill="thuat-toan"]{--accent:hsl(43 68% 30%)}
-[data-skill="languages"]{--accent:hsl(220 78% 78%)}html[data-theme="light"] [data-skill="languages"]{--accent:hsl(220 68% 30%)}
-[data-skill="cpp"]{--accent:hsl(225 78% 78%)}html[data-theme="light"] [data-skill="cpp"]{--accent:hsl(225 68% 30%)}
-[data-skill="java"]{--accent:hsl(25 78% 78%)}html[data-theme="light"] [data-skill="java"]{--accent:hsl(25 68% 30%)}
-[data-skill="python"]{--accent:hsl(145 78% 78%)}html[data-theme="light"] [data-skill="python"]{--accent:hsl(145 68% 30%)}
-[data-skill="javascript-nnlt"]{--accent:hsl(48 78% 78%)}html[data-theme="light"] [data-skill="javascript-nnlt"]{--accent:hsl(48 68% 30%)}
-[data-skill="typescript"]{--accent:hsl(200 78% 78%)}html[data-theme="light"] [data-skill="typescript"]{--accent:hsl(200 68% 30%)}
-[data-skill="html-css-nnlt"]{--accent:hsl(190 78% 78%)}html[data-theme="light"] [data-skill="html-css-nnlt"]{--accent:hsl(190 68% 30%)}
-[data-skill="bootstrap"]{--accent:hsl(278 78% 78%)}html[data-theme="light"] [data-skill="bootstrap"]{--accent:hsl(278 68% 30%)}
-[data-skill="sass"]{--accent:hsl(342 78% 78%)}html[data-theme="light"] [data-skill="sass"]{--accent:hsl(342 68% 30%)}
-[data-skill="react"]{--accent:hsl(195 78% 78%)}html[data-theme="light"] [data-skill="react"]{--accent:hsl(195 68% 30%)}
-[data-skill="orm"]{--accent:hsl(150 78% 78%)}html[data-theme="light"] [data-skill="orm"]{--accent:hsl(150 68% 30%)}
-[data-skill="graphql"]{--accent:hsl(347 78% 78%)}html[data-theme="light"] [data-skill="graphql"]{--accent:hsl(347 68% 30%)}
-[data-skill="socketio"]{--accent:hsl(170 78% 78%)}html[data-theme="light"] [data-skill="socketio"]{--accent:hsl(170 68% 30%)}
-[data-skill="nestjs"]{--accent:hsl(352 78% 78%)}html[data-theme="light"] [data-skill="nestjs"]{--accent:hsl(352 68% 30%)}
-[data-skill="system-design"]{--accent:hsl(230 78% 78%)}html[data-theme="light"] [data-skill="system-design"]{--accent:hsl(230 68% 30%)}
-[data-skill="machine-learning"]{--accent:hsl(283 78% 78%)}html[data-theme="light"] [data-skill="machine-learning"]{--accent:hsl(283 68% 30%)}
-[data-skill="ai-engineer"]{--accent:hsl(288 78% 78%)}html[data-theme="light"] [data-skill="ai-engineer"]{--accent:hsl(288 68% 30%)}
-[data-skill="git"]{--accent:hsl(30 78% 78%)}html[data-theme="light"] [data-skill="git"]{--accent:hsl(30 68% 30%)}
-[data-skill="docker"]{--accent:hsl(205 78% 78%)}html[data-theme="light"] [data-skill="docker"]{--accent:hsl(205 68% 30%)}
-[data-skill="mysql"]{--accent:hsl(175 78% 78%)}html[data-theme="light"] [data-skill="mysql"]{--accent:hsl(175 68% 30%)}
-[data-skill="security"]{--accent:hsl(357 78% 78%)}html[data-theme="light"] [data-skill="security"]{--accent:hsl(357 68% 30%)}
+[data-skill="thuat-toan"]{--accent:hsl(43 78% 78%)}html[data-theme="light"] [data-skill="thuat-toan"]{--accent:hsl(43 68% 26%)}
+[data-skill="languages"]{--accent:hsl(220 78% 78%)}html[data-theme="light"] [data-skill="languages"]{--accent:hsl(220 68% 26%)}
+[data-skill="cpp"]{--accent:hsl(225 78% 78%)}html[data-theme="light"] [data-skill="cpp"]{--accent:hsl(225 68% 26%)}
+[data-skill="java"]{--accent:hsl(25 78% 78%)}html[data-theme="light"] [data-skill="java"]{--accent:hsl(25 68% 26%)}
+[data-skill="python"]{--accent:hsl(145 78% 78%)}html[data-theme="light"] [data-skill="python"]{--accent:hsl(145 68% 26%)}
+[data-skill="javascript-nnlt"]{--accent:hsl(48 78% 78%)}html[data-theme="light"] [data-skill="javascript-nnlt"]{--accent:hsl(48 68% 26%)}
+[data-skill="typescript"]{--accent:hsl(200 78% 78%)}html[data-theme="light"] [data-skill="typescript"]{--accent:hsl(200 68% 26%)}
+[data-skill="html-css-nnlt"]{--accent:hsl(190 78% 78%)}html[data-theme="light"] [data-skill="html-css-nnlt"]{--accent:hsl(190 68% 26%)}
+[data-skill="bootstrap"]{--accent:hsl(278 78% 78%)}html[data-theme="light"] [data-skill="bootstrap"]{--accent:hsl(278 68% 26%)}
+[data-skill="sass"]{--accent:hsl(342 78% 78%)}html[data-theme="light"] [data-skill="sass"]{--accent:hsl(342 68% 26%)}
+[data-skill="react"]{--accent:hsl(195 78% 78%)}html[data-theme="light"] [data-skill="react"]{--accent:hsl(195 68% 26%)}
+[data-skill="orm"]{--accent:hsl(150 78% 78%)}html[data-theme="light"] [data-skill="orm"]{--accent:hsl(150 68% 26%)}
+[data-skill="graphql"]{--accent:hsl(347 78% 78%)}html[data-theme="light"] [data-skill="graphql"]{--accent:hsl(347 68% 26%)}
+[data-skill="socketio"]{--accent:hsl(170 78% 78%)}html[data-theme="light"] [data-skill="socketio"]{--accent:hsl(170 68% 26%)}
+[data-skill="nestjs"]{--accent:hsl(352 78% 78%)}html[data-theme="light"] [data-skill="nestjs"]{--accent:hsl(352 68% 26%)}
+[data-skill="system-design"]{--accent:hsl(230 78% 78%)}html[data-theme="light"] [data-skill="system-design"]{--accent:hsl(230 68% 26%)}
+[data-skill="machine-learning"]{--accent:hsl(283 78% 78%)}html[data-theme="light"] [data-skill="machine-learning"]{--accent:hsl(283 68% 26%)}
+[data-skill="ai-engineer"]{--accent:hsl(288 78% 78%)}html[data-theme="light"] [data-skill="ai-engineer"]{--accent:hsl(288 68% 26%)}
+[data-skill="git"]{--accent:hsl(30 78% 78%)}html[data-theme="light"] [data-skill="git"]{--accent:hsl(30 68% 26%)}
+[data-skill="docker"]{--accent:hsl(205 78% 78%)}html[data-theme="light"] [data-skill="docker"]{--accent:hsl(205 68% 26%)}
+[data-skill="mysql"]{--accent:hsl(175 78% 78%)}html[data-theme="light"] [data-skill="mysql"]{--accent:hsl(175 68% 26%)}
+[data-skill="security"]{--accent:hsl(357 78% 78%)}html[data-theme="light"] [data-skill="security"]{--accent:hsl(357 68% 26%)}

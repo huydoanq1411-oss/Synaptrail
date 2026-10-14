@@ -3,6 +3,7 @@ const root=path.resolve(__dirname,'..');const html=fs.readFileSync(path.join(roo
 const files=new Map(),contents=new Map(),keys=new Set();let count=0;
 for(const match of html.matchAll(/<(button|article)\b[^>]*class="[^"]*learning-card[^"]*"[^>]*>[\s\S]*?<\/\1>/g)){
  const card=match[0],key=card.match(/data-card-key="([^"]+)"/)?.[1]||'role-'+card.match(/data-role="([^"]+)"/)?.[1];
+ if(/[\p{L}]\?[\p{L}]|\uFFFD/u.test(card))throw Error('Invalid text encoding in '+key);
  if(!key||keys.has(key))throw Error('Missing or duplicate key '+key);keys.add(key);
  const file=card.match(/<img[^>]*src="([^"]+)"/)?.[1];if(!file)throw Error('Missing image '+key);
  if(files.has(file))throw Error(`Duplicate image: ${files.get(file)} and ${key} -> ${file}`);
