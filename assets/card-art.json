@@ -1,0 +1,200 @@
+[
+  {
+    "key": "skill-thuat-toan",
+    "color": "amber",
+    "scene": "flow",
+    "label": "Thuật toán"
+  },
+  {
+    "key": "skill-git",
+    "color": "coral",
+    "scene": "git",
+    "label": "Git"
+  },
+  {
+    "key": "skill-languages",
+    "color": "blue",
+    "scene": "chat",
+    "label": "Kỹ năng giao tiếp"
+  },
+  {
+    "key": "skill-cpp",
+    "color": "blue",
+    "scene": "memory",
+    "label": "C++"
+  },
+  {
+    "key": "skill-java",
+    "color": "coral",
+    "scene": "classes",
+    "label": "Java"
+  },
+  {
+    "key": "skill-python",
+    "color": "green",
+    "scene": "notebook",
+    "label": "Python"
+  },
+  {
+    "key": "skill-javascript-nnlt",
+    "color": "amber",
+    "scene": "lightning",
+    "label": "JavaScript"
+  },
+  {
+    "key": "skill-typescript",
+    "color": "sky",
+    "scene": "types",
+    "label": "TypeScript"
+  },
+  {
+    "key": "skill-html-css-nnlt",
+    "color": "cyan",
+    "scene": "browser",
+    "label": "HTML & CSS"
+  },
+  {
+    "key": "skill-bootstrap",
+    "color": "purple",
+    "scene": "grid",
+    "label": "Bootstrap"
+  },
+  {
+    "key": "skill-sass",
+    "color": "rose",
+    "scene": "palette",
+    "label": "SASS / SCSS"
+  },
+  {
+    "key": "skill-react",
+    "color": "cyan",
+    "scene": "orbit",
+    "label": "React"
+  },
+  {
+    "key": "skill-orm",
+    "color": "green",
+    "scene": "mapping",
+    "label": "ORM"
+  },
+  {
+    "key": "skill-graphql",
+    "color": "rose",
+    "scene": "graph",
+    "label": "GraphQL"
+  },
+  {
+    "key": "skill-socketio",
+    "color": "teal",
+    "scene": "socket",
+    "label": "Socket.IO"
+  },
+  {
+    "key": "skill-nestjs",
+    "color": "rose",
+    "scene": "modules",
+    "label": "NestJS"
+  },
+  {
+    "key": "skill-docker",
+    "color": "sky",
+    "scene": "docker",
+    "label": "Docker"
+  },
+  {
+    "key": "skill-system-design",
+    "color": "blue",
+    "scene": "servers",
+    "label": "System Design"
+  },
+  {
+    "key": "skill-security",
+    "color": "rose",
+    "scene": "terminal",
+    "label": "Security"
+  },
+  {
+    "key": "skill-mysql",
+    "color": "teal",
+    "scene": "database",
+    "label": "MySQL"
+  },
+  {
+    "key": "skill-machine-learning",
+    "color": "purple",
+    "scene": "scatter",
+    "label": "Machine Learning"
+  },
+  {
+    "key": "skill-ai-engineer",
+    "color": "purple",
+    "scene": "agent",
+    "label": "AI Engineer"
+  },
+  {
+    "key": "practice-git",
+    "color": "coral",
+    "scene": "pipeline",
+    "label": "Git & GitHub"
+  },
+  {
+    "key": "practice-security",
+    "color": "amber",
+    "scene": "shield",
+    "label": "B?o m?t ?ng d?ng"
+  },
+  {
+    "key": "practice-system",
+    "color": "blue",
+    "scene": "topology",
+    "label": "Thi?t k? h? th?ng"
+  },
+  {
+    "key": "practice-docker",
+    "color": "sky",
+    "scene": "deploy",
+    "label": "Docker & tri?n khai"
+  },
+  {
+    "key": "practice-ai",
+    "color": "purple",
+    "scene": "monitor",
+    "label": "AI trong s?n ph?m"
+  },
+  {
+    "key": "review-cheatsheet",
+    "color": "teal",
+    "scene": "document",
+    "label": "B?ng tra c?u nhanh"
+  },
+  {
+    "key": "project-fullstack",
+    "color": "green",
+    "scene": "dashboard",
+    "label": "D? ?n Full Stack"
+  },
+  {
+    "key": "review-quiz",
+    "color": "purple",
+    "scene": "quiz",
+    "label": "C?ng c? ?n t?p"
+  },
+  {
+    "key": "project-exercises",
+    "color": "coral",
+    "scene": "exercise",
+    "label": "B?i t?p l?p tr?nh"
+  },
+  {
+    "key": "project-api",
+    "color": "cyan",
+    "scene": "api",
+    "label": "Th?c h?nh v?i API"
+  },
+  {
+    "key": "toolbox-agent",
+    "color": "purple",
+    "scene": "toolbox",
+    "label": "AI Agent Toolbox"
+  }
+]

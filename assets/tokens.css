@@ -1,4 +1,28 @@
 ﻿/* Shared semantic palette; consumed by entry pages and future card families. */
-:root { --surface-page:#0b1019; --surface-card:#182233; --surface-soft:#111a29; --surface-border:rgba(255,255,255,.08); --content-primary:#f1f5fc; --content-secondary:#b3bfd1; --card-radius:16px; --card-shadow:0 8px 24px #0003; --space-1:8px; --space-2:16px; --space-3:24px; --space-4:32px; --card-title:20px; --card-description:14px; --card-label:12px; --color-cyan:#67e8f9; --color-green:#86efac; --color-purple:#d8b4fe; --color-amber:#fcd34d; --color-blue:#93c5fd; --color-coral:#fdba74; --color-sky:#7dd3fc; --color-teal:#5eead4; --color-rose:#fda4af; }
+:root { --surface-page:#0b1019; --surface-card:#182233; --surface-soft:#111a29; --surface-border:rgba(255,255,255,.08); --content-primary:#f1f5fc; --content-secondary:#b3bfd1; --card-radius:16px; --card-shadow:0 8px 24px #0003; --space-1:8px; --space-2:16px; --space-3:24px; --space-4:32px; --card-title:18px; --card-description:14px; --card-label:12px; --color-cyan:#67e8f9; --color-green:#86efac; --color-purple:#d8b4fe; --color-amber:#fcd34d; --color-blue:#93c5fd; --color-coral:#fdba74; --color-sky:#7dd3fc; --color-teal:#5eead4; --color-rose:#fda4af; }
 html[data-theme="light"] { --surface-page:#eaf0f7; --surface-card:#fff; --surface-soft:#f3f6fb; --surface-border:rgba(20,40,70,.12); --content-primary:#17243a; --content-secondary:#4c5c73; --card-shadow:0 8px 24px #18375a12; --color-cyan:#0e6779; --color-green:#166534; --color-purple:#7e22ce; --color-amber:#895409; --color-blue:#1d4ed8; --color-coral:#9a3412; --color-sky:#075985; --color-teal:#0f766e; --color-rose:#be123c; }
 [data-color="cyan"]{--accent:var(--color-cyan)}[data-color="green"]{--accent:var(--color-green)}[data-color="purple"]{--accent:var(--color-purple)}[data-color="amber"]{--accent:var(--color-amber)}[data-color="blue"]{--accent:var(--color-blue)}[data-color="coral"]{--accent:var(--color-coral)}[data-color="sky"]{--accent:var(--color-sky)}[data-color="teal"]{--accent:var(--color-teal)}[data-color="rose"]{--accent:var(--color-rose)}
+
+/* Per-course accents: accessible foreground colors in each theme. */
+[data-skill="thuat-toan"]{--accent:hsl(43 78% 78%)}html[data-theme="light"] [data-skill="thuat-toan"]{--accent:hsl(43 68% 30%)}
+[data-skill="languages"]{--accent:hsl(220 78% 78%)}html[data-theme="light"] [data-skill="languages"]{--accent:hsl(220 68% 30%)}
+[data-skill="cpp"]{--accent:hsl(225 78% 78%)}html[data-theme="light"] [data-skill="cpp"]{--accent:hsl(225 68% 30%)}
+[data-skill="java"]{--accent:hsl(25 78% 78%)}html[data-theme="light"] [data-skill="java"]{--accent:hsl(25 68% 30%)}
+[data-skill="python"]{--accent:hsl(145 78% 78%)}html[data-theme="light"] [data-skill="python"]{--accent:hsl(145 68% 30%)}
+[data-skill="javascript-nnlt"]{--accent:hsl(48 78% 78%)}html[data-theme="light"] [data-skill="javascript-nnlt"]{--accent:hsl(48 68% 30%)}
+[data-skill="typescript"]{--accent:hsl(200 78% 78%)}html[data-theme="light"] [data-skill="typescript"]{--accent:hsl(200 68% 30%)}
+[data-skill="html-css-nnlt"]{--accent:hsl(190 78% 78%)}html[data-theme="light"] [data-skill="html-css-nnlt"]{--accent:hsl(190 68% 30%)}
+[data-skill="bootstrap"]{--accent:hsl(278 78% 78%)}html[data-theme="light"] [data-skill="bootstrap"]{--accent:hsl(278 68% 30%)}
+[data-skill="sass"]{--accent:hsl(342 78% 78%)}html[data-theme="light"] [data-skill="sass"]{--accent:hsl(342 68% 30%)}
+[data-skill="react"]{--accent:hsl(195 78% 78%)}html[data-theme="light"] [data-skill="react"]{--accent:hsl(195 68% 30%)}
+[data-skill="orm"]{--accent:hsl(150 78% 78%)}html[data-theme="light"] [data-skill="orm"]{--accent:hsl(150 68% 30%)}
+[data-skill="graphql"]{--accent:hsl(347 78% 78%)}html[data-theme="light"] [data-skill="graphql"]{--accent:hsl(347 68% 30%)}
+[data-skill="socketio"]{--accent:hsl(170 78% 78%)}html[data-theme="light"] [data-skill="socketio"]{--accent:hsl(170 68% 30%)}
+[data-skill="nestjs"]{--accent:hsl(352 78% 78%)}html[data-theme="light"] [data-skill="nestjs"]{--accent:hsl(352 68% 30%)}
+[data-skill="system-design"]{--accent:hsl(230 78% 78%)}html[data-theme="light"] [data-skill="system-design"]{--accent:hsl(230 68% 30%)}
+[data-skill="machine-learning"]{--accent:hsl(283 78% 78%)}html[data-theme="light"] [data-skill="machine-learning"]{--accent:hsl(283 68% 30%)}
+[data-skill="ai-engineer"]{--accent:hsl(288 78% 78%)}html[data-theme="light"] [data-skill="ai-engineer"]{--accent:hsl(288 68% 30%)}
+[data-skill="git"]{--accent:hsl(30 78% 78%)}html[data-theme="light"] [data-skill="git"]{--accent:hsl(30 68% 30%)}
+[data-skill="docker"]{--accent:hsl(205 78% 78%)}html[data-theme="light"] [data-skill="docker"]{--accent:hsl(205 68% 30%)}
+[data-skill="mysql"]{--accent:hsl(175 78% 78%)}html[data-theme="light"] [data-skill="mysql"]{--accent:hsl(175 68% 30%)}
+[data-skill="security"]{--accent:hsl(357 78% 78%)}html[data-theme="light"] [data-skill="security"]{--accent:hsl(357 68% 30%)}
