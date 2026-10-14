@@ -14,5 +14,7 @@ body[data-theme="dark"]{
   body{background-size:1000px 600px!important;}
 }
 @media print{
+  html[data-theme] body,
+  body[data-theme],
   body{background-image:none!important;}
 }
