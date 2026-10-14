@@ -4,7 +4,11 @@ Ngày kiểm tra: 2026-10-14. Không thêm framework, build hoặc dependency np
 
 ## Phạm vi hiện tại
 
-- Nghiêng CSS tối đa 3 độ, chỉ cho `#allCourses .resource-card` tại courses.html.
+- Nghiêng CSS theo con trỏ tối đa ±8 độ, chỉ cho `#allCourses .resource-card` tại courses.html.
+  assets/box-tilt.js cập nhật --rx/--ry/--mx/--my qua một requestAnimationFrame.
+  Gradient theo con trỏ, ảnh nổi translateZ(14px), touch bỏ tracking và dùng scale(.985).
+  Focus bàn phím có viền 3px và nổi 3px; reduced motion giữ viền, tắt transform/gradient.
+  will-change chỉ bật cho card đang tương tác; không áp dụng lên chữ.
 - Nút bật/tắt ở trang chủ, courses.html và 22 mục lục khóa học trong catalog.
 - fullstack-js/index.html là trang chuyển hướng sang courses.html, không có topbar riêng.
 - Trang chương không sửa và không nạp tài nguyên 3D.
@@ -21,6 +25,10 @@ Kích thước KB dưới đây dùng 1 KB = 1.000 bytes, chưa nén và chưa c
 | Trang chương | 0 KB | 0 KB |
 | Trang có WebGL trong tương lai, bật hiệu ứng và chạy qua server | khoảng 10,0 KB | 670,681 KB lần đầu |
 | file://, tắt hiệu ứng hoặc không có WebGL | khoảng 10,0 KB trên trang có nút | 0 KB |
+
+Các số nền tảng 10,0 KB phía trên là trước khi nâng cấp mẫu box theo con trỏ.
+Mẫu mới tăng CSS dùng chung và thêm box-tilt.js riêng cho courses.html;
+đo kích thước hiện tại bằng Get-Item assets/fx3d.css,assets/box-tilt.js.
 
 HTML thêm khoảng 0,25–0,28 KB mỗi trang có nút. Giấy phép và README không tải trên trang.
 
@@ -54,6 +62,8 @@ Với bfcache, giữ scene nhưng dừng render và khôi phục qua pageshow.
 - Fixture WebGL thực tế qua server cục bộ nạp module, tạo scene và dispose canvas thành công.
 - Giả lập getContext(WebGL) trả null: API trả `tĩnh`, reason `no-webgl`, không chạy setup.
 - DPR fixture đo được 1 (không vượt giới hạn 2).
+- Mẫu box mới: cả Chrome và Edge xác nhận góc 8 độ, gradient bật, ảnh có chiều sâu,
+  pointer touch không tracking, focus-visible/viền/nổi và reduced motion tắt transform.
 
 Ảnh xem trước: artifacts/fx3d-skill-chrome.png và artifacts/fx3d-skill-edge.png.
 Firefox chưa cài nên chưa kiểm thử. Chưa kiểm thử định lượng FPS thấp, bfcache,
