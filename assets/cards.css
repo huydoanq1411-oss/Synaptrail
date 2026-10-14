@@ -99,3 +99,38 @@ html .catalog-page .learning-card .java-progress-meter{margin:0;}
 html .catalog-page .learning-card .java-progress-meter{position:absolute;inset:auto 12px 10px;padding:6px 8px;background:#102337ee;border:1px solid #ffffff30;border-radius:8px;}
 html .catalog-page .learning-card .java-progress-meter span{font-size:11px;color:#eaf3ff;}
 html .catalog-page .learning-card .java-progress-meter progress{height:4px;margin:4px 0 0;}
+
+/* Smaller cards with bounded tracks, including short course groups. */
+html .catalog-page .role-grid,
+html .catalog-page .grid,
+html .catalog-page #agent-toolbox .grid,
+html .catalog-page .knowledge-grid{
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),210px));
+  gap:16px;
+  justify-content:start;
+}
+html .catalog-page #agent-toolbox .learning-card{max-width:none;}
+html .catalog-page .card-body{padding:10px;gap:6px;}
+html .catalog-page .learning-card .role-box-title,
+html .catalog-page .learning-card h3,
+html .catalog-page .learning-card .btn-start{font-size:16px;line-height:1.35;}
+html .catalog-page .card-desc{font-size:13px;line-height:1.45;}
+html .catalog-page .card-arrow{width:18px;height:18px;}
+html .catalog-page .knowledge-item{padding:12px;}
+html .catalog-page .knowledge-item h3{font-size:16px;}
+html .catalog-page .knowledge-item p,
+html .catalog-page .knowledge-item li{font-size:13px;}
+html .catalog-page .role-skills{grid-template-columns:repeat(auto-fit,minmax(min(100%,120px),1fr));gap:10px;}
+html .catalog-page .role-skill-title{padding:8px 10px 4px;font-size:12px;}
+html .catalog-page .role-skill-count{padding:0 10px 10px;}
+@media(max-width:600px){
+  html .catalog-page .role-grid,
+  html .catalog-page .grid,
+  html .catalog-page #agent-toolbox .grid,
+  html .catalog-page .knowledge-grid{
+    grid-template-columns:minmax(0,1fr);
+    max-width:280px;
+    margin-inline:auto;
+  }
+  html .catalog-page .learning-card .role-box-title{font-size:16px;}
+}

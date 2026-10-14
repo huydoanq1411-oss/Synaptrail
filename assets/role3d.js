@@ -14,14 +14,14 @@
       const card=document.querySelector(`#allCourses [data-skill="${CSS.escape(id)}"]`);
       return {...catalog.courses.find(c=>c.id===id),image:card.querySelector('img').getAttribute('src'),chapters:Number(card.dataset.chapters)};
     });
-    const bar=document.createElement('div');bar.className='role-view-switch';bar.setAttribute('role','group');bar.setAttribute('aria-label','Cách xem lộ trình');
+    const bar=document.createElement('div');bar.className='role-view-switch';bar.setAttribute('role','group');bar.setAttribute('aria-label','Cách xem kỹ năng');
     const listButton=document.createElement('button'),mapButton=document.createElement('button');
     for(const b of [listButton,mapButton])b.type='button';listButton.textContent='Danh sách';mapButton.textContent='Bản đồ 3D';
     listButton.setAttribute('aria-pressed','true');mapButton.setAttribute('aria-pressed','false');bar.append(listButton,mapButton);
     const map=document.createElement('div');map.className='role-map fx3d-surface';map.hidden=true;map.dataset.fx3d='';map.dataset.fx3dStaticReduced='';map.dataset.canvasLabel=`Bản đồ kỹ năng ${role.name}. Bấm một lần để bay tới kỹ năng, bấm lần nữa để mở khóa.`;
     map.id=target.id+'-map';mapButton.setAttribute('aria-controls',map.id);
     const status=document.createElement('p');status.className='role-map-message';status.setAttribute('role','status');status.hidden=true;
-    const svg=svgElement('svg',{viewBox:`-450 -130 900 ${Math.ceil(data.length/3)*280}`,role:'img','aria-label':`Lộ trình tĩnh ${role.name}`});svg.classList.add('role-map-fallback');
+    const svg=svgElement('svg',{viewBox:`-450 -130 900 ${Math.ceil(data.length/3)*280}`,role:'img','aria-label':`Sơ đồ kỹ năng ${role.name}`});svg.classList.add('role-map-fallback');
     // Serpentine curve: wide spacing, shallow depth; deterministic study order.
     const positions=data.map((_,i)=>{const row=Math.floor(i/3),col=row%2?2-i%3:i%3;return [(col-1)*3,-row*2.8,Math.sin(i*.8)*.35];});
     const path=svgElement('path');let route='';positions.forEach((p,i)=>{route+=`${i?' L':'M'} ${p[0]*100} ${-p[1]*100}`;});path.setAttribute('d',route);svg.append(path);
@@ -36,7 +36,7 @@
       const text=document.createElement('span');text.className='role-map-label';labels.append(text);labelElements.push(text);
       const link=document.createElement('a');link.href=course.href;links.append(link);
     });
-    const home=document.createElement('button');home.type='button';home.className='role-map-home';home.textContent='Xem toàn lộ trình';
+    const home=document.createElement('button');home.type='button';home.className='role-map-home';home.textContent='Xem toàn bộ kỹ năng';
     map.append(svg,labels,links,home);list.before(bar);list.after(map,status);
     const listeners=new AbortController();let state,pending=false,disposed=false,version=0,selected=-1,settled=false;
     let sceneUpdate=()=>{},resetView=()=>{};

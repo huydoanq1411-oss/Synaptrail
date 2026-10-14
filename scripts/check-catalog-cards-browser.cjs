@@ -24,7 +24,7 @@ const pause=ms=>new Promise(r=>setTimeout(r,ms));
   const results=[];
   const snapshot=async name=>{
     // Invalidate offscreen paint records before capturing a software-rendered viewport.
-    await evaluate("document.querySelectorAll('.card-art').forEach(art=>{const children=[...art.childNodes];art.replaceChildren();art.append(...children)})");
+    await evaluate("document.querySelectorAll('.card-art').forEach(art=>art.replaceChildren(...[...art.childNodes].map(child=>child.cloneNode(true))));Promise.all([...document.images].map(img=>img.decode().catch(()=>{})))");
     await evaluate("new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))");
     const shot=await call('Page.captureScreenshot',{format:'png'});
     fs.writeFileSync(path.join(out,name+'.png'),Buffer.from(shot.data,'base64'));

@@ -148,10 +148,10 @@
     const role=roles[key];if(!role){close(false,false);return;}
     if(modal.open)modal.close();panel.hidden=true;active=key;opener=buttons.find(b=>b.dataset.role===key);
     const target=media.matches?modal:panel;
-    target.querySelector('[data-role-title]').textContent='Lộ trình '+role.name;
+    target.querySelector('[data-role-title]').textContent=role.name;
     const list=target.querySelector('.role-skills');list.replaceChildren();
     role.skills.forEach((skill,i)=>{const card=data.get(skill);if(!card)return;const link=document.createElement('a');link.className='role-skill';link.href=card.querySelector('.btn-start').getAttribute('href');const img=document.createElement('img');img.src=card.querySelector('img').getAttribute('src');img.alt='';img.width=320;img.height=180;img.loading='lazy';fallback(img);const title=document.createElement('span');title.className='role-skill-title';title.textContent=(i+1)+'. '+card.querySelector('h3').textContent;const count=document.createElement('span');count.className='role-skill-count';count.textContent=card.dataset.chapters+' chương';link.append(img,title,count);list.append(link);});
-    buttons.forEach(b=>{b.setAttribute('aria-expanded',String(b===opener));b.setAttribute('aria-pressed',String(b===opener));b.setAttribute('aria-controls',target.id);});reset.hidden=false;document.getElementById('roleStatus').textContent='Lộ trình '+role.name+' đang mở';setHash(key);
+    buttons.forEach(b=>{b.setAttribute('aria-expanded',String(b===opener));b.setAttribute('aria-pressed',String(b===opener));b.setAttribute('aria-controls',target.id);});reset.hidden=false;document.getElementById('roleStatus').textContent=role.name+' đang mở';setHash(key);
     if(media.matches){opener?.focus({preventScroll:true});modal.showModal();}else panel.hidden=false;
     target.dataset.activeRole=key;
     document.dispatchEvent(new CustomEvent('synaptrail:role-open',{detail:{key,target}}));
