@@ -1,5 +1,119 @@
 /* Ordered role → skill mapping lives only here. */
 (() => {
+  const courses = Object.freeze([
+  {
+    "id": "thuat-toan",
+    "href": "thuat-toan/index.html",
+    "name": "Thuật toán"
+  },
+  {
+    "id": "git",
+    "href": "git/index.html",
+    "name": "Git"
+  },
+  {
+    "id": "languages",
+    "href": "languages/index.html",
+    "name": "Kỹ năng giao tiếp"
+  },
+  {
+    "id": "cpp",
+    "href": "cpp/index.html",
+    "name": "C++"
+  },
+  {
+    "id": "java",
+    "href": "java/index.html",
+    "name": "Java"
+  },
+  {
+    "id": "python",
+    "href": "python/index.html",
+    "name": "Python"
+  },
+  {
+    "id": "javascript-nnlt",
+    "href": "javascript-nnlt/index.html",
+    "name": "JavaScript"
+  },
+  {
+    "id": "typescript",
+    "href": "typescript/index.html",
+    "name": "TypeScript"
+  },
+  {
+    "id": "html-css-nnlt",
+    "href": "html-css-nnlt/index.html",
+    "name": "HTML & CSS"
+  },
+  {
+    "id": "bootstrap",
+    "href": "bootstrap/index.html",
+    "name": "Bootstrap"
+  },
+  {
+    "id": "sass",
+    "href": "sass/index.html",
+    "name": "SASS / SCSS"
+  },
+  {
+    "id": "react",
+    "href": "react/index.html",
+    "name": "React"
+  },
+  {
+    "id": "orm",
+    "href": "orm/index.html",
+    "name": "ORM"
+  },
+  {
+    "id": "graphql",
+    "href": "graphql/index.html",
+    "name": "GraphQL"
+  },
+  {
+    "id": "socketio",
+    "href": "socketio/index.html",
+    "name": "Socket.IO"
+  },
+  {
+    "id": "nestjs",
+    "href": "nestjs/index.html",
+    "name": "NestJS"
+  },
+  {
+    "id": "docker",
+    "href": "docker/index.html",
+    "name": "Docker"
+  },
+  {
+    "id": "system-design",
+    "href": "system-design/index.html",
+    "name": "System Design"
+  },
+  {
+    "id": "security",
+    "href": "security/index.html",
+    "name": "Security"
+  },
+  {
+    "id": "mysql",
+    "href": "mysql/index.html",
+    "name": "MySQL"
+  },
+  {
+    "id": "machine-learning",
+    "href": "machine-learning/index.html",
+    "name": "Machine Learning"
+  },
+  {
+    "id": "ai-engineer",
+    "href": "ai-engineer/index.html",
+    "name": "AI Engineer"
+  }
+].map(course => Object.freeze(course)));
+  window.SynaptrailCatalog = Object.freeze({courses});
+  if (!document.getElementById("searchInput")) return;
   const roles = {
     frontend: {name:'Frontend Developer', skills:['git','html-css-nnlt','javascript-nnlt','typescript','bootstrap','sass','react']},
     fullstack: {name:'Full Stack Developer', skills:['git','html-css-nnlt','javascript-nnlt','typescript','bootstrap','sass','react','mysql','orm','graphql','socketio','nestjs','docker','system-design','security']},

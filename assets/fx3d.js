@@ -54,12 +54,16 @@
     };
     if (location.protocol === 'file:') return fallback('file-protocol');
     if (document.documentElement.dataset.fx3d !== 'on') return fallback('disabled');
+    if (motion.matches && element.hasAttribute('data-fx3d-static-reduced')) return fallback('reduced-motion');
     if (!webglAvailable()) return fallback('no-webgl');
     let renderer, content, observer, resizeObserver, frame = 0;
     let visible = false, disposed = false, last = 0, start = 0, frames = 0, elapsed = 0;
     let slow = false;
     const canvas = document.createElement('canvas');
-    canvas.setAttribute('aria-hidden', 'true');
+    if (element.dataset.canvasLabel) {
+      canvas.setAttribute('role', 'img'); canvas.setAttribute('aria-label', element.dataset.canvasLabel);
+    } else canvas.setAttribute('aria-hidden', 'true');
+    let lastRender = 0;
     const stop = () => { cancelAnimationFrame(frame); frame = 0; last = start = frames = elapsed = 0; };
     const draw = () => renderer.render(content.scene, content.camera);
     const resize = () => {
@@ -79,15 +83,18 @@
       if (!start) start = time;
       const delta = last ? time - last : 0;
       elapsed += delta; last = time; frames++;
-      content.animate?.(Math.min(delta / 1000, 0.1), time / 1000);
-      draw();
+      const renderInterval = state.quality === 'low' ? 1000 / 30 : 0;
+      if (!lastRender || time - lastRender >= renderInterval - 1) {
+        content.animate?.(Math.min((time - lastRender) / 1000, 0.1), time / 1000);
+        draw(); lastRender = time;
+      }
       if (time - start >= 2000) {
         const fps = elapsed ? (frames - 1) * 1000 / elapsed : 60;
         start = time; frames = 1; elapsed = 0;
         if (fps < 40) {
           if (state.quality === 'high') {
             state.quality = 'low'; content.setQuality?.('low'); resize();
-          } else { slow = true; state.status = 'tĩnh'; element.dataset.fx3dStatus = state.status; return; }
+          } else { slow = true; state.status = 'tĩnh'; element.dataset.fx3dStatus = state.status; element.dataset.fx3dReady = 'false'; return; }
         }
       }
       frame = requestAnimationFrame(tick);
@@ -96,7 +103,8 @@
       refresh() {
         stop();
         if (disposed) return;
-        const enabled = document.documentElement.dataset.fx3d === 'on';
+        const enabled = document.documentElement.dataset.fx3d === 'on'
+          && !(motion.matches && element.hasAttribute('data-fx3d-static-reduced')) && !slow;
         element.dataset.fx3dReady = String(enabled);
         state.status = enabled && !motion.matches && !slow ? '3d' : 'tĩnh';
         element.dataset.fx3dStatus = state.status;
