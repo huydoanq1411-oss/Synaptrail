@@ -903,6 +903,7 @@ html[data-theme="dark"] .prompt-copy-btn{ background: var(--line); color:#04121f
 <link rel="stylesheet" href="assets/progress.css">
 <link rel="stylesheet" href="assets/glass.css">
 <link rel="stylesheet" href="assets/refresh.css">
+<link rel="stylesheet" href="assets/fx3d.css">
 </head>
 <body class="catalog-page">
 <a class="skip-link" href="#main-content">Chuyển đến nội dung</a>
@@ -924,6 +925,7 @@ html[data-theme="dark"] .prompt-copy-btn{ background: var(--line); color:#04121f
   </a>
 
   <div class="header-actions">
+    <button type="button" class="fx3d-toggle" data-fx3d-toggle aria-pressed="false">Hiệu ứng 3D</button>
     <div class="search-box">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <circle cx="11" cy="11" r="7"></circle>
@@ -1337,6 +1339,7 @@ function fallbackCopy(text, cb){
 </script>
 
 <script src="assets/catalog.js" defer></script>
+<script src="assets/fx3d.js" defer></script>
 <script src="assets/progress.js"></script>
 <dialog id="roleModal" class="role-modal" aria-labelledby="roleModalTitle"><div class="role-panel-head"><h2 id="roleModalTitle" data-role-title></h2><button type="button" data-close-role aria-label="Đóng lộ trình">Đóng ×</button></div><div class="role-skills"></div></dialog></body>
 </html>
