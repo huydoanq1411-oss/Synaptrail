@@ -7,11 +7,11 @@ const pause=ms=>new Promise(r=>setTimeout(r,ms));
  const chromePath=findChrome();
  await new Promise(r=>server.listen(0,'127.0.0.1',r));
  const profile=fs.mkdtempSync(path.join(os.tmpdir(),'synaptrail-ui-'));
- const chrome=spawn(chromePath,['--headless=new','--disable-gpu','--no-first-run','--remote-debugging-port=9333','--user-data-dir='+profile,'about:blank'],{stdio:'ignore'});
+ const chrome=spawn(chromePath,['--headless=new','--disable-gpu','--no-first-run','--remote-debugging-port=9447','--user-data-dir='+profile,'about:blank'],{stdio:'ignore'});
  let launchError;chrome.on('error',error=>{launchError=error});
  let ws;
  try{
-  let targets;for(let i=0;i<30;i++){try{targets=await(await fetch('http://127.0.0.1:9333/json')).json();break}catch{await pause(200)}}
+  let targets;for(let i=0;i<30;i++){try{targets=await(await fetch('http://127.0.0.1:9447/json')).json();break}catch{await pause(200)}}
   if(!targets)throw Error(launchError?.message||'Chrome debugging unavailable');
   ws=new WebSocket(targets.find(t=>t.type==='page').webSocketDebuggerUrl);await new Promise((r,j)=>{const timer=setTimeout(()=>j(Error('Chrome connection timed out')),10000);ws.onopen=()=>{clearTimeout(timer);r()};ws.onerror=()=>{clearTimeout(timer);j(Error('Chrome connection failed'))}});
   let id=0;const pending=new Map();const failures=[];
@@ -44,3 +44,4 @@ const pause=ms=>new Promise(r=>setTimeout(r,ms));
   if(results.some(r=>r.overflow||!r.images||r.cards!==9||r.contrast.some(x=>x<4.5)||!r.panel.closeInside)||failures.length)process.exitCode=1;
  }finally{if(ws)ws.close();chrome.kill();server.close()}
 })().catch(e=>{console.error(e);server.close();process.exitCode=1});
+
