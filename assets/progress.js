@@ -16,7 +16,7 @@
   }
   function createStore(storage) {
     const read = () => {try {return validate(JSON.parse(storage.getItem(KEY) || '{}'));} catch {throw Error('Không thể đọc tiến độ. Bộ nhớ có thể bị chặn hoặc dữ liệu JSON không hợp lệ.');}};
-    const write = data => {try {storage.setItem(KEY,JSON.stringify(validate(data)));} catch {throw Error('Không thể lưu tiến độ. Kiểm tra quyền bộ nhớ hoặc dung lượng trình duyệt.');} return data;};
+    const write = data => {try {storage.setItem(KEY,JSON.stringify(validate(data)));} catch {throw Error('Không thể lưu tiến độ. Kiểm tra quyền bộ nhớ hoặc dung lượng trình duyệt.');} if(global.document)global.document.dispatchEvent(new CustomEvent('synaptrail:progress-change')); return data;};
     return {
       read,
       update(course,chapter,patch) {

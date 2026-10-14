@@ -1,0 +1,24 @@
+.role-view-switch { display:flex; gap:8px; margin:16px 0; }
+.role-view-switch button,.role-map-home { padding:8px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg-card); color:var(--text); cursor:pointer; font:inherit; font-size:13px; }
+.role-view-switch button[aria-pressed="true"] { border-color:#77e0b5; color:#77e0b5; }
+.role-view-switch button:focus-visible,.role-map-home:focus-visible { outline:3px solid #77e0b5; outline-offset:3px; }
+.role-map { --island:#284438; --route:#77e0b5; --label:#e2efe7; position:relative; width:100%; height:min(520px,60vh); overflow:hidden; border:1px solid var(--border); border-radius:12px; background:var(--bg-card); }
+.role-map[hidden] { display:none; }
+.role-map svg { display:block; width:100%; height:100%; }
+.role-map[data-fx3d-ready="true"] .role-map-fallback { visibility:hidden; }
+.role-map-fallback path { fill:none; stroke:var(--route); stroke-width:3; opacity:.6; }
+.role-map-fallback rect { fill:var(--island); stroke:var(--route); }
+.role-map-fallback text { fill:var(--label); font:16px 'Segoe UI',sans-serif; }
+.role-map-fallback g[data-progress="new"] { opacity:.55; }
+.role-map-fallback g[data-progress="complete"] rect { stroke-width:5; }
+.role-map canvas { touch-action:pan-y; }
+.role-map-labels { position:absolute; inset:0; pointer-events:none; }
+.role-map-label { position:absolute; transform:translate(-50%,0); max-width:calc(100% / 3 - 12px); text-align:center; line-height:1.3; font-size:12px; color:var(--label); padding:3px 5px; border-radius:4px; background:var(--bg-card); }
+.role-map:not([data-fx3d-ready="true"]) .role-map-labels { display:none; }
+.role-map-home { position:absolute; top:10px; right:10px; z-index:3; }
+.role-map-links { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+.role-map-links:focus-within { inset:auto 8px 8px; width:auto; height:auto; clip-path:none; z-index:4; display:flex; flex-wrap:wrap; gap:10px; padding:12px; background:var(--bg-card); }
+.role-map-links a { color:var(--text); font-size:12px; }
+.role-map-links a:focus-visible { outline:3px solid #77e0b5; outline-offset:3px; }
+.role-map-message { font-size:13px; color:var(--text-dim); margin:8px 0; }
+html[data-theme="light"] .role-map { --island:#dcefe5; --route:#147b5b; --label:#174333; }
