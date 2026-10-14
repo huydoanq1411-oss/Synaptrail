@@ -96,3 +96,6 @@ html .catalog-page .role-skill{border-radius:12px;background:var(--surface-soft)
 html .catalog-page .learning-card .java-progress-meter{margin:0;}
 @media(max-width:1050px){html .catalog-page #agent-toolbox .learning-card{max-width:calc((100% - 20px)/2);}}
 @media(max-width:600px){html .catalog-page .role-grid,html .catalog-page .grid,html .catalog-page .knowledge-grid{max-width:320px;margin-inline:auto;gap:16px;}html .catalog-page #agent-toolbox .learning-card{max-width:none;}html .catalog-page .role-panel-head h3{font-size:18px;}html .catalog-page .brand-mark{background:#77e0b5;color:#102337;}}
+html .catalog-page .learning-card .java-progress-meter{position:absolute;inset:auto 12px 10px;padding:6px 8px;background:#102337ee;border:1px solid #ffffff30;border-radius:8px;}
+html .catalog-page .learning-card .java-progress-meter span{font-size:11px;color:#eaf3ff;}
+html .catalog-page .learning-card .java-progress-meter progress{height:4px;margin:4px 0 0;}

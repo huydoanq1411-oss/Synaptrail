@@ -70,7 +70,7 @@
         let badge=link.querySelector('.completed-chapter');if(!badge){badge=document.createElement('span');badge.className='completed-chapter';badge.textContent=' ✓';badge.setAttribute('aria-label','Đã học');link.append(badge);}badge.hidden=!records[id]?.done;
       });
       document.querySelectorAll('[data-skill="java"]').forEach(card=>{
-        let meter=card.querySelector('.java-progress-meter');if(!meter){meter=document.createElement('div');meter.className='java-progress-meter';meter.innerHTML='<span></span><progress max="31" value="0" aria-label="Tiến độ môn Java"></progress>';card.querySelector('.card-footer').before(meter);}
+        let meter=card.querySelector('.java-progress-meter');if(!meter){meter=document.createElement('div');meter.className='java-progress-meter';meter.innerHTML='<span></span><progress max="31" value="0" aria-label="Tiến độ môn Java"></progress>';const art=card.querySelector('.card-art');if(art)art.append(meter);else card.querySelector('.card-footer').before(meter);}
         meter.querySelector('span').textContent='Đã học '+count+'/31 chương · '+percent+'%';meter.querySelector('progress').value=count;
       });
     }
