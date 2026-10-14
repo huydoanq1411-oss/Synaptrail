@@ -35,7 +35,7 @@
         }
         return write(data);
       },
-      reset() {try {storage.removeItem(KEY);} catch {throw Error('Không thể xóa tiến độ do bộ nhớ bị chặn.');}}
+      reset() {try {storage.removeItem(KEY);} catch {throw Error('Không thể xóa tiến độ do bộ nhớ bị chặn.');} if(global.document)global.document.dispatchEvent(new CustomEvent('synaptrail:progress-change'));}
     };
   }
   const api={KEY,JAVA_CHAPTERS,validate,createStore};

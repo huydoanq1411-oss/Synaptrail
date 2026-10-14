@@ -51,7 +51,7 @@
       pending=true;const ticket=++version;
       const result=await window.SynaptrailFX3D.mount(map,setup);
       pending=false;
-      if(disposed||ticket!==version||map.hidden){result.dispose?.();return;}
+      if(disposed||ticket!==version||map.hidden){result.dispose?.();if(!disposed&&!map.hidden)queueMicrotask(mount);return;}
       state=result;message();
     }
     function view(useMap){
@@ -67,7 +67,9 @@
     window.addEventListener('storage',e=>{if(e.key==='synaptrail-progress'||e.key===null)updateProgress();},{signal:listeners.signal});
     window.addEventListener('focus',updateProgress,{signal:listeners.signal});
     document.addEventListener('synaptrail:progress-change',updateProgress,{signal:listeners.signal});
-    function setup(T,renderer) {
+    async function setup(T,renderer) {
+      const loader=new T.TextureLoader();
+      const textures=await Promise.all(data.map(c=>loader.loadAsync(c.image).catch(()=>loader.loadAsync('assets/img/default.svg'))));
       const scene=new T.Scene(),camera=new T.OrthographicCamera(-5,5,3,-3,.1,100);camera.position.z=12;
       const center=new T.Vector3(0,-(Math.ceil(data.length/3)-1)*1.4,0),destination=center.clone();
       let zoomTarget=1,fullHeight=5;
@@ -76,8 +78,8 @@
       const matrix=new T.Matrix4();positions.forEach((p,i)=>islands.setMatrixAt(i,matrix.makeTranslation(...p)));scene.add(islands);
       const lineMaterial=new T.LineBasicMaterial({transparent:true,opacity:.8});
       const curve=new T.CatmullRomCurve3(positions.map(p=>new T.Vector3(...p)));scene.add(new T.Line(new T.BufferGeometry().setFromPoints(curve.getPoints(data.length*16)),lineMaterial));
-      const sprites=[],textures=[],loader=new T.TextureLoader();
-      data.forEach((c,i)=>{const texture=loader.load(c.image);texture.colorSpace=T.SRGBColorSpace;textures.push(texture);const sprite=new T.Sprite(new T.SpriteMaterial({map:texture,transparent:true,depthTest:false}));sprite.position.set(positions[i][0],positions[i][1]+.12,positions[i][2]+.2);sprite.scale.set(1.8,1,1);scene.add(sprite);sprites.push(sprite);});
+      const sprites=[];
+      data.forEach((c,i)=>{const texture=textures[i];texture.colorSpace=T.SRGBColorSpace;const sprite=new T.Sprite(new T.SpriteMaterial({map:texture,transparent:true,depthTest:false}));sprite.position.set(positions[i][0],positions[i][1]+.12,positions[i][2]+.2);sprite.scale.set(1.8,1,1);scene.add(sprite);sprites.push(sprite);});
       const colors=()=>{const light=document.documentElement.dataset.theme==='light';lineMaterial.color.set(light?'#147b5b':'#77e0b5');sceneUpdate(progress());};
       sceneUpdate=states=>{states.forEach((s,i)=>{const light=document.documentElement.dataset.theme==='light';islands.setColorAt(i,new T.Color(s==='complete'?(light?'#16b77b':'#77ffb7'):s==='started'?(light?'#a1cfb9':'#345c49'):(light?'#d5e0da':'#243029')));sprites[i].material.opacity=s==='new'?.5:1;});islands.instanceColor.needsUpdate=true;};colors();
       const themeObserver=new MutationObserver(colors);themeObserver.observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
