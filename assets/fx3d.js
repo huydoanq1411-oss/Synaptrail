@@ -71,6 +71,7 @@
       if (!width || !height) return;
       renderer.setPixelRatio(Math.min(devicePixelRatio || 1, state.quality === 'low' ? 1 : 2));
       renderer.setSize(width, height, false);
+      content.resize?.(width, height);
       if (content.camera.isPerspectiveCamera) {
         content.camera.aspect = width / height;
         content.camera.updateProjectionMatrix();
