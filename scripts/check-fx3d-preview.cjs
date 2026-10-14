@@ -39,6 +39,10 @@ const server = http.createServer((req,res)=>{
       for(const width of [375,768,1440]) {
         await call('Emulation.setDeviceMetricsOverride',{width,height:900,deviceScaleFactor:1,mobile:width<500});
         results.push(await evaluate(`(()=>{const b=document.querySelector('[data-fx3d-toggle]');return {width:innerWidth,button:!!b,overflow:document.documentElement.scrollWidth>innerWidth,cards:document.querySelectorAll('#allCourses .resource-card').length,loaded:!!document.documentElement.dataset.fx3d}})()`));
+        await evaluate(`document.querySelector('[data-role="frontend"]').click()`);
+        const defaultList=await evaluate(`(()=>{const t=innerWidth<=600?document.querySelector('#roleModal'):document.querySelector('#rolePanel');return t.querySelector('.role-map').hidden&&!t.querySelector('.role-skills').hidden})()`);
+        if(!defaultList)throw Error('Role must open in list mode');
+        await evaluate(`(()=>{const t=innerWidth<=600?document.querySelector('#roleModal'):document.querySelector('#rolePanel');t.querySelector('[data-close-role]').click()})()`);
       }
       const toggle=await evaluate(`(()=>{const b=document.querySelector('[data-fx3d-toggle]');if(b.getAttribute('aria-pressed')==='true')b.click();b.click();return localStorage.getItem('synaptrail-fx3d')==='on'&&b.getAttribute('aria-pressed')==='true';})()`);
       await call('Page.reload');await pause(700);
@@ -83,8 +87,16 @@ const server = http.createServer((req,res)=>{
       rp=await evaluate(`(()=>{const r=document.querySelector('#rolePanel .role-map').getBoundingClientRect();return {x:r.left+r.width/2,y:r.top+r.height/2}})()`);
       await call('Input.dispatchMouseEvent',{type:'mousePressed',button:'left',clickCount:1,...rp});await call('Input.dispatchMouseEvent',{type:'mouseReleased',button:'left',clickCount:1,...rp});await pause(250);
       roleMap.secondClick=await evaluate(`location.pathname.endsWith('/git/index.html')`);
+      await call('Page.navigate',{url:`http://127.0.0.1:${server.address().port}/courses.html`});await pause(500);
+      roleMap.allRoles=await evaluate(`(()=>{const out=[];for(const key of Object.keys(SynaptrailCatalog.roles)){document.querySelector('[data-role="'+key+'"]').click();const t=document.querySelector('#rolePanel');out.push(t.querySelectorAll('.role-skills a').length===SynaptrailCatalog.roles[key].skills.length&&t.querySelector('.role-map').hidden);}return out.every(Boolean)})()`);
+      await evaluate(`(()=>{const t=document.querySelector('#rolePanel');const b=document.querySelector('[data-fx3d-toggle]');if(b.getAttribute('aria-pressed')!=='true')b.click();document.querySelector('[data-role="fullstack"]').click();document.querySelectorAll('#rolePanel .role-view-switch button')[1].click();document.querySelector('#rolePanel .role-map').scrollIntoView({block:'center',behavior:'instant'});})()`);await pause(900);
+      roleMap.fullstack=await evaluate(`(()=>{const t=document.querySelector('#rolePanel .role-map');const labels=[...t.querySelectorAll('.role-map-label')].filter(e=>!e.hidden).map(e=>e.getBoundingClientRect());let overlap=false;for(let i=0;i<labels.length;i++)for(let j=i+1;j<labels.length;j++){const a=labels[i],b=labels[j];if(a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top)overlap=true;}return {ready:t.dataset.fx3dReady==='true',nodes:t.querySelectorAll('svg g').length,overlap,overflow:document.documentElement.scrollWidth>innerWidth}})()`);
+      fs.writeFileSync(path.join(root,'artifacts','role3d-fullstack-'+name+'.png'),Buffer.from((await call('Page.captureScreenshot',{format:'png'})).data,'base64'));
+      await evaluate(`document.querySelector('#rolePanel [data-close-role]').click()`);
+      roleMap.cleanup=await evaluate(`!document.querySelector('.role-map canvas')`);
       console.log(JSON.stringify({roleMapBrowser:name,...roleMap}));
       if(!roleMap.listDefault||!roleMap.ready||roleMap.nodes!==7||roleMap.links!==7||!roleMap.complete||!roleMap.fly||!roleMap.reduced||!roleMap.secondClick)process.exitCode=1;
+      if(!roleMap.allRoles||!roleMap.fullstack.ready||roleMap.fullstack.nodes!==15||roleMap.fullstack.overlap||roleMap.fullstack.overflow||!roleMap.cleanup)process.exitCode=1;
       await call('Page.navigate',{url:`http://127.0.0.1:${server.address().port}/index.html`});await pause(700);
       await evaluate(`(()=>{const b=document.querySelector('[data-fx3d-toggle]');if(b.getAttribute('aria-pressed')!=='true')b.click()})()`);
       await pause(900);

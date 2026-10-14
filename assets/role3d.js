@@ -73,7 +73,7 @@
       const scene=new T.Scene(),camera=new T.OrthographicCamera(-5,5,3,-3,.1,100);camera.position.z=12;
       const center=new T.Vector3(0,-(Math.ceil(data.length/3)-1)*1.4,0),destination=center.clone();
       let zoomTarget=1,fullHeight=5;
-      const islandMaterial=new T.MeshBasicMaterial({transparent:true});
+      const islandMaterial=new T.MeshBasicMaterial();
       const islands=new T.InstancedMesh(new T.BoxGeometry(2.1,1.4,.22),islandMaterial,data.length);
       const matrix=new T.Matrix4();positions.forEach((p,i)=>islands.setMatrixAt(i,matrix.makeTranslation(...p)));scene.add(islands);
       const lineMaterial=new T.LineBasicMaterial({transparent:true,opacity:.8});
