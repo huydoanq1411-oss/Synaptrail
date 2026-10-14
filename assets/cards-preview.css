@@ -46,3 +46,23 @@ html .catalog-page .role-view-switch button{color:var(--content-primary);backgro
 html .catalog-page .role-view-switch button[aria-pressed="true"]{color:var(--color-teal);border-color:var(--color-teal);}
 html .catalog-page .brand-mark{color:#102337;}
 @media(max-width:600px){.catalog-page [data-fx3d-toggle]{display:none;}html .catalog-page .header-actions{gap:8px;}html .catalog-page .search-box{min-width:0;}}
+/* ID-scoped overrides neutralize legacy skill-card and tilt rules. */
+html .catalog-page #allCourses .sample-card{padding:0;gap:0;display:flex;flex-direction:column;overflow:hidden;border-radius:16px;transform:none;}
+html .catalog-page #allCourses .sample-card .card-art{display:block;position:relative;width:100%;height:auto;aspect-ratio:16/10;margin:0;padding:0;transform:none;}
+html .catalog-page #allCourses .sample-card img{display:block;width:100%;height:100%;max-width:none;aspect-ratio:16/10;object-fit:cover;margin:0;border:0;}
+html .catalog-page #allCourses .sample-card h3{padding:0;margin:0;}
+html .catalog-page #allCourses .sample-card .btn-start{text-decoration:none;}
+html .catalog-page #allCourses .sample-card .card-footer{padding:4px 0 0;margin:0;justify-content:flex-start;gap:8px;}
+html .catalog-page #allCourses .sample-card:hover{transform:translateY(-4px);border-color:var(--accent);}
+html .catalog-page .sample-body{padding-bottom:12px;}
+html[data-theme="light"] .catalog-page .resource-card:not(.sample-card){background:var(--surface-card);color:var(--content-primary);border-color:var(--surface-border);}
+html .catalog-page #roleStatus{color:var(--content-secondary);}
+@media(prefers-reduced-motion:reduce){html .catalog-page #allCourses .sample-card:hover{transform:none;}}
+html .catalog-page .sample-card[hidden],html .catalog-page #allCourses .sample-card[hidden]{display:none;}
+html .catalog-page #allCourses .sample-card img{transform:none;backface-visibility:visible;will-change:auto;opacity:1;visibility:visible;}
+html .catalog-page .skill-cluster{scroll-margin-top:112px;}
+@media(max-width:600px){html .catalog-page .skill-cluster{scroll-margin-top:152px;}}
+html[data-theme] .catalog-page #rolePanel,html[data-theme] .catalog-page #roleModal{background:var(--surface-card);background-image:none;backdrop-filter:none;}
+html .catalog-page .grid>.resource-card:not(.sample-card){align-self:start;}
+html .catalog-page{--accent:var(--color-teal);--line:var(--color-teal);}
+html .catalog-page .catalog-start-label{color:var(--color-teal);}
