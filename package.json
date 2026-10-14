@@ -7,6 +7,8 @@
   "engines": { "node": ">=22" },
   "scripts": {
     "check": "node scripts/check-ui.cjs",
-    "check:browser": "node scripts/browser-check.cjs"
+    "check:browser": "node scripts/browser-check.cjs",
+    "check:cards": "node scripts/check-card-images.cjs",
+    "check:cards:browser": "node scripts/check-catalog-cards-browser.cjs"
   }
 }

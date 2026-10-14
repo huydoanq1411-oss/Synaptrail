@@ -22,9 +22,17 @@ const pause=ms=>new Promise(r=>setTimeout(r,ms));
 
   const out=path.join(root,'artifacts/catalog-cards');fs.mkdirSync(out,{recursive:true});
   const results=[];
-  const snapshot=async name=>{const shot=await call('Page.captureScreenshot',{format:'png'});fs.writeFileSync(path.join(out,name+'.png'),Buffer.from(shot.data,'base64'));};
+  const snapshot=async name=>{
+    // Invalidate offscreen paint records before capturing a software-rendered viewport.
+    await evaluate("document.querySelectorAll('.card-art').forEach(art=>{const children=[...art.childNodes];art.replaceChildren();art.append(...children)})");
+    await evaluate("new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))");
+    const shot=await call('Page.captureScreenshot',{format:'png'});
+    fs.writeFileSync(path.join(out,name+'.png'),Buffer.from(shot.data,'base64'));
+  };
   await call('Network.enable');await call('Network.setBlockedURLs',{urls:['*fonts.googleapis.com*','*fonts.gstatic.com*']});
-  for(const theme of ['dark','light'])for(const width of [375,768,1440]){
+  const selectedTheme=process.argv.find(s=>s.startsWith('--theme='))?.split('=')[1];
+  const selectedWidth=Number(process.argv.find(s=>s.startsWith('--width='))?.split('=')[1]);
+  for(const theme of (selectedTheme?[selectedTheme]:['dark','light']))for(const width of (selectedWidth?[selectedWidth]:[375,768,1440])){
     await call('Emulation.setDeviceMetricsOverride',{width,height:1000,deviceScaleFactor:1,mobile:false});
     await call('Page.navigate',{url:'http://127.0.0.1:'+server.address().port+'/courses.html'});await pause(500);
     await evaluate('localStorage.setItem("synaptrail-theme",'+JSON.stringify(theme)+');localStorage.setItem("synaptrail-progress",JSON.stringify({java:{chapter01:{done:true,quizScore:100,updatedAt:new Date().toISOString()}}}))');
