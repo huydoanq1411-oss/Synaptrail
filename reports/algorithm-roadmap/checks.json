@@ -1,287 +1,167 @@
 {
-  "data": {
-    "nodes": 38,
-    "chapters": 23,
-    "available": 26,
-    "quizChapters": 12
-  },
+  "chapters": 23,
+  "quizChapters": 12,
+  "separatePages": true,
+  "backIcons": true,
+  "noInlineQuiz": true,
+  "fileProtocol": true,
   "results": [
     {
       "theme": "dark",
       "width": 375,
-      "closed": {
+      "map": {
         "overflow": false,
-        "overlaps": [],
+        "overlaps": 0,
         "clipped": [],
         "lines": 0,
-        "buttons": 38,
-        "list": true,
-        "external": [],
-        "panelOpen": false,
-        "theme": "dark"
+        "nodes": 38,
+        "back": true,
+        "external": false,
+        "quizLoaded": false,
+        "forms": 0
       },
-      "opened": {
+      "lesson": {
         "overflow": false,
-        "overlaps": [],
+        "overlaps": 0,
         "clipped": [],
         "lines": 0,
-        "buttons": 38,
-        "list": true,
-        "external": [],
-        "panelOpen": true,
-        "theme": "dark"
-      },
-      "panel": {
-        "left": 20,
-        "right": 340,
-        "bottom": 2528.390625,
-        "height": 2398.03125,
-        "related": [
-          "#chapter23"
-        ],
-        "tabs": [
-          "summary",
-          "quiz",
-          "code"
-        ],
-        "focus": true,
-        "body": true,
-        "single": 1,
-        "home": true
+        "nodes": 0,
+        "back": true,
+        "external": false,
+        "quizLoaded": false,
+        "forms": 0
       }
     },
     {
       "theme": "dark",
       "width": 768,
-      "closed": {
+      "map": {
         "overflow": false,
-        "overlaps": [],
+        "overlaps": 0,
         "clipped": [],
         "lines": 37,
-        "buttons": 38,
-        "list": false,
-        "external": [],
-        "panelOpen": false,
-        "theme": "dark"
+        "nodes": 38,
+        "back": true,
+        "external": false,
+        "quizLoaded": false,
+        "forms": 0
       },
-      "opened": {
+      "lesson": {
         "overflow": false,
-        "overlaps": [],
+        "overlaps": 0,
         "clipped": [],
-        "lines": 37,
-        "buttons": 38,
-        "list": false,
-        "external": [],
-        "panelOpen": true,
-        "theme": "dark"
-      },
-      "panel": {
-        "left": 28,
-        "right": 725,
-        "bottom": 2279.8125,
-        "height": 2150.265625,
-        "related": [
-          "#chapter23"
-        ],
-        "tabs": [
-          "summary",
-          "quiz",
-          "code"
-        ],
-        "focus": true,
-        "body": true,
-        "single": 1,
-        "home": true
+        "lines": 0,
+        "nodes": 0,
+        "back": true,
+        "external": false,
+        "quizLoaded": false,
+        "forms": 0
       }
     },
     {
       "theme": "dark",
       "width": 1440,
-      "closed": {
+      "map": {
         "overflow": false,
-        "overlaps": [],
+        "overlaps": 0,
         "clipped": [],
         "lines": 37,
-        "buttons": 38,
-        "list": false,
-        "external": [],
-        "panelOpen": false,
-        "theme": "dark"
+        "nodes": 38,
+        "back": true,
+        "external": false,
+        "quizLoaded": false,
+        "forms": 0
       },
-      "opened": {
+      "lesson": {
         "overflow": false,
-        "overlaps": [],
+        "overlaps": 0,
         "clipped": [],
-        "lines": 37,
-        "buttons": 38,
-        "list": false,
-        "external": [],
-        "panelOpen": true,
-        "theme": "dark"
-      },
-      "panel": {
-        "left": 120.5,
-        "right": 1304.5,
-        "bottom": 2165.71875,
-        "height": 2035.5,
-        "related": [
-          "#chapter23"
-        ],
-        "tabs": [
-          "summary",
-          "quiz",
-          "code"
-        ],
-        "focus": true,
-        "body": true,
-        "single": 1,
-        "home": true
+        "lines": 0,
+        "nodes": 0,
+        "back": true,
+        "external": false,
+        "quizLoaded": false,
+        "forms": 0
       }
     },
     {
       "theme": "light",
       "width": 375,
-      "closed": {
+      "map": {
         "overflow": false,
-        "overlaps": [],
+        "overlaps": 0,
         "clipped": [],
         "lines": 0,
-        "buttons": 38,
-        "list": true,
-        "external": [],
-        "panelOpen": false,
-        "theme": "light"
+        "nodes": 38,
+        "back": true,
+        "external": false,
+        "quizLoaded": false,
+        "forms": 0
       },
-      "opened": {
+      "lesson": {
         "overflow": false,
-        "overlaps": [],
+        "overlaps": 0,
         "clipped": [],
         "lines": 0,
-        "buttons": 38,
-        "list": true,
-        "external": [],
-        "panelOpen": true,
-        "theme": "light"
-      },
-      "panel": {
-        "left": 20,
-        "right": 340,
-        "bottom": 2528.390625,
-        "height": 2398.03125,
-        "related": [
-          "#chapter23"
-        ],
-        "tabs": [
-          "summary",
-          "quiz",
-          "code"
-        ],
-        "focus": true,
-        "body": true,
-        "single": 1,
-        "home": true
+        "nodes": 0,
+        "back": true,
+        "external": false,
+        "quizLoaded": false,
+        "forms": 0
       }
     },
     {
       "theme": "light",
       "width": 768,
-      "closed": {
+      "map": {
         "overflow": false,
-        "overlaps": [],
+        "overlaps": 0,
         "clipped": [],
         "lines": 37,
-        "buttons": 38,
-        "list": false,
-        "external": [],
-        "panelOpen": false,
-        "theme": "light"
+        "nodes": 38,
+        "back": true,
+        "external": false,
+        "quizLoaded": false,
+        "forms": 0
       },
-      "opened": {
+      "lesson": {
         "overflow": false,
-        "overlaps": [],
+        "overlaps": 0,
         "clipped": [],
-        "lines": 37,
-        "buttons": 38,
-        "list": false,
-        "external": [],
-        "panelOpen": true,
-        "theme": "light"
-      },
-      "panel": {
-        "left": 28,
-        "right": 725,
-        "bottom": 2279.8125,
-        "height": 2150.265625,
-        "related": [
-          "#chapter23"
-        ],
-        "tabs": [
-          "summary",
-          "quiz",
-          "code"
-        ],
-        "focus": true,
-        "body": true,
-        "single": 1,
-        "home": true
+        "lines": 0,
+        "nodes": 0,
+        "back": true,
+        "external": false,
+        "quizLoaded": false,
+        "forms": 0
       }
     },
     {
       "theme": "light",
       "width": 1440,
-      "closed": {
+      "map": {
         "overflow": false,
-        "overlaps": [],
+        "overlaps": 0,
         "clipped": [],
         "lines": 37,
-        "buttons": 38,
-        "list": false,
-        "external": [],
-        "panelOpen": false,
-        "theme": "light"
+        "nodes": 38,
+        "back": true,
+        "external": false,
+        "quizLoaded": false,
+        "forms": 0
       },
-      "opened": {
+      "lesson": {
         "overflow": false,
-        "overlaps": [],
+        "overlaps": 0,
         "clipped": [],
-        "lines": 37,
-        "buttons": 38,
-        "list": false,
-        "external": [],
-        "panelOpen": true,
-        "theme": "light"
-      },
-      "panel": {
-        "left": 120.5,
-        "right": 1304.5,
-        "bottom": 2165.71875,
-        "height": 2035.5,
-        "related": [
-          "#chapter23"
-        ],
-        "tabs": [
-          "summary",
-          "quiz",
-          "code"
-        ],
-        "focus": true,
-        "body": true,
-        "single": 1,
-        "home": true
+        "lines": 0,
+        "nodes": 0,
+        "back": true,
+        "external": false,
+        "quizLoaded": false,
+        "forms": 0
       }
     }
   ],
-  "nojs": {
-    "items": 9,
-    "lessons": 23,
-    "nextLinks": 4,
-    "overflow": false
-  },
-  "errors": [],
-  "fileProtocol": true,
-  "progressChecks": true,
-  "keyboardChecks": true,
-  "legacyIndexRedirect": true,
-  "chapterRedirects": 23,
-  "inlineReader": true
+  "errors": []
 }
