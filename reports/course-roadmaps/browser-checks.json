@@ -1,0 +1,290 @@
+{
+  "results": [
+    {
+      "course": "cpp",
+      "theme": "dark",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "cpp",
+      "theme": "dark",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "cpp",
+      "theme": "dark",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "cpp",
+      "theme": "light",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "cpp",
+      "theme": "light",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "cpp",
+      "theme": "light",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "machine-learning",
+      "theme": "dark",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "machine-learning",
+      "theme": "dark",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "machine-learning",
+      "theme": "dark",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "machine-learning",
+      "theme": "light",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "machine-learning",
+      "theme": "light",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "machine-learning",
+      "theme": "light",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "python",
+      "theme": "dark",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "python",
+      "theme": "dark",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "python",
+      "theme": "dark",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "python",
+      "theme": "light",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "python",
+      "theme": "light",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "python",
+      "theme": "light",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    }
+  ],
+  "issues": [],
+  "errors": [],
+  "screenshots": [
+    "screenshots/cpp-dark-375-map.png",
+    "screenshots/cpp-dark-375-lesson.png",
+    "screenshots/cpp-dark-375-quiz.png",
+    "screenshots/cpp-dark-768-map.png",
+    "screenshots/cpp-dark-768-lesson.png",
+    "screenshots/cpp-dark-768-quiz.png",
+    "screenshots/cpp-dark-1440-map.png",
+    "screenshots/cpp-dark-1440-lesson.png",
+    "screenshots/cpp-dark-1440-quiz.png",
+    "screenshots/cpp-light-375-map.png",
+    "screenshots/cpp-light-375-lesson.png",
+    "screenshots/cpp-light-375-quiz.png",
+    "screenshots/cpp-light-768-map.png",
+    "screenshots/cpp-light-768-lesson.png",
+    "screenshots/cpp-light-768-quiz.png",
+    "screenshots/cpp-light-1440-map.png",
+    "screenshots/cpp-light-1440-lesson.png",
+    "screenshots/cpp-light-1440-quiz.png",
+    "screenshots/machine-learning-dark-375-map.png",
+    "screenshots/machine-learning-dark-375-lesson.png",
+    "screenshots/machine-learning-dark-768-map.png",
+    "screenshots/machine-learning-dark-768-lesson.png",
+    "screenshots/machine-learning-dark-1440-map.png",
+    "screenshots/machine-learning-dark-1440-lesson.png",
+    "screenshots/machine-learning-light-375-map.png",
+    "screenshots/machine-learning-light-375-lesson.png",
+    "screenshots/machine-learning-light-768-map.png",
+    "screenshots/machine-learning-light-768-lesson.png",
+    "screenshots/machine-learning-light-1440-map.png",
+    "screenshots/machine-learning-light-1440-lesson.png",
+    "screenshots/python-dark-375-map.png",
+    "screenshots/python-dark-375-lesson.png",
+    "screenshots/python-dark-375-quiz.png",
+    "screenshots/python-dark-768-map.png",
+    "screenshots/python-dark-768-lesson.png",
+    "screenshots/python-dark-768-quiz.png",
+    "screenshots/python-dark-1440-map.png",
+    "screenshots/python-dark-1440-lesson.png",
+    "screenshots/python-dark-1440-quiz.png",
+    "screenshots/python-light-375-map.png",
+    "screenshots/python-light-375-lesson.png",
+    "screenshots/python-light-375-quiz.png",
+    "screenshots/python-light-768-map.png",
+    "screenshots/python-light-768-lesson.png",
+    "screenshots/python-light-768-quiz.png",
+    "screenshots/python-light-1440-map.png",
+    "screenshots/python-light-1440-lesson.png",
+    "screenshots/python-light-1440-quiz.png"
+  ]
+}
