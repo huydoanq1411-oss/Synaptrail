@@ -1,0 +1,46 @@
+/* Compact cards for the algorithm diagram only. */
+.algorithm-roadmap {
+  --ta-card-height:calc(var(--space-4) + var(--space-2));
+  --ta-main-height:calc(var(--space-4) + var(--space-3) + var(--space-1));
+  --ta-card-font:14px;
+  --ta-main-font:15px;
+  --ta-tile-font:13px;
+  --ta-card-padding:calc(var(--space-1)*1.5);
+  --ta-branch-gap:calc(var(--space-1)*.75);
+}
+.algorithm-roadmap .rm-map {
+  max-width:calc(var(--space-4)*32);
+  margin-inline:auto;
+  --rm-node-height:var(--ta-card-height);
+  padding-inline:var(--space-3);
+}
+.algorithm-roadmap .rm-stage {
+  grid-template-columns:minmax(0,1fr) minmax(160px,.78fr) minmax(0,1fr);
+  column-gap:var(--space-3);
+  padding-bottom:calc(var(--space-3)*2);
+}
+.algorithm-roadmap .rm-branch-column {gap:var(--ta-card-padding)}
+.algorithm-roadmap .rm-branch-group {gap:var(--ta-branch-gap)}
+.algorithm-roadmap .rm-branch-group .rm-node {
+  min-height:var(--ta-card-height);
+  padding:var(--space-1) var(--ta-card-padding)!important;
+}
+.algorithm-roadmap .rm-node .rm-node-title {font-size:var(--ta-card-font);line-height:1.4}
+.algorithm-roadmap .rm-node[data-type=bat-buoc] {
+  min-height:var(--ta-main-height);
+  padding:var(--ta-card-padding)!important;
+}
+.algorithm-roadmap .rm-node[data-type=bat-buoc] .rm-node-title {font-size:var(--ta-main-font)}
+.algorithm-roadmap .rm-node[data-type=bat-buoc] .rm-node-type {margin-bottom:calc(var(--space-1)*.5)}
+.algorithm-roadmap .rm-stage-has-hub>.rm-node,
+.algorithm-roadmap .rm-stage-has-hub .rm-branch-hub {min-height:var(--ta-main-height)}
+.algorithm-roadmap .rm-branch-hub {font-size:var(--ta-main-font);padding:var(--space-1)}
+.algorithm-roadmap .rm-branch-tiles .rm-node-title {font-size:var(--ta-tile-font)}
+@media(max-width:1000px) and (min-width:768px) {
+  .algorithm-roadmap .rm-stage {grid-template-columns:minmax(0,1fr) minmax(145px,.78fr) minmax(0,1fr)}
+}
+@media(max-width:767px) {
+  .algorithm-roadmap .rm-map {padding-inline:var(--space-1)}
+  .algorithm-roadmap .rm-stage {gap:var(--ta-card-padding);padding-bottom:var(--space-3)}
+  .algorithm-roadmap .rm-branch-group .rm-node {width:100%;margin-left:0}
+}
