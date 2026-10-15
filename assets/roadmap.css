@@ -75,6 +75,7 @@ html[data-theme=light] .algorithm-roadmap{color-scheme:light}
 @media(prefers-reduced-motion:reduce){.rm-stage{display:flex!important;flex-direction:column;gap:12px;padding-bottom:30px}.rm-connections{display:none!important}.rm-node:not([data-type=bat-buoc]){margin-left:16px;width:calc(100% - 16px)}.rm-node{transition:none}}
 .rm-list-mode .rm-stage{display:flex!important;flex-direction:column;gap:12px;padding-bottom:30px}.rm-list-mode .rm-connections{display:none!important}
 .algorithm-roadmap:not(.rm-ready) :is(.rm-tools,#rm-theme){display:none}
+.algorithm-roadmap:not(.rm-ready) #rm-start{display:none}
 html[data-theme=light] .rm-connections .rm-branch-line{opacity:.85}
 @media(prefers-reduced-motion:reduce){.rm-stage{counter-reset:branch}.rm-node:not([data-type=bat-buoc]){counter-increment:branch}.rm-node:not([data-type=bat-buoc]) .rm-node-type::before{content:counter(stage)'.'counter(branch)' / '}}
 
