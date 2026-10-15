@@ -9,6 +9,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Deep Learning là:",
+          "code": "",
           "options": [
             "Một khái niệm hoàn toàn tách biệt với Machine Learning",
             "Một nhánh con của Machine Learning, dùng mạng nơ-ron nhiều tầng",
@@ -25,6 +26,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Embedding có tính chất gì quan trọng nhất?",
+          "code": "",
           "options": [
             "Các từ có ý nghĩa gần nhau thì vector gần nhau",
             "Mỗi từ luôn có embedding hoàn toàn ngẫu nhiên",
@@ -41,6 +43,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Cơ chế Attention giúp mô hình làm gì?",
+          "code": "",
           "options": [
             "Xử lý văn bản nhanh hơn bằng cách bỏ qua các từ ở xa",
             "Tự động chú ý tới các từ liên quan về ngữ nghĩa, bất kể khoảng cách",
@@ -57,6 +60,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Ưu điểm chính của chatbot retrieval-based so với rule-based là gì?",
+          "code": "",
           "options": [
             "Không cần khớp từ khóa CHÍNH XÁC, vẫn tìm được câu gần giống nhất",
             "Không cần chuẩn bị dữ liệu mẫu trước",
@@ -73,6 +77,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. System prompt dùng để làm gì?",
+          "code": "",
           "options": [
             "Chỉ để đặt tên cho chatbot",
             "Định hình vai trò, phạm vi và phong cách trả lời của chatbot",
@@ -89,6 +94,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Trong dự án trên, điều gì xảy ra nếu không tìm thấy tài liệu liên quan (điểm tương đồng thấp)?",
+          "code": "",
           "options": [
             "Chatbot không gửi kèm thông tin tham khảo, dựa vào system prompt để xử lý phù hợp",
             "Chương trình sẽ dừng lại và báo lỗi",
@@ -105,6 +111,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Ai là người THỰC SỰ thực thi (chạy) hàm khi LLM yêu cầu tool use?",
+          "code": "",
           "options": [
             "Chính LLM tự chạy hàm đó",
             "Chương trình/code của lập trình viên",
@@ -121,6 +128,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. \"Hallucination\" trong AI nghĩa là gì?",
+          "code": "",
           "options": [
             "AI tạo ra thông tin sai nhưng trình bày một cách tự tin, hợp lý",
             "AI từ chối trả lời mọi câu hỏi",
@@ -137,6 +145,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Tại sao KHÔNG nên dùng một biến toàn cục chung để lưu lịch sử hội thoại trên production?",
+          "code": "",
           "options": [
             "Vì biến toàn cục chạy chậm hơn",
             "Vì nhiều người dùng khác nhau sẽ bị TRỘN LẪN lịch sử hội thoại với nhau",
@@ -153,6 +162,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Model Routing là chiến lược gì?",
+          "code": "",
           "options": [
             "Dùng mô hình nhỏ/rẻ cho câu hỏi đơn giản, mô hình lớn cho tác vụ phức tạp",
             "Luôn dùng một mô hình duy nhất cho mọi tác vụ",

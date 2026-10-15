@@ -9,6 +9,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. JavaScript và Java có mối quan hệ gì với nhau?",
+          "code": "",
           "options": [
             "JavaScript là phiên bản rút gọn của Java",
             "Hai ngôn ngữ hoàn toàn khác nhau, chỉ trùng tên",
@@ -25,6 +26,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Từ khóa nào NÊN TRÁNH dùng trong code JavaScript hiện đại?",
+          "code": "",
           "options": [
             "let",
             "const",
@@ -41,6 +43,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Vòng lặp nào phù hợp để duyệt các GIÁ TRỊ của một mảng?",
+          "code": "",
           "options": [
             "for...of",
             "for...in",
@@ -57,6 +60,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Phương thức nào dùng để LỌC các phần tử thỏa điều kiện trong mảng?",
+          "code": "",
           "options": [
             "map()",
             "filter()",
@@ -73,6 +77,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Phương thức nào dùng để lắng nghe sự kiện (VD: click) trên một phần tử HTML?",
+          "code": "",
           "options": [
             "onClick()",
             "addEventListener()",
@@ -89,6 +94,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Từ khóa nào tạm dừng thực thi cho tới khi Promise hoàn thành?",
+          "code": "",
           "options": [
             "async",
             "await",
@@ -105,6 +111,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Mỗi file JS Module có thể có tối đa bao nhiêu default export?",
+          "code": "",
           "options": [
             "1",
             "Không giới hạn",
@@ -121,6 +128,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Điều gì xảy ra nếu middleware quên gọi next()?",
+          "code": "",
           "options": [
             "Server tự động crash",
             "Request bị treo, không có phản hồi",
@@ -137,6 +145,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Trong React, khi muốn cập nhật một mảng trong state, cách làm đúng là gì?",
+          "code": "",
           "options": [
             "Tạo mảng mới bằng spread/filter/map rồi gọi setState",
             "Gọi trực tiếp .push() lên mảng state cũ",
@@ -153,6 +162,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Phương thức nào chạy nhiều Promise song song mà KHÔNG bị dừng khi một Promise reject?",
+          "code": "",
           "options": [
             "Promise.all()",
             "Promise.allSettled()",
@@ -169,6 +179,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Observer Pattern là nền tảng của API quen thuộc nào trong JavaScript?",
+          "code": "",
           "options": [
             "JSON.stringify()",
             "addEventListener() và EventEmitter",

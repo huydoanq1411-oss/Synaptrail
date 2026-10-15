@@ -45,8 +45,8 @@ function extract(html){
   const sourceFile='assets/roadmaps/'+course+'-source.json';let lessons;
   if(!revision&&fs.existsSync(path.join(root,sourceFile)))lessons=JSON.parse(fs.readFileSync(path.join(root,sourceFile),'utf8')).lessons;
   else{
-   lessons=[];const files=fs.readdirSync(path.join(root,course)).filter(f=>f.endsWith('.html')&&f!=='index.html').sort((a,b)=>a.localeCompare(b,undefined,{numeric:true}));
-   for(const file of files){const html=fs.readFileSync(path.join(root,course,file),'utf8'),redirect=html.match(/http-equiv="refresh"[^>]*content="[^";]*;url=([^"#]+)/i);
+   lessons=[];const files=fs.readdirSync(path.join(root,course)).filter(f=>f.endsWith('.html')&&!['index.html','quiz.html','chu-de.html'].includes(f)).sort((a,b)=>a.localeCompare(b,undefined,{numeric:true}));
+   for(const file of files){const html=revision?require('node:child_process').execFileSync('git',['show',revision+':'+course+'/'+file],{encoding:'utf8',maxBuffer:10*1024*1024}):fs.readFileSync(path.join(root,course,file),'utf8'),redirect=html.match(/http-equiv="refresh"[^>]*content="[^";]*;url=([^"#]+)/i);
     if(redirect){lessons.push({id:path.basename(file,'.html'),file,title:(html.match(/<title>(.*?)\s*\|/i)||[])[1]||name,summary:'Nội dung thuộc khóa '+name+'.',redirect:redirect[1],content:null,questions:[]});continue;}
     const lesson=await browser.evaluate('('+extract.toString()+')('+JSON.stringify(html)+')');lessons.push({id:path.basename(file,'.html'),file,...lesson});
    }

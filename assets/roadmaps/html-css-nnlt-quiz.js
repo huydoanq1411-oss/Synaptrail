@@ -9,6 +9,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Thuộc tính nào BẮT BUỘC nên có trên mọi thẻ <img>?",
+          "code": "",
           "options": [
             "width",
             "alt",
@@ -25,6 +26,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Giá trị position nào giữ phần tử \"dính\" tại một vị trí cố định trên MÀN HÌNH khi cuộn trang?",
+          "code": "",
           "options": [
             "relative",
             "absolute",
@@ -41,6 +43,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Thuộc tính nào biến một phần tử thành Flex Container?",
+          "code": "",
           "options": [
             "display: flex",
             "position: flex",
@@ -57,6 +60,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Thẻ meta nào BẮT BUỘC phải có để responsive design hoạt động đúng trên mobile?",
+          "code": "",
           "options": [
             "<meta name=\"viewport\"...>",
             "<meta name=\"responsive\"...>",
@@ -73,6 +77,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Cú pháp nào dùng để khai báo và sử dụng một biến CSS?",
+          "code": "",
           "options": [
             "$mau-chinh và use(mau-chinh)",
             "--mau-chinh và var(--mau-chinh)",
@@ -89,6 +94,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Nên ưu tiên dùng gì để style, giúp CSS dễ tái sử dụng?",
+          "code": "",
           "options": [
             "ID (#ten-id)",
             "Class (.ten-class)",

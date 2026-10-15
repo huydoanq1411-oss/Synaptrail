@@ -9,6 +9,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Pull Request dùng để làm gì trong quy trình làm việc nhóm?",
+          "code": "",
           "options": [
             "Xóa code không cần thiết",
             "Đề xuất gộp code và cho phép đồng đội review trước khi merge",

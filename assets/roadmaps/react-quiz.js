@@ -9,6 +9,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. JSX thực chất là cú pháp đường tắt cho lời gọi hàm nào?",
+          "code": "",
           "options": [
             "document.createElement()",
             "React.createElement()",
@@ -20,6 +21,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Trong JSX, thuộc tính nào thay thế cho class của HTML?",
+          "code": "",
           "options": [
             "cssClass",
             "styleName",
@@ -31,6 +33,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Tên component React phải tuân theo quy tắc nào?",
+          "code": "",
           "options": [
             "Viết hoa chữ cái đầu (PascalCase)",
             "Toàn bộ chữ hoa",
@@ -42,6 +45,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "4. Một component JSX được phép trả về bao nhiêu phần tử gốc?",
+          "code": "",
           "options": [
             "Không giới hạn",
             "Đúng 2",
@@ -59,6 +63,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Props chảy theo hướng nào giữa các component?",
+          "code": "",
           "options": [
             "Từ con lên cha",
             "Hai chiều tự do",
@@ -70,6 +75,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Prop nào bắt buộc phải có khi render danh sách bằng .map()?",
+          "code": "",
           "options": [
             "id",
             "key",
@@ -81,6 +87,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Component con có được phép sửa trực tiếp props nhận vào không?",
+          "code": "",
           "options": [
             "Không, props chỉ đọc",
             "Có, thoải mái sửa",
@@ -92,6 +99,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "4. Khi truyền một giá trị số làm prop, cần dùng ký hiệu nào?",
+          "code": "",
           "options": [
             "Dấu nháy đơn ' '",
             "Dấu nháy kép \" \"",
@@ -109,6 +117,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. useState(0) trả về gì?",
+          "code": "",
           "options": [
             "Một object",
             "Một mảng gồm 2 phần tử: giá trị và hàm setter",
@@ -120,6 +129,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Cách nào ĐÚNG để cập nhật state?",
+          "code": "",
           "options": [
             "soLan = soLan + 1;",
             "soLan++;",
@@ -131,6 +141,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Hook nên được gọi ở đâu trong component?",
+          "code": "",
           "options": [
             "Cấp cao nhất, không trong if/vòng lặp",
             "Chỉ bên trong sự kiện onClick",
@@ -142,6 +153,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "4. Khác biệt cốt lõi giữa Props và State là gì?",
+          "code": "",
           "options": [
             "Không có khác biệt nào",
             "Props chỉ dùng cho số, State chỉ dùng cho chuỗi",
@@ -159,6 +171,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Vì sao cần gọi e.preventDefault() trong onSubmit?",
+          "code": "",
           "options": [
             "Để form chạy nhanh hơn",
             "Để xóa dữ liệu trong form",
@@ -170,6 +183,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Với checkbox, cần đọc thuộc tính nào để biết trạng thái hiện tại?",
+          "code": "",
           "options": [
             "value",
             "checked",
@@ -181,6 +195,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Computed property name [name]: value dùng để làm gì trong handler dùng chung?",
+          "code": "",
           "options": [
             "Cập nhật đúng field trong object state dựa trên tên input",
             "Tạo một input mới",
@@ -192,6 +207,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "4. Vì sao nên tạo object state MỚI bằng spread thay vì sửa trực tiếp?",
+          "code": "",
           "options": [
             "Để code ngắn hơn",
             "Vì spread nhanh hơn vòng lặp",
@@ -209,6 +225,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Component trả về null thì React làm gì?",
+          "code": "",
           "options": [
             "Báo lỗi",
             "Không render gì cả",
@@ -220,6 +237,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Với {n && <A />}, khi n = 0 kết quả là gì?",
+          "code": "",
           "options": [
             "Không hiển thị gì",
             "Hiển thị số 0",
@@ -231,6 +249,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Cách nào chọn giữa hai giao diện ngay trong JSX?",
+          "code": "",
           "options": [
             "câu lệnh if",
             "toán tử ba ngôi",
@@ -248,6 +267,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. key nên đặt ở đâu?",
+          "code": "",
           "options": [
             "Trên phần tử ngoài cùng trong map",
             "Trong thẻ ul",
@@ -259,6 +279,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Loại key nào tốt nhất?",
+          "code": "",
           "options": [
             "Math.random()",
             "index",
@@ -270,6 +291,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Phương thức nào biến mảng dữ liệu thành mảng JSX?",
+          "code": "",
           "options": [
             "forEach",
             "map",
@@ -287,6 +309,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. useEffect(fn, []) chạy khi nào?",
+          "code": "",
           "options": [
             "Mỗi lần render",
             "Một lần sau lần render đầu",
@@ -298,6 +321,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Hàm trả về từ effect dùng để làm gì?",
+          "code": "",
           "options": [
             "Cập nhật state",
             "Dọn dẹp tài nguyên",
@@ -309,6 +333,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Thiếu mảng phụ thuộc thì effect chạy khi nào?",
+          "code": "",
           "options": [
             "Một lần",
             "Sau mỗi lần render",
@@ -326,6 +351,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Ba trạng thái cần quản lý khi fetch là gì?",
+          "code": "",
           "options": [
             "Tên, tuổi, email",
             "Đang tải, lỗi, dữ liệu",
@@ -337,6 +363,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. fetch có ném lỗi khi server trả 404 không?",
+          "code": "",
           "options": [
             "Có",
             "Không, phải kiểm tra res.ok",
@@ -348,6 +375,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. AbortController dùng để làm gì?",
+          "code": "",
           "options": [
             "Hủy request đang chạy",
             "Tăng tốc request",
@@ -365,6 +393,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Custom hook phải đặt tên thế nào?",
+          "code": "",
           "options": [
             "Bắt đầu bằng use",
             "Kết thúc bằng Hook",
@@ -376,6 +405,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Hai component cùng gọi một custom hook thì state?",
+          "code": "",
           "options": [
             "Dùng chung",
             "Riêng biệt cho mỗi lần gọi",
@@ -387,6 +417,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Mục đích chính của custom hook?",
+          "code": "",
           "options": [
             "Tăng tốc render",
             "Tái sử dụng logic có state",
@@ -404,6 +435,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Thay đổi ref.current có render lại component không?",
+          "code": "",
           "options": [
             "Có",
             "Không",
@@ -415,6 +447,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Muốn focus một input bằng code, dùng gì?",
+          "code": "",
           "options": [
             "useState",
             "useRef",
@@ -426,6 +459,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Giá trị ban đầu của ref DOM thường là?",
+          "code": "",
           "options": [
             "0",
             "undefined",
@@ -443,6 +477,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Context giải quyết vấn đề gì?",
+          "code": "",
           "options": [
             "Prop drilling",
             "Chậm mạng",
@@ -454,6 +489,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Hook nào đọc giá trị context?",
+          "code": "",
           "options": [
             "useState",
             "useContext",
@@ -465,6 +501,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Component bọc quanh cây để cung cấp giá trị là?",
+          "code": "",
           "options": [
             "Consumer",
             "Provider",
@@ -482,6 +519,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Hàm reducer nhận vào gì?",
+          "code": "",
           "options": [
             "state và action",
             "props và state",
@@ -493,6 +531,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Reducer có được sửa trực tiếp state cũ không?",
+          "code": "",
           "options": [
             "Có",
             "Không, phải trả về state mới",
@@ -504,6 +543,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Hàm dùng để gửi action là?",
+          "code": "",
           "options": [
             "setState",
             "dispatch",
@@ -521,6 +561,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Component nào thay thẻ a để không tải lại trang?",
+          "code": "",
           "options": [
             "Link",
             "Anchor",
@@ -532,6 +573,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Route khớp mọi đường dẫn không tồn tại dùng path nào?",
+          "code": "",
           "options": [
             "/",
             "*",
@@ -543,6 +585,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Hook điều hướng bằng code là?",
+          "code": "",
           "options": [
             "useRoute",
             "useNavigate",
@@ -560,6 +603,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Component hiển thị route con trong layout là?",
+          "code": "",
           "options": [
             "Outlet",
             "Child",
@@ -571,6 +615,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Lấy tham số :id từ URL bằng hook nào?",
+          "code": "",
           "options": [
             "useParams",
             "useId",
@@ -582,6 +627,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Tham số lấy từ useParams có kiểu gì?",
+          "code": "",
           "options": [
             "number",
             "string",
@@ -599,6 +645,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. CSS Modules giải quyết vấn đề gì?",
+          "code": "",
           "options": [
             "Đụng tên class",
             "Chậm mạng",
@@ -610,6 +657,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Trong styled-components, style động dựa vào đâu?",
+          "code": "",
           "options": [
             "props",
             "id",
@@ -621,6 +669,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Tên file CSS Modules thường kết thúc bằng?",
+          "code": "",
           "options": [
             ".module.css",
             ".style.js",
@@ -638,6 +687,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. useMemo trả về gì?",
+          "code": "",
           "options": [
             "Một hàm",
             "Giá trị đã tính, được nhớ",
@@ -649,6 +699,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. useCallback giúp giữ nguyên điều gì?",
+          "code": "",
           "options": [
             "Tham chiếu hàm",
             "Giá trị state",
@@ -660,6 +711,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Nên dùng useMemo ở đâu?",
+          "code": "",
           "options": [
             "Mọi biến",
             "Phép tính nặng hoặc tham chiếu cần ổn định",
@@ -677,6 +729,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. React.memo so sánh props theo kiểu nào?",
+          "code": "",
           "options": [
             "Sâu",
             "Nông (shallow)",
@@ -688,6 +741,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Vì sao memo thất bại khi truyền hàm inline?",
+          "code": "",
           "options": [
             "Hàm mới mỗi lần render",
             "Hàm quá dài",
@@ -699,6 +753,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Cha render lại thì con mặc định?",
+          "code": "",
           "options": [
             "Không render",
             "Render lại",
@@ -716,6 +771,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Error Boundary bắt được lỗi nào?",
+          "code": "",
           "options": [
             "Lỗi trong event handler",
             "Lỗi khi render cây con",
@@ -727,6 +783,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Error Boundary hiện được viết bằng?",
+          "code": "",
           "options": [
             "Function component",
             "Class component",
@@ -738,6 +795,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Lỗi trong onClick xử lý bằng?",
+          "code": "",
           "options": [
             "Error Boundary",
             "try/catch",
@@ -755,6 +813,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Portal dùng hàm nào?",
+          "code": "",
           "options": [
             "createPortal",
             "openPortal",
@@ -766,6 +825,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Modal render qua Portal thường được gắn vào?",
+          "code": "",
           "options": [
             "document.body",
             "Component cha",
@@ -777,6 +837,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Sự kiện từ portal nổi bọt theo cây nào?",
+          "code": "",
           "options": [
             "Cây DOM",
             "Cây React",
@@ -794,6 +855,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Hàm tạo store trong RTK?",
+          "code": "",
           "options": [
             "createStore",
             "configureStore",
@@ -805,6 +867,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Component Provider dùng để làm gì?",
+          "code": "",
           "options": [
             "Cung cấp store cho cây component",
             "Tạo action",
@@ -816,6 +879,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Dữ liệu trong Redux chảy theo hướng nào?",
+          "code": "",
           "options": [
             "Hai chiều",
             "Một chiều",
@@ -833,6 +897,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. createSlice trả về gì?",
+          "code": "",
           "options": [
             "Reducer và action creators",
             "Chỉ component",
@@ -844,6 +909,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Thunk có ba trạng thái nào?",
+          "code": "",
           "options": [
             "pending, fulfilled, rejected",
             "start, run, end",
@@ -855,6 +921,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Hook đọc state từ store là?",
+          "code": "",
           "options": [
             "useStore",
             "useSelector",
@@ -872,6 +939,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Hàm nào gắn ô nhập vào form?",
+          "code": "",
           "options": [
             "register",
             "attach",
@@ -883,6 +951,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Zod dùng để làm gì trong ví dụ?",
+          "code": "",
           "options": [
             "Định nghĩa luật kiểm tra dữ liệu",
             "Gọi API",
@@ -894,6 +963,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Validation ở client có thay thế được validation ở server?",
+          "code": "",
           "options": [
             "Có",
             "Không",
@@ -911,6 +981,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Testing Library khuyến khích test điều gì?",
+          "code": "",
           "options": [
             "Hành vi người dùng nhìn thấy",
             "State nội bộ",
@@ -922,6 +993,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Kiểm tra phần tử KHÔNG tồn tại dùng?",
+          "code": "",
           "options": [
             "getBy",
             "queryBy",
@@ -933,6 +1005,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Phần tử xuất hiện sau khi gọi API nên dùng?",
+          "code": "",
           "options": [
             "getBy",
             "queryBy",
@@ -950,6 +1023,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Trong Next.js App Router, URL được tạo từ?",
+          "code": "",
           "options": [
             "Cấu trúc thư mục trong app/",
             "File routes.js",
@@ -961,6 +1035,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Component mặc định trong app/ là?",
+          "code": "",
           "options": [
             "Client Component",
             "Server Component",
@@ -972,6 +1047,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Muốn dùng useState trong file cần thêm gì?",
+          "code": "",
           "options": [
             "\"use client\"",
             "\"use server\"",
@@ -989,6 +1065,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Lệnh tạo bản production với Vite?",
+          "code": "",
           "options": [
             "npm run build",
             "npm start dev",
@@ -1000,6 +1077,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Có nên để secret key trong mã React?",
+          "code": "",
           "options": [
             "Có",
             "Không, vì bundle lộ công khai",
@@ -1011,6 +1089,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. SPA dùng Router cần server làm gì?",
+          "code": "",
           "options": [
             "Rewrite mọi đường dẫn về index.html",
             "Tắt cache",
@@ -1028,6 +1107,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Trạng thái danh sách việc ở dự án này được quản lý bằng?",
+          "code": "",
           "options": [
             "useReducer trong hook useTodos",
             "Biến toàn cục",
@@ -1039,6 +1119,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Dữ liệu được lưu qua các lần tải lại trang bằng?",
+          "code": "",
           "options": [
             "localStorage",
             "Cookie của server",
@@ -1050,6 +1131,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Thành phần nào bảo vệ giao diện khi có lỗi render?",
+          "code": "",
           "options": [
             "Error Boundary",
             "Portal",

@@ -9,6 +9,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Theo chương này, C++ thuộc loại ngôn ngữ nào?",
+          "code": "",
           "options": [
             "Đánh dấu",
             "Biên dịch",
@@ -20,6 +21,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. “Đa mô hình” của C++ trong bài có nghĩa gì?",
+          "code": "",
           "options": [
             "Chỉ dùng hướng đối tượng",
             "Chỉ dùng lập trình thủ tục",
@@ -31,6 +33,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Trong các tình huống sau, đâu là ứng dụng C++ được bài nêu?",
+          "code": "",
           "options": [
             "Viết thành phần cho game engine",
             "Viết thẻ HTML làm chương trình C++",
@@ -42,6 +45,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "4. Nhóm cần làm firmware cho robot. Vì sao C++ là lựa chọn liên quan nội dung bài?",
+          "code": "",
           "options": [
             "Vì C++ là định dạng ảnh",
             "Vì không cần quan tâm công cụ chạy",
@@ -53,6 +57,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "5. Bạn sửa mã nguồn nhưng chạy lại bản thực thi cũ. Bước còn thiếu theo bài là gì?",
+          "code": "",
           "options": [
             "Chỉ đổi màu trình soạn thảo",
             "Biên dịch lại mã nguồn",
@@ -70,6 +75,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Để biên dịch mã C++, cần thành phần nào?",
+          "code": "",
           "options": [
             "Trình biên dịch như GCC, Clang hoặc MSVC",
             "Chỉ theme của VS Code",
@@ -81,6 +87,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Lệnh nào kiểm tra bản cài g++?",
+          "code": "",
           "options": [
             "g++ hello.exe",
             "java -version",
@@ -92,6 +99,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Theo bảng trong bài, môi trường nào đi với Clang qua Xcode Command Line Tools?",
+          "code": "",
           "options": [
             "Chỉ Windows với MinGW",
             "macOS",
@@ -103,6 +111,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "4. Muốn chọn chuẩn C++23 theo cú pháp đã nêu, chọn lệnh nào?",
+          "code": "",
           "options": [
             "g++ --version=c++23 chuong_trinh.cpp",
             "g++ chuong_trinh.cpp -theme=c++23",
@@ -114,6 +123,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "5. Trên Windows, g++ báo “not recognized” dù MinGW đã có. Cần kiểm tra gì?",
+          "code": "",
           "options": [
             "Thư mục bin của MinGW trong PATH",
             "Mọi dấu chấm phẩy trong chương trình",
@@ -131,6 +141,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Trong ví dụ hello.cpp, main đóng vai trò gì?",
+          "code": "",
           "options": [
             "Lưu chuỗi đầu ra",
             "Chọn màu terminal",
@@ -142,6 +153,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Trong ví dụ, return 0 biểu thị điều gì?",
+          "code": "",
           "options": [
             "Chắc chắn in số 0",
             "Kết thúc main với mã thành công",
@@ -153,6 +165,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Đoạn xuất dưới đây in gì?",
+          "code": "std::cout << \"Hello, World!\" << std::endl;",
           "options": [
             "Hello, World! rồi xuống dòng",
             "std::cout",
@@ -164,6 +177,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "4. Lệnh g++ hello.cpp -o hello tạo đầu ra nào theo bài?",
+          "code": "",
           "options": [
             "Chỉ file HTML",
             "Mã Java trong hello.java",
@@ -175,6 +189,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "5. Đã dùng cout/endl trong mẫu nhưng quên include thư viện được bài yêu cầu. Cần thêm gì?",
+          "code": "",
           "options": [
             "#include <string> thay mọi thư viện",
             "#include <iostream>",
@@ -192,6 +207,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Static typing được chương mô tả như thế nào?",
+          "code": "",
           "options": [
             "Kiểu của biến được xác định khi khai báo",
             "Biến luôn tự đổi kiểu theo mọi giá trị mới",
@@ -203,6 +219,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. const trong ví dụ có ý nghĩa gì?",
+          "code": "",
           "options": [
             "Biến luôn tăng một",
             "Chỉ cho phép chuỗi",
@@ -214,6 +231,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Dòng xuất tương ứng ví dụ bien.cpp cho nội dung nào?",
+          "code": "string ten = \"Huy\";\nint tuoi = 20;\ndouble diem_tb = 8.5;\ncout << ten << \" \" << tuoi << \" \" << diem_tb;",
           "options": [
             "20 Huy 8.5",
             "Huy 20 8.5",
@@ -225,6 +243,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "4. Cần lưu đúng/sai như dang_hoc trong ví dụ. Chọn khai báo nào?",
+          "code": "",
           "options": [
             "char dang_hoc = 'A';",
             "string dang_hoc = \"true\";",
@@ -236,6 +255,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "5. Nếu bỏ comment ở dòng thứ hai, lỗi nào xảy ra?",
+          "code": "const double PI = 3.14159;\nPI = 3.14;",
           "options": [
             "Gán lại một hằng const",
             "PI chưa được khai báo",
@@ -253,6 +273,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Phép % trong chương là phép gì?",
+          "code": "",
           "options": [
             "Thương thực",
             "Chia lấy dư",
@@ -264,6 +285,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Theo bài, ++i và i++ khác nhau ở đâu?",
+          "code": "",
           "options": [
             "Cả hai đều giảm i",
             "i++ luôn tăng hai lần",
@@ -275,6 +297,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Với a=10, b=3, a/b và a%b lần lượt là gì?",
+          "code": "",
           "options": [
             "3 và 1",
             "3.333… và 1",
@@ -286,6 +309,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "4. Hai lệnh xuất sau in lần lượt gì?",
+          "code": "int i = 5;\ncout << i++ << endl;\ncout << ++i << endl;",
           "options": [
             "6 rồi 7",
             "5 rồi 6",
@@ -297,6 +321,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "5. Muốn thương thực từ hai int dương nhưng viết a/b. Sửa theo bài thế nào?",
+          "code": "",
           "options": [
             "Chỉ thay / bằng %",
             "Ép một toán hạng sang double trước chia",
@@ -314,6 +339,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Vòng lặp nào LUÔN chạy ít nhất một lần dù điều kiện sai ngay từ đầu?",
+          "code": "",
           "options": [
             "do-while",
             "while",
@@ -330,6 +356,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Toán tử nào dùng để lấy GIÁ TRỊ tại địa chỉ mà con trỏ đang trỏ tới?",
+          "code": "",
           "options": [
             "*con_tro (dereference)",
             "&con_tro",
@@ -346,6 +373,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Từ khóa nào giúp thuộc tính CHỈ truy cập được từ bên trong class?",
+          "code": "",
           "options": [
             "public",
             "private",
@@ -362,6 +390,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Từ khóa nào bắt buộc để đa hình (gọi đúng phương thức class con qua con trỏ cha) hoạt động?",
+          "code": "",
           "options": [
             "virtual",
             "static",
@@ -378,6 +407,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Smart pointer nào chỉ cho phép MỘT chủ sở hữu duy nhất tại một thời điểm?",
+          "code": "",
           "options": [
             "shared_ptr",
             "unique_ptr",
@@ -394,6 +424,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Từ khóa nào dùng để \"ném\" ra một exception trong C++?",
+          "code": "",
           "options": [
             "throw",
             "raise",
@@ -410,6 +441,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Độ phức tạp thời gian của Merge Sort là gì?",
+          "code": "",
           "options": [
             "O(n²)",
             "O(n log n)",
@@ -426,6 +458,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Trong C++ hiện đại, nên ưu tiên dùng gì thay cho new/delete thủ công?",
+          "code": "",
           "options": [
             "Smart pointer (unique_ptr, shared_ptr)",
             "Mảng C-style",
@@ -442,6 +475,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Cấu trúc nào phù hợp nhất để giải bài Two Sum với độ phức tạp O(n)?",
+          "code": "",
           "options": [
             "unordered_map (hash table)",
             "vector duyệt lồng nhau",

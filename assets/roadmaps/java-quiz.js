@@ -9,6 +9,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. javac chuyển mã nguồn Java thành gì?",
+          "code": "",
           "options": [
             "HTML",
             "Mã nguồn JavaScript",
@@ -20,6 +21,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Vai trò của JVM trong quy trình ở bài là gì?",
+          "code": "",
           "options": [
             "Thực thi bytecode",
             "Soạn thảo file .java",
@@ -31,6 +33,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Hai lệnh in này tạo đầu ra nào?",
+          "code": "System.out.println(\"Welcome to Java\");\nSystem.out.println(\"Order received\");",
           "options": [
             "Hai thông báo trên cùng một dòng",
             "Welcome to Java rồi Order received, trên hai dòng",
@@ -42,6 +45,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "4. Muốn bàn giao bytecode cho máy khác, cần kiểm tra điều gì?",
+          "code": "",
           "options": [
             "Chỉ cần cùng trình soạn thảo",
             "Chỉ cần có internet",
@@ -53,6 +57,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "5. Đổi thông báo trong .java nhưng chạy vẫn thấy thông báo cũ. Thiếu bước nào?",
+          "code": "",
           "options": [
             "Lưu rồi biên dịch lại file nguồn",
             "Đổi tên JVM",
@@ -70,6 +75,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Bộ công cụ nào cung cấp javac để phát triển Java?",
+          "code": "",
           "options": [
             "Chỉ runtime",
             "JDK",
@@ -81,6 +87,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. PATH được dùng để làm gì khi gõ lệnh?",
+          "code": "",
           "options": [
             "Lưu mã nguồn của lớp",
             "Lưu điểm quiz",
@@ -92,6 +99,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. java báo phiên bản 8 nhưng javac báo 21. Bước tiếp theo phù hợp là gì?",
+          "code": "",
           "options": [
             "Kiểm tra executable và PATH đang được chọn",
             "Kết luận hai lệnh chắc chắn dùng cùng JDK",
@@ -103,6 +111,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "4. Dòng này cho biết phiên bản của thành phần nào?",
+          "code": "System.out.println(System.getProperty(\"java.version\"));",
           "options": [
             "Trình duyệt đang mở bài",
             "Trình biên dịch chắc chắn",
@@ -114,6 +123,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "5. Đặt JAVA_HOME vào thư mục bin rồi cho rằng lệnh java đã đổi là sai ở đâu?",
+          "code": "",
           "options": [
             "JAVA_HOME phải là tên file nguồn",
             "JAVA_HOME thường là thư mục gốc JDK; vẫn phải kiểm tra PATH",
@@ -131,6 +141,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Trong mẫu truyền thống của bài, phương thức nào là điểm bắt đầu?",
+          "code": "",
           "options": [
             "public static void main(String[] args)",
             "public static void Main(String[] args)",
@@ -142,6 +153,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. println khác print như thế nào?",
+          "code": "",
           "options": [
             "println không in được chuỗi",
             "print luôn thêm hai dòng trống",
@@ -153,6 +165,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Đầu ra của đoạn mã là gì?",
+          "code": "System.out.print(\"Hello, \");\nSystem.out.println(\"Synaptrail!\");",
           "options": [
             "Hello, và Synaptrail! trên hai dòng",
             "Hello, Synaptrail! trên một dòng",
@@ -164,6 +177,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "4. Đứng trong thư mục chứa HelloWorld.java, chọn thứ tự lệnh đúng.",
+          "code": "",
           "options": [
             "java HelloWorld.java rồi javac HelloWorld.class",
             "javac HelloWorld.class rồi java HelloWorld.java",
@@ -175,6 +189,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "5. File helloWorld.java chứa public class HelloWorld. Lỗi cần sửa là gì?",
+          "code": "",
           "options": [
             "Đổi tên file thành HelloWorld.java",
             "Đổi println thành print",
@@ -192,6 +207,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. String trong Java thuộc nhóm nào theo bài?",
+          "code": "",
           "options": [
             "Nguyên thủy",
             "Tham chiếu",
@@ -203,6 +219,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Quy ước nào dùng cho tên biến trong bài?",
+          "code": "",
           "options": [
             "PascalCase như DiemTb",
             "Chỉ dùng chữ hoa như DIEMTB",
@@ -214,6 +231,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Khai báo nào biểu diễn đúng một ký tự theo mẫu?",
+          "code": "",
           "options": [
             "char kyTu = 'A';",
             "String kyTu = \"A\";",
@@ -225,6 +243,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "4. Đoạn mã in nội dung nào?",
+          "code": "String ten = \"Huy\";\nint tuoi = 20;\nSystem.out.println(ten + \" \" + tuoi);",
           "options": [
             "20 Huy",
             "Huy20",
@@ -236,6 +255,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "5. Theo mẫu của bài, cần sửa dòng nào?",
+          "code": "",
           "options": [
             "int tuoi = 20;",
             "float chieuCao = 1.75;",
@@ -253,6 +273,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Toán tử % trong ví dụ dùng để làm gì?",
+          "code": "",
           "options": [
             "Lấy phần dư",
             "Lấy thương thực",
@@ -264,6 +285,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Muốn so sánh nội dung hai String theo bài, chọn cách nào?",
+          "code": "",
           "options": [
             "Chỉ dùng ==",
             "Dùng %",
@@ -275,6 +297,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. Hai dòng in dưới đây cho kết quả nào?",
+          "code": "int a = 10, b = 3;\nSystem.out.println(a / b);\nSystem.out.println(a % b);",
           "options": [
             "3.333… rồi 1",
             "3 rồi 1",
@@ -286,6 +309,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "4. Biến ketQua có giá trị gì?",
+          "code": "int a = 10, b = 3;\nboolean ketQua = (a > 5) && (b < 5);",
           "options": [
             "false vì a lớn hơn b",
             "10",
@@ -297,6 +321,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "5. Hai new String(\"hello\") có cùng nội dung. Vì sao kiểm tra s1 == s2 không đạt mục tiêu?",
+          "code": "",
           "options": [
             "== so tham chiếu; cần s1.equals(s2) để so nội dung",
             "Chuỗi phải viết hoa mới so được",
@@ -314,6 +339,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Cú pháp switch expression hiện đại (Java 14+) dùng ký hiệu gì thay cho break?",
+          "code": "",
           "options": [
             "-> (mũi tên)",
             ":: (hai dấu hai chấm)",
@@ -330,6 +356,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Từ khóa nào dùng để tạo một object mới từ class trong Java?",
+          "code": "",
           "options": [
             "create",
             "new",
@@ -346,6 +373,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Exception nào phổ biến nhất khi gọi method trên biến đang là null?",
+          "code": "",
           "options": [
             "NullPointerException",
             "ArrayIndexOutOfBoundsException",
@@ -362,6 +390,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Điều gì KHÔNG thể làm với abstract class?",
+          "code": "",
           "options": [
             "Kế thừa nó bằng extends",
             "Tạo object trực tiếp bằng new",
@@ -378,6 +407,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Cấu trúc nào phù hợp để tra cứu tên hàng → số lượng?",
+          "code": "",
           "options": [
             "HashMap",
             "HashSet",
@@ -388,6 +418,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. put cùng khóa lần thứ hai làm gì?",
+          "code": "",
           "options": [
             "Tạo khóa trùng",
             "Cập nhật giá trị",
@@ -398,6 +429,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "3. add cùng phần tử vào HashSet lần thứ hai trả về gì?",
+          "code": "",
           "options": [
             "true",
             "null",
@@ -408,6 +440,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "4. Khóa chưa tồn tại: getOrDefault(key, 0) trả gì?",
+          "code": "",
           "options": [
             "0",
             "Tự thêm khóa vào map",
@@ -418,6 +451,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "5. Muốn giữ thứ tự thêm các phần tử duy nhất, chọn gì?",
+          "code": "",
           "options": [
             "HashSet",
             "LinkedHashSet",
@@ -434,6 +468,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Phương thức Stream nào dùng để LỌC phần tử theo điều kiện?",
+          "code": "",
           "options": [
             "filter()",
             "map()",
@@ -450,6 +485,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. record trong Java tự động sinh những gì?",
+          "code": "",
           "options": [
             "Chỉ có constructor",
             "Constructor, getter, equals(), toString()",
@@ -466,6 +502,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Lớp nào trong kiến trúc Spring Boot chịu trách nhiệm chứa logic nghiệp vụ?",
+          "code": "",
           "options": [
             "Controller",
             "Service",
@@ -482,6 +519,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Annotation nào đánh dấu một class là Entity ánh xạ với bảng database?",
+          "code": "",
           "options": [
             "@Service",
             "@Entity",
@@ -498,6 +536,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Design pattern nào đảm bảo một class chỉ có duy nhất một instance?",
+          "code": "",
           "options": [
             "Factory",
             "Singleton",

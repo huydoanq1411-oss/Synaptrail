@@ -9,6 +9,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. DTO trong NestJS dùng để làm gì?",
+          "code": "",
           "options": [
             "Định nghĩa cấu trúc và tự động xác thực dữ liệu đầu vào",
             "Kết nối tới database",

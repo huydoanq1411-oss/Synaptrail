@@ -9,6 +9,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Tại sao cần khai báo \"volumes\" cho service database trong Docker Compose?",
+          "code": "",
           "options": [
             "Để chạy nhanh hơn",
             "Để dữ liệu KHÔNG bị mất khi container bị xóa/khởi động lại",

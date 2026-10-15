@@ -9,6 +9,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Class nào chiếm 1/2 chiều rộng (6/12 cột) trên màn hình từ tablet (md) trở lên?",
+          "code": "",
           "options": [
             "col-half",
             "col-md-6",

@@ -9,6 +9,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Python là ngôn ngữ lập trình kiểu gì?",
+          "code": "",
           "options": [
             "Biên dịch (compiled) thuần túy",
             "Thông dịch (interpreted)",
@@ -19,6 +20,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Ai là người tạo ra Python?",
+          "code": "",
           "options": [
             "Dennis Ritchie",
             "James Gosling",
@@ -35,6 +37,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Lệnh nào dùng để kiểm tra phiên bản Python đã cài?",
+          "code": "",
           "options": [
             "python --version",
             "python -run",
@@ -51,6 +54,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Tên biến nào sau đây KHÔNG hợp lệ trong Python?",
+          "code": "",
           "options": [
             "diem_so",
             "_ketQua",
@@ -67,6 +71,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Kết quả của 7 // 2 là bao nhiêu?",
+          "code": "",
           "options": [
             "3.5",
             "3",
@@ -77,6 +82,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Kết quả của 7 % 2 là bao nhiêu?",
+          "code": "",
           "options": [
             "1",
             "3",
@@ -93,6 +99,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. int(\"7\") + 3 cho kết quả gì?",
+          "code": "",
           "options": [
             "\"73\"",
             "10",
@@ -109,6 +116,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Với s = \"Python\", s[1:4] trả về gì?",
+          "code": "",
           "options": [
             "\"Pyth\"",
             "\"ytho\"",
@@ -125,6 +133,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. bool([]) (danh sách rỗng) trả về gì?",
+          "code": "",
           "options": [
             "True",
             "False",
@@ -141,6 +150,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Python xác định khối lệnh if bằng cách nào?",
+          "code": "",
           "options": [
             "Dấu ngoặc nhọn {}",
             "Thụt lề (indentation)",
@@ -157,6 +167,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. range(5) sinh ra dãy số nào?",
+          "code": "",
           "options": [
             "0, 1, 2, 3, 4",
             "1, 2, 3, 4, 5",
@@ -173,6 +184,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Lệnh nào dừng hẳn vòng lặp, không lặp tiếp?",
+          "code": "",
           "options": [
             "break",
             "continue",
@@ -189,6 +201,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. *args nhận các tham số dưới dạng kiểu dữ liệu nào?",
+          "code": "",
           "options": [
             "dict",
             "tuple",
@@ -205,6 +218,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Hàm không có return tường minh sẽ trả về giá trị gì?",
+          "code": "",
           "options": [
             "0",
             "None",
@@ -215,6 +229,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Ký hiệu nào dùng để áp dụng decorator cho một hàm?",
+          "code": "",
           "options": [
             "@ten_decorator",
             "#ten_decorator",
@@ -231,6 +246,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Phương thức nào thêm một phần tử vào cuối list?",
+          "code": "",
           "options": [
             ".append()",
             ".insert()",
@@ -247,6 +263,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Cấu trúc dữ liệu nào KHÔNG cho phép phần tử trùng lặp?",
+          "code": "",
           "options": [
             "list",
             "set",
@@ -257,6 +274,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Lớp nào trong collections dùng để đếm tần suất phần tử?",
+          "code": "",
           "options": [
             "Counter",
             "defaultdict",
@@ -273,6 +291,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Phương thức nào tự động chạy khi tạo object mới?",
+          "code": "",
           "options": [
             "__init__",
             "__str__",
@@ -283,6 +302,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         },
         {
           "question": "2. Thuộc tính bắt đầu bằng 2 dấu gạch dưới (__ten) thể hiện tính chất gì?",
+          "code": "",
           "options": [
             "Public",
             "Private",
@@ -299,6 +319,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Khối nào trong try/except LUÔN được thực thi?",
+          "code": "",
           "options": [
             "try",
             "else",
@@ -315,6 +336,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Định dạng nào phù hợp nhất để lưu trực tiếp object Python (bao gồm cả class tự định nghĩa)?",
+          "code": "",
           "options": [
             "CSV",
             "Pickle",
@@ -331,6 +353,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Kỹ thuật nào phù hợp nhất cho tác vụ CPU-bound (tính toán nặng)?",
+          "code": "",
           "options": [
             "threading",
             "multiprocessing",
@@ -347,6 +370,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Binary Search yêu cầu điều kiện gì để hoạt động đúng?",
+          "code": "",
           "options": [
             "Dữ liệu đã được sắp xếp",
             "Dữ liệu không trùng lặp",
@@ -363,6 +387,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Kỹ thuật nào lưu lại kết quả bài toán con để tránh tính toán lặp lại?",
+          "code": "",
           "options": [
             "Backtracking",
             "Memoization (Dynamic Programming)",
@@ -379,6 +404,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Cấu trúc dữ liệu nào dùng để triển khai BFS (duyệt theo chiều rộng)?",
+          "code": "",
           "options": [
             "Queue (hàng đợi)",
             "Stack (ngăn xếp)",
@@ -395,6 +421,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Từ khóa nào biến một hàm thường thành generator?",
+          "code": "",
           "options": [
             "yield",
             "return",
@@ -411,6 +438,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Cách nào AN TOÀN để truyền giá trị vào câu truy vấn SQL?",
+          "code": "",
           "options": [
             "Nối chuỗi trực tiếp bằng f-string",
             "Dùng tham số hóa (? hoặc %s)",
@@ -427,6 +455,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Mã trạng thái HTTP nào thể hiện \"tạo mới thành công\"?",
+          "code": "",
           "options": [
             "201",
             "200",
@@ -443,6 +472,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Cấu trúc dữ liệu trung tâm của Pandas dùng để lưu dữ liệu dạng bảng là gì?",
+          "code": "",
           "options": [
             "Array",
             "DataFrame",
@@ -459,6 +489,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Thư viện nào phù hợp để scraping trang web CẦN chạy JavaScript?",
+          "code": "",
           "options": [
             "BeautifulSoup",
             "Selenium",
@@ -475,6 +506,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Công cụ nào dùng để đóng gói ứng dụng cùng môi trường chạy?",
+          "code": "",
           "options": [
             "Docker",
             "Git",
@@ -491,6 +523,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Nguyên tắc SOLID nào nói về \"mở để mở rộng, đóng để sửa đổi\"?",
+          "code": "",
           "options": [
             "Single Responsibility",
             "Liskov Substitution",
@@ -507,6 +540,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Vì sao KHÔNG nên dùng list rỗng làm giá trị mặc định cho tham số hàm?",
+          "code": "",
           "options": [
             "List mặc định bị chia sẻ giữa các lần gọi hàm",
             "Python không cho phép cú pháp này",
@@ -523,6 +557,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Hàm nào trong itertools sinh ra tất cả tổ hợp chọn k phần tử (không quan tâm thứ tự)?",
+          "code": "",
           "options": [
             "permutations",
             "combinations",
@@ -539,6 +574,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. File nào dùng để cấu hình package Python theo chuẩn hiện đại?",
+          "code": "",
           "options": [
             "pyproject.toml",
             "config.json",

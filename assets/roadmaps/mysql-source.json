@@ -23,6 +23,7 @@
       "questions": [
         {
           "question": "1. LEFT JOIN khác INNER JOIN ở điểm nào?",
+          "code": "",
           "options": [
             "Không có gì khác biệt",
             "LEFT JOIN giữ TẤT CẢ dòng bảng trái kể cả không khớp, INNER JOIN chỉ giữ dòng khớp cả 2 bảng",

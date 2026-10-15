@@ -23,6 +23,7 @@
       "questions": [
         {
           "question": "1. Mixin trong SCSS có vai trò tương tự khái niệm gì trong lập trình thông thường?",
+          "code": "",
           "options": [
             "Hàm (function) — có thể nhận tham số, tái sử dụng nhiều lần",
             "Vòng lặp (loop)",

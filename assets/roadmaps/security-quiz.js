@@ -9,6 +9,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Cách phòng chống SQL Injection hiệu quả nhất là gì?",
+          "code": "",
           "options": [
             "Giới hạn độ dài input người dùng",
             "Luôn dùng prepared statement (dấu ?), không nối chuỗi SQL trực tiếp",
@@ -25,6 +26,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. CSRF Token hoạt động hiệu quả vì lý do gì?",
+          "code": "",
           "options": [
             "Kẻ tấn công không biết được giá trị token bí mật để giả mạo request hợp lệ",
             "Token làm request chạy nhanh hơn",
@@ -41,6 +43,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Nhược điểm chính của JWT so với Session truyền thống là gì?",
+          "code": "",
           "options": [
             "JWT không thể dùng cho mobile app",
             "Khó thu hồi token trước hạn vì server không lưu trạng thái",
@@ -57,6 +60,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Lỗ hổng IDOR xảy ra khi nào?",
+          "code": "",
           "options": [
             "Khi mật khẩu không được hash",
             "Khi hệ thống chỉ kiểm tra đăng nhập mà quên kiểm tra quyền sở hữu dữ liệu",
@@ -73,6 +77,7 @@ globalThis.SynaptrailAlgorithmQuizzes = {
       "questions": [
         {
           "question": "1. Tại sao KHÔNG nên trả về lỗi database thô (raw error) trực tiếp cho client?",
+          "code": "",
           "options": [
             "Vì làm chậm phản hồi",
             "Vì vô tình tiết lộ cấu trúc/công nghệ hệ thống cho kẻ tấn công",

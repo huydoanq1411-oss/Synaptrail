@@ -17,6 +17,7 @@
 .algorithm-roadmap .rm-home{display:inline-flex;align-items:center}
 .algorithm-lesson .rm-lesson-content svg text{fill:var(--content-primary)!important}
 .algorithm-lesson .diagram-card svg{min-width:640px}
+.ap-quiz-code{clear:both;white-space:pre-wrap;overflow-wrap:anywhere;padding:var(--space-2);border:1px solid var(--surface-border);border-radius:var(--space-1);background:var(--surface-page);font-size:13px}
 @media(max-width:767px){
  .algorithm-roadmap[data-course] .rm-stage :is(.rm-branch-column,.rm-branch-group){display:contents}
  .algorithm-roadmap[data-course] .rm-stage .rm-node{order:var(--rm-learning-order);width:100%;margin-left:0}
