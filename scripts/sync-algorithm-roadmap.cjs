@@ -1,36 +1,50 @@
-// Refresh chapter-derived excerpts, then generate the no-JS view from the same data.
+// Generate standalone lessons from the canonical content; quizzes live in a separate file.
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
-const root=path.resolve(__dirname,'..'),dataPath=path.join(root,'assets/roadmaps/thuat-toan.js');
-const sandbox={};vm.runInNewContext(fs.readFileSync(dataPath,'utf8'),sandbox);
-const data=sandbox.SynaptrailRoadmapData;
-const decode=s=>s.replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#39;|&apos;/g,"'").replace(/&nbsp;/g,' ').replace(/&amp;/g,'&');
-const text=s=>decode(s.replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim());
-function divAt(html,start){if(start<0)return '';let depth=0;for(const m of html.slice(start).matchAll(/<\/?div\b[^>]*>/g)){depth+=m[0].startsWith('</')?-1:1;if(!depth)return html.slice(start,start+m.index+m[0].length);}throw Error('Unbalanced source div');}
-const groups=[['nen-tang',1,4],['sap-xep',5,11],['tim-kiem',12,15],['tuyen-tinh',16,19],['cay',20,23]];
-for(const [parent,first,last] of groups){
-  for(let i=first;i<=last;i++){
-    const id='chapter'+String(i).padStart(2,'0'),chapter='thuat-toan/'+id+'.html';
-    const html=fs.readFileSync(path.join(root,chapter),'utf8');
-    if(!html.includes('algorithm-entry.js'))fs.writeFileSync(path.join(root,chapter),html.replace('<head>','<head>\n<script src="../assets/algorithm-entry.js"></script>'));
-    const summary=divAt(html,html.indexOf('<div class="summary-box">'));
-    const quiz=divAt(html,html.indexOf('<div class="quiz"'));
-    const code=html.match(/<pre><code>([\s\S]*?)<\/code><\/pre>/)?.[1];
-    const questions=[...quiz.matchAll(/<div class="quiz-q"\s+data-answer="(\d+)"[^>]*>/g)].map(m=>{const body=divAt(quiz,m.index);return {answer:Number(m[1]),question:text(body.match(/<p\b[^>]*>([\s\S]*?)<\/p>/)[1]),options:[...body.matchAll(/<span class="quiz-opt"[^>]*>([\s\S]*?)<\/span>/g)].map(o=>text(o[1])),explanation:text(divAt(body,body.indexOf('<div class="quiz-explanation"')))};});
-    const node={id,title:text(html.match(/<title>Chương \d+ — ([\s\S]*?) — Giáo/)[1]),type:'chi-tiet',side:(i-first)%2?'right':'left',parent,chapter,summary:text(html.match(/<p class="lead">([\s\S]*?)<\/p>/)[1]),time:Math.max(10,Math.round(text(html.match(/<section class="chapter"[\s\S]*?<\/section>/)[0]).length/700/5)*5),related:({9:['chapter23'],23:['chapter09'],7:['chapter08','chapter04'],8:['chapter07'],13:['chapter14','chapter12'],14:['chapter13'],16:['chapter17'],17:['chapter16'],18:['chapter20'],19:['chapter20'],20:['chapter18','chapter19','chapter21'],21:['chapter22'],22:['chapter21']}[i]||[]),comingSoon:false,source:{summary:text(summary.replace(/<h4>[\s\S]*?<\/h4>/,'')),code:code?decode(code):null,quiz:questions,goals:[...html.matchAll(/<h3[^>]*>([\s\S]*?)<\/h3>/g)].map(m=>text(m[1]))}};
-    const section=html.match(/<section class="chapter"[^>]*>([\s\S]*?)<\/section>/)[1];
-    node.source.content=section.replace(quiz,'').replace(/<h2>[\s\S]*?<\/h2>/,'').replace(/<p class="lead">[\s\S]*?<\/p>/,'').replace(/<button class="copy-btn"[^>]*>[\s\S]*?<\/button>/g,'').replace(/\s+on[a-z]+="[^"]*"/gi,'').trim();
-    const old=data.nodes.findIndex(n=>n.id===id);if(old<0)data.nodes.push(node);else data.nodes[old]=node;
-  }
-  const children=data.nodes.filter(n=>n.parent===parent),group=data.nodes.find(n=>n.id===parent);
-  group.summary=children[0].summary;group.time=children.reduce((sum,n)=>sum+n.time,0);
+const root=path.resolve(__dirname,'..'),dataPath=path.join(root,'assets/roadmaps/thuat-toan.js'),quizPath=path.join(root,'assets/roadmaps/thuat-toan-quiz.js');
+const context={};vm.runInNewContext(fs.readFileSync(dataPath,'utf8'),context);const data=context.SynaptrailRoadmapData;
+let quizzes={course:data.course,chapters:{}};
+if(fs.existsSync(quizPath)){const q={};vm.runInNewContext(fs.readFileSync(quizPath,'utf8'),q);quizzes=q.SynaptrailAlgorithmQuizzes;}
+for(const node of data.nodes){if(!node.source)continue;if(node.source.quiz?.length)quizzes.chapters[node.id]={title:node.title,questions:node.source.quiz};delete node.source.quiz;node.quiz=quizzes.chapters[node.id]?'thuat-toan/quiz.html?chapter='+node.id:null;}
+fs.writeFileSync(dataPath,'/* Canonical algorithm roadmap and lesson content. Generate pages: node scripts/sync-algorithm-roadmap.cjs */\nglobalThis.SynaptrailRoadmapData = '+JSON.stringify(data,null,2)+';\n');
+fs.writeFileSync(quizPath,'/* Quiz questions are loaded only by thuat-toan/quiz.html. */\nglobalThis.SynaptrailAlgorithmQuizzes = '+JSON.stringify(quizzes,null,2)+';\n');
+const esc=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
+const arrow='<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const home='<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const lessons=data.nodes.filter(n=>n.source);
+for(const [index,node] of lessons.entries()){
+ if(!node.source.content||/class="quiz(?:\s|"|-q)/.test(node.source.content))throw Error('Invalid lesson content '+node.id);
+ const back='../roadmap/thuat-toan.html#'+node.id;
+ const related=node.related.map(id=>data.nodes.find(n=>n.id===id)).filter(n=>n?.chapter);
+ const next=lessons[index+1],prev=lessons[index-1];
+ const html=`<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="${esc(node.summary)}">
+  <title>${esc(node.title)} | Thuật toán — Synaptrail</title>
+  <link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css">
+  <script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script>
+</head>
+<body class="algorithm-roadmap algorithm-lesson" data-node="${node.id}">
+  <a class="rm-skip" href="#lesson-content">Bỏ qua điều hướng</a>
+  <header class="rm-header ap-header"><a class="rm-back" href="${back}">${arrow}<span>Quay lại lộ trình</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html">${home}<span>Trang chủ</span></a><button type="button" id="rm-theme">◐ Giao diện</button></nav></header>
+  <main class="ap-main" id="lesson-content">
+    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG ${index+1}</p><h1>${esc(node.title)}</h1><p class="rm-lead">${esc(node.summary)}</p><p class="ap-meta">Khoảng ${node.time} phút · Thời lượng ước tính</p></div>
+    <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div>${node.quiz?'<a class="ap-quiz-link" href="quiz.html?chapter='+node.id+'">Làm quiz ở trang riêng →</a>':''}</div>
+    <p id="ap-message" role="status" aria-live="polite"></p>
+    <article class="rm-lesson-content">${node.source.content}</article>
+    ${related.length?'<section class="ap-related"><h2>Bài học liên quan</h2>'+related.map(n=>'<a href="'+esc(path.basename(n.chapter))+'">'+esc(n.title)+' →</a>').join('')+'</section>':''}
+    <nav class="ap-pagination" aria-label="Điều hướng bài học">${prev?'<a href="'+path.basename(prev.chapter)+'">'+arrow+'<span>Bài trước</span></a>':'<span></span>'}${next?'<a href="'+path.basename(next.chapter)+'"><span>Bài tiếp theo →</span></a>':''}</nav>
+    <footer class="rm-footer"><a class="rm-back" href="${back}">${arrow}<span>Quay lại lộ trình</span></a><a href="../index.html">Trang chủ</a></footer>
+  </main>
+</body>
+</html>
+`;
+ fs.writeFileSync(path.join(root,node.chapter),html);
 }
-const ordered=data.nodes.filter(n=>n.side==='spine').flatMap(n=>[n,...data.nodes.filter(c=>c.parent===n.id)]);
-data.nodes=ordered;
-fs.writeFileSync(dataPath,'/* Single runtime source. Chapter excerpts: node scripts/sync-algorithm-roadmap.cjs */\nglobalThis.SynaptrailRoadmapData = '+JSON.stringify(data,null,2)+';\n');
-const escape=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
-const fallback='<ol class="fallback-list">'+ordered.filter(n=>n.side==='spine').map(n=>'<li><h2>'+escape(n.title)+'</h2><p>'+escape(n.summary)+(n.comingSoon?' · Sắp có':'')+'</p><ol>'+ordered.filter(c=>c.parent===n.id).map(c=>'<li><strong>'+escape(c.title)+'</strong><p>'+escape(c.summary)+'</p>'+(c.source?.content?'<details><summary>Đọc nội dung</summary>'+c.source.content+'</details>':c.chapter?'<a href="../'+escape(c.chapter)+'">Mở tài nguyên →</a>':'<span>Sắp có</span>')+'</li>').join('')+'</ol></li>').join('')+'</ol>';
+const groups=data.nodes.filter(n=>n.side==='spine');
+const fallback='<ol class="fallback-list">'+groups.map(n=>'<li><h2>'+esc(n.title)+'</h2><p>'+esc(n.summary)+(n.comingSoon?' · Sắp có':'')+'</p><ol>'+data.nodes.filter(c=>c.parent===n.id).map(c=>'<li>'+(c.chapter?'<a href="../'+esc(c.chapter)+'">'+esc(c.title)+' →</a>':'<strong>'+esc(c.title)+' · Sắp có</strong>')+'</li>').join('')+'</ol></li>').join('')+'</ol>';
 const page=path.join(root,'roadmap/thuat-toan.html');
-const nextFallback='<div class="rm-next" id="rm-next"><noscript>'+data.continueWith.map(item=>'<a href="../'+escape(item.chapter)+'">'+escape(item.title)+'</a>').join('')+'</noscript></div>';
-fs.writeFileSync(page,fs.readFileSync(page,'utf8').replace(/<!-- fallback:start -->[\s\S]*?<!-- fallback:end -->/,'<!-- fallback:start -->\n'+fallback.replaceAll('<details>','<details name="rm-lesson">')+'\n<!-- fallback:end -->').replace(/<div class="rm-next" id="rm-next">[\s\S]*?<\/div>/,nextFallback));
-for(const n of data.nodes){if(n.chapter&&!fs.existsSync(path.join(root,n.chapter)))throw Error('Missing chapter '+n.chapter);for(const id of n.related)if(!data.nodes.some(r=>r.id===id))throw Error('Missing relation '+id);}
-console.log('Synced 23 chapters; validated '+data.nodes.length+' nodes; generated no-JS fallback.');
+fs.writeFileSync(page,fs.readFileSync(page,'utf8').replace(/<!-- fallback:start -->[\s\S]*?<!-- fallback:end -->/,'<!-- fallback:start -->\n'+fallback+'\n<!-- fallback:end -->'));
+for(const node of data.nodes){if(node.chapter&&!fs.existsSync(path.join(root,node.chapter)))throw Error('Missing '+node.chapter);for(const id of node.related)if(!data.nodes.some(n=>n.id===id))throw Error('Missing relation '+id);}
+console.log('Generated 23 standalone lessons; separated '+Object.keys(quizzes.chapters).length+' chapter quizzes; refreshed roadmap fallback.');
