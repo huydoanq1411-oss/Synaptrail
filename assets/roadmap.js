@@ -5,6 +5,7 @@
   function init(){
     const data=globalThis.SynaptrailRoadmapData;if(!data)return;document.body.classList.add('rm-ready');
     const $=id=>document.getElementById(id),panel=$('rm-panel'),map=$('rm-map'),stages=$('rm-stages');
+    document.querySelector('.rm-footer').before(panel);
     const types={'bat-buoc':'Bắt buộc','chi-tiet':'Chi tiết','tuy-chon':'Tùy chọn'};
     const states={learning:'◐ Đang học',done:'✓ Đã xong',skip:'↷ Bỏ qua'};
     const byId=new Map(data.nodes.map(n=>[n.id,n])),buttons=new Map();let selected=null,opener=null,current={},store;
@@ -17,7 +18,7 @@
       const stage=make('li','rm-stage');stage.dataset.stage=group.id;
       const children=data.nodes.filter(n=>n.parent===group.id);let left=0,right=0;
       [group,...children].forEach(node=>{
-        const b=make('button','rm-node');b.type='button';b.dataset.node=node.id;b.dataset.type=node.type;b.dataset.soon=String(node.comingSoon);b.setAttribute('aria-expanded','false');b.setAttribute('aria-controls','rm-panel');b.setAttribute('aria-haspopup','dialog');
+        const b=make('button','rm-node');b.type='button';b.id=node.id;b.dataset.node=node.id;b.dataset.type=node.type;b.dataset.soon=String(node.comingSoon);b.setAttribute('aria-expanded','false');b.setAttribute('aria-controls','rm-panel');
         b.append(make('span','rm-node-type',types[node.type]),make('span','rm-node-title',node.title),make('span','rm-node-state'));
         if(node.side!=='spine'){b.style.gridColumn=node.side==='left'?'1':'3';b.style.gridRow=String(2+(node.side==='left'?left++:right++));}
         b.addEventListener('click',()=>open(node,b));buttons.set(node.id,b);stage.append(b);
@@ -34,18 +35,29 @@
     function save(status){if(!store||!selected||selected.comingSoon)return;try{current=store.update(data.course,selected.id,{status});render();notify('Đã lưu: '+selected.title+' — '+states[status]);}catch(error){notify(error.message);}}
     panel.querySelectorAll('[data-status]').forEach(b=>b.addEventListener('click',()=>save(b.dataset.status)));
     function open(node,b){
+      opener?.setAttribute('aria-expanded','false');
       selected=node;opener=b;b.setAttribute('aria-expanded','true');$('rm-panel-kicker').textContent=types[node.type]+(node.comingSoon?' / SẮP CÓ':node.chapter?' / NỘI DUNG HIỆN CÓ':' / CHẶNG HỌC');
       $('rm-panel-title').textContent=node.title;$('rm-panel-summary').textContent=node.summary;
       $('rm-panel-meta').textContent=node.comingSoon?'◷ Sắp có · Chưa có thời lượng':`◷ Khoảng ${node.time||data.nodes.filter(n=>n.parent===node.id).reduce((sum,n)=>sum+n.time,0)} phút · Ước tính`;
-      const link=$('rm-open-chapter');link.hidden=!node.chapter||node.comingSoon;if(!link.hidden)link.href=url(node.chapter);else link.removeAttribute('href');
-      const goals=node.source?.goals||[];$('rm-goals').replaceChildren(...goals.map(t=>make('li','',t)));$('rm-goals-section').hidden=!goals.length;
+      const link=$('rm-open-chapter');link.hidden=!!node.source||!node.chapter||node.comingSoon;if(!link.hidden)link.href=url(node.chapter);else link.removeAttribute('href');
+      const content=$('rm-lesson-content');content.replaceChildren();
+      if(node.source?.content){
+        const parsed=new DOMParser().parseFromString(node.source.content,'text/html');
+        parsed.querySelectorAll('script,iframe,object,embed,form').forEach(el=>el.remove());
+        parsed.body.querySelectorAll('*').forEach(el=>{for(const a of [...el.attributes])if(a.name.startsWith('on'))el.removeAttribute(a.name);if(el.id)el.id=node.id+'-'+el.id;});
+        parsed.querySelectorAll('[href],[src]').forEach(el=>{for(const attr of ['href','src']){const value=el.getAttribute(attr);if(!value)continue;const resolved=new URL(value,new URL(url(node.chapter),location.href));if(!['file:','http:','https:'].includes(resolved.protocol)){el.removeAttribute(attr);continue;}el.setAttribute(attr,resolved.href);}});
+        content.append(...parsed.body.childNodes);
+      }
       const related=[...new Set([...data.nodes.filter(n=>n.parent===node.id).map(n=>n.id),...node.related])].map(id=>byId.get(id)).filter(n=>n?.chapter&&!n.comingSoon);
-      $('rm-related').replaceChildren(...related.map(n=>{const li=make('li'),a=make('a','',n.title+' ↗');a.href=url(n.chapter);li.append(a);return li;}));$('rm-related-section').hidden=!related.length;$('rm-related-title').textContent=node.side==='spine'?'Bài học trong chặng':'Chương liên quan';
+      $('rm-related').replaceChildren(...related.map(n=>{const li=make('li'),a=make('a','',n.title+' →');a.href='#'+n.id;a.addEventListener('click',event=>{event.preventDefault();open(n,buttons.get(n.id));});li.append(a);return li;}));$('rm-related-section').hidden=!related.length;$('rm-related-title').textContent=node.side==='spine'?'Chọn một mục để đọc':'Mục liên quan';
       $('rm-panel-tabs').replaceChildren();$('rm-excerpt').hidden=true;$('rm-excerpt').replaceChildren();
       const source=node.source;
       const actions=source?[['summary','Tóm tắt',!!source.summary],['quiz','Làm quiz',source.quiz.length>0],['code','Xem ví dụ code',!!source.code]]:[];
-      actions.filter(a=>a[2]).forEach(([kind,label])=>{const action=make('button','',label);action.type='button';action.dataset.excerpt=kind;action.setAttribute('aria-pressed','false');action.setAttribute('aria-controls','rm-excerpt');action.addEventListener('click',()=>showExcerpt(kind));$('rm-panel-tabs').append(action);});
-      render();panel.showModal();document.body.style.overflow='hidden';$('rm-close').focus();drawSoon();
+      actions.filter(a=>a[2]).forEach(([kind,label])=>{const action=make('button','',label);action.type='button';action.dataset.excerpt=kind;action.addEventListener('click',()=>{const target=kind==='summary'?content.querySelector('.summary-box'):kind==='code'?content.querySelector('pre'):$('rm-excerpt');target?.scrollIntoView({block:'start',behavior:'instant'});});$('rm-panel-tabs').append(action);});
+      if(source?.quiz.length)showExcerpt('quiz');
+      panel.hidden=false;panel.dataset.node=node.id;render();
+      try{history.replaceState(null,'','#'+node.id);}catch{}
+      $('rm-panel-title').focus({preventScroll:true});panel.scrollIntoView({block:'start',behavior:'instant'});drawSoon();
     }
     function showExcerpt(kind){
       const source=selected.source,area=$('rm-excerpt');area.hidden=false;area.replaceChildren();panel.querySelectorAll('[data-excerpt]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.excerpt===kind)));
@@ -57,13 +69,11 @@
         const submit=make('button','','Chấm điểm');submit.type='submit';const result=make('p','rm-quiz-result');result.setAttribute('role','status');form.append(submit,result);
         form.addEventListener('submit',event=>{event.preventDefault();let correct=0;source.quiz.forEach((q,i)=>{const field=form.querySelectorAll('fieldset')[i],choice=field.querySelector('input:checked');const ok=Number(choice.value)===q.answer;if(ok)correct++;field.querySelectorAll('label').forEach((l,j)=>{delete l.dataset.result;if(j===q.answer)l.dataset.result='correct';else if(l.querySelector('input').checked)l.dataset.result='wrong';});});result.textContent=`Đúng ${correct}/${source.quiz.length} câu. `+source.quiz.map((q,i)=>`Câu ${i+1}: ${q.options[q.answer]}.`).join(' ');try{current=store.update(data.course,selected.id,{quizScore:Math.round(correct/source.quiz.length*100)});render();}catch{notify('Không thể lưu điểm quiz trên thiết bị này.');}});area.append(form);
       }
-      area.focus();
     }
-    function close(){if(panel.open)panel.close();}
+    function close(){panel.hidden=true;opener?.setAttribute('aria-expanded','false');opener?.focus({preventScroll:true});opener?.scrollIntoView({block:'center',behavior:'instant'});selected=null;try{history.replaceState(null,'',location.href.split('#')[0]);}catch{}drawSoon();}
     $('rm-close').addEventListener('click',close);
-    panel.addEventListener('click',event=>{if(event.target===panel){const r=panel.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)close();}});
-    panel.addEventListener('close',()=>{document.body.style.overflow='';opener?.setAttribute('aria-expanded','false');opener?.focus({preventScroll:true});selected=null;drawSoon();});
-    panel.addEventListener('keydown',event=>{if(event.key==='Escape'){event.preventDefault();close();return;}if(event.key!=='Tab')return;const focusable=[...panel.querySelectorAll('button:not([disabled]),a[href],input,[tabindex="0"]')].filter(el=>el.getClientRects().length);const first=focusable[0],last=focusable.at(-1);if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}});
+    panel.addEventListener('keydown',event=>{if(event.key==='Escape'){event.preventDefault();close();}});
+    $('rm-start').addEventListener('click',event=>{event.preventDefault();open(byId.get('chapter01'),buttons.get('chapter01'));});
     $('rm-theme').addEventListener('click',()=>{const theme=document.documentElement.dataset.theme==='light'?'dark':'light';document.documentElement.dataset.theme=theme;try{localStorage.setItem('synaptrail-theme',theme);}catch{}updateTheme();});
     function updateTheme(){$('rm-theme').textContent=document.documentElement.dataset.theme==='light'?'◐ Chế độ tối':'◐ Chế độ sáng';}
     $('rm-export').addEventListener('click',()=>{try{const blob=new Blob([JSON.stringify(store.read(),null,2)],{type:'application/json'}),href=URL.createObjectURL(blob),a=make('a');a.href=href;a.download='synaptrail-progress.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(href),1000);notify('Đã xuất tiến độ Synaptrail.');}catch(error){notify('Không thể xuất: '+error.message);}});
@@ -83,6 +93,8 @@
       });
     }
     if(globalThis.ResizeObserver)new ResizeObserver(drawSoon).observe(map);globalThis.addEventListener('resize',drawSoon);small.addEventListener('change',drawSoon);reduced.addEventListener('change',drawSoon);
-    updateTheme();render();drawSoon();
+    function openHash(){const node=byId.get(location.hash.slice(1));if(node&&selected?.id!==node.id)open(node,buttons.get(node.id));}
+    globalThis.addEventListener('hashchange',openHash);
+    updateTheme();render();drawSoon();openHash();
   }
 })();
