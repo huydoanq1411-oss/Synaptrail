@@ -23,7 +23,7 @@
     function showQuiz(id){
       const area=$('ap-quiz-area');area.replaceChildren();$('ap-message').textContent='';const quiz=Object.hasOwn(quizData.chapters,id)?quizData.chapters[id]:null;select.value=quiz?id:'';
       document.querySelectorAll('[data-quiz-back]').forEach(a=>a.href=quiz?(quiz.chapter||id+'.html'):roadmap);
-      if(!quiz){$('ap-quiz-title').textContent='Quiz Thuật toán';if(id)notify('Chương này chưa có quiz. Chọn một chương khác trong danh sách.');return;}
+      if(!quiz){$('ap-quiz-title').textContent='Quiz '+(quizData.title||'Thuật toán');if(!Object.keys(quizData.chapters).length){select.disabled=true;select.options[0].textContent='Chưa có quiz';notify('Khóa này chưa có quiz trong dữ liệu hiện tại.');}else if(id)notify('Chương này chưa có quiz. Chọn một chương khác trong danh sách.');return;}
       $('ap-quiz-title').textContent='Quiz · '+quiz.title;document.title='Quiz '+quiz.title+' | Synaptrail';
       try{history.replaceState(null,'','?chapter='+id);}catch{}
       const form=make('form');form.dataset.quiz='true';
