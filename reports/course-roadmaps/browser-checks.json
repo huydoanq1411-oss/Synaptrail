@@ -1,6 +1,162 @@
 {
   "results": [
     {
+      "course": "ai-engineer",
+      "theme": "dark",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "ai-engineer",
+      "theme": "dark",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "ai-engineer",
+      "theme": "dark",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "ai-engineer",
+      "theme": "light",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "ai-engineer",
+      "theme": "light",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "ai-engineer",
+      "theme": "light",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "bootstrap",
+      "theme": "dark",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "bootstrap",
+      "theme": "dark",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "bootstrap",
+      "theme": "dark",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "bootstrap",
+      "theme": "light",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "bootstrap",
+      "theme": "light",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "bootstrap",
+      "theme": "light",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
       "course": "cpp",
       "theme": "dark",
       "width": 375,
@@ -79,6 +235,630 @@
       }
     },
     {
+      "course": "docker",
+      "theme": "dark",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "docker",
+      "theme": "dark",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "docker",
+      "theme": "dark",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "docker",
+      "theme": "light",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "docker",
+      "theme": "light",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "docker",
+      "theme": "light",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "fullstack-js",
+      "theme": "dark",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "fullstack-js",
+      "theme": "dark",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "fullstack-js",
+      "theme": "dark",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "fullstack-js",
+      "theme": "light",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "fullstack-js",
+      "theme": "light",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "fullstack-js",
+      "theme": "light",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "git",
+      "theme": "dark",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "git",
+      "theme": "dark",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "git",
+      "theme": "dark",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "git",
+      "theme": "light",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "git",
+      "theme": "light",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "git",
+      "theme": "light",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "graphql",
+      "theme": "dark",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "graphql",
+      "theme": "dark",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "graphql",
+      "theme": "dark",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "graphql",
+      "theme": "light",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "graphql",
+      "theme": "light",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "graphql",
+      "theme": "light",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "html-css-nnlt",
+      "theme": "dark",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "html-css-nnlt",
+      "theme": "dark",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "html-css-nnlt",
+      "theme": "dark",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "html-css-nnlt",
+      "theme": "light",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "html-css-nnlt",
+      "theme": "light",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "html-css-nnlt",
+      "theme": "light",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "java",
+      "theme": "dark",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "java",
+      "theme": "dark",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "java",
+      "theme": "dark",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "java",
+      "theme": "light",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "java",
+      "theme": "light",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "java",
+      "theme": "light",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "javascript-nnlt",
+      "theme": "dark",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "javascript-nnlt",
+      "theme": "dark",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "javascript-nnlt",
+      "theme": "dark",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "javascript-nnlt",
+      "theme": "light",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "javascript-nnlt",
+      "theme": "light",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "javascript-nnlt",
+      "theme": "light",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "languages",
+      "theme": "dark",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "languages",
+      "theme": "dark",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "languages",
+      "theme": "dark",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "languages",
+      "theme": "light",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "languages",
+      "theme": "light",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "languages",
+      "theme": "light",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
       "course": "machine-learning",
       "theme": "dark",
       "width": 375,
@@ -157,6 +937,240 @@
       }
     },
     {
+      "course": "mysql",
+      "theme": "dark",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "mysql",
+      "theme": "dark",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "mysql",
+      "theme": "dark",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "mysql",
+      "theme": "light",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "mysql",
+      "theme": "light",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "mysql",
+      "theme": "light",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "nestjs",
+      "theme": "dark",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "nestjs",
+      "theme": "dark",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "nestjs",
+      "theme": "dark",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "nestjs",
+      "theme": "light",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "nestjs",
+      "theme": "light",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "nestjs",
+      "theme": "light",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "orm",
+      "theme": "dark",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "orm",
+      "theme": "dark",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "orm",
+      "theme": "dark",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "orm",
+      "theme": "light",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "orm",
+      "theme": "light",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "orm",
+      "theme": "light",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
       "course": "python",
       "theme": "dark",
       "width": 375,
@@ -223,6 +1237,474 @@
     },
     {
       "course": "python",
+      "theme": "light",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "react",
+      "theme": "dark",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "react",
+      "theme": "dark",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "react",
+      "theme": "dark",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "react",
+      "theme": "light",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "react",
+      "theme": "light",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "react",
+      "theme": "light",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "sass",
+      "theme": "dark",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "sass",
+      "theme": "dark",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "sass",
+      "theme": "dark",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "sass",
+      "theme": "light",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "sass",
+      "theme": "light",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "sass",
+      "theme": "light",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "security",
+      "theme": "dark",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "security",
+      "theme": "dark",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "security",
+      "theme": "dark",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "security",
+      "theme": "light",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "security",
+      "theme": "light",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "security",
+      "theme": "light",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "socketio",
+      "theme": "dark",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "socketio",
+      "theme": "dark",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "socketio",
+      "theme": "dark",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "socketio",
+      "theme": "light",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "socketio",
+      "theme": "light",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "socketio",
+      "theme": "light",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "system-design",
+      "theme": "dark",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "system-design",
+      "theme": "dark",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "system-design",
+      "theme": "dark",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "system-design",
+      "theme": "light",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "system-design",
+      "theme": "light",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "system-design",
+      "theme": "light",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "typescript",
+      "theme": "dark",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "typescript",
+      "theme": "dark",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "typescript",
+      "theme": "dark",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "typescript",
+      "theme": "light",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "typescript",
+      "theme": "light",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "typescript",
       "theme": "light",
       "width": 1440,
       "map": {
@@ -238,6 +1720,42 @@
   "issues": [],
   "errors": [],
   "screenshots": [
+    "screenshots/ai-engineer-dark-375-map.png",
+    "screenshots/ai-engineer-dark-375-lesson.png",
+    "screenshots/ai-engineer-dark-375-quiz.png",
+    "screenshots/ai-engineer-dark-768-map.png",
+    "screenshots/ai-engineer-dark-768-lesson.png",
+    "screenshots/ai-engineer-dark-768-quiz.png",
+    "screenshots/ai-engineer-dark-1440-map.png",
+    "screenshots/ai-engineer-dark-1440-lesson.png",
+    "screenshots/ai-engineer-dark-1440-quiz.png",
+    "screenshots/ai-engineer-light-375-map.png",
+    "screenshots/ai-engineer-light-375-lesson.png",
+    "screenshots/ai-engineer-light-375-quiz.png",
+    "screenshots/ai-engineer-light-768-map.png",
+    "screenshots/ai-engineer-light-768-lesson.png",
+    "screenshots/ai-engineer-light-768-quiz.png",
+    "screenshots/ai-engineer-light-1440-map.png",
+    "screenshots/ai-engineer-light-1440-lesson.png",
+    "screenshots/ai-engineer-light-1440-quiz.png",
+    "screenshots/bootstrap-dark-375-map.png",
+    "screenshots/bootstrap-dark-375-lesson.png",
+    "screenshots/bootstrap-dark-375-quiz.png",
+    "screenshots/bootstrap-dark-768-map.png",
+    "screenshots/bootstrap-dark-768-lesson.png",
+    "screenshots/bootstrap-dark-768-quiz.png",
+    "screenshots/bootstrap-dark-1440-map.png",
+    "screenshots/bootstrap-dark-1440-lesson.png",
+    "screenshots/bootstrap-dark-1440-quiz.png",
+    "screenshots/bootstrap-light-375-map.png",
+    "screenshots/bootstrap-light-375-lesson.png",
+    "screenshots/bootstrap-light-375-quiz.png",
+    "screenshots/bootstrap-light-768-map.png",
+    "screenshots/bootstrap-light-768-lesson.png",
+    "screenshots/bootstrap-light-768-quiz.png",
+    "screenshots/bootstrap-light-1440-map.png",
+    "screenshots/bootstrap-light-1440-lesson.png",
+    "screenshots/bootstrap-light-1440-quiz.png",
     "screenshots/cpp-dark-375-map.png",
     "screenshots/cpp-dark-375-lesson.png",
     "screenshots/cpp-dark-375-quiz.png",
@@ -256,6 +1774,126 @@
     "screenshots/cpp-light-1440-map.png",
     "screenshots/cpp-light-1440-lesson.png",
     "screenshots/cpp-light-1440-quiz.png",
+    "screenshots/docker-dark-375-map.png",
+    "screenshots/docker-dark-375-lesson.png",
+    "screenshots/docker-dark-375-quiz.png",
+    "screenshots/docker-dark-768-map.png",
+    "screenshots/docker-dark-768-lesson.png",
+    "screenshots/docker-dark-768-quiz.png",
+    "screenshots/docker-dark-1440-map.png",
+    "screenshots/docker-dark-1440-lesson.png",
+    "screenshots/docker-dark-1440-quiz.png",
+    "screenshots/docker-light-375-map.png",
+    "screenshots/docker-light-375-lesson.png",
+    "screenshots/docker-light-375-quiz.png",
+    "screenshots/docker-light-768-map.png",
+    "screenshots/docker-light-768-lesson.png",
+    "screenshots/docker-light-768-quiz.png",
+    "screenshots/docker-light-1440-map.png",
+    "screenshots/docker-light-1440-lesson.png",
+    "screenshots/docker-light-1440-quiz.png",
+    "screenshots/fullstack-js-dark-375-map.png",
+    "screenshots/fullstack-js-dark-768-map.png",
+    "screenshots/fullstack-js-dark-1440-map.png",
+    "screenshots/fullstack-js-light-375-map.png",
+    "screenshots/fullstack-js-light-768-map.png",
+    "screenshots/fullstack-js-light-1440-map.png",
+    "screenshots/git-dark-375-map.png",
+    "screenshots/git-dark-375-lesson.png",
+    "screenshots/git-dark-375-quiz.png",
+    "screenshots/git-dark-768-map.png",
+    "screenshots/git-dark-768-lesson.png",
+    "screenshots/git-dark-768-quiz.png",
+    "screenshots/git-dark-1440-map.png",
+    "screenshots/git-dark-1440-lesson.png",
+    "screenshots/git-dark-1440-quiz.png",
+    "screenshots/git-light-375-map.png",
+    "screenshots/git-light-375-lesson.png",
+    "screenshots/git-light-375-quiz.png",
+    "screenshots/git-light-768-map.png",
+    "screenshots/git-light-768-lesson.png",
+    "screenshots/git-light-768-quiz.png",
+    "screenshots/git-light-1440-map.png",
+    "screenshots/git-light-1440-lesson.png",
+    "screenshots/git-light-1440-quiz.png",
+    "screenshots/graphql-dark-375-map.png",
+    "screenshots/graphql-dark-375-lesson.png",
+    "screenshots/graphql-dark-768-map.png",
+    "screenshots/graphql-dark-768-lesson.png",
+    "screenshots/graphql-dark-1440-map.png",
+    "screenshots/graphql-dark-1440-lesson.png",
+    "screenshots/graphql-light-375-map.png",
+    "screenshots/graphql-light-375-lesson.png",
+    "screenshots/graphql-light-768-map.png",
+    "screenshots/graphql-light-768-lesson.png",
+    "screenshots/graphql-light-1440-map.png",
+    "screenshots/graphql-light-1440-lesson.png",
+    "screenshots/html-css-nnlt-dark-375-map.png",
+    "screenshots/html-css-nnlt-dark-375-lesson.png",
+    "screenshots/html-css-nnlt-dark-375-quiz.png",
+    "screenshots/html-css-nnlt-dark-768-map.png",
+    "screenshots/html-css-nnlt-dark-768-lesson.png",
+    "screenshots/html-css-nnlt-dark-768-quiz.png",
+    "screenshots/html-css-nnlt-dark-1440-map.png",
+    "screenshots/html-css-nnlt-dark-1440-lesson.png",
+    "screenshots/html-css-nnlt-dark-1440-quiz.png",
+    "screenshots/html-css-nnlt-light-375-map.png",
+    "screenshots/html-css-nnlt-light-375-lesson.png",
+    "screenshots/html-css-nnlt-light-375-quiz.png",
+    "screenshots/html-css-nnlt-light-768-map.png",
+    "screenshots/html-css-nnlt-light-768-lesson.png",
+    "screenshots/html-css-nnlt-light-768-quiz.png",
+    "screenshots/html-css-nnlt-light-1440-map.png",
+    "screenshots/html-css-nnlt-light-1440-lesson.png",
+    "screenshots/html-css-nnlt-light-1440-quiz.png",
+    "screenshots/java-dark-375-map.png",
+    "screenshots/java-dark-375-lesson.png",
+    "screenshots/java-dark-375-quiz.png",
+    "screenshots/java-dark-768-map.png",
+    "screenshots/java-dark-768-lesson.png",
+    "screenshots/java-dark-768-quiz.png",
+    "screenshots/java-dark-1440-map.png",
+    "screenshots/java-dark-1440-lesson.png",
+    "screenshots/java-dark-1440-quiz.png",
+    "screenshots/java-light-375-map.png",
+    "screenshots/java-light-375-lesson.png",
+    "screenshots/java-light-375-quiz.png",
+    "screenshots/java-light-768-map.png",
+    "screenshots/java-light-768-lesson.png",
+    "screenshots/java-light-768-quiz.png",
+    "screenshots/java-light-1440-map.png",
+    "screenshots/java-light-1440-lesson.png",
+    "screenshots/java-light-1440-quiz.png",
+    "screenshots/javascript-nnlt-dark-375-map.png",
+    "screenshots/javascript-nnlt-dark-375-lesson.png",
+    "screenshots/javascript-nnlt-dark-375-quiz.png",
+    "screenshots/javascript-nnlt-dark-768-map.png",
+    "screenshots/javascript-nnlt-dark-768-lesson.png",
+    "screenshots/javascript-nnlt-dark-768-quiz.png",
+    "screenshots/javascript-nnlt-dark-1440-map.png",
+    "screenshots/javascript-nnlt-dark-1440-lesson.png",
+    "screenshots/javascript-nnlt-dark-1440-quiz.png",
+    "screenshots/javascript-nnlt-light-375-map.png",
+    "screenshots/javascript-nnlt-light-375-lesson.png",
+    "screenshots/javascript-nnlt-light-375-quiz.png",
+    "screenshots/javascript-nnlt-light-768-map.png",
+    "screenshots/javascript-nnlt-light-768-lesson.png",
+    "screenshots/javascript-nnlt-light-768-quiz.png",
+    "screenshots/javascript-nnlt-light-1440-map.png",
+    "screenshots/javascript-nnlt-light-1440-lesson.png",
+    "screenshots/javascript-nnlt-light-1440-quiz.png",
+    "screenshots/languages-dark-375-map.png",
+    "screenshots/languages-dark-375-lesson.png",
+    "screenshots/languages-dark-768-map.png",
+    "screenshots/languages-dark-768-lesson.png",
+    "screenshots/languages-dark-1440-map.png",
+    "screenshots/languages-dark-1440-lesson.png",
+    "screenshots/languages-light-375-map.png",
+    "screenshots/languages-light-375-lesson.png",
+    "screenshots/languages-light-768-map.png",
+    "screenshots/languages-light-768-lesson.png",
+    "screenshots/languages-light-1440-map.png",
+    "screenshots/languages-light-1440-lesson.png",
     "screenshots/machine-learning-dark-375-map.png",
     "screenshots/machine-learning-dark-375-lesson.png",
     "screenshots/machine-learning-dark-768-map.png",
@@ -268,6 +1906,60 @@
     "screenshots/machine-learning-light-768-lesson.png",
     "screenshots/machine-learning-light-1440-map.png",
     "screenshots/machine-learning-light-1440-lesson.png",
+    "screenshots/mysql-dark-375-map.png",
+    "screenshots/mysql-dark-375-lesson.png",
+    "screenshots/mysql-dark-375-quiz.png",
+    "screenshots/mysql-dark-768-map.png",
+    "screenshots/mysql-dark-768-lesson.png",
+    "screenshots/mysql-dark-768-quiz.png",
+    "screenshots/mysql-dark-1440-map.png",
+    "screenshots/mysql-dark-1440-lesson.png",
+    "screenshots/mysql-dark-1440-quiz.png",
+    "screenshots/mysql-light-375-map.png",
+    "screenshots/mysql-light-375-lesson.png",
+    "screenshots/mysql-light-375-quiz.png",
+    "screenshots/mysql-light-768-map.png",
+    "screenshots/mysql-light-768-lesson.png",
+    "screenshots/mysql-light-768-quiz.png",
+    "screenshots/mysql-light-1440-map.png",
+    "screenshots/mysql-light-1440-lesson.png",
+    "screenshots/mysql-light-1440-quiz.png",
+    "screenshots/nestjs-dark-375-map.png",
+    "screenshots/nestjs-dark-375-lesson.png",
+    "screenshots/nestjs-dark-375-quiz.png",
+    "screenshots/nestjs-dark-768-map.png",
+    "screenshots/nestjs-dark-768-lesson.png",
+    "screenshots/nestjs-dark-768-quiz.png",
+    "screenshots/nestjs-dark-1440-map.png",
+    "screenshots/nestjs-dark-1440-lesson.png",
+    "screenshots/nestjs-dark-1440-quiz.png",
+    "screenshots/nestjs-light-375-map.png",
+    "screenshots/nestjs-light-375-lesson.png",
+    "screenshots/nestjs-light-375-quiz.png",
+    "screenshots/nestjs-light-768-map.png",
+    "screenshots/nestjs-light-768-lesson.png",
+    "screenshots/nestjs-light-768-quiz.png",
+    "screenshots/nestjs-light-1440-map.png",
+    "screenshots/nestjs-light-1440-lesson.png",
+    "screenshots/nestjs-light-1440-quiz.png",
+    "screenshots/orm-dark-375-map.png",
+    "screenshots/orm-dark-375-lesson.png",
+    "screenshots/orm-dark-375-quiz.png",
+    "screenshots/orm-dark-768-map.png",
+    "screenshots/orm-dark-768-lesson.png",
+    "screenshots/orm-dark-768-quiz.png",
+    "screenshots/orm-dark-1440-map.png",
+    "screenshots/orm-dark-1440-lesson.png",
+    "screenshots/orm-dark-1440-quiz.png",
+    "screenshots/orm-light-375-map.png",
+    "screenshots/orm-light-375-lesson.png",
+    "screenshots/orm-light-375-quiz.png",
+    "screenshots/orm-light-768-map.png",
+    "screenshots/orm-light-768-lesson.png",
+    "screenshots/orm-light-768-quiz.png",
+    "screenshots/orm-light-1440-map.png",
+    "screenshots/orm-light-1440-lesson.png",
+    "screenshots/orm-light-1440-quiz.png",
     "screenshots/python-dark-375-map.png",
     "screenshots/python-dark-375-lesson.png",
     "screenshots/python-dark-375-quiz.png",
@@ -285,6 +1977,114 @@
     "screenshots/python-light-768-quiz.png",
     "screenshots/python-light-1440-map.png",
     "screenshots/python-light-1440-lesson.png",
-    "screenshots/python-light-1440-quiz.png"
+    "screenshots/python-light-1440-quiz.png",
+    "screenshots/react-dark-375-map.png",
+    "screenshots/react-dark-375-lesson.png",
+    "screenshots/react-dark-375-quiz.png",
+    "screenshots/react-dark-768-map.png",
+    "screenshots/react-dark-768-lesson.png",
+    "screenshots/react-dark-768-quiz.png",
+    "screenshots/react-dark-1440-map.png",
+    "screenshots/react-dark-1440-lesson.png",
+    "screenshots/react-dark-1440-quiz.png",
+    "screenshots/react-light-375-map.png",
+    "screenshots/react-light-375-lesson.png",
+    "screenshots/react-light-375-quiz.png",
+    "screenshots/react-light-768-map.png",
+    "screenshots/react-light-768-lesson.png",
+    "screenshots/react-light-768-quiz.png",
+    "screenshots/react-light-1440-map.png",
+    "screenshots/react-light-1440-lesson.png",
+    "screenshots/react-light-1440-quiz.png",
+    "screenshots/sass-dark-375-map.png",
+    "screenshots/sass-dark-375-lesson.png",
+    "screenshots/sass-dark-375-quiz.png",
+    "screenshots/sass-dark-768-map.png",
+    "screenshots/sass-dark-768-lesson.png",
+    "screenshots/sass-dark-768-quiz.png",
+    "screenshots/sass-dark-1440-map.png",
+    "screenshots/sass-dark-1440-lesson.png",
+    "screenshots/sass-dark-1440-quiz.png",
+    "screenshots/sass-light-375-map.png",
+    "screenshots/sass-light-375-lesson.png",
+    "screenshots/sass-light-375-quiz.png",
+    "screenshots/sass-light-768-map.png",
+    "screenshots/sass-light-768-lesson.png",
+    "screenshots/sass-light-768-quiz.png",
+    "screenshots/sass-light-1440-map.png",
+    "screenshots/sass-light-1440-lesson.png",
+    "screenshots/sass-light-1440-quiz.png",
+    "screenshots/security-dark-375-map.png",
+    "screenshots/security-dark-375-lesson.png",
+    "screenshots/security-dark-375-quiz.png",
+    "screenshots/security-dark-768-map.png",
+    "screenshots/security-dark-768-lesson.png",
+    "screenshots/security-dark-768-quiz.png",
+    "screenshots/security-dark-1440-map.png",
+    "screenshots/security-dark-1440-lesson.png",
+    "screenshots/security-dark-1440-quiz.png",
+    "screenshots/security-light-375-map.png",
+    "screenshots/security-light-375-lesson.png",
+    "screenshots/security-light-375-quiz.png",
+    "screenshots/security-light-768-map.png",
+    "screenshots/security-light-768-lesson.png",
+    "screenshots/security-light-768-quiz.png",
+    "screenshots/security-light-1440-map.png",
+    "screenshots/security-light-1440-lesson.png",
+    "screenshots/security-light-1440-quiz.png",
+    "screenshots/socketio-dark-375-map.png",
+    "screenshots/socketio-dark-375-lesson.png",
+    "screenshots/socketio-dark-375-quiz.png",
+    "screenshots/socketio-dark-768-map.png",
+    "screenshots/socketio-dark-768-lesson.png",
+    "screenshots/socketio-dark-768-quiz.png",
+    "screenshots/socketio-dark-1440-map.png",
+    "screenshots/socketio-dark-1440-lesson.png",
+    "screenshots/socketio-dark-1440-quiz.png",
+    "screenshots/socketio-light-375-map.png",
+    "screenshots/socketio-light-375-lesson.png",
+    "screenshots/socketio-light-375-quiz.png",
+    "screenshots/socketio-light-768-map.png",
+    "screenshots/socketio-light-768-lesson.png",
+    "screenshots/socketio-light-768-quiz.png",
+    "screenshots/socketio-light-1440-map.png",
+    "screenshots/socketio-light-1440-lesson.png",
+    "screenshots/socketio-light-1440-quiz.png",
+    "screenshots/system-design-dark-375-map.png",
+    "screenshots/system-design-dark-375-lesson.png",
+    "screenshots/system-design-dark-375-quiz.png",
+    "screenshots/system-design-dark-768-map.png",
+    "screenshots/system-design-dark-768-lesson.png",
+    "screenshots/system-design-dark-768-quiz.png",
+    "screenshots/system-design-dark-1440-map.png",
+    "screenshots/system-design-dark-1440-lesson.png",
+    "screenshots/system-design-dark-1440-quiz.png",
+    "screenshots/system-design-light-375-map.png",
+    "screenshots/system-design-light-375-lesson.png",
+    "screenshots/system-design-light-375-quiz.png",
+    "screenshots/system-design-light-768-map.png",
+    "screenshots/system-design-light-768-lesson.png",
+    "screenshots/system-design-light-768-quiz.png",
+    "screenshots/system-design-light-1440-map.png",
+    "screenshots/system-design-light-1440-lesson.png",
+    "screenshots/system-design-light-1440-quiz.png",
+    "screenshots/typescript-dark-375-map.png",
+    "screenshots/typescript-dark-375-lesson.png",
+    "screenshots/typescript-dark-375-quiz.png",
+    "screenshots/typescript-dark-768-map.png",
+    "screenshots/typescript-dark-768-lesson.png",
+    "screenshots/typescript-dark-768-quiz.png",
+    "screenshots/typescript-dark-1440-map.png",
+    "screenshots/typescript-dark-1440-lesson.png",
+    "screenshots/typescript-dark-1440-quiz.png",
+    "screenshots/typescript-light-375-map.png",
+    "screenshots/typescript-light-375-lesson.png",
+    "screenshots/typescript-light-375-quiz.png",
+    "screenshots/typescript-light-768-map.png",
+    "screenshots/typescript-light-768-lesson.png",
+    "screenshots/typescript-light-768-quiz.png",
+    "screenshots/typescript-light-1440-map.png",
+    "screenshots/typescript-light-1440-lesson.png",
+    "screenshots/typescript-light-1440-quiz.png"
   ]
 }
