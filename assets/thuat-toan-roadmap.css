@@ -1,7 +1,7 @@
 /* Compact cards for the algorithm diagram only. */
 .algorithm-roadmap {
   --ta-card-height:calc(var(--space-4) + var(--space-2));
-  --ta-main-height:calc(var(--space-4) + var(--space-3) + var(--space-1));
+  --ta-main-height:calc(var(--space-4) + var(--space-3) + var(--space-2));
   --ta-card-font:14px;
   --ta-main-font:15px;
   --ta-tile-font:13px;
