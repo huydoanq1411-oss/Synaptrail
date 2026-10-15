@@ -50,7 +50,7 @@
     function drawSoon(){clearTimeout(timer);timer=setTimeout(draw,80);}
     function draw(){
       const svg=$('rm-connections');svg.replaceChildren();const list=small.matches||reduced.matches;map.classList.toggle('rm-list-mode',list);if(list)return;
-      const bounds=svg.getBoundingClientRect();svg.setAttribute('viewBox',`0 0 ${bounds.width} ${bounds.height}`);
+      const bounds=svg.getBoundingClientRect();svg.setAttribute('preserveAspectRatio','none');svg.setAttribute('viewBox',`0 0 ${bounds.width} ${bounds.height}`);
       const rect=el=>{const r=el.getBoundingClientRect();return{x:r.left-bounds.left,y:r.top-bounds.top,w:r.width,h:r.height};};
       const box=id=>rect(buttons.get(id));
       const path=(d,cls)=>{const p=document.createElementNS('http://www.w3.org/2000/svg','path');p.setAttribute('d',d);p.setAttribute('class',cls);svg.append(p);};
@@ -64,7 +64,7 @@
         });
       });
     }
-    if(globalThis.ResizeObserver)new ResizeObserver(drawSoon).observe(map);addEventListener('resize',drawSoon);small.addEventListener('change',drawSoon);reduced.addEventListener('change',drawSoon);
+    if(globalThis.ResizeObserver)new ResizeObserver(drawSoon).observe(map);addEventListener('resize',drawSoon);globalThis.visualViewport?.addEventListener('resize',drawSoon);small.addEventListener('change',drawSoon);reduced.addEventListener('change',drawSoon);
     function focusHash(){const b=buttons.get(location.hash.slice(1));if(b){b.focus({preventScroll:true});b.scrollIntoView({block:'center',behavior:'instant'});}}
     addEventListener('hashchange',focusHash);themeLabel();render();drawSoon();focusHash();
   },{once:true});

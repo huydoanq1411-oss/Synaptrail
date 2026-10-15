@@ -1,6 +1,16 @@
 # Thuật toán: sơ đồ → trang bài học → trang quiz riêng
 
-Mở [lộ trình](../../roadmap/thuat-toan.html). Trục chính ở giữa, các nhánh nằm hai bên cùng cao độ với chặng tương ứng; đường trục liền và đường nhánh Bezier chấm được tính từ vị trí thật. Bố cục tham khảo ý tưởng trong ảnh; màu, nội dung và dữ liệu dùng Synaptrail.
+Mở [lộ trình](../../roadmap/thuat-toan.html). Trục chính ở giữa; các chặng dùng bố cục khác nhau theo ảnh: nhập môn có bốn nhánh bên phải, sắp xếp có cụm ô nhỏ bên trái và nhánh “Sắp xếp nâng cao” tách tiếp bên phải, cấu trúc tuyến tính có các nhóm ô riêng. Đường trục và nhánh lớn dùng nét liền, đường tới từng bài dùng Bezier chấm. Không còn chia mọi chặng thành hai cột đối xứng giống nhau. Bố cục lấy từ `layout` trong dữ liệu; không dùng tọa độ viết tay.
+
+Ảnh tập trung vào cấu trúc mới:
+
+| Chiều rộng | Tối | Sáng |
+| --- | --- | --- |
+| 375px | [Sơ đồ](dark-375-diagram.png) | [Sơ đồ](light-375-diagram.png) |
+| 768px | [Sơ đồ](dark-768-diagram.png) | [Sơ đồ](light-768-diagram.png) |
+| 1440px | [Sơ đồ](dark-1440-diagram.png) | [Sơ đồ](light-1440-diagram.png) |
+
+Lần chỉnh cấu trúc thay đổi bốn file nguồn: `assets/roadmaps/thuat-toan.js`, `assets/roadmap.js`, `assets/roadmap.css`, `scripts/check-algorithm-roadmap.cjs`; cùng báo cáo này, `checks.json`, `check-ui.json` và ảnh kiểm tra trong thư mục. Không sửa trang bài học hoặc quiz. Đã xem sáu ảnh cấu trúc ở cả hai theme; sửa màu chữ ô nhóm để tăng tương phản và căn lại đường trục sau thay kích thước. Kiểm tra tự động đo sai lệch điểm nối dưới 2px và xác nhận Tab vẫn theo thứ tự học dù các nút nằm trong cụm khác nhau. Chưa kiểm tra trên điện thoại vật lý; bước tiếp theo là xem bố cục này trước khi nhân rộng sang khóa khác.
 
 Bấm “Thuật toán là gì?” hoặc “Big O Notation” sẽ chuyển tài liệu sang [chapter01.html](../../thuat-toan/chapter01.html) hoặc [chapter02.html](../../thuat-toan/chapter02.html). Đây là các trang HTML riêng, không phải mở panel, đọc nội tuyến hoặc chuyển hướng về sơ đồ. Bài đọc giữ đủ nội dung, bảng, code và tổng kết; không có sidebar chương hay câu hỏi quiz.
 

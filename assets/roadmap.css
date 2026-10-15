@@ -145,7 +145,9 @@ html[data-theme=light] .rm-connections .rm-branch-line{opacity:.85}
 .rm-branch-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
 .algorithm-roadmap .rm-branch-heading{grid-column:1/-1;text-align:center;font-size:13px;font-weight:650;line-height:1.5;padding:var(--space-1);margin:0;color:var(--content-primary)!important;-webkit-text-fill-color:currentColor!important}
 .algorithm-roadmap .rm-branch-hub{background:var(--rm-accent);color:var(--surface-page)!important;-webkit-text-fill-color:currentColor!important;border:2px solid var(--rm-accent);border-radius:5px;font-size:16px;min-height:var(--rm-node-height);display:flex;align-items:center;justify-content:center;margin-bottom:var(--space-1)}
+html[data-theme] body.algorithm-roadmap .rm-branch-hub{color:var(--surface-page)!important;-webkit-text-fill-color:var(--surface-page)!important}
 .rm-stage-has-hub>.rm-node{align-self:start!important}
+.algorithm-roadmap .rm-stage-has-hub>.rm-node,.algorithm-roadmap .rm-stage-has-hub .rm-branch-hub{min-height:calc(var(--space-4)*2 + var(--space-3))}
 .algorithm-roadmap .rm-branch-group .rm-node{min-height:var(--rm-node-height);padding:var(--space-1) var(--space-2)!important;border-radius:4px}
 .rm-branch-tiles .rm-node-title{font-size:14px}
 .rm-connections .rm-hub-line{stroke:var(--rm-accent);stroke-width:3}
