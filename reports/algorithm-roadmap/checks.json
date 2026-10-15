@@ -1,0 +1,265 @@
+{
+  "data": {
+    "nodes": 38,
+    "chapters": 23,
+    "available": 26,
+    "quizChapters": 12
+  },
+  "results": [
+    {
+      "theme": "dark",
+      "width": 375,
+      "closed": {
+        "overflow": false,
+        "overlaps": [],
+        "clipped": [],
+        "lines": 0,
+        "buttons": 38,
+        "list": true,
+        "external": [],
+        "panelOpen": false,
+        "theme": "dark"
+      },
+      "opened": {
+        "overflow": false,
+        "overlaps": [],
+        "clipped": [],
+        "lines": 0,
+        "buttons": 38,
+        "list": true,
+        "external": [],
+        "panelOpen": true,
+        "theme": "dark"
+      },
+      "panel": {
+        "left": 0,
+        "right": 375,
+        "bottom": 1100,
+        "height": 924,
+        "related": [
+          "../thuat-toan/chapter23.html"
+        ],
+        "tabs": [
+          "summary",
+          "quiz",
+          "code"
+        ],
+        "focus": true
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "closed": {
+        "overflow": false,
+        "overlaps": [],
+        "clipped": [],
+        "lines": 37,
+        "buttons": 38,
+        "list": false,
+        "external": [],
+        "panelOpen": false,
+        "theme": "dark"
+      },
+      "opened": {
+        "overflow": false,
+        "overlaps": [],
+        "clipped": [],
+        "lines": 37,
+        "buttons": 38,
+        "list": false,
+        "external": [],
+        "panelOpen": true,
+        "theme": "dark"
+      },
+      "panel": {
+        "left": 348,
+        "right": 768,
+        "bottom": 1100,
+        "height": 1100,
+        "related": [
+          "../thuat-toan/chapter23.html"
+        ],
+        "tabs": [
+          "summary",
+          "quiz",
+          "code"
+        ],
+        "focus": true
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "closed": {
+        "overflow": false,
+        "overlaps": [],
+        "clipped": [],
+        "lines": 37,
+        "buttons": 38,
+        "list": false,
+        "external": [],
+        "panelOpen": false,
+        "theme": "dark"
+      },
+      "opened": {
+        "overflow": false,
+        "overlaps": [],
+        "clipped": [],
+        "lines": 37,
+        "buttons": 38,
+        "list": false,
+        "external": [],
+        "panelOpen": true,
+        "theme": "dark"
+      },
+      "panel": {
+        "left": 980,
+        "right": 1440,
+        "bottom": 1100,
+        "height": 1100,
+        "related": [
+          "../thuat-toan/chapter23.html"
+        ],
+        "tabs": [
+          "summary",
+          "quiz",
+          "code"
+        ],
+        "focus": true
+      }
+    },
+    {
+      "theme": "light",
+      "width": 375,
+      "closed": {
+        "overflow": false,
+        "overlaps": [],
+        "clipped": [],
+        "lines": 0,
+        "buttons": 38,
+        "list": true,
+        "external": [],
+        "panelOpen": false,
+        "theme": "light"
+      },
+      "opened": {
+        "overflow": false,
+        "overlaps": [],
+        "clipped": [],
+        "lines": 0,
+        "buttons": 38,
+        "list": true,
+        "external": [],
+        "panelOpen": true,
+        "theme": "light"
+      },
+      "panel": {
+        "left": 0,
+        "right": 375,
+        "bottom": 1100,
+        "height": 924,
+        "related": [
+          "../thuat-toan/chapter23.html"
+        ],
+        "tabs": [
+          "summary",
+          "quiz",
+          "code"
+        ],
+        "focus": true
+      }
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "closed": {
+        "overflow": false,
+        "overlaps": [],
+        "clipped": [],
+        "lines": 37,
+        "buttons": 38,
+        "list": false,
+        "external": [],
+        "panelOpen": false,
+        "theme": "light"
+      },
+      "opened": {
+        "overflow": false,
+        "overlaps": [],
+        "clipped": [],
+        "lines": 37,
+        "buttons": 38,
+        "list": false,
+        "external": [],
+        "panelOpen": true,
+        "theme": "light"
+      },
+      "panel": {
+        "left": 348,
+        "right": 768,
+        "bottom": 1100,
+        "height": 1100,
+        "related": [
+          "../thuat-toan/chapter23.html"
+        ],
+        "tabs": [
+          "summary",
+          "quiz",
+          "code"
+        ],
+        "focus": true
+      }
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "closed": {
+        "overflow": false,
+        "overlaps": [],
+        "clipped": [],
+        "lines": 37,
+        "buttons": 38,
+        "list": false,
+        "external": [],
+        "panelOpen": false,
+        "theme": "light"
+      },
+      "opened": {
+        "overflow": false,
+        "overlaps": [],
+        "clipped": [],
+        "lines": 37,
+        "buttons": 38,
+        "list": false,
+        "external": [],
+        "panelOpen": true,
+        "theme": "light"
+      },
+      "panel": {
+        "left": 980,
+        "right": 1440,
+        "bottom": 1100,
+        "height": 1100,
+        "related": [
+          "../thuat-toan/chapter23.html"
+        ],
+        "tabs": [
+          "summary",
+          "quiz",
+          "code"
+        ],
+        "focus": true
+      }
+    }
+  ],
+  "nojs": {
+    "items": 9,
+    "links": 26,
+    "overflow": false
+  },
+  "errors": [],
+  "fileProtocol": true,
+  "progressChecks": true,
+  "keyboardChecks": true
+}

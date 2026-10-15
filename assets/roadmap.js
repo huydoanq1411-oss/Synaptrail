@@ -3,7 +3,7 @@
   try{document.documentElement.dataset.theme=localStorage.getItem('synaptrail-theme')==='light'?'light':'dark';}catch{}
   document.addEventListener('DOMContentLoaded',init,{once:true});
   function init(){
-    const data=globalThis.SynaptrailRoadmapData;if(!data)return;
+    const data=globalThis.SynaptrailRoadmapData;if(!data)return;document.body.classList.add('rm-ready');
     const $=id=>document.getElementById(id),panel=$('rm-panel'),map=$('rm-map'),stages=$('rm-stages');
     const types={'bat-buoc':'Bắt buộc','chi-tiet':'Chi tiết','tuy-chon':'Tùy chọn'};
     const states={learning:'◐ Đang học',done:'✓ Đã xong',skip:'↷ Bỏ qua'};
