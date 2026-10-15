@@ -15,7 +15,7 @@
     const quizData=globalThis.SynaptrailAlgorithmQuizzes;if(!quizData)return;
     const select=$('ap-quiz-select');Object.entries(quizData.chapters).forEach(([id,q])=>{const option=make('option','',q.title);option.value=id;select.append(option);});
     function showQuiz(id){
-      const area=$('ap-quiz-area');area.replaceChildren();$('ap-message').textContent='';const quiz=quizData.chapters[id];select.value=quiz?id:'';
+      const area=$('ap-quiz-area');area.replaceChildren();$('ap-message').textContent='';const quiz=Object.hasOwn(quizData.chapters,id)?quizData.chapters[id]:null;select.value=quiz?id:'';
       document.querySelectorAll('[data-quiz-back]').forEach(a=>a.href=quiz?id+'.html':'../roadmap/thuat-toan.html');
       if(!quiz){$('ap-quiz-title').textContent='Quiz Thuật toán';if(id)notify('Chương này chưa có quiz. Chọn một chương khác trong danh sách.');return;}
       $('ap-quiz-title').textContent='Quiz · '+quiz.title;document.title='Quiz '+quiz.title+' | Synaptrail';
