@@ -1,0 +1,2299 @@
+diff --git "a/C:\\Users\\Quoc Huy\\OneDrive\\Ta\314\200i li\303\252\314\243u\\GitHub\\Synaptrail\\assets\\roadmaps\\python.js" "b/C:\\Users\\Quoc Huy\\OneDrive\\Ta\314\200i li\303\252\314\243u\\GitHub\\Synaptrail\\reports\\course-roadmaps\\structure-preview\\python.js"
+index 4350b3a..66ffce2 100644
+--- "a/C:\\Users\\Quoc Huy\\OneDrive\\Ta\314\200i li\303\252\314\243u\\GitHub\\Synaptrail\\assets\\roadmaps\\python.js"	
++++ "b/C:\\Users\\Quoc Huy\\OneDrive\\Ta\314\200i li\303\252\314\243u\\GitHub\\Synaptrail\\reports\\course-roadmaps\\structure-preview\\python.js"	
+@@ -5,13 +5,13 @@ globalThis.SynaptrailRoadmapData = {
+   "nodes": [
+     {
+       "id": "stage-1",
+-      "title": "Chặng 1 · 1–4",
++      "title": "Nhập môn & môi trường Python",
+       "type": "bat-buoc",
+       "side": "spine",
+       "parent": null,
+       "chapter": null,
+-      "summary": "Giới thiệu Python · Cài đặt Python và VS Code / PyCharm · Chạy chương trình đầu tiên · Biến (Variables)",
+-      "time": 20,
++      "summary": "Giới thiệu Python · Cài đặt Python và VS Code / PyCharm · Chạy chương trình đầu tiên",
++      "time": 15,
+       "related": [],
+       "comingSoon": false
+     },
+@@ -19,7 +19,7 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter001",
+       "title": "Giới thiệu Python",
+       "type": "chi-tiet",
+-      "side": "left",
++      "side": "right",
+       "parent": "stage-1",
+       "chapter": "python/chapter001.html",
+       "summary": "Python là gì, tại sao nên học, và nó khác gì so với các ngôn ngữ lập trình khác.",
+@@ -45,7 +45,7 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter003",
+       "title": "Chạy chương trình đầu tiên",
+       "type": "chi-tiet",
+-      "side": "left",
++      "side": "right",
+       "parent": "stage-1",
+       "chapter": "python/chapter003.html",
+       "summary": "Viết và chạy \"Hello, World!\" — truyền thống của mọi lập trình viên.",
+@@ -54,12 +54,24 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": null
+     },
++    {
++      "id": "stage-2",
++      "title": "Cú pháp & dữ liệu cơ bản",
++      "type": "bat-buoc",
++      "side": "spine",
++      "parent": null,
++      "chapter": null,
++      "summary": "Biến (Variables) · Kiểu dữ liệu · Toán tử (Operators) · Input / Output · Comment · Ép kiểu dữ liệu (Type Casting) · String (Chuỗi) · Number (Số) · Boolean",
++      "time": 45,
++      "related": [],
++      "comingSoon": false
++    },
+     {
+       "id": "chapter004",
+       "title": "Biến (Variables)",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-1",
++      "side": "left",
++      "parent": "stage-2",
+       "chapter": "python/chapter004.html",
+       "summary": "Biến là nơi lưu trữ dữ liệu để chương trình sử dụng và thay đổi.",
+       "time": 5,
+@@ -67,23 +79,11 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": "python/quiz.html?chapter=chapter004"
+     },
+-    {
+-      "id": "stage-2",
+-      "title": "Chặng 2 · 5–8",
+-      "type": "bat-buoc",
+-      "side": "spine",
+-      "parent": null,
+-      "chapter": null,
+-      "summary": "Kiểu dữ liệu · Toán tử (Operators) · Input / Output · Comment",
+-      "time": 20,
+-      "related": [],
+-      "comingSoon": false
+-    },
+     {
+       "id": "chapter005",
+       "title": "Kiểu dữ liệu",
+       "type": "chi-tiet",
+-      "side": "right",
++      "side": "left",
+       "parent": "stage-2",
+       "chapter": "python/chapter005.html",
+       "summary": "Các kiểu dữ liệu cơ bản mà Python hỗ trợ sẵn.",
+@@ -109,7 +109,7 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter007",
+       "title": "Input / Output",
+       "type": "chi-tiet",
+-      "side": "right",
++      "side": "left",
+       "parent": "stage-2",
+       "chapter": "python/chapter007.html",
+       "summary": "Nhận dữ liệu từ người dùng và xuất dữ liệu ra màn hình.",
+@@ -131,24 +131,12 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": null
+     },
+-    {
+-      "id": "stage-3",
+-      "title": "Chặng 3 · 9–12",
+-      "type": "bat-buoc",
+-      "side": "spine",
+-      "parent": null,
+-      "chapter": null,
+-      "summary": "Ép kiểu dữ liệu (Type Casting) · String (Chuỗi) · Number (Số) · Boolean",
+-      "time": 20,
+-      "related": [],
+-      "comingSoon": false
+-    },
+     {
+       "id": "chapter009",
+       "title": "Ép kiểu dữ liệu (Type Casting)",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-3",
++      "side": "right",
++      "parent": "stage-2",
+       "chapter": "python/chapter009.html",
+       "summary": "Chuyển đổi giá trị từ kiểu dữ liệu này sang kiểu dữ liệu khác.",
+       "time": 5,
+@@ -161,7 +149,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "String (Chuỗi)",
+       "type": "chi-tiet",
+       "side": "right",
+-      "parent": "stage-3",
++      "parent": "stage-2",
+       "chapter": "python/chapter010.html",
+       "summary": "Xử lý dữ liệu văn bản — một trong những kiểu dữ liệu dùng nhiều nhất.",
+       "time": 5,
+@@ -173,8 +161,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter011",
+       "title": "Number (Số)",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-3",
++      "side": "right",
++      "parent": "stage-2",
+       "chapter": "python/chapter011.html",
+       "summary": "Các kiểu số trong Python và cách làm việc với chúng.",
+       "time": 5,
+@@ -187,7 +175,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Boolean",
+       "type": "chi-tiet",
+       "side": "right",
+-      "parent": "stage-3",
++      "parent": "stage-2",
+       "chapter": "python/chapter012.html",
+       "summary": "Kiểu dữ liệu chỉ có hai giá trị: Đúng (True) hoặc Sai (False).",
+       "time": 5,
+@@ -196,14 +184,14 @@ globalThis.SynaptrailRoadmapData = {
+       "quiz": "python/quiz.html?chapter=chapter012"
+     },
+     {
+-      "id": "stage-4",
+-      "title": "Chặng 4 · 13–16",
++      "id": "stage-3",
++      "title": "Điều kiện & vòng lặp",
+       "type": "bat-buoc",
+       "side": "spine",
+       "parent": null,
+       "chapter": null,
+-      "summary": "if, elif, else · match-case · Vòng lặp for · Vòng lặp while",
+-      "time": 20,
++      "summary": "if, elif, else · match-case · Vòng lặp for · Vòng lặp while · break · continue · pass",
++      "time": 35,
+       "related": [],
+       "comingSoon": false
+     },
+@@ -211,8 +199,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter013",
+       "title": "if, elif, else",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-4",
++      "side": "left",
++      "parent": "stage-3",
+       "chapter": "python/chapter013.html",
+       "summary": "Câu lệnh điều kiện — cho phép chương trình đưa ra quyết định dựa trên dữ liệu.",
+       "time": 5,
+@@ -225,7 +213,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "match-case",
+       "type": "chi-tiet",
+       "side": "left",
+-      "parent": "stage-4",
++      "parent": "stage-3",
+       "chapter": "python/chapter014.html",
+       "summary": "Cấu trúc so khớp mẫu (pattern matching), tương tự switch-case, có từ Python 3.10.",
+       "time": 5,
+@@ -238,7 +226,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Vòng lặp for",
+       "type": "chi-tiet",
+       "side": "right",
+-      "parent": "stage-4",
++      "parent": "stage-3",
+       "chapter": "python/chapter015.html",
+       "summary": "Lặp qua các phần tử của một tập hợp (list, string, range...).",
+       "time": 5,
+@@ -250,8 +238,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter016",
+       "title": "Vòng lặp while",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-4",
++      "side": "right",
++      "parent": "stage-3",
+       "chapter": "python/chapter016.html",
+       "summary": "Lặp lại một khối lệnh miễn là điều kiện còn đúng.",
+       "time": 5,
+@@ -259,24 +247,12 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": null
+     },
+-    {
+-      "id": "stage-5",
+-      "title": "Chặng 5 · 17–20",
+-      "type": "bat-buoc",
+-      "side": "spine",
+-      "parent": null,
+-      "chapter": null,
+-      "summary": "break · continue · pass · Function cơ bản",
+-      "time": 20,
+-      "related": [],
+-      "comingSoon": false
+-    },
+     {
+       "id": "chapter017",
+       "title": "break",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-5",
++      "side": "right",
++      "parent": "stage-3",
+       "chapter": "python/chapter017.html",
+       "summary": "Thoát khỏi vòng lặp ngay lập tức, bất kể điều kiện lặp còn đúng hay không.",
+       "time": 5,
+@@ -289,7 +265,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "continue",
+       "type": "chi-tiet",
+       "side": "right",
+-      "parent": "stage-5",
++      "parent": "stage-3",
+       "chapter": "python/chapter018.html",
+       "summary": "Bỏ qua phần còn lại của lần lặp hiện tại, chuyển sang lần lặp kế tiếp.",
+       "time": 5,
+@@ -301,8 +277,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter019",
+       "title": "pass",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-5",
++      "side": "right",
++      "parent": "stage-3",
+       "chapter": "python/chapter019.html",
+       "summary": "Lệnh \"không làm gì cả\" — dùng làm chỗ giữ chỗ (placeholder) khi cú pháp yêu cầu một khối lệnh nhưng chưa muốn viết logic.",
+       "time": 5,
+@@ -310,12 +286,24 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": null
+     },
++    {
++      "id": "stage-4",
++      "title": "Hàm & phạm vi biến",
++      "type": "bat-buoc",
++      "side": "spine",
++      "parent": null,
++      "chapter": null,
++      "summary": "Function cơ bản · Tham số hàm (Parameters) · Giá trị trả về (Return) · Lambda · Recursion (Đệ quy) · Scope (Phạm vi biến) · Decorator",
++      "time": 35,
++      "related": [],
++      "comingSoon": false
++    },
+     {
+       "id": "chapter020",
+       "title": "Function cơ bản",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-5",
++      "side": "left",
++      "parent": "stage-4",
+       "chapter": "python/chapter020.html",
+       "summary": "Hàm là khối lệnh có tên, tái sử dụng được, giúp code gọn gàng và tránh lặp lại.",
+       "time": 5,
+@@ -323,24 +311,12 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": null
+     },
+-    {
+-      "id": "stage-6",
+-      "title": "Chặng 6 · 21–24",
+-      "type": "bat-buoc",
+-      "side": "spine",
+-      "parent": null,
+-      "chapter": null,
+-      "summary": "Tham số hàm (Parameters) · Giá trị trả về (Return) · Lambda · Recursion (Đệ quy)",
+-      "time": 20,
+-      "related": [],
+-      "comingSoon": false
+-    },
+     {
+       "id": "chapter021",
+       "title": "Tham số hàm (Parameters)",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-6",
++      "side": "left",
++      "parent": "stage-4",
+       "chapter": "python/chapter021.html",
+       "summary": "Dữ liệu đầu vào truyền cho hàm để xử lý.",
+       "time": 5,
+@@ -353,7 +329,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Giá trị trả về (Return)",
+       "type": "chi-tiet",
+       "side": "left",
+-      "parent": "stage-6",
++      "parent": "stage-4",
+       "chapter": "python/chapter022.html",
+       "summary": "Kết quả mà hàm gửi trả về nơi gọi nó.",
+       "time": 5,
+@@ -366,7 +342,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Lambda",
+       "type": "chi-tiet",
+       "side": "right",
+-      "parent": "stage-6",
++      "parent": "stage-4",
+       "chapter": "python/chapter023.html",
+       "summary": "Hàm ẩn danh (không tên), viết gọn trong một dòng — thường dùng cho các thao tác ngắn.",
+       "time": 5,
+@@ -378,8 +354,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter024",
+       "title": "Recursion (Đệ quy)",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-6",
++      "side": "right",
++      "parent": "stage-4",
+       "chapter": "python/chapter024.html",
+       "summary": "Hàm tự gọi lại chính nó để giải quyết bài toán bằng cách chia nhỏ thành các bài toán con giống hệt cấu trúc.",
+       "time": 5,
+@@ -387,24 +363,12 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": null
+     },
+-    {
+-      "id": "stage-7",
+-      "title": "Chặng 7 · 25–28",
+-      "type": "bat-buoc",
+-      "side": "spine",
+-      "parent": null,
+-      "chapter": null,
+-      "summary": "Scope (Phạm vi biến) · Decorator · List · Tuple",
+-      "time": 20,
+-      "related": [],
+-      "comingSoon": false
+-    },
+     {
+       "id": "chapter025",
+       "title": "Scope (Phạm vi biến)",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-7",
++      "side": "right",
++      "parent": "stage-4",
+       "chapter": "python/chapter025.html",
+       "summary": "Xác định vùng mà một biến có thể được truy cập trong chương trình.",
+       "time": 5,
+@@ -417,7 +381,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Decorator",
+       "type": "chi-tiet",
+       "side": "right",
+-      "parent": "stage-7",
++      "parent": "stage-4",
+       "chapter": "python/chapter026.html",
+       "summary": "Hàm \"bọc\" một hàm khác để mở rộng chức năng mà không cần sửa code gốc.",
+       "time": 5,
+@@ -425,12 +389,24 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": "python/quiz.html?chapter=chapter026"
+     },
++    {
++      "id": "stage-5",
++      "title": "Cấu trúc dữ liệu Python",
++      "type": "bat-buoc",
++      "side": "spine",
++      "parent": null,
++      "chapter": null,
++      "summary": "List · Tuple · Set · Dictionary · Stack & Queue · Collections",
++      "time": 30,
++      "related": [],
++      "comingSoon": false
++    },
+     {
+       "id": "chapter027",
+       "title": "List",
+       "type": "chi-tiet",
+       "side": "left",
+-      "parent": "stage-7",
++      "parent": "stage-5",
+       "chapter": "python/chapter027.html",
+       "summary": "Danh sách có thứ tự, có thể thay đổi (mutable), chứa nhiều kiểu dữ liệu khác nhau.",
+       "time": 5,
+@@ -442,8 +418,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter028",
+       "title": "Tuple",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-7",
++      "side": "left",
++      "parent": "stage-5",
+       "chapter": "python/chapter028.html",
+       "summary": "Giống List nhưng bất biến (immutable) — không thể thay đổi sau khi tạo.",
+       "time": 5,
+@@ -451,24 +427,12 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": null
+     },
+-    {
+-      "id": "stage-8",
+-      "title": "Chặng 8 · 29–32",
+-      "type": "bat-buoc",
+-      "side": "spine",
+-      "parent": null,
+-      "chapter": null,
+-      "summary": "Set · Dictionary · Stack & Queue · Collections",
+-      "time": 20,
+-      "related": [],
+-      "comingSoon": false
+-    },
+     {
+       "id": "chapter029",
+       "title": "Set",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-8",
++      "side": "left",
++      "parent": "stage-5",
+       "chapter": "python/chapter029.html",
+       "summary": "Tập hợp không có thứ tự, không chứa phần tử trùng lặp.",
+       "time": 5,
+@@ -480,8 +444,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter030",
+       "title": "Dictionary",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-8",
++      "side": "right",
++      "parent": "stage-5",
+       "chapter": "python/chapter030.html",
+       "summary": "Cấu trúc lưu trữ dữ liệu theo cặp key–value, tra cứu cực nhanh theo key.",
+       "time": 5,
+@@ -494,7 +458,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Stack & Queue",
+       "type": "chi-tiet",
+       "side": "right",
+-      "parent": "stage-8",
++      "parent": "stage-5",
+       "chapter": "python/chapter031.html",
+       "summary": "Hai cấu trúc dữ liệu nền tảng mô tả cách thêm/lấy phần tử theo thứ tự đặc thù.",
+       "time": 5,
+@@ -506,8 +470,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter032",
+       "title": "Collections",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-8",
++      "side": "right",
++      "parent": "stage-5",
+       "chapter": "python/chapter032.html",
+       "summary": "Module chuẩn cung cấp các cấu trúc dữ liệu mở rộng, mạnh mẽ hơn list/dict thông thường.",
+       "time": 5,
+@@ -516,14 +480,14 @@ globalThis.SynaptrailRoadmapData = {
+       "quiz": "python/quiz.html?chapter=chapter032"
+     },
+     {
+-      "id": "stage-9",
+-      "title": "Chặng 9 · 33–36",
++      "id": "stage-6",
++      "title": "Lập trình hướng đối tượng",
+       "type": "bat-buoc",
+       "side": "spine",
+       "parent": null,
+       "chapter": null,
+-      "summary": "Class & Object · Constructor (__init__) · Encapsulation (Đóng gói) · Inheritance (Kế thừa)",
+-      "time": 20,
++      "summary": "Class & Object · Constructor (__init__) · Encapsulation (Đóng gói) · Inheritance (Kế thừa) · Polymorphism (Đa hình) · Abstraction (Trừu tượng) · Magic Methods · Dataclass",
++      "time": 40,
+       "related": [],
+       "comingSoon": false
+     },
+@@ -532,7 +496,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Class & Object",
+       "type": "chi-tiet",
+       "side": "left",
+-      "parent": "stage-9",
++      "parent": "stage-6",
+       "chapter": "python/chapter033.html",
+       "summary": "Nền tảng của lập trình hướng đối tượng: class là \"khuôn mẫu\", object là \"thực thể\" tạo ra từ khuôn mẫu đó.",
+       "time": 5,
+@@ -544,8 +508,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter034",
+       "title": "Constructor (__init__)",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-9",
++      "side": "left",
++      "parent": "stage-6",
+       "chapter": "python/chapter034.html",
+       "summary": "Phương thức đặc biệt tự động chạy khi một object được tạo ra, dùng để khởi tạo thuộc tính ban đầu.",
+       "time": 5,
+@@ -558,7 +522,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Encapsulation (Đóng gói)",
+       "type": "chi-tiet",
+       "side": "left",
+-      "parent": "stage-9",
++      "parent": "stage-6",
+       "chapter": "python/chapter035.html",
+       "summary": "Ẩn chi tiết nội bộ của object, chỉ cho phép truy cập qua các phương thức được kiểm soát.",
+       "time": 5,
+@@ -570,8 +534,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter036",
+       "title": "Inheritance (Kế thừa)",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-9",
++      "side": "left",
++      "parent": "stage-6",
+       "chapter": "python/chapter036.html",
+       "summary": "Một class con (subclass) kế thừa thuộc tính và phương thức từ class cha (superclass), tái sử dụng code.",
+       "time": 5,
+@@ -579,24 +543,12 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": null
+     },
+-    {
+-      "id": "stage-10",
+-      "title": "Chặng 10 · 37–40",
+-      "type": "bat-buoc",
+-      "side": "spine",
+-      "parent": null,
+-      "chapter": null,
+-      "summary": "Polymorphism (Đa hình) · Abstraction (Trừu tượng) · Magic Methods · Dataclass",
+-      "time": 20,
+-      "related": [],
+-      "comingSoon": false
+-    },
+     {
+       "id": "chapter037",
+       "title": "Polymorphism (Đa hình)",
+       "type": "chi-tiet",
+       "side": "right",
+-      "parent": "stage-10",
++      "parent": "stage-6",
+       "chapter": "python/chapter037.html",
+       "summary": "Nhiều class khác nhau có thể được sử dụng thông qua cùng một giao diện (interface) chung.",
+       "time": 5,
+@@ -608,8 +560,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter038",
+       "title": "Abstraction (Trừu tượng)",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-10",
++      "side": "right",
++      "parent": "stage-6",
+       "chapter": "python/chapter038.html",
+       "summary": "Định nghĩa \"khung sườn bắt buộc\" mà các class con phải triển khai, ẩn đi chi tiết triển khai cụ thể.",
+       "time": 5,
+@@ -622,7 +574,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Magic Methods",
+       "type": "chi-tiet",
+       "side": "right",
+-      "parent": "stage-10",
++      "parent": "stage-6",
+       "chapter": "python/chapter039.html",
+       "summary": "Các phương thức đặc biệt (dunder methods, có dạng __xxx__) cho phép tùy chỉnh hành vi mặc định của object.",
+       "time": 5,
+@@ -634,8 +586,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter040",
+       "title": "Dataclass",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-10",
++      "side": "right",
++      "parent": "stage-6",
+       "chapter": "python/chapter040.html",
+       "summary": "Cách viết class chứa dữ liệu ngắn gọn hơn nhiều, tự động sinh __init__, __repr__, __eq__.",
+       "time": 5,
+@@ -644,8 +596,8 @@ globalThis.SynaptrailRoadmapData = {
+       "quiz": "python/quiz.html?chapter=chapter040"
+     },
+     {
+-      "id": "stage-11",
+-      "title": "Chặng 11 · 41–44",
++      "id": "stage-7",
++      "title": "Module & xử lý ngoại lệ",
+       "type": "bat-buoc",
+       "side": "spine",
+       "parent": null,
+@@ -660,7 +612,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Module & Package",
+       "type": "chi-tiet",
+       "side": "left",
+-      "parent": "stage-11",
++      "parent": "stage-7",
+       "chapter": "python/chapter041.html",
+       "summary": "Cách tổ chức code Python thành các file và thư mục có thể tái sử dụng.",
+       "time": 5,
+@@ -672,8 +624,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter042",
+       "title": "pip & Virtual Environment",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-11",
++      "side": "left",
++      "parent": "stage-7",
+       "chapter": "python/chapter042.html",
+       "summary": "Quản lý thư viện bên thứ ba và cô lập môi trường cho từng dự án.",
+       "time": 5,
+@@ -685,8 +637,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter043",
+       "title": "Try / Except / Finally",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-11",
++      "side": "right",
++      "parent": "stage-7",
+       "chapter": "python/chapter043.html",
+       "summary": "Bắt và xử lý lỗi (exception) để chương trình không bị crash đột ngột.",
+       "time": 5,
+@@ -699,7 +651,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Raise & Custom Exception",
+       "type": "chi-tiet",
+       "side": "right",
+-      "parent": "stage-11",
++      "parent": "stage-7",
+       "chapter": "python/chapter044.html",
+       "summary": "Chủ động ném lỗi và tự định nghĩa loại lỗi riêng cho ứng dụng.",
+       "time": 5,
+@@ -708,14 +660,14 @@ globalThis.SynaptrailRoadmapData = {
+       "quiz": "python/quiz.html?chapter=chapter044"
+     },
+     {
+-      "id": "stage-12",
+-      "title": "Chặng 12 · 45–48",
++      "id": "stage-8",
++      "title": "Làm việc với file",
+       "type": "bat-buoc",
+       "side": "spine",
+       "parent": null,
+       "chapter": null,
+-      "summary": "File TXT · File CSV & JSON · File XML & Pickle · os & sys",
+-      "time": 20,
++      "summary": "File TXT · File CSV & JSON · File XML & Pickle",
++      "time": 15,
+       "related": [],
+       "comingSoon": false
+     },
+@@ -723,8 +675,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter045",
+       "title": "File TXT",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-12",
++      "side": "left",
++      "parent": "stage-8",
+       "chapter": "python/chapter045.html",
+       "summary": "Đọc và ghi dữ liệu văn bản thuần vào file trên ổ đĩa.",
+       "time": 5,
+@@ -737,7 +689,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "File CSV & JSON",
+       "type": "chi-tiet",
+       "side": "left",
+-      "parent": "stage-12",
++      "parent": "stage-8",
+       "chapter": "python/chapter046.html",
+       "summary": "Hai định dạng dữ liệu phổ biến nhất để trao đổi dữ liệu có cấu trúc.",
+       "time": 5,
+@@ -750,7 +702,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "File XML & Pickle",
+       "type": "chi-tiet",
+       "side": "right",
+-      "parent": "stage-12",
++      "parent": "stage-8",
+       "chapter": "python/chapter047.html",
+       "summary": "XML cho dữ liệu có cấu trúc phân cấp, Pickle để lưu trực tiếp object Python.",
+       "time": 5,
+@@ -758,12 +710,24 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": "python/quiz.html?chapter=chapter047"
+     },
++    {
++      "id": "stage-9",
++      "title": "Thư viện chuẩn & đồng thời",
++      "type": "bat-buoc",
++      "side": "spine",
++      "parent": null,
++      "chapter": null,
++      "summary": "os & sys · math & random · datetime & pathlib · shutil & logging · threading & multiprocessing · asyncio",
++      "time": 30,
++      "related": [],
++      "comingSoon": false
++    },
+     {
+       "id": "chapter048",
+       "title": "os & sys",
+       "type": "chi-tiet",
+       "side": "left",
+-      "parent": "stage-12",
++      "parent": "stage-9",
+       "chapter": "python/chapter048.html",
+       "summary": "Tương tác với hệ điều hành và môi trường chạy chương trình.",
+       "time": 5,
+@@ -771,24 +735,12 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": null
+     },
+-    {
+-      "id": "stage-13",
+-      "title": "Chặng 13 · 49–52",
+-      "type": "bat-buoc",
+-      "side": "spine",
+-      "parent": null,
+-      "chapter": null,
+-      "summary": "math & random · datetime & pathlib · shutil & logging · threading & multiprocessing",
+-      "time": 20,
+-      "related": [],
+-      "comingSoon": false
+-    },
+     {
+       "id": "chapter049",
+       "title": "math & random",
+       "type": "chi-tiet",
+       "side": "left",
+-      "parent": "stage-13",
++      "parent": "stage-9",
+       "chapter": "python/chapter049.html",
+       "summary": "Các hàm toán học nâng cao và sinh số/lựa chọn ngẫu nhiên.",
+       "time": 5,
+@@ -800,8 +752,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter050",
+       "title": "datetime & pathlib",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-13",
++      "side": "left",
++      "parent": "stage-9",
+       "chapter": "python/chapter050.html",
+       "summary": "Xử lý ngày giờ và đường dẫn file theo phong cách hiện đại, hướng đối tượng.",
+       "time": 5,
+@@ -814,7 +766,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "shutil & logging",
+       "type": "chi-tiet",
+       "side": "left",
+-      "parent": "stage-13",
++      "parent": "stage-9",
+       "chapter": "python/chapter051.html",
+       "summary": "Thao tác file/thư mục cấp cao và ghi log chuyên nghiệp thay vì dùng print().",
+       "time": 5,
+@@ -827,7 +779,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "threading & multiprocessing",
+       "type": "chi-tiet",
+       "side": "right",
+-      "parent": "stage-13",
++      "parent": "stage-9",
+       "chapter": "python/chapter052.html",
+       "summary": "Chạy nhiều tác vụ song song để tăng hiệu năng chương trình.",
+       "time": 5,
+@@ -835,24 +787,12 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": null
+     },
+-    {
+-      "id": "stage-14",
+-      "title": "Chặng 14 · 53–56",
+-      "type": "bat-buoc",
+-      "side": "spine",
+-      "parent": null,
+-      "chapter": null,
+-      "summary": "asyncio · Big O Notation · Sorting (Thuật toán sắp xếp) · Searching & Hashing",
+-      "time": 20,
+-      "related": [],
+-      "comingSoon": false
+-    },
+     {
+       "id": "chapter053",
+       "title": "asyncio",
+       "type": "chi-tiet",
+       "side": "right",
+-      "parent": "stage-14",
++      "parent": "stage-9",
+       "chapter": "python/chapter053.html",
+       "summary": "Lập trình bất đồng bộ (asynchronous) — xử lý nhiều tác vụ I/O cùng lúc trên một luồng duy nhất.",
+       "time": 5,
+@@ -860,12 +800,24 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": "python/quiz.html?chapter=chapter053"
+     },
++    {
++      "id": "stage-10",
++      "title": "Thuật toán & độ phức tạp",
++      "type": "bat-buoc",
++      "side": "spine",
++      "parent": null,
++      "chapter": null,
++      "summary": "Big O Notation · Sorting (Thuật toán sắp xếp) · Searching & Hashing · Greedy & Divide and Conquer · Dynamic Programming (Quy hoạch động) · Backtracking (Quay lui)",
++      "time": 30,
++      "related": [],
++      "comingSoon": false
++    },
+     {
+       "id": "chapter054",
+       "title": "Big O Notation",
+       "type": "chi-tiet",
+       "side": "left",
+-      "parent": "stage-14",
++      "parent": "stage-10",
+       "chapter": "python/chapter054.html",
+       "summary": "Ký hiệu đo lường độ phức tạp thời gian/bộ nhớ của thuật toán khi kích thước dữ liệu tăng lên.",
+       "time": 5,
+@@ -877,8 +829,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter055",
+       "title": "Sorting (Thuật toán sắp xếp)",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-14",
++      "side": "left",
++      "parent": "stage-10",
+       "chapter": "python/chapter055.html",
+       "summary": "Các thuật toán sắp xếp kinh điển — nền tảng của khoa học máy tính.",
+       "time": 5,
+@@ -891,7 +843,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Searching & Hashing",
+       "type": "chi-tiet",
+       "side": "left",
+-      "parent": "stage-14",
++      "parent": "stage-10",
+       "chapter": "python/chapter056.html",
+       "summary": "Kỹ thuật tìm kiếm phần tử trong tập hợp dữ liệu.",
+       "time": 5,
+@@ -899,24 +851,12 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": "python/quiz.html?chapter=chapter056"
+     },
+-    {
+-      "id": "stage-15",
+-      "title": "Chặng 15 · 57–60",
+-      "type": "bat-buoc",
+-      "side": "spine",
+-      "parent": null,
+-      "chapter": null,
+-      "summary": "Greedy & Divide and Conquer · Dynamic Programming (Quy hoạch động) · Backtracking (Quay lui) · Linked List",
+-      "time": 20,
+-      "related": [],
+-      "comingSoon": false
+-    },
+     {
+       "id": "chapter057",
+       "title": "Greedy & Divide and Conquer",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-15",
++      "side": "right",
++      "parent": "stage-10",
+       "chapter": "python/chapter057.html",
+       "summary": "Hai chiến lược thiết kế thuật toán kinh điển.",
+       "time": 5,
+@@ -929,7 +869,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Dynamic Programming (Quy hoạch động)",
+       "type": "chi-tiet",
+       "side": "right",
+-      "parent": "stage-15",
++      "parent": "stage-10",
+       "chapter": "python/chapter058.html",
+       "summary": "Tối ưu các bài toán đệ quy có bài toán con lặp lại bằng cách lưu lại kết quả đã tính (memoization).",
+       "time": 5,
+@@ -941,8 +881,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter059",
+       "title": "Backtracking (Quay lui)",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-15",
++      "side": "right",
++      "parent": "stage-10",
+       "chapter": "python/chapter059.html",
+       "summary": "Thử từng lựa chọn, nếu không dẫn tới lời giải thì quay lui và thử lựa chọn khác.",
+       "time": 5,
+@@ -950,12 +890,24 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": "python/quiz.html?chapter=chapter059"
+     },
++    {
++      "id": "stage-11",
++      "title": "Cấu trúc dữ liệu nâng cao",
++      "type": "bat-buoc",
++      "side": "spine",
++      "parent": null,
++      "chapter": null,
++      "summary": "Linked List · Tree, Binary Tree & BST · Heap · Graph (Đồ thị) · Trie & Union Find",
++      "time": 25,
++      "related": [],
++      "comingSoon": false
++    },
+     {
+       "id": "chapter060",
+       "title": "Linked List",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-15",
++      "side": "left",
++      "parent": "stage-11",
+       "chapter": "python/chapter060.html",
+       "summary": "Danh sách liên kết — mỗi phần tử (node) chứa dữ liệu và con trỏ trỏ tới phần tử kế tiếp.",
+       "time": 5,
+@@ -963,24 +915,12 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": null
+     },
+-    {
+-      "id": "stage-16",
+-      "title": "Chặng 16 · 61–64",
+-      "type": "bat-buoc",
+-      "side": "spine",
+-      "parent": null,
+-      "chapter": null,
+-      "summary": "Tree, Binary Tree & BST · Heap · Graph (Đồ thị) · Trie & Union Find",
+-      "time": 20,
+-      "related": [],
+-      "comingSoon": false
+-    },
+     {
+       "id": "chapter061",
+       "title": "Tree, Binary Tree & BST",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-16",
++      "side": "left",
++      "parent": "stage-11",
+       "chapter": "python/chapter061.html",
+       "summary": "Cấu trúc dữ liệu phân cấp — nền tảng cho nhiều bài toán và cấu trúc dữ liệu khác (thư mục file, DOM, cây quyết định...).",
+       "time": 5,
+@@ -993,7 +933,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Heap",
+       "type": "chi-tiet",
+       "side": "left",
+-      "parent": "stage-16",
++      "parent": "stage-11",
+       "chapter": "python/chapter062.html",
+       "summary": "Cây nhị phân đặc biệt luôn giữ phần tử nhỏ nhất (hoặc lớn nhất) ở gốc — nền tảng của hàng đợi ưu tiên (priority queue).",
+       "time": 5,
+@@ -1006,7 +946,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Graph (Đồ thị)",
+       "type": "chi-tiet",
+       "side": "right",
+-      "parent": "stage-16",
++      "parent": "stage-11",
+       "chapter": "python/chapter063.html",
+       "summary": "Cấu trúc gồm các đỉnh (node) và cạnh (edge) nối chúng — mô hình hóa mạng xã hội, bản đồ, mạng máy tính...",
+       "time": 5,
+@@ -1018,8 +958,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter064",
+       "title": "Trie & Union Find",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-16",
++      "side": "right",
++      "parent": "stage-11",
+       "chapter": "python/chapter064.html",
+       "summary": "Hai cấu trúc dữ liệu chuyên biệt cho các bài toán cụ thể: xử lý chuỗi và nhóm phần tử.",
+       "time": 5,
+@@ -1028,14 +968,14 @@ globalThis.SynaptrailRoadmapData = {
+       "quiz": null
+     },
+     {
+-      "id": "stage-17",
+-      "title": "Chặng 17 · 65–68",
++      "id": "stage-12",
++      "title": "Kỹ thuật Python nâng cao",
+       "type": "bat-buoc",
+       "side": "spine",
+       "parent": null,
+       "chapter": null,
+-      "summary": "Generator & Iterator · Context Manager · Closure · Metaclass & Reflection",
+-      "time": 20,
++      "summary": "Generator & Iterator · Context Manager · Closure · Metaclass & Reflection · Typing (Type Hints)",
++      "time": 25,
+       "related": [],
+       "comingSoon": false
+     },
+@@ -1044,7 +984,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Generator & Iterator",
+       "type": "chi-tiet",
+       "side": "left",
+-      "parent": "stage-17",
++      "parent": "stage-12",
+       "chapter": "python/chapter065.html",
+       "summary": "Sinh giá trị \"lười\" (lazy) từng phần tử một, tiết kiệm bộ nhớ đáng kể với dữ liệu lớn.",
+       "time": 5,
+@@ -1056,8 +996,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter066",
+       "title": "Context Manager",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-17",
++      "side": "left",
++      "parent": "stage-12",
+       "chapter": "python/chapter066.html",
+       "summary": "Đảm bảo tài nguyên (file, kết nối mạng, khóa luồng) luôn được giải phóng đúng cách, kể cả khi có lỗi.",
+       "time": 5,
+@@ -1070,7 +1010,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Closure",
+       "type": "chi-tiet",
+       "side": "left",
+-      "parent": "stage-17",
++      "parent": "stage-12",
+       "chapter": "python/chapter067.html",
+       "summary": "Hàm bên trong \"ghi nhớ\" biến của hàm bên ngoài, ngay cả sau khi hàm ngoài đã kết thúc chạy.",
+       "time": 5,
+@@ -1083,7 +1023,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Metaclass & Reflection",
+       "type": "chi-tiet",
+       "side": "right",
+-      "parent": "stage-17",
++      "parent": "stage-12",
+       "chapter": "python/chapter068.html",
+       "summary": "Các kỹ thuật nâng cao cho phép chương trình tự \"quan sát\" và điều khiển chính cấu trúc của nó.",
+       "time": 5,
+@@ -1091,24 +1031,12 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": null
+     },
+-    {
+-      "id": "stage-18",
+-      "title": "Chặng 18 · 69–72",
+-      "type": "bat-buoc",
+-      "side": "spine",
+-      "parent": null,
+-      "chapter": null,
+-      "summary": "Typing (Type Hints) · SQLite · MySQL & PostgreSQL · SQLAlchemy (ORM)",
+-      "time": 20,
+-      "related": [],
+-      "comingSoon": false
+-    },
+     {
+       "id": "chapter069",
+       "title": "Typing (Type Hints)",
+       "type": "chi-tiet",
+       "side": "right",
+-      "parent": "stage-18",
++      "parent": "stage-12",
+       "chapter": "python/chapter069.html",
+       "summary": "Chú thích kiểu dữ liệu tường minh — giúp code rõ ràng, IDE gợi ý tốt hơn, phát hiện lỗi sớm hơn.",
+       "time": 5,
+@@ -1116,12 +1044,24 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": "python/quiz.html?chapter=chapter069"
+     },
++    {
++      "id": "stage-13",
++      "title": "Cơ sở dữ liệu",
++      "type": "bat-buoc",
++      "side": "spine",
++      "parent": null,
++      "chapter": null,
++      "summary": "SQLite · MySQL & PostgreSQL · SQLAlchemy (ORM)",
++      "time": 15,
++      "related": [],
++      "comingSoon": false
++    },
+     {
+       "id": "chapter070",
+       "title": "SQLite",
+       "type": "chi-tiet",
+       "side": "left",
+-      "parent": "stage-18",
++      "parent": "stage-13",
+       "chapter": "python/chapter070.html",
+       "summary": "Cơ sở dữ liệu quan hệ nhẹ, không cần cài server riêng, có sẵn trong thư viện chuẩn Python — lý tưởng để học và cho ứng dụng nhỏ.",
+       "time": 5,
+@@ -1133,8 +1073,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter071",
+       "title": "MySQL & PostgreSQL",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-18",
++      "side": "left",
++      "parent": "stage-13",
+       "chapter": "python/chapter071.html",
+       "summary": "Hai hệ quản trị cơ sở dữ liệu quan hệ phổ biến nhất cho ứng dụng thực tế quy mô lớn.",
+       "time": 5,
+@@ -1146,8 +1086,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter072",
+       "title": "SQLAlchemy (ORM)",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-18",
++      "side": "right",
++      "parent": "stage-13",
+       "chapter": "python/chapter072.html",
+       "summary": "ORM (Object-Relational Mapping) cho phép thao tác database bằng code Python thay vì viết SQL thuần.",
+       "time": 5,
+@@ -1156,14 +1096,14 @@ globalThis.SynaptrailRoadmapData = {
+       "quiz": "python/quiz.html?chapter=chapter072"
+     },
+     {
+-      "id": "stage-19",
+-      "title": "Chặng 19 · 73–76",
++      "id": "stage-14",
++      "title": "Web & API",
+       "type": "bat-buoc",
+       "side": "spine",
+       "parent": null,
+       "chapter": null,
+-      "summary": "Flask · Django (Tổng quan) · FastAPI · REST API",
+-      "time": 20,
++      "summary": "Flask · Django (Tổng quan) · FastAPI · REST API · Authentication & JWT",
++      "time": 25,
+       "related": [],
+       "comingSoon": false
+     },
+@@ -1172,7 +1112,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Flask",
+       "type": "chi-tiet",
+       "side": "left",
+-      "parent": "stage-19",
++      "parent": "stage-14",
+       "chapter": "python/chapter073.html",
+       "summary": "Micro-framework nhẹ, linh hoạt — lựa chọn phổ biến để bắt đầu học web development với Python.",
+       "time": 5,
+@@ -1184,8 +1124,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter074",
+       "title": "Django (Tổng quan)",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-19",
++      "side": "left",
++      "parent": "stage-14",
+       "chapter": "python/chapter074.html",
+       "summary": "Framework \"pin đầy đủ\" (batteries-included) — có sẵn ORM, admin panel, authentication, phù hợp dự án lớn.",
+       "time": 5,
+@@ -1198,7 +1138,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "FastAPI",
+       "type": "chi-tiet",
+       "side": "left",
+-      "parent": "stage-19",
++      "parent": "stage-14",
+       "chapter": "python/chapter075.html",
+       "summary": "Framework hiện đại, hiệu năng cao, tự động sinh tài liệu API, tận dụng type hints của Python.",
+       "time": 5,
+@@ -1211,7 +1151,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "REST API",
+       "type": "chi-tiet",
+       "side": "right",
+-      "parent": "stage-19",
++      "parent": "stage-14",
+       "chapter": "python/chapter076.html",
+       "summary": "Kiến trúc thiết kế API phổ biến nhất, dựa trên các phương thức HTTP chuẩn để thao tác tài nguyên (resource).",
+       "time": 5,
+@@ -1219,24 +1159,12 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": null
+     },
+-    {
+-      "id": "stage-20",
+-      "title": "Chặng 20 · 77–80",
+-      "type": "bat-buoc",
+-      "side": "spine",
+-      "parent": null,
+-      "chapter": null,
+-      "summary": "Authentication & JWT · NumPy · Pandas · Matplotlib, Seaborn & Plotly",
+-      "time": 20,
+-      "related": [],
+-      "comingSoon": false
+-    },
+     {
+       "id": "chapter077",
+       "title": "Authentication & JWT",
+       "type": "chi-tiet",
+       "side": "right",
+-      "parent": "stage-20",
++      "parent": "stage-14",
+       "chapter": "python/chapter077.html",
+       "summary": "Xác thực danh tính người dùng và duy trì trạng thái đăng nhập an toàn giữa các request.",
+       "time": 5,
+@@ -1244,12 +1172,24 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": "python/quiz.html?chapter=chapter077"
+     },
++    {
++      "id": "stage-15",
++      "title": "Dữ liệu, AI & tự động hóa",
++      "type": "bat-buoc",
++      "side": "spine",
++      "parent": null,
++      "chapter": null,
++      "summary": "NumPy · Pandas · Matplotlib, Seaborn & Plotly · Scikit-learn · TensorFlow & PyTorch · OpenCV · BeautifulSoup & Requests · Selenium · PyAutoGUI & Schedule",
++      "time": 45,
++      "related": [],
++      "comingSoon": false
++    },
+     {
+       "id": "chapter078",
+       "title": "NumPy",
+       "type": "chi-tiet",
+       "side": "left",
+-      "parent": "stage-20",
++      "parent": "stage-15",
+       "chapter": "python/chapter078.html",
+       "summary": "Thư viện nền tảng cho tính toán số học hiệu năng cao với mảng đa chiều (array).",
+       "time": 5,
+@@ -1261,8 +1201,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter079",
+       "title": "Pandas",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-20",
++      "side": "left",
++      "parent": "stage-15",
+       "chapter": "python/chapter079.html",
+       "summary": "Thư viện xử lý dữ liệu dạng bảng (giống Excel) mạnh mẽ nhất trong Python.",
+       "time": 5,
+@@ -1275,7 +1215,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Matplotlib, Seaborn & Plotly",
+       "type": "chi-tiet",
+       "side": "left",
+-      "parent": "stage-20",
++      "parent": "stage-15",
+       "chapter": "python/chapter080.html",
+       "summary": "Ba thư viện trực quan hóa dữ liệu phổ biến nhất, từ cơ bản đến tương tác.",
+       "time": 5,
+@@ -1283,24 +1223,12 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": null
+     },
+-    {
+-      "id": "stage-21",
+-      "title": "Chặng 21 · 81–84",
+-      "type": "bat-buoc",
+-      "side": "spine",
+-      "parent": null,
+-      "chapter": null,
+-      "summary": "Scikit-learn · TensorFlow & PyTorch · OpenCV · BeautifulSoup & Requests",
+-      "time": 20,
+-      "related": [],
+-      "comingSoon": false
+-    },
+     {
+       "id": "chapter081",
+       "title": "Scikit-learn",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-21",
++      "side": "right",
++      "parent": "stage-15",
+       "chapter": "python/chapter081.html",
+       "summary": "Thư viện machine learning cổ điển phổ biến nhất — hồi quy, phân loại, gom cụm với API nhất quán.",
+       "time": 5,
+@@ -1313,7 +1241,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "TensorFlow & PyTorch",
+       "type": "chi-tiet",
+       "side": "right",
+-      "parent": "stage-21",
++      "parent": "stage-15",
+       "chapter": "python/chapter082.html",
+       "summary": "Hai framework deep learning hàng đầu để xây dựng mạng nơ-ron nhân tạo.",
+       "time": 5,
+@@ -1325,8 +1253,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter083",
+       "title": "OpenCV",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-21",
++      "side": "right",
++      "parent": "stage-15",
+       "chapter": "python/chapter083.html",
+       "summary": "Thư viện xử lý ảnh và thị giác máy tính (computer vision) phổ biến nhất.",
+       "time": 5,
+@@ -1339,7 +1267,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "BeautifulSoup & Requests",
+       "type": "chi-tiet",
+       "side": "right",
+-      "parent": "stage-21",
++      "parent": "stage-15",
+       "chapter": "python/chapter084.html",
+       "summary": "Cặp thư viện kinh điển để lấy dữ liệu từ trang web tĩnh (web scraping).",
+       "time": 5,
+@@ -1347,24 +1275,12 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": null
+     },
+-    {
+-      "id": "stage-22",
+-      "title": "Chặng 22 · 85–88",
+-      "type": "bat-buoc",
+-      "side": "spine",
+-      "parent": null,
+-      "chapter": null,
+-      "summary": "Selenium · PyAutoGUI & Schedule · unittest & pytest · Mock",
+-      "time": 20,
+-      "related": [],
+-      "comingSoon": false
+-    },
+     {
+       "id": "chapter085",
+       "title": "Selenium",
+       "type": "chi-tiet",
+       "side": "right",
+-      "parent": "stage-22",
++      "parent": "stage-15",
+       "chapter": "python/chapter085.html",
+       "summary": "Điều khiển trình duyệt thật để tương tác với trang web động (cần chạy JavaScript, click, nhập form...).",
+       "time": 5,
+@@ -1376,8 +1292,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter086",
+       "title": "PyAutoGUI & Schedule",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-22",
++      "side": "right",
++      "parent": "stage-15",
+       "chapter": "python/chapter086.html",
+       "summary": "Tự động hóa thao tác trên máy tính (chuột, bàn phím) và lên lịch chạy tác vụ định kỳ.",
+       "time": 5,
+@@ -1385,12 +1301,24 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": null
+     },
++    {
++      "id": "stage-16",
++      "title": "Kiểm thử & triển khai",
++      "type": "bat-buoc",
++      "side": "spine",
++      "parent": null,
++      "chapter": null,
++      "summary": "unittest & pytest · Mock · Git & GitHub · Docker · CI/CD",
++      "time": 25,
++      "related": [],
++      "comingSoon": false
++    },
+     {
+       "id": "chapter087",
+       "title": "unittest & pytest",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-22",
++      "side": "left",
++      "parent": "stage-16",
+       "chapter": "python/chapter087.html",
+       "summary": "Viết kiểm thử tự động (automated testing) để đảm bảo code hoạt động đúng và không bị hỏng khi thay đổi.",
+       "time": 5,
+@@ -1403,7 +1331,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Mock",
+       "type": "chi-tiet",
+       "side": "left",
+-      "parent": "stage-22",
++      "parent": "stage-16",
+       "chapter": "python/chapter088.html",
+       "summary": "Giả lập (mock) các phần phụ thuộc bên ngoài (API, database) để kiểm thử code một cách độc lập.",
+       "time": 5,
+@@ -1411,24 +1339,12 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": "python/quiz.html?chapter=chapter088"
+     },
+-    {
+-      "id": "stage-23",
+-      "title": "Chặng 23 · 89–92",
+-      "type": "bat-buoc",
+-      "side": "spine",
+-      "parent": null,
+-      "chapter": null,
+-      "summary": "Git & GitHub · Docker · CI/CD · Profiling & Memory Optimization",
+-      "time": 20,
+-      "related": [],
+-      "comingSoon": false
+-    },
+     {
+       "id": "chapter089",
+       "title": "Git & GitHub",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-23",
++      "side": "right",
++      "parent": "stage-16",
+       "chapter": "python/chapter089.html",
+       "summary": "Hệ thống quản lý phiên bản code — kỹ năng bắt buộc với mọi lập trình viên.",
+       "time": 5,
+@@ -1441,7 +1357,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Docker",
+       "type": "chi-tiet",
+       "side": "right",
+-      "parent": "stage-23",
++      "parent": "stage-16",
+       "chapter": "python/chapter090.html",
+       "summary": "Đóng gói ứng dụng cùng toàn bộ môi trường chạy vào một \"container\" — chạy nhất quán ở mọi nơi.",
+       "time": 5,
+@@ -1453,8 +1369,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter091",
+       "title": "CI/CD",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-23",
++      "side": "right",
++      "parent": "stage-16",
+       "chapter": "python/chapter091.html",
+       "summary": "Tự động hóa quy trình kiểm thử và triển khai mỗi khi có thay đổi code (Continuous Integration / Continuous Deployment).",
+       "time": 5,
+@@ -1462,12 +1378,24 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": null
+     },
++    {
++      "id": "stage-17",
++      "title": "Chất lượng & thiết kế mã",
++      "type": "bat-buoc",
++      "side": "spine",
++      "parent": null,
++      "chapter": null,
++      "summary": "Profiling & Memory Optimization · Clean Code · SOLID · Design Patterns · Refactoring",
++      "time": 25,
++      "related": [],
++      "comingSoon": false
++    },
+     {
+       "id": "chapter092",
+       "title": "Profiling & Memory Optimization",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-23",
++      "side": "left",
++      "parent": "stage-17",
+       "chapter": "python/chapter092.html",
+       "summary": "Đo lường và tối ưu hiệu năng, bộ nhớ của chương trình Python.",
+       "time": 5,
+@@ -1475,24 +1403,12 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": "python/quiz.html?chapter=chapter092"
+     },
+-    {
+-      "id": "stage-24",
+-      "title": "Chặng 24 · 93–96",
+-      "type": "bat-buoc",
+-      "side": "spine",
+-      "parent": null,
+-      "chapter": null,
+-      "summary": "Clean Code · SOLID · Design Patterns · Refactoring",
+-      "time": 20,
+-      "related": [],
+-      "comingSoon": false
+-    },
+     {
+       "id": "chapter093",
+       "title": "Clean Code",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-24",
++      "side": "left",
++      "parent": "stage-17",
+       "chapter": "python/chapter093.html",
+       "summary": "Nguyên tắc viết code dễ đọc, dễ hiểu, dễ bảo trì — kỹ năng phân biệt lập trình viên giỏi.",
+       "time": 5,
+@@ -1505,7 +1421,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "SOLID",
+       "type": "chi-tiet",
+       "side": "left",
+-      "parent": "stage-24",
++      "parent": "stage-17",
+       "chapter": "python/chapter094.html",
+       "summary": "5 nguyên tắc thiết kế hướng đối tượng kinh điển giúp code linh hoạt, dễ mở rộng.",
+       "time": 5,
+@@ -1518,7 +1434,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Design Patterns",
+       "type": "chi-tiet",
+       "side": "right",
+-      "parent": "stage-24",
++      "parent": "stage-17",
+       "chapter": "python/chapter095.html",
+       "summary": "Các giải pháp thiết kế đã được kiểm chứng cho những vấn đề lặp lại thường gặp trong lập trình.",
+       "time": 5,
+@@ -1530,8 +1446,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter096",
+       "title": "Refactoring",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-24",
++      "side": "right",
++      "parent": "stage-17",
+       "chapter": "python/chapter096.html",
+       "summary": "Cải thiện cấu trúc code nội bộ mà không thay đổi hành vi bên ngoài của chương trình.",
+       "time": 5,
+@@ -1540,14 +1456,14 @@ globalThis.SynaptrailRoadmapData = {
+       "quiz": "python/quiz.html?chapter=chapter096"
+     },
+     {
+-      "id": "stage-25",
+-      "title": "Chặng 25 · 97–100",
++      "id": "stage-18",
++      "title": "Dự án, phỏng vấn & luyện tập",
+       "type": "bat-buoc",
+       "side": "spine",
+       "parent": null,
+       "chapter": null,
+-      "summary": "Dự án: Máy tính & Quản lý sinh viên · Dự án: Quản lý thư viện & Bán hàng · Dự án: Web API, Web Scraper & AI Chatbot · Phỏng vấn Python",
+-      "time": 20,
++      "summary": "Dự án: Máy tính & Quản lý sinh viên · Dự án: Quản lý thư viện & Bán hàng · Dự án: Web API, Web Scraper & AI Chatbot · Phỏng vấn Python · Phụ lục: Cheat Sheet, Lỗi thường gặp & Roadmap · Bài tập Cơ bản (Dễ) · Bài tập Trung bình · Bài tập Khó & Thuật toán",
++      "time": 40,
+       "related": [],
+       "comingSoon": false
+     },
+@@ -1556,7 +1472,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Dự án: Máy tính & Quản lý sinh viên",
+       "type": "chi-tiet",
+       "side": "left",
+-      "parent": "stage-25",
++      "parent": "stage-18",
+       "chapter": "python/chapter097.html",
+       "summary": "Hai dự án nhỏ tổng hợp kiến thức cơ bản đến hàm, cấu trúc dữ liệu và OOP.",
+       "time": 5,
+@@ -1568,8 +1484,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter098",
+       "title": "Dự án: Quản lý thư viện & Bán hàng",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-25",
++      "side": "left",
++      "parent": "stage-18",
+       "chapter": "python/chapter098.html",
+       "summary": "Hai dự án mô phỏng nghiệp vụ thực tế, áp dụng OOP với nhiều class liên quan nhau.",
+       "time": 5,
+@@ -1582,7 +1498,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Dự án: Web API, Web Scraper & AI Chatbot",
+       "type": "chi-tiet",
+       "side": "left",
+-      "parent": "stage-25",
++      "parent": "stage-18",
+       "chapter": "python/chapter099.html",
+       "summary": "Ba dự án tổng hợp kiến thức Web, Scraping và Machine Learning đã học ở các phần trước.",
+       "time": 5,
+@@ -1594,8 +1510,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter100",
+       "title": "Phỏng vấn Python",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-25",
++      "side": "left",
++      "parent": "stage-18",
+       "chapter": "python/chapter100.html",
+       "summary": "Các câu hỏi phỏng vấn thường gặp và dạng bài LeetCode kinh điển.",
+       "time": 5,
+@@ -1603,24 +1519,12 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": null
+     },
+-    {
+-      "id": "stage-26",
+-      "title": "Chặng 26 · 101–104",
+-      "type": "bat-buoc",
+-      "side": "spine",
+-      "parent": null,
+-      "chapter": null,
+-      "summary": "Phụ lục: Cheat Sheet, Lỗi thường gặp & Roadmap · Bài tập Cơ bản (Dễ) · Bài tập Trung bình · Bài tập Khó & Thuật toán",
+-      "time": 20,
+-      "related": [],
+-      "comingSoon": false
+-    },
+     {
+       "id": "chapter101",
+       "title": "Phụ lục: Cheat Sheet, Lỗi thường gặp & Roadmap",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-26",
++      "side": "left",
++      "parent": "stage-18",
+       "chapter": "python/chapter101.html",
+       "summary": "Tổng hợp nhanh và lộ trình tiếp theo sau khi hoàn thành giáo trình này.",
+       "time": 5,
+@@ -1632,8 +1536,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter102",
+       "title": "Bài tập Cơ bản (Dễ)",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-26",
++      "side": "right",
++      "parent": "stage-18",
+       "chapter": "python/chapter102.html",
+       "summary": "15 bài tập củng cố cú pháp nền tảng, biến, điều kiện, vòng lặp và hàm. Thử tự giải trước khi xem đáp án!",
+       "time": 5,
+@@ -1646,7 +1550,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Bài tập Trung bình",
+       "type": "chi-tiet",
+       "side": "right",
+-      "parent": "stage-26",
++      "parent": "stage-18",
+       "chapter": "python/chapter103.html",
+       "summary": "10 bài tập vận dụng cấu trúc dữ liệu, OOP, xử lý file — mức độ thường gặp trong bài tập lớn ở trường và bài test tuyển dụng junior.",
+       "time": 5,
+@@ -1658,8 +1562,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter104",
+       "title": "Bài tập Khó & Thuật toán",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-26",
++      "side": "right",
++      "parent": "stage-18",
+       "chapter": "python/chapter104.html",
+       "summary": "8 bài tập nâng cao về thuật toán và cấu trúc dữ liệu — mức độ phỏng vấn kỹ thuật tại các công ty công nghệ.",
+       "time": 5,
+@@ -1668,8 +1572,8 @@ globalThis.SynaptrailRoadmapData = {
+       "quiz": null
+     },
+     {
+-      "id": "stage-27",
+-      "title": "Chặng 27 · 105–108",
++      "id": "stage-19",
++      "title": "Công cụ mở rộng & phát hành",
+       "type": "bat-buoc",
+       "side": "spine",
+       "parent": null,
+@@ -1684,7 +1588,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Regular Expressions (re)",
+       "type": "chi-tiet",
+       "side": "left",
+-      "parent": "stage-27",
++      "parent": "stage-19",
+       "chapter": "python/chapter105.html",
+       "summary": "Ngôn ngữ mô tả mẫu (pattern) để tìm kiếm, kiểm tra và thay thế văn bản — kỹ năng cực kỳ hữu dụng trong xử lý dữ liệu thực tế.",
+       "time": 5,
+@@ -1696,8 +1600,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter106",
+       "title": "itertools & functools",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-27",
++      "side": "left",
++      "parent": "stage-19",
+       "chapter": "python/chapter106.html",
+       "summary": "Hai module chuẩn cung cấp công cụ lập trình hàm (functional programming) mạnh mẽ, giúp code ngắn gọn và hiệu quả hơn.",
+       "time": 5,
+@@ -1709,8 +1613,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter107",
+       "title": "GUI với Tkinter",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-27",
++      "side": "right",
++      "parent": "stage-19",
+       "chapter": "python/chapter107.html",
+       "summary": "Thư viện giao diện đồ họa (GUI) có sẵn trong Python, không cần cài đặt thêm — phù hợp xây dựng ứng dụng desktop đơn giản.",
+       "time": 5,
+@@ -1723,7 +1627,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Đóng gói & Phát hành Package",
+       "type": "chi-tiet",
+       "side": "right",
+-      "parent": "stage-27",
++      "parent": "stage-19",
+       "chapter": "python/chapter108.html",
+       "summary": "Biến code Python của bạn thành một package có thể cài đặt qua pip install và chia sẻ lên PyPI.",
+       "time": 5,
+@@ -1734,19 +1638,13 @@ globalThis.SynaptrailRoadmapData = {
+   ],
+   "layout": {
+     "stage-1": {
+-      "left": [
+-        {
+-          "nodes": [
+-            "chapter001",
+-            "chapter003"
+-          ]
+-        }
+-      ],
++      "left": [],
+       "right": [
+         {
+           "nodes": [
++            "chapter001",
+             "chapter002",
+-            "chapter004"
++            "chapter003"
+           ]
+         }
+       ]
+@@ -1754,278 +1652,250 @@ globalThis.SynaptrailRoadmapData = {
+     "stage-2": {
+       "left": [
+         {
++          "title": "Biến, toán tử & nhập xuất",
++          "tiles": false,
+           "nodes": [
++            "chapter004",
++            "chapter005",
+             "chapter006",
++            "chapter007",
+             "chapter008"
+           ]
+         }
+       ],
+       "right": [
+         {
+-          "nodes": [
+-            "chapter005",
+-            "chapter007"
+-          ]
+-        }
+-      ]
+-    },
+-    "stage-3": {
+-      "left": [
+-        {
++          "title": "Chuỗi, số & Boolean",
++          "hub": true,
++          "tiles": false,
+           "nodes": [
+             "chapter009",
+-            "chapter011"
+-          ]
+-        }
+-      ],
+-      "right": [
+-        {
+-          "nodes": [
+             "chapter010",
++            "chapter011",
+             "chapter012"
+           ]
+         }
+       ]
+     },
+-    "stage-4": {
++    "stage-3": {
+       "left": [
+         {
+-          "nodes": [
+-            "chapter014",
+-            "chapter016"
+-          ]
+-        }
+-      ],
+-      "right": [
+-        {
++          "title": "Rẽ nhánh",
++          "tiles": true,
+           "nodes": [
+             "chapter013",
+-            "chapter015"
+-          ]
+-        }
+-      ]
+-    },
+-    "stage-5": {
+-      "left": [
+-        {
+-          "nodes": [
+-            "chapter017",
+-            "chapter019"
++            "chapter014"
+           ]
+         }
+       ],
+       "right": [
+         {
++          "title": "Vòng lặp & điều khiển",
++          "hub": true,
++          "tiles": false,
+           "nodes": [
++            "chapter015",
++            "chapter016",
++            "chapter017",
+             "chapter018",
+-            "chapter020"
++            "chapter019"
+           ]
+         }
+       ]
+     },
+-    "stage-6": {
++    "stage-4": {
+       "left": [
+         {
++          "title": "Khai báo & gọi hàm",
++          "tiles": false,
+           "nodes": [
+-            "chapter022",
+-            "chapter024"
++            "chapter020",
++            "chapter021",
++            "chapter022"
+           ]
+         }
+       ],
+       "right": [
+         {
++          "title": "Đệ quy, Scope & Decorator",
++          "hub": true,
++          "tiles": false,
+           "nodes": [
+-            "chapter021",
+-            "chapter023"
++            "chapter023",
++            "chapter024",
++            "chapter025",
++            "chapter026"
+           ]
+         }
+       ]
+     },
+-    "stage-7": {
++    "stage-5": {
+       "left": [
+         {
++          "title": "List, Tuple & Set",
++          "tiles": false,
+           "nodes": [
+-            "chapter025",
+-            "chapter027"
++            "chapter027",
++            "chapter028",
++            "chapter029"
+           ]
+         }
+       ],
+       "right": [
+         {
+-          "nodes": [
+-            "chapter026",
+-            "chapter028"
+-          ]
+-        }
+-      ]
+-    },
+-    "stage-8": {
+-      "left": [
+-        {
++          "title": "Dictionary, Stack & Collections",
++          "hub": false,
++          "tiles": false,
+           "nodes": [
+             "chapter030",
++            "chapter031",
+             "chapter032"
+           ]
+         }
+-      ],
+-      "right": [
+-        {
+-          "nodes": [
+-            "chapter029",
+-            "chapter031"
+-          ]
+-        }
+       ]
+     },
+-    "stage-9": {
++    "stage-6": {
+       "left": [
+         {
++          "title": "Class & các đặc tính OOP",
++          "tiles": false,
+           "nodes": [
+             "chapter033",
+-            "chapter035"
+-          ]
+-        }
+-      ],
+-      "right": [
+-        {
+-          "nodes": [
+             "chapter034",
++            "chapter035",
+             "chapter036"
+           ]
+         }
+-      ]
+-    },
+-    "stage-10": {
+-      "left": [
+-        {
+-          "nodes": [
+-            "chapter038",
+-            "chapter040"
+-          ]
+-        }
+       ],
+       "right": [
+         {
++          "title": "Đa hình & lớp nâng cao",
++          "hub": true,
++          "tiles": false,
+           "nodes": [
+             "chapter037",
+-            "chapter039"
++            "chapter038",
++            "chapter039",
++            "chapter040"
+           ]
+         }
+       ]
+     },
+-    "stage-11": {
++    "stage-7": {
+       "left": [
+         {
++          "title": "Module & môi trường",
++          "tiles": true,
+           "nodes": [
+             "chapter041",
+-            "chapter043"
++            "chapter042"
+           ]
+         }
+       ],
+       "right": [
+         {
++          "title": "Ngoại lệ",
++          "hub": false,
++          "tiles": true,
+           "nodes": [
+-            "chapter042",
++            "chapter043",
+             "chapter044"
+           ]
+         }
+       ]
+     },
+-    "stage-12": {
++    "stage-8": {
+       "left": [
+         {
+           "nodes": [
+-            "chapter046",
+-            "chapter048"
++            "chapter045",
++            "chapter046"
+           ]
+         }
+       ],
+       "right": [
+         {
+           "nodes": [
+-            "chapter045",
+             "chapter047"
+           ]
+         }
+       ]
+     },
+-    "stage-13": {
++    "stage-9": {
+       "left": [
+         {
++          "title": "Thư viện chuẩn",
++          "tiles": false,
+           "nodes": [
++            "chapter048",
+             "chapter049",
++            "chapter050",
+             "chapter051"
+           ]
+         }
+       ],
+       "right": [
+         {
++          "title": "Thread, Process & asyncio",
++          "hub": false,
++          "tiles": true,
+           "nodes": [
+-            "chapter050",
+-            "chapter052"
++            "chapter052",
++            "chapter053"
+           ]
+         }
+       ]
+     },
+-    "stage-14": {
++    "stage-10": {
+       "left": [
+         {
++          "title": "Big O, sắp xếp & tìm kiếm",
++          "tiles": false,
+           "nodes": [
+             "chapter054",
++            "chapter055",
+             "chapter056"
+           ]
+         }
+       ],
+       "right": [
+         {
+-          "nodes": [
+-            "chapter053",
+-            "chapter055"
+-          ]
+-        }
+-      ]
+-    },
+-    "stage-15": {
+-      "left": [
+-        {
++          "title": "Chiến lược giải thuật",
++          "hub": true,
++          "tiles": false,
+           "nodes": [
+             "chapter057",
+-            "chapter059"
+-          ]
+-        }
+-      ],
+-      "right": [
+-        {
+-          "nodes": [
+             "chapter058",
+-            "chapter060"
++            "chapter059"
+           ]
+         }
+       ]
+     },
+-    "stage-16": {
++    "stage-11": {
+       "left": [
+         {
+           "nodes": [
+-            "chapter062",
+-            "chapter064"
++            "chapter060",
++            "chapter061",
++            "chapter062"
+           ]
+         }
+       ],
+       "right": [
+         {
+           "nodes": [
+-            "chapter061",
+-            "chapter063"
++            "chapter063",
++            "chapter064"
+           ]
+         }
+       ]
+     },
+-    "stage-17": {
++    "stage-12": {
+       "left": [
+         {
+           "nodes": [
+             "chapter065",
++            "chapter066",
+             "chapter067"
+           ]
+         }
+@@ -2033,187 +1903,169 @@ globalThis.SynaptrailRoadmapData = {
+       "right": [
+         {
+           "nodes": [
+-            "chapter066",
+-            "chapter068"
++            "chapter068",
++            "chapter069"
+           ]
+         }
+       ]
+     },
+-    "stage-18": {
++    "stage-13": {
+       "left": [
+         {
+           "nodes": [
+             "chapter070",
+-            "chapter072"
++            "chapter071"
+           ]
+         }
+       ],
+       "right": [
+         {
+           "nodes": [
+-            "chapter069",
+-            "chapter071"
++            "chapter072"
+           ]
+         }
+       ]
+     },
+-    "stage-19": {
++    "stage-14": {
+       "left": [
+         {
++          "title": "Web frameworks",
++          "tiles": false,
+           "nodes": [
+             "chapter073",
++            "chapter074",
+             "chapter075"
+           ]
+         }
+       ],
+       "right": [
+         {
++          "title": "REST API & xác thực",
++          "hub": false,
++          "tiles": true,
+           "nodes": [
+-            "chapter074",
+-            "chapter076"
++            "chapter076",
++            "chapter077"
+           ]
+         }
+       ]
+     },
+-    "stage-20": {
++    "stage-15": {
+       "left": [
+         {
++          "title": "Dữ liệu & trực quan hóa",
++          "tiles": false,
+           "nodes": [
+             "chapter078",
++            "chapter079",
+             "chapter080"
+           ]
+         }
+       ],
+       "right": [
+         {
+-          "nodes": [
+-            "chapter077",
+-            "chapter079"
+-          ]
+-        }
+-      ]
+-    },
+-    "stage-21": {
+-      "left": [
+-        {
++          "title": "Machine Learning & tự động hóa",
++          "hub": true,
++          "tiles": false,
+           "nodes": [
+             "chapter081",
+-            "chapter083"
+-          ]
+-        }
+-      ],
+-      "right": [
+-        {
+-          "nodes": [
+             "chapter082",
+-            "chapter084"
++            "chapter083",
++            "chapter084",
++            "chapter085",
++            "chapter086"
+           ]
+         }
+       ]
+     },
+-    "stage-22": {
++    "stage-16": {
+       "left": [
+         {
++          "title": "Testing & Mock",
++          "tiles": true,
+           "nodes": [
+-            "chapter086",
++            "chapter087",
+             "chapter088"
+           ]
+         }
+       ],
+       "right": [
+         {
+-          "nodes": [
+-            "chapter085",
+-            "chapter087"
+-          ]
+-        }
+-      ]
+-    },
+-    "stage-23": {
+-      "left": [
+-        {
++          "title": "Git, Docker & CI/CD",
++          "hub": false,
++          "tiles": false,
+           "nodes": [
+             "chapter089",
+-            "chapter091"
+-          ]
+-        }
+-      ],
+-      "right": [
+-        {
+-          "nodes": [
+             "chapter090",
+-            "chapter092"
++            "chapter091"
+           ]
+         }
+       ]
+     },
+-    "stage-24": {
++    "stage-17": {
+       "left": [
+         {
+           "nodes": [
+-            "chapter094",
+-            "chapter096"
++            "chapter092",
++            "chapter093",
++            "chapter094"
+           ]
+         }
+       ],
+       "right": [
+         {
+           "nodes": [
+-            "chapter093",
+-            "chapter095"
++            "chapter095",
++            "chapter096"
+           ]
+         }
+       ]
+     },
+-    "stage-25": {
++    "stage-18": {
+       "left": [
+         {
++          "title": "Dự án & hồ sơ kiến thức",
++          "tiles": false,
+           "nodes": [
+             "chapter097",
+-            "chapter099"
++            "chapter098",
++            "chapter099",
++            "chapter100",
++            "chapter101"
+           ]
+         }
+       ],
+       "right": [
+         {
+-          "nodes": [
+-            "chapter098",
+-            "chapter100"
+-          ]
+-        }
+-      ]
+-    },
+-    "stage-26": {
+-      "left": [
+-        {
++          "title": "Bài tập thực hành",
++          "hub": false,
++          "tiles": false,
+           "nodes": [
+             "chapter102",
++            "chapter103",
+             "chapter104"
+           ]
+         }
+-      ],
+-      "right": [
+-        {
+-          "nodes": [
+-            "chapter101",
+-            "chapter103"
+-          ]
+-        }
+       ]
+     },
+-    "stage-27": {
++    "stage-19": {
+       "left": [
+         {
++          "title": "Regex & thư viện hàm",
++          "tiles": true,
+           "nodes": [
+             "chapter105",
+-            "chapter107"
++            "chapter106"
+           ]
+         }
+       ],
+       "right": [
+         {
++          "title": "GUI & đóng gói",
++          "hub": false,
++          "tiles": true,
+           "nodes": [
+-            "chapter106",
++            "chapter107",
+             "chapter108"
+           ]
+         }

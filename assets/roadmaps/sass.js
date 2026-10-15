@@ -5,13 +5,13 @@ globalThis.SynaptrailRoadmapData = {
   "nodes": [
     {
       "id": "stage-1",
-      "title": "Sass",
+      "title": "Biến & Nesting",
       "type": "bat-buoc",
       "side": "spine",
       "parent": null,
       "chapter": null,
-      "summary": "SASS/SCSS — Biến & Nesting · SASS/SCSS — Mixin & Tổ chức Folder",
-      "time": 10,
+      "summary": "SASS/SCSS — Biến & Nesting",
+      "time": 5,
       "related": [],
       "comingSoon": false
     },
@@ -19,7 +19,7 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter01",
       "title": "SASS/SCSS — Biến & Nesting",
       "type": "chi-tiet",
-      "side": "left",
+      "side": "right",
       "parent": "stage-1",
       "chapter": "sass/chapter01.html",
       "summary": "CSS Preprocessor — viết CSS với cú pháp mạnh mẽ hơn (biến, lồng nhau, hàm...), rồi biên dịch ra CSS thuần.",
@@ -29,11 +29,23 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": null
     },
     {
+      "id": "stage-2",
+      "title": "Mixin & tổ chức mã",
+      "type": "bat-buoc",
+      "side": "spine",
+      "parent": null,
+      "chapter": null,
+      "summary": "SASS/SCSS — Mixin & Tổ chức Folder",
+      "time": 5,
+      "related": [],
+      "comingSoon": false
+    },
+    {
       "id": "chapter02",
       "title": "SASS/SCSS — Mixin & Tổ chức Folder",
       "type": "chi-tiet",
-      "side": "right",
-      "parent": "stage-1",
+      "side": "left",
+      "parent": "stage-2",
       "chapter": "sass/chapter02.html",
       "summary": "Tái sử dụng khối CSS bằng Mixin, và cách tổ chức nhiều file .scss cho dự án lớn theo chuẩn thực tế.",
       "time": 5,
@@ -44,20 +56,24 @@ globalThis.SynaptrailRoadmapData = {
   ],
   "layout": {
     "stage-1": {
-      "left": [
+      "left": [],
+      "right": [
         {
           "nodes": [
             "chapter01"
           ]
         }
-      ],
-      "right": [
+      ]
+    },
+    "stage-2": {
+      "left": [
         {
           "nodes": [
             "chapter02"
           ]
         }
-      ]
+      ],
+      "right": []
     }
   },
   "continueWith": [

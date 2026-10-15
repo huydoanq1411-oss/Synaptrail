@@ -5,13 +5,13 @@ globalThis.SynaptrailRoadmapData = {
   "nodes": [
     {
       "id": "stage-1",
-      "title": "Chặng 1 · 1–4",
+      "title": "Tư duy bảo mật",
       "type": "bat-buoc",
       "side": "spine",
       "parent": null,
       "chapter": null,
-      "summary": "Tư duy Bảo mật & OWASP Top 10 · SQL Injection · XSS (Cross-Site Scripting) · CSRF (Cross-Site Request Forgery)",
-      "time": 20,
+      "summary": "Tư duy Bảo mật & OWASP Top 10",
+      "time": 5,
       "related": [],
       "comingSoon": false
     },
@@ -19,7 +19,7 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter01",
       "title": "Tư duy Bảo mật & OWASP Top 10",
       "type": "chi-tiet",
-      "side": "left",
+      "side": "right",
       "parent": "stage-1",
       "chapter": "security/chapter01.html",
       "summary": "Bảo mật không phải \"tính năng thêm vào sau\" — mà là cách suy nghĩ xuyên suốt quá trình viết code.",
@@ -29,11 +29,23 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": null
     },
     {
+      "id": "stage-2",
+      "title": "Các lỗ hổng web",
+      "type": "bat-buoc",
+      "side": "spine",
+      "parent": null,
+      "chapter": null,
+      "summary": "SQL Injection · XSS (Cross-Site Scripting) · CSRF (Cross-Site Request Forgery)",
+      "time": 15,
+      "related": [],
+      "comingSoon": false
+    },
+    {
       "id": "chapter02",
       "title": "SQL Injection",
       "type": "chi-tiet",
-      "side": "right",
-      "parent": "stage-1",
+      "side": "left",
+      "parent": "stage-2",
       "chapter": "security/chapter02.html",
       "summary": "Lỗ hổng kinh điển nhất — đã nhắc tới ở giáo trình Full-Stack JS, giờ đào sâu cách khai thác và phòng chống toàn diện.",
       "time": 5,
@@ -46,7 +58,7 @@ globalThis.SynaptrailRoadmapData = {
       "title": "XSS (Cross-Site Scripting)",
       "type": "chi-tiet",
       "side": "left",
-      "parent": "stage-1",
+      "parent": "stage-2",
       "chapter": "security/chapter03.html",
       "summary": "Chèn mã JavaScript độc hại vào trang web mà nạn nhân khác sẽ vô tình chạy khi truy cập.",
       "time": 5,
@@ -59,7 +71,7 @@ globalThis.SynaptrailRoadmapData = {
       "title": "CSRF (Cross-Site Request Forgery)",
       "type": "chi-tiet",
       "side": "right",
-      "parent": "stage-1",
+      "parent": "stage-2",
       "chapter": "security/chapter04.html",
       "summary": "Lừa trình duyệt của nạn nhân (đã đăng nhập) tự động gửi request thực hiện hành động mà họ không hề biết.",
       "time": 5,
@@ -68,14 +80,14 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": "security/quiz.html?chapter=chapter04"
     },
     {
-      "id": "stage-2",
-      "title": "Chặng 2 · 5–8",
+      "id": "stage-3",
+      "title": "Xác thực & phiên đăng nhập",
       "type": "bat-buoc",
       "side": "spine",
       "parent": null,
       "chapter": null,
-      "summary": "Xác thực & Quản lý mật khẩu an toàn · JWT & Session Management · HTTPS/TLS & Mã hóa dữ liệu · Phân quyền (Authorization) & Least Privilege",
-      "time": 20,
+      "summary": "Xác thực & Quản lý mật khẩu an toàn · JWT & Session Management",
+      "time": 10,
       "related": [],
       "comingSoon": false
     },
@@ -84,7 +96,7 @@ globalThis.SynaptrailRoadmapData = {
       "title": "Xác thực & Quản lý mật khẩu an toàn",
       "type": "chi-tiet",
       "side": "right",
-      "parent": "stage-2",
+      "parent": "stage-3",
       "chapter": "security/chapter05.html",
       "summary": "Không bao giờ lưu mật khẩu dạng gốc (plain text) — nguyên tắc bất di bất dịch của mọi hệ thống.",
       "time": 5,
@@ -96,8 +108,8 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter06",
       "title": "JWT & Session Management",
       "type": "chi-tiet",
-      "side": "left",
-      "parent": "stage-2",
+      "side": "right",
+      "parent": "stage-3",
       "chapter": "security/chapter06.html",
       "summary": "Hai cách phổ biến nhất để \"nhớ\" người dùng đã đăng nhập giữa các request — mỗi cách có đánh đổi bảo mật riêng.",
       "time": 5,
@@ -106,11 +118,23 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": "security/quiz.html?chapter=chapter06"
     },
     {
+      "id": "stage-4",
+      "title": "Mã hóa & phân quyền",
+      "type": "bat-buoc",
+      "side": "spine",
+      "parent": null,
+      "chapter": null,
+      "summary": "HTTPS/TLS & Mã hóa dữ liệu · Phân quyền (Authorization) & Least Privilege",
+      "time": 10,
+      "related": [],
+      "comingSoon": false
+    },
+    {
       "id": "chapter07",
       "title": "HTTPS/TLS & Mã hóa dữ liệu",
       "type": "chi-tiet",
-      "side": "right",
-      "parent": "stage-2",
+      "side": "left",
+      "parent": "stage-4",
       "chapter": "security/chapter07.html",
       "summary": "Bảo vệ dữ liệu khi đang di chuyển trên mạng — ngăn kẻ tấn công \"nghe lén\" giữa client và server.",
       "time": 5,
@@ -123,7 +147,7 @@ globalThis.SynaptrailRoadmapData = {
       "title": "Phân quyền (Authorization) & Least Privilege",
       "type": "chi-tiet",
       "side": "left",
-      "parent": "stage-2",
+      "parent": "stage-4",
       "chapter": "security/chapter08.html",
       "summary": "Xác thực (Authentication) trả lời \"bạn là ai?\" — Phân quyền (Authorization) trả lời \"bạn ĐƯỢC PHÉP làm gì?\". Hai khái niệm hay bị nhầm lẫn nhưng hoàn toàn khác nhau.",
       "time": 5,
@@ -132,8 +156,8 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": "security/quiz.html?chapter=chapter08"
     },
     {
-      "id": "stage-3",
-      "title": "Chặng 3 · 9–10",
+      "id": "stage-5",
+      "title": "Bảo vệ API & triển khai",
       "type": "bat-buoc",
       "side": "spine",
       "parent": null,
@@ -147,8 +171,8 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter09",
       "title": "Bảo mật API & Secrets Management",
       "type": "chi-tiet",
-      "side": "left",
-      "parent": "stage-3",
+      "side": "right",
+      "parent": "stage-5",
       "chapter": "security/chapter09.html",
       "summary": "API là \"cửa ngõ\" phổ biến nhất bị tấn công trong kiến trúc hiện đại — và quản lý bí mật (secrets) sai cách là nguyên nhân rò rỉ dữ liệu hàng đầu.",
       "time": 5,
@@ -161,7 +185,7 @@ globalThis.SynaptrailRoadmapData = {
       "title": "Checklist bảo mật trước khi triển khai",
       "type": "chi-tiet",
       "side": "right",
-      "parent": "stage-3",
+      "parent": "stage-5",
       "chapter": "security/chapter10.html",
       "summary": "Tổng hợp toàn bộ kiến thức thành danh sách kiểm tra thực tế — áp dụng trước khi đưa bất kỳ ứng dụng nào lên production.",
       "time": 5,
@@ -172,19 +196,11 @@ globalThis.SynaptrailRoadmapData = {
   ],
   "layout": {
     "stage-1": {
-      "left": [
-        {
-          "nodes": [
-            "chapter01",
-            "chapter03"
-          ]
-        }
-      ],
+      "left": [],
       "right": [
         {
           "nodes": [
-            "chapter02",
-            "chapter04"
+            "chapter01"
           ]
         }
       ]
@@ -193,31 +209,47 @@ globalThis.SynaptrailRoadmapData = {
       "left": [
         {
           "nodes": [
-            "chapter06",
-            "chapter08"
+            "chapter02",
+            "chapter03"
           ]
         }
       ],
       "right": [
         {
           "nodes": [
-            "chapter05",
-            "chapter07"
+            "chapter04"
           ]
         }
       ]
     },
     "stage-3": {
-      "left": [
-        {
-          "nodes": [
-            "chapter09"
-          ]
-        }
-      ],
+      "left": [],
       "right": [
         {
           "nodes": [
+            "chapter05",
+            "chapter06"
+          ]
+        }
+      ]
+    },
+    "stage-4": {
+      "left": [
+        {
+          "nodes": [
+            "chapter07",
+            "chapter08"
+          ]
+        }
+      ],
+      "right": []
+    },
+    "stage-5": {
+      "left": [],
+      "right": [
+        {
+          "nodes": [
+            "chapter09",
             "chapter10"
           ]
         }

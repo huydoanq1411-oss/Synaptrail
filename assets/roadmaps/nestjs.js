@@ -5,13 +5,13 @@ globalThis.SynaptrailRoadmapData = {
   "nodes": [
     {
       "id": "stage-1",
-      "title": "NestJS",
+      "title": "Kiến trúc ứng dụng NestJS",
       "type": "bat-buoc",
       "side": "spine",
       "parent": null,
       "chapter": null,
-      "summary": "NestJS — Kiến trúc Module/Controller/Service · NestJS — Dependency Injection & DTO",
-      "time": 10,
+      "summary": "NestJS — Kiến trúc Module/Controller/Service",
+      "time": 5,
       "related": [],
       "comingSoon": false
     },
@@ -19,7 +19,7 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter01",
       "title": "NestJS — Kiến trúc Module/Controller/Service",
       "type": "chi-tiet",
-      "side": "left",
+      "side": "right",
       "parent": "stage-1",
       "chapter": "nestjs/chapter01.html",
       "summary": "Framework Node.js theo kiến trúc có cấu trúc rõ ràng, lấy cảm hứng từ Angular — phổ biến cho backend quy mô doanh nghiệp.",
@@ -29,11 +29,23 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": null
     },
     {
+      "id": "stage-2",
+      "title": "Dependency Injection & DTO",
+      "type": "bat-buoc",
+      "side": "spine",
+      "parent": null,
+      "chapter": null,
+      "summary": "NestJS — Dependency Injection & DTO",
+      "time": 5,
+      "related": [],
+      "comingSoon": false
+    },
+    {
       "id": "chapter02",
       "title": "NestJS — Dependency Injection & DTO",
       "type": "chi-tiet",
-      "side": "right",
-      "parent": "stage-1",
+      "side": "left",
+      "parent": "stage-2",
       "chapter": "nestjs/chapter02.html",
       "summary": "Hai khái niệm cốt lõi giúp code NestJS an toàn, dễ test và dễ bảo trì hơn hẳn cách viết Express thông thường.",
       "time": 5,
@@ -44,20 +56,24 @@ globalThis.SynaptrailRoadmapData = {
   ],
   "layout": {
     "stage-1": {
-      "left": [
+      "left": [],
+      "right": [
         {
           "nodes": [
             "chapter01"
           ]
         }
-      ],
-      "right": [
+      ]
+    },
+    "stage-2": {
+      "left": [
         {
           "nodes": [
             "chapter02"
           ]
         }
-      ]
+      ],
+      "right": []
     }
   },
   "continueWith": [

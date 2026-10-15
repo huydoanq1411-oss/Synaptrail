@@ -53,10 +53,20 @@ function extract(html){
   }
   put(sourceFile,JSON.stringify({course,title:name,lessons},null,2)+'\n');
   const nodes=[],layout={},groups=[];
-  for(let i=0;i<lessons.length;i+=4){const batch=lessons.slice(i,i+4),id='stage-'+(i/4+1),group={id,title:lessons.length<=4?name:'Chặng '+(i/4+1)+' · '+(i+1)+'–'+(i+batch.length),type:'bat-buoc',side:'spine',parent:null,chapter:null,summary:batch.map(l=>l.title).join(' · '),time:batch.reduce((t,l)=>t+Math.max(5,Math.ceil((l.words||500)/180)),0),related:[],comingSoon:false};groups.push(group);nodes.push(group);layout[id]={left:[],right:[]};
-   const left=[],right=[];batch.forEach((lesson,j)=>{const side=(i/4+j)%2?'right':'left';(side==='left'?left:right).push(lesson.id);nodes.push({id:lesson.id,title:lesson.title,type:'chi-tiet',side,parent:id,chapter:course+'/'+lesson.file,summary:lesson.summary,time:Math.max(5,Math.ceil((lesson.words||500)/180)),related:[],comingSoon:false,quiz:lesson.questions.length?course+'/quiz.html?chapter='+lesson.id:null});});
-   if(left.length)layout[id].left.push({nodes:left});if(right.length)layout[id].right.push({nodes:right});
+  const structure=require('../assets/roadmaps/course-structure.json')[course];if(!structure)throw Error('Missing semantic structure '+course);
+  const covered=[];
+  for(const [index,definition] of structure.entries()){
+   const [title,start,end,leftTitle,leftCount,rightTitle,mode]=definition,batch=lessons.slice(start-1,end),id='stage-'+(index+1);
+   if(batch.length!==end-start+1)throw Error('Invalid chapter range '+course+'/'+title);covered.push(...batch.map(l=>l.id));
+   const group={id,title,type:'bat-buoc',side:'spine',parent:null,chapter:null,summary:batch.map(l=>l.title).join(' · '),time:batch.reduce((t,l)=>t+Math.max(5,Math.ceil((l.words||500)/180)),0),related:[],comingSoon:false};groups.push(group);nodes.push(group);layout[id]={left:[],right:[]};
+   // Like the algorithm reference: an introductory fan, named clusters, tiles and advanced hubs.
+   const split=leftCount??(index===0?0:batch.length<=2?(index%2?batch.length:0):Math.ceil(batch.length/2));
+   const left=batch.slice(0,split).map(l=>l.id),right=batch.slice(split).map(l=>l.id);
+   batch.forEach(lesson=>nodes.push({id:lesson.id,title:lesson.title,type:'chi-tiet',side:left.includes(lesson.id)?'left':'right',parent:id,chapter:course+'/'+lesson.file,summary:lesson.summary,time:Math.max(5,Math.ceil((lesson.words||500)/180)),related:[],comingSoon:false,quiz:lesson.questions.length?course+'/quiz.html?chapter='+lesson.id:null}));
+   if(left.length)layout[id].left.push({...(leftTitle?{title:leftTitle,tiles:left.length===2}:{}),nodes:left});
+   if(right.length)layout[id].right.push({...(rightTitle?{title:rightTitle,hub:mode==='hub',tiles:mode!=='hub'&&right.length===2}:{}),nodes:right});
   }
+  if(covered.length!==lessons.length||new Set(covered).size!==lessons.length)throw Error('Missing/duplicate chapters in '+course);
   for(const lesson of lessons.filter(l=>l.redirect)){const node=nodes.find(n=>n.id===lesson.id),target=path.posix.normalize(course+'/'+lesson.redirect);node.chapter=target;node.progressCourse=target.split('/')[0];node.progressNode=path.posix.basename(target,'.html');}
   const data={course,title:name,nodes,layout,continueWith:[{title:'Danh mục khóa học',chapter:'courses.html'},{title:'Bài tập thực hành',chapter:'Quiz_and_other/exercises.html'},{title:'Quiz tổng hợp',chapter:'Quiz_and_other/quiz-tong-hop.html'}]};
   put('assets/roadmaps/'+course+'.js','/* Generated from existing lessons. Source: '+course+'-source.json. */\nglobalThis.SynaptrailRoadmapData = '+JSON.stringify(data,null,2)+';\n');
@@ -90,10 +100,11 @@ function extract(html){
  for(const file of ['fullstack-js/index.html','roadmap/fullstack-js.html'])put(file,outputs.get(file).replace(/<!-- fallback:start -->[\s\S]*?<!-- fallback:end -->/,'<!-- fallback:start -->'+fullstackFallback+'<!-- fallback:end -->'));
  for(const [file,text] of outputs)if(file.endsWith('.html'))put(file,text.replace(/<a href="..\/index.html">Trang chủ[^<]*<\/a>/g,'<a class="rm-home" href="../index.html">'+homeIcon+'<span>Trang chủ</span></a>').replace(/<a([^>]*class="rm-(home|back)"[^>]*)>([\s\S]*?)<\/a>/g,(all,attrs,type,body)=>body.includes('<svg')?all:'<a'+attrs+'>'+(type==='home'?homeIcon:backIcon)+'<span>'+(type==='home'?'Trang chủ':body)+'</span></a>'));
  const reportDir=path.join(root,'reports/course-roadmaps');fs.mkdirSync(reportDir,{recursive:true});
+ if(args.has('--sample-maps')){const previewDir=path.join(reportDir,'structure-preview');fs.mkdirSync(previewDir,{recursive:true});for(const course of ['cpp','python','java']){const file='assets/roadmaps/'+course+'.js',target=path.join(previewDir,course+'.js');fs.writeFileSync(target,outputs.get(file));const diff=require('node:child_process').spawnSync('git',['diff','--no-index','--',path.join(root,file),target],{encoding:'utf8'});if(diff.status>1)throw Error(diff.stderr);fs.writeFileSync(target+'.diff',diff.stdout);}}
  const changed=[...outputs].filter(([file,text])=>!fs.existsSync(path.join(root,file))||fs.readFileSync(path.join(root,file),'utf8')!==text).map(([file])=>file);
  const report={mode:apply?'apply':sample?'sample':'dry-run',courses:stats,files:[...outputs.keys()],changedFiles:changed,sourceHashes:Object.fromEntries([...outputs].filter(([f])=>f.endsWith('-source.json')).map(([f,s])=>[f,crypto.createHash('sha256').update(s).digest('hex')]))};
  fs.writeFileSync(path.join(reportDir,apply?'migration.json':'dry-run.json'),JSON.stringify(report,null,2)+'\n');
  if(sample){for(const p of previews){const target=path.join(reportDir,'preview',p.file);fs.mkdirSync(path.dirname(target),{recursive:true});fs.writeFileSync(target,p.html.replace(/(href|src)="([^"]+)"/g,(m,a,v)=>/^(?:[a-z]+:|#|\/)/i.test(v)?m:a+'="../../../../'+path.posix.normalize(path.posix.dirname(p.file)+'/'+v)+'"'));fs.writeFileSync(target+'.diff.txt','--- '+p.file+' (original)\n+++ '+p.file+' (preview)\n- Sidebar, embedded quiz and old lesson shell\n+ Shared roadmap lesson shell, SVG Back/Home, separate quiz link\n+ Preserved lesson content and IDs\n\n'+p.html.slice(0,3500));}console.log('Wrote three lesson previews to reports/course-roadmaps/preview. Live course pages untouched.');}
- if(apply){for(const [file,text] of outputs){fs.mkdirSync(path.dirname(path.join(root,file)),{recursive:true});fs.writeFileSync(path.join(root,file),text);}}
+ if(apply){for(const [file,text] of outputs){if(fs.existsSync(path.join(root,file))&&fs.readFileSync(path.join(root,file),'utf8')===text)continue;fs.mkdirSync(path.dirname(path.join(root,file)),{recursive:true});fs.writeFileSync(path.join(root,file),text);}}
  console.log(JSON.stringify({mode:report.mode,courses:stats.length,lessons:stats.reduce((n,c)=>n+c.lessons,0),redirects:stats.reduce((n,c)=>n+c.redirects,0),questions:stats.reduce((n,c)=>n+c.questions,0),changedFiles:changed.length,report:'reports/course-roadmaps/'+(apply?'migration.json':'dry-run.json')},null,2));
 })().catch(error=>{console.error(error);process.exitCode=1;});

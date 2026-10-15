@@ -5,7 +5,7 @@ globalThis.SynaptrailRoadmapData = {
   "nodes": [
     {
       "id": "stage-1",
-      "title": "Chặng 1 · 1–4",
+      "title": "Nền tảng HTML",
       "type": "bat-buoc",
       "side": "spine",
       "parent": null,
@@ -19,7 +19,7 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter01",
       "title": "Giới thiệu HTML",
       "type": "chi-tiet",
-      "side": "left",
+      "side": "right",
       "parent": "stage-1",
       "chapter": "html-css-nnlt/chapter01.html",
       "summary": "HTML là \"bộ xương\" của mọi trang web — ngôn ngữ đánh dấu (markup), không phải ngôn ngữ lập trình.",
@@ -45,7 +45,7 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter03",
       "title": "Thẻ văn bản & Danh sách",
       "type": "chi-tiet",
-      "side": "left",
+      "side": "right",
       "parent": "stage-1",
       "chapter": "html-css-nnlt/chapter03.html",
       "summary": "Các thẻ HTML cơ bản nhất để hiển thị nội dung văn bản có cấu trúc.",
@@ -69,13 +69,13 @@ globalThis.SynaptrailRoadmapData = {
     },
     {
       "id": "stage-2",
-      "title": "Chặng 2 · 5–8",
+      "title": "Bảng, biểu mẫu & ngữ nghĩa",
       "type": "bat-buoc",
       "side": "spine",
       "parent": null,
       "chapter": null,
-      "summary": "Bảng (Table) · Form & Input · Thẻ ngữ nghĩa (Semantic HTML) · Giới thiệu CSS & Selector",
-      "time": 20,
+      "summary": "Bảng (Table) · Form & Input · Thẻ ngữ nghĩa (Semantic HTML)",
+      "time": 15,
       "related": [],
       "comingSoon": false
     },
@@ -83,7 +83,7 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter05",
       "title": "Bảng (Table)",
       "type": "chi-tiet",
-      "side": "right",
+      "side": "left",
       "parent": "stage-2",
       "chapter": "html-css-nnlt/chapter05.html",
       "summary": "Hiển thị dữ liệu dạng bảng — chỉ nên dùng cho DỮ LIỆU dạng bảng, không dùng để dàn trang (layout).",
@@ -119,29 +119,29 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": "html-css-nnlt/quiz.html?chapter=chapter07"
     },
     {
+      "id": "stage-3",
+      "title": "Nền tảng CSS",
+      "type": "bat-buoc",
+      "side": "spine",
+      "parent": null,
+      "chapter": null,
+      "summary": "Giới thiệu CSS & Selector · Màu sắc & Typography · Box Model",
+      "time": 15,
+      "related": [],
+      "comingSoon": false
+    },
+    {
       "id": "chapter08",
       "title": "Giới thiệu CSS & Selector",
       "type": "chi-tiet",
       "side": "left",
-      "parent": "stage-2",
+      "parent": "stage-3",
       "chapter": "html-css-nnlt/chapter08.html",
       "summary": "CSS (Cascading Style Sheets) trình bày giao diện cho các thẻ HTML — bắt đầu phần \"trang điểm\" cho bộ xương đã xây.",
       "time": 5,
       "related": [],
       "comingSoon": false,
       "quiz": null
-    },
-    {
-      "id": "stage-3",
-      "title": "Chặng 3 · 9–12",
-      "type": "bat-buoc",
-      "side": "spine",
-      "parent": null,
-      "chapter": null,
-      "summary": "Màu sắc & Typography · Box Model · Display & Vị trí (Position) · Flexbox",
-      "time": 20,
-      "related": [],
-      "comingSoon": false
     },
     {
       "id": "chapter09",
@@ -170,11 +170,23 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": null
     },
     {
+      "id": "stage-4",
+      "title": "Bố cục & Responsive",
+      "type": "bat-buoc",
+      "side": "spine",
+      "parent": null,
+      "chapter": null,
+      "summary": "Display & Vị trí (Position) · Flexbox · CSS Grid · Responsive Design & Media Query",
+      "time": 20,
+      "related": [],
+      "comingSoon": false
+    },
+    {
       "id": "chapter11",
       "title": "Display & Vị trí (Position)",
       "type": "chi-tiet",
       "side": "left",
-      "parent": "stage-3",
+      "parent": "stage-4",
       "chapter": "html-css-nnlt/chapter11.html",
       "summary": "Kiểm soát cách phần tử chiếm không gian và vị trí của nó trên trang.",
       "time": 5,
@@ -186,26 +198,14 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter12",
       "title": "Flexbox",
       "type": "chi-tiet",
-      "side": "right",
-      "parent": "stage-3",
+      "side": "left",
+      "parent": "stage-4",
       "chapter": "html-css-nnlt/chapter12.html",
       "summary": "Hệ thống layout một chiều mạnh mẽ nhất của CSS hiện đại — giải quyết hầu hết bài toán căn chỉnh, phân bố không gian.",
       "time": 5,
       "related": [],
       "comingSoon": false,
       "quiz": "html-css-nnlt/quiz.html?chapter=chapter12"
-    },
-    {
-      "id": "stage-4",
-      "title": "Chặng 4 · 13–16",
-      "type": "bat-buoc",
-      "side": "spine",
-      "parent": null,
-      "chapter": null,
-      "summary": "CSS Grid · Responsive Design & Media Query · CSS Variables & Transition/Animation · Dự án: Landing Page — Cấu trúc HTML",
-      "time": 20,
-      "related": [],
-      "comingSoon": false
     },
     {
       "id": "chapter13",
@@ -224,7 +224,7 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter14",
       "title": "Responsive Design & Media Query",
       "type": "chi-tiet",
-      "side": "left",
+      "side": "right",
       "parent": "stage-4",
       "chapter": "html-css-nnlt/chapter14.html",
       "summary": "Làm cho trang web hiển thị tốt trên MỌI kích thước màn hình — điện thoại, tablet, desktop.",
@@ -234,11 +234,23 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": "html-css-nnlt/quiz.html?chapter=chapter14"
     },
     {
+      "id": "stage-5",
+      "title": "Biến CSS & chuyển động",
+      "type": "bat-buoc",
+      "side": "spine",
+      "parent": null,
+      "chapter": null,
+      "summary": "CSS Variables & Transition/Animation",
+      "time": 5,
+      "related": [],
+      "comingSoon": false
+    },
+    {
       "id": "chapter15",
       "title": "CSS Variables & Transition/Animation",
       "type": "chi-tiet",
       "side": "right",
-      "parent": "stage-4",
+      "parent": "stage-5",
       "chapter": "html-css-nnlt/chapter15.html",
       "summary": "Biến CSS giúp quản lý style nhất quán toàn dự án; transition/animation thổi hồn chuyển động vào giao diện.",
       "time": 5,
@@ -247,11 +259,23 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": "html-css-nnlt/quiz.html?chapter=chapter15"
     },
     {
+      "id": "stage-6",
+      "title": "Dự án Landing Page",
+      "type": "bat-buoc",
+      "side": "spine",
+      "parent": null,
+      "chapter": null,
+      "summary": "Dự án: Landing Page — Cấu trúc HTML · Dự án: Landing Page — Style CSS hoàn chỉnh · Checklist & Lỗi thường gặp",
+      "time": 15,
+      "related": [],
+      "comingSoon": false
+    },
+    {
       "id": "chapter16",
       "title": "Dự án: Landing Page — Cấu trúc HTML",
       "type": "chi-tiet",
       "side": "left",
-      "parent": "stage-4",
+      "parent": "stage-6",
       "chapter": "html-css-nnlt/chapter16.html",
       "summary": "Xây dựng cấu trúc HTML hoàn chỉnh cho một trang landing page giới thiệu sản phẩm — tổng hợp mọi thẻ đã học.",
       "time": 5,
@@ -260,23 +284,11 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": null
     },
     {
-      "id": "stage-5",
-      "title": "Chặng 5 · 17–18",
-      "type": "bat-buoc",
-      "side": "spine",
-      "parent": null,
-      "chapter": null,
-      "summary": "Dự án: Landing Page — Style CSS hoàn chỉnh · Checklist & Lỗi thường gặp",
-      "time": 10,
-      "related": [],
-      "comingSoon": false
-    },
-    {
       "id": "chapter17",
       "title": "Dự án: Landing Page — Style CSS hoàn chỉnh",
       "type": "chi-tiet",
       "side": "left",
-      "parent": "stage-5",
+      "parent": "stage-6",
       "chapter": "html-css-nnlt/chapter17.html",
       "summary": "Áp dụng toàn bộ kiến thức CSS đã học: biến, Flexbox, Grid, responsive — để hoàn thiện giao diện.",
       "time": 5,
@@ -289,7 +301,7 @@ globalThis.SynaptrailRoadmapData = {
       "title": "Checklist & Lỗi thường gặp",
       "type": "chi-tiet",
       "side": "right",
-      "parent": "stage-5",
+      "parent": "stage-6",
       "chapter": "html-css-nnlt/chapter18.html",
       "summary": "Danh sách kiểm tra trước khi hoàn thành một trang web, và các lỗi phổ biến nhất của người mới học.",
       "time": 5,
@@ -300,18 +312,13 @@ globalThis.SynaptrailRoadmapData = {
   ],
   "layout": {
     "stage-1": {
-      "left": [
-        {
-          "nodes": [
-            "chapter01",
-            "chapter03"
-          ]
-        }
-      ],
+      "left": [],
       "right": [
         {
           "nodes": [
+            "chapter01",
             "chapter02",
+            "chapter03",
             "chapter04"
           ]
         }
@@ -321,15 +328,14 @@ globalThis.SynaptrailRoadmapData = {
       "left": [
         {
           "nodes": [
-            "chapter06",
-            "chapter08"
+            "chapter05",
+            "chapter06"
           ]
         }
       ],
       "right": [
         {
           "nodes": [
-            "chapter05",
             "chapter07"
           ]
         }
@@ -339,16 +345,15 @@ globalThis.SynaptrailRoadmapData = {
       "left": [
         {
           "nodes": [
-            "chapter09",
-            "chapter11"
+            "chapter08",
+            "chapter09"
           ]
         }
       ],
       "right": [
         {
           "nodes": [
-            "chapter10",
-            "chapter12"
+            "chapter10"
           ]
         }
       ]
@@ -356,31 +361,52 @@ globalThis.SynaptrailRoadmapData = {
     "stage-4": {
       "left": [
         {
+          "title": "Display & Flexbox",
+          "tiles": true,
           "nodes": [
-            "chapter14",
-            "chapter16"
+            "chapter11",
+            "chapter12"
           ]
         }
       ],
       "right": [
         {
+          "title": "Grid & Media Query",
+          "hub": true,
+          "tiles": false,
           "nodes": [
             "chapter13",
-            "chapter15"
+            "chapter14"
           ]
         }
       ]
     },
     "stage-5": {
-      "left": [
+      "left": [],
+      "right": [
         {
           "nodes": [
+            "chapter15"
+          ]
+        }
+      ]
+    },
+    "stage-6": {
+      "left": [
+        {
+          "title": "Cấu trúc & giao diện",
+          "tiles": true,
+          "nodes": [
+            "chapter16",
             "chapter17"
           ]
         }
       ],
       "right": [
         {
+          "title": "Checklist & lỗi thường gặp",
+          "hub": false,
+          "tiles": false,
           "nodes": [
             "chapter18"
           ]

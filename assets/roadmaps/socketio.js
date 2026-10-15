@@ -5,7 +5,7 @@ globalThis.SynaptrailRoadmapData = {
   "nodes": [
     {
       "id": "stage-1",
-      "title": "Socket.IO",
+      "title": "Giao tiếp Real-time",
       "type": "bat-buoc",
       "side": "spine",
       "parent": null,
@@ -19,7 +19,7 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter01",
       "title": "Socket.IO — Giao tiếp Real-time",
       "type": "chi-tiet",
-      "side": "left",
+      "side": "right",
       "parent": "stage-1",
       "chapter": "socketio/chapter01.html",
       "summary": "HTTP request-response truyền thống không phù hợp cho chat, thông báo tức thời — Socket.IO cho phép server \"chủ động\" gửi dữ liệu về client.",
@@ -31,14 +31,14 @@ globalThis.SynaptrailRoadmapData = {
   ],
   "layout": {
     "stage-1": {
-      "left": [
+      "left": [],
+      "right": [
         {
           "nodes": [
             "chapter01"
           ]
         }
-      ],
-      "right": []
+      ]
     }
   },
   "continueWith": [

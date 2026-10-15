@@ -5,13 +5,13 @@ globalThis.SynaptrailRoadmapData = {
   "nodes": [
     {
       "id": "stage-1",
-      "title": "Chặng 1 · 1–4",
+      "title": "Component & JSX",
       "type": "bat-buoc",
       "side": "spine",
       "parent": null,
       "chapter": null,
-      "summary": "Nhập Môn React & JSX · Props — Truyền Dữ Liệu Giữa Component · State & useState Hook · Xử Lý Sự Kiện & Form Trong React",
-      "time": 38,
+      "summary": "Nhập Môn React & JSX · Props — Truyền Dữ Liệu Giữa Component",
+      "time": 19,
       "related": [],
       "comingSoon": false
     },
@@ -19,7 +19,7 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter01",
       "title": "Nhập Môn React & JSX",
       "type": "chi-tiet",
-      "side": "left",
+      "side": "right",
       "parent": "stage-1",
       "chapter": "react/chapter01.html",
       "summary": "Tự động hóa chính nguyên lý \"render lại từ dữ liệu\" bạn đã tự tay xây ở Bài 18 chương JavaScript — làm quen với component và cú pháp JSX.",
@@ -42,11 +42,23 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": "react/quiz.html?chapter=chapter02"
     },
     {
+      "id": "stage-2",
+      "title": "State & hiển thị giao diện",
+      "type": "bat-buoc",
+      "side": "spine",
+      "parent": null,
+      "chapter": null,
+      "summary": "State & useState Hook · Xử Lý Sự Kiện & Form Trong React · Conditional Rendering — Hiển thị có điều kiện · Lists & Keys — Danh sách trong React",
+      "time": 29,
+      "related": [],
+      "comingSoon": false
+    },
+    {
       "id": "chapter03",
       "title": "State & useState Hook",
       "type": "chi-tiet",
       "side": "left",
-      "parent": "stage-1",
+      "parent": "stage-2",
       "chapter": "react/chapter03.html",
       "summary": "Cho component \"trí nhớ\" của riêng nó — dữ liệu có thể tự thay đổi theo thời gian, và giao diện tự động cập nhật theo mỗi khi nó đổi.",
       "time": 10,
@@ -58,26 +70,14 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter04",
       "title": "Xử Lý Sự Kiện & Form Trong React",
       "type": "chi-tiet",
-      "side": "right",
-      "parent": "stage-1",
+      "side": "left",
+      "parent": "stage-2",
       "chapter": "react/chapter04.html",
       "summary": "Lắng nghe hành động người dùng đúng \"kiểu React\", và biến mỗi ô input thành một phần của state — không còn phải tự tay đọc DOM như JavaScript thuần.",
       "time": 9,
       "related": [],
       "comingSoon": false,
       "quiz": "react/quiz.html?chapter=chapter04"
-    },
-    {
-      "id": "stage-2",
-      "title": "Chặng 2 · 5–8",
-      "type": "bat-buoc",
-      "side": "spine",
-      "parent": null,
-      "chapter": null,
-      "summary": "Conditional Rendering — Hiển thị có điều kiện · Lists & Keys — Danh sách trong React · useEffect — Side Effects & Vòng đời Component · Fetch dữ liệu từ API trong React",
-      "time": 20,
-      "related": [],
-      "comingSoon": false
     },
     {
       "id": "chapter05",
@@ -96,7 +96,7 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter06",
       "title": "Lists & Keys — Danh sách trong React",
       "type": "chi-tiet",
-      "side": "left",
+      "side": "right",
       "parent": "stage-2",
       "chapter": "react/chapter06.html",
       "summary": "Render danh sách bằng map() và vì sao mỗi phần tử cần một key ổn định.",
@@ -106,11 +106,23 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": "react/quiz.html?chapter=chapter06"
     },
     {
+      "id": "stage-3",
+      "title": "Side effects & Hooks",
+      "type": "bat-buoc",
+      "side": "spine",
+      "parent": null,
+      "chapter": null,
+      "summary": "useEffect — Side Effects & Vòng đời Component · Fetch dữ liệu từ API trong React · Custom Hooks — Tái sử dụng logic · useRef & Thao tác DOM trực tiếp",
+      "time": 20,
+      "related": [],
+      "comingSoon": false
+    },
+    {
       "id": "chapter07",
       "title": "useEffect — Side Effects & Vòng đời Component",
       "type": "chi-tiet",
-      "side": "right",
-      "parent": "stage-2",
+      "side": "left",
+      "parent": "stage-3",
       "chapter": "react/chapter07.html",
       "summary": "useEffect chạy mã có tác dụng phụ (gọi API, timer, đăng ký sự kiện) sau khi component render.",
       "time": 5,
@@ -123,7 +135,7 @@ globalThis.SynaptrailRoadmapData = {
       "title": "Fetch dữ liệu từ API trong React",
       "type": "chi-tiet",
       "side": "left",
-      "parent": "stage-2",
+      "parent": "stage-3",
       "chapter": "react/chapter08.html",
       "summary": "Gọi API bằng fetch trong useEffect, quản lý ba trạng thái: đang tải, lỗi và dữ liệu.",
       "time": 5,
@@ -132,22 +144,10 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": "react/quiz.html?chapter=chapter08"
     },
     {
-      "id": "stage-3",
-      "title": "Chặng 3 · 9–12",
-      "type": "bat-buoc",
-      "side": "spine",
-      "parent": null,
-      "chapter": null,
-      "summary": "Custom Hooks — Tái sử dụng logic · useRef & Thao tác DOM trực tiếp · Context API — Chia sẻ state toàn cục · useReducer — Quản lý state phức tạp",
-      "time": 20,
-      "related": [],
-      "comingSoon": false
-    },
-    {
       "id": "chapter09",
       "title": "Custom Hooks — Tái sử dụng logic",
       "type": "chi-tiet",
-      "side": "left",
+      "side": "right",
       "parent": "stage-3",
       "chapter": "react/chapter09.html",
       "summary": "Custom Hook là hàm bắt đầu bằng use, gom logic có state để dùng lại ở nhiều component.",
@@ -170,11 +170,23 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": "react/quiz.html?chapter=chapter10"
     },
     {
+      "id": "stage-4",
+      "title": "Quản lý state dùng chung",
+      "type": "bat-buoc",
+      "side": "spine",
+      "parent": null,
+      "chapter": null,
+      "summary": "Context API — Chia sẻ state toàn cục · useReducer — Quản lý state phức tạp",
+      "time": 10,
+      "related": [],
+      "comingSoon": false
+    },
+    {
       "id": "chapter11",
       "title": "Context API — Chia sẻ state toàn cục",
       "type": "chi-tiet",
       "side": "left",
-      "parent": "stage-3",
+      "parent": "stage-4",
       "chapter": "react/chapter11.html",
       "summary": "Context chia sẻ dữ liệu cho cả cây component mà không phải truyền props qua từng tầng (prop drilling).",
       "time": 5,
@@ -186,8 +198,8 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter12",
       "title": "useReducer — Quản lý state phức tạp",
       "type": "chi-tiet",
-      "side": "right",
-      "parent": "stage-3",
+      "side": "left",
+      "parent": "stage-4",
       "chapter": "react/chapter12.html",
       "summary": "useReducer gom logic cập nhật state phức tạp vào một hàm reducer, theo mô hình action.",
       "time": 5,
@@ -196,14 +208,14 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": "react/quiz.html?chapter=chapter12"
     },
     {
-      "id": "stage-4",
-      "title": "Chặng 4 · 13–16",
+      "id": "stage-5",
+      "title": "Điều hướng ứng dụng",
       "type": "bat-buoc",
       "side": "spine",
       "parent": null,
       "chapter": null,
-      "summary": "React Router — Điều hướng SPA cơ bản · React Router nâng cao — Nested Routes & Params · Styling trong React — CSS Modules & styled-components · Performance — useMemo & useCallback",
-      "time": 20,
+      "summary": "React Router — Điều hướng SPA cơ bản · React Router nâng cao — Nested Routes & Params",
+      "time": 10,
       "related": [],
       "comingSoon": false
     },
@@ -212,7 +224,7 @@ globalThis.SynaptrailRoadmapData = {
       "title": "React Router — Điều hướng SPA cơ bản",
       "type": "chi-tiet",
       "side": "right",
-      "parent": "stage-4",
+      "parent": "stage-5",
       "chapter": "react/chapter13.html",
       "summary": "React Router biến ứng dụng thành SPA nhiều trang: đổi URL mà không tải lại toàn bộ trang.",
       "time": 5,
@@ -224,8 +236,8 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter14",
       "title": "React Router nâng cao — Nested Routes & Params",
       "type": "chi-tiet",
-      "side": "left",
-      "parent": "stage-4",
+      "side": "right",
+      "parent": "stage-5",
       "chapter": "react/chapter14.html",
       "summary": "Nested routes, tham số URL, query string và route cần đăng nhập.",
       "time": 5,
@@ -234,11 +246,23 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": "react/quiz.html?chapter=chapter14"
     },
     {
+      "id": "stage-6",
+      "title": "Styling & tối ưu hiệu năng",
+      "type": "bat-buoc",
+      "side": "spine",
+      "parent": null,
+      "chapter": null,
+      "summary": "Styling trong React — CSS Modules & styled-components · Performance — useMemo & useCallback · React.memo & Tối ưu re-render",
+      "time": 15,
+      "related": [],
+      "comingSoon": false
+    },
+    {
       "id": "chapter15",
       "title": "Styling trong React — CSS Modules & styled-components",
       "type": "chi-tiet",
-      "side": "right",
-      "parent": "stage-4",
+      "side": "left",
+      "parent": "stage-6",
       "chapter": "react/chapter15.html",
       "summary": "Các cách tạo kiểu cho component: CSS thường, CSS Modules và styled-components.",
       "time": 5,
@@ -251,7 +275,7 @@ globalThis.SynaptrailRoadmapData = {
       "title": "Performance — useMemo & useCallback",
       "type": "chi-tiet",
       "side": "left",
-      "parent": "stage-4",
+      "parent": "stage-6",
       "chapter": "react/chapter16.html",
       "summary": "useMemo nhớ kết quả tính toán nặng, useCallback nhớ hàm — chỉ dùng khi thực sự cần.",
       "time": 5,
@@ -260,23 +284,11 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": "react/quiz.html?chapter=chapter16"
     },
     {
-      "id": "stage-5",
-      "title": "Chặng 5 · 17–20",
-      "type": "bat-buoc",
-      "side": "spine",
-      "parent": null,
-      "chapter": null,
-      "summary": "React.memo & Tối ưu re-render · Error Boundaries & Xử lý lỗi · Portals — Modal & Tooltip · Redux Toolkit — Giới thiệu & Store",
-      "time": 20,
-      "related": [],
-      "comingSoon": false
-    },
-    {
       "id": "chapter17",
       "title": "React.memo & Tối ưu re-render",
       "type": "chi-tiet",
-      "side": "left",
-      "parent": "stage-5",
+      "side": "right",
+      "parent": "stage-6",
       "chapter": "react/chapter17.html",
       "summary": "React.memo bỏ qua việc render lại component khi props không đổi.",
       "time": 5,
@@ -285,11 +297,23 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": "react/quiz.html?chapter=chapter17"
     },
     {
+      "id": "stage-7",
+      "title": "Xử lý lỗi & giao diện nâng cao",
+      "type": "bat-buoc",
+      "side": "spine",
+      "parent": null,
+      "chapter": null,
+      "summary": "Error Boundaries & Xử lý lỗi · Portals — Modal & Tooltip",
+      "time": 10,
+      "related": [],
+      "comingSoon": false
+    },
+    {
       "id": "chapter18",
       "title": "Error Boundaries & Xử lý lỗi",
       "type": "chi-tiet",
       "side": "right",
-      "parent": "stage-5",
+      "parent": "stage-7",
       "chapter": "react/chapter18.html",
       "summary": "Error Boundary bắt lỗi khi render trong cây con và hiển thị giao diện dự phòng thay vì làm sập cả ứng dụng.",
       "time": 5,
@@ -301,8 +325,8 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter19",
       "title": "Portals — Modal & Tooltip",
       "type": "chi-tiet",
-      "side": "left",
-      "parent": "stage-5",
+      "side": "right",
+      "parent": "stage-7",
       "chapter": "react/chapter19.html",
       "summary": "Portal render một phần giao diện ra ngoài cây DOM của cha, rất hợp cho modal và tooltip.",
       "time": 5,
@@ -311,11 +335,23 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": "react/quiz.html?chapter=chapter19"
     },
     {
+      "id": "stage-8",
+      "title": "Redux Toolkit",
+      "type": "bat-buoc",
+      "side": "spine",
+      "parent": null,
+      "chapter": null,
+      "summary": "Redux Toolkit — Giới thiệu & Store · Redux Toolkit — Slice, Thunk & kết nối API",
+      "time": 10,
+      "related": [],
+      "comingSoon": false
+    },
+    {
       "id": "chapter20",
       "title": "Redux Toolkit — Giới thiệu & Store",
       "type": "chi-tiet",
-      "side": "right",
-      "parent": "stage-5",
+      "side": "left",
+      "parent": "stage-8",
       "chapter": "react/chapter20.html",
       "summary": "Redux Toolkit (RTK) là cách chính thức, gọn nhất để dùng Redux quản lý state toàn cục.",
       "time": 5,
@@ -324,23 +360,11 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": "react/quiz.html?chapter=chapter20"
     },
     {
-      "id": "stage-6",
-      "title": "Chặng 6 · 21–24",
-      "type": "bat-buoc",
-      "side": "spine",
-      "parent": null,
-      "chapter": null,
-      "summary": "Redux Toolkit — Slice, Thunk & kết nối API · Form nâng cao — react-hook-form & Validation · Testing React Components — Jest & Testing Library · Giới thiệu Next.js — SSR & File-based Routing",
-      "time": 20,
-      "related": [],
-      "comingSoon": false
-    },
-    {
       "id": "chapter21",
       "title": "Redux Toolkit — Slice, Thunk & kết nối API",
       "type": "chi-tiet",
-      "side": "right",
-      "parent": "stage-6",
+      "side": "left",
+      "parent": "stage-8",
       "chapter": "react/chapter21.html",
       "summary": "createSlice gom reducer và action, createAsyncThunk xử lý gọi API bất đồng bộ.",
       "time": 5,
@@ -349,11 +373,23 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": "react/quiz.html?chapter=chapter21"
     },
     {
+      "id": "stage-9",
+      "title": "Form & kiểm thử",
+      "type": "bat-buoc",
+      "side": "spine",
+      "parent": null,
+      "chapter": null,
+      "summary": "Form nâng cao — react-hook-form & Validation · Testing React Components — Jest & Testing Library",
+      "time": 10,
+      "related": [],
+      "comingSoon": false
+    },
+    {
       "id": "chapter22",
       "title": "Form nâng cao — react-hook-form & Validation",
       "type": "chi-tiet",
-      "side": "left",
-      "parent": "stage-6",
+      "side": "right",
+      "parent": "stage-9",
       "chapter": "react/chapter22.html",
       "summary": "react-hook-form quản lý form hiệu quả, ít render lại; kết hợp Zod để kiểm tra dữ liệu.",
       "time": 5,
@@ -366,7 +402,7 @@ globalThis.SynaptrailRoadmapData = {
       "title": "Testing React Components — Jest & Testing Library",
       "type": "chi-tiet",
       "side": "right",
-      "parent": "stage-6",
+      "parent": "stage-9",
       "chapter": "react/chapter23.html",
       "summary": "Kiểm thử component bằng Jest (hoặc Vitest) và React Testing Library: test theo cách người dùng sử dụng.",
       "time": 5,
@@ -375,11 +411,23 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": "react/quiz.html?chapter=chapter23"
     },
     {
+      "id": "stage-10",
+      "title": "Next.js, triển khai & dự án",
+      "type": "bat-buoc",
+      "side": "spine",
+      "parent": null,
+      "chapter": null,
+      "summary": "Giới thiệu Next.js — SSR & File-based Routing · Triển khai ứng dụng React lên Production · Dự án cuối khóa: Ứng dụng React hoàn chỉnh",
+      "time": 15,
+      "related": [],
+      "comingSoon": false
+    },
+    {
       "id": "chapter24",
       "title": "Giới thiệu Next.js — SSR & File-based Routing",
       "type": "chi-tiet",
       "side": "left",
-      "parent": "stage-6",
+      "parent": "stage-10",
       "chapter": "react/chapter24.html",
       "summary": "Next.js là framework React cho ứng dụng production: định tuyến theo thư mục, render phía server (SSR) và nhiều tối ưu sẵn có.",
       "time": 5,
@@ -388,23 +436,11 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": "react/quiz.html?chapter=chapter24"
     },
     {
-      "id": "stage-7",
-      "title": "Chặng 7 · 25–26",
-      "type": "bat-buoc",
-      "side": "spine",
-      "parent": null,
-      "chapter": null,
-      "summary": "Triển khai ứng dụng React lên Production · Dự án cuối khóa: Ứng dụng React hoàn chỉnh",
-      "time": 10,
-      "related": [],
-      "comingSoon": false
-    },
-    {
       "id": "chapter25",
       "title": "Triển khai ứng dụng React lên Production",
       "type": "chi-tiet",
       "side": "left",
-      "parent": "stage-7",
+      "parent": "stage-10",
       "chapter": "react/chapter25.html",
       "summary": "Đóng gói ứng dụng React và đưa lên internet: build, biến môi trường, hosting tĩnh và kiểm tra trước khi phát hành.",
       "time": 5,
@@ -417,7 +453,7 @@ globalThis.SynaptrailRoadmapData = {
       "title": "Dự án cuối khóa: Ứng dụng React hoàn chỉnh",
       "type": "chi-tiet",
       "side": "right",
-      "parent": "stage-7",
+      "parent": "stage-10",
       "chapter": "react/chapter26.html",
       "summary": "Tổng hợp kiến thức: xây dựng ứng dụng quản lý công việc (Todo) hoàn chỉnh với component, hook, router, form và gọi API.",
       "time": 5,
@@ -428,19 +464,12 @@ globalThis.SynaptrailRoadmapData = {
   ],
   "layout": {
     "stage-1": {
-      "left": [
-        {
-          "nodes": [
-            "chapter01",
-            "chapter03"
-          ]
-        }
-      ],
+      "left": [],
       "right": [
         {
           "nodes": [
-            "chapter02",
-            "chapter04"
+            "chapter01",
+            "chapter02"
           ]
         }
       ]
@@ -448,17 +477,22 @@ globalThis.SynaptrailRoadmapData = {
     "stage-2": {
       "left": [
         {
+          "title": "State & sự kiện",
+          "tiles": true,
           "nodes": [
-            "chapter06",
-            "chapter08"
+            "chapter03",
+            "chapter04"
           ]
         }
       ],
       "right": [
         {
+          "title": "Điều kiện & danh sách",
+          "hub": false,
+          "tiles": true,
           "nodes": [
             "chapter05",
-            "chapter07"
+            "chapter06"
           ]
         }
       ]
@@ -466,17 +500,22 @@ globalThis.SynaptrailRoadmapData = {
     "stage-3": {
       "left": [
         {
+          "title": "useEffect & dữ liệu API",
+          "tiles": true,
           "nodes": [
-            "chapter09",
-            "chapter11"
+            "chapter07",
+            "chapter08"
           ]
         }
       ],
       "right": [
         {
+          "title": "Custom Hooks & useRef",
+          "hub": true,
+          "tiles": false,
           "nodes": [
-            "chapter10",
-            "chapter12"
+            "chapter09",
+            "chapter10"
           ]
         }
       ]
@@ -485,34 +524,20 @@ globalThis.SynaptrailRoadmapData = {
       "left": [
         {
           "nodes": [
-            "chapter14",
-            "chapter16"
+            "chapter11",
+            "chapter12"
           ]
         }
       ],
+      "right": []
+    },
+    "stage-5": {
+      "left": [],
       "right": [
         {
           "nodes": [
             "chapter13",
-            "chapter15"
-          ]
-        }
-      ]
-    },
-    "stage-5": {
-      "left": [
-        {
-          "nodes": [
-            "chapter17",
-            "chapter19"
-          ]
-        }
-      ],
-      "right": [
-        {
-          "nodes": [
-            "chapter18",
-            "chapter20"
+            "chapter14"
           ]
         }
       ]
@@ -521,24 +546,57 @@ globalThis.SynaptrailRoadmapData = {
       "left": [
         {
           "nodes": [
-            "chapter22",
-            "chapter24"
+            "chapter15",
+            "chapter16"
           ]
         }
       ],
       "right": [
         {
           "nodes": [
-            "chapter21",
-            "chapter23"
+            "chapter17"
           ]
         }
       ]
     },
     "stage-7": {
+      "left": [],
+      "right": [
+        {
+          "nodes": [
+            "chapter18",
+            "chapter19"
+          ]
+        }
+      ]
+    },
+    "stage-8": {
       "left": [
         {
           "nodes": [
+            "chapter20",
+            "chapter21"
+          ]
+        }
+      ],
+      "right": []
+    },
+    "stage-9": {
+      "left": [],
+      "right": [
+        {
+          "nodes": [
+            "chapter22",
+            "chapter23"
+          ]
+        }
+      ]
+    },
+    "stage-10": {
+      "left": [
+        {
+          "nodes": [
+            "chapter24",
             "chapter25"
           ]
         }

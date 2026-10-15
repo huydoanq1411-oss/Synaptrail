@@ -5,13 +5,13 @@ globalThis.SynaptrailRoadmapData = {
   "nodes": [
     {
       "id": "stage-1",
-      "title": "Git",
+      "title": "Kiểm soát phiên bản",
       "type": "bat-buoc",
       "side": "spine",
       "parent": null,
       "chapter": null,
-      "summary": "Git — Kiểm soát phiên bản · GitHub & Quy trình làm việc nhóm",
-      "time": 10,
+      "summary": "Git — Kiểm soát phiên bản",
+      "time": 5,
       "related": [],
       "comingSoon": false
     },
@@ -19,7 +19,7 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter01",
       "title": "Git — Kiểm soát phiên bản",
       "type": "chi-tiet",
-      "side": "left",
+      "side": "right",
       "parent": "stage-1",
       "chapter": "git/chapter01.html",
       "summary": "Công cụ bắt buộc với mọi lập trình viên — theo dõi lịch sử thay đổi code và cho phép làm việc nhóm an toàn.",
@@ -29,11 +29,23 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": null
     },
     {
+      "id": "stage-2",
+      "title": "GitHub & cộng tác",
+      "type": "bat-buoc",
+      "side": "spine",
+      "parent": null,
+      "chapter": null,
+      "summary": "GitHub & Quy trình làm việc nhóm",
+      "time": 5,
+      "related": [],
+      "comingSoon": false
+    },
+    {
       "id": "chapter02",
       "title": "GitHub & Quy trình làm việc nhóm",
       "type": "chi-tiet",
-      "side": "right",
-      "parent": "stage-1",
+      "side": "left",
+      "parent": "stage-2",
       "chapter": "git/chapter02.html",
       "summary": "GitHub lưu trữ repository trên đám mây và là nền tảng cộng tác phổ biến nhất — Pull Request là trái tim của làm việc nhóm chuyên nghiệp.",
       "time": 5,
@@ -44,20 +56,24 @@ globalThis.SynaptrailRoadmapData = {
   ],
   "layout": {
     "stage-1": {
-      "left": [
+      "left": [],
+      "right": [
         {
           "nodes": [
             "chapter01"
           ]
         }
-      ],
-      "right": [
+      ]
+    },
+    "stage-2": {
+      "left": [
         {
           "nodes": [
             "chapter02"
           ]
         }
-      ]
+      ],
+      "right": []
     }
   },
   "continueWith": [

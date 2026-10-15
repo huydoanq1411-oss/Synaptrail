@@ -1,0 +1,666 @@
+diff --git "a/C:\\Users\\Quoc Huy\\OneDrive\\Ta\314\200i li\303\252\314\243u\\GitHub\\Synaptrail\\assets\\roadmaps\\java.js" "b/C:\\Users\\Quoc Huy\\OneDrive\\Ta\314\200i li\303\252\314\243u\\GitHub\\Synaptrail\\reports\\course-roadmaps\\structure-preview\\java.js"
+index 540cbb4..6cbb411 100644
+--- "a/C:\\Users\\Quoc Huy\\OneDrive\\Ta\314\200i li\303\252\314\243u\\GitHub\\Synaptrail\\assets\\roadmaps\\java.js"	
++++ "b/C:\\Users\\Quoc Huy\\OneDrive\\Ta\314\200i li\303\252\314\243u\\GitHub\\Synaptrail\\reports\\course-roadmaps\\structure-preview\\java.js"	
+@@ -5,13 +5,13 @@ globalThis.SynaptrailRoadmapData = {
+   "nodes": [
+     {
+       "id": "stage-1",
+-      "title": "Chặng 1 · 1–4",
++      "title": "Nhập môn & môi trường Java",
+       "type": "bat-buoc",
+       "side": "spine",
+       "parent": null,
+       "chapter": null,
+-      "summary": "Giới thiệu Java · Cài đặt JDK & IDE · Chương trình đầu tiên · Biến & Kiểu dữ liệu",
+-      "time": 23,
++      "summary": "Giới thiệu Java · Cài đặt JDK & IDE · Chương trình đầu tiên",
++      "time": 18,
+       "related": [],
+       "comingSoon": false
+     },
+@@ -19,7 +19,7 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter01",
+       "title": "Giới thiệu Java",
+       "type": "chi-tiet",
+-      "side": "left",
++      "side": "right",
+       "parent": "stage-1",
+       "chapter": "java/chapter01.html",
+       "summary": "Hiểu đường đi từ mã nguồn đến chương trình chạy được, trước khi học cú pháp và viết ứng dụng lớn.",
+@@ -45,7 +45,7 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter03",
+       "title": "Chương trình đầu tiên",
+       "type": "chi-tiet",
+-      "side": "left",
++      "side": "right",
+       "parent": "stage-1",
+       "chapter": "java/chapter03.html",
+       "summary": "Viết Hello World hoàn chỉnh, hiểu từng dòng và phân biệt sửa mã, biên dịch, chạy cùng lỗi ở mỗi bước.",
+@@ -54,12 +54,24 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": "java/quiz.html?chapter=chapter03"
+     },
++    {
++      "id": "stage-2",
++      "title": "Cú pháp & luồng điều khiển",
++      "type": "bat-buoc",
++      "side": "spine",
++      "parent": null,
++      "chapter": null,
++      "summary": "Biến & Kiểu dữ liệu · Toán tử · Input/Output (Scanner) · Điều kiện (if/switch) · Vòng lặp",
++      "time": 25,
++      "related": [],
++      "comingSoon": false
++    },
+     {
+       "id": "chapter04",
+       "title": "Biến & Kiểu dữ liệu",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-1",
++      "side": "left",
++      "parent": "stage-2",
+       "chapter": "java/chapter04.html",
+       "summary": "Java phân biệt rõ ràng kiểu nguyên thủy (primitive) và kiểu tham chiếu (reference).",
+       "time": 5,
+@@ -67,23 +79,11 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": "java/quiz.html?chapter=chapter04"
+     },
+-    {
+-      "id": "stage-2",
+-      "title": "Chặng 2 · 5–8",
+-      "type": "bat-buoc",
+-      "side": "spine",
+-      "parent": null,
+-      "chapter": null,
+-      "summary": "Toán tử · Input/Output (Scanner) · Điều kiện (if/switch) · Vòng lặp",
+-      "time": 20,
+-      "related": [],
+-      "comingSoon": false
+-    },
+     {
+       "id": "chapter05",
+       "title": "Toán tử",
+       "type": "chi-tiet",
+-      "side": "right",
++      "side": "left",
+       "parent": "stage-2",
+       "chapter": "java/chapter05.html",
+       "summary": "Các phép toán số học, so sánh, logic quen thuộc — tương tự C++ vì Java kế thừa cú pháp từ C.",
+@@ -122,7 +122,7 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter08",
+       "title": "Vòng lặp",
+       "type": "chi-tiet",
+-      "side": "left",
++      "side": "right",
+       "parent": "stage-2",
+       "chapter": "java/chapter08.html",
+       "summary": "for, while, do-while và enhanced for (for-each).",
+@@ -133,13 +133,13 @@ globalThis.SynaptrailRoadmapData = {
+     },
+     {
+       "id": "stage-3",
+-      "title": "Chặng 3 · 9–12",
++      "title": "Mảng & phương thức",
+       "type": "bat-buoc",
+       "side": "spine",
+       "parent": null,
+       "chapter": null,
+-      "summary": "Mảng (Array) · Method (Hàm) · OOP cơ bản (Class & Object) · Exception cơ bản",
+-      "time": 20,
++      "summary": "Mảng (Array) · Method (Hàm)",
++      "time": 10,
+       "related": [],
+       "comingSoon": false
+     },
+@@ -147,7 +147,7 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter09",
+       "title": "Mảng (Array)",
+       "type": "chi-tiet",
+-      "side": "left",
++      "side": "right",
+       "parent": "stage-3",
+       "chapter": "java/chapter09.html",
+       "summary": "Tập hợp phần tử cùng kiểu, kích thước cố định — trong Java, mảng LUÔN là kiểu tham chiếu (object).",
+@@ -169,12 +169,24 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": null
+     },
++    {
++      "id": "stage-4",
++      "title": "OOP & xử lý ngoại lệ",
++      "type": "bat-buoc",
++      "side": "spine",
++      "parent": null,
++      "chapter": null,
++      "summary": "OOP cơ bản (Class & Object) · Exception cơ bản · Kế thừa (extends) · Đa hình & Interface · Abstract Class",
++      "time": 25,
++      "related": [],
++      "comingSoon": false
++    },
+     {
+       "id": "chapter11",
+       "title": "OOP cơ bản (Class & Object)",
+       "type": "chi-tiet",
+       "side": "left",
+-      "parent": "stage-3",
++      "parent": "stage-4",
+       "chapter": "java/chapter11.html",
+       "summary": "Java là ngôn ngữ hướng đối tượng thuần túy — mọi chương trình đều xoay quanh class và object.",
+       "time": 5,
+@@ -186,8 +198,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter12",
+       "title": "Exception cơ bản",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-3",
++      "side": "left",
++      "parent": "stage-4",
+       "chapter": "java/chapter12.html",
+       "summary": "Cơ chế xử lý lỗi bằng try-catch-finally — tương tự Python nhưng có thêm \"checked exception\" đặc trưng của Java.",
+       "time": 5,
+@@ -195,18 +207,6 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": "java/quiz.html?chapter=chapter12"
+     },
+-    {
+-      "id": "stage-4",
+-      "title": "Chặng 4 · 13–16",
+-      "type": "bat-buoc",
+-      "side": "spine",
+-      "parent": null,
+-      "chapter": null,
+-      "summary": "Kế thừa (extends) · Đa hình & Interface · Abstract Class · ArrayList & LinkedList",
+-      "time": 20,
+-      "related": [],
+-      "comingSoon": false
+-    },
+     {
+       "id": "chapter13",
+       "title": "Kế thừa (extends)",
+@@ -224,7 +224,7 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter14",
+       "title": "Đa hình & Interface",
+       "type": "chi-tiet",
+-      "side": "left",
++      "side": "right",
+       "parent": "stage-4",
+       "chapter": "java/chapter14.html",
+       "summary": "Interface định nghĩa \"hợp đồng\" mà class phải tuân theo — cách Java đạt được đa kế thừa hành vi.",
+@@ -246,12 +246,24 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": "java/quiz.html?chapter=chapter15"
+     },
++    {
++      "id": "stage-5",
++      "title": "Collections & lập trình hàm",
++      "type": "bat-buoc",
++      "side": "spine",
++      "parent": null,
++      "chapter": null,
++      "summary": "ArrayList & LinkedList · HashMap & HashSet · Generics · Stream API & Lambda",
++      "time": 21,
++      "related": [],
++      "comingSoon": false
++    },
+     {
+       "id": "chapter16",
+       "title": "ArrayList & LinkedList",
+       "type": "chi-tiet",
+       "side": "left",
+-      "parent": "stage-4",
++      "parent": "stage-5",
+       "chapter": "java/chapter16.html",
+       "summary": "Hai cài đặt phổ biến của interface List trong Collections Framework — danh sách động, khác mảng cố định.",
+       "time": 5,
+@@ -259,18 +271,6 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": null
+     },
+-    {
+-      "id": "stage-5",
+-      "title": "Chặng 5 · 17–20",
+-      "type": "bat-buoc",
+-      "side": "spine",
+-      "parent": null,
+-      "chapter": null,
+-      "summary": "HashMap & HashSet · Generics · Stream API & Lambda · Thread cơ bản",
+-      "time": 21,
+-      "related": [],
+-      "comingSoon": false
+-    },
+     {
+       "id": "chapter17",
+       "title": "HashMap & HashSet",
+@@ -301,7 +301,7 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter19",
+       "title": "Stream API & Lambda",
+       "type": "chi-tiet",
+-      "side": "left",
++      "side": "right",
+       "parent": "stage-5",
+       "chapter": "java/chapter19.html",
+       "summary": "Xử lý Collection theo phong cách lập trình hàm (functional programming) — Java 8+.",
+@@ -310,12 +310,24 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": "java/quiz.html?chapter=chapter19"
+     },
++    {
++      "id": "stage-6",
++      "title": "Lập trình đồng thời",
++      "type": "bat-buoc",
++      "side": "spine",
++      "parent": null,
++      "chapter": null,
++      "summary": "Thread cơ bản · Synchronized & Race Condition · ExecutorService",
++      "time": 15,
++      "related": [],
++      "comingSoon": false
++    },
+     {
+       "id": "chapter20",
+       "title": "Thread cơ bản",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-5",
++      "side": "left",
++      "parent": "stage-6",
+       "chapter": "java/chapter20.html",
+       "summary": "Chạy nhiều luồng thực thi song song trong Java — hai cách tạo Thread cơ bản.",
+       "time": 5,
+@@ -323,23 +335,11 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": null
+     },
+-    {
+-      "id": "stage-6",
+-      "title": "Chặng 6 · 21–24",
+-      "type": "bat-buoc",
+-      "side": "spine",
+-      "parent": null,
+-      "chapter": null,
+-      "summary": "Synchronized & Race Condition · ExecutorService · File I/O · Record & Optional",
+-      "time": 20,
+-      "related": [],
+-      "comingSoon": false
+-    },
+     {
+       "id": "chapter21",
+       "title": "Synchronized & Race Condition",
+       "type": "chi-tiet",
+-      "side": "right",
++      "side": "left",
+       "parent": "stage-6",
+       "chapter": "java/chapter21.html",
+       "summary": "Vấn đề tranh chấp dữ liệu khi nhiều luồng cùng truy cập, và cách Java giải quyết bằng synchronized.",
+@@ -352,7 +352,7 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter22",
+       "title": "ExecutorService",
+       "type": "chi-tiet",
+-      "side": "left",
++      "side": "right",
+       "parent": "stage-6",
+       "chapter": "java/chapter22.html",
+       "summary": "Cách quản lý thread hiện đại, chuyên nghiệp hơn việc tự tạo Thread thủ công — dùng \"thread pool\".",
+@@ -361,12 +361,24 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": null
+     },
++    {
++      "id": "stage-7",
++      "title": "File & kiểu dữ liệu hiện đại",
++      "type": "bat-buoc",
++      "side": "spine",
++      "parent": null,
++      "chapter": null,
++      "summary": "File I/O · Record & Optional",
++      "time": 10,
++      "related": [],
++      "comingSoon": false
++    },
+     {
+       "id": "chapter23",
+       "title": "File I/O",
+       "type": "chi-tiet",
+       "side": "right",
+-      "parent": "stage-6",
++      "parent": "stage-7",
+       "chapter": "java/chapter23.html",
+       "summary": "Đọc và ghi file bằng các lớp hiện đại của Java (NIO) và cách xử lý cũ hơn (IO).",
+       "time": 5,
+@@ -378,8 +390,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter24",
+       "title": "Record & Optional",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-6",
++      "side": "right",
++      "parent": "stage-7",
+       "chapter": "java/chapter24.html",
+       "summary": "Hai tính năng hiện đại của Java (14+ và 8+) giúp code ngắn gọn và an toàn hơn với giá trị null.",
+       "time": 5,
+@@ -388,14 +400,14 @@ globalThis.SynaptrailRoadmapData = {
+       "quiz": "java/quiz.html?chapter=chapter24"
+     },
+     {
+-      "id": "stage-7",
+-      "title": "Chặng 7 · 25–28",
++      "id": "stage-8",
++      "title": "Spring Boot & REST API",
+       "type": "bat-buoc",
+       "side": "spine",
+       "parent": null,
+       "chapter": null,
+-      "summary": "Giới thiệu Spring Boot & Dependency Injection · REST Controller · Service & Repository (JPA) · Dự án: Quản lý sinh viên (OOP + Collections)",
+-      "time": 20,
++      "summary": "Giới thiệu Spring Boot & Dependency Injection · REST Controller · Service & Repository (JPA)",
++      "time": 15,
+       "related": [],
+       "comingSoon": false
+     },
+@@ -404,7 +416,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Giới thiệu Spring Boot & Dependency Injection",
+       "type": "chi-tiet",
+       "side": "left",
+-      "parent": "stage-7",
++      "parent": "stage-8",
+       "chapter": "java/chapter25.html",
+       "summary": "Framework phổ biến nhất để xây dựng ứng dụng Java doanh nghiệp — giảm cấu hình thủ công tới mức tối thiểu.",
+       "time": 5,
+@@ -416,8 +428,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter26",
+       "title": "REST Controller",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-7",
++      "side": "left",
++      "parent": "stage-8",
+       "chapter": "java/chapter26.html",
+       "summary": "Xây dựng REST API bằng Spring Boot — chỉ cần vài annotation để định nghĩa endpoint.",
+       "time": 5,
+@@ -429,8 +441,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter27",
+       "title": "Service & Repository (JPA)",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-7",
++      "side": "right",
++      "parent": "stage-8",
+       "chapter": "java/chapter27.html",
+       "summary": "Kiến trúc 3 lớp chuẩn của Spring Boot: Controller → Service → Repository — và JPA để làm việc với database không cần viết SQL thủ công.",
+       "time": 5,
+@@ -438,12 +450,24 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": "java/quiz.html?chapter=chapter27"
+     },
++    {
++      "id": "stage-9",
++      "title": "Dự án & luyện tập",
++      "type": "bat-buoc",
++      "side": "spine",
++      "parent": null,
++      "chapter": null,
++      "summary": "Dự án: Quản lý sinh viên (OOP + Collections) · Dự án: REST API Quản lý công việc · Bài tập Cơ bản (Dễ) · Bài tập OOP & Collections",
++      "time": 20,
++      "related": [],
++      "comingSoon": false
++    },
+     {
+       "id": "chapter28",
+       "title": "Dự án: Quản lý sinh viên (OOP + Collections)",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-7",
++      "side": "left",
++      "parent": "stage-9",
+       "chapter": "java/chapter28.html",
+       "summary": "Dự án console tổng hợp: class, interface, Collections, Stream API — không cần Spring Boot.",
+       "time": 5,
+@@ -451,24 +475,12 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": null
+     },
+-    {
+-      "id": "stage-8",
+-      "title": "Chặng 8 · 29–31",
+-      "type": "bat-buoc",
+-      "side": "spine",
+-      "parent": null,
+-      "chapter": null,
+-      "summary": "Dự án: REST API Quản lý công việc · Bài tập Cơ bản (Dễ) · Bài tập OOP & Collections",
+-      "time": 15,
+-      "related": [],
+-      "comingSoon": false
+-    },
+     {
+       "id": "chapter29",
+       "title": "Dự án: REST API Quản lý công việc",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-8",
++      "side": "left",
++      "parent": "stage-9",
+       "chapter": "java/chapter29.html",
+       "summary": "Dự án tổng hợp Spring Boot hoàn chỉnh: Entity, Repository, Service, Controller.",
+       "time": 5,
+@@ -480,8 +492,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter30",
+       "title": "Bài tập Cơ bản (Dễ)",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-8",
++      "side": "right",
++      "parent": "stage-9",
+       "chapter": "java/chapter30.html",
+       "summary": "8 bài tập củng cố cú pháp nền tảng, vòng lặp, method và mảng.",
+       "time": 5,
+@@ -494,7 +506,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Bài tập OOP & Collections",
+       "type": "chi-tiet",
+       "side": "right",
+-      "parent": "stage-8",
++      "parent": "stage-9",
+       "chapter": "java/chapter31.html",
+       "summary": "7 bài tập vận dụng class, interface, Collections và Stream API — mức độ thường gặp trong bài test tuyển dụng Junior Java Developer.",
+       "time": 5,
+@@ -505,19 +517,13 @@ globalThis.SynaptrailRoadmapData = {
+   ],
+   "layout": {
+     "stage-1": {
+-      "left": [
+-        {
+-          "nodes": [
+-            "chapter01",
+-            "chapter03"
+-          ]
+-        }
+-      ],
++      "left": [],
+       "right": [
+         {
+           "nodes": [
++            "chapter01",
+             "chapter02",
+-            "chapter04"
++            "chapter03"
+           ]
+         }
+       ]
+@@ -525,35 +531,34 @@ globalThis.SynaptrailRoadmapData = {
+     "stage-2": {
+       "left": [
+         {
++          "title": "Dữ liệu & nhập xuất",
++          "tiles": false,
+           "nodes": [
+-            "chapter06",
+-            "chapter08"
++            "chapter04",
++            "chapter05",
++            "chapter06"
+           ]
+         }
+       ],
+       "right": [
+         {
++          "title": "Điều kiện & vòng lặp",
++          "hub": false,
++          "tiles": true,
+           "nodes": [
+-            "chapter05",
+-            "chapter07"
++            "chapter07",
++            "chapter08"
+           ]
+         }
+       ]
+     },
+     "stage-3": {
+-      "left": [
+-        {
+-          "nodes": [
+-            "chapter09",
+-            "chapter11"
+-          ]
+-        }
+-      ],
++      "left": [],
+       "right": [
+         {
+           "nodes": [
+-            "chapter10",
+-            "chapter12"
++            "chapter09",
++            "chapter10"
+           ]
+         }
+       ]
+@@ -561,16 +566,22 @@ globalThis.SynaptrailRoadmapData = {
+     "stage-4": {
+       "left": [
+         {
++          "title": "Nền tảng OOP & Exception",
++          "tiles": true,
+           "nodes": [
+-            "chapter14",
+-            "chapter16"
++            "chapter11",
++            "chapter12"
+           ]
+         }
+       ],
+       "right": [
+         {
++          "title": "Kế thừa, Interface & Abstract",
++          "hub": true,
++          "tiles": false,
+           "nodes": [
+             "chapter13",
++            "chapter14",
+             "chapter15"
+           ]
+         }
+@@ -579,17 +590,22 @@ globalThis.SynaptrailRoadmapData = {
+     "stage-5": {
+       "left": [
+         {
++          "title": "Collections",
++          "tiles": true,
+           "nodes": [
+-            "chapter17",
+-            "chapter19"
++            "chapter16",
++            "chapter17"
+           ]
+         }
+       ],
+       "right": [
+         {
++          "title": "Generics, Stream & Lambda",
++          "hub": false,
++          "tiles": true,
+           "nodes": [
+             "chapter18",
+-            "chapter20"
++            "chapter19"
+           ]
+         }
+       ]
+@@ -598,50 +614,65 @@ globalThis.SynaptrailRoadmapData = {
+       "left": [
+         {
+           "nodes": [
+-            "chapter22",
+-            "chapter24"
++            "chapter20",
++            "chapter21"
+           ]
+         }
+       ],
+       "right": [
+         {
+           "nodes": [
+-            "chapter21",
+-            "chapter23"
++            "chapter22"
+           ]
+         }
+       ]
+     },
+     "stage-7": {
++      "left": [],
++      "right": [
++        {
++          "nodes": [
++            "chapter23",
++            "chapter24"
++          ]
++        }
++      ]
++    },
++    "stage-8": {
+       "left": [
+         {
+           "nodes": [
+             "chapter25",
+-            "chapter27"
++            "chapter26"
+           ]
+         }
+       ],
+       "right": [
+         {
+           "nodes": [
+-            "chapter26",
+-            "chapter28"
++            "chapter27"
+           ]
+         }
+       ]
+     },
+-    "stage-8": {
++    "stage-9": {
+       "left": [
+         {
++          "title": "Dự án",
++          "tiles": true,
+           "nodes": [
+-            "chapter30"
++            "chapter28",
++            "chapter29"
+           ]
+         }
+       ],
+       "right": [
+         {
++          "title": "Bài tập",
++          "hub": false,
++          "tiles": true,
+           "nodes": [
+-            "chapter29",
++            "chapter30",
+             "chapter31"
+           ]
+         }

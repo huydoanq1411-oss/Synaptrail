@@ -5,13 +5,13 @@ globalThis.SynaptrailRoadmapData = {
   "nodes": [
     {
       "id": "stage-1",
-      "title": "TypeScript",
+      "title": "Hệ thống kiểu dữ liệu",
       "type": "bat-buoc",
       "side": "spine",
       "parent": null,
       "chapter": null,
-      "summary": "TypeScript — Kiểu dữ liệu cơ bản · TypeScript — Interface, Type & Generics",
-      "time": 10,
+      "summary": "TypeScript — Kiểu dữ liệu cơ bản",
+      "time": 5,
       "related": [],
       "comingSoon": false
     },
@@ -19,7 +19,7 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter01",
       "title": "TypeScript — Kiểu dữ liệu cơ bản",
       "type": "chi-tiet",
-      "side": "left",
+      "side": "right",
       "parent": "stage-1",
       "chapter": "typescript/chapter01.html",
       "summary": "JavaScript được bổ sung hệ thống kiểu tĩnh — phát hiện lỗi ngay lúc viết code thay vì đợi tới khi chạy.",
@@ -29,11 +29,23 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": null
     },
     {
+      "id": "stage-2",
+      "title": "Interface, Type & Generics",
+      "type": "bat-buoc",
+      "side": "spine",
+      "parent": null,
+      "chapter": null,
+      "summary": "TypeScript — Interface, Type & Generics",
+      "time": 5,
+      "related": [],
+      "comingSoon": false
+    },
+    {
       "id": "chapter02",
       "title": "TypeScript — Interface, Type & Generics",
       "type": "chi-tiet",
-      "side": "right",
-      "parent": "stage-1",
+      "side": "left",
+      "parent": "stage-2",
       "chapter": "typescript/chapter02.html",
       "summary": "Định nghĩa \"hình dạng\" của object và viết code tổng quát hoạt động với nhiều kiểu dữ liệu.",
       "time": 5,
@@ -44,20 +56,24 @@ globalThis.SynaptrailRoadmapData = {
   ],
   "layout": {
     "stage-1": {
-      "left": [
+      "left": [],
+      "right": [
         {
           "nodes": [
             "chapter01"
           ]
         }
-      ],
-      "right": [
+      ]
+    },
+    "stage-2": {
+      "left": [
         {
           "nodes": [
             "chapter02"
           ]
         }
-      ]
+      ],
+      "right": []
     }
   },
   "continueWith": [

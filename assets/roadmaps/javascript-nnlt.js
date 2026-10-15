@@ -5,13 +5,13 @@ globalThis.SynaptrailRoadmapData = {
   "nodes": [
     {
       "id": "stage-1",
-      "title": "Chặng 1 · 1–4",
+      "title": "Nhập môn JavaScript",
       "type": "bat-buoc",
       "side": "spine",
       "parent": null,
       "chapter": null,
-      "summary": "Giới thiệu JavaScript · Cách chạy JS (Browser & Node.js) · Chương trình đầu tiên · Biến (var/let/const)",
-      "time": 20,
+      "summary": "Giới thiệu JavaScript · Cách chạy JS (Browser & Node.js) · Chương trình đầu tiên",
+      "time": 15,
       "related": [],
       "comingSoon": false
     },
@@ -19,7 +19,7 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter01",
       "title": "Giới thiệu JavaScript",
       "type": "chi-tiet",
-      "side": "left",
+      "side": "right",
       "parent": "stage-1",
       "chapter": "javascript-nnlt/chapter01.html",
       "summary": "JavaScript là gì, tại sao là ngôn ngữ không thể thiếu của web, và mối quan hệ với Java (KHÔNG liên quan gì nhau!).",
@@ -45,7 +45,7 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter03",
       "title": "Chương trình đầu tiên",
       "type": "chi-tiet",
-      "side": "left",
+      "side": "right",
       "parent": "stage-1",
       "chapter": "javascript-nnlt/chapter03.html",
       "summary": "In \"Hello, World!\" và làm quen với console.log — công cụ debug quan trọng nhất của JS.",
@@ -55,11 +55,23 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": null
     },
     {
+      "id": "stage-2",
+      "title": "Cú pháp & điều khiển",
+      "type": "bat-buoc",
+      "side": "spine",
+      "parent": null,
+      "chapter": null,
+      "summary": "Biến (var/let/const) · Kiểu dữ liệu · Toán tử · Điều kiện · Vòng lặp",
+      "time": 25,
+      "related": [],
+      "comingSoon": false
+    },
+    {
       "id": "chapter04",
       "title": "Biến (var/let/const)",
       "type": "chi-tiet",
-      "side": "right",
-      "parent": "stage-1",
+      "side": "left",
+      "parent": "stage-2",
       "chapter": "javascript-nnlt/chapter04.html",
       "summary": "JavaScript có 3 từ khóa khai báo biến — hiểu đúng sự khác biệt là nền tảng quan trọng nhất.",
       "time": 5,
@@ -68,22 +80,10 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": "javascript-nnlt/quiz.html?chapter=chapter04"
     },
     {
-      "id": "stage-2",
-      "title": "Chặng 2 · 5–8",
-      "type": "bat-buoc",
-      "side": "spine",
-      "parent": null,
-      "chapter": null,
-      "summary": "Kiểu dữ liệu · Toán tử · Điều kiện · Vòng lặp",
-      "time": 20,
-      "related": [],
-      "comingSoon": false
-    },
-    {
       "id": "chapter05",
       "title": "Kiểu dữ liệu",
       "type": "chi-tiet",
-      "side": "right",
+      "side": "left",
       "parent": "stage-2",
       "chapter": "javascript-nnlt/chapter05.html",
       "summary": "JavaScript là ngôn ngữ động về kiểu (dynamic typing) và có một số hành vi ép kiểu đặc trưng cần lưu ý.",
@@ -122,7 +122,7 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter08",
       "title": "Vòng lặp",
       "type": "chi-tiet",
-      "side": "left",
+      "side": "right",
       "parent": "stage-2",
       "chapter": "javascript-nnlt/chapter08.html",
       "summary": "for, while, và các vòng lặp hiện đại for...of / for...in.",
@@ -133,7 +133,7 @@ globalThis.SynaptrailRoadmapData = {
     },
     {
       "id": "stage-3",
-      "title": "Chặng 3 · 9–12",
+      "title": "Hàm, dữ liệu & DOM",
       "type": "bat-buoc",
       "side": "spine",
       "parent": null,
@@ -160,7 +160,7 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter10",
       "title": "Mảng (Array)",
       "type": "chi-tiet",
-      "side": "right",
+      "side": "left",
       "parent": "stage-3",
       "chapter": "javascript-nnlt/chapter10.html",
       "summary": "Cấu trúc dữ liệu linh hoạt, tự động thay đổi kích thước, với rất nhiều phương thức xử lý mạnh mẽ.",
@@ -197,7 +197,7 @@ globalThis.SynaptrailRoadmapData = {
     },
     {
       "id": "stage-4",
-      "title": "Chặng 4 · 13–16",
+      "title": "Lập trình bất đồng bộ",
       "type": "bat-buoc",
       "side": "spine",
       "parent": null,
@@ -211,7 +211,7 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter13",
       "title": "Callback & Callback Hell",
       "type": "chi-tiet",
-      "side": "right",
+      "side": "left",
       "parent": "stage-4",
       "chapter": "javascript-nnlt/chapter13.html",
       "summary": "Cách xử lý bất đồng bộ nguyên thủy nhất của JS — và vấn đề nổi tiếng khi lạm dụng nó.",
@@ -250,7 +250,7 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter16",
       "title": "Fetch API & JSON",
       "type": "chi-tiet",
-      "side": "left",
+      "side": "right",
       "parent": "stage-4",
       "chapter": "javascript-nnlt/chapter16.html",
       "summary": "Gọi API từ trình duyệt bằng fetch() — thay thế XMLHttpRequest kiểu cũ.",
@@ -261,13 +261,13 @@ globalThis.SynaptrailRoadmapData = {
     },
     {
       "id": "stage-5",
-      "title": "Chặng 5 · 17–20",
+      "title": "JavaScript hiện đại",
       "type": "bat-buoc",
       "side": "spine",
       "parent": null,
       "chapter": null,
-      "summary": "Destructuring & Spread nâng cao · Class trong JavaScript · Module (import/export) · Giới thiệu Node.js",
-      "time": 20,
+      "summary": "Destructuring & Spread nâng cao · Class trong JavaScript · Module (import/export)",
+      "time": 15,
       "related": [],
       "comingSoon": false
     },
@@ -288,7 +288,7 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter18",
       "title": "Class trong JavaScript",
       "type": "chi-tiet",
-      "side": "right",
+      "side": "left",
       "parent": "stage-5",
       "chapter": "javascript-nnlt/chapter18.html",
       "summary": "Cú pháp OOP hiện đại (ES6+) — thực chất là \"lớp vỏ cú pháp\" cho prototype-based inheritance nguyên bản của JS.",
@@ -301,7 +301,7 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter19",
       "title": "Module (import/export)",
       "type": "chi-tiet",
-      "side": "left",
+      "side": "right",
       "parent": "stage-5",
       "chapter": "javascript-nnlt/chapter19.html",
       "summary": "Chia code thành nhiều file có thể tái sử dụng — chuẩn ES Module hiện đại.",
@@ -311,11 +311,23 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": "javascript-nnlt/quiz.html?chapter=chapter19"
     },
     {
+      "id": "stage-6",
+      "title": "Node.js & Express",
+      "type": "bat-buoc",
+      "side": "spine",
+      "parent": null,
+      "chapter": null,
+      "summary": "Giới thiệu Node.js · NPM & package.json · File System (fs module) · Express — Server cơ bản · Express — REST API & Middleware",
+      "time": 25,
+      "related": [],
+      "comingSoon": false
+    },
+    {
       "id": "chapter20",
       "title": "Giới thiệu Node.js",
       "type": "chi-tiet",
-      "side": "right",
-      "parent": "stage-5",
+      "side": "left",
+      "parent": "stage-6",
       "chapter": "javascript-nnlt/chapter20.html",
       "summary": "Môi trường chạy JavaScript ngoài trình duyệt — biến JS thành ngôn ngữ full-stack thực thụ.",
       "time": 5,
@@ -324,22 +336,10 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": null
     },
     {
-      "id": "stage-6",
-      "title": "Chặng 6 · 21–24",
-      "type": "bat-buoc",
-      "side": "spine",
-      "parent": null,
-      "chapter": null,
-      "summary": "NPM & package.json · File System (fs module) · Express — Server cơ bản · Express — REST API & Middleware",
-      "time": 20,
-      "related": [],
-      "comingSoon": false
-    },
-    {
       "id": "chapter21",
       "title": "NPM & package.json",
       "type": "chi-tiet",
-      "side": "right",
+      "side": "left",
       "parent": "stage-6",
       "chapter": "javascript-nnlt/chapter21.html",
       "summary": "npm (Node Package Manager) là kho thư viện lớn nhất thế giới lập trình — quản lý dependency cho dự án Node.js.",
@@ -378,7 +378,7 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter24",
       "title": "Express — REST API & Middleware",
       "type": "chi-tiet",
-      "side": "left",
+      "side": "right",
       "parent": "stage-6",
       "chapter": "javascript-nnlt/chapter24.html",
       "summary": "Xây dựng REST API hoàn chỉnh và hiểu khái niệm middleware — trái tim của Express.",
@@ -389,7 +389,7 @@ globalThis.SynaptrailRoadmapData = {
     },
     {
       "id": "stage-7",
-      "title": "Chặng 7 · 25–28",
+      "title": "Dự án & luyện tập",
       "type": "bat-buoc",
       "side": "spine",
       "parent": null,
@@ -416,7 +416,7 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter26",
       "title": "Dự án: Todo App (React)",
       "type": "chi-tiet",
-      "side": "right",
+      "side": "left",
       "parent": "stage-7",
       "chapter": "javascript-nnlt/chapter26.html",
       "summary": "Xây dựng lại chính ứng dụng Todo App bằng React — so sánh trực tiếp để thấy sự khác biệt.",
@@ -429,7 +429,7 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter27",
       "title": "Bài tập Cơ bản (Dễ)",
       "type": "chi-tiet",
-      "side": "left",
+      "side": "right",
       "parent": "stage-7",
       "chapter": "javascript-nnlt/chapter27.html",
       "summary": "8 bài tập củng cố cú pháp nền tảng, hàm, chuỗi và vòng lặp.",
@@ -453,7 +453,7 @@ globalThis.SynaptrailRoadmapData = {
     },
     {
       "id": "stage-8",
-      "title": "Chặng 8 · 29–32",
+      "title": "Lưu trữ & API trình duyệt",
       "type": "bat-buoc",
       "side": "spine",
       "parent": null,
@@ -467,7 +467,7 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter29",
       "title": "Web Storage (localStorage/sessionStorage)",
       "type": "chi-tiet",
-      "side": "right",
+      "side": "left",
       "parent": "stage-8",
       "chapter": "javascript-nnlt/chapter29.html",
       "summary": "Lưu dữ liệu trực tiếp trên trình duyệt người dùng — không cần gọi server, tồn tại giữa các lần tải trang.",
@@ -506,7 +506,7 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter32",
       "title": "WebSocket API (client thuần)",
       "type": "chi-tiet",
-      "side": "left",
+      "side": "right",
       "parent": "stage-8",
       "chapter": "javascript-nnlt/chapter32.html",
       "summary": "API WebSocket gốc của trình duyệt — nền tảng mà các thư viện như Socket.IO (đã học ở Full-Stack JS) xây dựng bên trên.",
@@ -517,7 +517,7 @@ globalThis.SynaptrailRoadmapData = {
     },
     {
       "id": "stage-9",
-      "title": "Chặng 9 · 33–34",
+      "title": "Kiểm thử & thiết kế",
       "type": "bat-buoc",
       "side": "spine",
       "parent": null,
@@ -531,7 +531,7 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter33",
       "title": "Unit Testing với Jest",
       "type": "chi-tiet",
-      "side": "left",
+      "side": "right",
       "parent": "stage-9",
       "chapter": "javascript-nnlt/chapter33.html",
       "summary": "Viết code tự động kiểm tra code khác — nền tảng để refactor tự tin mà không lo \"vô tình làm hỏng cái gì đó\".",
@@ -556,19 +556,13 @@ globalThis.SynaptrailRoadmapData = {
   ],
   "layout": {
     "stage-1": {
-      "left": [
-        {
-          "nodes": [
-            "chapter01",
-            "chapter03"
-          ]
-        }
-      ],
+      "left": [],
       "right": [
         {
           "nodes": [
+            "chapter01",
             "chapter02",
-            "chapter04"
+            "chapter03"
           ]
         }
       ]
@@ -576,17 +570,23 @@ globalThis.SynaptrailRoadmapData = {
     "stage-2": {
       "left": [
         {
+          "title": "Biến, kiểu dữ liệu & toán tử",
+          "tiles": false,
           "nodes": [
-            "chapter06",
-            "chapter08"
+            "chapter04",
+            "chapter05",
+            "chapter06"
           ]
         }
       ],
       "right": [
         {
+          "title": "Điều kiện & vòng lặp",
+          "hub": false,
+          "tiles": true,
           "nodes": [
-            "chapter05",
-            "chapter07"
+            "chapter07",
+            "chapter08"
           ]
         }
       ]
@@ -594,16 +594,21 @@ globalThis.SynaptrailRoadmapData = {
     "stage-3": {
       "left": [
         {
+          "title": "Hàm & cấu trúc dữ liệu",
+          "tiles": false,
           "nodes": [
             "chapter09",
+            "chapter10",
             "chapter11"
           ]
         }
       ],
       "right": [
         {
+          "title": "DOM",
+          "hub": false,
+          "tiles": false,
           "nodes": [
-            "chapter10",
             "chapter12"
           ]
         }
@@ -612,17 +617,22 @@ globalThis.SynaptrailRoadmapData = {
     "stage-4": {
       "left": [
         {
+          "title": "Callback & Promise",
+          "tiles": true,
           "nodes": [
-            "chapter14",
-            "chapter16"
+            "chapter13",
+            "chapter14"
           ]
         }
       ],
       "right": [
         {
+          "title": "async/await & Fetch",
+          "hub": true,
+          "tiles": false,
           "nodes": [
-            "chapter13",
-            "chapter15"
+            "chapter15",
+            "chapter16"
           ]
         }
       ]
@@ -632,15 +642,14 @@ globalThis.SynaptrailRoadmapData = {
         {
           "nodes": [
             "chapter17",
-            "chapter19"
+            "chapter18"
           ]
         }
       ],
       "right": [
         {
           "nodes": [
-            "chapter18",
-            "chapter20"
+            "chapter19"
           ]
         }
       ]
@@ -648,17 +657,23 @@ globalThis.SynaptrailRoadmapData = {
     "stage-6": {
       "left": [
         {
+          "title": "Node.js, NPM & File System",
+          "tiles": false,
           "nodes": [
-            "chapter22",
-            "chapter24"
+            "chapter20",
+            "chapter21",
+            "chapter22"
           ]
         }
       ],
       "right": [
         {
+          "title": "Express & REST API",
+          "hub": true,
+          "tiles": false,
           "nodes": [
-            "chapter21",
-            "chapter23"
+            "chapter23",
+            "chapter24"
           ]
         }
       ]
@@ -666,16 +681,21 @@ globalThis.SynaptrailRoadmapData = {
     "stage-7": {
       "left": [
         {
+          "title": "Dự án Todo App",
+          "tiles": true,
           "nodes": [
             "chapter25",
-            "chapter27"
+            "chapter26"
           ]
         }
       ],
       "right": [
         {
+          "title": "Bài tập",
+          "hub": false,
+          "tiles": true,
           "nodes": [
-            "chapter26",
+            "chapter27",
             "chapter28"
           ]
         }
@@ -684,32 +704,32 @@ globalThis.SynaptrailRoadmapData = {
     "stage-8": {
       "left": [
         {
+          "title": "Web Storage & IndexedDB",
+          "tiles": true,
           "nodes": [
-            "chapter30",
-            "chapter32"
+            "chapter29",
+            "chapter30"
           ]
         }
       ],
       "right": [
         {
+          "title": "Workers & WebSocket",
+          "hub": false,
+          "tiles": true,
           "nodes": [
-            "chapter29",
-            "chapter31"
+            "chapter31",
+            "chapter32"
           ]
         }
       ]
     },
     "stage-9": {
-      "left": [
-        {
-          "nodes": [
-            "chapter33"
-          ]
-        }
-      ],
+      "left": [],
       "right": [
         {
           "nodes": [
+            "chapter33",
             "chapter34"
           ]
         }

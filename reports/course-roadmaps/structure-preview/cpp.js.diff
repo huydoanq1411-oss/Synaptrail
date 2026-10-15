@@ -1,0 +1,666 @@
+diff --git "a/C:\\Users\\Quoc Huy\\OneDrive\\Ta\314\200i li\303\252\314\243u\\GitHub\\Synaptrail\\assets\\roadmaps\\cpp.js" "b/C:\\Users\\Quoc Huy\\OneDrive\\Ta\314\200i li\303\252\314\243u\\GitHub\\Synaptrail\\reports\\course-roadmaps\\structure-preview\\cpp.js"
+index ed5d8bd..34c2e5d 100644
+--- "a/C:\\Users\\Quoc Huy\\OneDrive\\Ta\314\200i li\303\252\314\243u\\GitHub\\Synaptrail\\assets\\roadmaps\\cpp.js"	
++++ "b/C:\\Users\\Quoc Huy\\OneDrive\\Ta\314\200i li\303\252\314\243u\\GitHub\\Synaptrail\\reports\\course-roadmaps\\structure-preview\\cpp.js"	
+@@ -5,13 +5,13 @@ globalThis.SynaptrailRoadmapData = {
+   "nodes": [
+     {
+       "id": "stage-1",
+-      "title": "Chặng 1 · 1–4",
++      "title": "Nhập môn C++",
+       "type": "bat-buoc",
+       "side": "spine",
+       "parent": null,
+       "chapter": null,
+-      "summary": "Giới thiệu C++ · Cài đặt trình biên dịch · Chương trình đầu tiên · Biến & Kiểu dữ liệu",
+-      "time": 20,
++      "summary": "Giới thiệu C++ · Cài đặt trình biên dịch · Chương trình đầu tiên",
++      "time": 15,
+       "related": [],
+       "comingSoon": false
+     },
+@@ -19,7 +19,7 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter01",
+       "title": "Giới thiệu C++",
+       "type": "chi-tiet",
+-      "side": "left",
++      "side": "right",
+       "parent": "stage-1",
+       "chapter": "cpp/chapter01.html",
+       "summary": "C++ là gì, tại sao nên học, và nó khác gì so với C và các ngôn ngữ hiện đại khác.",
+@@ -45,7 +45,7 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter03",
+       "title": "Chương trình đầu tiên",
+       "type": "chi-tiet",
+-      "side": "left",
++      "side": "right",
+       "parent": "stage-1",
+       "chapter": "cpp/chapter03.html",
+       "summary": "Viết, biên dịch và chạy \"Hello, World!\" — hiểu cấu trúc cơ bản của một file .cpp.",
+@@ -54,12 +54,24 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": "cpp/quiz.html?chapter=chapter03"
+     },
++    {
++      "id": "stage-2",
++      "title": "Cú pháp & điều khiển",
++      "type": "bat-buoc",
++      "side": "spine",
++      "parent": null,
++      "chapter": null,
++      "summary": "Biến & Kiểu dữ liệu · Toán tử · Input/Output (cin/cout) · Điều kiện (if/switch) · Vòng lặp",
++      "time": 25,
++      "related": [],
++      "comingSoon": false
++    },
+     {
+       "id": "chapter04",
+       "title": "Biến & Kiểu dữ liệu",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-1",
++      "side": "left",
++      "parent": "stage-2",
+       "chapter": "cpp/chapter04.html",
+       "summary": "C++ yêu cầu khai báo kiểu dữ liệu tường minh (static typing) — khác biệt lớn so với Python.",
+       "time": 5,
+@@ -67,23 +79,11 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": "cpp/quiz.html?chapter=chapter04"
+     },
+-    {
+-      "id": "stage-2",
+-      "title": "Chặng 2 · 5–8",
+-      "type": "bat-buoc",
+-      "side": "spine",
+-      "parent": null,
+-      "chapter": null,
+-      "summary": "Toán tử · Input/Output (cin/cout) · Điều kiện (if/switch) · Vòng lặp",
+-      "time": 20,
+-      "related": [],
+-      "comingSoon": false
+-    },
+     {
+       "id": "chapter05",
+       "title": "Toán tử",
+       "type": "chi-tiet",
+-      "side": "right",
++      "side": "left",
+       "parent": "stage-2",
+       "chapter": "cpp/chapter05.html",
+       "summary": "Các phép toán số học, so sánh, logic và toán tử tăng/giảm đặc trưng của C++.",
+@@ -122,7 +122,7 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter08",
+       "title": "Vòng lặp",
+       "type": "chi-tiet",
+-      "side": "left",
++      "side": "right",
+       "parent": "stage-2",
+       "chapter": "cpp/chapter08.html",
+       "summary": "for, while và do-while — ba dạng vòng lặp trong C++.",
+@@ -133,13 +133,13 @@ globalThis.SynaptrailRoadmapData = {
+     },
+     {
+       "id": "stage-3",
+-      "title": "Chặng 3 · 9–12",
++      "title": "Mảng, hàm & con trỏ",
+       "type": "bat-buoc",
+       "side": "spine",
+       "parent": null,
+       "chapter": null,
+-      "summary": "Mảng (Array) · Hàm (Function) · Con trỏ & Tham chiếu · OOP cơ bản (Class & Object)",
+-      "time": 20,
++      "summary": "Mảng (Array) · Hàm (Function) · Con trỏ & Tham chiếu",
++      "time": 15,
+       "related": [],
+       "comingSoon": false
+     },
+@@ -160,7 +160,7 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter10",
+       "title": "Hàm (Function)",
+       "type": "chi-tiet",
+-      "side": "right",
++      "side": "left",
+       "parent": "stage-3",
+       "chapter": "cpp/chapter10.html",
+       "summary": "Khối lệnh có tên, tái sử dụng được — yêu cầu khai báo kiểu trả về và kiểu tham số tường minh.",
+@@ -173,7 +173,7 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter11",
+       "title": "Con trỏ & Tham chiếu",
+       "type": "chi-tiet",
+-      "side": "left",
++      "side": "right",
+       "parent": "stage-3",
+       "chapter": "cpp/chapter11.html",
+       "summary": "Hai khái niệm đặc trưng và quan trọng nhất của C++ — thao tác trực tiếp với địa chỉ bộ nhớ.",
+@@ -182,12 +182,24 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": "cpp/quiz.html?chapter=chapter11"
+     },
++    {
++      "id": "stage-4",
++      "title": "Lập trình hướng đối tượng",
++      "type": "bat-buoc",
++      "side": "spine",
++      "parent": null,
++      "chapter": null,
++      "summary": "OOP cơ bản (Class & Object) · Kế thừa (Inheritance) · Đa hình & Hàm ảo (Virtual) · Toán tử Overloading",
++      "time": 20,
++      "related": [],
++      "comingSoon": false
++    },
+     {
+       "id": "chapter12",
+       "title": "OOP cơ bản (Class & Object)",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-3",
++      "side": "left",
++      "parent": "stage-4",
+       "chapter": "cpp/chapter12.html",
+       "summary": "Nền tảng lập trình hướng đối tượng trong C++ — class là khuôn mẫu, object là thực thể.",
+       "time": 5,
+@@ -195,18 +207,6 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": "cpp/quiz.html?chapter=chapter12"
+     },
+-    {
+-      "id": "stage-4",
+-      "title": "Chặng 4 · 13–16",
+-      "type": "bat-buoc",
+-      "side": "spine",
+-      "parent": null,
+-      "chapter": null,
+-      "summary": "Kế thừa (Inheritance) · Đa hình & Hàm ảo (Virtual) · Toán tử Overloading · vector & string (STL)",
+-      "time": 20,
+-      "related": [],
+-      "comingSoon": false
+-    },
+     {
+       "id": "chapter13",
+       "title": "Kế thừa (Inheritance)",
+@@ -224,7 +224,7 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter14",
+       "title": "Đa hình & Hàm ảo (Virtual)",
+       "type": "chi-tiet",
+-      "side": "left",
++      "side": "right",
+       "parent": "stage-4",
+       "chapter": "cpp/chapter14.html",
+       "summary": "Cho phép gọi đúng phương thức của class con thông qua con trỏ/tham chiếu class cha — nền tảng đa hình trong C++.",
+@@ -246,12 +246,24 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": null
+     },
++    {
++      "id": "stage-5",
++      "title": "Thư viện STL",
++      "type": "bat-buoc",
++      "side": "spine",
++      "parent": null,
++      "chapter": null,
++      "summary": "vector & string (STL) · map & set (STL)",
++      "time": 10,
++      "related": [],
++      "comingSoon": false
++    },
+     {
+       "id": "chapter16",
+       "title": "vector & string (STL)",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-4",
++      "side": "right",
++      "parent": "stage-5",
+       "chapter": "cpp/chapter16.html",
+       "summary": "STL (Standard Template Library) cung cấp các cấu trúc dữ liệu mạnh mẽ, an toàn hơn mảng C-style.",
+       "time": 5,
+@@ -259,23 +271,11 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": null
+     },
+-    {
+-      "id": "stage-5",
+-      "title": "Chặng 5 · 17–20",
+-      "type": "bat-buoc",
+-      "side": "spine",
+-      "parent": null,
+-      "chapter": null,
+-      "summary": "map & set (STL) · Quản lý bộ nhớ động (new/delete) · Smart Pointers · Function Template",
+-      "time": 20,
+-      "related": [],
+-      "comingSoon": false
+-    },
+     {
+       "id": "chapter17",
+       "title": "map & set (STL)",
+       "type": "chi-tiet",
+-      "side": "left",
++      "side": "right",
+       "parent": "stage-5",
+       "chapter": "cpp/chapter17.html",
+       "summary": "Cấu trúc dữ liệu key-value và tập hợp không trùng lặp, tự động sắp xếp theo key.",
+@@ -284,12 +284,24 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": null
+     },
++    {
++      "id": "stage-6",
++      "title": "Quản lý bộ nhớ",
++      "type": "bat-buoc",
++      "side": "spine",
++      "parent": null,
++      "chapter": null,
++      "summary": "Quản lý bộ nhớ động (new/delete) · Smart Pointers",
++      "time": 10,
++      "related": [],
++      "comingSoon": false
++    },
+     {
+       "id": "chapter18",
+       "title": "Quản lý bộ nhớ động (new/delete)",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-5",
++      "side": "left",
++      "parent": "stage-6",
+       "chapter": "cpp/chapter18.html",
+       "summary": "Cấp phát và giải phóng bộ nhớ thủ công trên heap — trách nhiệm và cũng là nguồn lỗi lớn nhất của C++.",
+       "time": 5,
+@@ -302,7 +314,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Smart Pointers",
+       "type": "chi-tiet",
+       "side": "left",
+-      "parent": "stage-5",
++      "parent": "stage-6",
+       "chapter": "cpp/chapter19.html",
+       "summary": "Con trỏ thông minh (C++11+) tự động giải phóng bộ nhớ — giải pháp hiện đại thay thế new/delete thủ công.",
+       "time": 5,
+@@ -310,12 +322,24 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": "cpp/quiz.html?chapter=chapter19"
+     },
++    {
++      "id": "stage-7",
++      "title": "Generic & công cụ ngôn ngữ",
++      "type": "bat-buoc",
++      "side": "spine",
++      "parent": null,
++      "chapter": null,
++      "summary": "Function Template · Class Template · Exception Handling (try/catch) · Lambda Expression · Namespace & File nhiều module",
++      "time": 25,
++      "related": [],
++      "comingSoon": false
++    },
+     {
+       "id": "chapter20",
+       "title": "Function Template",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-5",
++      "side": "left",
++      "parent": "stage-7",
+       "chapter": "cpp/chapter20.html",
+       "summary": "Viết một hàm duy nhất hoạt động với nhiều kiểu dữ liệu khác nhau — tránh lặp code cho từng kiểu.",
+       "time": 5,
+@@ -323,24 +347,12 @@ globalThis.SynaptrailRoadmapData = {
+       "comingSoon": false,
+       "quiz": null
+     },
+-    {
+-      "id": "stage-6",
+-      "title": "Chặng 6 · 21–24",
+-      "type": "bat-buoc",
+-      "side": "spine",
+-      "parent": null,
+-      "chapter": null,
+-      "summary": "Class Template · Exception Handling (try/catch) · Lambda Expression · Namespace & File nhiều module",
+-      "time": 20,
+-      "related": [],
+-      "comingSoon": false
+-    },
+     {
+       "id": "chapter21",
+       "title": "Class Template",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-6",
++      "side": "left",
++      "parent": "stage-7",
+       "chapter": "cpp/chapter21.html",
+       "summary": "Tương tự function template nhưng áp dụng cho toàn bộ class — chính là cách STL (vector, map...) được xây dựng.",
+       "time": 5,
+@@ -352,8 +364,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter22",
+       "title": "Exception Handling (try/catch)",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-6",
++      "side": "right",
++      "parent": "stage-7",
+       "chapter": "cpp/chapter22.html",
+       "summary": "Cơ chế xử lý lỗi runtime bằng try-catch-throw, giúp chương trình không crash đột ngột.",
+       "time": 5,
+@@ -366,7 +378,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Lambda Expression",
+       "type": "chi-tiet",
+       "side": "right",
+-      "parent": "stage-6",
++      "parent": "stage-7",
+       "chapter": "cpp/chapter23.html",
+       "summary": "Hàm ẩn danh (C++11+) — cực kỳ hữu ích khi dùng với các thuật toán của STL.",
+       "time": 5,
+@@ -378,8 +390,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter24",
+       "title": "Namespace & File nhiều module",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-6",
++      "side": "right",
++      "parent": "stage-7",
+       "chapter": "cpp/chapter24.html",
+       "summary": "Tổ chức code lớn thành nhiều file, tránh xung đột tên giữa các thư viện khác nhau.",
+       "time": 5,
+@@ -388,8 +400,8 @@ globalThis.SynaptrailRoadmapData = {
+       "quiz": null
+     },
+     {
+-      "id": "stage-7",
+-      "title": "Chặng 7 · 25–28",
++      "id": "stage-8",
++      "title": "Thuật toán & cấu trúc dữ liệu",
+       "type": "bat-buoc",
+       "side": "spine",
+       "parent": null,
+@@ -404,7 +416,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "STL Algorithms (sort, find, count...)",
+       "type": "chi-tiet",
+       "side": "left",
+-      "parent": "stage-7",
++      "parent": "stage-8",
+       "chapter": "cpp/chapter25.html",
+       "summary": "Thư viện <algorithm> cung cấp sẵn các thuật toán đã tối ưu — nên dùng thay vì tự viết lại.",
+       "time": 5,
+@@ -416,8 +428,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter26",
+       "title": "Linked List tự cài đặt",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-7",
++      "side": "left",
++      "parent": "stage-8",
+       "chapter": "cpp/chapter26.html",
+       "summary": "Xây dựng danh sách liên kết từ đầu bằng con trỏ — bài tập kinh điển để hiểu sâu quản lý bộ nhớ.",
+       "time": 5,
+@@ -429,8 +441,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter27",
+       "title": "Stack & Queue tự cài đặt",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-7",
++      "side": "right",
++      "parent": "stage-8",
+       "chapter": "cpp/chapter27.html",
+       "summary": "Cài đặt hai cấu trúc dữ liệu nền tảng bằng vector — hiểu bên trong std::stack/std::queue hoạt động ra sao.",
+       "time": 5,
+@@ -443,7 +455,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Đệ quy & Chia để trị",
+       "type": "chi-tiet",
+       "side": "right",
+-      "parent": "stage-7",
++      "parent": "stage-8",
+       "chapter": "cpp/chapter28.html",
+       "summary": "Kỹ thuật giải bài toán bằng cách chia nhỏ thành bài toán con giống hệt cấu trúc — nền tảng của nhiều thuật toán hiệu quả.",
+       "time": 5,
+@@ -452,8 +464,8 @@ globalThis.SynaptrailRoadmapData = {
+       "quiz": "cpp/quiz.html?chapter=chapter28"
+     },
+     {
+-      "id": "stage-8",
+-      "title": "Chặng 8 · 29–32",
++      "id": "stage-9",
++      "title": "Dự án & luyện tập",
+       "type": "bat-buoc",
+       "side": "spine",
+       "parent": null,
+@@ -467,8 +479,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter29",
+       "title": "Dự án: Quản lý sinh viên (OOP + File)",
+       "type": "chi-tiet",
+-      "side": "right",
+-      "parent": "stage-8",
++      "side": "left",
++      "parent": "stage-9",
+       "chapter": "cpp/chapter29.html",
+       "summary": "Dự án tổng hợp: class, vector, đọc/ghi file — mô phỏng ứng dụng console hoàn chỉnh.",
+       "time": 5,
+@@ -481,7 +493,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Dự án: Cấu trúc dữ liệu Ma trận",
+       "type": "chi-tiet",
+       "side": "left",
+-      "parent": "stage-8",
++      "parent": "stage-9",
+       "chapter": "cpp/chapter30.html",
+       "summary": "Dự án tổng hợp OOP + operator overloading — xây dựng class Ma trận hỗ trợ các phép toán cơ bản.",
+       "time": 5,
+@@ -494,7 +506,7 @@ globalThis.SynaptrailRoadmapData = {
+       "title": "Bài tập Cơ bản (Dễ)",
+       "type": "chi-tiet",
+       "side": "right",
+-      "parent": "stage-8",
++      "parent": "stage-9",
+       "chapter": "cpp/chapter31.html",
+       "summary": "8 bài tập củng cố cú pháp nền tảng, vòng lặp, hàm và mảng.",
+       "time": 5,
+@@ -506,8 +518,8 @@ globalThis.SynaptrailRoadmapData = {
+       "id": "chapter32",
+       "title": "Bài tập Con trỏ, OOP & STL",
+       "type": "chi-tiet",
+-      "side": "left",
+-      "parent": "stage-8",
++      "side": "right",
++      "parent": "stage-9",
+       "chapter": "cpp/chapter32.html",
+       "summary": "7 bài tập vận dụng con trỏ, class, và STL — mức độ thường gặp trong bài tập lớn và phỏng vấn kỹ thuật.",
+       "time": 5,
+@@ -518,19 +530,13 @@ globalThis.SynaptrailRoadmapData = {
+   ],
+   "layout": {
+     "stage-1": {
+-      "left": [
+-        {
+-          "nodes": [
+-            "chapter01",
+-            "chapter03"
+-          ]
+-        }
+-      ],
++      "left": [],
+       "right": [
+         {
+           "nodes": [
++            "chapter01",
+             "chapter02",
+-            "chapter04"
++            "chapter03"
+           ]
+         }
+       ]
+@@ -538,17 +544,23 @@ globalThis.SynaptrailRoadmapData = {
+     "stage-2": {
+       "left": [
+         {
++          "title": "Dữ liệu & nhập xuất",
++          "tiles": false,
+           "nodes": [
+-            "chapter06",
+-            "chapter08"
++            "chapter04",
++            "chapter05",
++            "chapter06"
+           ]
+         }
+       ],
+       "right": [
+         {
++          "title": "Điều kiện & vòng lặp",
++          "hub": false,
++          "tiles": true,
+           "nodes": [
+-            "chapter05",
+-            "chapter07"
++            "chapter07",
++            "chapter08"
+           ]
+         }
+       ]
+@@ -558,15 +570,14 @@ globalThis.SynaptrailRoadmapData = {
+         {
+           "nodes": [
+             "chapter09",
+-            "chapter11"
++            "chapter10"
+           ]
+         }
+       ],
+       "right": [
+         {
+           "nodes": [
+-            "chapter10",
+-            "chapter12"
++            "chapter11"
+           ]
+         }
+       ]
+@@ -574,89 +585,109 @@ globalThis.SynaptrailRoadmapData = {
+     "stage-4": {
+       "left": [
+         {
++          "title": "Class & Object",
++          "tiles": false,
+           "nodes": [
+-            "chapter14",
+-            "chapter16"
++            "chapter12"
+           ]
+         }
+       ],
+       "right": [
+         {
++          "title": "Các đặc tính OOP",
++          "hub": true,
++          "tiles": false,
+           "nodes": [
+             "chapter13",
++            "chapter14",
+             "chapter15"
+           ]
+         }
+       ]
+     },
+     "stage-5": {
+-      "left": [
++      "left": [],
++      "right": [
+         {
+           "nodes": [
+-            "chapter17",
+-            "chapter19"
++            "chapter16",
++            "chapter17"
+           ]
+         }
+-      ],
+-      "right": [
++      ]
++    },
++    "stage-6": {
++      "left": [
+         {
+           "nodes": [
+             "chapter18",
+-            "chapter20"
++            "chapter19"
+           ]
+         }
+-      ]
++      ],
++      "right": []
+     },
+-    "stage-6": {
++    "stage-7": {
+       "left": [
+         {
++          "title": "Templates",
++          "tiles": true,
+           "nodes": [
+-            "chapter22",
+-            "chapter24"
++            "chapter20",
++            "chapter21"
+           ]
+         }
+       ],
+       "right": [
+         {
++          "title": "Exception, Lambda & Module",
++          "hub": true,
++          "tiles": false,
+           "nodes": [
+-            "chapter21",
+-            "chapter23"
++            "chapter22",
++            "chapter23",
++            "chapter24"
+           ]
+         }
+       ]
+     },
+-    "stage-7": {
++    "stage-8": {
+       "left": [
+         {
+           "nodes": [
+             "chapter25",
+-            "chapter27"
++            "chapter26"
+           ]
+         }
+       ],
+       "right": [
+         {
+           "nodes": [
+-            "chapter26",
++            "chapter27",
+             "chapter28"
+           ]
+         }
+       ]
+     },
+-    "stage-8": {
++    "stage-9": {
+       "left": [
+         {
++          "title": "Dự án thực hành",
++          "tiles": true,
+           "nodes": [
+-            "chapter30",
+-            "chapter32"
++            "chapter29",
++            "chapter30"
+           ]
+         }
+       ],
+       "right": [
+         {
++          "title": "Bài tập tổng hợp",
++          "hub": false,
++          "tiles": true,
+           "nodes": [
+-            "chapter29",
+-            "chapter31"
++            "chapter31",
++            "chapter32"
+           ]
+         }
+       ]

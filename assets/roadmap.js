@@ -25,7 +25,7 @@
           if(!cluster.nodes.length)continue;
           const box=make('div','rm-branch-group');box.classList.toggle('rm-branch-tiles',!!cluster.tiles);box.classList.toggle('rm-branch-framed',!!cluster.title&&!cluster.hub);
           let hub;
-          if(cluster.title){const title=make(cluster.hub?'button':'h3','rm-branch-heading',cluster.title);box.append(title);if(cluster.hub){hub=title;hub.type='button';hub.classList.add('rm-branch-hub');hub.addEventListener('click',()=>location.assign('../'+data.course+'/chu-de.html?node='+encodeURIComponent(group.id)+'&branch='+side+'-'+index));stage.classList.add('rm-stage-has-hub');hubs.set(group.id+'-'+side+'-'+index,hub);}}
+          if(cluster.title){const title=make(cluster.hub?'button':'h3','rm-branch-heading',cluster.title);title.style.setProperty('--rm-learning-order',data.nodes.findIndex(n=>n.id===cluster.nodes[0])-.5);box.append(title);if(cluster.hub){hub=title;hub.type='button';hub.classList.add('rm-branch-hub');hub.addEventListener('click',()=>location.assign('../'+data.course+'/chu-de.html?node='+encodeURIComponent(group.id)+'&branch='+side+'-'+index));stage.classList.add('rm-stage-has-hub');hubs.set(group.id+'-'+side+'-'+index,hub);}}
           cluster.nodes.forEach(id=>{const b=buttons.get(id);if(!b)return;b.dataset.branchSide=side;if(hub)b.dataset.hub=group.id+'-'+side+'-'+index;box.append(b);});column.append(box);
         }
         stage.append(column);

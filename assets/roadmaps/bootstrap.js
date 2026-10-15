@@ -5,13 +5,13 @@ globalThis.SynaptrailRoadmapData = {
   "nodes": [
     {
       "id": "stage-1",
-      "title": "Bootstrap",
+      "title": "Bố cục Bootstrap",
       "type": "bat-buoc",
       "side": "spine",
       "parent": null,
       "chapter": null,
-      "summary": "Bootstrap — Grid System · Bootstrap — Components & Utilities",
-      "time": 10,
+      "summary": "Bootstrap — Grid System",
+      "time": 5,
       "related": [],
       "comingSoon": false
     },
@@ -19,7 +19,7 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter01",
       "title": "Bootstrap — Grid System",
       "type": "chi-tiet",
-      "side": "left",
+      "side": "right",
       "parent": "stage-1",
       "chapter": "bootstrap/chapter01.html",
       "summary": "Framework CSS phổ biến nhất thế giới — xây giao diện responsive nhanh chóng nhờ hệ lưới 12 cột có sẵn.",
@@ -29,11 +29,23 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": null
     },
     {
+      "id": "stage-2",
+      "title": "Components & Utilities",
+      "type": "bat-buoc",
+      "side": "spine",
+      "parent": null,
+      "chapter": null,
+      "summary": "Bootstrap — Components & Utilities",
+      "time": 5,
+      "related": [],
+      "comingSoon": false
+    },
+    {
       "id": "chapter02",
       "title": "Bootstrap — Components & Utilities",
       "type": "chi-tiet",
-      "side": "right",
-      "parent": "stage-1",
+      "side": "left",
+      "parent": "stage-2",
       "chapter": "bootstrap/chapter02.html",
       "summary": "Thư viện component dựng sẵn (nút, form, modal, navbar...) và các class tiện ích giúp code HTML thuần gần như không cần viết CSS riêng.",
       "time": 5,
@@ -44,20 +56,24 @@ globalThis.SynaptrailRoadmapData = {
   ],
   "layout": {
     "stage-1": {
-      "left": [
+      "left": [],
+      "right": [
         {
           "nodes": [
             "chapter01"
           ]
         }
-      ],
-      "right": [
+      ]
+    },
+    "stage-2": {
+      "left": [
         {
           "nodes": [
             "chapter02"
           ]
         }
-      ]
+      ],
+      "right": []
     }
   },
   "continueWith": [

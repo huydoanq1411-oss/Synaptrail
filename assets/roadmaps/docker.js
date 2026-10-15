@@ -5,13 +5,13 @@ globalThis.SynaptrailRoadmapData = {
   "nodes": [
     {
       "id": "stage-1",
-      "title": "Docker",
+      "title": "Image & Container",
       "type": "bat-buoc",
       "side": "spine",
       "parent": null,
       "chapter": null,
-      "summary": "Docker — Đóng gói ứng dụng · Docker Compose — Multi-container · Triển khai VPS DigitalOcean",
-      "time": 15,
+      "summary": "Docker — Đóng gói ứng dụng",
+      "time": 5,
       "related": [],
       "comingSoon": false
     },
@@ -19,7 +19,7 @@ globalThis.SynaptrailRoadmapData = {
       "id": "chapter01",
       "title": "Docker — Đóng gói ứng dụng",
       "type": "chi-tiet",
-      "side": "left",
+      "side": "right",
       "parent": "stage-1",
       "chapter": "docker/chapter01.html",
       "summary": "Giải quyết vĩnh viễn câu nói kinh điển \"chạy được trên máy tôi mà\" — đóng gói ứng dụng cùng toàn bộ môi trường cần thiết.",
@@ -29,11 +29,23 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": null
     },
     {
+      "id": "stage-2",
+      "title": "Ứng dụng nhiều container",
+      "type": "bat-buoc",
+      "side": "spine",
+      "parent": null,
+      "chapter": null,
+      "summary": "Docker Compose — Multi-container",
+      "time": 5,
+      "related": [],
+      "comingSoon": false
+    },
+    {
       "id": "chapter02",
       "title": "Docker Compose — Multi-container",
       "type": "chi-tiet",
-      "side": "right",
-      "parent": "stage-1",
+      "side": "left",
+      "parent": "stage-2",
       "chapter": "docker/chapter02.html",
       "summary": "Ứng dụng thực tế cần nhiều container phối hợp (app + database + cache) — Docker Compose quản lý tất cả bằng một file cấu hình.",
       "time": 5,
@@ -42,11 +54,23 @@ globalThis.SynaptrailRoadmapData = {
       "quiz": "docker/quiz.html?chapter=chapter02"
     },
     {
+      "id": "stage-3",
+      "title": "Triển khai ứng dụng",
+      "type": "bat-buoc",
+      "side": "spine",
+      "parent": null,
+      "chapter": null,
+      "summary": "Triển khai VPS DigitalOcean",
+      "time": 5,
+      "related": [],
+      "comingSoon": false
+    },
+    {
       "id": "chapter03",
       "title": "Triển khai VPS DigitalOcean",
       "type": "chi-tiet",
-      "side": "left",
-      "parent": "stage-1",
+      "side": "right",
+      "parent": "stage-3",
       "chapter": "docker/chapter03.html",
       "summary": "Đưa ứng dụng lên internet thật — từ máy tính cá nhân tới một server có thể truy cập toàn cầu.",
       "time": 5,
@@ -57,18 +81,31 @@ globalThis.SynaptrailRoadmapData = {
   ],
   "layout": {
     "stage-1": {
-      "left": [
-        {
-          "nodes": [
-            "chapter01",
-            "chapter03"
-          ]
-        }
-      ],
+      "left": [],
       "right": [
         {
           "nodes": [
+            "chapter01"
+          ]
+        }
+      ]
+    },
+    "stage-2": {
+      "left": [
+        {
+          "nodes": [
             "chapter02"
+          ]
+        }
+      ],
+      "right": []
+    },
+    "stage-3": {
+      "left": [],
+      "right": [
+        {
+          "nodes": [
+            "chapter03"
           ]
         }
       ]

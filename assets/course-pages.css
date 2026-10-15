@@ -1,5 +1,5 @@
 /* The approved algorithm layout, extended to the other courses. */
-.algorithm-roadmap[data-course]{--rm-accent:var(--accent,var(--color-green))}
+.algorithm-roadmap[data-course]{--rm-accent:var(--color-green)}
 .algorithm-lesson .rm-lesson-content{overflow-wrap:anywhere}
 .algorithm-lesson .rm-lesson-content :is(h2,h3,h4,h5){color:var(--content-primary)!important;-webkit-text-fill-color:currentColor!important}
 .algorithm-lesson .rm-lesson-content h2{font-size:var(--space-3);line-height:1.4;margin-block:var(--space-4) var(--space-2)}
@@ -22,5 +22,6 @@
 @media(max-width:767px){
  .algorithm-roadmap[data-course] .rm-stage :is(.rm-branch-column,.rm-branch-group){display:contents}
  .algorithm-roadmap[data-course] .rm-stage .rm-node{order:var(--rm-learning-order);width:100%;margin-left:0}
+ .algorithm-roadmap[data-course] .rm-stage .rm-branch-heading{order:var(--rm-learning-order);width:100%}
 }
 @media(max-width:767px){.algorithm-roadmap .rm-header{height:auto;min-height:78px;flex-wrap:wrap;gap:var(--space-1)}.algorithm-roadmap .rm-header nav{flex-wrap:wrap}}
