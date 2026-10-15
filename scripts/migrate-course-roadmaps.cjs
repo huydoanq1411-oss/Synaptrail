@@ -57,6 +57,7 @@ function extract(html){
    const left=[],right=[];batch.forEach((lesson,j)=>{const side=(i/4+j)%2?'right':'left';(side==='left'?left:right).push(lesson.id);nodes.push({id:lesson.id,title:lesson.title,type:'chi-tiet',side,parent:id,chapter:course+'/'+lesson.file,summary:lesson.summary,time:Math.max(5,Math.ceil((lesson.words||500)/180)),related:[],comingSoon:false,quiz:lesson.questions.length?course+'/quiz.html?chapter='+lesson.id:null});});
    if(left.length)layout[id].left.push({nodes:left});if(right.length)layout[id].right.push({nodes:right});
   }
+  for(const lesson of lessons.filter(l=>l.redirect)){const node=nodes.find(n=>n.id===lesson.id),target=path.posix.normalize(course+'/'+lesson.redirect);node.chapter=target;node.progressCourse=target.split('/')[0];node.progressNode=path.posix.basename(target,'.html');}
   const data={course,title:name,nodes,layout,continueWith:[{title:'Danh mục khóa học',chapter:'courses.html'},{title:'Bài tập thực hành',chapter:'Quiz_and_other/exercises.html'},{title:'Quiz tổng hợp',chapter:'Quiz_and_other/quiz-tong-hop.html'}]};
   put('assets/roadmaps/'+course+'.js','/* Generated from existing lessons. Source: '+course+'-source.json. */\nglobalThis.SynaptrailRoadmapData = '+JSON.stringify(data,null,2)+';\n');
   const quizzes={course,title:name,chapters:{}};

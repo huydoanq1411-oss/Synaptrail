@@ -1,6 +1,6 @@
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict'),{pathToFileURL}=require('node:url');
 const root=path.resolve(__dirname,'..'),out=path.join(root,'reports/course-roadmaps'),manifest=require('../reports/course-roadmaps/migration.json');
-const only=new Set(process.argv.slice(2)),courses=manifest.courses.filter(c=>!only.size||only.has(c.course));
+const layoutOnly=process.argv.includes('--layout-only'),only=new Set(process.argv.slice(2).filter(a=>!a.startsWith('--'))),courses=manifest.courses.filter(c=>!only.size||only.has(c.course));
 const dataFor=course=>{const c={};vm.runInNewContext(fs.readFileSync(path.join(root,'assets/roadmaps',course+'.js'),'utf8'),c);return c.SynaptrailRoadmapData;};
 (async()=>{const b=await require('./course-browser.cjs').browser(),{call,evaluate,pause}=b;const results=[],issues=[],shots=[];
  const navigate=async(file,query='')=>{await call('Page.navigate',{url:pathToFileURL(path.join(root,file)).href+query});await pause(130);};
@@ -14,7 +14,8 @@ const dataFor=course=>{const c={};vm.runInNewContext(fs.readFileSync(path.join(r
    for(const theme of ['dark','light'])for(const width of [375,768,1440]){
     console.log(course.course+' '+theme+' '+width);await call('Emulation.setDeviceMetricsOverride',{width,height:1000,deviceScaleFactor:1,mobile:false});
     await navigate('roadmap/'+course.course+'.html');await evaluate('localStorage.setItem("synaptrail-theme",'+JSON.stringify(theme)+')');await call('Page.reload');await pause(180);
-    assert.equal(await evaluate('document.querySelectorAll(".rm-node").length'),data.nodes.length);const map=await check(course.course+' roadmap '+theme+' '+width);await evaluate('document.querySelector("#rm-map").scrollIntoView({block:"start",behavior:"instant"})');await pause(50);await shot(course.course+'-'+theme+'-'+width+'-map');
+    assert.equal(await evaluate('document.querySelectorAll(".rm-node").length'),data.nodes.length);const map=await check(course.course+' roadmap '+theme+' '+width);if(width<768){const visual=await evaluate('[...document.querySelectorAll(".rm-node")].sort((a,b)=>a.getBoundingClientRect().top-b.getBoundingClientRect().top).map(b=>b.dataset.node)');assert.deepEqual(visual,JSON.parse(JSON.stringify(data.nodes.map(n=>n.id))));}await evaluate('document.querySelector("#rm-map").scrollIntoView({block:"start",behavior:"instant"})');await pause(50);await shot(course.course+'-'+theme+'-'+width+'-map');
+    if(layoutOnly){const first=source.lessons.find(l=>!l.redirect);if(first){await navigate(course.course+'/'+first.file);await check(course.course+' lesson '+theme+' '+width);await shot(course.course+'-'+theme+'-'+width+'-lesson');}results.push({course:course.course,theme,width,map});continue;}
     await evaluate('document.querySelector(".rm-stage>.rm-node").click()');await pause(160);assert.ok(await evaluate('location.pathname.endsWith("/chu-de.html")'));assert.equal(await evaluate('document.body.dataset.course'),course.course);assert.equal(await evaluate('document.querySelectorAll(".ap-topic-links a").length'),Math.min(4,source.lessons.length));await check(course.course+' topic '+theme+' '+width);
     const first=source.lessons.find(l=>!l.redirect);
     if(first){await navigate(course.course+'/'+first.file);await check(course.course+' lesson '+theme+' '+width);await shot(course.course+'-'+theme+'-'+width+'-lesson');
@@ -26,10 +27,10 @@ const dataFor=course=>{const c={};vm.runInNewContext(fs.readFileSync(path.join(r
    }
    // All remaining lesson documents are checked at the narrowest viewport.
    await call('Emulation.setDeviceMetricsOverride',{width:375,height:1000,deviceScaleFactor:1,mobile:false});
-   for(const lesson of source.lessons.filter(l=>!l.redirect)){await navigate(course.course+'/'+lesson.file);await check(course.course+'/'+lesson.file);}
+   if(!layoutOnly)for(const lesson of source.lessons.filter(l=>!l.redirect)){await navigate(course.course+'/'+lesson.file);await check(course.course+'/'+lesson.file);}
    await navigate(course.course+'/index.html');assert.equal(await evaluate('document.querySelectorAll(".rm-node").length'),data.nodes.length);
   }
-  fs.writeFileSync(path.join(out,'browser-checks.json'),JSON.stringify({results,issues,errors:b.errors,screenshots:shots},null,2));
+  fs.writeFileSync(path.join(out,layoutOnly?'layout-checks.json':'browser-checks.json'),JSON.stringify({results,issues,errors:b.errors,screenshots:shots},null,2));
   assert.deepEqual(issues,[]);assert.deepEqual(b.errors,[]);console.log('Passed '+courses.length+' courses, '+results.length+' theme/viewport cases.');
  }finally{b.close();}
 })().catch(error=>{console.error(error);process.exitCode=1;});

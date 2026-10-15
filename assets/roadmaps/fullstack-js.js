@@ -21,12 +21,14 @@ globalThis.SynaptrailRoadmapData = {
       "type": "chi-tiet",
       "side": "left",
       "parent": "stage-1",
-      "chapter": "fullstack-js/chapter01.html",
+      "chapter": "git/chapter01.html",
       "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
       "time": 5,
       "related": [],
       "comingSoon": false,
-      "quiz": null
+      "quiz": null,
+      "progressCourse": "git",
+      "progressNode": "chapter01"
     },
     {
       "id": "chapter02",
@@ -34,12 +36,14 @@ globalThis.SynaptrailRoadmapData = {
       "type": "chi-tiet",
       "side": "right",
       "parent": "stage-1",
-      "chapter": "fullstack-js/chapter02.html",
+      "chapter": "git/chapter02.html",
       "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
       "time": 5,
       "related": [],
       "comingSoon": false,
-      "quiz": null
+      "quiz": null,
+      "progressCourse": "git",
+      "progressNode": "chapter02"
     },
     {
       "id": "chapter03",
@@ -47,12 +51,14 @@ globalThis.SynaptrailRoadmapData = {
       "type": "chi-tiet",
       "side": "left",
       "parent": "stage-1",
-      "chapter": "fullstack-js/chapter03.html",
+      "chapter": "typescript/chapter01.html",
       "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
       "time": 5,
       "related": [],
       "comingSoon": false,
-      "quiz": null
+      "quiz": null,
+      "progressCourse": "typescript",
+      "progressNode": "chapter01"
     },
     {
       "id": "chapter04",
@@ -60,12 +66,14 @@ globalThis.SynaptrailRoadmapData = {
       "type": "chi-tiet",
       "side": "right",
       "parent": "stage-1",
-      "chapter": "fullstack-js/chapter04.html",
+      "chapter": "typescript/chapter02.html",
       "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
       "time": 5,
       "related": [],
       "comingSoon": false,
-      "quiz": null
+      "quiz": null,
+      "progressCourse": "typescript",
+      "progressNode": "chapter02"
     },
     {
       "id": "stage-2",
@@ -85,12 +93,14 @@ globalThis.SynaptrailRoadmapData = {
       "type": "chi-tiet",
       "side": "right",
       "parent": "stage-2",
-      "chapter": "fullstack-js/chapter05.html",
+      "chapter": "bootstrap/chapter01.html",
       "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
       "time": 5,
       "related": [],
       "comingSoon": false,
-      "quiz": null
+      "quiz": null,
+      "progressCourse": "bootstrap",
+      "progressNode": "chapter01"
     },
     {
       "id": "chapter06",
@@ -98,12 +108,14 @@ globalThis.SynaptrailRoadmapData = {
       "type": "chi-tiet",
       "side": "left",
       "parent": "stage-2",
-      "chapter": "fullstack-js/chapter06.html",
+      "chapter": "bootstrap/chapter02.html",
       "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
       "time": 5,
       "related": [],
       "comingSoon": false,
-      "quiz": null
+      "quiz": null,
+      "progressCourse": "bootstrap",
+      "progressNode": "chapter02"
     },
     {
       "id": "chapter07",
@@ -111,12 +123,14 @@ globalThis.SynaptrailRoadmapData = {
       "type": "chi-tiet",
       "side": "right",
       "parent": "stage-2",
-      "chapter": "fullstack-js/chapter07.html",
+      "chapter": "sass/chapter01.html",
       "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
       "time": 5,
       "related": [],
       "comingSoon": false,
-      "quiz": null
+      "quiz": null,
+      "progressCourse": "sass",
+      "progressNode": "chapter01"
     },
     {
       "id": "chapter08",
@@ -124,12 +138,14 @@ globalThis.SynaptrailRoadmapData = {
       "type": "chi-tiet",
       "side": "left",
       "parent": "stage-2",
-      "chapter": "fullstack-js/chapter08.html",
+      "chapter": "sass/chapter02.html",
       "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
       "time": 5,
       "related": [],
       "comingSoon": false,
-      "quiz": null
+      "quiz": null,
+      "progressCourse": "sass",
+      "progressNode": "chapter02"
     },
     {
       "id": "stage-3",
@@ -149,12 +165,14 @@ globalThis.SynaptrailRoadmapData = {
       "type": "chi-tiet",
       "side": "left",
       "parent": "stage-3",
-      "chapter": "fullstack-js/chapter09.html",
+      "chapter": "mysql/chapter01.html",
       "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
       "time": 5,
       "related": [],
       "comingSoon": false,
-      "quiz": null
+      "quiz": null,
+      "progressCourse": "mysql",
+      "progressNode": "chapter01"
     },
     {
       "id": "chapter10",
@@ -162,12 +180,14 @@ globalThis.SynaptrailRoadmapData = {
       "type": "chi-tiet",
       "side": "right",
       "parent": "stage-3",
-      "chapter": "fullstack-js/chapter10.html",
+      "chapter": "mysql/chapter02.html",
       "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
       "time": 5,
       "related": [],
       "comingSoon": false,
-      "quiz": null
+      "quiz": null,
+      "progressCourse": "mysql",
+      "progressNode": "chapter02"
     },
     {
       "id": "chapter11",
@@ -175,12 +195,14 @@ globalThis.SynaptrailRoadmapData = {
       "type": "chi-tiet",
       "side": "left",
       "parent": "stage-3",
-      "chapter": "fullstack-js/chapter11.html",
+      "chapter": "mysql/chapter03.html",
       "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
       "time": 5,
       "related": [],
       "comingSoon": false,
-      "quiz": null
+      "quiz": null,
+      "progressCourse": "mysql",
+      "progressNode": "chapter03"
     },
     {
       "id": "chapter12",
@@ -188,12 +210,14 @@ globalThis.SynaptrailRoadmapData = {
       "type": "chi-tiet",
       "side": "right",
       "parent": "stage-3",
-      "chapter": "fullstack-js/chapter12.html",
+      "chapter": "orm/chapter01.html",
       "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
       "time": 5,
       "related": [],
       "comingSoon": false,
-      "quiz": null
+      "quiz": null,
+      "progressCourse": "orm",
+      "progressNode": "chapter01"
     },
     {
       "id": "stage-4",
@@ -213,12 +237,14 @@ globalThis.SynaptrailRoadmapData = {
       "type": "chi-tiet",
       "side": "right",
       "parent": "stage-4",
-      "chapter": "fullstack-js/chapter13.html",
+      "chapter": "orm/chapter02.html",
       "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
       "time": 5,
       "related": [],
       "comingSoon": false,
-      "quiz": null
+      "quiz": null,
+      "progressCourse": "orm",
+      "progressNode": "chapter02"
     },
     {
       "id": "chapter14",
@@ -226,12 +252,14 @@ globalThis.SynaptrailRoadmapData = {
       "type": "chi-tiet",
       "side": "left",
       "parent": "stage-4",
-      "chapter": "fullstack-js/chapter14.html",
+      "chapter": "graphql/chapter01.html",
       "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
       "time": 5,
       "related": [],
       "comingSoon": false,
-      "quiz": null
+      "quiz": null,
+      "progressCourse": "graphql",
+      "progressNode": "chapter01"
     },
     {
       "id": "chapter15",
@@ -239,12 +267,14 @@ globalThis.SynaptrailRoadmapData = {
       "type": "chi-tiet",
       "side": "right",
       "parent": "stage-4",
-      "chapter": "fullstack-js/chapter15.html",
+      "chapter": "graphql/chapter02.html",
       "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
       "time": 5,
       "related": [],
       "comingSoon": false,
-      "quiz": null
+      "quiz": null,
+      "progressCourse": "graphql",
+      "progressNode": "chapter02"
     },
     {
       "id": "chapter16",
@@ -252,12 +282,14 @@ globalThis.SynaptrailRoadmapData = {
       "type": "chi-tiet",
       "side": "left",
       "parent": "stage-4",
-      "chapter": "fullstack-js/chapter16.html",
+      "chapter": "socketio/chapter01.html",
       "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
       "time": 5,
       "related": [],
       "comingSoon": false,
-      "quiz": null
+      "quiz": null,
+      "progressCourse": "socketio",
+      "progressNode": "chapter01"
     },
     {
       "id": "stage-5",
@@ -277,12 +309,14 @@ globalThis.SynaptrailRoadmapData = {
       "type": "chi-tiet",
       "side": "left",
       "parent": "stage-5",
-      "chapter": "fullstack-js/chapter17.html",
+      "chapter": "nestjs/chapter01.html",
       "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
       "time": 5,
       "related": [],
       "comingSoon": false,
-      "quiz": null
+      "quiz": null,
+      "progressCourse": "nestjs",
+      "progressNode": "chapter01"
     },
     {
       "id": "chapter18",
@@ -290,12 +324,14 @@ globalThis.SynaptrailRoadmapData = {
       "type": "chi-tiet",
       "side": "right",
       "parent": "stage-5",
-      "chapter": "fullstack-js/chapter18.html",
+      "chapter": "nestjs/chapter02.html",
       "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
       "time": 5,
       "related": [],
       "comingSoon": false,
-      "quiz": null
+      "quiz": null,
+      "progressCourse": "nestjs",
+      "progressNode": "chapter02"
     },
     {
       "id": "chapter19",
@@ -303,12 +339,14 @@ globalThis.SynaptrailRoadmapData = {
       "type": "chi-tiet",
       "side": "left",
       "parent": "stage-5",
-      "chapter": "fullstack-js/chapter19.html",
+      "chapter": "docker/chapter01.html",
       "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
       "time": 5,
       "related": [],
       "comingSoon": false,
-      "quiz": null
+      "quiz": null,
+      "progressCourse": "docker",
+      "progressNode": "chapter01"
     },
     {
       "id": "chapter20",
@@ -316,12 +354,14 @@ globalThis.SynaptrailRoadmapData = {
       "type": "chi-tiet",
       "side": "right",
       "parent": "stage-5",
-      "chapter": "fullstack-js/chapter20.html",
+      "chapter": "docker/chapter02.html",
       "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
       "time": 5,
       "related": [],
       "comingSoon": false,
-      "quiz": null
+      "quiz": null,
+      "progressCourse": "docker",
+      "progressNode": "chapter02"
     },
     {
       "id": "stage-6",
@@ -341,12 +381,14 @@ globalThis.SynaptrailRoadmapData = {
       "type": "chi-tiet",
       "side": "right",
       "parent": "stage-6",
-      "chapter": "fullstack-js/chapter21.html",
+      "chapter": "docker/chapter03.html",
       "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
       "time": 5,
       "related": [],
       "comingSoon": false,
-      "quiz": null
+      "quiz": null,
+      "progressCourse": "docker",
+      "progressNode": "chapter03"
     },
     {
       "id": "chapter22",
@@ -354,12 +396,14 @@ globalThis.SynaptrailRoadmapData = {
       "type": "chi-tiet",
       "side": "left",
       "parent": "stage-6",
-      "chapter": "fullstack-js/chapter22.html",
+      "chapter": "projects/fullstack-js.html",
       "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
       "time": 5,
       "related": [],
       "comingSoon": false,
-      "quiz": null
+      "quiz": null,
+      "progressCourse": "projects",
+      "progressNode": "fullstack-js"
     }
   ],
   "layout": {
