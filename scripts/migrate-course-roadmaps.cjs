@@ -1,7 +1,7 @@
 /* Run --dry-run first. --sample writes exactly three lesson previews, not live pages.
    --apply is the explicitly approved rollout. Sources make subsequent runs repeatable. */
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
-const root=path.resolve(__dirname,'..'),args=new Set(process.argv.slice(2)),apply=args.has('--apply'),sample=args.has('--sample');
+const root=path.resolve(__dirname,'..'),args=new Set(process.argv.slice(2)),apply=args.has('--apply'),sample=args.has('--sample'),revision=process.argv.find(a=>a.startsWith('--from-revision='))?.split('=')[1];
 const names={'ai-engineer':'AI Engineer',bootstrap:'Bootstrap',cpp:'C++',docker:'Docker','fullstack-js':'Fullstack JavaScript',git:'Git',graphql:'GraphQL','html-css-nnlt':'HTML & CSS',java:'Java','javascript-nnlt':'JavaScript',languages:'Ngôn ngữ lập trình','machine-learning':'Machine Learning',mysql:'MySQL',nestjs:'NestJS',orm:'ORM',python:'Python',react:'React',sass:'Sass',security:'Bảo mật','socketio':'Socket.IO','system-design':'System Design',typescript:'TypeScript'};
 const esc=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const icon=d=>'<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="'+d+'" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
@@ -18,7 +18,7 @@ function extract(html){
  const clean=s=>(s||'').replace(/\s+/g,' ').trim();
  const heading=main.querySelector('h1,h2'),title=clean(heading?.textContent||d.title).replace(/^Chương\s*\d+\s*[—–:.-]?\s*/i,'');
  const summary=clean(main.querySelector('.lead,.chapter-desc,.summary-box p')?.textContent||main.querySelector('p')?.textContent||title);
- const questions=[...main.querySelectorAll('.quiz-q[data-answer]')].map(q=>({question:clean(q.querySelector('p')?.textContent),options:[...q.querySelectorAll('.quiz-opt')].map(o=>clean(o.textContent).replace(/^[A-Z][.)]\s*/,'')),answer:Number(q.dataset.answer),explanation:clean(q.querySelector('.quiz-explanation')?.textContent)}));
+ const questions=[...main.querySelectorAll('.quiz-q[data-answer]')].map(q=>({question:clean(q.querySelector('p')?.textContent),code:[...q.querySelectorAll('pre')].map(p=>p.textContent).join('\n\n'),options:[...q.querySelectorAll('.quiz-opt')].map(o=>clean(o.textContent).replace(/^[A-Z][.)]\s*/,'')),answer:Number(q.dataset.answer),explanation:clean(q.querySelector('.quiz-explanation')?.textContent)}));
  for(const q of questions)if(!q.question||q.options.length<2||q.answer<0||q.answer>=q.options.length)throw Error('Invalid existing quiz');
  main.querySelectorAll('.quiz,[data-quiz],.quiz-q[data-answer]').forEach(e=>e.remove());
  main.querySelectorAll('script,.chnav,.breadcrumb,.crumb,.copy-btn,.btn-copy').forEach(e=>e.remove());
@@ -43,7 +43,7 @@ function extract(html){
  const browser=await require('./course-browser.cjs').browser();
  try{for(const [course,name] of Object.entries(names)){
   const sourceFile='assets/roadmaps/'+course+'-source.json';let lessons;
-  if(fs.existsSync(path.join(root,sourceFile)))lessons=JSON.parse(fs.readFileSync(path.join(root,sourceFile),'utf8')).lessons;
+  if(!revision&&fs.existsSync(path.join(root,sourceFile)))lessons=JSON.parse(fs.readFileSync(path.join(root,sourceFile),'utf8')).lessons;
   else{
    lessons=[];const files=fs.readdirSync(path.join(root,course)).filter(f=>f.endsWith('.html')&&f!=='index.html').sort((a,b)=>a.localeCompare(b,undefined,{numeric:true}));
    for(const file of files){const html=fs.readFileSync(path.join(root,course,file),'utf8'),redirect=html.match(/http-equiv="refresh"[^>]*content="[^";]*;url=([^"#]+)/i);
