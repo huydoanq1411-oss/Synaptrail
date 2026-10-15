@@ -60,7 +60,7 @@
       $('rm-panel-title').focus({preventScroll:true});panel.scrollIntoView({block:'start',behavior:'instant'});drawSoon();
     }
     function showExcerpt(kind){
-      const source=selected.source,area=$('rm-excerpt');area.hidden=false;area.replaceChildren();panel.querySelectorAll('[data-excerpt]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.excerpt===kind)));
+      const source=selected.source,area=$('rm-excerpt');area.hidden=false;area.replaceChildren();
       if(kind==='summary')area.append(make('p','',source.summary));
       if(kind==='code'){const pre=make('pre'),code=make('code','',source.code);pre.append(code);area.append(pre);}
       if(kind==='quiz'){
