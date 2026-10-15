@@ -49,7 +49,8 @@
     const small=matchMedia('(max-width:767px)'),reduced=matchMedia('(prefers-reduced-motion:reduce)');let timer;
     function drawSoon(){clearTimeout(timer);timer=setTimeout(draw,80);}
     function draw(){
-      const svg=$('rm-connections');svg.replaceChildren();const list=small.matches||reduced.matches;map.classList.toggle('rm-list-mode',list);if(list)return;
+      // Reduced motion disables animation, not the desktop diagram structure.
+      const svg=$('rm-connections');svg.replaceChildren();const list=small.matches;map.classList.toggle('rm-list-mode',list);if(list)return;
       const bounds=svg.getBoundingClientRect();svg.setAttribute('preserveAspectRatio','none');svg.setAttribute('viewBox',`0 0 ${bounds.width} ${bounds.height}`);
       const rect=el=>{const r=el.getBoundingClientRect();return{x:r.left-bounds.left,y:r.top-bounds.top,w:r.width,h:r.height};};
       const box=id=>rect(buttons.get(id));

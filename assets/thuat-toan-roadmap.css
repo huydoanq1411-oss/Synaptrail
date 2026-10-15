@@ -44,3 +44,9 @@
   .algorithm-roadmap .rm-stage {gap:var(--ta-card-padding);padding-bottom:var(--space-3)}
   .algorithm-roadmap .rm-branch-group .rm-node {width:100%;margin-left:0}
 }
+@media(prefers-reduced-motion:reduce) and (min-width:768px) {
+  .algorithm-roadmap .rm-stage {display:grid!important}
+  .algorithm-roadmap .rm-connections {display:block!important}
+  .algorithm-roadmap .rm-branch-column {padding-left:0}
+  .algorithm-roadmap .rm-stage .rm-node {margin-left:0;width:100%;transition:none;animation:none}
+}
