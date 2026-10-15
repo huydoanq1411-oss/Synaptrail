@@ -16,7 +16,7 @@
       [group,...children].forEach(node=>{
         const b=make('button','rm-node');b.type='button';b.id=node.id;b.dataset.node=node.id;b.dataset.type=node.type;b.dataset.soon=String(node.comingSoon);
         b.append(make('span','rm-node-type',types[node.type]),make('span','rm-node-title',node.title),make('span','rm-node-state'));
-        b.addEventListener('click',()=>location.assign(node.chapter?'../'+node.chapter:'../thuat-toan/chu-de.html?node='+encodeURIComponent(node.id)));
+        b.addEventListener('click',()=>location.assign(node.chapter?'../'+node.chapter:'../'+data.course+'/chu-de.html?node='+encodeURIComponent(node.id)));
         buttons.set(node.id,b);if(node.side==='spine')stage.append(b);
       });
       for(const side of ['left','right']){
@@ -25,7 +25,7 @@
           if(!cluster.nodes.length)continue;
           const box=make('div','rm-branch-group');box.classList.toggle('rm-branch-tiles',!!cluster.tiles);box.classList.toggle('rm-branch-framed',!!cluster.title&&!cluster.hub);
           let hub;
-          if(cluster.title){const title=make(cluster.hub?'button':'h3','rm-branch-heading',cluster.title);box.append(title);if(cluster.hub){hub=title;hub.type='button';hub.classList.add('rm-branch-hub');hub.addEventListener('click',()=>location.assign('../thuat-toan/chu-de.html?node='+encodeURIComponent(group.id)+'&branch='+side+'-'+index));stage.classList.add('rm-stage-has-hub');hubs.set(group.id+'-'+side+'-'+index,hub);}}
+          if(cluster.title){const title=make(cluster.hub?'button':'h3','rm-branch-heading',cluster.title);box.append(title);if(cluster.hub){hub=title;hub.type='button';hub.classList.add('rm-branch-hub');hub.addEventListener('click',()=>location.assign('../'+data.course+'/chu-de.html?node='+encodeURIComponent(group.id)+'&branch='+side+'-'+index));stage.classList.add('rm-stage-has-hub');hubs.set(group.id+'-'+side+'-'+index,hub);}}
           cluster.nodes.forEach(id=>{const b=buttons.get(id);if(!b)return;b.dataset.branchSide=side;if(hub)b.dataset.hub=group.id+'-'+side+'-'+index;box.append(b);});column.append(box);
         }
         stage.append(column);

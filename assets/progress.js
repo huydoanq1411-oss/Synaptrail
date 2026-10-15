@@ -44,6 +44,7 @@
   if (!global.document) return;
   global.SynaptrailProgress=api;
   function init() {
+    if(global.document.body?.classList.contains('algorithm-roadmap'))return;
     let storage;
     try {storage=global.localStorage;} catch {storage={getItem(){throw Error()},setItem(){throw Error()},removeItem(){throw Error()}};}
     const store=createStore(storage);

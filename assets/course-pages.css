@@ -1,0 +1,18 @@
+/* The approved algorithm layout, extended to the other courses. */
+.algorithm-roadmap[data-course]{--rm-accent:var(--accent,var(--color-green))}
+.algorithm-lesson .rm-lesson-content{overflow-wrap:anywhere}
+.algorithm-lesson .rm-lesson-content :is(h2,h3,h4,h5){color:var(--content-primary)!important;-webkit-text-fill-color:currentColor!important}
+.algorithm-lesson .rm-lesson-content h2{font-size:var(--space-3);line-height:1.4;margin-block:var(--space-4) var(--space-2)}
+.algorithm-lesson .rm-lesson-content :is(img,svg,video,canvas){max-width:100%;height:auto}
+.algorithm-lesson .rm-lesson-content :is(.code-wrap,.table-wrap,.diagram-card){max-width:100%;min-width:0;overflow-x:auto}
+.algorithm-lesson .rm-lesson-content table{display:block;overflow-x:auto;max-width:100%;border-collapse:collapse;margin-block:var(--space-2)}
+.algorithm-lesson .rm-lesson-content :is(th,td){border:1px solid var(--surface-border);padding:var(--space-1) var(--space-2);min-width:var(--space-4)}
+.algorithm-lesson .rm-lesson-content th{background:var(--surface-soft);text-align:left}
+.algorithm-lesson :is(.accordion,.exercise,.mlchap){border:1px solid var(--surface-border);border-radius:var(--space-1);padding:var(--space-2);margin-block:var(--space-2)}
+.algorithm-lesson [data-course-toggle]{width:100%;text-align:left;font-weight:700;white-space:normal}
+.algorithm-lesson .accordion:not(.open)>.accordion-body,.algorithm-lesson .mlchap:not(.open)>.chapter-body{display:none}
+.algorithm-lesson .rm-lesson-content [hidden]{display:none!important}
+.algorithm-lesson .rm-lesson-content :is(.chapter-head,.accordion-head){margin-block:var(--space-1)}
+.algorithm-lesson .rm-lesson-content :is(.stats-row,.cards,.grid-2,.grid-3){display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:var(--space-2)}
+.algorithm-roadmap .rm-home{display:inline-flex;align-items:center}
+@media(max-width:767px){.algorithm-roadmap .rm-header{height:auto;min-height:78px;flex-wrap:wrap;gap:var(--space-1)}.algorithm-roadmap .rm-header nav{flex-wrap:wrap}}
