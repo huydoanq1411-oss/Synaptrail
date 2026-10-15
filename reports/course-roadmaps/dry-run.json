@@ -1,5 +1,5 @@
 {
-  "mode": "sample",
+  "mode": "dry-run",
   "courses": [
     {
       "course": "ai-engineer",
@@ -672,28 +672,29 @@
     "typescript/chu-de.html",
     "typescript/quiz.html"
   ],
+  "changedFiles": [],
   "sourceHashes": {
-    "assets/roadmaps/ai-engineer-source.json": "13213ba576ae8cb5050c04537f10f4472a01c84224d18a504fd92d7c4868eb4f",
-    "assets/roadmaps/bootstrap-source.json": "ca7ebe5b00451a32f56fea58a2c41ef5484470b03b148e2b2ea74cfc0f2e6fe9",
-    "assets/roadmaps/cpp-source.json": "fb06a4e74448e853ee29f648b2d5d3903481618f6e6a99d60688321572a8d2be",
-    "assets/roadmaps/docker-source.json": "c5864f45eb29be5e75210d5e5202971644a058435d1874093c3e7eddb5b2e14b",
+    "assets/roadmaps/ai-engineer-source.json": "f2dc03b4fd5cccfa942f8f17b69a70e07b31f54c5b847b77374299745c88af7e",
+    "assets/roadmaps/bootstrap-source.json": "b204b6b9bc82ddfb938def01662acd4d576326d732ec5220c5767329afe03b91",
+    "assets/roadmaps/cpp-source.json": "9fc39c7cef7ee10270250bfa7ed503a9d4d253033ab19f0a5694bd48e4ad711b",
+    "assets/roadmaps/docker-source.json": "11980ebbaeb57fa15484d418a5f04a147cd96918a13dff0d0a7f0a04d5b544dd",
     "assets/roadmaps/fullstack-js-source.json": "4b650496029c13071265b80fe9ac5898f4600693263def8a2ea2a30a1b7f65b2",
-    "assets/roadmaps/git-source.json": "7856109ea0e42b6962f30efbbc3678bc8fa07c8ecffaf3d93eb26f503875c821",
+    "assets/roadmaps/git-source.json": "ed8c2e9f3960d60443b50dd691000b24d6ba890698f9c7383217e7d146f81168",
     "assets/roadmaps/graphql-source.json": "bd8ab2278bbe7d2609ad938bbee7910ffe35bfaee06e18e25ea8b4a7d9887fe9",
-    "assets/roadmaps/html-css-nnlt-source.json": "02f689a19f952be5f655fb6c88699ae772dcbdf6d1d0d355c3ea4d8327a4225c",
-    "assets/roadmaps/java-source.json": "6c513cc60d681201fd024224c7414a810d30e0945f002e59db25f9f452af4949",
-    "assets/roadmaps/javascript-nnlt-source.json": "965d675fe293463694f9a473d3cc1556e575d905a8bdcfb92ffaad6b34dd87b9",
+    "assets/roadmaps/html-css-nnlt-source.json": "7cfc839a70efeffca054047f876b6f19a4b38550cc928f74240e5e851e7ef6ac",
+    "assets/roadmaps/java-source.json": "53ab75745214d6e90ec7df5deceb1bba2a7702e1bc8378e5b183c0b21478cc2c",
+    "assets/roadmaps/javascript-nnlt-source.json": "fed5ffe7c4df3ceddd5b098238bac7a852539151093b538e3a83466aea95f5af",
     "assets/roadmaps/languages-source.json": "5bc22d88c8103b83f446ae11b41e090f5d04337ec2142910e6a9d4c10d2b13e5",
     "assets/roadmaps/machine-learning-source.json": "f44069b1482c301d7825b107f5b12db659dff0be896b637d43e47bb332771972",
-    "assets/roadmaps/mysql-source.json": "e535d9d1df854a3a1563bdd451fc45d8d8afe7870810259aa265c66293c68a42",
-    "assets/roadmaps/nestjs-source.json": "ecfdae27dab4816f86a5e20d22df70c14d7e7cd06686eddd6ed45404d0809160",
-    "assets/roadmaps/orm-source.json": "8d321a77b2ad7ba93aad0b204136b3b4bd14616dade9f288df3134f6916157e4",
-    "assets/roadmaps/python-source.json": "fe5df321d95c26d8eec81a0a56d7a7c7e5d67a3b97b6da3ae33e60f775458817",
-    "assets/roadmaps/react-source.json": "d286e9fff31e654063a4cab9304703467755cf2f4c32714220a2da94c320d622",
-    "assets/roadmaps/sass-source.json": "1309b6dacb1abf4b38df2c54d71c1a14c38f77f10ef0b7fad80793fb9cc77841",
-    "assets/roadmaps/security-source.json": "0c4885c62141c1e9d6e6f6e15fe8e5239cc5585f99b482740d992dbb6872e441",
-    "assets/roadmaps/socketio-source.json": "ced9629d2ea757be2bfd88680704a71db43b492a0e3455c2aa25d8400f3565b0",
-    "assets/roadmaps/system-design-source.json": "782407ab421d21d98e7e8c61f68e971fded01b9403ed35bc1959b97cee0b7301",
-    "assets/roadmaps/typescript-source.json": "bbd9dad56cc5b372d421cb645beb45bcf1ec135e9cc256abd1fe58397192bc89"
+    "assets/roadmaps/mysql-source.json": "074646985c2a069fa8982a073fa9ddf1d4cc2c33c12a21f6cff6d415f5d30190",
+    "assets/roadmaps/nestjs-source.json": "7ab7e450bfe7ae6b3dfec10503716388ee5708f916625007e92f856ff3af9e71",
+    "assets/roadmaps/orm-source.json": "673968bf737bfa1dc27ed35baeaffe6c786f568a7781eb41ab6b751fa4b039e8",
+    "assets/roadmaps/python-source.json": "f0182f2d5031d7ada615a7745e25935c8738aebeecd260e7019e9e87952768e5",
+    "assets/roadmaps/react-source.json": "bf028e4b1972b5bd9b57f5068319390464563c04c0ada211155b69f1b2d445f8",
+    "assets/roadmaps/sass-source.json": "9680f5fe2836ec634b2b4478baa320557d6e697bd99b7b935cd2e155d242e56c",
+    "assets/roadmaps/security-source.json": "cb3768df6c62b80db7245d471a4b9ab144ba46ab0e1fe35176e57083f33bcfdc",
+    "assets/roadmaps/socketio-source.json": "fc38a6a425930efb8938bd60158bfa57220ac8f1d9b6b71c8e9420e7364ba88e",
+    "assets/roadmaps/system-design-source.json": "34aa829dc19675c0148d65375f07fd5f56af25cda7afc2ba8451e0e9ed908f3d",
+    "assets/roadmaps/typescript-source.json": "ac8595670f2156d062236f21d71df2fa8386111928b5cec015639e150b947b6b"
   }
 }
