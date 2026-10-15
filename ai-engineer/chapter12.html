@@ -1,88 +1,20 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-
-<script>
-(function(){
-  try{
-    var t = localStorage.getItem('synaptrail-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', t);
-  }catch(e){
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-})();
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/lesson.css">
-<title>Chương 12 — AI Agent &amp; Tool Use — Giáo Trình AI Engineer | Synaptrail</title>
-<link rel="stylesheet" href="../assets/ui.css">
-</head>
-<body>
-<div id="progress-bar"></div>
-<div id="topbar">
-  <span class="brand">🤖 AI Engineer</span>
-  <div class="topbar-right">
-    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
-    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
-  </div>
-</div>
-<div class="layout">
-  <aside id="sidebar">
-    <div class="brand">🤖 AI Engineer</div>
-    <div class="sub">21 chương</div>
-    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
-    <div class="nav-group-title">Danh sách chương</div>
-    <a class="nav-link" href="chapter01.html">Chương 1 — AI, ML, Deep Learning khác gì nhau?</a>
-    <a class="nav-link" href="chapter02.html">Chương 2 — Lịch sử &amp; Làn sóng AI hiện đại</a>
-    <a class="nav-link" href="chapter03.html">Chương 3 — NLP cơ bản (Tokenization, Embeddings)</a>
-    <a class="nav-link" href="chapter04.html">Chương 4 — Large Language Model (LLM) là gì?</a>
-    <a class="nav-link" href="chapter05.html">Chương 5 — Cách LLM "học" — Transformer sơ lược</a>
-    <a class="nav-link" href="chapter06.html">Chương 6 — Chatbot dựa trên luật (Rule-based)</a>
-    <a class="nav-link" href="chapter07.html">Chương 7 — Chatbot dựa trên truy xuất (Retrieval-based)</a>
-    <a class="nav-link" href="chapter08.html">Chương 8 — Gọi API LLM (OpenAI/Anthropic)</a>
-    <a class="nav-link" href="chapter09.html">Chương 9 — Prompt Engineering cơ bản</a>
-    <a class="nav-link" href="chapter10.html">Chương 10 — RAG — Retrieval Augmented Generation</a>
-    <a class="nav-link" href="chapter11.html">Chương 11 — Dự án: Chatbot hỗ trợ khách hàng hoàn chỉnh</a>
-    <a class="nav-link active" href="chapter12.html">Chương 12 — AI Agent &amp; Tool Use</a>
-    <a class="nav-link" href="chapter13.html">Chương 13 — Fine-tuning mô hình</a>
-    <a class="nav-link" href="chapter14.html">Chương 14 — Đạo đức AI &amp; An toàn</a>
-    <a class="nav-link" href="chapter15.html">Chương 15 — Triển khai Chatbot lên Production</a>
-    <a class="nav-link" href="chapter16.html">Chương 16 — Vector Database chuyên sâu</a>
-    <a class="nav-link" href="chapter17.html">Chương 17 — Multi-Agent Systems</a>
-    <a class="nav-link" href="chapter18.html">Chương 18 — Đánh giá &amp; Kiểm thử LLM (Evaluation)</a>
-    <a class="nav-link" href="chapter19.html">Chương 19 — Streaming Response &amp; UX Chatbot</a>
-    <a class="nav-link" href="chapter20.html">Chương 20 — Multimodal AI — Xử lý ảnh &amp; âm thanh</a>
-    <a class="nav-link" href="chapter21.html">Chương 21 — Tối ưu Chi phí &amp; Hiệu năng LLM</a>
-    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
-  </aside>
-  <div class="main-col">
-<div class="chpage">
-  <div class="crumb">
-    <a href="../index.html">🏠 Trang chủ</a> ·
-    <a href="index.html">🤖 AI Engineer</a> ·
-    <span>Chương 12 — AI Agent &amp; Tool Use</span>
-  </div>
-  <main style="padding:0;max-width:none;">
-<section class="chapter" id="s12">
-      <h2>Chương <span class="num">12</span> — AI Agent &amp; Tool Use</h2>
+<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI Agent &amp; Tool Use — AI Engineer | Synaptrail</title><meta name="description" content="Bước tiến hóa tiếp theo sau chatbot — LLM không chỉ trả lời mà còn tự hành động: gọi API, tra cứu dữ liệu, thực thi tác vụ."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="ai-engineer" data-skill="ai-engineer" data-node="chapter12"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/ai-engineer.html#chapter12"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">AI Engineer / BÀI 12</p><h1>AI Agent &amp; Tool Use</h1><p class="rm-lead">Bước tiến hóa tiếp theo sau chatbot — LLM không chỉ trả lời mà còn tự hành động: gọi API, tra cứu dữ liệu, thực thi tác vụ.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter12">Làm quiz ở trang riêng <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s12">
+      
       <p class="lead">Bước tiến hóa tiếp theo sau chatbot — LLM không chỉ trả lời mà còn tự hành động: gọi API, tra cứu dữ liệu, thực thi tác vụ.</p>
 
       <h3>Chatbot vs AI Agent — khác biệt cốt lõi</h3>
       <table>
-        <tr><th>Tiêu chí</th><th>Chatbot thông thường</th><th>AI Agent</th></tr>
+        <tbody><tr><th>Tiêu chí</th><th>Chatbot thông thường</th><th>AI Agent</th></tr>
         <tr><td>Đầu ra</td><td>Chỉ trả lời bằng văn bản</td><td>Có thể GỌI HÀM/CÔNG CỤ để thực hiện hành động</td></tr>
         <tr><td>Luồng xử lý</td><td>1 lượt hỏi - 1 lượt đáp</td><td>Có thể lặp nhiều bước: suy nghĩ → hành động → quan sát kết quả → suy nghĩ tiếp</td></tr>
         <tr><td>Ví dụ</td><td>Trả lời "Hà Nội là thủ đô Việt Nam"</td><td>Tự gọi API thời tiết để trả lời "Hà Nội hôm nay bao nhiêu độ?"</td></tr>
-      </table>
+      </tbody></table>
 
       <h3>Tool Use (Function Calling) hoạt động ra sao?</h3>
       <div class="code-wrap">
         <span class="code-label">tool_use_concept.py</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>import anthropic
 
 client = anthropic.Anthropic()  # đọc ANTHROPIC_API_KEY từ biến môi trường
@@ -147,17 +79,7 @@ if response.stop_reason == "tool_use":
         <li>Ghi lại tool được gọi và kết quả đã khử dữ liệu nhạy cảm để có thể kiểm tra/audit.</li>
       </ul>
 
-      <div class="quiz" data-quiz="q12">
-        <h4>📝 Quiz nhanh — Chương 12</h4>
-        <div class="quiz-q" data-answer="1">
-          <p>1. Ai là người THỰC SỰ thực thi (chạy) hàm khi LLM yêu cầu tool use?</p>
-          <span class="quiz-opt" data-idx="0">Chính LLM tự chạy hàm đó</span>
-          <span class="quiz-opt" data-idx="1">Chương trình/code của lập trình viên</span>
-          <span class="quiz-opt" data-idx="2">Trình duyệt web</span>
-        </div>
-        <button class="quiz-btn" onclick="gradeQuiz('q12')">Chấm điểm</button>
-        <div class="quiz-result" id="result-q12"></div>
-      </div>
+      
 
       <div class="summary-box">
         <h4>📌 Tổng kết chương 12</h4>
@@ -165,20 +87,4 @@ if response.stop_reason == "tool_use":
       </div>
     </section>
 
-    <!-- ================= CHƯƠNG 13 ================= -->
-  </main>
-  <div class="chnav">
-    <a class="nav-btn prev" href="chapter11.html">← Chương 11 — Dự án: Chatbot hỗ trợ khách hàng hoàn chỉnh</a>
-    <a class="nav-btn next" href="chapter13.html">Chương 13 — Fine-tuning mô hình →</a>
-  </div>
-</div>
-</div>
-</div>
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
-
-<script src="../assets/code-highlighter.js"></script>
-<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
-
-</body>
-</html>
+    <!-- ================= CHƯƠNG 13 ================= --></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter11.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bài trước</a><a href="chapter13.html">Bài tiếp theo<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/ai-engineer.html#chapter12"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>

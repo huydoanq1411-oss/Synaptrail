@@ -1,0 +1,41 @@
+{
+  "course": "git",
+  "title": "Git",
+  "lessons": [
+    {
+      "id": "chapter01",
+      "file": "chapter01.html",
+      "title": "Git — Kiểm soát phiên bản",
+      "summary": "Công cụ bắt buộc với mọi lập trình viên — theo dõi lịch sử thay đổi code và cho phép làm việc nhóm an toàn.",
+      "content": "<section class=\"chapter\" id=\"s1\">\n      \n      <p class=\"lead\">Công cụ bắt buộc với mọi lập trình viên — theo dõi lịch sử thay đổi code và cho phép làm việc nhóm an toàn.</p>\n\n      <h3>3 khu vực làm việc của Git</h3>\n      <table>\n        <tbody><tr><th>Khu vực</th><th>Ý nghĩa</th></tr>\n        <tr><td><strong>Working Directory</strong></td><td>Thư mục code thực tế bạn đang chỉnh sửa</td></tr>\n        <tr><td><strong>Staging Area</strong></td><td>Nơi \"chuẩn bị\" các thay đổi trước khi commit chính thức</td></tr>\n        <tr><td><strong>Repository (.git)</strong></td><td>Lịch sử toàn bộ các commit đã lưu vĩnh viễn</td></tr>\n      </tbody></table>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">terminal</span>\n        \n        <pre><code>git init                              # khởi tạo repository trong thư mục hiện tại\ngit status                              # xem trạng thái: file nào đã sửa, chưa staged...\ngit add file.js                           # đưa 1 file vào staging area\ngit add .                                   # đưa TẤT CẢ thay đổi vào staging area\ngit commit -m \"Thêm chức năng đăng nhập\"      # lưu lại 1 \"điểm mốc\" với mô tả rõ ràng\ngit log --oneline                                # xem lịch sử commit dạng rút gọn</code></pre>\n      </div>\n\n      <h3>Làm việc với nhánh (Branch)</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">terminal</span>\n        \n        <pre><code>git branch                            # xem danh sách nhánh hiện có\ngit branch tinh-nang-moi                 # tạo nhánh mới\ngit checkout tinh-nang-moi                  # chuyển sang nhánh đó\ngit checkout -b tinh-nang-moi                 # tạo VÀ chuyển nhánh cùng lúc (rút gọn)\ngit switch tinh-nang-moi                        # cách hiện đại hơn để chuyển nhánh (Git 2.23+)\n\ngit merge tinh-nang-moi                            # gộp nhánh \"tinh-nang-moi\" vào nhánh hiện tại\ngit branch -d tinh-nang-moi                           # xóa nhánh sau khi đã gộp xong</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng — Xung đột (Merge Conflict)</div>\n        Khi hai nhánh cùng sửa MỘT dòng code khác nhau, Git không thể tự động gộp — nó đánh dấu vùng xung đột bằng <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>/<code>=======</code>/<code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> ngay trong file, bạn phải tự chỉnh sửa và chọn giữ phần nào trước khi commit tiếp.\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Luôn viết commit message mô tả <strong>\"tại sao\"</strong> thay đổi, không chỉ \"cái gì\" — giúp cả nhóm (và chính bạn 6 tháng sau) hiểu lịch sử phát triển dự án dễ dàng hơn.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 1</h4>\n        <p>Git quản lý phiên bản qua 3 khu vực (working/staging/repository), commit lưu lại điểm mốc, branch cho phép phát triển song song mà không ảnh hưởng code chính.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 2 ================= -->",
+      "questions": [],
+      "ids": [
+        "s1"
+      ],
+      "words": 340
+    },
+    {
+      "id": "chapter02",
+      "file": "chapter02.html",
+      "title": "GitHub & Quy trình làm việc nhóm",
+      "summary": "GitHub lưu trữ repository trên đám mây và là nền tảng cộng tác phổ biến nhất — Pull Request là trái tim của làm việc nhóm chuyên nghiệp.",
+      "content": "<section class=\"chapter\" id=\"s2\">\n      \n      <p class=\"lead\">GitHub lưu trữ repository trên đám mây và là nền tảng cộng tác phổ biến nhất — Pull Request là trái tim của làm việc nhóm chuyên nghiệp.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">terminal</span>\n        \n        <pre><code>git clone https://github.com/user/repo.git      # tải toàn bộ repository về máy\ngit remote add origin https://github.com/user/repo.git   # gắn địa chỉ GitHub cho repo local\ngit push -u origin main                                     # đẩy code lên GitHub lần đầu\ngit push                                                       # đẩy code những lần sau\ngit pull                                                         # kéo code mới nhất từ GitHub về</code></pre>\n      </div>\n\n      <h3>Quy trình Feature Branch Workflow (chuẩn làm việc nhóm)</h3>\n      <ol>\n        <li>Tạo nhánh riêng cho mỗi tính năng: <code>git checkout -b tinh-nang-x</code></li>\n        <li>Code và commit thường xuyên với message rõ ràng</li>\n        <li>Đẩy nhánh lên GitHub: <code>git push origin tinh-nang-x</code></li>\n        <li>Tạo <strong>Pull Request (PR)</strong> trên GitHub để đồng đội review code</li>\n        <li>Sau khi được duyệt (approve), merge PR vào nhánh <code>main</code></li>\n      </ol>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">.gitignore</span>\n        \n        <pre><code>node_modules/\n.env\ndist/\n*.log</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        File <code>.gitignore</code> liệt kê những gì KHÔNG nên đưa lên Git — luôn thêm <code>node_modules/</code> (quá lớn, tự cài lại được qua npm install) và <code>.env</code> (chứa secret/API key, tuyệt đối không public).\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 2</h4>\n        <p>GitHub lưu trữ repo trên cloud; quy trình chuẩn là tạo branch riêng cho mỗi tính năng, mở Pull Request để review trước khi merge vào main.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 3 ================= -->",
+      "questions": [
+        {
+          "question": "1. Pull Request dùng để làm gì trong quy trình làm việc nhóm?",
+          "options": [
+            "Xóa code không cần thiết",
+            "Đề xuất gộp code và cho phép đồng đội review trước khi merge",
+            "Tải code về máy"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s2"
+      ],
+      "words": 212
+    }
+  ]
+}

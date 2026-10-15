@@ -1,67 +1,18 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-
-<script>
-(function(){
-  try{
-    var t = localStorage.getItem('synaptrail-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', t);
-  }catch(e){
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-})();
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/lesson.css">
-<title>Chương 2 — ORM Prisma — ORM | Synaptrail</title>
-<link rel="stylesheet" href="../assets/ui.css">
-</head>
-<body>
-<div id="progress-bar"></div>
-<div id="topbar">
-  <span class="brand">🚀 ORM</span>
-  <div class="topbar-right">
-    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
-    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
-  </div>
-</div>
-<div class="layout">
-  <aside id="sidebar">
-    <div class="brand">🚀 ORM</div>
-    <div class="sub">2 chương</div>
-    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
-    <div class="nav-group-title">Danh sách chương</div>
-    <a class="nav-link" href="chapter01.html">Chương 1 — ORM Sequelize</a>
-<a class="nav-link active" href="chapter02.html">Chương 2 — ORM Prisma</a>
-    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
-  </aside>
-  <div class="main-col">
-<div class="chpage">
-  <div class="crumb">
-    <a href="../index.html">🏠 Trang chủ</a> ·
-    <a href="index.html">🚀 ORM</a> ·
-    <span>Chương 2 — ORM Prisma</span>
-  </div>
-  <main style="padding:0;max-width:none;">
-<section class="chapter" id="s13">
-      <h2>Chương <span class="num">2</span> — ORM Prisma</h2>
+<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ORM Prisma — ORM | Synaptrail</title><meta name="description" content="ORM hiện đại, được ưa chuộng gần đây nhờ type-safety mạnh mẽ khi kết hợp với TypeScript."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="orm" data-skill="orm" data-node="chapter02"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/orm.html#chapter02"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">ORM / BÀI 2</p><h1>ORM Prisma</h1><p class="rm-lead">ORM hiện đại, được ưa chuộng gần đây nhờ type-safety mạnh mẽ khi kết hợp với TypeScript.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter02">Làm quiz ở trang riêng <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s13">
+      
       <p class="lead">ORM hiện đại, được ưa chuộng gần đây nhờ type-safety mạnh mẽ khi kết hợp với TypeScript.</p>
 
       <div class="code-wrap">
         <span class="code-label">terminal</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>npm install prisma @prisma/client
 npx prisma init                  # tạo file schema.prisma và .env</code></pre>
       </div>
 
       <div class="code-wrap">
         <span class="code-label">prisma/schema.prisma</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>datasource db {
     provider = "mysql"
     url      = env("DATABASE_URL")
@@ -82,14 +33,14 @@ model SanPham {                        // định nghĩa model ngay trong file s
 
       <div class="code-wrap">
         <span class="code-label">terminal</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>npx prisma migrate dev --name init     # tạo bảng thật trong database dựa theo schema
 npx prisma generate                       # sinh ra Prisma Client với TYPE ĐẦY ĐỦ cho TypeScript</code></pre>
       </div>
 
       <div class="code-wrap">
         <span class="code-label">su_dung.ts</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
@@ -101,24 +52,14 @@ await prisma.sanPham.delete({ where: { id: 1 } });</code></pre>
       </div>
 
       <table>
-        <tr><th>Tiêu chí</th><th>Sequelize</th><th>Prisma</th></tr>
+        <tbody><tr><th>Tiêu chí</th><th>Sequelize</th><th>Prisma</th></tr>
         <tr><td>Định nghĩa model</td><td>Trực tiếp trong code JS</td><td>File schema.prisma riêng biệt, dễ nhìn tổng quan</td></tr>
         <tr><td>Hỗ trợ TypeScript</td><td>Có, nhưng không mạnh bằng</td><td>Type-safety CỰC MẠNH, tự sinh type chính xác</td></tr>
         <tr><td>Migration (đồng bộ schema → database)</td><td>Cần viết migration thủ công</td><td>Tự động qua `prisma migrate`</td></tr>
         <tr><td>Độ phổ biến hiện tại</td><td>Lâu đời, ổn định</td><td>Đang tăng trưởng nhanh, xu hướng mới</td></tr>
-      </table>
+      </tbody></table>
 
-      <div class="quiz" data-quiz="q17">
-        <h4>📝 Quiz tổng kết — Phần MySQL & ORM</h4>
-        <div class="quiz-q" data-answer="1">
-          <p>1. Tại sao KHÔNG BAO GIỜ nên nối chuỗi trực tiếp để tạo câu SQL từ input người dùng?</p>
-          <span class="quiz-opt" data-idx="0">Vì chạy chậm hơn</span>
-          <span class="quiz-opt" data-idx="1">Vì tạo lỗ hổng SQL Injection nghiêm trọng</span>
-          <span class="quiz-opt" data-idx="2">Vì cú pháp JavaScript không cho phép</span>
-        </div>
-        <button class="quiz-btn" onclick="gradeQuiz('q17')">Chấm điểm</button>
-        <div class="quiz-result" id="result-q17"></div>
-      </div>
+      
 
       <div class="summary-box">
         <h4>📌 Tổng kết chương 2</h4>
@@ -126,21 +67,8 @@ await prisma.sanPham.delete({ where: { id: 1 } });</code></pre>
       </div>
 
       <div class="roadmap-note">
-        ✅ Đã hoàn thành 17 chương (Công cụ nền tảng + ReactJS + MySQL/ORM). Đang tiếp tục ngay với <strong>Phần 4 — GraphQL & Socket.IO</strong>, không dừng lại.
+        ✅ Đã hoàn thành 17 chương (Công cụ nền tảng + ReactJS + MySQL/ORM). Đang tiếp tục ngay với <strong>Phần 4 — GraphQL &amp; Socket.IO</strong>, không dừng lại.
       </div>
     </section>
 
-    <!-- ================= CHƯƠNG 18 ================= -->
-  </main>
-  <div class="chnav"><a class="nav-btn prev" href="chapter01.html">← Chương 1 — ORM Sequelize</a><a class="nav-btn next" href="index.html">Mục lục →</a></div>
-</div>
-</div>
-</div>
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
-
-<script src="../assets/code-highlighter.js"></script>
-<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
-
-</body>
-</html>
+    <!-- ================= CHƯƠNG 18 ================= --></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter01.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bài trước</a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/orm.html#chapter02"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>

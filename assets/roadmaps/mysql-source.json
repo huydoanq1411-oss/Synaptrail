@@ -1,0 +1,53 @@
+{
+  "course": "mysql",
+  "title": "MySQL",
+  "lessons": [
+    {
+      "id": "chapter01",
+      "file": "chapter01.html",
+      "title": "MySQL — Truy vấn cơ bản",
+      "summary": "Hệ quản trị cơ sở dữ liệu quan hệ phổ biến nhất — nền tảng lưu trữ dữ liệu có cấu trúc cho hầu hết ứng dụng web.",
+      "content": "<section class=\"chapter\" id=\"s9\">\n      \n      <p class=\"lead\">Hệ quản trị cơ sở dữ liệu quan hệ phổ biến nhất — nền tảng lưu trữ dữ liệu có cấu trúc cho hầu hết ứng dụng web.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">tao_bang.sql</span>\n        \n        <pre><code>CREATE DATABASE cua_hang;\nUSE cua_hang;\n\nCREATE TABLE san_pham (\n    id INT AUTO_INCREMENT PRIMARY KEY,       -- tự động tăng, khóa chính\n    ten VARCHAR(200) NOT NULL,\n    gia DECIMAL(10, 2) NOT NULL,\n    so_luong INT DEFAULT 0,\n    ngay_tao TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);</code></pre>\n      </div>\n\n      <h3>4 lệnh CRUD cơ bản</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">crud.sql</span>\n        \n        <pre><code>-- CREATE - thêm dữ liệu\nINSERT INTO san_pham (ten, gia, so_luong) VALUES ('Áo thun', 150000, 50);\n\n-- READ - đọc dữ liệu\nSELECT * FROM san_pham;\nSELECT ten, gia FROM san_pham WHERE gia &gt; 100000 ORDER BY gia DESC LIMIT 10;\n\n-- UPDATE - cập nhật dữ liệu\nUPDATE san_pham SET gia = 180000 WHERE id = 1;\n\n-- DELETE - xóa dữ liệu\nDELETE FROM san_pham WHERE id = 1;</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Mệnh đề</th><th>Công dụng</th></tr>\n        <tr><td><code>WHERE</code></td><td>Lọc dòng theo điều kiện</td></tr>\n        <tr><td><code>ORDER BY</code></td><td>Sắp xếp kết quả (ASC tăng dần, DESC giảm dần)</td></tr>\n        <tr><td><code>LIMIT</code></td><td>Giới hạn số dòng trả về</td></tr>\n        <tr><td><code>GROUP BY</code></td><td>Nhóm dòng để tính tổng hợp (COUNT, SUM, AVG...)</td></tr>\n      </tbody></table>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        <code>UPDATE</code>/<code>DELETE</code> <strong>KHÔNG có mệnh đề WHERE</strong> sẽ áp dụng cho TOÀN BỘ bảng — đây là lỗi thao tác database nguy hiểm nhất, luôn kiểm tra kỹ WHERE trước khi chạy, đặc biệt trên database thật.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 1</h4>\n        <p>MySQL dùng SQL với 4 lệnh CRUD cơ bản (INSERT/SELECT/UPDATE/DELETE). Luôn cẩn trọng với UPDATE/DELETE thiếu WHERE — có thể ảnh hưởng toàn bộ dữ liệu.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 14 ================= -->",
+      "questions": [],
+      "ids": [
+        "s9"
+      ],
+      "words": 249
+    },
+    {
+      "id": "chapter02",
+      "file": "chapter02.html",
+      "title": "MySQL — JOIN & Truy vấn nâng cao",
+      "summary": "Kết hợp dữ liệu từ nhiều bảng có quan hệ với nhau — kỹ năng SQL quan trọng nhất sau CRUD cơ bản.",
+      "content": "<section class=\"chapter\" id=\"s10\">\n      \n      <p class=\"lead\">Kết hợp dữ liệu từ nhiều bảng có quan hệ với nhau — kỹ năng SQL quan trọng nhất sau CRUD cơ bản.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">join.sql</span>\n        \n        <pre><code>CREATE TABLE don_hang (\n    id INT AUTO_INCREMENT PRIMARY KEY,\n    san_pham_id INT,\n    so_luong INT,\n    FOREIGN KEY (san_pham_id) REFERENCES san_pham(id)   -- khóa ngoại, liên kết 2 bảng\n);\n\n-- INNER JOIN: chỉ lấy dòng CÓ khớp ở cả 2 bảng\nSELECT don_hang.id, san_pham.ten, don_hang.so_luong\nFROM don_hang\nINNER JOIN san_pham ON don_hang.san_pham_id = san_pham.id;\n\n-- LEFT JOIN: lấy TẤT CẢ dòng bảng trái, kể cả không khớp bên phải (NULL nếu không có)\nSELECT san_pham.ten, don_hang.so_luong\nFROM san_pham\nLEFT JOIN don_hang ON san_pham.id = don_hang.san_pham_id;</code></pre>\n      </div>\n\n      <h3>GROUP BY và hàm tổng hợp</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">group_by.sql</span>\n        \n        <pre><code>-- Tổng số lượng đã bán của MỖI sản phẩm\nSELECT san_pham.ten, SUM(don_hang.so_luong) AS tong_ban\nFROM san_pham\nJOIN don_hang ON san_pham.id = don_hang.san_pham_id\nGROUP BY san_pham.id\nHAVING SUM(don_hang.so_luong) &gt; 10;    -- HAVING lọc SAU KHI đã group, khác WHERE (lọc TRƯỚC khi group)</code></pre>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">Ghi chú</div>\n        <code>WHERE</code> lọc dòng TRƯỚC khi nhóm (GROUP BY), <code>HAVING</code> lọc SAU khi đã tính toán tổng hợp — đây là lý do không thể dùng <code>WHERE SUM(...)&gt;10</code> mà phải dùng <code>HAVING</code>.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 2</h4>\n        <p>JOIN kết hợp dữ liệu nhiều bảng qua khóa ngoại. INNER JOIN chỉ lấy dòng khớp cả 2 bên, LEFT JOIN giữ toàn bộ bảng trái. GROUP BY + HAVING dùng để tính và lọc dữ liệu tổng hợp.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 15 ================= -->",
+      "questions": [
+        {
+          "question": "1. LEFT JOIN khác INNER JOIN ở điểm nào?",
+          "options": [
+            "Không có gì khác biệt",
+            "LEFT JOIN giữ TẤT CẢ dòng bảng trái kể cả không khớp, INNER JOIN chỉ giữ dòng khớp cả 2 bảng",
+            "LEFT JOIN chạy nhanh hơn luôn luôn"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s10"
+      ],
+      "words": 233
+    },
+    {
+      "id": "chapter03",
+      "file": "chapter03.html",
+      "title": "Kết nối Node.js với MySQL",
+      "summary": "Truy vấn database trực tiếp từ code Node.js/Express — bước đệm trước khi dùng ORM tiện lợi hơn ở chương sau.",
+      "content": "<section class=\"chapter\" id=\"s11\">\n      \n      <p class=\"lead\">Truy vấn database trực tiếp từ code Node.js/Express — bước đệm trước khi dùng ORM tiện lợi hơn ở chương sau.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">terminal</span>\n        \n        <pre><code>npm install mysql2</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">db.js</span>\n        \n        <pre><code>const mysql = require('mysql2/promise');\n\nconst pool = mysql.createPool({            // connection pool - tái sử dụng kết nối, hiệu quả hơn tạo mới mỗi lần\n    host: 'localhost',\n    user: 'root',\n    password: process.env.DB_PASSWORD,        // luôn đọc từ biến môi trường, không hardcode\n    database: 'cua_hang',\n});\n\nmodule.exports = pool;</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">routes/sanPham.js</span>\n        \n        <pre><code>const express = require('express');\nconst router = express.Router();\nconst pool = require('../db');\n\nrouter.get('/san-pham', async (req, res) =&gt; {\n    const [rows] = await pool.query('SELECT * FROM san_pham');\n    res.json(rows);\n});\n\nrouter.post('/san-pham', async (req, res) =&gt; {\n    const { ten, gia } = req.body;\n    // DÙNG DẤU ? (prepared statement) - KHÔNG BAO GIỜ nối chuỗi trực tiếp\n    const [ketQua] = await pool.query(\n        'INSERT INTO san_pham (ten, gia) VALUES (?, ?)', [ten, gia]\n    );\n    res.status(201).json({ id: ketQua.insertId, ten, gia });\n});\n\nmodule.exports = router;</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng — SQL Injection</div>\n        <strong>TUYỆT ĐỐI KHÔNG</strong> nối chuỗi trực tiếp để tạo câu SQL (VD: <code>`SELECT * FROM users WHERE ten='${ten}'`</code>) — kẻ tấn công có thể chèn SQL độc hại qua input. Luôn dùng dấu <code>?</code> (prepared statement) như ví dụ trên để thư viện tự động escape dữ liệu an toàn.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 3</h4>\n        <p>mysql2 kết nối Node.js với MySQL qua connection pool. Luôn dùng prepared statement (dấu ?) thay vì nối chuỗi trực tiếp để tránh lỗ hổng SQL Injection nghiêm trọng.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 16 ================= -->",
+      "questions": [],
+      "ids": [
+        "s11"
+      ],
+      "words": 242
+    }
+  ]
+}

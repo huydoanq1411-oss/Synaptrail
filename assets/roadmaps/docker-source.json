@@ -1,0 +1,53 @@
+{
+  "course": "docker",
+  "title": "Docker",
+  "lessons": [
+    {
+      "id": "chapter01",
+      "file": "chapter01.html",
+      "title": "Docker — Đóng gói ứng dụng",
+      "summary": "Giải quyết vĩnh viễn câu nói kinh điển \"chạy được trên máy tôi mà\" — đóng gói ứng dụng cùng toàn bộ môi trường cần thiết.",
+      "content": "<section class=\"chapter\" id=\"s19\">\n      \n      <p class=\"lead\">Giải quyết vĩnh viễn câu nói kinh điển \"chạy được trên máy tôi mà\" — đóng gói ứng dụng cùng toàn bộ môi trường cần thiết.</p>\n\n      <h3>Container khác Máy ảo (Virtual Machine) thế nào?</h3>\n      <p>Máy ảo mô phỏng TOÀN BỘ hệ điều hành (nặng, khởi động chậm). Container chia sẻ kernel của hệ điều hành host, chỉ đóng gói ứng dụng + thư viện cần thiết — nhẹ hơn nhiều, khởi động gần như tức thì.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">Dockerfile</span>\n        \n        <pre><code>FROM node:20-alpine              # image nền - Node.js bản nhẹ (alpine)\n\nWORKDIR /app                       # thư mục làm việc BÊN TRONG container\n\nCOPY package*.json ./                # copy trước để tận dụng cache - nếu package.json không đổi, không cần cài lại\nRUN npm install\n\nCOPY . .                                # copy toàn bộ code còn lại\n\nEXPOSE 3000                              # khai báo cổng ứng dụng lắng nghe\nCMD [\"node\", \"server.js\"]                  # lệnh chạy khi container khởi động</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">terminal</span>\n        \n        <pre><code>docker build -t ten-du-an .              # build image từ Dockerfile\ndocker run -p 3000:3000 ten-du-an           # chạy container, ánh xạ cổng máy thật:cổng container\ndocker ps                                     # xem các container đang chạy\ndocker stop &lt;container_id&gt;                     # dừng container</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        Thứ tự các lệnh trong Dockerfile ảnh hưởng tới <strong>tốc độ build</strong> — Docker cache từng bước; copy <code>package.json</code> và <code>npm install</code> TRƯỚC khi copy toàn bộ code giúp lần build sau không phải cài lại dependency nếu chỉ code thay đổi (không phải package.json).\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 1</h4>\n        <p>Docker đóng gói ứng dụng + môi trường vào \"image\", chạy thành \"container\" nhẹ và nhất quán trên mọi máy. Dockerfile mô tả từng bước xây dựng image, cần sắp xếp đúng thứ tự để tận dụng cache hiệu quả.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 24 ================= -->",
+      "questions": [],
+      "ids": [
+        "s19"
+      ],
+      "words": 280
+    },
+    {
+      "id": "chapter02",
+      "file": "chapter02.html",
+      "title": "Docker Compose — Multi-container",
+      "summary": "Ứng dụng thực tế cần nhiều container phối hợp (app + database + cache) — Docker Compose quản lý tất cả bằng một file cấu hình.",
+      "content": "<section class=\"chapter\" id=\"s20\">\n      \n      <p class=\"lead\">Ứng dụng thực tế cần nhiều container phối hợp (app + database + cache) — Docker Compose quản lý tất cả bằng một file cấu hình.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">docker-compose.yml</span>\n        \n        <pre><code>version: '3.8'\n\nservices:\n  app:\n    build: .                          # build từ Dockerfile trong thư mục hiện tại\n    ports:\n      - \"3000:3000\"\n    environment:\n      - DB_HOST=db                       # \"db\" - tên service khác, Docker tự phân giải thành địa chỉ nội bộ\n    depends_on:\n      - db                                 # đảm bảo \"db\" khởi động TRƯỚC \"app\"\n\n  db:\n    image: mysql:8.0                  # dùng image có sẵn từ Docker Hub, không cần tự build\n    environment:\n      - MYSQL_ROOT_PASSWORD=matkhau\n      - MYSQL_DATABASE=cua_hang\n    volumes:\n      - db_data:/var/lib/mysql            # LƯU dữ liệu database ra ngoài container, không mất khi container bị xóa\n    ports:\n      - \"3306:3306\"\n\nvolumes:\n  db_data:</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">terminal</span>\n        \n        <pre><code>docker compose up -d           # khởi động TẤT CẢ service, chạy ngầm (-d = detached)\ndocker compose down              # dừng và xóa tất cả container (dữ liệu volume vẫn giữ nguyên)\ndocker compose logs -f app          # xem log của riêng service \"app\", theo dõi real-time</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng — Volumes</div>\n        Dữ liệu bên trong container sẽ <strong>MẤT HOÀN TOÀN</strong> khi container bị xóa — luôn dùng <code>volumes</code> cho database để dữ liệu được lưu ra ngoài, tồn tại độc lập với vòng đời của container.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 2</h4>\n        <p>Docker Compose định nghĩa nhiều service (app, database...) trong một file YAML, quản lý bằng vài lệnh đơn giản. Luôn dùng volumes cho dữ liệu cần giữ lại lâu dài như database.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 25 ================= -->",
+      "questions": [
+        {
+          "question": "1. Tại sao cần khai báo \"volumes\" cho service database trong Docker Compose?",
+          "options": [
+            "Để chạy nhanh hơn",
+            "Để dữ liệu KHÔNG bị mất khi container bị xóa/khởi động lại",
+            "Để giảm dung lượng image"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s20"
+      ],
+      "words": 239
+    },
+    {
+      "id": "chapter03",
+      "file": "chapter03.html",
+      "title": "Triển khai VPS DigitalOcean",
+      "summary": "Đưa ứng dụng lên internet thật — từ máy tính cá nhân tới một server có thể truy cập toàn cầu.",
+      "content": "<section class=\"chapter\" id=\"s21\">\n      \n      <p class=\"lead\">Đưa ứng dụng lên internet thật — từ máy tính cá nhân tới một server có thể truy cập toàn cầu.</p>\n\n      <h3>VPS là gì?</h3>\n      <p>VPS (Virtual Private Server) là một máy chủ ảo thuê từ nhà cung cấp (DigitalOcean, Linode, AWS EC2...) — bạn có toàn quyền kiểm soát như một máy Linux thật, cài đặt bất cứ thứ gì cần thiết để chạy ứng dụng.</p>\n\n      <h3>Quy trình triển khai cơ bản</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">terminal (trên VPS, qua SSH)</span>\n        \n        <pre><code># 1. Kết nối vào VPS\nssh root@dia_chi_ip_vps\n\n# 2. Cài đặt Docker trên VPS (nếu dùng Docker để triển khai)\ncurl -fsSL https://get.docker.com | sh\n\n# 3. Clone code từ GitHub về VPS\ngit clone https://github.com/user/du-an.git\ncd du-an\n\n# 4. Chạy ứng dụng bằng Docker Compose đã chuẩn bị sẵn\ndocker compose up -d\n\n# 5. Cấu hình Nginx làm reverse proxy - chuyển traffic từ cổng 80 (web chuẩn) vào app\nsudo apt install nginx</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">/etc/nginx/sites-available/du-an</span>\n        \n        <pre><code>server {\n    listen 80;\n    server_name tenmien.com;\n\n    location / {\n        proxy_pass http://localhost:3000;    # chuyển tiếp request tới app Node.js đang chạy nội bộ\n        proxy_set_header Host $host;\n    }\n}</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Bước</th><th>Công cụ</th></tr>\n        <tr><td>Thuê server</td><td>DigitalOcean Droplet, AWS EC2, Linode...</td></tr>\n        <tr><td>Kết nối quản trị</td><td>SSH (Secure Shell)</td></tr>\n        <tr><td>Chạy ứng dụng</td><td>Docker/Docker Compose (đã học chương 1–2)</td></tr>\n        <tr><td>Định tuyến traffic web</td><td>Nginx (reverse proxy) — ẩn cổng thật, hỗ trợ tên miền/HTTPS</td></tr>\n        <tr><td>HTTPS miễn phí</td><td>Let's Encrypt (qua certbot)</td></tr>\n      </tbody></table>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Reverse proxy (Nginx) là mắt xích quan trọng: nó nhận request ở cổng 80/443 (chuẩn web), rồi chuyển tiếp NỘI BỘ tới ứng dụng đang chạy ở cổng khác (VD: 3000) — cho phép chạy nhiều ứng dụng trên cùng 1 VPS, mỗi ứng dụng một tên miền/subdomain.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 3</h4>\n        <p>Triển khai lên VPS gồm: SSH vào server, cài Docker, chạy ứng dụng qua Docker Compose, và dùng Nginx làm reverse proxy để định tuyến traffic web tới ứng dụng nội bộ.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 26 ================= -->",
+      "questions": [],
+      "ids": [
+        "s21"
+      ],
+      "words": 310
+    }
+  ]
+}

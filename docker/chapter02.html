@@ -1,61 +1,11 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-
-<script>
-(function(){
-  try{
-    var t = localStorage.getItem('synaptrail-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', t);
-  }catch(e){
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-})();
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/lesson.css">
-<title>Chương 2 — Docker Compose — Multi-container — Docker | Synaptrail</title>
-<link rel="stylesheet" href="../assets/ui.css">
-</head>
-<body>
-<div id="progress-bar"></div>
-<div id="topbar">
-  <span class="brand">🚀 Docker</span>
-  <div class="topbar-right">
-    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
-    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
-  </div>
-</div>
-<div class="layout">
-  <aside id="sidebar">
-    <div class="brand">🚀 Docker</div>
-    <div class="sub">3 chương</div>
-    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
-    <div class="nav-group-title">Danh sách chương</div>
-    <a class="nav-link" href="chapter01.html">Chương 1 — Docker — Đóng gói ứng dụng</a>
-<a class="nav-link active" href="chapter02.html">Chương 2 — Docker Compose — Multi-container</a>
-<a class="nav-link" href="chapter03.html">Chương 3 — Triển khai VPS DigitalOcean</a>
-    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
-  </aside>
-  <div class="main-col">
-<div class="chpage">
-  <div class="crumb">
-    <a href="../index.html">🏠 Trang chủ</a> ·
-    <a href="index.html">🚀 Docker</a> ·
-    <span>Chương 2 — Docker Compose — Multi-container</span>
-  </div>
-  <main style="padding:0;max-width:none;">
-<section class="chapter" id="s20">
-      <h2>Chương <span class="num">2</span> — Docker Compose — Multi-container</h2>
+<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Docker Compose — Multi-container — Docker | Synaptrail</title><meta name="description" content="Ứng dụng thực tế cần nhiều container phối hợp (app + database + cache) — Docker Compose quản lý tất cả bằng một file cấu hình."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="docker" data-skill="docker" data-node="chapter02"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/docker.html#chapter02"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">Docker / BÀI 2</p><h1>Docker Compose — Multi-container</h1><p class="rm-lead">Ứng dụng thực tế cần nhiều container phối hợp (app + database + cache) — Docker Compose quản lý tất cả bằng một file cấu hình.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter02">Làm quiz ở trang riêng <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s20">
+      
       <p class="lead">Ứng dụng thực tế cần nhiều container phối hợp (app + database + cache) — Docker Compose quản lý tất cả bằng một file cấu hình.</p>
 
       <div class="code-wrap">
         <span class="code-label">docker-compose.yml</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>version: '3.8'
 
 services:
@@ -84,7 +34,7 @@ volumes:
 
       <div class="code-wrap">
         <span class="code-label">terminal</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>docker compose up -d           # khởi động TẤT CẢ service, chạy ngầm (-d = detached)
 docker compose down              # dừng và xóa tất cả container (dữ liệu volume vẫn giữ nguyên)
 docker compose logs -f app          # xem log của riêng service "app", theo dõi real-time</code></pre>
@@ -95,17 +45,7 @@ docker compose logs -f app          # xem log của riêng service "app", theo d
         Dữ liệu bên trong container sẽ <strong>MẤT HOÀN TOÀN</strong> khi container bị xóa — luôn dùng <code>volumes</code> cho database để dữ liệu được lưu ra ngoài, tồn tại độc lập với vòng đời của container.
       </div>
 
-      <div class="quiz" data-quiz="q24">
-        <h4>📝 Quiz nhanh — Docker</h4>
-        <div class="quiz-q" data-answer="1">
-          <p>1. Tại sao cần khai báo "volumes" cho service database trong Docker Compose?</p>
-          <span class="quiz-opt" data-idx="0">Để chạy nhanh hơn</span>
-          <span class="quiz-opt" data-idx="1">Để dữ liệu KHÔNG bị mất khi container bị xóa/khởi động lại</span>
-          <span class="quiz-opt" data-idx="2">Để giảm dung lượng image</span>
-        </div>
-        <button class="quiz-btn" onclick="gradeQuiz('q24')">Chấm điểm</button>
-        <div class="quiz-result" id="result-q24"></div>
-      </div>
+      
 
       <div class="summary-box">
         <h4>📌 Tổng kết chương 2</h4>
@@ -113,17 +53,4 @@ docker compose logs -f app          # xem log của riêng service "app", theo d
       </div>
     </section>
 
-    <!-- ================= CHƯƠNG 25 ================= -->
-  </main>
-  <div class="chnav"><a class="nav-btn prev" href="chapter01.html">← Chương 1 — Docker — Đóng gói ứng dụng</a><a class="nav-btn next" href="chapter03.html">Chương 3 — Triển khai VPS DigitalOcean →</a></div>
-</div>
-</div>
-</div>
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
-
-<script src="../assets/code-highlighter.js"></script>
-<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
-
-</body>
-</html>
+    <!-- ================= CHƯƠNG 25 ================= --></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter01.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bài trước</a><a href="chapter03.html">Bài tiếp theo<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/docker.html#chapter02"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>

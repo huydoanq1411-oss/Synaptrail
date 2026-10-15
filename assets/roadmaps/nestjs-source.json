@@ -1,0 +1,41 @@
+{
+  "course": "nestjs",
+  "title": "NestJS",
+  "lessons": [
+    {
+      "id": "chapter01",
+      "file": "chapter01.html",
+      "title": "NestJS — Kiến trúc Module/Controller/Service",
+      "summary": "Framework Node.js theo kiến trúc có cấu trúc rõ ràng, lấy cảm hứng từ Angular — phổ biến cho backend quy mô doanh nghiệp.",
+      "content": "<section class=\"chapter\" id=\"s17\">\n      \n      <p class=\"lead\">Framework Node.js theo kiến trúc có cấu trúc rõ ràng, lấy cảm hứng từ Angular — phổ biến cho backend quy mô doanh nghiệp.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">terminal</span>\n        \n        <pre><code>npm install -g @nestjs/cli\nnest new ten-du-an\nnest generate module san-pham        # tự tạo module + controller + service theo cấu trúc chuẩn\nnest generate controller san-pham\nnest generate service san-pham</code></pre>\n      </div>\n\n      <h3>3 khối xây dựng chính của NestJS</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">san-pham.controller.ts</span>\n        \n        <pre><code>import { Controller, Get, Post, Body, Param } from '@nestjs/common';\nimport { SanPhamService } from './san-pham.service';\n\n@Controller('san-pham')                     // tiền tố route, tương đương app.use('/san-pham', router) ở Express\nexport class SanPhamController {\n    constructor(private readonly sanPhamService: SanPhamService) {}   // Dependency Injection - chương 22\n\n    @Get()\n    layTatCa() {\n        return this.sanPhamService.layTatCa();\n    }\n\n    @Post()\n    taoMoi(@Body() du_lieu: { ten: string; gia: number }) {\n        return this.sanPhamService.taoMoi(du_lieu);\n    }\n}</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">san-pham.service.ts</span>\n        \n        <pre><code>import { Injectable } from '@nestjs/common';\n\n@Injectable()                                  // đánh dấu class này có thể được \"tiêm\" (inject) vào nơi khác\nexport class SanPhamService {\n    private danhSach = [];                         // trong thực tế sẽ gọi Prisma/Sequelize (chương 16-17)\n\n    layTatCa() {\n        return this.danhSach;\n    }\n\n    taoMoi(du_lieu) {\n        const spMoi = { id: Date.now(), ...du_lieu };\n        this.danhSach.push(spMoi);\n        return spMoi;\n    }\n}</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Thành phần</th><th>Vai trò</th><th>Tương đương ở Express</th></tr>\n        <tr><td><strong>Controller</strong></td><td>Nhận request, trả response</td><td>Route handler</td></tr>\n        <tr><td><strong>Service</strong></td><td>Chứa logic nghiệp vụ thực tế</td><td>Không có sẵn, tự tổ chức thủ công</td></tr>\n        <tr><td><strong>Module</strong></td><td>Gom nhóm Controller + Service liên quan</td><td>Không có khái niệm tương đương</td></tr>\n      </tbody></table>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        NestJS <strong>bắt buộc cấu trúc rõ ràng</strong> (Module/Controller/Service) ngay từ đầu — khác với Express linh hoạt nhưng dễ trở nên hỗn loạn khi dự án lớn dần. Đánh đổi: NestJS có độ dốc học tập cao hơn nhưng dễ bảo trì hơn nhiều ở quy mô lớn, nhiều người cùng phát triển.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 1</h4>\n        <p>NestJS tổ chức code thành Module (nhóm chức năng), Controller (nhận request), Service (logic nghiệp vụ) — cấu trúc chặt chẽ hơn Express, phù hợp dự án lớn nhiều người phát triển.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 22 ================= -->",
+      "questions": [],
+      "ids": [
+        "s17"
+      ],
+      "words": 312
+    },
+    {
+      "id": "chapter02",
+      "file": "chapter02.html",
+      "title": "NestJS — Dependency Injection & DTO",
+      "summary": "Hai khái niệm cốt lõi giúp code NestJS an toàn, dễ test và dễ bảo trì hơn hẳn cách viết Express thông thường.",
+      "content": "<section class=\"chapter\" id=\"s18\">\n      \n      <p class=\"lead\">Hai khái niệm cốt lõi giúp code NestJS an toàn, dễ test và dễ bảo trì hơn hẳn cách viết Express thông thường.</p>\n\n      <h3>Dependency Injection (DI) — NestJS tự động \"tiêm\" phụ thuộc</h3>\n      <p>Ở chương 1, <code>SanPhamController</code> nhận <code>SanPhamService</code> qua constructor mà KHÔNG cần tự viết <code>new SanPhamService()</code> — NestJS tự động tạo và \"tiêm\" instance vào đúng chỗ cần dùng.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">san-pham.module.ts</span>\n        \n        <pre><code>import { Module } from '@nestjs/common';\nimport { SanPhamController } from './san-pham.controller';\nimport { SanPhamService } from './san-pham.service';\n\n@Module({\n    controllers: [SanPhamController],\n    providers: [SanPhamService],          // khai báo Service này CÓ THỂ được tiêm cho controller trong module\n})\nexport class SanPhamModule {}</code></pre>\n      </div>\n\n      <h3>DTO (Data Transfer Object) — xác thực dữ liệu đầu vào tự động</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">dto/tao-san-pham.dto.ts</span>\n        \n        <pre><code>import { IsString, IsNumber, IsPositive, MinLength } from 'class-validator';\n\nexport class TaoSanPhamDto {\n    @IsString()\n    @MinLength(2)\n    ten: string;\n\n    @IsNumber()\n    @IsPositive()                      // giá PHẢI là số dương\n    gia: number;\n}</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">san-pham.controller.ts</span>\n        \n        <pre><code>@Post()\ntaoMoi(@Body() du_lieu: TaoSanPhamDto) {     // NestJS TỰ ĐỘNG kiểm tra du_lieu đúng DTO trước khi vào hàm\n    return this.sanPhamService.taoMoi(du_lieu);\n}\n// Nếu client gửi \"gia\": -100 hoặc thiếu \"ten\" -&gt; NestJS TỰ ĐỘNG trả lỗi 400, code KHÔNG CẦN tự viết if kiểm tra</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        DTO + <code>class-validator</code> loại bỏ hầu hết code kiểm tra <code>if (!ten) return res.status(400)...</code> lặp đi lặp lại mà bạn từng viết tay ở Express — validation trở thành khai báo (declarative), không phải logic thủ công.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 2</h4>\n        <p>Dependency Injection để NestJS tự quản lý vòng đời và \"tiêm\" các Service cần thiết. DTO kết hợp class-validator giúp xác thực dữ liệu đầu vào tự động, khai báo thay vì viết if thủ công.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 23 ================= -->",
+      "questions": [
+        {
+          "question": "1. DTO trong NestJS dùng để làm gì?",
+          "options": [
+            "Định nghĩa cấu trúc và tự động xác thực dữ liệu đầu vào",
+            "Kết nối tới database",
+            "Định tuyến URL"
+          ],
+          "answer": 0,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s18"
+      ],
+      "words": 270
+    }
+  ]
+}

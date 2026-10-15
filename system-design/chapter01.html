@@ -1,75 +1,18 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-
-<script>
-(function(){
-  try{
-    var t = localStorage.getItem('synaptrail-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', t);
-  }catch(e){
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-})();
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/lesson.css">
-<title>Chương 1 — System Design là gì? — Giáo Trình System Design | Synaptrail</title>
-<link rel="stylesheet" href="../assets/ui.css">
-</head>
-<body>
-<div id="progress-bar"></div>
-<div id="topbar">
-  <span class="brand">🏗️ System Design</span>
-  <div class="topbar-right">
-    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
-    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
-  </div>
-</div>
-<div class="layout">
-  <aside id="sidebar">
-    <div class="brand">🏗️ System Design</div>
-    <div class="sub">10 chương</div>
-    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
-    <div class="nav-group-title">Danh sách chương</div>
-    <a class="nav-link active" href="chapter01.html">Chương 1 — System Design là gì?</a>
-    <a class="nav-link" href="chapter02.html">Chương 2 — Vertical vs Horizontal Scaling</a>
-    <a class="nav-link" href="chapter03.html">Chương 3 — Load Balancing</a>
-    <a class="nav-link" href="chapter04.html">Chương 4 — Caching Strategies</a>
-    <a class="nav-link" href="chapter05.html">Chương 5 — Database Scaling (Replication &amp; Sharding)</a>
-    <a class="nav-link" href="chapter06.html">Chương 6 — CAP Theorem</a>
-    <a class="nav-link" href="chapter07.html">Chương 7 — Message Queue &amp; Xử lý bất đồng bộ</a>
-    <a class="nav-link" href="chapter08.html">Chương 8 — Microservices vs Monolith</a>
-    <a class="nav-link" href="chapter09.html">Chương 9 — API Gateway &amp; Rate Limiting</a>
-    <a class="nav-link" href="chapter10.html">Chương 10 — Case Study: Thiết kế URL Shortener</a>
-    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
-  </aside>
-  <div class="main-col">
-<div class="chpage">
-  <div class="crumb">
-    <a href="../index.html">🏠 Trang chủ</a> ·
-    <a href="index.html">🏗️ System Design</a> ·
-    <span>Chương 1 — System Design là gì?</span>
-  </div>
-  <main style="padding:0;max-width:none;">
-<section class="chapter" id="s1">
-      <h2>Chương <span class="num">1</span> — System Design là gì?</h2>
+<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>System Design là gì? — System Design | Synaptrail</title><meta name="description" content="Không phải viết code — mà là thiết kế cách các thành phần hệ thống phối hợp để phục vụ hàng triệu người dùng đáng tin cậy."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="system-design" data-skill="system-design" data-node="chapter01"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/system-design.html#chapter01"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">System Design / BÀI 1</p><h1>System Design là gì?</h1><p class="rm-lead">Không phải viết code — mà là thiết kế cách các thành phần hệ thống phối hợp để phục vụ hàng triệu người dùng đáng tin cậy.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s1">
+      
       <p class="lead">Không phải viết code — mà là thiết kế cách các thành phần hệ thống phối hợp để phục vụ hàng triệu người dùng đáng tin cậy.</p>
 
       <h3>Khác biệt so với lập trình thông thường</h3>
       <p>Lập trình thông thường tập trung vào: "Làm sao viết đúng function này?". System Design tập trung vào: "Làm sao hệ thống vẫn hoạt động khi có 10 triệu người dùng cùng lúc, một server bị sập, hay lượng dữ liệu tăng gấp 100 lần?"</p>
 
       <table>
-        <tr><th>Khía cạnh</th><th>Câu hỏi cốt lõi</th></tr>
+        <tbody><tr><th>Khía cạnh</th><th>Câu hỏi cốt lõi</th></tr>
         <tr><td><strong>Scalability</strong></td><td>Hệ thống có phục vụ được nhiều người dùng/dữ liệu hơn khi cần không?</td></tr>
         <tr><td><strong>Reliability</strong></td><td>Hệ thống có tiếp tục hoạt động đúng khi một phần bị lỗi không?</td></tr>
         <tr><td><strong>Availability</strong></td><td>Hệ thống có luôn "sẵn sàng" phục vụ, ít thời gian gián đoạn không?</td></tr>
         <tr><td><strong>Latency</strong></td><td>Thời gian phản hồi có đủ nhanh cho trải nghiệm người dùng không?</td></tr>
-      </table>
+      </tbody></table>
 
       <div class="box note">
         <div class="box-title">Ghi chú</div>
@@ -87,19 +30,4 @@
       </div>
     </section>
 
-    <!-- ================= CHƯƠNG 2 ================= -->
-  </main>
-  <div class="chnav">
-    <span class="nav-btn disabled">← Chương trước</span>
-    <a class="nav-btn next" href="chapter02.html">Chương 2 — Vertical vs Horizontal Scaling →</a>
-  </div>
-</div>
-</div>
-</div>
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
-<script src="../assets/code-highlighter.js"></script>
-<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
-
-</body>
-</html>
+    <!-- ================= CHƯƠNG 2 ================= --></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><span></span><a href="chapter02.html">Bài tiếp theo<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/system-design.html#chapter01"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>

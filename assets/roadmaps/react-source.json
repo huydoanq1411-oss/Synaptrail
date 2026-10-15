@@ -1,0 +1,1246 @@
+{
+  "course": "react",
+  "title": "React",
+  "lessons": [
+    {
+      "id": "chapter01",
+      "file": "chapter01.html",
+      "title": "Nhập Môn React & JSX",
+      "summary": "Tự động hóa chính nguyên lý \"render lại từ dữ liệu\" bạn đã tự tay xây ở Bài 18 chương JavaScript — làm quen với component và cú pháp JSX.",
+      "content": "<section class=\"chapter\" id=\"s1\">\n      \n      <p class=\"lead\">Tự động hóa chính nguyên lý \"render lại từ dữ liệu\" bạn đã tự tay xây ở Bài 18 chương JavaScript — làm quen với component và cú pháp JSX.</p>\n\n      <h3>Giới thiệu</h3>\n\n      <p>Nhớ lại Bài 18 chương JavaScript: bạn tự viết hàm <code class=\"mono\">render()</code> xóa sạch DOM và vẽ lại toàn bộ\n        danh sách mỗi khi dữ liệu thay đổi. Cách này hoạt động tốt cho ứng dụng nhỏ, nhưng với ứng dụng lớn hơn — hàng chục\n        thành phần giao diện, dữ liệu thay đổi liên tục — việc quản lý thủ công như vậy sẽ nhanh chóng trở nên rối rắm.</p>\n\n      <p><strong>React</strong> là thư viện JavaScript giải quyết đúng vấn đề đó: bạn chỉ cần mô tả giao diện <strong>trông như\n        thế nào</strong> dựa trên dữ liệu hiện tại, React tự lo phần \"render lại\" một cách thông minh và hiệu quả (nhờ kỹ thuật\n        Virtual DOM). Toàn bộ giao diện được chia thành các <strong>component</strong> — những khối UI độc lập, tái sử dụng được,\n        y hệt cách bạn nhìn thấy các card khóa học lặp lại ở trang chủ Full Stack Blueprint.</p>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">🎯 Mục tiêu sau bài học</div>\n        <p>Hiểu component là gì, viết được JSX cơ bản, và dựng được component React đầu tiên hiển thị dữ liệu ra màn hình.</p>\n      </div>\n\n      <h3>Kiến thức lý thuyết</h3>\n\n      <h4 class=\"subh\">2.1. Nhúng React vào HTML (không cần công cụ build)</h4>\n\n      <p>Dự án React thực tế thường dùng công cụ build (Vite, Create React App). Nhưng để học và thực hành ngay trong một\n        file HTML duy nhất — đúng quy tắc của khóa học này — ta dùng 3 thư viện qua CDN:</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">nhúng React qua CDN</span>\n        \n        <pre><code>&lt;script src=\"https://unpkg.com/react@19/umd/react.development.js\"&gt;&lt;/script&gt;\n&lt;script src=\"https://unpkg.com/react-dom@19/umd/react-dom.development.js\"&gt;&lt;/script&gt;\n&lt;script src=\"https://unpkg.com/@babel/standalone/babel.min.js\"&gt;&lt;/script&gt;\n\n&lt;script type=\"text/babel\"&gt;\n  // code React + JSX viết ở đây\n&lt;/script&gt;</code></pre>\n      </div>\n\n      <p><strong>Babel</strong> là công cụ \"dịch\" JSX (cú pháp trông giống HTML) thành JavaScript thuần mà trình duyệt hiểu được — bắt buộc phải có nếu viết JSX trực tiếp mà không qua bước build.</p>\n\n      <h4 class=\"subh\">2.2. JSX là gì?</h4>\n\n      <p>JSX cho phép viết cấu trúc giao diện <strong>trông giống HTML</strong> ngay bên trong JavaScript:</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">JSX cơ bản</span>\n        \n        <pre><code>const phanTu = &lt;h1&gt;Xin chào React!&lt;/h1&gt;;\n// thực chất Babel \"dịch\" dòng trên thành:\n// const phanTu = React.createElement(\"h1\", null, \"Xin chào React!\");</code></pre>\n      </div>\n\n      <p>JSX không phải HTML thật — nó là <strong>cú pháp đường tắt</strong> để gọi <code class=\"mono\">React.createElement()</code>, dễ đọc hơn hẳn cách viết thuần.</p>\n\n      <h4 class=\"subh\">2.3. Nhúng biểu thức JavaScript vào JSX bằng <code class=\"mono\">{ }</code></h4>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">nhúng biểu thức</span>\n        \n        <pre><code>const ten = \"Full Stack Blueprint\";\nconst phanTu = &lt;h1&gt;Chào mừng đến với {ten}!&lt;/h1&gt;;\n// bất kỳ biểu thức JS nào cũng dùng được trong { }: biến, phép tính, gọi hàm...</code></pre>\n      </div>\n\n      <h4 class=\"subh\">2.4. Ba quy tắc JSX quan trọng cần nhớ</h4>\n\n      <table>\n        <tbody><tr><th>Quy tắc</th><th>Ví dụ</th></tr>\n        <tr><td>Chỉ một phần tử gốc</td><td>Phải bọc nhiều phần tử trong một thẻ cha duy nhất (hoặc <code>&lt;&gt;...&lt;/&gt;</code>)</td></tr><tr><td>Dùng <code>className</code> thay vì <code>class</code></td><td><code>&lt;div className=\"card\"&gt;</code>, vì <code>class</code> là từ khóa JavaScript</td></tr><tr><td>Mọi thẻ phải tự đóng hoặc có thẻ đóng</td><td><code>&lt;img /&gt;</code>, <code>&lt;br /&gt;</code> — không được để mở lửng như HTML thường</td></tr>\n      </tbody></table>\n\n      <h4 class=\"subh\">2.5. Component — hàm trả về JSX</h4>\n\n      <p>Component React đơn giản nhất chỉ là một <strong>hàm</strong> (Bài 5, chương JavaScript) trả về JSX, tên luôn viết hoa chữ cái đầu:</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">component cơ bản</span>\n        \n        <pre><code>function LoiChao() {\n  return &lt;h1&gt;Xin chào từ component!&lt;/h1&gt;;\n}</code></pre>\n      </div>\n\n      <h3>Ví dụ minh họa</h3>\n\n      <p>Hãy dựng một component hiển thị thông tin một khóa học — đúng dữ liệu bạn từng thao tác bằng tay ở Bài 6, 8 chương\n        JavaScript (object <code class=\"mono\">{ ten, icon, soBaiHoc }</code>), nhưng lần này để <strong>React tự render</strong>\n        thay vì gọi <code class=\"mono\">document.createElement()</code> thủ công.</p>\n\n      <h3>Code mẫu</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">react-hello.html\n📋 Copy</span>\n        \n        <pre><code>&lt;div id=\"root\"&gt;&lt;/div&gt;\n\n&lt;script src=\"https://unpkg.com/react@19/umd/react.development.js\"&gt;&lt;/script&gt;\n&lt;script src=\"https://unpkg.com/react-dom@19/umd/react-dom.development.js\"&gt;&lt;/script&gt;\n&lt;script src=\"https://unpkg.com/@babel/standalone/babel.min.js\"&gt;&lt;/script&gt;\n\n&lt;script type=\"text/babel\"&gt;\n  // Component nhận dữ liệu, trả về JSX mô tả giao diện\n  function ThongTinKhoaHoc() {\n    const khoaHoc = {\n      ten: \"HTML &amp; CSS Nền Tảng\",\n      icon: \"🧱\",\n      soBaiHoc: 11\n    };\n\n    return (\n      &lt;div className=\"course-card\"&gt;\n        &lt;span&gt;{khoaHoc.icon}&lt;/span&gt;\n        &lt;h3&gt;{khoaHoc.ten}&lt;/h3&gt;\n        &lt;p&gt;{khoaHoc.soBaiHoc} bài học&lt;/p&gt;\n      &lt;/div&gt;\n    );\n  }\n\n  // \"Cắm\" component vào phần tử #root có sẵn trong HTML\n  const root = ReactDOM.createRoot(document.getElementById(\"root\"));\n  root.render(&lt;ThongTinKhoaHoc /&gt;);\n&lt;/script&gt;</code></pre>\n      </div>\n\n      <h3>Giải thích code</h3>\n\n      <ul><li><code class=\"mono\">&lt;div id=\"root\"&gt;&lt;/div&gt;</code> — phần tử HTML \"trống\" làm điểm neo, nơi React sẽ chèn toàn bộ giao diện nó tạo ra vào.</li>\n<li><code class=\"mono\">function ThongTinKhoaHoc() { return (...); }</code> — đây là một component, tên viết hoa chữ cái đầu (<code class=\"mono\">ThongTinKhoaHoc</code>, không phải <code class=\"mono\">thongTinKhoaHoc</code>) để React phân biệt với thẻ HTML thường.</li>\n<li><code class=\"mono\">&lt;span&gt;{khoaHoc.icon}&lt;/span&gt;</code> — dấu ngoặc nhọn nhúng giá trị biến JavaScript trực tiếp vào giữa JSX, y hệt template literal (Bài 1 chương JavaScript) nhưng dùng trong ngữ cảnh JSX.</li>\n<li><code class=\"mono\">ReactDOM.createRoot(document.getElementById(\"root\"))</code> — vẫn dùng <code class=\"mono\">document.getElementById</code> quen thuộc (Bài 8) để tìm điểm neo, sau đó giao quyền quản lý phần tử đó cho React.</li>\n<li><code class=\"mono\">root.render(&lt;ThongTinKhoaHoc /&gt;);</code> — gọi component bằng cú pháp giống thẻ HTML tự đóng, React sẽ chạy hàm <code class=\"mono\">ThongTinKhoaHoc</code>, lấy JSX nó trả về, rồi vẽ vào <code class=\"mono\">#root</code>.</li></ul>\n\n      <h3>Lỗi thường gặp</h3>\n\n      <p>Nhấp vào từng mục để xem chi tiết lỗi và cách khắc phục:</p>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Trả về nhiều phần tử gốc cùng lúc</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <p>Viết <code class=\"mono\">return &lt;h1&gt;A&lt;/h1&gt;&lt;p&gt;B&lt;/p&gt;;</code> — báo lỗi <code class=\"mono\">Adjacent JSX elements must be wrapped in an enclosing tag</code>, vì một component chỉ được trả về đúng <strong>một</strong> phần tử gốc.</p>\n<p class=\"fix\">✅ Cách khắc phục: bọc trong một <code class=\"mono\">&lt;div&gt;</code>, hoặc dùng <code class=\"mono\">&lt;&gt;...&lt;/&gt;</code> (Fragment) nếu không muốn thêm thẻ HTML thừa vào DOM.</p>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Dùng <code class=\"mono\">class</code> thay vì <code class=\"mono\">className</code></button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <p>Viết <code class=\"mono\">&lt;div class=\"card\"&gt;</code> (thói quen từ HTML thuần) — React vẫn hiển thị được nhưng cảnh báo trong console, vì <code class=\"mono\">class</code> là từ khóa dành riêng trong JavaScript.</p>\n<p class=\"fix\">✅ Cách khắc phục: luôn dùng <code class=\"mono\">className</code> thay cho <code class=\"mono\">class</code> trong mọi JSX.</p>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Đặt tên component viết thường</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <p>Viết <code class=\"mono\">function thongTinKhoaHoc() { }</code> rồi gọi <code class=\"mono\">&lt;thongTinKhoaHoc /&gt;</code> — React hiểu nhầm đây là một thẻ HTML thường (như <code class=\"mono\">&lt;div&gt;</code>) chứ không phải component, không hiển thị gì.</p>\n<p class=\"fix\">✅ Cách khắc phục: luôn đặt tên component viết hoa chữ cái đầu (PascalCase) — quy tắc bắt buộc của React, không phải chỉ là gợi ý.</p>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Quên <code class=\"mono\">type=\"text/babel\"</code> trên thẻ script</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <p>Viết JSX trong thẻ <code class=\"mono\">&lt;script&gt;</code> thường (thiếu <code class=\"mono\">type=\"text/babel\"</code>) — trình duyệt không hiểu cú pháp JSX, báo lỗi cú pháp ngay tại dấu <code class=\"mono\">&lt;</code> đầu tiên trong JSX.</p>\n<p class=\"fix\">✅ Cách khắc phục: mọi thẻ script chứa JSX (khi học không dùng build tool) đều cần <code class=\"mono\">type=\"text/babel\"</code> để Babel kịp \"dịch\" trước khi trình duyệt chạy.</p>\n        </div></div>\n      </div>\n\n      <div class=\"box warning\">\n        <div class=\"box-title\">⚠️ Cảnh báo quan trọng</div>\n        <p>Cách nhúng React qua CDN + Babel standalone (như bài này) chỉ phù hợp để <strong>học và thử nghiệm nhanh</strong>. Babel standalone dịch JSX ngay trên trình duyệt của người dùng, khá chậm và không tối ưu — dự án React thực tế luôn dùng công cụ build (Vite, Next.js...) để dịch trước, cho ra file JavaScript đã tối ưu sẵn.</p>\n      </div>\n\n      <h3>Best Practices</h3>\n\n      <ul><li>Luôn đặt tên component viết hoa chữ cái đầu (PascalCase).</li>\n<li>Luôn dùng <code class=\"mono\">className</code> thay cho <code class=\"mono\">class</code> trong JSX.</li>\n<li>Bọc nhiều phần tử JSX trong một phần tử gốc duy nhất, ưu tiên Fragment (<code class=\"mono\">&lt;&gt;&lt;/&gt;</code>) nếu không cần thêm thẻ HTML thật vào DOM.</li>\n<li>Giữ mỗi component tập trung vào đúng một phần giao diện, đặt tên rõ ràng theo vai trò hiển thị.</li>\n<li>Khi làm dự án thật (ngoài phạm vi khóa học này), luôn dùng công cụ build thay vì CDN + Babel standalone.</li></ul>\n\n      <h3>Tip &amp; Note</h3>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">💡 Tip</div>\n        <p>Trong DevTools, cài extension <strong>React Developer Tools</strong> (miễn phí) để có thêm tab \"Components\" hiển thị đúng cây component React đang chạy trên trang — trực quan hơn nhiều so với chỉ nhìn cây DOM thông thường.</p>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">📌 Note</div>\n        <p>Bạn vừa thấy JSX <code class=\"mono\">{khoaHoc.icon}</code> hoạt động giống hệt tinh thần template literal <code class=\"mono\">${'{'}...{'}'}</code> đã học ở Bài 1 chương JavaScript — đều là cách nhúng giá trị JavaScript vào giữa nội dung hiển thị. Nắm chắc JavaScript nền tảng chính là lý do JSX sẽ không hề xa lạ với bạn.</p>\n      </div>\n\n      <h3>Bài tập</h3>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">BÀI 1</div>\n        <p>Viết component <code class=\"mono\">HoSoCaNhan</code> hiển thị tên và tuổi của bạn (dùng biến JavaScript, nhúng vào JSX bằng <code class=\"mono\">{ }</code>), render vào <code class=\"mono\">#root</code>.</p>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">BÀI 2</div>\n        <p>Sửa component ở Bài tập 1 để trả về <strong>hai</strong> phần tử JSX (ví dụ thêm một <code class=\"mono\">&lt;p&gt;</code> mô tả sở thích) mà không bị lỗi \"Adjacent JSX elements\" — dùng Fragment để không thêm thẻ HTML thừa.</p>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">BÀI 3</div>\n        <p>Giải thích bằng lời: vì sao React bắt buộc tên component phải viết hoa chữ cái đầu, trong khi tên hàm JavaScript thông thường (Bài 5) không có ràng buộc này?</p>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">📖 Đáp án bài tập 3 (gợi ý)</div>\n        <p>React dùng quy tắc viết hoa để <strong>tự động phân biệt</strong> giữa thẻ HTML gốc (như <code class=\"mono\">&lt;div&gt;</code>, viết thường) và component do người dùng tự định nghĩa (như <code class=\"mono\">&lt;HoSoCaNhan /&gt;</code>, viết hoa). Nếu không có quy tắc này, React sẽ không biết <code class=\"mono\">&lt;thongTin /&gt;</code> nên được hiểu là một thẻ HTML thật (và thử tạo ra thẻ <code class=\"mono\">&lt;thongtin&gt;</code> không hợp lệ) hay là một component cần gọi hàm để lấy JSX bên trong.</p>\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 1</h4>\n        <ul><li>React tự động hóa việc \"render lại từ dữ liệu\" mà bạn từng tự viết thủ công ở Bài 18 chương JavaScript.</li>\n<li>JSX là cú pháp giống HTML nhưng thực chất là JavaScript, cần Babel để \"dịch\" khi không dùng build tool.</li>\n<li>Ba quy tắc JSX: một phần tử gốc, <code class=\"mono\">className</code> thay <code class=\"mono\">class</code>, mọi thẻ đều phải đóng.</li>\n<li>Component là hàm trả về JSX, tên viết hoa chữ cái đầu, được \"cắm\" vào trang bằng <code class=\"mono\">ReactDOM.createRoot().render()</code>.</li></ul>\n        <p>Qua bài học này, bạn đã nắm được:</p><p>Với component đầu tiên trong tay, ở <strong>Bài 2</strong>, bạn sẽ học <strong>Props</strong> — cách truyền dữ liệu\n        từ component cha xuống component con, biến component tĩnh thành những khối UI thực sự tái sử dụng được với dữ liệu khác nhau.</p>\n      </div>\n\n      \n\n    </section>",
+      "questions": [
+        {
+          "question": "1. JSX thực chất là cú pháp đường tắt cho lời gọi hàm nào?",
+          "options": [
+            "document.createElement()",
+            "React.createElement()",
+            "JSON.parse()",
+            "ReactDOM.render()"
+          ],
+          "answer": 1,
+          "explanation": ""
+        },
+        {
+          "question": "2. Trong JSX, thuộc tính nào thay thế cho class của HTML?",
+          "options": [
+            "cssClass",
+            "styleName",
+            "className",
+            "Vẫn dùng class bình thường"
+          ],
+          "answer": 2,
+          "explanation": ""
+        },
+        {
+          "question": "3. Tên component React phải tuân theo quy tắc nào?",
+          "options": [
+            "Viết hoa chữ cái đầu (PascalCase)",
+            "Toàn bộ chữ hoa",
+            "Bắt đầu bằng dấu gạch dưới",
+            "Không có quy tắc nào"
+          ],
+          "answer": 0,
+          "explanation": ""
+        },
+        {
+          "question": "4. Một component JSX được phép trả về bao nhiêu phần tử gốc?",
+          "options": [
+            "Không giới hạn",
+            "Đúng 2",
+            "Đúng 3",
+            "Đúng 1 (hoặc dùng Fragment để bọc nhiều phần tử)"
+          ],
+          "answer": 3,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s1"
+      ],
+      "words": 1598
+    },
+    {
+      "id": "chapter02",
+      "file": "chapter02.html",
+      "title": "Props — Truyền Dữ Liệu Giữa Component",
+      "summary": "Biến component tĩnh thành khối UI thực sự tái sử dụng được — dựng lại chính xác 6 card khóa học ở trang chủ chỉ bằng MỘT component duy nhất.",
+      "content": "<section class=\"chapter\" id=\"s2\">\n      \n      <p class=\"lead\">Biến component tĩnh thành khối UI thực sự tái sử dụng được — dựng lại chính xác 6 card khóa học ở trang chủ chỉ bằng MỘT component duy nhất.</p>\n\n      <h3>Giới thiệu</h3>\n\n      <p>Component <code class=\"mono\">ThongTinKhoaHoc</code> ở Bài 1 có một vấn đề lớn: dữ liệu khóa học được viết\n        <strong>cứng</strong> ngay bên trong hàm. Muốn hiển thị 6 khóa học khác nhau (như trang chủ Full Stack Blueprint),\n        bạn sẽ phải copy-paste component đó 6 lần, mỗi lần sửa một chút — đúng vấn đề mà HTML/CSS thuần từng gặp phải trước\n        khi có BEM và component hóa.</p>\n\n      <p><strong>Props</strong> (viết tắt của \"properties\") giải quyết vấn đề này: cho phép component cha\n        <strong>truyền dữ liệu</strong> xuống component con, biến một component thành \"khuôn mẫu\" dùng lại được với\n        dữ liệu khác nhau mỗi lần — đúng tinh thần Class ở Bài 17 chương JavaScript, nhưng áp dụng cho component giao diện.</p>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">🎯 Mục tiêu sau bài học</div>\n        <p>Tự truyền và nhận props giữa component cha-con, và dựng được một danh sách component lặp lại từ mảng dữ liệu bằng .map().</p>\n      </div>\n\n      <h3>Kiến thức lý thuyết</h3>\n\n      <h4 class=\"subh\">2.1. Truyền props — giống thuộc tính HTML</h4>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">truyền props</span>\n        \n        <pre><code>&lt;TheKhoaHoc ten=\"React.js\" icon=\"⚛️\" soBaiHoc={20} /&gt;\n// ten, icon, soBaiHoc là các props — viết y hệt thuộc tính HTML\n// giá trị chuỗi dùng dấu nháy, giá trị JS khác (số, biến...) dùng { }</code></pre>\n      </div>\n\n      <h4 class=\"subh\">2.2. Nhận props — tham số của component</h4>\n\n      <p>Mọi props được gộp thành <strong>một object duy nhất</strong>, truyền vào component như tham số đầu tiên:</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">nhận props (cách đầy đủ)</span>\n        \n        <pre><code>function TheKhoaHoc(props) {\n  return &lt;h3&gt;{props.ten} — {props.soBaiHoc} bài&lt;/h3&gt;;\n}</code></pre>\n      </div>\n\n      <p>Nhớ lại destructuring (Bài 7, chương JavaScript) — cách viết phổ biến hơn hẳn trong thực tế:</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">nhận props (destructuring — khuyến khích)</span>\n        \n        <pre><code>function TheKhoaHoc({ ten, soBaiHoc }) {\n  return &lt;h3&gt;{ten} — {soBaiHoc} bài&lt;/h3&gt;;\n}</code></pre>\n      </div>\n\n      <h4 class=\"subh\">2.3. Props chỉ đọc (read-only)</h4>\n\n      <p><strong>Quy tắc bất di bất dịch của React</strong>: component con <strong>không bao giờ</strong> được sửa trực tiếp\n        props nhận vào (<code class=\"mono\">props.ten = \"...\"</code> là sai). Props chỉ chảy theo <strong>một chiều</strong>:\n        từ cha xuống con — giống hệt cách bạn không nên sửa trực tiếp tham số truyền vào một hàm thông thường (Bài 5).</p>\n\n      <h4 class=\"subh\">2.4. Render danh sách component từ mảng dữ liệu</h4>\n\n      <p>Kết hợp <code class=\"mono\">.map()</code> (Bài 4, chương JavaScript) để biến một mảng dữ liệu thành nhiều component:</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">render danh sách</span>\n        \n        <pre><code>const danhSachKhoaHoc = [\n  { id: 1, ten: \"HTML &amp; CSS\", icon: \"🧱\" },\n  { id: 2, ten: \"JavaScript\", icon: \"⚡\" }\n];\n\nfunction DanhSach() {\n  return (\n    &lt;div&gt;\n      {danhSachKhoaHoc.map(kh =&gt; (\n        &lt;TheKhoaHoc key={kh.id} ten={kh.ten} icon={kh.icon} /&gt;\n      ))}\n    &lt;/div&gt;\n  );\n}</code></pre>\n      </div>\n\n      <p><strong>Prop <code class=\"mono\">key</code></strong> là bắt buộc khi render danh sách — giúp React nhận diện chính xác\n        phần tử nào trong danh sách, tối ưu việc cập nhật lại khi dữ liệu thay đổi. Luôn dùng một id ổn định (không dùng chỉ\n        số mảng nếu danh sách có thể thay đổi thứ tự — đúng bài học từ Bài 18 chương JavaScript).</p>\n\n      <h3>Ví dụ minh họa</h3>\n\n      <p>Hãy dựng lại chính xác grid 6 card khóa học ở trang chủ <strong>Full Stack Blueprint</strong>, nhưng lần này chỉ cần\n        <strong>một</strong> component <code class=\"mono\">TheKhoaHoc</code> duy nhất, được gọi lại 6 lần với dữ liệu khác nhau\n        thông qua props — đúng nguyên lý component hóa cốt lõi của React.</p>\n\n      <h3>Code mẫu</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">props.html\n📋 Copy</span>\n        \n        <pre><code>&lt;div id=\"root\"&gt;&lt;/div&gt;\n\n&lt;script src=\"https://unpkg.com/react@19/umd/react.development.js\"&gt;&lt;/script&gt;\n&lt;script src=\"https://unpkg.com/react-dom@19/umd/react-dom.development.js\"&gt;&lt;/script&gt;\n&lt;script src=\"https://unpkg.com/@babel/standalone/babel.min.js\"&gt;&lt;/script&gt;\n\n&lt;script type=\"text/babel\"&gt;\n  // Component CON — nhận props, không biết gì về dữ liệu thật sự đến từ đâu\n  function TheKhoaHoc({ ten, icon, soBaiHoc }) {\n    return (\n      &lt;div className=\"course-card\"&gt;\n        &lt;span&gt;{icon}&lt;/span&gt;\n        &lt;h3&gt;{ten}&lt;/h3&gt;\n        &lt;p&gt;{soBaiHoc} bài học&lt;/p&gt;\n      &lt;/div&gt;\n    );\n  }\n\n  // Dữ liệu — giống hệt mảng object đã dùng ở Bài 6, 10 chương JavaScript\n  const danhSachKhoaHoc = [\n    { id: 1, ten: \"HTML &amp; CSS\", icon: \"🧱\", soBaiHoc: 11 },\n    { id: 2, ten: \"JavaScript\", icon: \"⚡\", soBaiHoc: 19 },\n    { id: 3, ten: \"React.js\", icon: \"⚛️\", soBaiHoc: 26 }\n  ];\n\n  // Component CHA — chứa dữ liệu, \"rót\" xuống từng component con qua props\n  function TrangChu() {\n    return (\n      &lt;div className=\"course-grid\"&gt;\n        {danhSachKhoaHoc.map(kh =&gt; (\n          &lt;TheKhoaHoc\n            key={kh.id}\n            ten={kh.ten}\n            icon={kh.icon}\n            soBaiHoc={kh.soBaiHoc}\n          /&gt;\n        ))}\n      &lt;/div&gt;\n    );\n  }\n\n  const root = ReactDOM.createRoot(document.getElementById(\"root\"));\n  root.render(&lt;TrangChu /&gt;);\n&lt;/script&gt;</code></pre>\n      </div>\n\n      <h3>Giải thích code</h3>\n\n      <ul><li><code class=\"mono\">function TheKhoaHoc({ ten, icon, soBaiHoc }) { }</code> — component con hoàn toàn \"vô tri\" về nguồn gốc dữ liệu, chỉ biết nó sẽ nhận được 3 props này và hiển thị ra — đây chính là tính <strong>tái sử dụng</strong> cốt lõi.</li>\n<li><code class=\"mono\">danhSachKhoaHoc.map(kh =&gt; (...))</code> — vòng lặp qua từng object trong mảng (Bài 4), mỗi lần tạo ra một phần tử <code class=\"mono\">&lt;TheKhoaHoc /&gt;</code> mới với props tương ứng từ object đó.</li>\n<li><code class=\"mono\">key={kh.id}</code> — dùng <code class=\"mono\">id</code> ổn định của từng khóa học (không phải chỉ số mảng), giúp React theo dõi đúng từng component khi danh sách thay đổi sau này.</li>\n<li><code class=\"mono\">ten={kh.ten}</code> — \"rót\" giá trị cụ thể từ object <code class=\"mono\">kh</code> vào prop <code class=\"mono\">ten</code> của component con; mỗi lần lặp, giá trị khác nhau, nhưng logic hiển thị bên trong <code class=\"mono\">TheKhoaHoc</code> chỉ cần viết <strong>đúng một lần</strong>.</li>\n<li><code class=\"mono\">function TrangChu() { }</code> — component cha đóng vai trò \"điều phối\": giữ dữ liệu, quyết định gọi component con bao nhiêu lần với props gì, còn phần hiển thị chi tiết giao lại hoàn toàn cho <code class=\"mono\">TheKhoaHoc</code>.</li></ul>\n\n      <h3>Lỗi thường gặp</h3>\n\n      <p>Nhấp vào từng mục để xem chi tiết lỗi và cách khắc phục:</p>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Cố sửa trực tiếp props</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <p>Viết <code class=\"mono\">props.ten = \"Tên mới\";</code> bên trong component con — React sẽ báo lỗi hoặc bỏ qua thay đổi, vì props được coi là bất biến (immutable) từ góc nhìn của component con.</p>\n<p class=\"fix\">✅ Cách khắc phục: nếu cần dữ liệu thay đổi được, đó là dấu hiệu cần dùng <strong>state</strong> (Bài 3) thay vì props.</p>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Quên prop <code class=\"mono\">key</code> khi render danh sách</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <p>Viết <code class=\"mono\">.map(kh =&gt; &lt;TheKhoaHoc ten={kh.ten} /&gt;)</code> (thiếu <code class=\"mono\">key</code>) — React vẫn hiển thị được nhưng cảnh báo trong console <code class=\"mono\">Warning: Each child in a list should have a unique \"key\" prop</code>, và có thể gây lỗi hiển thị khó lường khi danh sách thay đổi.</p>\n<p class=\"fix\">✅ Cách khắc phục: luôn thêm <code class=\"mono\">key</code> (dùng id ổn định) cho mọi phần tử được tạo ra từ <code class=\"mono\">.map()</code>.</p>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Dùng chỉ số mảng (index) làm <code class=\"mono\">key</code></button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <p>Viết <code class=\"mono\">.map((kh, index) =&gt; &lt;TheKhoaHoc key={index} /&gt;)</code> — hoạt động được với danh sách tĩnh, nhưng gây lỗi hiển thị khó lường nếu danh sách có thể thêm/xóa/sắp xếp lại — đúng bài học \"id thay vì index\" từ Bài 18 chương JavaScript.</p>\n<p class=\"fix\">✅ Cách khắc phục: luôn ưu tiên id thật của dữ liệu (như <code class=\"mono\">kh.id</code>) làm key, chỉ dùng index khi chắc chắn danh sách hoàn toàn tĩnh, không bao giờ thay đổi.</p>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Quên dấu ngoặc nhọn khi truyền props không phải chuỗi</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <p>Viết <code class=\"mono\">&lt;TheKhoaHoc soBaiHoc=\"11\" /&gt;</code> khi muốn truyền số <code class=\"mono\">11</code> — nếu dùng dấu nháy, giá trị thực chất là <strong>chuỗi</strong> <code class=\"mono\">\"11\"</code>, không phải số, có thể gây lỗi khi component con thực hiện phép tính trên prop này.</p>\n<p class=\"fix\">✅ Cách khắc phục: giá trị không phải chuỗi (số, boolean, biến, object...) luôn cần bọc trong <code class=\"mono\">{ }</code>: <code class=\"mono\">soBaiHoc={11}</code>.</p>\n        </div></div>\n      </div>\n\n      <div class=\"box warning\">\n        <div class=\"box-title\">⚠️ Cảnh báo quan trọng</div>\n        <p>Prop <code class=\"mono\">key</code> là đặc biệt — React <strong>sử dụng nội bộ</strong> để theo dõi danh sách, component con <strong>không</strong> nhận được nó như một prop thông thường (không thể truy cập <code class=\"mono\">props.key</code> bên trong component). Nếu cần giá trị đó bên trong component, phải truyền thêm một prop khác riêng biệt (như <code class=\"mono\">id={kh.id}</code>).</p>\n      </div>\n\n      <h3>Best Practices</h3>\n\n      <ul><li>Luôn destructuring props ngay trong tham số component (<code class=\"mono\">{ ten, icon }</code>) thay vì dùng <code class=\"mono\">props.ten</code> lặp lại nhiều lần.</li>\n<li>Không bao giờ sửa trực tiếp props — coi chúng như tham số hàm chỉ đọc.</li>\n<li>Luôn thêm <code class=\"mono\">key</code> ổn định (id thật) khi render danh sách bằng <code class=\"mono\">.map()</code>.</li>\n<li>Bọc mọi giá trị không phải chuỗi trong <code class=\"mono\">{ }</code> khi truyền props.</li>\n<li>Giữ component con càng \"vô tri\" càng tốt — chỉ nhận props và hiển thị, không tự ý biết về nguồn gốc dữ liệu.</li></ul>\n\n      <h3>Tip &amp; Note</h3>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">💡 Tip</div>\n        <p>Với React Developer Tools (đã nhắc ở Bài 1), chọn một component trong tab Components sẽ hiện đầy đủ props nó đang nhận ở panel bên phải — cách nhanh nhất để debug khi nghi ngờ component không nhận đúng dữ liệu.</p>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">📌 Note</div>\n        <p>Props có một dạng đặc biệt tên <code class=\"mono\">children</code> — tự động chứa mọi thứ nằm <strong>giữa</strong> thẻ mở và đóng của component, ví dụ <code class=\"mono\">&lt;Card&gt;Nội dung ở đây&lt;/Card&gt;</code>. Đây là kỹ thuật hữu ích để tạo component \"bao bọc\" linh hoạt, sẽ được dùng nhiều hơn ở các bài về layout sau này.</p>\n      </div>\n\n      <h3>Bài tập</h3>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">BÀI 1</div>\n        <p>Viết component <code class=\"mono\">NutBam</code> nhận props <code class=\"mono\">nhan</code> (nhãn nút) và <code class=\"mono\">mau</code> (màu nền), hiển thị một nút với style tương ứng. Gọi lại component này 3 lần với 3 màu khác nhau.</p>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">BÀI 2</div>\n        <p>Cho mảng <code class=\"mono\">const gioiThieu = [{id: 1, ten: \"An\"}, {id: 2, ten: \"Bình\"}];</code>, viết component <code class=\"mono\">DanhSachTen</code> render ra danh sách tên bằng <code class=\"mono\">.map()</code>, nhớ thêm <code class=\"mono\">key</code> đúng chuẩn.</p>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">BÀI 3</div>\n        <p>Giải thích bằng lời: vì sao React coi việc sửa trực tiếp props bên trong component con là sai nguyên tắc, dù về mặt kỹ thuật code đôi khi vẫn \"chạy được\"?</p>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">📖 Đáp án bài tập 3 (gợi ý)</div>\n        <p>Nếu component con được phép sửa props, dữ liệu sẽ \"chảy ngược\" từ con lên cha một cách không kiểm soát — component cha (nơi thực sự sở hữu dữ liệu gốc) sẽ không còn biết chắc giá trị hiện tại là gì, vì bất kỳ component con nào cũng có thể âm thầm thay đổi nó. Nguyên tắc luồng dữ liệu một chiều giúp code React luôn <strong>dễ dự đoán</strong>: nhìn vào component cha là biết chắc dữ liệu đến từ đâu và thay đổi ra sao.</p>\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 2</h4>\n        <ul><li>Props truyền dữ liệu từ component cha xuống con, theo một chiều duy nhất, chỉ đọc.</li>\n<li>Nhận props qua destructuring trong tham số component, cách viết phổ biến nhất.</li>\n<li>Kết hợp <code class=\"mono\">.map()</code> + props để render danh sách component từ mảng dữ liệu.</li>\n<li>Prop <code class=\"mono\">key</code> bắt buộc khi render danh sách, nên dùng id ổn định thay vì chỉ số mảng.</li></ul>\n        <p>Qua bài học này, bạn đã nắm được:</p><p>Với props, bạn đã biết cách \"truyền\" dữ liệu vào component. Nhưng nếu dữ liệu cần <strong>tự thay đổi</strong> theo\n        thời gian (như số lượt click, nội dung ô input) mà không có component cha nào truyền vào? Ở <strong>Bài 3</strong>,\n        bạn sẽ học <strong>State &amp; useState</strong> — cách cho component \"trí nhớ\" của riêng nó.</p>\n      </div>\n\n      \n\n    </section>",
+      "questions": [
+        {
+          "question": "1. Props chảy theo hướng nào giữa các component?",
+          "options": [
+            "Từ con lên cha",
+            "Hai chiều tự do",
+            "Từ cha xuống con",
+            "Không có hướng cố định"
+          ],
+          "answer": 2,
+          "explanation": ""
+        },
+        {
+          "question": "2. Prop nào bắt buộc phải có khi render danh sách bằng .map()?",
+          "options": [
+            "id",
+            "key",
+            "name",
+            "Không cần prop nào đặc biệt"
+          ],
+          "answer": 1,
+          "explanation": ""
+        },
+        {
+          "question": "3. Component con có được phép sửa trực tiếp props nhận vào không?",
+          "options": [
+            "Không, props chỉ đọc",
+            "Có, thoải mái sửa",
+            "Chỉ sửa được số, không sửa được chuỗi",
+            "Tùy trình duyệt"
+          ],
+          "answer": 0,
+          "explanation": ""
+        },
+        {
+          "question": "4. Khi truyền một giá trị số làm prop, cần dùng ký hiệu nào?",
+          "options": [
+            "Dấu nháy đơn ' '",
+            "Dấu nháy kép \" \"",
+            "Không cần ký hiệu gì",
+            "Dấu ngoặc nhọn { }"
+          ],
+          "answer": 3,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s2"
+      ],
+      "words": 1741
+    },
+    {
+      "id": "chapter03",
+      "file": "chapter03.html",
+      "title": "State & useState Hook",
+      "summary": "Cho component \"trí nhớ\" của riêng nó — dữ liệu có thể tự thay đổi theo thời gian, và giao diện tự động cập nhật theo mỗi khi nó đổi.",
+      "content": "<section class=\"chapter\" id=\"s3\">\n      \n      <p class=\"lead\">Cho component \"trí nhớ\" của riêng nó — dữ liệu có thể tự thay đổi theo thời gian, và giao diện tự động cập nhật theo mỗi khi nó đổi.</p>\n\n      <h3>Giới thiệu</h3>\n\n      <p>Props (Bài 2) chỉ giải quyết được dữ liệu <strong>truyền từ ngoài vào</strong>. Nhưng nếu muốn đếm số lần người dùng\n        nhấp vào một nút, hay theo dõi nội dung một ô input đang gõ — dữ liệu đó không đến từ component cha nào cả, nó\n        <strong>tự phát sinh và thay đổi</strong> ngay bên trong chính component đó. Đây là lúc cần đến <strong>state</strong>\n        (trạng thái) — \"bộ nhớ riêng\" của một component.</p>\n\n      <p>React cung cấp <code class=\"mono\">useState</code> — một <strong>Hook</strong> (hàm đặc biệt bắt đầu bằng \"use\") để\n        thêm state vào component. Khi state thay đổi, React <strong>tự động render lại</strong> component đó — chính xác\n        là điều bạn từng tự viết bằng tay ở hàm <code class=\"mono\">render()</code> tại Bài 18 chương JavaScript.</p>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">🎯 Mục tiêu sau bài học</div>\n        <p>Tự dùng useState để tạo state, cập nhật state đúng cách bằng hàm setter, và hiểu vì sao React tự render lại khi state đổi.</p>\n      </div>\n\n      <h3>Kiến thức lý thuyết</h3>\n\n      <h4 class=\"subh\">2.1. Cú pháp <code class=\"mono\">useState</code></h4>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">cú pháp cơ bản</span>\n        \n        <pre><code>const [soLuot, setSoLuot] = useState(0);\n// soLuot: giá trị hiện tại — setSoLuot: hàm để CẬP NHẬT giá trị đó — 0: giá trị khởi tạo</code></pre>\n      </div>\n\n      <p><code class=\"mono\">useState(0)</code> trả về một <strong>mảng có 2 phần tử</strong>, \"bóc\" ra bằng destructuring mảng\n        (Bài 7, chương JavaScript): phần tử đầu là giá trị hiện tại, phần tử sau là hàm dùng để đổi giá trị đó.</p>\n\n      <h4 class=\"subh\">2.2. Cập nhật state — luôn qua hàm setter</h4>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">cập nhật state</span>\n        \n        <pre><code>function DemSoLan() {\n  const [soLuot, setSoLuot] = useState(0);\n\n  function xuLyClick() {\n    setSoLuot(soLuot + 1); // KHÔNG BAO GIỜ viết soLuot = soLuot + 1\n  }\n\n  return &lt;button onClick={xuLyClick}&gt;Đã nhấn: {soLuot}&lt;/button&gt;;\n}</code></pre>\n      </div>\n\n      <p><strong>Tuyệt đối không</strong> gán trực tiếp (<code class=\"mono\">soLuot = soLuot + 1</code>) — React sẽ không biết\n        giá trị đã đổi và <strong>không render lại</strong>. Phải luôn gọi hàm setter (<code class=\"mono\">setSoLuot(...)</code>)\n        để React nhận biết và tự động cập nhật giao diện.</p>\n\n      <h4 class=\"subh\">2.3. State vs Props — khác nhau ở đâu?</h4>\n\n      <table>\n        <tbody><tr><th></th><th>Props</th><th>State</th></tr>\n        <tr><td>Nguồn gốc</td><td>Từ component cha truyền xuống</td><td>Tự phát sinh bên trong chính component</td></tr><tr><td>Ai sửa được</td><td>Chỉ component cha (con chỉ đọc)</td><td>Chính component đó, qua hàm setter</td></tr><tr><td>Ví dụ</td><td><code>ten</code>, <code>icon</code> ở Bài 2</td><td>Số lần click, nội dung input</td></tr>\n      </tbody></table>\n\n      <h4 class=\"subh\">2.4. Cập nhật state dựa trên giá trị trước đó — dùng hàm callback</h4>\n\n      <p>Khi giá trị mới phụ thuộc trực tiếp vào giá trị cũ, nên truyền một hàm vào setter thay vì tính toán trực tiếp:</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">functional update</span>\n        \n        <pre><code>setSoLuot(soLuotHienTai =&gt; soLuotHienTai + 1);\n// an toàn hơn khi có nhiều lần cập nhật liên tiếp gần nhau</code></pre>\n      </div>\n\n      <h4 class=\"subh\">2.5. Mỗi component có thể có nhiều state độc lập</h4>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">nhiều state</span>\n        \n        <pre><code>const [ten, setTen] = useState(\"\");\nconst [dangSang, setDangSang] = useState(true);\n// gọi useState nhiều lần, mỗi lần quản lý một mảnh dữ liệu riêng biệt</code></pre>\n      </div>\n\n      <h3>Ví dụ minh họa</h3>\n\n      <p>Hãy dựng lại chính xác nút Dark Mode ở header trang <strong>Full Stack Blueprint</strong> theo phong cách React:\n        thay vì <code class=\"mono\">classList.toggle()</code> thủ công như Bài 8-9 chương JavaScript, dùng\n        <code class=\"mono\">useState</code> để lưu trạng thái \"đang sáng hay tối\", và để React tự render lại giao diện\n        tương ứng mỗi khi trạng thái đó đổi.</p>\n\n      <h3>Code mẫu</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">state.html\n📋 Copy</span>\n        \n        <pre><code>&lt;div id=\"root\"&gt;&lt;/div&gt;\n\n&lt;script src=\"https://unpkg.com/react@19/umd/react.development.js\"&gt;&lt;/script&gt;\n&lt;script src=\"https://unpkg.com/react-dom@19/umd/react-dom.development.js\"&gt;&lt;/script&gt;\n&lt;script src=\"https://unpkg.com/@babel/standalone/babel.min.js\"&gt;&lt;/script&gt;\n\n&lt;script type=\"text/babel\"&gt;\n  const { useState } = React; // destructuring Hook từ object React\n\n  function NutDoiTheme() {\n    const [dangDark, setDangDark] = useState(false);\n\n    function xuLyClick() {\n      setDangDark(gtHienTai =&gt; !gtHienTai); // functional update — đảo ngược giá trị\n    }\n\n    return (\n      &lt;div style={{ background: dangDark ? \"#0b1f3a\" : \"#fff\", padding: \"20px\" }}&gt;\n        &lt;button onClick={xuLyClick}&gt;\n          {dangDark ? \"☀️ Chế độ sáng\" : \"🌙 Chế độ tối\"}\n        &lt;/button&gt;\n        &lt;p style={{ color: dangDark ? \"white\" : \"black\" }}&gt;\n          Hiện đang ở chế độ: {dangDark ? \"Tối\" : \"Sáng\"}\n        &lt;/p&gt;\n      &lt;/div&gt;\n    );\n  }\n\n  function BoDemClick() {\n    const [soLan, setSoLan] = useState(0);\n    return (\n      &lt;button onClick={() =&gt; setSoLan(soLan + 1)}&gt;\n        Đã nhấn {soLan} lần\n      &lt;/button&gt;\n    );\n  }\n\n  function App() {\n    return (\n      &lt;&gt;\n        &lt;NutDoiTheme /&gt;\n        &lt;BoDemClick /&gt;\n      &lt;/&gt;\n    );\n  }\n\n  const root = ReactDOM.createRoot(document.getElementById(\"root\"));\n  root.render(&lt;App /&gt;);\n&lt;/script&gt;</code></pre>\n      </div>\n\n      <h3>Giải thích code</h3>\n\n      <ul><li><code class=\"mono\">const { useState } = React;</code> — <code class=\"mono\">useState</code> là một hàm nằm trong object <code class=\"mono\">React</code> toàn cục (đã nhúng qua CDN), destructuring ra để dùng gọn hơn.</li>\n<li><code class=\"mono\">const [dangDark, setDangDark] = useState(false);</code> — state khởi tạo là <code class=\"mono\">false</code> (mặc định chế độ sáng), <code class=\"mono\">dangDark</code> là giá trị đọc, <code class=\"mono\">setDangDark</code> là hàm để đổi nó.</li>\n<li><code class=\"mono\">setDangDark(gtHienTai =&gt; !gtHienTai);</code> — dùng functional update để đảo ngược boolean an toàn, không phụ thuộc vào việc đọc trực tiếp <code class=\"mono\">dangDark</code> ở thời điểm gọi hàm.</li>\n<li><code class=\"mono\">style={{ background: ... }}</code> — hai lớp ngoặc nhọn: ngoặc <strong>ngoài</strong> báo hiệu đây là biểu thức JavaScript (như Bài 1), ngoặc <strong>trong</strong> là một object JavaScript thường (Bài 6) chứa các thuộc tính CSS viết theo camelCase.</li>\n<li><code class=\"mono\">onClick={xuLyClick}</code> — cú pháp lắng nghe sự kiện trong React, tương tự tinh thần <code class=\"mono\">addEventListener</code> (Bài 9) nhưng viết trực tiếp như một prop đặc biệt trên phần tử JSX.</li>\n<li><code class=\"mono\">&lt;&gt;...&lt;/&gt;</code> trong <code class=\"mono\">App</code> — Fragment đã học ở Bài 1, gộp hai component <code class=\"mono\">NutDoiTheme</code> và <code class=\"mono\">BoDemClick</code> mà không cần thêm <code class=\"mono\">&lt;div&gt;</code> bọc ngoài thừa.</li></ul>\n\n      <h3>Lỗi thường gặp</h3>\n\n      <p>Nhấp vào từng mục để xem chi tiết lỗi và cách khắc phục:</p>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Gán trực tiếp thay vì gọi hàm setter</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <p>Viết <code class=\"mono\">soLan = soLan + 1;</code> thay vì <code class=\"mono\">setSoLan(soLan + 1);</code> — biến state có thể đổi giá trị trong bộ nhớ, nhưng React <strong>không hề biết</strong> điều đó xảy ra, nên không render lại, giao diện vẫn hiển thị giá trị cũ.</p>\n<p class=\"fix\">✅ Cách khắc phục: luôn dùng hàm setter (được trả về từ <code class=\"mono\">useState</code>) để cập nhật state, không bao giờ gán trực tiếp.</p>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Gọi <code class=\"mono\">useState</code> bên trong điều kiện hoặc vòng lặp</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <p>Viết <code class=\"mono\">if (dieuKien) { const [x, setX] = useState(0); }</code> — React báo lỗi <code class=\"mono\">Rendered more hooks than during the previous render</code>, vì Hook phải được gọi theo <strong>đúng thứ tự</strong> giống hệt nhau ở mọi lần render.</p>\n<p class=\"fix\">✅ Cách khắc phục: luôn gọi mọi Hook (bao gồm <code class=\"mono\">useState</code>) ở <strong>cấp cao nhất</strong> của component, không đặt trong <code class=\"mono\">if</code>, vòng lặp, hay hàm lồng bên trong.</p>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Gọi hàm ngay khi truyền vào <code class=\"mono\">onClick</code></button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <p>Viết <code class=\"mono\">onClick={setSoLan(soLan + 1)}</code> (có dấu ngoặc gọi hàm ngay) — hàm này chạy <strong>ngay khi render</strong>, không phải khi người dùng click, thường gây vòng lặp render vô hạn.</p>\n<p class=\"fix\">✅ Cách khắc phục: truyền một hàm (không gọi ngay) — hoặc dùng arrow function bọc lại: <code class=\"mono\">onClick={() =&gt; setSoLan(soLan + 1)}</code>, đúng như code mẫu ở trên.</p>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Nghĩ rằng gọi setter sẽ đổi giá trị ngay lập tức trong cùng dòng code</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <p>Viết <code class=\"mono\">setSoLan(soLan + 1); console.log(soLan);</code> và mong đợi <code class=\"mono\">console.log</code> in ra giá trị mới — thực tế nó vẫn in giá trị <strong>cũ</strong>, vì cập nhật state là <strong>bất đồng bộ</strong> (liên hệ Bài 11 chương JavaScript), giá trị mới chỉ có ở lần render tiếp theo.</p>\n<p class=\"fix\">✅ Cách khắc phục: không mong đợi đọc được giá trị mới ngay sau khi gọi setter trong cùng một hàm; nếu cần logic dựa trên giá trị mới, xử lý ở lần render kế tiếp hoặc dùng <code class=\"mono\">useEffect</code> (học ở bài sau).</p>\n        </div></div>\n      </div>\n\n      <div class=\"box warning\">\n        <div class=\"box-title\">⚠️ Cảnh báo quan trọng</div>\n        <p>\"Quy tắc của Hooks\" (Rules of Hooks) không phải gợi ý — chúng là ràng buộc <strong>bắt buộc</strong> của React: chỉ gọi Hook ở cấp cao nhất của component, chỉ gọi từ component React (hoặc Hook tùy chỉnh khác), không bao giờ từ hàm thường hay điều kiện. Vi phạm quy tắc này gây lỗi khó lường, đôi khi chỉ xuất hiện sau vài lần tương tác chứ không báo ngay từ đầu.</p>\n      </div>\n\n      <h3>Best Practices</h3>\n\n      <ul><li>Luôn cập nhật state qua hàm setter, không bao giờ gán trực tiếp.</li>\n<li>Gọi mọi Hook ở cấp cao nhất của component, không đặt trong điều kiện/vòng lặp.</li>\n<li>Dùng functional update (<code class=\"mono\">setX(gt =&gt; ...)</code>) khi giá trị mới phụ thuộc trực tiếp vào giá trị cũ.</li>\n<li>Tách mỗi mảnh dữ liệu độc lập thành một <code class=\"mono\">useState</code> riêng, thay vì gộp mọi thứ vào một state object phức tạp.</li>\n<li>Không mong đợi đọc được giá trị state mới ngay sau khi gọi setter trong cùng một hàm.</li></ul>\n\n      <h3>Tip &amp; Note</h3>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">💡 Tip</div>\n        <p>Trong React Developer Tools, tab Components hiển thị luôn cả state hiện tại của mỗi component (không chỉ props) — nhấp vào một component đang có state để xem và thậm chí chỉnh sửa trực tiếp giá trị đó, quan sát giao diện phản ứng ngay lập tức.</p>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">📌 Note</div>\n        <p><code class=\"mono\">useState</code> là Hook đầu tiên và cơ bản nhất trong một họ các Hook của React (bắt đầu bằng \"use\"). Ở các bài sau, bạn sẽ gặp thêm <code class=\"mono\">useEffect</code> (chạy code khi component tải xong hoặc khi một giá trị đổi) — cả hai đều tuân theo cùng \"Quy tắc của Hooks\" vừa học.</p>\n      </div>\n\n      <h3>Bài tập</h3>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">BÀI 1</div>\n        <p>Viết component <code class=\"mono\">BoDem</code> có state là một số, hiển thị số hiện tại và hai nút \"Tăng\"/\"Giảm\" thay đổi giá trị đó.</p>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">BÀI 2</div>\n        <p>Viết component <code class=\"mono\">OGoChu</code> có state lưu nội dung một ô input, hiển thị ngay bên dưới dòng chữ người dùng vừa gõ (gợi ý: dùng sự kiện <code class=\"mono\">onChange</code>, tương tự <code class=\"mono\">input</code> ở Bài 9 chương JavaScript).</p>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">BÀI 3</div>\n        <p>Giải thích bằng lời: vì sao viết <code class=\"mono\">soLan = soLan + 1;</code> trực tiếp (không qua setter) lại khiến giao diện không cập nhật, dù giá trị biến trong bộ nhớ thực sự đã thay đổi?</p>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">📖 Đáp án bài tập 3 (gợi ý)</div>\n        <p>React không \"theo dõi\" mọi biến JavaScript thông thường trong component — nó chỉ biết render lại khi được <strong>báo hiệu rõ ràng</strong> thông qua việc gọi hàm setter do chính <code class=\"mono\">useState</code> cung cấp. Gán trực tiếp <code class=\"mono\">soLan = soLan + 1;</code> chỉ đổi giá trị trong bộ nhớ ở thời điểm đó, nhưng không kích hoạt được cơ chế render lại của React, nên giao diện tiếp tục hiển thị đúng như lần render gần nhất trước đó.</p>\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 3</h4>\n        <ul><li><code class=\"mono\">useState</code> cho component \"trí nhớ\" riêng, trả về cặp [giá trị, hàm setter].</li>\n<li>Luôn cập nhật state qua hàm setter, không bao giờ gán trực tiếp.</li>\n<li>Props đến từ ngoài (component cha), State tự phát sinh và quản lý bên trong chính component.</li>\n<li>Hook phải luôn được gọi ở cấp cao nhất của component, theo đúng thứ tự ở mọi lần render.</li></ul>\n        <p>Qua bài học này, bạn đã nắm được:</p><p>Với useState, component của bạn giờ đã có thể tự phản ứng với tương tác của người dùng. Ở <strong>Bài 4</strong>,\n        bạn sẽ học sâu hơn về <strong>xử lý sự kiện trong React</strong> (event handling) — cách truyền tham số cho sự kiện,\n        và làm việc với form một cách bài bản.</p>\n      </div>\n\n      \n\n    </section>",
+      "questions": [
+        {
+          "question": "1. useState(0) trả về gì?",
+          "options": [
+            "Một object",
+            "Một mảng gồm 2 phần tử: giá trị và hàm setter",
+            "Chỉ một số duy nhất",
+            "Một component mới"
+          ],
+          "answer": 1,
+          "explanation": ""
+        },
+        {
+          "question": "2. Cách nào ĐÚNG để cập nhật state?",
+          "options": [
+            "soLan = soLan + 1;",
+            "soLan++;",
+            "setSoLan(soLan + 1);",
+            "Cả ba đều đúng như nhau"
+          ],
+          "answer": 2,
+          "explanation": ""
+        },
+        {
+          "question": "3. Hook nên được gọi ở đâu trong component?",
+          "options": [
+            "Cấp cao nhất, không trong if/vòng lặp",
+            "Chỉ bên trong sự kiện onClick",
+            "Bên trong vòng lặp for",
+            "Vị trí nào cũng được"
+          ],
+          "answer": 0,
+          "explanation": ""
+        },
+        {
+          "question": "4. Khác biệt cốt lõi giữa Props và State là gì?",
+          "options": [
+            "Không có khác biệt nào",
+            "Props chỉ dùng cho số, State chỉ dùng cho chuỗi",
+            "State không thể thay đổi",
+            "Props đến từ component cha, State tự phát sinh và quản lý bên trong chính component"
+          ],
+          "answer": 3,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s3"
+      ],
+      "words": 1787
+    },
+    {
+      "id": "chapter04",
+      "file": "chapter04.html",
+      "title": "Xử Lý Sự Kiện & Form Trong React",
+      "summary": "Lắng nghe hành động người dùng đúng \"kiểu React\", và biến mỗi ô input thành một phần của state — không còn phải tự tay đọc DOM như JavaScript thuần.",
+      "content": "<section class=\"chapter\" id=\"s4\">\n      \n      <p class=\"lead\">Lắng nghe hành động người dùng đúng \"kiểu React\", và biến mỗi ô input thành một phần của state — không còn phải tự tay đọc DOM như JavaScript thuần.</p>\n\n      <h3>Giới thiệu</h3>\n\n      <p>Ở Bài 3, state đã cho component \"trí nhớ\" riêng. Nhưng trí nhớ đó cần được <strong>kích hoạt bởi hành động của người dùng</strong> —\n        nhấp nút, gõ chữ, chọn checkbox, gửi form. JavaScript thuần dùng <code class=\"mono\">addEventListener</code> để lắng nghe những hành động\n        này (Bài 9 chương JavaScript); React có cách tiếp cận riêng, gọn hơn và tích hợp thẳng vào JSX.</p>\n\n      <p>Với form, React đề xuất mô hình <strong>Controlled Component</strong> — nghĩa là giá trị của mỗi ô input luôn được <strong>đồng bộ với state</strong>,\n        thay vì để trình duyệt tự quản lý. Đây là kỹ năng bạn sẽ dùng trong <strong>gần như mọi</strong> ứng dụng React thực tế: đăng nhập, tìm kiếm, bình luận, thanh toán...</p>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">🎯 Mục tiêu sau bài học</div>\n        <p>Lắng nghe sự kiện đúng cú pháp React, xây dựng Controlled Component cho input/textarea/checkbox/select, và xử lý submit form an toàn.</p>\n      </div>\n\n      <h3>Kiến thức lý thuyết</h3>\n\n      <h4 class=\"subh\">2.1. Lắng nghe sự kiện trong JSX</h4>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">cú pháp sự kiện</span>\n        \n        <pre><code>&lt;button onClick={xuLyClick}&gt;Nhấn vào đây&lt;/button&gt;\n// KHÔNG viết onClick=\"xuLyClick()\" như HTML thuần — truyền THAM CHIẾU hàm, không gọi hàm</code></pre>\n      </div>\n\n      <p>Tên sự kiện React dùng <strong>camelCase</strong> (<code class=\"mono\">onClick</code>, <code class=\"mono\">onChange</code>, <code class=\"mono\">onSubmit</code>) thay vì\n        chữ thường như HTML (<code class=\"mono\">onclick</code>). Quan trọng hơn: giá trị truyền vào là <strong>một hàm</strong>, không phải chuỗi code như thuộc tính HTML.</p>\n\n      <h4 class=\"subh\">2.2. Truyền tham số cho sự kiện</h4>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">truyền tham số</span>\n        \n        <pre><code>&lt;button onClick={() =&gt; xoaCongViec(id)}&gt;Xóa&lt;/button&gt;\n// bọc trong arrow function để KHÔNG gọi ngay khi render — chỉ gọi khi thật sự click</code></pre>\n      </div>\n\n      <h4 class=\"subh\">2.3. Controlled Component — input đồng bộ với state</h4>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">controlled input</span>\n        \n        <pre><code>const [ten, setTen] = useState('');\n\n&lt;input\n  value={ten}\n  onChange={(e) =&gt; setTen(e.target.value)}\n/&gt;\n// value luôn lấy từ state — onChange cập nhật lại state mỗi khi người dùng gõ</code></pre>\n      </div>\n\n      <p><code class=\"mono\">e</code> (event object) chứa <code class=\"mono\">e.target</code> — chính là phần tử DOM đang phát sinh sự kiện;\n        <code class=\"mono\">e.target.value</code> là nội dung hiện tại của ô input đó. Vòng lặp diễn ra liên tục: gõ chữ → <code class=\"mono\">onChange</code> chạy →\n        state đổi → React render lại → <code class=\"mono\">value</code> hiển thị đúng ký tự vừa gõ.</p>\n\n      <h4 class=\"subh\">2.4. Một handler dùng chung cho nhiều input — thuộc tính <code class=\"mono\">name</code></h4>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">handler dùng chung</span>\n        \n        <pre><code>const [form, setForm] = useState({ ten: '', email: '' });\n\nfunction xuLyThayDoi(e) {\n  const { name, value } = e.target;\n  setForm(fHienTai =&gt; ({ ...fHienTai, [name]: value }));  // [name]: computed property name\n}\n\n&lt;input name=\"ten\" value={form.ten} onChange={xuLyThayDoi} /&gt;\n&lt;input name=\"email\" value={form.email} onChange={xuLyThayDoi} /&gt;</code></pre>\n      </div>\n\n      <p>Thay vì viết một state và một hàm riêng cho từng ô, gộp cả form thành <strong>một object state</strong>, dùng thuộc tính <code class=\"mono\">name</code> của\n        input để biết cần cập nhật field nào — kỹ thuật <em>computed property name</em> <code class=\"mono\">[name]: value</code> (liên hệ Bài 11 chương JavaScript, Object).</p>\n\n      <h4 class=\"subh\">2.5. Xử lý submit — luôn gọi <code class=\"mono\">preventDefault()</code></h4>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">submit form</span>\n        \n        <pre><code>function xuLyGui(e) {\n  e.preventDefault();  // chặn hành vi mặc định: reload lại trang\n  console.log('Dữ liệu gửi đi:', form);\n}\n\n&lt;form onSubmit={xuLyGui}&gt;\n  ...\n  &lt;button type=\"submit\"&gt;Gửi&lt;/button&gt;\n&lt;/form&gt;</code></pre>\n      </div>\n\n      <p>Form HTML mặc định sẽ <strong>tải lại trang</strong> khi submit — hành vi này có từ thời web chưa có JavaScript. Trong ứng dụng React (SPA — Single Page Application),\n        gần như luôn phải gọi <code class=\"mono\">e.preventDefault()</code> đầu tiên trong hàm xử lý submit để ngăn việc đó.</p>\n\n      <h4 class=\"subh\">2.6. Checkbox &amp; Select — không dùng <code class=\"mono\">value</code> theo cùng cách</h4>\n\n      <table>\n        <tbody><tr><th>Loại input</th><th>Thuộc tính đọc giá trị</th><th>Event lấy giá trị mới</th></tr>\n        <tr><td>text / textarea</td><td><code>value</code></td><td><code>e.target.value</code></td></tr><tr><td>checkbox</td><td><code>checked</code></td><td><code>e.target.checked</code></td></tr><tr><td>select</td><td><code>value</code></td><td><code>e.target.value</code></td></tr>\n      </tbody></table>\n\n      <h3>Ví dụ minh họa</h3>\n\n      <p>Xây dựng một form \"Thêm công việc\" hoàn chỉnh: một ô nhập tiêu đề, một checkbox đánh dấu \"Gấp\", một select chọn độ ưu tiên, và nút submit —\n        toàn bộ đều là Controlled Component, gộp chung vào một object state duy nhất.</p>\n\n      <h3>Code mẫu</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">form.html\n📋 Copy</span>\n        \n        <pre><code>&lt;div id=\"root\"&gt;&lt;/div&gt;\n\n&lt;script src=\"https://unpkg.com/react@19/umd/react.development.js\"&gt;&lt;/script&gt;\n&lt;script src=\"https://unpkg.com/react-dom@19/umd/react-dom.development.js\"&gt;&lt;/script&gt;\n&lt;script src=\"https://unpkg.com/@babel/standalone/babel.min.js\"&gt;&lt;/script&gt;\n\n&lt;script type=\"text/babel\"&gt;\n  const { useState } = React;\n\n  function FormCongViec() {\n    const [form, setForm] = useState({ tieuDe: '', gap: false, uuTien: 'thap' });\n    const [danhSach, setDanhSach] = useState([]);\n\n    function xuLyThayDoi(e) {\n      const { name, value, type, checked } = e.target;\n      setForm(fHienTai =&gt; ({\n        ...fHienTai,\n        [name]: type === 'checkbox' ? checked : value // checkbox đọc \"checked\", còn lại đọc \"value\"\n      }));\n    }\n\n    function xuLyGui(e) {\n      e.preventDefault();\n      if (!form.tieuDe.trim()) return;              // chặn submit rỗng\n      setDanhSach(dsHienTai =&gt; [...dsHienTai, form]); // thêm bản ghi mới, không sửa mảng gốc\n      setForm({ tieuDe: '', gap: false, uuTien: 'thap' }); // reset form sau khi gửi\n    }\n\n    return (\n      &lt;&gt;\n        &lt;form onSubmit={xuLyGui}&gt;\n          &lt;input\n            name=\"tieuDe\"\n            placeholder=\"Tiêu đề công việc...\"\n            value={form.tieuDe}\n            onChange={xuLyThayDoi}\n          /&gt;\n\n          &lt;label&gt;\n            &lt;input type=\"checkbox\" name=\"gap\" checked={form.gap} onChange={xuLyThayDoi} /&gt;\n            Gấp\n          &lt;/label&gt;\n\n          &lt;select name=\"uuTien\" value={form.uuTien} onChange={xuLyThayDoi}&gt;\n            &lt;option value=\"thap\"&gt;Thấp&lt;/option&gt;\n            &lt;option value=\"cao\"&gt;Cao&lt;/option&gt;\n          &lt;/select&gt;\n\n          &lt;button type=\"submit\"&gt;Thêm&lt;/button&gt;\n        &lt;/form&gt;\n\n        &lt;p&gt;Đã thêm: {danhSach.length} công việc&lt;/p&gt;\n      &lt;/&gt;\n    );\n  }\n\n  const root = ReactDOM.createRoot(document.getElementById('root'));\n  root.render(&lt;FormCongViec /&gt;);\n&lt;/script&gt;</code></pre>\n      </div>\n\n      <h3>Giải thích code</h3>\n\n      <ul><li><code class=\"mono\">const { name, value, type, checked } = e.target;</code> — destructuring trực tiếp từ phần tử DOM; <code class=\"mono\">type</code> cho biết đây là input loại gì, để quyết định đọc <code class=\"mono\">checked</code> (checkbox) hay <code class=\"mono\">value</code> (còn lại).</li>\n<li><code class=\"mono\">[name]: type === 'checkbox' ? checked : value</code> — computed property name kết hợp toán tử ba ngôi (Bài 6 chương JavaScript) để một handler xử lý được mọi loại input.</li>\n<li><code class=\"mono\">if (!form.tieuDe.trim()) return;</code> — validate đơn giản: chặn submit nếu tiêu đề rỗng hoặc chỉ toàn khoảng trắng.</li>\n<li><code class=\"mono\">setDanhSach(ds =&gt; [...ds, form]);</code> — dùng spread (Bài 17 chương JavaScript) để tạo mảng mới thay vì <code class=\"mono\">push()</code> làm biến đổi mảng cũ trực tiếp.</li>\n<li><code class=\"mono\">setForm({ tieuDe: '', gap: false, uuTien: 'thap' });</code> — reset toàn bộ object state về giá trị ban đầu ngay sau khi thêm thành công.</li></ul>\n\n      <h3>Lỗi thường gặp</h3>\n\n      <p>Nhấp vào từng mục để xem chi tiết lỗi và cách khắc phục:</p>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Quên <code class=\"mono\">e.preventDefault()</code></button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <p>Không gọi <code class=\"mono\">e.preventDefault()</code> trong handler <code class=\"mono\">onSubmit</code> — trình duyệt sẽ tải lại toàn bộ trang theo hành vi form HTML mặc định, xóa sạch state hiện tại.</p>\n<p class=\"fix\">✅ Cách khắc phục: luôn gọi <code class=\"mono\">e.preventDefault()</code> làm dòng đầu tiên trong hàm xử lý submit.</p>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Input báo lỗi \"changing an uncontrolled input\"</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <p>Khởi tạo state là <code class=\"mono\">useState()</code> (không có giá trị đầu, tức <code class=\"mono\">undefined</code>) rồi gán vào <code class=\"mono\">value</code> — React cảnh báo input chuyển từ \"uncontrolled\" (không kiểm soát) sang \"controlled\" giữa chừng.</p>\n<p class=\"fix\">✅ Cách khắc phục: luôn khởi tạo state của input bằng giá trị rỗng hợp lệ, ví dụ <code class=\"mono\">useState('')</code> cho chuỗi, không để <code class=\"mono\">undefined</code>.</p>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Gọi hàm ngay thay vì truyền tham chiếu</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <p>Viết <code class=\"mono\">onClick={xuLyClick()}</code> (có dấu ngoặc) — hàm chạy ngay khi component render, không đợi người dùng click, y hệt lỗi đã gặp ở Bài 3 với <code class=\"mono\">useState</code>.</p>\n<p class=\"fix\">✅ Cách khắc phục: truyền tham chiếu hàm <code class=\"mono\">onClick={xuLyClick}</code>, hoặc bọc arrow function nếu cần truyền tham số.</p>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Sửa trực tiếp object state của form</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <p>Viết <code class=\"mono\">form.tieuDe = e.target.value; setForm(form);</code> — sửa thẳng vào object cũ rồi mới gọi setter. React so sánh tham chiếu object để quyết định render lại; vì tham chiếu <code class=\"mono\">form</code> không đổi, đôi khi React không nhận ra cần cập nhật.</p>\n<p class=\"fix\">✅ Cách khắc phục: luôn tạo object <strong>mới</strong> bằng spread — <code class=\"mono\">setForm(f =&gt; ({ ...f, tieuDe: e.target.value }))</code>.</p>\n        </div></div>\n      </div>\n\n      <h3>Best Practices</h3>\n\n      <ul><li>Luôn gọi <code class=\"mono\">e.preventDefault()</code> đầu hàm xử lý <code class=\"mono\">onSubmit</code>.</li>\n<li>Gộp các field liên quan vào một object state duy nhất, dùng <code class=\"mono\">name</code> + computed property name cho một handler dùng chung.</li>\n<li>Khởi tạo state input luôn bằng giá trị hợp lệ (chuỗi rỗng, mảng rỗng...), không để <code class=\"mono\">undefined</code>.</li>\n<li>Validate dữ liệu trước khi cập nhật state hoặc gửi đi, ngay trong handler submit.</li>\n<li>Reset form về trạng thái ban đầu sau khi submit thành công.</li></ul>\n\n      <h3>Tip &amp; Note</h3>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">💡 Tip</div>\n        <p>Với form phức tạp nhiều field, nhiều validate, thư viện <code class=\"mono\">react-hook-form</code> giúp giảm đáng kể code lặp lại — sẽ được học ở Bài 22 (Form nâng cao).</p>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">📌 Note</div>\n        <p>Component \"kiểm soát\" giá trị input (Controlled) khác với để trình duyệt tự quản lý (Uncontrolled, dùng <code class=\"mono\">ref</code> — sẽ học ở Bài 10). React khuyến nghị Controlled cho hầu hết trường hợp vì dễ validate, dễ đồng bộ nhiều nơi.</p>\n      </div>\n\n      <h3>Bài tập</h3>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">BÀI 1</div>\n        <p>Viết component <code class=\"mono\">FormDangKy</code> có 2 input Controlled: \"Tên đăng nhập\" và \"Mật khẩu\", dùng chung một handler như ví dụ trên.</p>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">BÀI 2</div>\n        <p>Thêm validate: chỉ cho submit khi \"Mật khẩu\" có ít nhất 6 ký tự, hiển thị thông báo lỗi ngay dưới ô input nếu chưa đủ.</p>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">BÀI 3</div>\n        <p>Giải thích bằng lời: vì sao <code class=\"mono\">onClick={xuLyClick()}</code> (có dấu ngoặc gọi hàm) lại chạy ngay khi component render, thay vì đợi người dùng click?</p>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">📖 Đáp án bài tập 3 (gợi ý)</div>\n        <p><code class=\"mono\">onClick={xuLyClick()}</code> — dấu ngoặc <code class=\"mono\">()</code> khiến JavaScript <strong>gọi hàm ngay lập tức</strong> tại thời điểm JSX được tính toán (tức là mỗi lần component render), rồi lấy <strong>kết quả trả về</strong> của hàm đó gán cho <code class=\"mono\">onClick</code> — không phải chính hàm. Muốn truyền hàm để React tự gọi khi click, phải truyền tham chiếu <code class=\"mono\">onClick={xuLyClick}</code> (không ngoặc), hoặc bọc trong arrow function nếu cần truyền tham số.</p>\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 4</h4>\n        <ul><li>Sự kiện trong JSX dùng camelCase, truyền THAM CHIẾU hàm chứ không gọi ngay.</li>\n<li>Controlled Component: <code class=\"mono\">value</code>/<code class=\"mono\">checked</code> lấy từ state, <code class=\"mono\">onChange</code> cập nhật lại state.</li>\n<li>Dùng <code class=\"mono\">name</code> + computed property name để một handler quản lý nhiều field.</li>\n<li>Luôn gọi <code class=\"mono\">e.preventDefault()</code> trong <code class=\"mono\">onSubmit</code> để tránh tải lại trang.</li></ul>\n        <p>Qua bài học này, bạn đã nắm được:</p><p>Bạn đã biết đọc và ghi dữ liệu qua form. Ở <strong>Bài 5</strong>, học cách hiển thị giao diện <strong>có điều kiện</strong> —\n        ẩn/hiện phần tử tùy theo state, một kỹ thuật dùng trong hầu hết mọi component thực tế.</p>\n      </div>\n\n      \n\n    </section>",
+      "questions": [
+        {
+          "question": "1. Vì sao cần gọi e.preventDefault() trong onSubmit?",
+          "options": [
+            "Để form chạy nhanh hơn",
+            "Để xóa dữ liệu trong form",
+            "Để chặn hành vi mặc định là tải lại trang",
+            "Không có tác dụng gì trong React"
+          ],
+          "answer": 2,
+          "explanation": ""
+        },
+        {
+          "question": "2. Với checkbox, cần đọc thuộc tính nào để biết trạng thái hiện tại?",
+          "options": [
+            "value",
+            "checked",
+            "selected",
+            "active"
+          ],
+          "answer": 1,
+          "explanation": ""
+        },
+        {
+          "question": "3. Computed property name [name]: value dùng để làm gì trong handler dùng chung?",
+          "options": [
+            "Cập nhật đúng field trong object state dựa trên tên input",
+            "Tạo một input mới",
+            "Xóa field khỏi object",
+            "Không có tác dụng gì"
+          ],
+          "answer": 0,
+          "explanation": ""
+        },
+        {
+          "question": "4. Vì sao nên tạo object state MỚI bằng spread thay vì sửa trực tiếp?",
+          "options": [
+            "Để code ngắn hơn",
+            "Vì spread nhanh hơn vòng lặp",
+            "Không có lý do gì đặc biệt",
+            "Để React nhận ra thay đổi qua tham chiếu và render lại đúng"
+          ],
+          "answer": 3,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s4"
+      ],
+      "words": 1577
+    },
+    {
+      "id": "chapter05",
+      "file": "chapter05.html",
+      "title": "Conditional Rendering — Hiển thị có điều kiện",
+      "summary": "Hiển thị giao diện khác nhau tùy theo state hoặc props: if, toán tử ba ngôi, && và return sớm.",
+      "content": "<section class=\"chapter\" id=\"s5\">\n      \n      <p class=\"lead\">Hiển thị giao diện khác nhau tùy theo state hoặc props: if, toán tử ba ngôi, &amp;&amp; và return sớm.</p>\n\n      <h3>Dùng if / return sớm</h3>\n\n      <p>Component chỉ là một hàm JavaScript, nên bạn có thể dùng <code>if</code> trước <code>return</code> để chọn giao diện cần hiển thị.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">DangTai.jsx</span>\n        \n        <pre><code>function DanhSach({ dangTai, loi, items }) {\n  if (dangTai) return &lt;p&gt;Đang tải...&lt;/p&gt;;\n  if (loi) return &lt;p className=\"loi\"&gt;Có lỗi: {loi}&lt;/p&gt;;\n  return (\n    &lt;ul&gt;\n      {items.map(i =&gt; &lt;li key={i.id}&gt;{i.ten}&lt;/li&gt;)}\n    &lt;/ul&gt;\n  );\n}</code></pre>\n      </div>\n\n      <h3>Toán tử ba ngôi và &amp;&amp; trong JSX</h3>\n\n      <p>Bên trong JSX bạn không viết được câu lệnh <code>if</code>, nhưng dùng được biểu thức: toán tử ba ngôi <code>? :</code> khi có hai nhánh, và <code>&amp;&amp;</code> khi chỉ cần hiển thị hoặc không.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">DangNhap.jsx</span>\n        \n        <pre><code>function Chao({ user }) {\n  return (\n    &lt;div&gt;\n      {user ? &lt;h2&gt;Chào {user.ten}&lt;/h2&gt; : &lt;h2&gt;Vui lòng đăng nhập&lt;/h2&gt;}\n      {user &amp;&amp; user.laAdmin &amp;&amp; &lt;button&gt;Quản trị&lt;/button&gt;}\n    &lt;/div&gt;\n  );\n}</code></pre>\n      </div>\n\n      <div class=\"box warning\">\n        <div class=\"box-title\">⚠️ Cạm bẫy với số 0</div>\n        Viết <code>{soLuong &amp;&amp; &lt;Badge /&gt;}</code> khi <code>soLuong = 0</code> sẽ in ra chữ <strong>0</strong> trên màn hình vì 0 là giá trị falsy nhưng vẫn render được. Hãy viết <code>{soLuong &gt; 0 &amp;&amp; ...}</code> để an toàn.\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">💡 Mẹo</div>\n        Nếu điều kiện phức tạp, hãy tách thành biến hoặc component riêng thay vì lồng nhiều toán tử ba ngôi trong JSX.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 5</h4>\n        <p>Dùng <code>if</code> và return sớm ngoài JSX, toán tử ba ngôi và <code>&amp;&amp;</code> trong JSX. Chú ý giá trị 0 khi dùng <code>&amp;&amp;</code>.</p>\n      </div>\n\n    </section>",
+      "questions": [
+        {
+          "question": "1. Component trả về null thì React làm gì?",
+          "options": [
+            "Báo lỗi",
+            "Không render gì cả",
+            "Render chữ null",
+            "Render component cha"
+          ],
+          "answer": 1,
+          "explanation": ""
+        },
+        {
+          "question": "2. Với {n && <A />}, khi n = 0 kết quả là gì?",
+          "options": [
+            "Không hiển thị gì",
+            "Hiển thị số 0",
+            "Lỗi cú pháp",
+            "Hiển thị <A />"
+          ],
+          "answer": 1,
+          "explanation": ""
+        },
+        {
+          "question": "3. Cách nào chọn giữa hai giao diện ngay trong JSX?",
+          "options": [
+            "câu lệnh if",
+            "toán tử ba ngôi",
+            "vòng lặp for",
+            "switch"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s5"
+      ],
+      "words": 240
+    },
+    {
+      "id": "chapter06",
+      "file": "chapter06.html",
+      "title": "Lists & Keys — Danh sách trong React",
+      "summary": "Render danh sách bằng map() và vì sao mỗi phần tử cần một key ổn định.",
+      "content": "<section class=\"chapter\" id=\"s6\">\n      \n      <p class=\"lead\">Render danh sách bằng <code>map()</code> và vì sao mỗi phần tử cần một <code>key</code> ổn định.</p>\n\n      <h3>Render danh sách với map()</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">DanhSachTen.jsx</span>\n        \n        <pre><code>const sinhVien = [\n  { id: 1, ten: 'An' },\n  { id: 2, ten: 'Bình' },\n  { id: 3, ten: 'Chi' },\n];\n\nfunction DanhSachTen() {\n  return (\n    &lt;ul&gt;\n      {sinhVien.map(sv =&gt; (\n        &lt;li key={sv.id}&gt;{sv.ten}&lt;/li&gt;\n      ))}\n    &lt;/ul&gt;\n  );\n}</code></pre>\n      </div>\n\n      <h3>Vì sao cần key?</h3>\n\n      <p><code>key</code> giúp React nhận biết phần tử nào được thêm, xóa hay đổi chỗ giữa các lần render, nhờ đó chỉ cập nhật đúng phần cần thiết và giữ đúng state của từng phần tử.</p>\n\n      <table>\n        <tbody><tr><th>Loại key</th><th>Đánh giá</th></tr>\n        <tr><td><code>id</code> duy nhất từ dữ liệu</td><td>Tốt nhất</td></tr><tr><td>Chỉ số <code>index</code></td><td>Chỉ dùng khi danh sách tĩnh, không sắp xếp/xóa</td></tr><tr><td><code>Math.random()</code></td><td>Không dùng: key đổi mỗi lần render</td></tr>\n      </tbody></table>\n\n      <div class=\"box warning\">\n        <div class=\"box-title\">⚠️ Lỗi thường gặp</div>\n        Quên <code>key</code> sẽ có cảnh báo trong console. Dùng <code>index</code> làm key khi danh sách có thể xóa hoặc sắp xếp sẽ làm lệch state của ô nhập liệu.\n      </div>\n\n      <h3>Lọc và sắp xếp trước khi render</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">Loc.jsx</span>\n        \n        <pre><code>const dsHienThi = sinhVien\n  .filter(sv =&gt; sv.ten.includes(tuKhoa))\n  .sort((a, b) =&gt; a.ten.localeCompare(b.ten));</code></pre>\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 6</h4>\n        <p>Dùng <code>map()</code> để render danh sách và luôn gắn <code>key</code> ổn định, duy nhất (thường là <code>id</code>) cho phần tử ngoài cùng.</p>\n      </div>\n\n    </section>",
+      "questions": [
+        {
+          "question": "1. key nên đặt ở đâu?",
+          "options": [
+            "Trên phần tử ngoài cùng trong map",
+            "Trong thẻ ul",
+            "Trong CSS",
+            "Không cần đặt"
+          ],
+          "answer": 0,
+          "explanation": ""
+        },
+        {
+          "question": "2. Loại key nào tốt nhất?",
+          "options": [
+            "Math.random()",
+            "index",
+            "id duy nhất từ dữ liệu",
+            "Tên ngẫu nhiên"
+          ],
+          "answer": 2,
+          "explanation": ""
+        },
+        {
+          "question": "3. Phương thức nào biến mảng dữ liệu thành mảng JSX?",
+          "options": [
+            "forEach",
+            "map",
+            "reduce",
+            "push"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s6"
+      ],
+      "words": 204
+    },
+    {
+      "id": "chapter07",
+      "file": "chapter07.html",
+      "title": "useEffect — Side Effects & Vòng đời Component",
+      "summary": "useEffect chạy mã có tác dụng phụ (gọi API, timer, đăng ký sự kiện) sau khi component render.",
+      "content": "<section class=\"chapter\" id=\"s7\">\n      \n      <p class=\"lead\"><code>useEffect</code> chạy mã có tác dụng phụ (gọi API, timer, đăng ký sự kiện) sau khi component render.</p>\n\n      <h3>Cú pháp và mảng phụ thuộc</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">Effect.jsx</span>\n        \n        <pre><code>import { useEffect, useState } from 'react';\n\nfunction DongHo() {\n  const [giay, setGiay] = useState(0);\n\n  useEffect(() =&gt; {\n    const id = setInterval(() =&gt; setGiay(g =&gt; g + 1), 1000);\n    return () =&gt; clearInterval(id);   // dọn dẹp khi unmount\n  }, []);                              // [] = chỉ chạy 1 lần sau lần render đầu\n\n  return &lt;p&gt;Đã chạy {giay} giây&lt;/p&gt;;\n}</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Mảng phụ thuộc</th><th>Effect chạy khi nào</th></tr>\n        <tr><td>Không truyền</td><td>Sau mỗi lần render</td></tr><tr><td><code>[]</code></td><td>Một lần sau lần render đầu tiên</td></tr><tr><td><code>[a, b]</code></td><td>Lần đầu và mỗi khi a hoặc b đổi</td></tr>\n      </tbody></table>\n\n      <h3>Hàm dọn dẹp (cleanup)</h3>\n\n      <p>Giá trị trả về của effect là hàm dọn dẹp. React gọi nó trước khi chạy lại effect và khi component bị gỡ khỏi màn hình, để tránh rò rỉ bộ nhớ (timer, listener, kết nối).</p>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">📌 Lưu ý</div>\n        Trong chế độ <code>StrictMode</code> ở môi trường phát triển, React cố ý chạy effect hai lần để phát hiện lỗi thiếu cleanup. Đó là hành vi bình thường, không phải bug.\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">💡 Mẹo</div>\n        Không phải mọi thứ đều cần effect. Tính toán từ props/state hoặc xử lý sự kiện click nên viết trực tiếp trong render hoặc trong hàm xử lý, không dùng effect.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 7</h4>\n        <p><code>useEffect</code> đồng bộ component với thế giới bên ngoài. Kiểm soát thời điểm chạy bằng mảng phụ thuộc và luôn dọn dẹp timer/listener bằng hàm cleanup.</p>\n      </div>\n\n    </section>",
+      "questions": [
+        {
+          "question": "1. useEffect(fn, []) chạy khi nào?",
+          "options": [
+            "Mỗi lần render",
+            "Một lần sau lần render đầu",
+            "Không bao giờ",
+            "Khi state đổi"
+          ],
+          "answer": 1,
+          "explanation": ""
+        },
+        {
+          "question": "2. Hàm trả về từ effect dùng để làm gì?",
+          "options": [
+            "Cập nhật state",
+            "Dọn dẹp tài nguyên",
+            "Render lại",
+            "Gọi API"
+          ],
+          "answer": 1,
+          "explanation": ""
+        },
+        {
+          "question": "3. Thiếu mảng phụ thuộc thì effect chạy khi nào?",
+          "options": [
+            "Một lần",
+            "Sau mỗi lần render",
+            "Không chạy",
+            "Khi unmount"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s7"
+      ],
+      "words": 246
+    },
+    {
+      "id": "chapter08",
+      "file": "chapter08.html",
+      "title": "Fetch dữ liệu từ API trong React",
+      "summary": "Gọi API bằng fetch trong useEffect, quản lý ba trạng thái: đang tải, lỗi và dữ liệu.",
+      "content": "<section class=\"chapter\" id=\"s8\">\n      \n      <p class=\"lead\">Gọi API bằng <code>fetch</code> trong <code>useEffect</code>, quản lý ba trạng thái: đang tải, lỗi và dữ liệu.</p>\n\n      <h3>Mẫu fetch chuẩn với ba trạng thái</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">NguoiDung.jsx</span>\n        \n        <pre><code>function DanhSachUser() {\n  const [users, setUsers] = useState([]);\n  const [dangTai, setDangTai] = useState(true);\n  const [loi, setLoi] = useState(null);\n\n  useEffect(() =&gt; {\n    const ctrl = new AbortController();\n    fetch('https://jsonplaceholder.typicode.com/users', { signal: ctrl.signal })\n      .then(res =&gt; {\n        if (!res.ok) throw new Error('HTTP ' + res.status);\n        return res.json();\n      })\n      .then(setUsers)\n      .catch(e =&gt; { if (e.name !== 'AbortError') setLoi(e.message); })\n      .finally(() =&gt; setDangTai(false));\n    return () =&gt; ctrl.abort();\n  }, []);\n\n  if (dangTai) return &lt;p&gt;Đang tải...&lt;/p&gt;;\n  if (loi) return &lt;p&gt;Lỗi: {loi}&lt;/p&gt;;\n  return &lt;ul&gt;{users.map(u =&gt; &lt;li key={u.id}&gt;{u.name}&lt;/li&gt;)}&lt;/ul&gt;;\n}</code></pre>\n      </div>\n\n      <div class=\"box warning\">\n        <div class=\"box-title\">⚠️ Đừng quên</div>\n        <code>fetch</code> không tự ném lỗi khi server trả 404/500. Hãy kiểm tra <code>res.ok</code> rồi tự ném lỗi như ví dụ trên.\n      </div>\n\n      <p><code>AbortController</code> hủy request khi component bị gỡ hoặc khi tham số đổi, tránh cập nhật state sau khi component đã biến mất và tránh lỗi race condition.</p>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">💡 Mẹo</div>\n        Với ứng dụng thực tế, cân nhắc thư viện như TanStack Query hoặc SWR: chúng lo sẵn cache, retry, refetch và trạng thái tải.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 8</h4>\n        <p>Fetch trong <code>useEffect</code>, quản lý trạng thái tải/lỗi/dữ liệu, kiểm tra <code>res.ok</code> và hủy request bằng <code>AbortController</code>.</p>\n      </div>\n\n    </section>",
+      "questions": [
+        {
+          "question": "1. Ba trạng thái cần quản lý khi fetch là gì?",
+          "options": [
+            "Tên, tuổi, email",
+            "Đang tải, lỗi, dữ liệu",
+            "Start, stop, pause",
+            "get, set, delete"
+          ],
+          "answer": 1,
+          "explanation": ""
+        },
+        {
+          "question": "2. fetch có ném lỗi khi server trả 404 không?",
+          "options": [
+            "Có",
+            "Không, phải kiểm tra res.ok",
+            "Chỉ khi 500",
+            "Luôn luôn"
+          ],
+          "answer": 1,
+          "explanation": ""
+        },
+        {
+          "question": "3. AbortController dùng để làm gì?",
+          "options": [
+            "Hủy request đang chạy",
+            "Tăng tốc request",
+            "Mã hóa dữ liệu",
+            "Lưu cache"
+          ],
+          "answer": 0,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s8"
+      ],
+      "words": 204
+    },
+    {
+      "id": "chapter09",
+      "file": "chapter09.html",
+      "title": "Custom Hooks — Tái sử dụng logic",
+      "summary": "Custom Hook là hàm bắt đầu bằng use, gom logic có state để dùng lại ở nhiều component.",
+      "content": "<section class=\"chapter\" id=\"s9\">\n      \n      <p class=\"lead\">Custom Hook là hàm bắt đầu bằng <code>use</code>, gom logic có state để dùng lại ở nhiều component.</p>\n\n      <h3>Tạo hook useFetch</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">useFetch.js</span>\n        \n        <pre><code>import { useState, useEffect } from 'react';\n\nexport function useFetch(url) {\n  const [data, setData] = useState(null);\n  const [dangTai, setDangTai] = useState(true);\n  const [loi, setLoi] = useState(null);\n\n  useEffect(() =&gt; {\n    let huy = false;\n    setDangTai(true);\n    fetch(url)\n      .then(r =&gt; r.json())\n      .then(d =&gt; { if (!huy) setData(d); })\n      .catch(e =&gt; { if (!huy) setLoi(e.message); })\n      .finally(() =&gt; { if (!huy) setDangTai(false); });\n    return () =&gt; { huy = true; };\n  }, [url]);\n\n  return { data, dangTai, loi };\n}</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">Dung.jsx</span>\n        \n        <pre><code>function Posts() {\n  const { data, dangTai, loi } = useFetch('/api/posts');\n  if (dangTai) return &lt;p&gt;Đang tải...&lt;/p&gt;;\n  if (loi) return &lt;p&gt;{loi}&lt;/p&gt;;\n  return data.map(p =&gt; &lt;h3 key={p.id}&gt;{p.title}&lt;/h3&gt;);\n}</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">📌 Quy tắc</div>\n        Tên custom hook phải bắt đầu bằng <code>use</code> để React và linter nhận ra và kiểm tra quy tắc Hooks. Mỗi lần gọi hook có state riêng, không chia sẻ state giữa các component.\n      </div>\n\n      <h3>Ví dụ khác: useLocalStorage</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">useLocalStorage.js</span>\n        \n        <pre><code>export function useLocalStorage(key, init) {\n  const [v, setV] = useState(() =&gt; {\n    const s = localStorage.getItem(key);\n    return s ? JSON.parse(s) : init;\n  });\n  useEffect(() =&gt; localStorage.setItem(key, JSON.stringify(v)), [key, v]);\n  return [v, setV];\n}</code></pre>\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 9</h4>\n        <p>Custom hook gom logic có state và effect để tái sử dụng. Tên bắt đầu bằng <code>use</code>, mỗi lần gọi có state riêng.</p>\n      </div>\n\n    </section>",
+      "questions": [
+        {
+          "question": "1. Custom hook phải đặt tên thế nào?",
+          "options": [
+            "Bắt đầu bằng use",
+            "Kết thúc bằng Hook",
+            "Viết hoa toàn bộ",
+            "Tùy ý"
+          ],
+          "answer": 0,
+          "explanation": ""
+        },
+        {
+          "question": "2. Hai component cùng gọi một custom hook thì state?",
+          "options": [
+            "Dùng chung",
+            "Riêng biệt cho mỗi lần gọi",
+            "Bị lỗi",
+            "Tự đồng bộ"
+          ],
+          "answer": 1,
+          "explanation": ""
+        },
+        {
+          "question": "3. Mục đích chính của custom hook?",
+          "options": [
+            "Tăng tốc render",
+            "Tái sử dụng logic có state",
+            "Thay thế component",
+            "Thay thế CSS"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s9"
+      ],
+      "words": 228
+    },
+    {
+      "id": "chapter10",
+      "file": "chapter10.html",
+      "title": "useRef & Thao tác DOM trực tiếp",
+      "summary": "useRef giữ một giá trị không làm render lại, và truy cập trực tiếp phần tử DOM.",
+      "content": "<section class=\"chapter\" id=\"s10\">\n      \n      <p class=\"lead\"><code>useRef</code> giữ một giá trị không làm render lại, và truy cập trực tiếp phần tử DOM.</p>\n\n      <h3>Truy cập DOM với ref</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">Focus.jsx</span>\n        \n        <pre><code>import { useRef } from 'react';\n\nfunction OTimKiem() {\n  const inputRef = useRef(null);\n  return (\n    &lt;&gt;\n      &lt;input ref={inputRef} placeholder=\"Tìm kiếm...\" /&gt;\n      &lt;button onClick={() =&gt; inputRef.current.focus()}&gt;Focus vào ô&lt;/button&gt;\n    &lt;/&gt;\n  );\n}</code></pre>\n      </div>\n\n      <h3>Lưu giá trị qua các lần render</h3>\n\n      <p>Ref cũng là nơi lưu giá trị \"ẩn\" như id của timer hay giá trị trước đó. Thay đổi <code>ref.current</code> <strong>không</strong> kích hoạt render lại.</p>\n\n      <table>\n        <tbody><tr><th></th><th>useState</th><th>useRef</th></tr>\n        <tr><td>Đổi giá trị gây render lại?</td><td>Có</td><td>Không</td></tr><tr><td>Giữ giá trị giữa các lần render</td><td>Có</td><td>Có</td></tr><tr><td>Dùng cho</td><td>Dữ liệu hiển thị</td><td>DOM, timer, giá trị phụ</td></tr>\n      </tbody></table>\n\n      <div class=\"box warning\">\n        <div class=\"box-title\">⚠️ Lưu ý</div>\n        Không đọc hoặc ghi <code>ref.current</code> trong lúc render (trừ khởi tạo). Hãy đọc/ghi trong event handler hoặc effect. Chỉ thao tác DOM trực tiếp khi thực sự cần, như focus, cuộn hoặc đo kích thước.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 10</h4>\n        <p><code>useRef</code> trả về object <code>{ current }</code> không gây render lại, dùng để truy cập DOM và lưu giá trị phụ giữa các lần render.</p>\n      </div>\n\n    </section>",
+      "questions": [
+        {
+          "question": "1. Thay đổi ref.current có render lại component không?",
+          "options": [
+            "Có",
+            "Không",
+            "Chỉ khi là DOM",
+            "Tùy trình duyệt"
+          ],
+          "answer": 1,
+          "explanation": ""
+        },
+        {
+          "question": "2. Muốn focus một input bằng code, dùng gì?",
+          "options": [
+            "useState",
+            "useRef",
+            "useEffect rỗng",
+            "useMemo"
+          ],
+          "answer": 1,
+          "explanation": ""
+        },
+        {
+          "question": "3. Giá trị ban đầu của ref DOM thường là?",
+          "options": [
+            "0",
+            "undefined",
+            "null",
+            "\"\""
+          ],
+          "answer": 2,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s10"
+      ],
+      "words": 174
+    },
+    {
+      "id": "chapter11",
+      "file": "chapter11.html",
+      "title": "Context API — Chia sẻ state toàn cục",
+      "summary": "Context chia sẻ dữ liệu cho cả cây component mà không phải truyền props qua từng tầng (prop drilling).",
+      "content": "<section class=\"chapter\" id=\"s11\">\n      \n      <p class=\"lead\">Context chia sẻ dữ liệu cho cả cây component mà không phải truyền props qua từng tầng (prop drilling).</p>\n\n      <h3>Tạo và cung cấp Context</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">ThemeContext.jsx</span>\n        \n        <pre><code>import { createContext, useContext, useState } from 'react';\n\nconst ThemeContext = createContext('sang');\n\nexport function ThemeProvider({ children }) {\n  const [theme, setTheme] = useState('sang');\n  const doi = () =&gt; setTheme(t =&gt; (t === 'sang' ? 'toi' : 'sang'));\n  return (\n    &lt;ThemeContext.Provider value={{ theme, doi }}&gt;\n      {children}\n    &lt;/ThemeContext.Provider&gt;\n  );\n}\n\nexport const useTheme = () =&gt; useContext(ThemeContext);</code></pre>\n      </div>\n\n      <h3>Dùng ở component con bất kỳ</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">NutDoiTheme.jsx</span>\n        \n        <pre><code>function NutDoiTheme() {\n  const { theme, doi } = useTheme();\n  return &lt;button onClick={doi}&gt;Đang là: {theme}&lt;/button&gt;;\n}</code></pre>\n      </div>\n\n      <div class=\"box warning\">\n        <div class=\"box-title\">⚠️ Hiệu năng</div>\n        Mọi component dùng <code>useContext</code> sẽ render lại khi <code>value</code> đổi. Đừng nhét state thay đổi liên tục vào một context lớn; hãy tách context hoặc dùng thư viện state riêng khi cần.\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">💡 Mẹo</div>\n        Context hợp với dữ liệu ít đổi và dùng ở nhiều nơi: theme, ngôn ngữ, người dùng đăng nhập.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 11</h4>\n        <p><code>createContext</code>, <code>Provider</code> và <code>useContext</code> giúp chia sẻ dữ liệu toàn cục mà không cần truyền props qua nhiều tầng.</p>\n      </div>\n\n    </section>",
+      "questions": [
+        {
+          "question": "1. Context giải quyết vấn đề gì?",
+          "options": [
+            "Prop drilling",
+            "Chậm mạng",
+            "Lỗi cú pháp",
+            "Bảo mật"
+          ],
+          "answer": 0,
+          "explanation": ""
+        },
+        {
+          "question": "2. Hook nào đọc giá trị context?",
+          "options": [
+            "useState",
+            "useContext",
+            "useRef",
+            "useMemo"
+          ],
+          "answer": 1,
+          "explanation": ""
+        },
+        {
+          "question": "3. Component bọc quanh cây để cung cấp giá trị là?",
+          "options": [
+            "Consumer",
+            "Provider",
+            "Portal",
+            "Fragment"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s11"
+      ],
+      "words": 183
+    },
+    {
+      "id": "chapter12",
+      "file": "chapter12.html",
+      "title": "useReducer — Quản lý state phức tạp",
+      "summary": "useReducer gom logic cập nhật state phức tạp vào một hàm reducer, theo mô hình action.",
+      "content": "<section class=\"chapter\" id=\"s12\">\n      \n      <p class=\"lead\"><code>useReducer</code> gom logic cập nhật state phức tạp vào một hàm reducer, theo mô hình action.</p>\n\n      <h3>Reducer và dispatch</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">GioHang.jsx</span>\n        \n        <pre><code>import { useReducer } from 'react';\n\nfunction reducer(state, action) {\n  switch (action.type) {\n    case 'them':  return [...state, action.sp];\n    case 'xoa':   return state.filter(sp =&gt; sp.id !== action.id);\n    case 'reset': return [];\n    default: throw new Error('Action không hợp lệ: ' + action.type);\n  }\n}\n\nfunction GioHang() {\n  const [gio, dispatch] = useReducer(reducer, []);\n  return (\n    &lt;&gt;\n      &lt;button onClick={() =&gt; dispatch({ type: 'them', sp: { id: Date.now(), ten: 'Áo' } })}&gt;\n        Thêm\n      &lt;/button&gt;\n      &lt;ul&gt;\n        {gio.map(sp =&gt; (\n          &lt;li key={sp.id}&gt;\n            {sp.ten} &lt;button onClick={() =&gt; dispatch({ type: 'xoa', id: sp.id })}&gt;Xóa&lt;/button&gt;\n          &lt;/li&gt;\n        ))}\n      &lt;/ul&gt;\n    &lt;/&gt;\n  );\n}</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Tiêu chí</th><th>useState</th><th>useReducer</th></tr>\n        <tr><td>State đơn giản</td><td>Phù hợp</td><td>Thừa</td></tr><tr><td>Nhiều trường liên quan, nhiều kiểu cập nhật</td><td>Dễ rối</td><td>Phù hợp</td></tr><tr><td>Dễ kiểm thử logic</td><td>Trung bình</td><td>Tốt (reducer là hàm thuần)</td></tr>\n      </tbody></table>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">📌 Quy tắc</div>\n        Reducer phải là <strong>hàm thuần</strong>: không gọi API, không sửa trực tiếp state cũ, luôn trả về state mới.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 12</h4>\n        <p><code>useReducer</code> phù hợp khi state phức tạp: tách logic vào reducer thuần và cập nhật bằng <code>dispatch(action)</code>.</p>\n      </div>\n\n    </section>",
+      "questions": [
+        {
+          "question": "1. Hàm reducer nhận vào gì?",
+          "options": [
+            "state và action",
+            "props và state",
+            "event",
+            "chỉ action"
+          ],
+          "answer": 0,
+          "explanation": ""
+        },
+        {
+          "question": "2. Reducer có được sửa trực tiếp state cũ không?",
+          "options": [
+            "Có",
+            "Không, phải trả về state mới",
+            "Tùy trường hợp",
+            "Chỉ với object"
+          ],
+          "answer": 1,
+          "explanation": ""
+        },
+        {
+          "question": "3. Hàm dùng để gửi action là?",
+          "options": [
+            "setState",
+            "dispatch",
+            "emit",
+            "send"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s12"
+      ],
+      "words": 179
+    },
+    {
+      "id": "chapter13",
+      "file": "chapter13.html",
+      "title": "React Router — Điều hướng SPA cơ bản",
+      "summary": "React Router biến ứng dụng thành SPA nhiều trang: đổi URL mà không tải lại toàn bộ trang.",
+      "content": "<section class=\"chapter\" id=\"s13\">\n      \n      <p class=\"lead\">React Router biến ứng dụng thành SPA nhiều trang: đổi URL mà không tải lại toàn bộ trang.</p>\n\n      <h3>Cài đặt và khai báo route</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">terminal</span>\n        \n        <pre><code>npm install react-router-dom</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">App.jsx</span>\n        \n        <pre><code>import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';\n\nfunction App() {\n  return (\n    &lt;BrowserRouter&gt;\n      &lt;nav&gt;\n        &lt;Link to=\"/\"&gt;Trang chủ&lt;/Link&gt; | &lt;Link to=\"/gioi-thieu\"&gt;Giới thiệu&lt;/Link&gt;\n      &lt;/nav&gt;\n      &lt;Routes&gt;\n        &lt;Route path=\"/\" element={&lt;TrangChu /&gt;} /&gt;\n        &lt;Route path=\"/gioi-thieu\" element={&lt;GioiThieu /&gt;} /&gt;\n        &lt;Route path=\"*\" element={&lt;h1&gt;404 - Không tìm thấy&lt;/h1&gt;} /&gt;\n      &lt;/Routes&gt;\n    &lt;/BrowserRouter&gt;\n  );\n}</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">💡 Mẹo</div>\n        Dùng <code>&lt;Link&gt;</code> hoặc <code>&lt;NavLink&gt;</code> thay cho thẻ <code>&lt;a&gt;</code> để điều hướng không tải lại trang. <code>NavLink</code> tự thêm class <code>active</code> cho liên kết đang chọn.\n      </div>\n\n      <h3>Điều hướng bằng code</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">Redirect.jsx</span>\n        \n        <pre><code>import { useNavigate } from 'react-router-dom';\n\nfunction DangNhap() {\n  const navigate = useNavigate();\n  const xuLy = () =&gt; { /* ... xác thực ... */ navigate('/'); };\n  return &lt;button onClick={xuLy}&gt;Đăng nhập&lt;/button&gt;;\n}</code></pre>\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 13</h4>\n        <p>React Router dùng <code>BrowserRouter</code>, <code>Routes</code>, <code>Route</code> để ánh xạ URL tới component, và <code>Link</code>/<code>useNavigate</code> để điều hướng.</p>\n      </div>\n\n    </section>",
+      "questions": [
+        {
+          "question": "1. Component nào thay thẻ a để không tải lại trang?",
+          "options": [
+            "Link",
+            "Anchor",
+            "Href",
+            "Route"
+          ],
+          "answer": 0,
+          "explanation": ""
+        },
+        {
+          "question": "2. Route khớp mọi đường dẫn không tồn tại dùng path nào?",
+          "options": [
+            "/",
+            "*",
+            "/404",
+            "/all"
+          ],
+          "answer": 1,
+          "explanation": ""
+        },
+        {
+          "question": "3. Hook điều hướng bằng code là?",
+          "options": [
+            "useRoute",
+            "useNavigate",
+            "useHistoryPush",
+            "useLink"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s13"
+      ],
+      "words": 162
+    },
+    {
+      "id": "chapter14",
+      "file": "chapter14.html",
+      "title": "React Router nâng cao — Nested Routes & Params",
+      "summary": "Nested routes, tham số URL, query string và route cần đăng nhập.",
+      "content": "<section class=\"chapter\" id=\"s14\">\n      \n      <p class=\"lead\">Nested routes, tham số URL, query string và route cần đăng nhập.</p>\n\n      <h3>Nested Routes với Outlet</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">Layout.jsx</span>\n        \n        <pre><code>import { Outlet, Link } from 'react-router-dom';\n\nfunction Layout() {\n  return (\n    &lt;&gt;\n      &lt;header&gt;&lt;Link to=\"/\"&gt;Shop&lt;/Link&gt;&lt;/header&gt;\n      &lt;Outlet /&gt;   {/* route con hiển thị ở đây */}\n    &lt;/&gt;\n  );\n}\n\n// &lt;Route element={&lt;Layout /&gt;}&gt;\n//   &lt;Route index element={&lt;TrangChu /&gt;} /&gt;\n//   &lt;Route path=\"san-pham/:id\" element={&lt;ChiTiet /&gt;} /&gt;\n// &lt;/Route&gt;</code></pre>\n      </div>\n\n      <h3>Tham số URL và query string</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">ChiTiet.jsx</span>\n        \n        <pre><code>import { useParams, useSearchParams } from 'react-router-dom';\n\nfunction ChiTiet() {\n  const { id } = useParams();                  // /san-pham/42  -&gt;  id = \"42\"\n  const [qs, setQs] = useSearchParams();       // ?sort=gia\n  const sort = qs.get('sort') ?? 'moi';\n  return &lt;p&gt;Sản phẩm {id}, sắp xếp: {sort}&lt;/p&gt;;\n}</code></pre>\n      </div>\n\n      <h3>Bảo vệ route cần đăng nhập</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">RequireAuth.jsx</span>\n        \n        <pre><code>import { Navigate, Outlet } from 'react-router-dom';\n\nfunction RequireAuth({ daDangNhap }) {\n  return daDangNhap ? &lt;Outlet /&gt; : &lt;Navigate to=\"/dang-nhap\" replace /&gt;;\n}</code></pre>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">📝 Ghi chú</div>\n        Giá trị lấy từ <code>useParams</code> luôn là chuỗi. Hãy ép kiểu bằng <code>Number(id)</code> khi cần so sánh với số.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 14</h4>\n        <p>Dùng <code>Outlet</code> cho layout lồng nhau, <code>useParams</code>/<code>useSearchParams</code> đọc URL, và <code>Navigate</code> để chuyển hướng khi chưa đăng nhập.</p>\n      </div>\n\n    </section>",
+      "questions": [
+        {
+          "question": "1. Component hiển thị route con trong layout là?",
+          "options": [
+            "Outlet",
+            "Child",
+            "Slot",
+            "Content"
+          ],
+          "answer": 0,
+          "explanation": ""
+        },
+        {
+          "question": "2. Lấy tham số :id từ URL bằng hook nào?",
+          "options": [
+            "useParams",
+            "useId",
+            "useQuery",
+            "useRoute"
+          ],
+          "answer": 0,
+          "explanation": ""
+        },
+        {
+          "question": "3. Tham số lấy từ useParams có kiểu gì?",
+          "options": [
+            "number",
+            "string",
+            "boolean",
+            "tùy giá trị"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s14"
+      ],
+      "words": 188
+    },
+    {
+      "id": "chapter15",
+      "file": "chapter15.html",
+      "title": "Styling trong React — CSS Modules & styled-components",
+      "summary": "Các cách tạo kiểu cho component: CSS thường, CSS Modules và styled-components.",
+      "content": "<section class=\"chapter\" id=\"s15\">\n      \n      <p class=\"lead\">Các cách tạo kiểu cho component: CSS thường, CSS Modules và styled-components.</p>\n\n      <h3>CSS Modules — class cục bộ theo file</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">Nut.module.css</span>\n        \n        <pre><code>.nut { padding: 8px 16px; border-radius: 8px; background: #22d3ee; }\n.nut:hover { opacity: .85; }</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">Nut.jsx</span>\n        \n        <pre><code>import styles from './Nut.module.css';\n\nexport default function Nut({ children }) {\n  return &lt;button className={styles.nut}&gt;{children}&lt;/button&gt;;\n}</code></pre>\n      </div>\n\n      <p>Tên class được tự động băm thành chuỗi duy nhất nên không bị đụng tên với component khác.</p>\n\n      <h3>styled-components — CSS viết trong JavaScript</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">terminal</span>\n        \n        <pre><code>npm install styled-components</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">NutStyled.jsx</span>\n        \n        <pre><code>import styled from 'styled-components';\n\nconst Nut = styled.button`\n  padding: 8px 16px;\n  border-radius: 8px;\n  background: ${props =&gt; (props.primary ? '#22d3ee' : '#e5e7eb')};\n`;\n\n// &lt;Nut primary&gt;Lưu&lt;/Nut&gt;</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Cách</th><th>Ưu điểm</th><th>Lưu ý</th></tr>\n        <tr><td>CSS thường</td><td>Đơn giản</td><td>Dễ đụng tên class</td></tr><tr><td>CSS Modules</td><td>Cục bộ, ít thư viện</td><td>Style động hơi vất vả</td></tr><tr><td>styled-components</td><td>Style theo props, gọn trong component</td><td>Thêm thư viện, tốn runtime</td></tr>\n      </tbody></table>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">💡 Mẹo</div>\n        Với dự án mới, CSS Modules hoặc Tailwind CSS là lựa chọn phổ biến vì ít tốn chi phí runtime. Chọn một cách và dùng nhất quán trong cả dự án.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 15</h4>\n        <p>CSS Modules cho class cục bộ, styled-components cho style theo props. Chọn một hướng và dùng nhất quán.</p>\n      </div>\n\n    </section>",
+      "questions": [
+        {
+          "question": "1. CSS Modules giải quyết vấn đề gì?",
+          "options": [
+            "Đụng tên class",
+            "Chậm mạng",
+            "Lỗi JS",
+            "Bảo mật"
+          ],
+          "answer": 0,
+          "explanation": ""
+        },
+        {
+          "question": "2. Trong styled-components, style động dựa vào đâu?",
+          "options": [
+            "props",
+            "id",
+            "tên file",
+            "localStorage"
+          ],
+          "answer": 0,
+          "explanation": ""
+        },
+        {
+          "question": "3. Tên file CSS Modules thường kết thúc bằng?",
+          "options": [
+            ".module.css",
+            ".style.js",
+            ".css.js",
+            ".min.css"
+          ],
+          "answer": 0,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s15"
+      ],
+      "words": 189
+    },
+    {
+      "id": "chapter16",
+      "file": "chapter16.html",
+      "title": "Performance — useMemo & useCallback",
+      "summary": "useMemo nhớ kết quả tính toán nặng, useCallback nhớ hàm — chỉ dùng khi thực sự cần.",
+      "content": "<section class=\"chapter\" id=\"s16\">\n      \n      <p class=\"lead\"><code>useMemo</code> nhớ kết quả tính toán nặng, <code>useCallback</code> nhớ hàm — chỉ dùng khi thực sự cần.</p>\n\n      <h3>useMemo — nhớ giá trị tính toán</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">Loc.jsx</span>\n        \n        <pre><code>const dsLoc = useMemo(() =&gt; {\n  return sanPham.filter(sp =&gt; sp.ten.includes(tuKhoa)).sort(soSanh);\n}, [sanPham, tuKhoa]);</code></pre>\n      </div>\n\n      <p>Kết quả chỉ tính lại khi <code>sanPham</code> hoặc <code>tuKhoa</code> thay đổi, không phải mỗi lần render.</p>\n\n      <h3>useCallback — nhớ hàm</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">Cha.jsx</span>\n        \n        <pre><code>const xoa = useCallback(id =&gt; {\n  setDs(ds =&gt; ds.filter(x =&gt; x.id !== id));\n}, []);\n\nreturn &lt;DanhSach items={ds} onXoa={xoa} /&gt;;</code></pre>\n      </div>\n\n      <p>Mỗi lần render, một hàm mới được tạo ra. Nếu truyền hàm đó cho component con bọc <code>React.memo</code>, con sẽ render lại vô ích. <code>useCallback</code> giữ nguyên tham chiếu hàm giữa các lần render.</p>\n\n      <div class=\"box warning\">\n        <div class=\"box-title\">⚠️ Đừng lạm dụng</div>\n        Hai hook này cũng tốn bộ nhớ và công so sánh. Hãy đo hiệu năng bằng React DevTools Profiler trước, chỉ tối ưu chỗ thực sự chậm.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 16</h4>\n        <p><code>useMemo</code> nhớ giá trị, <code>useCallback</code> nhớ hàm. Đo trước khi tối ưu, tránh dùng tràn lan.</p>\n      </div>\n\n    </section>",
+      "questions": [
+        {
+          "question": "1. useMemo trả về gì?",
+          "options": [
+            "Một hàm",
+            "Giá trị đã tính, được nhớ",
+            "Một component",
+            "Một ref"
+          ],
+          "answer": 1,
+          "explanation": ""
+        },
+        {
+          "question": "2. useCallback giúp giữ nguyên điều gì?",
+          "options": [
+            "Tham chiếu hàm",
+            "Giá trị state",
+            "Tên biến",
+            "Thứ tự render"
+          ],
+          "answer": 0,
+          "explanation": ""
+        },
+        {
+          "question": "3. Nên dùng useMemo ở đâu?",
+          "options": [
+            "Mọi biến",
+            "Phép tính nặng hoặc tham chiếu cần ổn định",
+            "Chỉ trong class",
+            "Trước mọi return"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s16"
+      ],
+      "words": 165
+    },
+    {
+      "id": "chapter17",
+      "file": "chapter17.html",
+      "title": "React.memo & Tối ưu re-render",
+      "summary": "React.memo bỏ qua việc render lại component khi props không đổi.",
+      "content": "<section class=\"chapter\" id=\"s17\">\n      \n      <p class=\"lead\"><code>React.memo</code> bỏ qua việc render lại component khi props không đổi.</p>\n\n      <h3>Khi nào component render lại?</h3>\n\n      <p>Một component render lại khi state của nó đổi, khi component cha render lại, hoặc khi context nó dùng đổi. Mặc định, cha render thì mọi con đều render theo, kể cả khi props không đổi.</p>\n\n      <h3>React.memo</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">Dong.jsx</span>\n        \n        <pre><code>import { memo } from 'react';\n\nconst DongSanPham = memo(function DongSanPham({ sp, onXoa }) {\n  console.log('render', sp.id);\n  return &lt;li&gt;{sp.ten} &lt;button onClick={() =&gt; onXoa(sp.id)}&gt;Xóa&lt;/button&gt;&lt;/li&gt;;\n});</code></pre>\n      </div>\n\n      <p><code>memo</code> so sánh nông (shallow) props cũ và mới. Nếu bằng nhau, React dùng lại kết quả render trước đó.</p>\n\n      <div class=\"box warning\">\n        <div class=\"box-title\">⚠️ Cạm bẫy</div>\n        Truyền object, mảng hoặc hàm tạo mới ở mỗi lần render (ví dụ <code>style={{ color: \"red\" }}</code> hoặc <code>onXoa={() =&gt; ...}</code>) làm so sánh nông luôn thất bại, <code>memo</code> trở nên vô ích. Kết hợp với <code>useCallback</code> và <code>useMemo</code> để giữ tham chiếu ổn định.\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">💡 Mẹo</div>\n        Trước khi dùng memo, thử \"nâng\" phần thay đổi thường xuyên xuống component con riêng hoặc truyền <code>children</code>. Nhiều khi cách này đã đủ mà không cần memo.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 17</h4>\n        <p><code>React.memo</code> tránh render lại khi props không đổi (so sánh nông). Cần giữ tham chiếu props ổn định bằng <code>useCallback</code>/<code>useMemo</code>.</p>\n      </div>\n\n    </section>",
+      "questions": [
+        {
+          "question": "1. React.memo so sánh props theo kiểu nào?",
+          "options": [
+            "Sâu",
+            "Nông (shallow)",
+            "Không so sánh",
+            "Theo tên"
+          ],
+          "answer": 1,
+          "explanation": ""
+        },
+        {
+          "question": "2. Vì sao memo thất bại khi truyền hàm inline?",
+          "options": [
+            "Hàm mới mỗi lần render",
+            "Hàm quá dài",
+            "Hàm async",
+            "Hàm không có tên"
+          ],
+          "answer": 0,
+          "explanation": ""
+        },
+        {
+          "question": "3. Cha render lại thì con mặc định?",
+          "options": [
+            "Không render",
+            "Render lại",
+            "Bị hủy",
+            "Chỉ render lần đầu"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s17"
+      ],
+      "words": 201
+    },
+    {
+      "id": "chapter18",
+      "file": "chapter18.html",
+      "title": "Error Boundaries & Xử lý lỗi",
+      "summary": "Error Boundary bắt lỗi khi render trong cây con và hiển thị giao diện dự phòng thay vì làm sập cả ứng dụng.",
+      "content": "<section class=\"chapter\" id=\"s18\">\n      \n      <p class=\"lead\">Error Boundary bắt lỗi khi render trong cây con và hiển thị giao diện dự phòng thay vì làm sập cả ứng dụng.</p>\n\n      <h3>Viết Error Boundary (class component)</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">ErrorBoundary.jsx</span>\n        \n        <pre><code>import { Component } from 'react';\n\nexport class ErrorBoundary extends Component {\n  state = { loi: null };\n\n  static getDerivedStateFromError(loi) {\n    return { loi };\n  }\n\n  componentDidCatch(loi, info) {\n    console.error('Lỗi UI:', loi, info.componentStack);\n  }\n\n  render() {\n    if (this.state.loi) return this.props.fallback ?? &lt;h2&gt;Đã có lỗi xảy ra.&lt;/h2&gt;;\n    return this.props.children;\n  }\n}\n\n// &lt;ErrorBoundary fallback={&lt;p&gt;Không tải được widget&lt;/p&gt;}&gt;\n//   &lt;Widget /&gt;\n// &lt;/ErrorBoundary&gt;</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Bắt được</th><th>KHÔNG bắt được</th></tr>\n        <tr><td>Lỗi khi render, trong lifecycle, trong constructor của cây con</td><td>Lỗi trong event handler</td></tr><tr><td></td><td>Lỗi bất đồng bộ (setTimeout, fetch)</td></tr><tr><td></td><td>Lỗi trong chính Error Boundary</td></tr>\n      </tbody></table>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">📌 Lưu ý</div>\n        Error Boundary hiện vẫn phải viết bằng class. Có thể dùng thư viện <code>react-error-boundary</code> để có phiên bản dùng hàm kèm nút \"Thử lại\". Lỗi trong event handler hoặc async hãy xử lý bằng <code>try/catch</code> thông thường.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 18</h4>\n        <p>Error Boundary bắt lỗi render của cây con và hiển thị fallback. Lỗi trong event handler hoặc bất đồng bộ cần <code>try/catch</code>.</p>\n      </div>\n\n    </section>",
+      "questions": [
+        {
+          "question": "1. Error Boundary bắt được lỗi nào?",
+          "options": [
+            "Lỗi trong event handler",
+            "Lỗi khi render cây con",
+            "Lỗi fetch",
+            "Lỗi setTimeout"
+          ],
+          "answer": 1,
+          "explanation": ""
+        },
+        {
+          "question": "2. Error Boundary hiện được viết bằng?",
+          "options": [
+            "Function component",
+            "Class component",
+            "Hook useError",
+            "Context"
+          ],
+          "answer": 1,
+          "explanation": ""
+        },
+        {
+          "question": "3. Lỗi trong onClick xử lý bằng?",
+          "options": [
+            "Error Boundary",
+            "try/catch",
+            "Không cần",
+            "Context"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s18"
+      ],
+      "words": 183
+    },
+    {
+      "id": "chapter19",
+      "file": "chapter19.html",
+      "title": "Portals — Modal & Tooltip",
+      "summary": "Portal render một phần giao diện ra ngoài cây DOM của cha, rất hợp cho modal và tooltip.",
+      "content": "<section class=\"chapter\" id=\"s19\">\n      \n      <p class=\"lead\">Portal render một phần giao diện ra ngoài cây DOM của cha, rất hợp cho modal và tooltip.</p>\n\n      <h3>createPortal</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">Modal.jsx</span>\n        \n        <pre><code>import { createPortal } from 'react-dom';\n\nexport function Modal({ mo, dong, children }) {\n  if (!mo) return null;\n  return createPortal(\n    &lt;div className=\"overlay\" onClick={dong}&gt;\n      &lt;div className=\"hop\" onClick={e =&gt; e.stopPropagation()}&gt;\n        {children}\n        &lt;button onClick={dong}&gt;Đóng&lt;/button&gt;\n      &lt;/div&gt;\n    &lt;/div&gt;,\n    document.body\n  );\n}</code></pre>\n      </div>\n\n      <p>Về mặt DOM, modal nằm trực tiếp trong <code>document.body</code> nên không bị cắt bởi <code>overflow: hidden</code> hay lệch bởi <code>z-index</code> của cha. Về mặt React, nó vẫn là con của component gọi nó: sự kiện nổi bọt (bubbling) lên cha theo cây React và context vẫn dùng được.</p>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">💡 Mẹo trải nghiệm</div>\n        Modal tốt cần: đóng bằng phím Esc, khóa cuộn nền, đưa focus vào modal và trả focus về nút mở khi đóng. Có thể dùng thẻ <code>&lt;dialog&gt;</code> gốc của HTML để có sẵn nhiều hành vi này.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 19</h4>\n        <p><code>createPortal</code> đưa phần tử ra ngoài cây DOM của cha nhưng vẫn giữ quan hệ cha-con trong React, phù hợp cho modal, tooltip, dropdown.</p>\n      </div>\n\n    </section>",
+      "questions": [
+        {
+          "question": "1. Portal dùng hàm nào?",
+          "options": [
+            "createPortal",
+            "openPortal",
+            "usePortal",
+            "renderOutside"
+          ],
+          "answer": 0,
+          "explanation": ""
+        },
+        {
+          "question": "2. Modal render qua Portal thường được gắn vào?",
+          "options": [
+            "document.body",
+            "Component cha",
+            "window",
+            "localStorage"
+          ],
+          "answer": 0,
+          "explanation": ""
+        },
+        {
+          "question": "3. Sự kiện từ portal nổi bọt theo cây nào?",
+          "options": [
+            "Cây DOM",
+            "Cây React",
+            "Không nổi bọt",
+            "Cây CSS"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s19"
+      ],
+      "words": 174
+    },
+    {
+      "id": "chapter20",
+      "file": "chapter20.html",
+      "title": "Redux Toolkit — Giới thiệu & Store",
+      "summary": "Redux Toolkit (RTK) là cách chính thức, gọn nhất để dùng Redux quản lý state toàn cục.",
+      "content": "<section class=\"chapter\" id=\"s20\">\n      \n      <p class=\"lead\">Redux Toolkit (RTK) là cách chính thức, gọn nhất để dùng Redux quản lý state toàn cục.</p>\n\n      <h3>Cài đặt</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">terminal</span>\n        \n        <pre><code>npm install @reduxjs/toolkit react-redux</code></pre>\n      </div>\n\n      <h3>Tạo store và bọc ứng dụng</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">store.js</span>\n        \n        <pre><code>import { configureStore } from '@reduxjs/toolkit';\nimport demReducer from './demSlice';\n\nexport const store = configureStore({\n  reducer: { dem: demReducer },\n});</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">main.jsx</span>\n        \n        <pre><code>import { Provider } from 'react-redux';\nimport { store } from './store';\n\ncreateRoot(document.getElementById('root')).render(\n  &lt;Provider store={store}&gt;\n    &lt;App /&gt;\n  &lt;/Provider&gt;\n);</code></pre>\n      </div>\n\n      <h3>Luồng dữ liệu một chiều</h3>\n\n      <table>\n        <tbody><tr><th>Thành phần</th><th>Vai trò</th></tr>\n        <tr><td>Store</td><td>Nơi giữ toàn bộ state</td></tr><tr><td>Action</td><td>Mô tả \"điều gì đã xảy ra\"</td></tr><tr><td>Reducer</td><td>Tính state mới từ state cũ và action</td></tr><tr><td>Selector</td><td>Đọc phần state cần dùng</td></tr>\n      </tbody></table>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">📝 Khi nào cần Redux?</div>\n        Không phải dự án nào cũng cần. State cục bộ dùng <code>useState</code>, chia sẻ ít dùng Context. Redux hợp khi nhiều phần xa nhau cùng đọc/ghi state, logic phức tạp, cần công cụ debug time-travel.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 20</h4>\n        <p>RTK dùng <code>configureStore</code> tạo store, <code>Provider</code> cung cấp cho ứng dụng. Chỉ dùng Redux khi state toàn cục thực sự phức tạp.</p>\n      </div>\n\n    </section>",
+      "questions": [
+        {
+          "question": "1. Hàm tạo store trong RTK?",
+          "options": [
+            "createStore",
+            "configureStore",
+            "makeStore",
+            "newStore"
+          ],
+          "answer": 1,
+          "explanation": ""
+        },
+        {
+          "question": "2. Component Provider dùng để làm gì?",
+          "options": [
+            "Cung cấp store cho cây component",
+            "Tạo action",
+            "Gọi API",
+            "Định tuyến"
+          ],
+          "answer": 0,
+          "explanation": ""
+        },
+        {
+          "question": "3. Dữ liệu trong Redux chảy theo hướng nào?",
+          "options": [
+            "Hai chiều",
+            "Một chiều",
+            "Ngẫu nhiên",
+            "Từ con lên cha"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s20"
+      ],
+      "words": 169
+    },
+    {
+      "id": "chapter21",
+      "file": "chapter21.html",
+      "title": "Redux Toolkit — Slice, Thunk & kết nối API",
+      "summary": "createSlice gom reducer và action, createAsyncThunk xử lý gọi API bất đồng bộ.",
+      "content": "<section class=\"chapter\" id=\"s21\">\n      \n      <p class=\"lead\"><code>createSlice</code> gom reducer và action, <code>createAsyncThunk</code> xử lý gọi API bất đồng bộ.</p>\n\n      <h3>createSlice</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">demSlice.js</span>\n        \n        <pre><code>import { createSlice } from '@reduxjs/toolkit';\n\nconst demSlice = createSlice({\n  name: 'dem',\n  initialState: { gia_tri: 0 },\n  reducers: {\n    tang: state =&gt; { state.gia_tri += 1; },      // RTK dùng Immer: được \"viết như sửa trực tiếp\"\n    giam: state =&gt; { state.gia_tri -= 1; },\n    dat:  (state, action) =&gt; { state.gia_tri = action.payload; },\n  },\n});\n\nexport const { tang, giam, dat } = demSlice.actions;\nexport default demSlice.reducer;</code></pre>\n      </div>\n\n      <h3>Dùng trong component</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">Dem.jsx</span>\n        \n        <pre><code>import { useSelector, useDispatch } from 'react-redux';\nimport { tang, giam } from './demSlice';\n\nfunction Dem() {\n  const gt = useSelector(s =&gt; s.dem.gia_tri);\n  const dispatch = useDispatch();\n  return (\n    &lt;&gt;\n      &lt;button onClick={() =&gt; dispatch(giam())}&gt;-&lt;/button&gt;\n      &lt;span&gt;{gt}&lt;/span&gt;\n      &lt;button onClick={() =&gt; dispatch(tang())}&gt;+&lt;/button&gt;\n    &lt;/&gt;\n  );\n}</code></pre>\n      </div>\n\n      <h3>Gọi API với createAsyncThunk</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">userSlice.js</span>\n        \n        <pre><code>export const taiUsers = createAsyncThunk('users/tai', async () =&gt; {\n  const res = await fetch('/api/users');\n  if (!res.ok) throw new Error('Không tải được');\n  return res.json();\n});\n\nconst userSlice = createSlice({\n  name: 'users',\n  initialState: { ds: [], trangThai: 'rong', loi: null },\n  reducers: {},\n  extraReducers: b =&gt; b\n    .addCase(taiUsers.pending,   s =&gt; { s.trangThai = 'dangTai'; })\n    .addCase(taiUsers.fulfilled, (s, a) =&gt; { s.trangThai = 'xong'; s.ds = a.payload; })\n    .addCase(taiUsers.rejected,  (s, a) =&gt; { s.trangThai = 'loi'; s.loi = a.error.message; }),\n});</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">💡 Mẹo</div>\n        Với dữ liệu từ server, RTK Query (đi kèm Redux Toolkit) lo sẵn cache và trạng thái tải, thường gọn hơn tự viết thunk.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 21</h4>\n        <p><code>createSlice</code> gộp reducer và action, <code>createAsyncThunk</code> xử lý API với ba trạng thái pending/fulfilled/rejected, component dùng <code>useSelector</code> và <code>useDispatch</code>.</p>\n      </div>\n\n    </section>",
+      "questions": [
+        {
+          "question": "1. createSlice trả về gì?",
+          "options": [
+            "Reducer và action creators",
+            "Chỉ component",
+            "Chỉ store",
+            "Route"
+          ],
+          "answer": 0,
+          "explanation": ""
+        },
+        {
+          "question": "2. Thunk có ba trạng thái nào?",
+          "options": [
+            "pending, fulfilled, rejected",
+            "start, run, end",
+            "open, close, wait",
+            "get, post, put"
+          ],
+          "answer": 0,
+          "explanation": ""
+        },
+        {
+          "question": "3. Hook đọc state từ store là?",
+          "options": [
+            "useStore",
+            "useSelector",
+            "useGet",
+            "useState"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s21"
+      ],
+      "words": 262
+    },
+    {
+      "id": "chapter22",
+      "file": "chapter22.html",
+      "title": "Form nâng cao — react-hook-form & Validation",
+      "summary": "react-hook-form quản lý form hiệu quả, ít render lại; kết hợp Zod để kiểm tra dữ liệu.",
+      "content": "<section class=\"chapter\" id=\"s22\">\n      \n      <p class=\"lead\"><code>react-hook-form</code> quản lý form hiệu quả, ít render lại; kết hợp Zod để kiểm tra dữ liệu.</p>\n\n      <h3>Cài đặt</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">terminal</span>\n        \n        <pre><code>npm install react-hook-form zod @hookform/resolvers</code></pre>\n      </div>\n\n      <h3>Form đăng ký có validation</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">DangKy.jsx</span>\n        \n        <pre><code>import { useForm } from 'react-hook-form';\nimport { zodResolver } from '@hookform/resolvers/zod';\nimport { z } from 'zod';\n\nconst schema = z.object({\n  email: z.string().email('Email không hợp lệ'),\n  matKhau: z.string().min(8, 'Tối thiểu 8 ký tự'),\n});\n\nfunction DangKy() {\n  const { register, handleSubmit, formState: { errors, isSubmitting } } =\n    useForm({ resolver: zodResolver(schema) });\n\n  const onSubmit = async data =&gt; { await guiLenServer(data); };\n\n  return (\n    &lt;form onSubmit={handleSubmit(onSubmit)}&gt;\n      &lt;input {...register('email')} placeholder=\"Email\" /&gt;\n      {errors.email &amp;&amp; &lt;p&gt;{errors.email.message}&lt;/p&gt;}\n      &lt;input type=\"password\" {...register('matKhau')} placeholder=\"Mật khẩu\" /&gt;\n      {errors.matKhau &amp;&amp; &lt;p&gt;{errors.matKhau.message}&lt;/p&gt;}\n      &lt;button disabled={isSubmitting}&gt;Đăng ký&lt;/button&gt;\n    &lt;/form&gt;\n  );\n}</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">📌 Lưu ý</div>\n        Validation phía client chỉ cải thiện trải nghiệm. Server vẫn phải kiểm tra lại dữ liệu vì client có thể bị qua mặt.\n      </div>\n\n      <p>Cách này dùng input <strong>không kiểm soát</strong> (uncontrolled) nên gõ phím không làm cả form render lại, nhanh hơn nhiều so với tự quản lý từng ô bằng <code>useState</code> khi form lớn.</p>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 22</h4>\n        <p><code>react-hook-form</code> cho form nhanh và gọn; ghép với Zod để khai báo luật kiểm tra. Server vẫn phải kiểm tra lại.</p>\n      </div>\n\n    </section>",
+      "questions": [
+        {
+          "question": "1. Hàm nào gắn ô nhập vào form?",
+          "options": [
+            "register",
+            "attach",
+            "bind",
+            "connect"
+          ],
+          "answer": 0,
+          "explanation": ""
+        },
+        {
+          "question": "2. Zod dùng để làm gì trong ví dụ?",
+          "options": [
+            "Định nghĩa luật kiểm tra dữ liệu",
+            "Gọi API",
+            "Định tuyến",
+            "Tạo style"
+          ],
+          "answer": 0,
+          "explanation": ""
+        },
+        {
+          "question": "3. Validation ở client có thay thế được validation ở server?",
+          "options": [
+            "Có",
+            "Không",
+            "Tùy form",
+            "Chỉ khi có Zod"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s22"
+      ],
+      "words": 204
+    },
+    {
+      "id": "chapter23",
+      "file": "chapter23.html",
+      "title": "Testing React Components — Jest & Testing Library",
+      "summary": "Kiểm thử component bằng Jest (hoặc Vitest) và React Testing Library: test theo cách người dùng sử dụng.",
+      "content": "<section class=\"chapter\" id=\"s23\">\n      \n      <p class=\"lead\">Kiểm thử component bằng Jest (hoặc Vitest) và React Testing Library: test theo cách người dùng sử dụng.</p>\n\n      <h3>Nguyên tắc</h3>\n\n      <p>Testing Library khuyến khích kiểm thử <strong>hành vi nhìn thấy được</strong> (chữ trên màn hình, nút bấm) thay vì chi tiết cài đặt bên trong như tên state hay hàm nội bộ.</p>\n\n      <h3>Ví dụ test bộ đếm</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">Dem.test.jsx</span>\n        \n        <pre><code>import { render, screen } from '@testing-library/react';\nimport userEvent from '@testing-library/user-event';\nimport Dem from './Dem';\n\ntest('bấm + thì số tăng lên 1', async () =&gt; {\n  render(&lt;Dem /&gt;);\n  expect(screen.getByText('0')).toBeInTheDocument();\n\n  await userEvent.click(screen.getByRole('button', { name: '+' }));\n\n  expect(screen.getByText('1')).toBeInTheDocument();\n});</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Truy vấn</th><th>Dùng khi</th></tr>\n        <tr><td><code>getBy...</code></td><td>Phần tử phải có ngay, không có thì lỗi</td></tr><tr><td><code>queryBy...</code></td><td>Kiểm tra phần tử KHÔNG tồn tại</td></tr><tr><td><code>findBy...</code></td><td>Phần tử xuất hiện bất đồng bộ (chờ)</td></tr>\n      </tbody></table>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">💡 Mẹo</div>\n        Ưu tiên truy vấn theo <code>getByRole</code> và <code>getByLabelText</code>: vừa giống người dùng thật, vừa khuyến khích viết HTML dễ truy cập (accessibility).\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 23</h4>\n        <p>Test theo cách người dùng tương tác: <code>render</code>, truy vấn bằng role/label, mô phỏng bằng <code>userEvent</code>, và chọn đúng <code>getBy/queryBy/findBy</code>.</p>\n      </div>\n\n    </section>",
+      "questions": [
+        {
+          "question": "1. Testing Library khuyến khích test điều gì?",
+          "options": [
+            "Hành vi người dùng nhìn thấy",
+            "State nội bộ",
+            "Tên biến",
+            "Số dòng code"
+          ],
+          "answer": 0,
+          "explanation": ""
+        },
+        {
+          "question": "2. Kiểm tra phần tử KHÔNG tồn tại dùng?",
+          "options": [
+            "getBy",
+            "queryBy",
+            "findBy",
+            "allBy"
+          ],
+          "answer": 1,
+          "explanation": ""
+        },
+        {
+          "question": "3. Phần tử xuất hiện sau khi gọi API nên dùng?",
+          "options": [
+            "getBy",
+            "queryBy",
+            "findBy",
+            "không test"
+          ],
+          "answer": 2,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s23"
+      ],
+      "words": 169
+    },
+    {
+      "id": "chapter24",
+      "file": "chapter24.html",
+      "title": "Giới thiệu Next.js — SSR & File-based Routing",
+      "summary": "Next.js là framework React cho ứng dụng production: định tuyến theo thư mục, render phía server (SSR) và nhiều tối ưu sẵn có.",
+      "content": "<section class=\"chapter\" id=\"s24\">\n      \n      <p class=\"lead\">Next.js là framework React cho ứng dụng production: định tuyến theo thư mục, render phía server (SSR) và nhiều tối ưu sẵn có.</p>\n\n      <h3>Tạo dự án</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">terminal</span>\n        \n        <pre><code>npx create-next-app@latest my-app</code></pre>\n      </div>\n\n      <h3>Định tuyến theo file (App Router)</h3>\n\n      <table>\n        <tbody><tr><th>Đường dẫn file</th><th>URL</th></tr>\n        <tr><td><code>app/page.jsx</code></td><td>/</td></tr><tr><td><code>app/gioi-thieu/page.jsx</code></td><td>/gioi-thieu</td></tr><tr><td><code>app/blog/[slug]/page.jsx</code></td><td>/blog/bat-ky-slug-nao</td></tr>\n      </tbody></table>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">app/blog/[slug]/page.jsx</span>\n        \n        <pre><code>// Server Component mặc định: chạy trên server, gọi dữ liệu trực tiếp\nexport default async function BaiViet({ params }) {\n  const { slug } = await params;\n  const res = await fetch(`https://api.example.com/posts/${slug}`);\n  const bai = await res.json();\n  return &lt;article&gt;&lt;h1&gt;{bai.tieuDe}&lt;/h1&gt;&lt;p&gt;{bai.noiDung}&lt;/p&gt;&lt;/article&gt;;\n}</code></pre>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">📝 Server vs Client Component</div>\n        Mặc định component trong <code>app/</code> là Server Component (không dùng được <code>useState</code>, <code>useEffect</code>). Thêm dòng <code>\"use client\"</code> ở đầu file khi cần state hoặc tương tác trình duyệt.\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">💡 Mẹo</div>\n        SSR giúp trang có nội dung ngay khi tải (tốt cho SEO và tốc độ hiển thị đầu). Cú pháp và API của Next.js thay đổi theo phiên bản, hãy đối chiếu tài liệu chính thức của phiên bản bạn dùng.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 24</h4>\n        <p>Next.js cho định tuyến theo file, SSR và Server Component. Dùng <code>\"use client\"</code> khi component cần state hoặc sự kiện trình duyệt.</p>\n      </div>\n\n    </section>",
+      "questions": [
+        {
+          "question": "1. Trong Next.js App Router, URL được tạo từ?",
+          "options": [
+            "Cấu trúc thư mục trong app/",
+            "File routes.js",
+            "Thẻ Link",
+            "Biến môi trường"
+          ],
+          "answer": 0,
+          "explanation": ""
+        },
+        {
+          "question": "2. Component mặc định trong app/ là?",
+          "options": [
+            "Client Component",
+            "Server Component",
+            "Class Component",
+            "Web Component"
+          ],
+          "answer": 1,
+          "explanation": ""
+        },
+        {
+          "question": "3. Muốn dùng useState trong file cần thêm gì?",
+          "options": [
+            "\"use client\"",
+            "\"use server\"",
+            "import React",
+            "Không cần"
+          ],
+          "answer": 0,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s24"
+      ],
+      "words": 185
+    },
+    {
+      "id": "chapter25",
+      "file": "chapter25.html",
+      "title": "Triển khai ứng dụng React lên Production",
+      "summary": "Đóng gói ứng dụng React và đưa lên internet: build, biến môi trường, hosting tĩnh và kiểm tra trước khi phát hành.",
+      "content": "<section class=\"chapter\" id=\"s25\">\n      \n      <p class=\"lead\">Đóng gói ứng dụng React và đưa lên internet: build, biến môi trường, hosting tĩnh và kiểm tra trước khi phát hành.</p>\n\n      <h3>Build production</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">terminal</span>\n        \n        <pre><code>npm run build      # tạo thư mục dist (Vite) hoặc build\nnpm run preview    # chạy thử bản build ở máy</code></pre>\n      </div>\n\n      <h3>Biến môi trường</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">.env</span>\n        \n        <pre><code>VITE_API_URL=https://api.example.com</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">dung.js</span>\n        \n        <pre><code>const api = import.meta.env.VITE_API_URL;</code></pre>\n      </div>\n\n      <div class=\"box warning\">\n        <div class=\"box-title\">⚠️ Bảo mật</div>\n        Mọi biến nhúng vào bundle frontend đều <strong>lộ công khai</strong>. Tuyệt đối không đặt khóa bí mật (secret key, mật khẩu database) trong mã React. Khóa bí mật chỉ để ở server.\n      </div>\n\n      <h3>Nơi triển khai</h3>\n\n      <table>\n        <tbody><tr><th>Nền tảng</th><th>Phù hợp</th></tr>\n        <tr><td>Vercel, Netlify, Cloudflare Pages</td><td>SPA/SSR, tự động deploy từ GitHub</td></tr><tr><td>GitHub Pages</td><td>Trang tĩnh đơn giản</td></tr><tr><td>VPS + Nginx + Docker</td><td>Toàn quyền kiểm soát</td></tr>\n      </tbody></table>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">📌 Với SPA dùng React Router</div>\n        Cần cấu hình server trả về <code>index.html</code> cho mọi đường dẫn (rewrite), nếu không tải lại trang ở /gioi-thieu sẽ báo 404.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 25</h4>\n        <p>Build bằng <code>npm run build</code>, không để bí mật trong frontend, chọn nền tảng phù hợp và cấu hình rewrite cho SPA.</p>\n      </div>\n\n    </section>",
+      "questions": [
+        {
+          "question": "1. Lệnh tạo bản production với Vite?",
+          "options": [
+            "npm run build",
+            "npm start dev",
+            "npm clean",
+            "npm lint"
+          ],
+          "answer": 0,
+          "explanation": ""
+        },
+        {
+          "question": "2. Có nên để secret key trong mã React?",
+          "options": [
+            "Có",
+            "Không, vì bundle lộ công khai",
+            "Chỉ khi có .env",
+            "Chỉ ở production"
+          ],
+          "answer": 1,
+          "explanation": ""
+        },
+        {
+          "question": "3. SPA dùng Router cần server làm gì?",
+          "options": [
+            "Rewrite mọi đường dẫn về index.html",
+            "Tắt cache",
+            "Dùng HTTP/1.0",
+            "Không cần gì"
+          ],
+          "answer": 0,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s25"
+      ],
+      "words": 172
+    },
+    {
+      "id": "chapter26",
+      "file": "chapter26.html",
+      "title": "Dự án cuối khóa: Ứng dụng React hoàn chỉnh",
+      "summary": "Tổng hợp kiến thức: xây dựng ứng dụng quản lý công việc (Todo) hoàn chỉnh với component, hook, router, form và gọi API.",
+      "content": "<section class=\"chapter\" id=\"s26\">\n      \n      <p class=\"lead\">Tổng hợp kiến thức: xây dựng ứng dụng quản lý công việc (Todo) hoàn chỉnh với component, hook, router, form và gọi API.</p>\n\n      <h3>Yêu cầu</h3>\n\n      <p>Ứng dụng có: danh sách công việc, thêm/sửa/xóa, đánh dấu hoàn thành, lọc theo trạng thái, lưu dữ liệu và trang chi tiết từng công việc.</p>\n\n      <h3>Gợi ý cấu trúc thư mục</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">cau-truc</span>\n        \n        <pre><code>src/\n  components/   TodoItem.jsx, TodoForm.jsx, Filter.jsx\n  hooks/        useTodos.js, useLocalStorage.js\n  pages/        TrangChu.jsx, ChiTiet.jsx, NotFound.jsx\n  App.jsx       khai báo Routes\n  main.jsx      Provider, BrowserRouter</code></pre>\n      </div>\n\n      <h3>Hook trung tâm</h3>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">useTodos.js</span>\n        \n        <pre><code>import { useReducer, useEffect } from 'react';\n\nfunction reducer(ds, a) {\n  switch (a.type) {\n    case 'them':  return [...ds, { id: Date.now(), ten: a.ten, xong: false }];\n    case 'doi':   return ds.map(t =&gt; t.id === a.id ? { ...t, xong: !t.xong } : t);\n    case 'xoa':   return ds.filter(t =&gt; t.id !== a.id);\n    default: return ds;\n  }\n}\n\nexport function useTodos() {\n  const [ds, dispatch] = useReducer(reducer, [], () =&gt;\n    JSON.parse(localStorage.getItem('todos') || '[]'));\n  useEffect(() =&gt; localStorage.setItem('todos', JSON.stringify(ds)), [ds]);\n  return { ds, dispatch };\n}</code></pre>\n      </div>\n\n      <h3>Danh sách việc cần làm</h3>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bước 1 — Dựng khung</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <p>Tạo dự án Vite + React, cài <code>react-router-dom</code>, chia thư mục như gợi ý, khai báo các route.</p>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bước 2 — Quản lý state</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <p>Viết <code>useTodos</code>, dùng Context để chia sẻ cho các trang.</p>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bước 3 — Form và validation</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <p>Dùng <code>react-hook-form</code> cho form thêm/sửa, báo lỗi khi tên rỗng.</p>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bước 4 — Hoàn thiện</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <p>Thêm Error Boundary, viết vài test với Testing Library, build và deploy lên Vercel hoặc Netlify.</p>\n        </div></div>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">💡 Mở rộng</div>\n        Thay localStorage bằng API thật (Node.js + Express hoặc NestJS) và dùng TanStack Query để cache dữ liệu.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 26</h4>\n        <p>Dự án cuối khóa kết hợp component, hook, reducer, router, form, test và triển khai. Hãy tự mở rộng thêm tính năng để luyện tập.</p>\n      </div>\n\n    </section>",
+      "questions": [
+        {
+          "question": "1. Trạng thái danh sách việc ở dự án này được quản lý bằng?",
+          "options": [
+            "useReducer trong hook useTodos",
+            "Biến toàn cục",
+            "DOM trực tiếp",
+            "CSS"
+          ],
+          "answer": 0,
+          "explanation": ""
+        },
+        {
+          "question": "2. Dữ liệu được lưu qua các lần tải lại trang bằng?",
+          "options": [
+            "localStorage",
+            "Cookie của server",
+            "Biến window",
+            "Không lưu"
+          ],
+          "answer": 0,
+          "explanation": ""
+        },
+        {
+          "question": "3. Thành phần nào bảo vệ giao diện khi có lỗi render?",
+          "options": [
+            "Error Boundary",
+            "Portal",
+            "Context",
+            "memo"
+          ],
+          "answer": 0,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s26"
+      ],
+      "words": 294
+    }
+  ]
+}

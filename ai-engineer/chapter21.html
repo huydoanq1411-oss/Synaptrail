@@ -1,81 +1,13 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-
-<script>
-(function(){
-  try{
-    var t = localStorage.getItem('synaptrail-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', t);
-  }catch(e){
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-})();
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/lesson.css">
-<title>Chương 21 — Tối ưu Chi phí &amp; Hiệu năng LLM — Giáo Trình AI Engineer | Synaptrail</title>
-<link rel="stylesheet" href="../assets/ui.css">
-</head>
-<body>
-<div id="progress-bar"></div>
-<div id="topbar">
-  <span class="brand">🤖 AI Engineer</span>
-  <div class="topbar-right">
-    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
-    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
-  </div>
-</div>
-<div class="layout">
-  <aside id="sidebar">
-    <div class="brand">🤖 AI Engineer</div>
-    <div class="sub">21 chương</div>
-    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
-    <div class="nav-group-title">Danh sách chương</div>
-    <a class="nav-link" href="chapter01.html">Chương 1 — AI, ML, Deep Learning khác gì nhau?</a>
-    <a class="nav-link" href="chapter02.html">Chương 2 — Lịch sử &amp; Làn sóng AI hiện đại</a>
-    <a class="nav-link" href="chapter03.html">Chương 3 — NLP cơ bản (Tokenization, Embeddings)</a>
-    <a class="nav-link" href="chapter04.html">Chương 4 — Large Language Model (LLM) là gì?</a>
-    <a class="nav-link" href="chapter05.html">Chương 5 — Cách LLM "học" — Transformer sơ lược</a>
-    <a class="nav-link" href="chapter06.html">Chương 6 — Chatbot dựa trên luật (Rule-based)</a>
-    <a class="nav-link" href="chapter07.html">Chương 7 — Chatbot dựa trên truy xuất (Retrieval-based)</a>
-    <a class="nav-link" href="chapter08.html">Chương 8 — Gọi API LLM (OpenAI/Anthropic)</a>
-    <a class="nav-link" href="chapter09.html">Chương 9 — Prompt Engineering cơ bản</a>
-    <a class="nav-link" href="chapter10.html">Chương 10 — RAG — Retrieval Augmented Generation</a>
-    <a class="nav-link" href="chapter11.html">Chương 11 — Dự án: Chatbot hỗ trợ khách hàng hoàn chỉnh</a>
-    <a class="nav-link" href="chapter12.html">Chương 12 — AI Agent &amp; Tool Use</a>
-    <a class="nav-link" href="chapter13.html">Chương 13 — Fine-tuning mô hình</a>
-    <a class="nav-link" href="chapter14.html">Chương 14 — Đạo đức AI &amp; An toàn</a>
-    <a class="nav-link" href="chapter15.html">Chương 15 — Triển khai Chatbot lên Production</a>
-    <a class="nav-link" href="chapter16.html">Chương 16 — Vector Database chuyên sâu</a>
-    <a class="nav-link" href="chapter17.html">Chương 17 — Multi-Agent Systems</a>
-    <a class="nav-link" href="chapter18.html">Chương 18 — Đánh giá &amp; Kiểm thử LLM (Evaluation)</a>
-    <a class="nav-link" href="chapter19.html">Chương 19 — Streaming Response &amp; UX Chatbot</a>
-    <a class="nav-link" href="chapter20.html">Chương 20 — Multimodal AI — Xử lý ảnh &amp; âm thanh</a>
-    <a class="nav-link active" href="chapter21.html">Chương 21 — Tối ưu Chi phí &amp; Hiệu năng LLM</a>
-    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
-  </aside>
-  <div class="main-col">
-<div class="chpage">
-  <div class="crumb">
-    <a href="../index.html">🏠 Trang chủ</a> ·
-    <a href="index.html">🤖 AI Engineer</a> ·
-    <span>Chương 21 — Tối ưu Chi phí &amp; Hiệu năng LLM</span>
-  </div>
-  <main style="padding:0;max-width:none;">
-<section class="chapter" id="s21">
-      <h2>Chương <span class="num">21</span> — Tối ưu Chi phí &amp; Hiệu năng LLM</h2>
+<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tối ưu Chi phí &amp; Hiệu năng LLM — AI Engineer | Synaptrail</title><meta name="description" content="Gọi API LLM tính phí theo token — ở quy mô production, chi phí có thể tăng vọt nếu không tối ưu cẩn thận."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="ai-engineer" data-skill="ai-engineer" data-node="chapter21"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/ai-engineer.html#chapter21"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">AI Engineer / BÀI 21</p><h1>Tối ưu Chi phí &amp; Hiệu năng LLM</h1><p class="rm-lead">Gọi API LLM tính phí theo token — ở quy mô production, chi phí có thể tăng vọt nếu không tối ưu cẩn thận.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter21">Làm quiz ở trang riêng <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s21">
+      
       <p class="lead">Gọi API LLM tính phí theo token — ở quy mô production, chi phí có thể tăng vọt nếu không tối ưu cẩn thận.</p>
 
       <h3>Prompt Caching — giảm chi phí cho phần prompt lặp lại</h3>
       <div class="code-wrap">
         <span class="code-label">prompt_caching.py</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-        <pre><code># System prompt dài, LẶP LẠI ở mọi request -> đánh dấu để cache
+        
+        <pre><code># System prompt dài, LẶP LẠI ở mọi request -&gt; đánh dấu để cache
 response = client.messages.create(
     model="YOUR_CURRENT_CLAUDE_MODEL_ID",
     max_tokens=500,
@@ -92,12 +24,12 @@ response = client.messages.create(
 
       <h3>Chọn đúng mô hình cho đúng việc</h3>
       <table>
-        <tr><th>Chiến lược</th><th>Mô tả</th></tr>
+        <tbody><tr><th>Chiến lược</th><th>Mô tả</th></tr>
         <tr><td><strong>Model Routing</strong></td><td>Dùng mô hình NHỎ/rẻ cho câu hỏi đơn giản, chỉ gọi mô hình lớn/đắt cho tác vụ thực sự phức tạp</td></tr>
         <tr><td><strong>Giới hạn max_tokens hợp lý</strong></td><td>Không đặt max_tokens quá cao nếu câu trả lời thường ngắn — tránh lãng phí</td></tr>
         <tr><td><strong>Rút gọn lịch sử hội thoại</strong></td><td>Chỉ giữ N lượt gần nhất (đã nhắc ở chương 15), hoặc tóm tắt lịch sử cũ thay vì giữ nguyên văn</td></tr>
         <tr><td><strong>Batch Processing</strong></td><td>Với tác vụ KHÔNG cần phản hồi tức thời, dùng Batch API (thường rẻ hơn đáng kể) thay vì gọi real-time</td></tr>
-      </table>
+      </tbody></table>
 
       <h3>Đo tốc độ đầu-cuối, không chỉ thời gian model</h3>
       <p>Theo dõi riêng time-to-first-token, thời gian hoàn tất, token/giây, tỷ lệ timeout/lỗi và chi phí trên mỗi tác vụ thành công. Tổng thời gian còn gồm retrieval, tool, mạng và hàng đợi. So sánh model routing/caching bằng cùng tập request đại diện; tính cả chi phí judge, retry và request thất bại. Không cache dữ liệu nhạy cảm nếu chính sách lưu trữ không cho phép.</p>
@@ -107,36 +39,10 @@ response = client.messages.create(
         Luôn <strong>đo lường trước khi tối ưu</strong> — theo dõi chi phí thực tế theo từng loại request (dùng ID/tag phân loại), xác định đúng phần nào đang tốn kém nhất trước khi quyết định tối ưu, tránh tối ưu "cảm tính" vào chỗ không thực sự ảnh hưởng nhiều.
       </div>
 
-      <div class="quiz" data-quiz="q21">
-        <h4>📝 Quiz tổng kết cuối khóa AI Engineer (mở rộng)</h4>
-        <div class="quiz-q" data-answer="0">
-          <p>1. Model Routing là chiến lược gì?</p>
-          <span class="quiz-opt" data-idx="0">Dùng mô hình nhỏ/rẻ cho câu hỏi đơn giản, mô hình lớn cho tác vụ phức tạp</span>
-          <span class="quiz-opt" data-idx="1">Luôn dùng một mô hình duy nhất cho mọi tác vụ</span>
-          <span class="quiz-opt" data-idx="2">Chuyển hướng người dùng sang chatbot khác</span>
-        </div>
-        <button class="quiz-btn" onclick="gradeQuiz('q21')">Chấm điểm</button>
-        <div class="quiz-result" id="result-q21"></div>
-      </div>
+      
 
       <div class="summary-box">
         <h4>🎉 Hoàn thành toàn bộ giáo trình AI Engineer (21 chương)!</h4>
         <p>Bạn đã đi qua <strong>21 chương / 4 phần</strong>: từ nền tảng AI/ML/NLP đến RAG, agent, đánh giá và vận hành. Đây là nền tảng để tiếp tục xây hệ thống AI; năng lực production cần được củng cố bằng dự án, kiểm thử trên dữ liệu thật phù hợp và cập nhật tài liệu nhà cung cấp khi API thay đổi.</p>
       </div>
-    </section>
-  </main>
-  <div class="chnav">
-    <a class="nav-btn prev" href="chapter20.html">← Chương 20 — Multimodal AI — Xử lý ảnh &amp; âm thanh</a>
-    <span class="nav-btn disabled">Chương tiếp →</span>
-  </div>
-</div>
-</div>
-</div>
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
-
-<script src="../assets/code-highlighter.js"></script>
-<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
-
-</body>
-</html>
+    </section></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter20.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bài trước</a><a href="tong-hop-prompt-agent-cong-cu-ai-2026.html">Bài tiếp theo<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/ai-engineer.html#chapter21"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>

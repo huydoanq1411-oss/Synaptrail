@@ -1,74 +1,6 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-
-<script>
-(function(){
-  try{
-    var t = localStorage.getItem('synaptrail-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', t);
-  }catch(e){
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-})();
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/lesson.css">
-<title>Chương 3 — NLP cơ bản (Tokenization, Embeddings) — Giáo Trình AI Engineer | Synaptrail</title>
-<link rel="stylesheet" href="../assets/ui.css">
-</head>
-<body>
-<div id="progress-bar"></div>
-<div id="topbar">
-  <span class="brand">🤖 AI Engineer</span>
-  <div class="topbar-right">
-    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
-    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
-  </div>
-</div>
-<div class="layout">
-  <aside id="sidebar">
-    <div class="brand">🤖 AI Engineer</div>
-    <div class="sub">21 chương</div>
-    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
-    <div class="nav-group-title">Danh sách chương</div>
-    <a class="nav-link" href="chapter01.html">Chương 1 — AI, ML, Deep Learning khác gì nhau?</a>
-    <a class="nav-link" href="chapter02.html">Chương 2 — Lịch sử &amp; Làn sóng AI hiện đại</a>
-    <a class="nav-link active" href="chapter03.html">Chương 3 — NLP cơ bản (Tokenization, Embeddings)</a>
-    <a class="nav-link" href="chapter04.html">Chương 4 — Large Language Model (LLM) là gì?</a>
-    <a class="nav-link" href="chapter05.html">Chương 5 — Cách LLM "học" — Transformer sơ lược</a>
-    <a class="nav-link" href="chapter06.html">Chương 6 — Chatbot dựa trên luật (Rule-based)</a>
-    <a class="nav-link" href="chapter07.html">Chương 7 — Chatbot dựa trên truy xuất (Retrieval-based)</a>
-    <a class="nav-link" href="chapter08.html">Chương 8 — Gọi API LLM (OpenAI/Anthropic)</a>
-    <a class="nav-link" href="chapter09.html">Chương 9 — Prompt Engineering cơ bản</a>
-    <a class="nav-link" href="chapter10.html">Chương 10 — RAG — Retrieval Augmented Generation</a>
-    <a class="nav-link" href="chapter11.html">Chương 11 — Dự án: Chatbot hỗ trợ khách hàng hoàn chỉnh</a>
-    <a class="nav-link" href="chapter12.html">Chương 12 — AI Agent &amp; Tool Use</a>
-    <a class="nav-link" href="chapter13.html">Chương 13 — Fine-tuning mô hình</a>
-    <a class="nav-link" href="chapter14.html">Chương 14 — Đạo đức AI &amp; An toàn</a>
-    <a class="nav-link" href="chapter15.html">Chương 15 — Triển khai Chatbot lên Production</a>
-    <a class="nav-link" href="chapter16.html">Chương 16 — Vector Database chuyên sâu</a>
-    <a class="nav-link" href="chapter17.html">Chương 17 — Multi-Agent Systems</a>
-    <a class="nav-link" href="chapter18.html">Chương 18 — Đánh giá &amp; Kiểm thử LLM (Evaluation)</a>
-    <a class="nav-link" href="chapter19.html">Chương 19 — Streaming Response &amp; UX Chatbot</a>
-    <a class="nav-link" href="chapter20.html">Chương 20 — Multimodal AI — Xử lý ảnh &amp; âm thanh</a>
-    <a class="nav-link" href="chapter21.html">Chương 21 — Tối ưu Chi phí &amp; Hiệu năng LLM</a>
-    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
-  </aside>
-  <div class="main-col">
-<div class="chpage">
-  <div class="crumb">
-    <a href="../index.html">🏠 Trang chủ</a> ·
-    <a href="index.html">🤖 AI Engineer</a> ·
-    <span>Chương 3 — NLP cơ bản (Tokenization, Embeddings)</span>
-  </div>
-  <main style="padding:0;max-width:none;">
-<section class="chapter" id="s3">
-      <h2>Chương <span class="num">3</span> — NLP cơ bản (Tokenization, Embeddings)</h2>
+<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NLP cơ bản (Tokenization, Embeddings) — AI Engineer | Synaptrail</title><meta name="description" content="NLP (Natural Language Processing) — làm sao máy tính &quot;hiểu&quot; được văn bản, vốn chỉ biết xử lý số."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="ai-engineer" data-skill="ai-engineer" data-node="chapter03"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/ai-engineer.html#chapter03"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">AI Engineer / BÀI 3</p><h1>NLP cơ bản (Tokenization, Embeddings)</h1><p class="rm-lead">NLP (Natural Language Processing) — làm sao máy tính &quot;hiểu&quot; được văn bản, vốn chỉ biết xử lý số.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter03">Làm quiz ở trang riêng <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s3">
+      
       <p class="lead">NLP (Natural Language Processing) — làm sao máy tính "hiểu" được văn bản, vốn chỉ biết xử lý số.</p>
 
       <h3>Tokenization — chia nhỏ văn bản</h3>
@@ -76,7 +8,7 @@
 
       <div class="code-wrap">
         <span class="code-label">tokenization_minh_hoa.py</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code># Minh họa ý tưởng tokenization đơn giản (word-level)
 def tokenize_don_gian(cau):
     return cau.lower().split()
@@ -94,7 +26,7 @@ print(tokenize_don_gian("Tôi thích học AI"))
 
       <div class="code-wrap">
         <span class="code-label">embeddings_concept.py</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code># Minh họa khái niệm (không phải embedding thật của mô hình nào)
 embeddings_gia_lap = {
     "vua":    [0.9, 0.1, 0.8],
@@ -104,7 +36,7 @@ embeddings_gia_lap = {
 
 # Tính chất nổi tiếng của embedding tốt (word2vec):
 # vector("vua") - vector("nam") + vector("nữ") ≈ vector("nữ hoàng")
-# -> các mối quan hệ NGỮ NGHĨA được mã hóa thành các phép TOÁN VECTOR</code></pre>
+# -&gt; các mối quan hệ NGỮ NGHĨA được mã hóa thành các phép TOÁN VECTOR</code></pre>
       </div>
 
       <div class="box tip">
@@ -112,17 +44,7 @@ embeddings_gia_lap = {
         Embedding là "bản dịch" từ ngôn ngữ con người sang ngôn ngữ mà máy hiểu được (số) — mọi kỹ thuật AI xử lý văn bản hiện đại, từ chatbot tới search engine, đều dựa trên nguyên lý này.
       </div>
 
-      <div class="quiz" data-quiz="q3">
-        <h4>📝 Quiz nhanh — Chương 3</h4>
-        <div class="quiz-q" data-answer="0">
-          <p>1. Embedding có tính chất gì quan trọng nhất?</p>
-          <span class="quiz-opt" data-idx="0">Các từ có ý nghĩa gần nhau thì vector gần nhau</span>
-          <span class="quiz-opt" data-idx="1">Mỗi từ luôn có embedding hoàn toàn ngẫu nhiên</span>
-          <span class="quiz-opt" data-idx="2">Embedding chỉ dùng được cho tiếng Anh</span>
-        </div>
-        <button class="quiz-btn" onclick="gradeQuiz('q3')">Chấm điểm</button>
-        <div class="quiz-result" id="result-q3"></div>
-      </div>
+      
 
       <h3>Embedding có giới hạn</h3>
       <p>Embedding ánh xạ văn bản thành vector để so sánh theo một mục tiêu đã học; nó không phải bản dịch đầy đủ của câu chữ thành “ý nghĩa” và không đảm bảo hai câu gần nhau luôn liên quan đúng với tác vụ. Chất lượng phụ thuộc model, ngôn ngữ, cách tiền xử lý và dữ liệu kiểm thử. Khi chọn model, kiểm tra hỗ trợ tiếng Việt, giới hạn đầu vào, chiều vector và chính sách lưu trữ dữ liệu.</p>
@@ -133,20 +55,4 @@ embeddings_gia_lap = {
       </div>
     </section>
 
-    <!-- ================= CHƯƠNG 4 ================= -->
-  </main>
-  <div class="chnav">
-    <a class="nav-btn prev" href="chapter02.html">← Chương 2 — Lịch sử &amp; Làn sóng AI hiện đại</a>
-    <a class="nav-btn next" href="chapter04.html">Chương 4 — Large Language Model (LLM) là gì? →</a>
-  </div>
-</div>
-</div>
-</div>
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
-
-<script src="../assets/code-highlighter.js"></script>
-<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
-
-</body>
-</html>
+    <!-- ================= CHƯƠNG 4 ================= --></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter02.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bài trước</a><a href="chapter04.html">Bài tiếp theo<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/ai-engineer.html#chapter03"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>

@@ -1,0 +1,535 @@
+{
+  "course": "javascript-nnlt",
+  "title": "JavaScript",
+  "lessons": [
+    {
+      "id": "chapter01",
+      "file": "chapter01.html",
+      "title": "Giới thiệu JavaScript",
+      "summary": "JavaScript là gì, tại sao là ngôn ngữ không thể thiếu của web, và mối quan hệ với Java (KHÔNG liên quan gì nhau!).",
+      "content": "<section class=\"chapter\" id=\"s1\">\n      \n      <p class=\"lead\">JavaScript là gì, tại sao là ngôn ngữ không thể thiếu của web, và mối quan hệ với Java (KHÔNG liên quan gì nhau!).</p>\n\n      <h3>JavaScript là gì?</h3>\n      <p>JavaScript (JS) là ngôn ngữ lập trình thông dịch, được Brendan Eich tạo ra chỉ trong 10 ngày vào năm 1995 để làm cho trang web \"sống động\" hơn. Ban đầu chỉ chạy trong trình duyệt, ngày nay JS còn chạy được ở phía server (Node.js), trên mobile (React Native) và cả desktop (Electron).</p>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">Ghi chú — JavaScript KHÔNG phải Java</div>\n        Dù tên gần giống nhau (vì lý do marketing thời điểm ra mắt), JavaScript và Java là <strong>hai ngôn ngữ hoàn toàn khác nhau</strong>, không liên quan về cú pháp hay thiết kế — một trong những hiểu lầm phổ biến nhất với người mới học lập trình.\n      </div>\n\n      <h3>Tại sao nên học JavaScript?</h3>\n      <ul>\n        <li><strong>Ngôn ngữ duy nhất chạy được trực tiếp trên mọi trình duyệt</strong> — không thể xây web tương tác mà không có JS.</li>\n        <li><strong>Full-stack với một ngôn ngữ duy nhất</strong> — Node.js cho phép viết cả backend bằng JS.</li>\n        <li><strong>Hệ sinh thái khổng lồ</strong> — npm là kho thư viện lớn nhất trong giới lập trình.</li>\n        <li><strong>Linh hoạt, dễ bắt đầu</strong> — không cần cài đặt gì, chỉ cần trình duyệt là chạy được code ngay.</li>\n      </ul>\n\n      <h3>JavaScript dùng để làm gì?</h3>\n      <table>\n        <tbody><tr><th>Lĩnh vực</th><th>Ví dụ công nghệ</th></tr>\n        <tr><td>Frontend web tương tác</td><td>React, Vue, Angular</td></tr>\n        <tr><td>Backend server</td><td>Node.js, Express, NestJS</td></tr>\n        <tr><td>Ứng dụng di động</td><td>React Native</td></tr>\n        <tr><td>Ứng dụng desktop</td><td>Electron (VS Code, Slack đều dùng Electron)</td></tr>\n      </tbody></table>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo ghi nhớ</div>\n        JavaScript = \"Ngôn ngữ của web\": nó là ngôn ngữ DUY NHẤT mà mọi trình duyệt hiểu được trực tiếp, biến trang web tĩnh (chỉ HTML/CSS) thành ứng dụng tương tác thực sự.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 1</h4>\n        <p>JavaScript là ngôn ngữ thông dịch chạy trên mọi trình duyệt, mở rộng ra cả backend (Node.js), mobile và desktop — hoàn toàn không liên quan đến Java dù tên gần giống nhau.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 2 ================= -->",
+      "questions": [
+        {
+          "question": "1. JavaScript và Java có mối quan hệ gì với nhau?",
+          "options": [
+            "JavaScript là phiên bản rút gọn của Java",
+            "Hai ngôn ngữ hoàn toàn khác nhau, chỉ trùng tên",
+            "JavaScript chạy trên JVM giống Java"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s1"
+      ],
+      "words": 325
+    },
+    {
+      "id": "chapter02",
+      "file": "chapter02.html",
+      "title": "Cách chạy JS (Browser & Node.js)",
+      "summary": "Hai môi trường chính để chạy JavaScript, không cần cài đặt phức tạp như C++/Java.",
+      "content": "<section class=\"chapter\" id=\"s2\">\n      \n      <p class=\"lead\">Hai môi trường chính để chạy JavaScript, không cần cài đặt phức tạp như C++/Java.</p>\n\n      <h3>Cách 1: Chạy trong trình duyệt (Console)</h3>\n      <p>Mở bất kỳ trình duyệt nào, nhấn <code>F12</code> (hoặc chuột phải → Inspect) → tab \"Console\" → gõ code JS và nhấn Enter để chạy ngay lập tức.</p>\n\n      <h3>Cách 2: Nhúng vào file HTML</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">index.html</span>\n        \n        <pre><code>&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n&lt;body&gt;\n    &lt;script&gt;\n        console.log(\"Xin chào từ JavaScript!\");\n    &lt;/script&gt;\n&lt;/body&gt;\n&lt;/html&gt;</code></pre>\n      </div>\n\n      <h3>Cách 3: Node.js (chạy JS ngoài trình duyệt)</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">terminal</span>\n        <pre><code>node --version    # kiểm tra đã cài Node.js chưa (tải tại nodejs.org)\nnode app.js         # chạy file JS trực tiếp, không cần trình duyệt</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Khi mới học, dùng Console của trình duyệt (F12) là nhanh nhất để thử nghiệm code — không cần cài đặt gì cả. Node.js chỉ thực sự cần khi muốn viết backend hoặc chạy script ngoài trình duyệt.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 2</h4>\n        <p>JS chạy được trong Console trình duyệt, nhúng qua thẻ <code>&lt;script&gt;</code> trong HTML, hoặc chạy độc lập bằng Node.js — không cần bước biên dịch như C++/Java.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 3 ================= -->",
+      "questions": [],
+      "ids": [
+        "s2"
+      ],
+      "words": 173
+    },
+    {
+      "id": "chapter03",
+      "file": "chapter03.html",
+      "title": "Chương trình đầu tiên",
+      "summary": "In \"Hello, World!\" và làm quen với console.log — công cụ debug quan trọng nhất của JS.",
+      "content": "<section class=\"chapter\" id=\"s3\">\n      \n      <p class=\"lead\">In \"Hello, World!\" và làm quen với console.log — công cụ debug quan trọng nhất của JS.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">hello.js</span>\n        \n        <pre><code>console.log(\"Hello, World!\");\nconsole.log(\"Xin chào,\", \"JavaScript!\");   // console.log nhận nhiều tham số, tự thêm khoảng trắng\n\n// alert() chỉ dùng được trong trình duyệt, hiện popup\n// alert(\"Xin chào!\");</code></pre>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">Ghi chú</div>\n        JavaScript <strong>không yêu cầu</strong> có hàm main() như C++/Java — code chạy tuần tự từ trên xuống ngay khi file được nạp, giống Python.\n      </div>\n\n      <h3>Dấu chấm phẩy (Semicolon) — có hay không?</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">semicolon.js</span>\n        \n        <pre><code>console.log(\"Có dấu chấm phẩy\");    // OK\nconsole.log(\"Không có dấu chấm phẩy\")   // vẫn chạy được nhờ ASI (Automatic Semicolon Insertion)</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        JS có cơ chế tự động thêm dấu chấm phẩy (ASI) nên code vẫn chạy được dù thiếu <code>;</code>, nhưng nên viết đầy đủ dấu chấm phẩy để tránh các trường hợp hiếm gặp ASI hiểu sai ý định của code.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 3</h4>\n        <p><code>console.log()</code> là công cụ in/debug cơ bản nhất trong JS. Code chạy tuần tự không cần hàm main, và dấu chấm phẩy tuy không bắt buộc nhưng nên viết đầy đủ.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 4 ================= -->",
+      "questions": [],
+      "ids": [
+        "s3"
+      ],
+      "words": 179
+    },
+    {
+      "id": "chapter04",
+      "file": "chapter04.html",
+      "title": "Biến (var/let/const)",
+      "summary": "JavaScript có 3 từ khóa khai báo biến — hiểu đúng sự khác biệt là nền tảng quan trọng nhất.",
+      "content": "<section class=\"chapter\" id=\"s4\">\n      \n      <p class=\"lead\">JavaScript có 3 từ khóa khai báo biến — hiểu đúng sự khác biệt là nền tảng quan trọng nhất.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">bien.js</span>\n        \n        <pre><code>let ten = \"Huy\";        // let - có thể thay đổi giá trị, khuyến nghị dùng mặc định\nconst PI = 3.14159;       // const - KHÔNG THỂ gán lại sau khi khởi tạo\nvar tuoi = 20;               // var - cách khai báo CŨ, nên tránh dùng trong code mới\n\nten = \"Lan\";        // OK - let cho phép thay đổi\n// PI = 3.14;        // LỖI - const không cho phép gán lại</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Từ khóa</th><th>Phạm vi (Scope)</th><th>Gán lại được?</th><th>Khuyến nghị</th></tr>\n        <tr><td><code>var</code></td><td>Function scope (cũ, dễ gây lỗi)</td><td>Có</td><td>Tránh dùng trong code mới</td></tr>\n        <tr><td><code>let</code></td><td>Block scope (trong {})</td><td>Có</td><td>Dùng khi cần thay đổi giá trị</td></tr>\n        <tr><td><code>const</code></td><td>Block scope</td><td>Không</td><td>Mặc định nên dùng nếu không cần đổi giá trị</td></tr>\n      </tbody></table>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        <code>const</code> với object/array vẫn cho phép thay đổi <strong>nội dung bên trong</strong> (thêm phần tử, sửa thuộc tính) — chỉ không cho phép gán lại toàn bộ biến sang giá trị khác. Ví dụ: <code>const ds = [1,2]; ds.push(3);</code> vẫn hợp lệ.\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Quy tắc thực hành tốt: mặc định dùng <code>const</code>, chỉ chuyển sang <code>let</code> khi thực sự cần gán lại giá trị, và tránh <code>var</code> hoàn toàn trong code hiện đại.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 4</h4>\n        <p><code>const</code> mặc định nên dùng, <code>let</code> khi cần thay đổi giá trị, <code>var</code> nên tránh vì phạm vi hoạt động (scope) dễ gây lỗi khó phát hiện.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 5 ================= -->",
+      "questions": [
+        {
+          "question": "1. Từ khóa nào NÊN TRÁNH dùng trong code JavaScript hiện đại?",
+          "options": [
+            "let",
+            "const",
+            "var"
+          ],
+          "answer": 2,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s4"
+      ],
+      "words": 240
+    },
+    {
+      "id": "chapter05",
+      "file": "chapter05.html",
+      "title": "Kiểu dữ liệu",
+      "summary": "JavaScript là ngôn ngữ động về kiểu (dynamic typing) và có một số hành vi ép kiểu đặc trưng cần lưu ý.",
+      "content": "<section class=\"chapter\" id=\"s5\">\n      \n      <p class=\"lead\">JavaScript là ngôn ngữ động về kiểu (dynamic typing) và có một số hành vi ép kiểu đặc trưng cần lưu ý.</p>\n\n      <table>\n        <tbody><tr><th>Kiểu</th><th>Ví dụ</th></tr>\n        <tr><td><code>number</code></td><td><code>10</code>, <code>3.14</code> — CHỈ MỘT kiểu số duy nhất, không phân biệt int/float</td></tr>\n        <tr><td><code>string</code></td><td><code>\"Xin chào\"</code>, <code>'Xin chào'</code>, <code>`Xin chào`</code></td></tr>\n        <tr><td><code>boolean</code></td><td><code>true</code>, <code>false</code></td></tr>\n        <tr><td><code>undefined</code></td><td>Biến đã khai báo nhưng chưa gán giá trị</td></tr>\n        <tr><td><code>null</code></td><td>Giá trị rỗng được gán CÓ CHỦ ĐÍCH</td></tr>\n        <tr><td><code>object</code></td><td><code>{ten: \"Huy\"}</code>, mảng cũng là object</td></tr>\n      </tbody></table>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">kieu_du_lieu.js</span>\n        \n        <pre><code>console.log(typeof 10);          // \"number\"\nconsole.log(typeof \"hello\");       // \"string\"\nconsole.log(typeof true);            // \"boolean\"\nconsole.log(typeof undefined);         // \"undefined\"\nconsole.log(typeof null);                // \"object\" - đây là LỖI LỊCH SỬ nổi tiếng của JS!\n\nlet x;\nconsole.log(x);   // undefined - đã khai báo nhưng chưa gán</code></pre>\n      </div>\n\n      <h3>Template Literals — chuỗi hiện đại</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">template_literal.js</span>\n        \n        <pre><code>const ten = \"Huy\";\nconst tuoi = 20;\nconsole.log(`Tên: ${ten}, Tuổi: ${tuoi}`);   // dùng dấu backtick ` và ${} để nhúng biến</code></pre>\n      </div>\n\n      <div class=\"box warning\">\n        <div class=\"box-title\">Lỗi thường gặp — so sánh == vs ===</div>\n        <code>==</code> so sánh giá trị và TỰ ĐỘNG ép kiểu (VD: <code>\"5\" == 5</code> là <code>true</code>) — dễ gây lỗi khó lường. Luôn dùng <code>===</code> (so sánh nghiêm ngặt, không ép kiểu) trong code thực tế.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 5</h4>\n        <p>JS chỉ có một kiểu <code>number</code> duy nhất cho mọi số. Luôn dùng <code>===</code> thay vì <code>==</code> để tránh ép kiểu ngoài ý muốn. Template literal (dấu backtick) là cách hiện đại để nối chuỗi.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 6 ================= -->",
+      "questions": [],
+      "ids": [
+        "s5"
+      ],
+      "words": 225
+    },
+    {
+      "id": "chapter06",
+      "file": "chapter06.html",
+      "title": "Toán tử",
+      "summary": "Toán tử số học, so sánh, logic — và một vài toán tử đặc trưng chỉ có ở JavaScript.",
+      "content": "<section class=\"chapter\" id=\"s6\">\n      \n      <p class=\"lead\">Toán tử số học, so sánh, logic — và một vài toán tử đặc trưng chỉ có ở JavaScript.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">toan_tu.js</span>\n        \n        <pre><code>console.log(5 + 3);        // 8\nconsole.log(5 === \"5\");      // false - so sánh nghiêm ngặt, khác kiểu là false\nconsole.log(5 == \"5\");         // true - so sánh lỏng, tự ép kiểu\n\n// Toán tử ?? (nullish coalescing) - ES2020\nlet ten = null;\nconsole.log(ten ?? \"Khách\");   // \"Khách\" - chỉ dùng giá trị mặc định khi null/undefined\n\n// Toán tử ?. (optional chaining) - ES2020\nconst user = {profile: null};\nconsole.log(user.profile?.ten);   // undefined - KHÔNG gây lỗi dù profile là null</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        <code>??</code> khác <code>||</code>: <code>0 || \"mặc định\"</code> trả về \"mặc định\" (vì 0 là falsy), nhưng <code>0 ?? \"mặc định\"</code> trả về <code>0</code> (vì 0 không phải null/undefined) — dùng <code>??</code> khi chỉ muốn thay thế null/undefined, không phải mọi giá trị \"falsy\".\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 6</h4>\n        <p>Luôn ưu tiên <code>===</code>/<code>!==</code>. <code>??</code> và <code>?.</code> (ES2020) giúp xử lý giá trị null/undefined an toàn, ngắn gọn hơn nhiều so với kiểm tra if truyền thống.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 7 ================= -->",
+      "questions": [],
+      "ids": [
+        "s6"
+      ],
+      "words": 177
+    },
+    {
+      "id": "chapter07",
+      "file": "chapter07.html",
+      "title": "Điều kiện",
+      "summary": "if/else, switch, và khái niệm \"truthy/falsy\" đặc trưng của JavaScript.",
+      "content": "<section class=\"chapter\" id=\"s7\">\n      \n      <p class=\"lead\">if/else, switch, và khái niệm \"truthy/falsy\" đặc trưng của JavaScript.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">if_else.js</span>\n        \n        <pre><code>const diem = 8;\nif (diem &gt;= 8) {\n    console.log(\"Giỏi\");\n} else if (diem &gt;= 6) {\n    console.log(\"Khá\");\n} else {\n    console.log(\"Cần cố gắng\");\n}\n\n// Toán tử ternary\nconst trangThai = diem &gt;= 8 ? \"Giỏi\" : \"Chưa giỏi\";</code></pre>\n      </div>\n\n      <h3>Truthy &amp; Falsy — khái niệm quan trọng của JS</h3>\n      <p>Trong điều kiện, JS tự động chuyển giá trị bất kỳ sang boolean. Các giá trị sau đều là <strong>falsy</strong> (coi như false): <code>0</code>, <code>\"\"</code> (chuỗi rỗng), <code>null</code>, <code>undefined</code>, <code>NaN</code>, <code>false</code>. Mọi giá trị khác đều là <strong>truthy</strong>.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">truthy_falsy.js</span>\n        \n        <pre><code>if (\"\") console.log(\"Sẽ không chạy\");        // chuỗi rỗng là falsy\nif (\"0\") console.log(\"SẼ chạy!\");               // chuỗi \"0\" (khác số 0) là TRUTHY vì không rỗng\nif ([]) console.log(\"SẼ chạy!\");                   // mảng rỗng vẫn là truthy (khác Python!)</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng — khác biệt với Python</div>\n        Trong JavaScript, mảng rỗng <code>[]</code> và object rỗng <code>{}</code> đều là <strong>truthy</strong> (khác với Python, nơi list/dict rỗng là falsy) — đây là lỗi tư duy phổ biến với người chuyển từ Python sang JS.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 7</h4>\n        <p>if/else/switch tương tự các ngôn ngữ khác. Khái niệm truthy/falsy của JS có một số khác biệt quan trọng so với Python — đặc biệt mảng/object rỗng luôn là truthy.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 8 ================= -->",
+      "questions": [],
+      "ids": [
+        "s7"
+      ],
+      "words": 214
+    },
+    {
+      "id": "chapter08",
+      "file": "chapter08.html",
+      "title": "Vòng lặp",
+      "summary": "for, while, và các vòng lặp hiện đại for...of / for...in.",
+      "content": "<section class=\"chapter\" id=\"s8\">\n      \n      <p class=\"lead\">for, while, và các vòng lặp hiện đại for...of / for...in.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">vong_lap.js</span>\n        \n        <pre><code>for (let i = 0; i &lt; 5; i++) {\n    console.log(i);\n}\n\nlet dem = 0;\nwhile (dem &lt; 5) {\n    console.log(dem);\n    dem++;\n}\n\nconst trai_cay = [\"táo\", \"cam\", \"chuối\"];\nfor (const tc of trai_cay) {      // for...of - duyệt GIÁ TRỊ của mảng/iterable\n    console.log(tc);\n}\n\nconst sv = {ten: \"Huy\", tuoi: 20};\nfor (const key in sv) {              // for...in - duyệt KEY của object\n    console.log(key, sv[key]);\n}\n\ntrai_cay.forEach((tc, idx) =&gt; {        // forEach - phương thức của mảng, style hàm\n    console.log(idx, tc);\n});</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo ghi nhớ</div>\n        Nhớ quy tắc: <strong>for...OF cho giá trị (Of values)</strong> — dùng với mảng; <strong>for...IN cho key (In object)</strong> — dùng với object. Nhầm lẫn hai loại này là lỗi rất phổ biến.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 8</h4>\n        <p><code>for...of</code> duyệt giá trị (mảng/iterable), <code>for...in</code> duyệt key (object). <code>forEach()</code> là cách hiện đại, theo phong cách hàm để duyệt mảng.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 9 ================= -->",
+      "questions": [
+        {
+          "question": "1. Vòng lặp nào phù hợp để duyệt các GIÁ TRỊ của một mảng?",
+          "options": [
+            "for...of",
+            "for...in",
+            "for...key"
+          ],
+          "answer": 0,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s8"
+      ],
+      "words": 158
+    },
+    {
+      "id": "chapter09",
+      "file": "chapter09.html",
+      "title": "Hàm (Function & Arrow Function)",
+      "summary": "JavaScript có nhiều cách khai báo hàm — Arrow Function (ES6+) là phong cách hiện đại phổ biến nhất.",
+      "content": "<section class=\"chapter\" id=\"s9\">\n      \n      <p class=\"lead\">JavaScript có nhiều cách khai báo hàm — Arrow Function (ES6+) là phong cách hiện đại phổ biến nhất.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">function.js</span>\n        \n        <pre><code>// Cách 1: Function declaration (kiểu truyền thống)\nfunction cong(a, b) {\n    return a + b;\n}\n\n// Cách 2: Function expression\nconst tru = function(a, b) {\n    return a - b;\n};\n\n// Cách 3: Arrow function (ES6+) - NGẮN GỌN, phổ biến nhất hiện nay\nconst nhan = (a, b) =&gt; a * b;              // 1 dòng, tự động return\nconst chia = (a, b) =&gt; {                        // nhiều dòng, cần return tường minh\n    if (b === 0) return null;\n    return a / b;\n};\n\nconsole.log(cong(3, 5));   // 8\nconsole.log(nhan(3, 5));     // 15</code></pre>\n      </div>\n\n      <h3>Tham số mặc định &amp; Rest parameters</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">function_advanced.js</span>\n        \n        <pre><code>function gioiThieu(ten, tuoi = 18) {   // giá trị mặc định\n    console.log(`${ten}, ${tuoi} tuổi`);\n}\ngioiThieu(\"Lan\");   // Lan, 18 tuổi\n\nfunction tinhTong(...soList) {          // rest parameter - gom mọi tham số thành mảng\n    return soList.reduce((tong, so) =&gt; tong + so, 0);\n}\nconsole.log(tinhTong(1, 2, 3, 4));   // 10</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng — Arrow Function và \"this\"</div>\n        Arrow function <strong>không có <code>this</code> riêng</strong> — nó dùng <code>this</code> của phạm vi bao ngoài (lexical this). Đây là lý do arrow function không phù hợp làm method của object khi cần truy cập <code>this</code> của chính object đó.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 9</h4>\n        <p>Arrow function (<code>=&gt;</code>) là cách viết hàm ngắn gọn, hiện đại nhất. Rest parameter (<code>...</code>) gom nhiều tham số thành mảng. Cẩn thận với cách arrow function xử lý <code>this</code>.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 10 ================= -->",
+      "questions": [],
+      "ids": [
+        "s9"
+      ],
+      "words": 252
+    },
+    {
+      "id": "chapter10",
+      "file": "chapter10.html",
+      "title": "Mảng (Array)",
+      "summary": "Cấu trúc dữ liệu linh hoạt, tự động thay đổi kích thước, với rất nhiều phương thức xử lý mạnh mẽ.",
+      "content": "<section class=\"chapter\" id=\"s10\">\n      \n      <p class=\"lead\">Cấu trúc dữ liệu linh hoạt, tự động thay đổi kích thước, với rất nhiều phương thức xử lý mạnh mẽ.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">array.js</span>\n        \n        <pre><code>const ds = [3, 1, 4, 1, 5];\n\nds.push(9);            // thêm vào cuối\nds.pop();                 // xóa và trả về phần tử cuối\nds.unshift(0);              // thêm vào đầu\nconsole.log(ds.length);       // độ dài mảng\n\n// Các phương thức lập trình hàm - CỰC KỲ quan trọng trong JS hiện đại\nconst so = [1, 2, 3, 4, 5];\n\nconst gapDoi = so.map(x =&gt; x * 2);          // map - biến đổi từng phần tử -&gt; mảng mới\nconsole.log(gapDoi);   // [2, 4, 6, 8, 10]\n\nconst soChan = so.filter(x =&gt; x % 2 === 0);   // filter - lọc phần tử thỏa điều kiện\nconsole.log(soChan);   // [2, 4]\n\nconst tong = so.reduce((acc, x) =&gt; acc + x, 0);   // reduce - gộp thành 1 giá trị\nconsole.log(tong);   // 15\n\nconst timThay = so.find(x =&gt; x &gt; 3);       // find - phần tử ĐẦU TIÊN thỏa điều kiện\nconsole.log(timThay);   // 4\n\nconsole.log(so.includes(3));   // true - kiểm tra tồn tại</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        <code>map/filter/reduce</code> là bộ ba quan trọng nhất của JS hiện đại — hầu hết code xử lý mảng chuyên nghiệp đều ưu tiên dùng chúng thay vì vòng lặp <code>for</code> thủ công.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 10</h4>\n        <p>Mảng JS tự động thay đổi kích thước. <code>map/filter/reduce</code> là các phương thức lập trình hàm quan trọng nhất để xử lý mảng theo phong cách hiện đại.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 11 ================= -->",
+      "questions": [
+        {
+          "question": "1. Phương thức nào dùng để LỌC các phần tử thỏa điều kiện trong mảng?",
+          "options": [
+            "map()",
+            "filter()",
+            "reduce()"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s10"
+      ],
+      "words": 243
+    },
+    {
+      "id": "chapter11",
+      "file": "chapter11.html",
+      "title": "Object",
+      "summary": "Cấu trúc dữ liệu key-value nền tảng của JavaScript — gần như mọi thứ trong JS đều liên quan tới object.",
+      "content": "<section class=\"chapter\" id=\"s11\">\n      \n      <p class=\"lead\">Cấu trúc dữ liệu key-value nền tảng của JavaScript — gần như mọi thứ trong JS đều liên quan tới object.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">object.js</span>\n        \n        <pre><code>const sinhVien = {\n    ten: \"Huy\",\n    tuoi: 20,\n    diem: [8.5, 9.0],\n    gioiThieu() {                 // method ngay bên trong object\n        console.log(`Tôi là ${this.ten}`);   // \"this\" trỏ tới chính object này\n    }\n};\n\nconsole.log(sinhVien.ten);        // truy cập bằng dấu chấm\nconsole.log(sinhVien[\"tuoi\"]);      // truy cập bằng ngoặc vuông (hữu ích khi key là biến)\nsinhVien.diaChi = \"TP.HCM\";           // thêm thuộc tính mới\nsinhVien.gioiThieu();                   // Tôi là Huy\n\n// Destructuring - \"giải nén\" object ra biến (ES6+)\nconst {ten, tuoi} = sinhVien;\nconsole.log(ten, tuoi);   // Huy 20\n\n// Spread operator - sao chép/gộp object (ES6+)\nconst svMoi = {...sinhVien, tuoi: 21};   // sao chép sinhVien, ghi đè tuoi thành 21\nconsole.log(svMoi.tuoi);   // 21</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Kỹ thuật</th><th>Công dụng</th></tr>\n        <tr><td>Destructuring <code>{a, b} = obj</code></td><td>Trích xuất nhanh nhiều thuộc tính ra biến riêng</td></tr>\n        <tr><td>Spread <code>{...obj}</code></td><td>Sao chép nông (shallow copy) hoặc gộp nhiều object</td></tr>\n        <tr><td><code>Object.keys()/values()/entries()</code></td><td>Lấy danh sách key/value/cặp key-value dạng mảng</td></tr>\n      </tbody></table>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 11</h4>\n        <p>Object lưu dữ liệu key-value, hỗ trợ method nội bộ. Destructuring và spread operator (ES6+) giúp thao tác object ngắn gọn, là phong cách chuẩn của JS hiện đại.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 12 ================= -->",
+      "questions": [],
+      "ids": [
+        "s11"
+      ],
+      "words": 198
+    },
+    {
+      "id": "chapter12",
+      "file": "chapter12.html",
+      "title": "DOM cơ bản",
+      "summary": "DOM (Document Object Model) là \"cầu nối\" giữa JavaScript và trang HTML — nền tảng để tạo web tương tác.",
+      "content": "<section class=\"chapter\" id=\"s12\">\n      \n      <p class=\"lead\">DOM (Document Object Model) là \"cầu nối\" giữa JavaScript và trang HTML — nền tảng để tạo web tương tác.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">dom_basic.js</span>\n        \n        <pre><code>// Giả sử HTML có: &lt;button id=\"nutBam\"&gt;Nhấn tôi&lt;/button&gt;\n//                &lt;p id=\"ketQua\"&gt;&lt;/p&gt;\n\nconst nut = document.getElementById(\"nutBam\");         // tìm phần tử theo id\nconst ketQua = document.querySelector(\"#ketQua\");        // querySelector - cách hiện đại, dùng CSS selector\n\nnut.addEventListener(\"click\", () =&gt; {                       // lắng nghe sự kiện click\n    ketQua.textContent = \"Bạn vừa nhấn nút!\";                  // thay đổi nội dung\n    ketQua.style.color = \"green\";                                // thay đổi CSS trực tiếp\n});\n\n// Tạo phần tử mới và thêm vào trang\nconst divMoi = document.createElement(\"div\");\ndivMoi.textContent = \"Phần tử được tạo bằng JS\";\ndocument.body.appendChild(divMoi);</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Phương thức</th><th>Công dụng</th></tr>\n        <tr><td><code>getElementById()</code></td><td>Tìm phần tử theo thuộc tính id</td></tr>\n        <tr><td><code>querySelector()</code></td><td>Tìm phần tử ĐẦU TIÊN khớp CSS selector (linh hoạt hơn)</td></tr>\n        <tr><td><code>querySelectorAll()</code></td><td>Tìm TẤT CẢ phần tử khớp CSS selector</td></tr>\n        <tr><td><code>addEventListener()</code></td><td>Gắn hàm xử lý cho một sự kiện (click, input, submit...)</td></tr>\n      </tbody></table>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Nên ưu tiên <code>querySelector()</code>/<code>querySelectorAll()</code> thay vì các phương thức cũ (<code>getElementById</code>, <code>getElementsByClassName</code>) — vì cú pháp CSS selector linh hoạt và nhất quán hơn nhiều.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 12</h4>\n        <p>DOM cho phép JS đọc/sửa nội dung, style, và cấu trúc HTML. <code>querySelector()</code> + <code>addEventListener()</code> là bộ đôi quan trọng nhất để xây trang web tương tác.</p>\n      </div>\n\n    </section>\n\n    <!-- ================= CHƯƠNG 13 ================= -->",
+      "questions": [
+        {
+          "question": "1. Phương thức nào dùng để lắng nghe sự kiện (VD: click) trên một phần tử HTML?",
+          "options": [
+            "onClick()",
+            "addEventListener()",
+            "listenEvent()"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s12"
+      ],
+      "words": 206
+    },
+    {
+      "id": "chapter13",
+      "file": "chapter13.html",
+      "title": "Callback & Callback Hell",
+      "summary": "Cách xử lý bất đồng bộ nguyên thủy nhất của JS — và vấn đề nổi tiếng khi lạm dụng nó.",
+      "content": "<section class=\"chapter\" id=\"s13\">\n      \n      <p class=\"lead\">Cách xử lý bất đồng bộ nguyên thủy nhất của JS — và vấn đề nổi tiếng khi lạm dụng nó.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">callback.js</span>\n        \n        <pre><code>function taiDuLieu(callback) {\n    setTimeout(() =&gt; {                    // setTimeout mô phỏng thao tác bất đồng bộ (gọi API...)\n        callback(\"Dữ liệu đã tải xong\");\n    }, 1000);\n}\n\ntaiDuLieu((ketQua) =&gt; {\n    console.log(ketQua);   // \"Dữ liệu đã tải xong\" - in ra SAU 1 giây\n});\nconsole.log(\"Dòng này chạy TRƯỚC callback ở trên!\");   // JS không \"chờ\" callback</code></pre>\n      </div>\n\n      <h3>Callback Hell — vấn đề khi lồng nhiều callback</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">callback_hell.js</span>\n        \n        <pre><code>taiDuLieu((sv) =&gt; {\n    taiDiem(sv, (diem) =&gt; {\n        taiXepLoai(diem, (xepLoai) =&gt; {\n            console.log(xepLoai);\n            // càng nhiều bước bất đồng bộ nối tiếp -&gt; code càng \"thụt\" sâu, khó đọc, khó bảo trì\n        });\n    });\n});</code></pre>\n      </div>\n\n      <div class=\"box warning\">\n        <div class=\"box-title\">Vấn đề — Callback Hell</div>\n        Khi có nhiều thao tác bất đồng bộ phụ thuộc lẫn nhau, lồng callback tạo ra code hình \"kim tự tháp ngược\" rất khó đọc và debug — đây chính là lý do <strong>Promise</strong> (chương 14) ra đời.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 13</h4>\n        <p>Callback là hàm truyền vào để gọi lại sau khi thao tác bất đồng bộ hoàn thành. Lồng nhiều callback gây ra \"Callback Hell\" — vấn đề mà Promise được thiết kế để giải quyết.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 14 ================= -->",
+      "questions": [],
+      "ids": [
+        "s13"
+      ],
+      "words": 203
+    },
+    {
+      "id": "chapter14",
+      "file": "chapter14.html",
+      "title": "Promise",
+      "summary": "Đối tượng đại diện cho một giá trị sẽ có trong tương lai — giải pháp thay thế callback hell.",
+      "content": "<section class=\"chapter\" id=\"s14\">\n      \n      <p class=\"lead\">Đối tượng đại diện cho một giá trị sẽ có trong tương lai — giải pháp thay thế callback hell.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">promise_basic.js</span>\n        \n        <pre><code>function taiDuLieu() {\n    return new Promise((resolve, reject) =&gt; {\n        setTimeout(() =&gt; {\n            const thanhCong = true;\n            if (thanhCong) {\n                resolve(\"Dữ liệu đã tải xong\");    // gọi khi THÀNH CÔNG\n            } else {\n                reject(\"Lỗi khi tải dữ liệu\");        // gọi khi THẤT BẠI\n            }\n        }, 1000);\n    });\n}\n\ntaiDuLieu()\n    .then(ketQua =&gt; console.log(ketQua))      // xử lý khi resolve\n    .catch(loi =&gt; console.log(loi))              // xử lý khi reject\n    .finally(() =&gt; console.log(\"Hoàn tất\"));       // LUÔN chạy, dù thành công hay thất bại</code></pre>\n      </div>\n\n      <h3>Chuỗi Promise — giải quyết callback hell</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">promise_chain.js</span>\n        \n        <pre><code>taiSinhVien()\n    .then(sv =&gt; taiDiem(sv))          // mỗi .then() nhận kết quả từ Promise trước\n    .then(diem =&gt; taiXepLoai(diem))\n    .then(xepLoai =&gt; console.log(xepLoai))\n    .catch(loi =&gt; console.log(\"Lỗi ở bất kỳ bước nào:\", loi));   // MỘT catch xử lý lỗi cho CẢ chuỗi</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Trạng thái Promise</th><th>Ý nghĩa</th></tr>\n        <tr><td><code>pending</code></td><td>Đang chờ xử lý</td></tr>\n        <tr><td><code>fulfilled</code></td><td>Đã hoàn thành thành công (resolve)</td></tr>\n        <tr><td><code>rejected</code></td><td>Đã thất bại (reject)</td></tr>\n      </tbody></table>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        <code>Promise.all([p1, p2, p3])</code> chạy nhiều Promise <strong>song song</strong> và chờ tất cả hoàn thành — nhanh hơn nhiều so với chờ tuần tự từng cái bằng chuỗi <code>.then()</code>.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 14</h4>\n        <p>Promise có 3 trạng thái (pending/fulfilled/rejected), dùng <code>.then()/.catch()/.finally()</code> để xử lý kết quả, và có thể nối chuỗi để thay thế callback hell.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 15 ================= -->",
+      "questions": [],
+      "ids": [
+        "s14"
+      ],
+      "words": 218
+    },
+    {
+      "id": "chapter15",
+      "file": "chapter15.html",
+      "title": "async/await",
+      "summary": "Cú pháp hiện đại (ES2017) giúp code bất đồng bộ trông và đọc giống code đồng bộ thông thường.",
+      "content": "<section class=\"chapter\" id=\"s15\">\n      \n      <p class=\"lead\">Cú pháp hiện đại (ES2017) giúp code bất đồng bộ trông và đọc giống code đồng bộ thông thường.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">async_await.js</span>\n        \n        <pre><code>async function layThongTinSinhVien() {       // \"async\" đánh dấu hàm trả về Promise\n    try {\n        const sv = await taiSinhVien();          // \"await\" tạm dừng cho tới khi Promise resolve\n        const diem = await taiDiem(sv);            // trông giống code đồng bộ, dễ đọc hơn .then() nhiều\n        const xepLoai = await taiXepLoai(diem);\n        console.log(xepLoai);\n    } catch (loi) {                                    // try-catch xử lý lỗi, thay cho .catch()\n        console.log(\"Lỗi:\", loi);\n    }\n}\n\nlayThongTinSinhVien();</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        <code>await</code> chỉ dùng được bên trong hàm khai báo <code>async</code>. Về bản chất, <code>async/await</code> chỉ là \"lớp vỏ cú pháp\" (syntactic sugar) cho Promise — bên dưới vẫn hoạt động dựa trên cơ chế Promise y hệt chương 14.\n      </div>\n\n      <h3>Chạy song song với async/await</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">parallel_await.js</span>\n        \n        <pre><code>async function taiNhieuDuLieu() {\n    // CHẬM - chờ tuần tự từng cái\n    const a = await taiA();\n    const b = await taiB();\n\n    // NHANH HƠN - chạy song song bằng Promise.all\n    const [x, y] = await Promise.all([taiA(), taiB()]);\n}</code></pre>\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 15</h4>\n        <p><code>async/await</code> giúp code bất đồng bộ dễ đọc như code đồng bộ, dùng try-catch để xử lý lỗi. Dùng <code>Promise.all()</code> khi các thao tác không phụ thuộc nhau để chạy song song, nhanh hơn.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 16 ================= -->",
+      "questions": [
+        {
+          "question": "1. Từ khóa nào tạm dừng thực thi cho tới khi Promise hoàn thành?",
+          "options": [
+            "async",
+            "await",
+            "then"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s15"
+      ],
+      "words": 212
+    },
+    {
+      "id": "chapter16",
+      "file": "chapter16.html",
+      "title": "Fetch API & JSON",
+      "summary": "Gọi API từ trình duyệt bằng fetch() — thay thế XMLHttpRequest kiểu cũ.",
+      "content": "<section class=\"chapter\" id=\"s16\">\n      \n      <p class=\"lead\">Gọi API từ trình duyệt bằng <code>fetch()</code> — thay thế XMLHttpRequest kiểu cũ.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">fetch_basic.js</span>\n        \n        <pre><code>// GET request\nasync function layDanhSachSanPham() {\n    const response = await fetch(\"https://api.example.com/san-pham\");\n    if (!response.ok) {                          // fetch KHÔNG tự reject khi lỗi HTTP (404, 500...)\n        throw new Error(`Lỗi HTTP: ${response.status}`);\n    }\n    const data = await response.json();            // parse JSON từ response\n    return data;\n}\n\n// POST request\nasync function taoSanPham(sanPham) {\n    const response = await fetch(\"https://api.example.com/san-pham\", {\n        method: \"POST\",\n        headers: {\"Content-Type\": \"application/json\"},\n        body: JSON.stringify(sanPham)               // object -&gt; chuỗi JSON\n    });\n    return await response.json();\n}</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        <code>fetch()</code> chỉ reject khi có lỗi <strong>mạng</strong> (mất kết nối...) — với lỗi HTTP như 404/500, <code>fetch()</code> vẫn resolve bình thường, phải tự kiểm tra <code>response.ok</code> hoặc <code>response.status</code> để phát hiện lỗi.\n      </div>\n\n      <h3>JSON.stringify &amp; JSON.parse</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">json_convert.js</span>\n        \n        <pre><code>const obj = {ten: \"Huy\", tuoi: 20};\nconst chuoiJson = JSON.stringify(obj);      // object -&gt; chuỗi JSON: '{\"ten\":\"Huy\",\"tuoi\":20}'\nconst objMoi = JSON.parse(chuoiJson);         // chuỗi JSON -&gt; object</code></pre>\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 16</h4>\n        <p><code>fetch()</code> gọi API bất đồng bộ, luôn kiểm tra <code>response.ok</code> để bắt lỗi HTTP. <code>JSON.stringify()/JSON.parse()</code> chuyển đổi qua lại giữa object và chuỗi JSON.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 17 ================= -->",
+      "questions": [],
+      "ids": [
+        "s16"
+      ],
+      "words": 181
+    },
+    {
+      "id": "chapter17",
+      "file": "chapter17.html",
+      "title": "Destructuring & Spread nâng cao",
+      "summary": "Các kỹ thuật ES6+ giúp code JavaScript ngắn gọn và biểu cảm hơn.",
+      "content": "<section class=\"chapter\" id=\"s17\">\n      \n      <p class=\"lead\">Các kỹ thuật ES6+ giúp code JavaScript ngắn gọn và biểu cảm hơn.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">destructuring_advanced.js</span>\n        \n        <pre><code>// Destructuring mảng\nconst [dau, thu2, ...con_lai] = [1, 2, 3, 4, 5];\nconsole.log(dau, thu2, con_lai);   // 1 2 [3, 4, 5]\n\n// Destructuring object với đổi tên và giá trị mặc định\nconst sv = {ten: \"Huy\", diem: 8.5};\nconst {ten: hoTen, tuoi = 18} = sv;      // đổi tên \"ten\"-&gt;\"hoTen\", \"tuoi\" dùng mặc định vì không có\nconsole.log(hoTen, tuoi);   // Huy 18\n\n// Destructuring trong tham số hàm - RẤT phổ biến trong React\nfunction gioiThieu({ten, tuoi}) {\n    console.log(`${ten}, ${tuoi} tuổi`);\n}\ngioiThieu({ten: \"Lan\", tuoi: 22});\n\n// Destructuring lồng nhau\nconst {profile: {email}} = {profile: {email: \"huy@example.com\"}};\nconsole.log(email);   // huy@example.com</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Destructuring tham số hàm (như ví dụ <code>gioiThieu({ten, tuoi})</code>) là pattern cực kỳ phổ biến trong React — giúp code component nhận props rõ ràng, tự tài liệu hóa các trường dữ liệu cần dùng.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 17</h4>\n        <p>Destructuring \"giải nén\" mảng/object ra biến riêng, hỗ trợ đổi tên, giá trị mặc định, và lồng nhau — kỹ thuật nền tảng của code JS/React hiện đại.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 18 ================= -->",
+      "questions": [],
+      "ids": [
+        "s17"
+      ],
+      "words": 185
+    },
+    {
+      "id": "chapter18",
+      "file": "chapter18.html",
+      "title": "Class trong JavaScript",
+      "summary": "Cú pháp OOP hiện đại (ES6+) — thực chất là \"lớp vỏ cú pháp\" cho prototype-based inheritance nguyên bản của JS.",
+      "content": "<section class=\"chapter\" id=\"s18\">\n      \n      <p class=\"lead\">Cú pháp OOP hiện đại (ES6+) — thực chất là \"lớp vỏ cú pháp\" cho prototype-based inheritance nguyên bản của JS.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">class_basic.js</span>\n        \n        <pre><code>class DongVat {\n    constructor(ten) {           // constructor - tự chạy khi tạo object\n        this.ten = ten;\n    }\n    an() {\n        console.log(`${this.ten} đang ăn`);\n    }\n}\n\nclass Cho extends DongVat {       // kế thừa bằng \"extends\"\n    constructor(ten) {\n        super(ten);                  // gọi constructor của lớp cha\n    }\n    sua() {\n        console.log(`${this.ten} sủa: Gâu gâu!`);\n    }\n}\n\nconst cho = new Cho(\"Milu\");\ncho.an();     // Milu đang ăn - kế thừa từ DongVat\ncho.sua();      // Milu sủa: Gâu gâu!\n\n// Private field (ES2022+)\nclass TaiKhoan {\n    #soDu = 0;                  // dấu # = thuộc tính private thực sự, không truy cập được từ ngoài\n    napTien(soTien) {\n        this.#soDu += soTien;\n    }\n    xemSoDu() {\n        return this.#soDu;\n    }\n}</code></pre>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">Ghi chú</div>\n        Class trong JS không phải khái niệm hoàn toàn mới — nó là cú pháp dễ đọc hơn cho <strong>prototype-based inheritance</strong>, cơ chế OOP gốc của JavaScript vốn khác biệt hoàn toàn so với class-based OOP của Java/C++.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 18</h4>\n        <p><code>class</code>/<code>extends</code>/<code>super</code> mang cú pháp OOP quen thuộc vào JS. Dấu <code>#</code> (ES2022+) tạo thuộc tính private thực sự, khác với quy ước đặt tên <code>_bien</code> chỉ mang tính ước lệ trước đây.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 19 ================= -->",
+      "questions": [],
+      "ids": [
+        "s18"
+      ],
+      "words": 209
+    },
+    {
+      "id": "chapter19",
+      "file": "chapter19.html",
+      "title": "Module (import/export)",
+      "summary": "Chia code thành nhiều file có thể tái sử dụng — chuẩn ES Module hiện đại.",
+      "content": "<section class=\"chapter\" id=\"s19\">\n      \n      <p class=\"lead\">Chia code thành nhiều file có thể tái sử dụng — chuẩn ES Module hiện đại.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">toanHoc.js</span>\n        \n        <pre><code>export function cong(a, b) {          // export MỘT hàm/biến cụ thể (named export)\n    return a + b;\n}\n\nexport const PI = 3.14159;\n\nexport default function nhan(a, b) {   // export MẶC ĐỊNH - mỗi file chỉ có 1 default export\n    return a * b;\n}</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">main.js</span>\n        \n        <pre><code>import nhan, { cong, PI } from './toanHoc.js';   // default export không cần dấu {}, named export cần\n\nconsole.log(cong(3, 5));   // 8\nconsole.log(nhan(3, 5));     // 15\nconsole.log(PI);              // 3.14159\n\nimport * as ToanHoc from './toanHoc.js';    // import TẤT CẢ dưới dạng một object\nconsole.log(ToanHoc.cong(1, 1));</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        Để dùng ES Module trong trình duyệt, thẻ script cần thêm <code>type=\"module\"</code>: <code>&lt;script type=\"module\" src=\"main.js\"&gt;&lt;/script&gt;</code>. Trong Node.js, cần cấu hình <code>\"type\": \"module\"</code> trong <code>package.json</code> hoặc dùng đuôi file <code>.mjs</code>.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 19</h4>\n        <p>ES Module dùng <code>export/import</code> để chia sẻ code giữa các file. Named export cho nhiều giá trị, default export cho giá trị chính duy nhất của mỗi module.</p>\n      </div>\n\n    </section>\n\n    <!-- ================= CHƯƠNG 20 ================= -->",
+      "questions": [
+        {
+          "question": "1. Mỗi file JS Module có thể có tối đa bao nhiêu default export?",
+          "options": [
+            "1",
+            "Không giới hạn",
+            "2"
+          ],
+          "answer": 0,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s19"
+      ],
+      "words": 173
+    },
+    {
+      "id": "chapter20",
+      "file": "chapter20.html",
+      "title": "Giới thiệu Node.js",
+      "summary": "Môi trường chạy JavaScript ngoài trình duyệt — biến JS thành ngôn ngữ full-stack thực thụ.",
+      "content": "<section class=\"chapter\" id=\"s20\">\n      \n      <p class=\"lead\">Môi trường chạy JavaScript ngoài trình duyệt — biến JS thành ngôn ngữ full-stack thực thụ.</p>\n\n      <h3>Node.js là gì?</h3>\n      <p>Node.js là môi trường thực thi JavaScript được xây dựng trên V8 engine (chính là engine chạy JS trong Chrome), cho phép chạy JS trên server, không cần trình duyệt. Nhờ đó, một lập trình viên có thể viết cả frontend lẫn backend chỉ bằng một ngôn ngữ duy nhất.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">app.js</span>\n        \n        <pre><code>// Chạy bằng: node app.js\nconsole.log(\"Xin chào từ Node.js!\");\nconsole.log(process.version);       // phiên bản Node.js đang chạy\nconsole.log(process.argv);            // tham số dòng lệnh truyền vào</code></pre>\n      </div>\n\n      <h3>Module built-in phổ biến</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">module_builtin.js</span>\n        \n        <pre><code>const os = require('os');           // require() - cách import kiểu CommonJS (mặc định của Node)\nconsole.log(os.platform());           // hệ điều hành đang chạy\nconsole.log(os.cpus().length);          // số lõi CPU\n\nconst path = require('path');\nconsole.log(path.join('data', 'file.txt'));   // nối đường dẫn đúng chuẩn hệ điều hành</code></pre>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">Ghi chú — CommonJS vs ES Module</div>\n        Node.js truyền thống dùng <code>require()</code>/<code>module.exports</code> (CommonJS). Node hiện đại cũng hỗ trợ <code>import</code>/<code>export</code> (ES Module, đã học ở chương 19) nếu cấu hình <code>\"type\": \"module\"</code> trong <code>package.json</code>.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 20</h4>\n        <p>Node.js chạy JS ngoài trình duyệt dựa trên V8 engine, cung cấp nhiều module built-in (os, path, fs...) và hỗ trợ cả CommonJS lẫn ES Module.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 21 ================= -->",
+      "questions": [],
+      "ids": [
+        "s20"
+      ],
+      "words": 206
+    },
+    {
+      "id": "chapter21",
+      "file": "chapter21.html",
+      "title": "NPM & package.json",
+      "summary": "npm (Node Package Manager) là kho thư viện lớn nhất thế giới lập trình — quản lý dependency cho dự án Node.js.",
+      "content": "<section class=\"chapter\" id=\"s21\">\n      \n      <p class=\"lead\">npm (Node Package Manager) là kho thư viện lớn nhất thế giới lập trình — quản lý dependency cho dự án Node.js.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">terminal</span>\n        \n        <pre><code>npm init -y                  # tạo file package.json với giá trị mặc định\nnpm install express            # cài một thư viện, tự thêm vào package.json\nnpm install --save-dev nodemon   # cài thư viện chỉ dùng khi PHÁT TRIỂN (không cần khi deploy)\nnpm uninstall express            # gỡ thư viện\nnpm run start                       # chạy script định nghĩa trong package.json</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">package.json</span>\n        \n        <pre><code>{\n  \"name\": \"du-an-cua-toi\",\n  \"version\": \"1.0.0\",\n  \"scripts\": {\n    \"start\": \"node app.js\",\n    \"dev\": \"nodemon app.js\"\n  },\n  \"dependencies\": {\n    \"express\": \"^5.1.0\"\n  }\n}</code></pre>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">Ghi chú — Express 5</div>\n        Từ giữa 2025, <strong>Express 5</strong> đã trở thành phiên bản mặc định khi chạy <code>npm install express</code> (thay cho Express 4 tồn tại suốt hơn một thập kỷ trước đó). Điểm khác biệt đáng chú ý nhất: middleware/route bất đồng bộ (<code>async</code>) giờ tự động chuyển lỗi (Promise bị reject) sang error-handling middleware mà không cần tự viết <code>try/catch</code> thủ công như trước.\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        Thư mục <code>node_modules</code> (chứa toàn bộ thư viện đã cài) <strong>không bao giờ</strong> nên đưa lên Git — luôn thêm vào <code>.gitignore</code>. Người khác chỉ cần file <code>package.json</code> và chạy <code>npm install</code> để tự cài lại toàn bộ dependency.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 21</h4>\n        <p><code>npm</code> quản lý thư viện bên thứ ba qua <code>package.json</code>. Dependency thường (<code>dependencies</code>) cần khi chạy, devDependency chỉ cần khi phát triển.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 22 ================= -->",
+      "questions": [],
+      "ids": [
+        "s21"
+      ],
+      "words": 238
+    },
+    {
+      "id": "chapter22",
+      "file": "chapter22.html",
+      "title": "File System (fs module)",
+      "summary": "Đọc và ghi file trên server bằng module fs có sẵn của Node.js.",
+      "content": "<section class=\"chapter\" id=\"s22\">\n      \n      <p class=\"lead\">Đọc và ghi file trên server bằng module <code>fs</code> có sẵn của Node.js.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">fs_basic.js</span>\n        \n        <pre><code>const fs = require('fs');\nconst fsPromises = require('fs/promises');   // phiên bản dùng Promise, hiện đại hơn\n\n// Cách CŨ - callback (dễ gây callback hell)\nfs.readFile('data.txt', 'utf8', (err, data) =&gt; {\n    if (err) { console.error(err); return; }\n    console.log(data);\n});\n\n// Cách HIỆN ĐẠI - dùng async/await\nasync function docFile() {\n    try {\n        const noiDung = await fsPromises.readFile('data.txt', 'utf8');\n        console.log(noiDung);\n\n        await fsPromises.writeFile('output.txt', 'Nội dung mới');\n    } catch (err) {\n        console.error('Lỗi:', err.message);\n    }\n}\ndocFile();</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Luôn ưu tiên phiên bản <code>fs/promises</code> kết hợp <code>async/await</code> thay vì callback API cũ — code sạch hơn nhiều và tránh được callback hell khi cần đọc/ghi nhiều file liên tiếp.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 22</h4>\n        <p>Module <code>fs</code> đọc/ghi file trên server. Nên dùng <code>fs/promises</code> với <code>async/await</code> thay vì API callback truyền thống để code dễ đọc hơn.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 23 ================= -->",
+      "questions": [],
+      "ids": [
+        "s22"
+      ],
+      "words": 146
+    },
+    {
+      "id": "chapter23",
+      "file": "chapter23.html",
+      "title": "Express — Server cơ bản",
+      "summary": "Framework phổ biến nhất để xây dựng web server và API bằng Node.js.",
+      "content": "<section class=\"chapter\" id=\"s23\">\n      \n      <p class=\"lead\">Framework phổ biến nhất để xây dựng web server và API bằng Node.js.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">server.js</span>\n        \n        <pre><code>// npm install express\nconst express = require('express');\nconst app = express();\nconst PORT = 3000;\n\napp.use(express.json());     // middleware - tự động parse JSON trong request body\n\napp.get('/', (req, res) =&gt; {\n    res.send('Chào mừng đến với Express!');\n});\n\napp.get('/sinh-vien/:id', (req, res) =&gt; {    // :id - route parameter\n    const id = req.params.id;\n    res.json({id: id, ten: \"Huy\"});\n});\n\napp.listen(PORT, () =&gt; {\n    console.log(`Server đang chạy tại http://localhost:${PORT}`);\n});</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Thành phần</th><th>Ý nghĩa</th></tr>\n        <tr><td><code>app.get/post/put/delete</code></td><td>Định nghĩa route ứng với từng phương thức HTTP</td></tr>\n        <tr><td><code>req</code></td><td>Object chứa thông tin request (params, query, body...)</td></tr>\n        <tr><td><code>res</code></td><td>Object dùng để gửi phản hồi (send, json, status...)</td></tr>\n        <tr><td><code>req.params</code></td><td>Tham số trên đường dẫn (VD: <code>/sinh-vien/:id</code>)</td></tr>\n        <tr><td><code>req.query</code></td><td>Tham số trên query string (VD: <code>?trang=2</code>)</td></tr>\n      </tbody></table>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 23</h4>\n        <p>Express định nghĩa route bằng <code>app.get/post/...</code>, xử lý request qua <code>req</code> và phản hồi qua <code>res</code> — nền tảng xây dựng REST API bằng Node.js.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 24 ================= -->",
+      "questions": [],
+      "ids": [
+        "s23"
+      ],
+      "words": 154
+    },
+    {
+      "id": "chapter24",
+      "file": "chapter24.html",
+      "title": "Express — REST API & Middleware",
+      "summary": "Xây dựng REST API hoàn chỉnh và hiểu khái niệm middleware — trái tim của Express.",
+      "content": "<section class=\"chapter\" id=\"s24\">\n      \n      <p class=\"lead\">Xây dựng REST API hoàn chỉnh và hiểu khái niệm middleware — trái tim của Express.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">rest_api.js</span>\n        \n        <pre><code>const express = require('express');\nconst app = express();\napp.use(express.json());\n\nlet sinhVienDB = [{id: 1, ten: \"Huy\"}];\n\napp.get('/sinh-vien', (req, res) =&gt; {\n    res.json(sinhVienDB);\n});\n\napp.post('/sinh-vien', (req, res) =&gt; {\n    const svMoi = {id: sinhVienDB.length + 1, ten: req.body.ten};\n    sinhVienDB.push(svMoi);\n    res.status(201).json(svMoi);       // 201 = Created\n});\n\napp.delete('/sinh-vien/:id', (req, res) =&gt; {\n    sinhVienDB = sinhVienDB.filter(sv =&gt; sv.id != req.params.id);\n    res.status(204).send();               // 204 = No Content\n});</code></pre>\n      </div>\n\n      <h3>Middleware — hàm chạy \"ở giữa\" request và response</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">middleware.js</span>\n        \n        <pre><code>function ghiLog(req, res, next) {          // middleware TỰ VIẾT\n    console.log(`${req.method} ${req.url} - ${new Date().toISOString()}`);\n    next();                                        // BẮT BUỘC gọi next() để chuyển sang middleware/route kế tiếp\n}\n\nfunction kiemTraDangNhap(req, res, next) {\n    const token = req.headers['authorization'];\n    if (!token) {\n        return res.status(401).json({loi: \"Chưa đăng nhập\"});   // KHÔNG gọi next() -&gt; dừng lại tại đây\n    }\n    next();\n}\n\napp.use(ghiLog);                                    // áp dụng cho MỌI route\napp.get('/admin', kiemTraDangNhap, (req, res) =&gt; {    // áp dụng cho MỘT route cụ thể\n    res.send('Trang quản trị');\n});</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        Middleware là khái niệm cốt lõi của Express: mỗi request đi qua một \"chuỗi\" các hàm middleware trước khi tới route handler cuối cùng. Quên gọi <code>next()</code> sẽ khiến request bị \"treo\" mãi mãi, không bao giờ có phản hồi.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 24</h4>\n        <p>REST API trong Express định nghĩa qua các route GET/POST/PUT/DELETE. Middleware (qua <code>app.use()</code> hoặc tham số route) xử lý logic chung như logging, xác thực — luôn nhớ gọi <code>next()</code>.</p>\n      </div>\n\n    </section>\n\n    <!-- ================= CHƯƠNG 25 ================= -->",
+      "questions": [
+        {
+          "question": "1. Điều gì xảy ra nếu middleware quên gọi next()?",
+          "options": [
+            "Server tự động crash",
+            "Request bị treo, không có phản hồi",
+            "Middleware tự động được bỏ qua"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s24"
+      ],
+      "words": 248
+    },
+    {
+      "id": "chapter25",
+      "file": "chapter25.html",
+      "title": "Dự án: Todo App (Vanilla JS)",
+      "summary": "Xây dựng ứng dụng quản lý công việc hoàn chỉnh chỉ bằng JavaScript thuần và DOM API.",
+      "content": "<section class=\"chapter\" id=\"s25\">\n      \n      <p class=\"lead\">Xây dựng ứng dụng quản lý công việc hoàn chỉnh chỉ bằng JavaScript thuần và DOM API.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">todo_app.js</span>\n        \n        <pre><code>// Giả sử HTML có: &lt;input id=\"oNhap\"&gt; &lt;button id=\"nutThem\"&gt;Thêm&lt;/button&gt; &lt;ul id=\"danhSach\"&gt;&lt;/ul&gt;\n\nlet congViecs = [];\n\nfunction render() {\n    const ul = document.getElementById('danhSach');\n    ul.innerHTML = '';                                  // xóa và vẽ lại toàn bộ danh sách\n    congViecs.forEach((cv, index) =&gt; {\n        const li = document.createElement('li');\n        li.textContent = cv.tieuDe;\n        li.style.textDecoration = cv.hoanThanh ? 'line-through' : 'none';\n\n        li.addEventListener('click', () =&gt; {              // click để đánh dấu hoàn thành\n            congViecs[index].hoanThanh = !congViecs[index].hoanThanh;\n            render();\n        });\n\n        const nutXoa = document.createElement('button');\n        nutXoa.textContent = 'Xóa';\n        nutXoa.addEventListener('click', (e) =&gt; {\n            e.stopPropagation();                              // ngăn sự kiện click lan lên li\n            congViecs.splice(index, 1);\n            render();\n        });\n\n        li.appendChild(nutXoa);\n        ul.appendChild(li);\n    });\n}\n\ndocument.getElementById('nutThem').addEventListener('click', () =&gt; {\n    const oNhap = document.getElementById('oNhap');\n    if (oNhap.value.trim() === '') return;\n    congViecs.push({ tieuDe: oNhap.value, hoanThanh: false });\n    oNhap.value = '';\n    render();\n});</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Dự án này minh họa chính xác vấn đề mà React giải quyết: mỗi lần dữ liệu thay đổi, ta phải TỰ TAY cập nhật lại DOM (<code>render()</code>) — với ứng dụng phức tạp hơn, việc quản lý DOM thủ công này trở nên rất khó kiểm soát.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 28</h4>\n        <p>Dự án Todo App thuần JS minh họa việc quản lý state (mảng congViecs) và tự cập nhật DOM thủ công — nền tảng để hiểu rõ giá trị mà React mang lại ở chương tiếp theo.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 29 ================= -->",
+      "questions": [],
+      "ids": [
+        "s25"
+      ],
+      "words": 229
+    },
+    {
+      "id": "chapter26",
+      "file": "chapter26.html",
+      "title": "Dự án: Todo App (React)",
+      "summary": "Xây dựng lại chính ứng dụng Todo App bằng React — so sánh trực tiếp để thấy sự khác biệt.",
+      "content": "<section class=\"chapter\" id=\"s26\">\n      \n      <p class=\"lead\">Xây dựng lại chính ứng dụng Todo App bằng React — so sánh trực tiếp để thấy sự khác biệt.</p>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">⚠️ Cần kiến thức React trước</div>\n        Bài này giả định bạn đã biết JSX, Component, Props và State/useState. Lộ trình JavaScript (NNLT) không còn dạy React tại chỗ nữa —\n        toàn bộ phần React (JSX, Props, State, Hooks, Router, Context...) nay nằm trong lộ trình riêng\n        <a href=\"../react/chapter01.html\">React.js Từ Zero Đến Hero</a>. Nếu chưa học React, hãy hoàn thành lộ trình đó trước rồi quay lại bài này.\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">TodoApp.jsx</span>\n        \n        <pre><code>import { useState } from 'react';\n\nfunction TodoApp() {\n    const [congViecs, setCongViecs] = useState([]);\n    const [oNhap, setONhap] = useState('');\n\n    function themCongViec() {\n        if (oNhap.trim() === '') return;\n        setCongViecs([...congViecs, { tieuDe: oNhap, hoanThanh: false }]);   // spread (chương 11)\n        setONhap('');\n    }\n\n    function toggleHoanThanh(index) {\n        const moi = [...congViecs];\n        moi[index].hoanThanh = !moi[index].hoanThanh;\n        setCongViecs(moi);\n    }\n\n    function xoaCongViec(index) {\n        setCongViecs(congViecs.filter((_, i) =&gt; i !== index));    // filter (chương 10)\n    }\n\n    return (\n        &lt;div&gt;\n            &lt;input value={oNhap} onChange={(e) =&gt; setONhap(e.target.value)} /&gt;\n            &lt;button onClick={themCongViec}&gt;Thêm&lt;/button&gt;\n            &lt;ul&gt;\n                {congViecs.map((cv, index) =&gt; (\n                    &lt;li key={index}\n                        style={{ textDecoration: cv.hoanThanh ? 'line-through' : 'none' }}\n                        onClick={() =&gt; toggleHoanThanh(index)}&gt;\n                        {cv.tieuDe}\n                        &lt;button onClick={(e) =&gt; { e.stopPropagation(); xoaCongViec(index); }}&gt;\n                            Xóa\n                        &lt;/button&gt;\n                    &lt;/li&gt;\n                ))}\n            &lt;/ul&gt;\n        &lt;/div&gt;\n    );\n}\n\nexport default TodoApp;</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo — Sự khác biệt cốt lõi</div>\n        Với React, ta chỉ cần <strong>khai báo UI trông như thế nào dựa trên state</strong> (<code>congViecs.map(...)</code>) — không cần tự viết logic <code>render()</code> để cập nhật DOM thủ công như ở chương 28. React tự động tính toán và cập nhật đúng phần DOM cần thay đổi.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>🎉 Hoàn thành phần lý thuyết!</h4>\n        <p>Bạn đã đi qua <strong>29 chương lý thuyết</strong>. Tiếp theo là <strong>Ngân hàng bài tập</strong> để luyện tập củng cố — thử tự giải trước khi xem đáp án!</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 30 ================= -->",
+      "questions": [
+        {
+          "question": "1. Trong React, khi muốn cập nhật một mảng trong state, cách làm đúng là gì?",
+          "options": [
+            "Tạo mảng mới bằng spread/filter/map rồi gọi setState",
+            "Gọi trực tiếp .push() lên mảng state cũ",
+            "Sửa trực tiếp phần tử trong mảng state"
+          ],
+          "answer": 0,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s26"
+      ],
+      "words": 291
+    },
+    {
+      "id": "chapter27",
+      "file": "chapter27.html",
+      "title": "Bài tập Cơ bản (Dễ)",
+      "summary": "8 bài tập củng cố cú pháp nền tảng, hàm, chuỗi và vòng lặp.",
+      "content": "<section class=\"chapter\" id=\"s27\">\n      \n      <p class=\"lead\">8 bài tập củng cố cú pháp nền tảng, hàm, chuỗi và vòng lặp.</p>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 1: Kiểm tra số nguyên tố</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>function laSoNguyenTo(n) {\n    if (n &lt; 2) return false;\n    for (let i = 2; i * i &lt;= n; i++) {\n        if (n % i === 0) return false;\n    }\n    return true;\n}</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 2: Đảo ngược chuỗi</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>const daoNguoc = (s) =&gt; s.split('').reverse().join('');\nconsole.log(daoNguoc(\"Python\"));   // \"nohtyP\"</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 3: Kiểm tra Palindrome</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>function laPalindrome(s) {\n    const sach = s.toLowerCase().replace(/[^a-z0-9]/g, '');\n    return sach === sach.split('').reverse().join('');\n}</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 4: Tìm phần tử xuất hiện nhiều nhất trong mảng</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>function phanTuNhieuNhat(ds) {\n    const dem = {};\n    let ketQua = ds[0], maxDem = 0;\n    for (const x of ds) {\n        dem[x] = (dem[x] || 0) + 1;\n        if (dem[x] &gt; maxDem) { maxDem = dem[x]; ketQua = x; }\n    }\n    return ketQua;\n}</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 5: Debounce function (kỹ thuật quan trọng trong thực tế)</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <p><strong>Đề:</strong> Viết hàm debounce - trì hoãn thực thi cho tới khi ngừng gọi trong một khoảng thời gian (hữu ích cho ô tìm kiếm, chống spam click).</p>\n          <pre><code>function debounce(func, delay) {\n    let timer;\n    return function (...args) {\n        clearTimeout(timer);\n        timer = setTimeout(() =&gt; func(...args), delay);\n    };\n}\n\nconst timKiemDaDebounce = debounce((tuKhoa) =&gt; {\n    console.log(\"Đang tìm kiếm:\", tuKhoa);\n}, 500);</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 6: Flatten mảng lồng nhau</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>function flatten(ds) {\n    return ds.reduce((ket, x) =&gt;\n        Array.isArray(x) ? ket.concat(flatten(x)) : ket.concat(x), []);\n}\nconsole.log(flatten([1, [2, [3, 4], 5], 6]));   // [1, 2, 3, 4, 5, 6]\n// Hoặc dùng có sẵn: ds.flat(Infinity)</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 7: Deep clone object (sao chép sâu)</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>function deepClone(obj) {\n    return JSON.parse(JSON.stringify(obj));   // cách đơn giản (không xử lý được Date, function...)\n}\n// Cách hiện đại hơn (2022+): structuredClone(obj)</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 8: Viết hàm curry đơn giản</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>const cong = (a) =&gt; (b) =&gt; (c) =&gt; a + b + c;\nconsole.log(cong(1)(2)(3));   // 6 - mỗi lần gọi trả về hàm mới, \"nhớ\" tham số trước (closure)</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 30</h4>\n        <p>8 bài tập cơ bản củng cố hàm, mảng, closure và các kỹ thuật thực tế như debounce — thường gặp trong công việc frontend hàng ngày.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 31 ================= -->",
+      "questions": [],
+      "ids": [
+        "s27"
+      ],
+      "words": 349
+    },
+    {
+      "id": "chapter28",
+      "file": "chapter28.html",
+      "title": "Bài tập Mảng, Object & Bất đồng bộ",
+      "summary": "7 bài tập vận dụng map/filter/reduce, Promise và các kỹ thuật ES6+ — mức độ thường gặp trong bài test tuyển dụng Frontend Developer.",
+      "content": "<section class=\"chapter\" id=\"s28\">\n      \n      <p class=\"lead\">7 bài tập vận dụng map/filter/reduce, Promise và các kỹ thuật ES6+ — mức độ thường gặp trong bài test tuyển dụng Frontend Developer.</p>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 1: Nhóm sản phẩm theo danh mục</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>function nhomTheoDanhMuc(sanPhams) {\n    return sanPhams.reduce((nhom, sp) =&gt; {\n        (nhom[sp.danhMuc] = nhom[sp.danhMuc] || []).push(sp);\n        return nhom;\n    }, {});\n}</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 2: Two Sum bằng Map (O(n))</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>function twoSum(nums, target) {\n    const daThay = new Map();\n    for (let i = 0; i &lt; nums.length; i++) {\n        const conLai = target - nums[i];\n        if (daThay.has(conLai)) return [daThay.get(conLai), i];\n        daThay.set(nums[i], i);\n    }\n    return [];\n}</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 3: Chuyển đổi Promise callback cũ sang async/await</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>function cho(ms) {                        // hàm tiện ích \"chờ\" - rất hay dùng\n    return new Promise(resolve =&gt; setTimeout(resolve, ms));\n}\n\nasync function inTuanTu() {\n    for (let i = 1; i &lt;= 3; i++) {\n        await cho(1000);\n        console.log(i);                       // in 1, 2, 3 mỗi số cách nhau 1 giây\n    }\n}</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 4: Gọi nhiều API song song với xử lý lỗi từng phần</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <p><strong>Đề:</strong> Gọi 3 API, không để 1 API lỗi làm hỏng toàn bộ kết quả (khác Promise.all).</p>\n          <pre><code>async function goiNhieuAPI(urls) {\n    const ketQua = await Promise.allSettled(urls.map(url =&gt; fetch(url)));\n    return ketQua.map(r =&gt;\n        r.status === 'fulfilled' ? r.value : { loi: r.reason }\n    );\n}</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 5: Memoize function (cache kết quả hàm)</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>function memoize(func) {\n    const cache = new Map();\n    return function (...args) {\n        const key = JSON.stringify(args);\n        if (cache.has(key)) return cache.get(key);\n        const ketQua = func(...args);\n        cache.set(key, ketQua);\n        return ketQua;\n    };\n}</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 6: Custom Hook đếm số (React)</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>function useCounter(giaTriBanDau = 0) {\n    const [dem, setDem] = useState(giaTriBanDau);\n    const tang = () =&gt; setDem(d =&gt; d + 1);\n    const giam = () =&gt; setDem(d =&gt; d - 1);\n    const resetVe = () =&gt; setDem(giaTriBanDau);\n    return { dem, tang, giam, resetVe };\n}\n// Dùng: const { dem, tang, giam } = useCounter(0);</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 7: Sắp xếp mảng object theo nhiều tiêu chí</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>sinhViens.sort((a, b) =&gt; {\n    if (b.diem !== a.diem) return b.diem - a.diem;   // ưu tiên điểm giảm dần\n    return a.ten.localeCompare(b.ten);                  // nếu bằng điểm, sắp theo tên A-Z\n});</code></pre>\n        </div></div>\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>🎉 Hoàn thành Phần 1-6!</h4>\n        <p>Bạn đã hoàn thành 31 chương lý thuyết + bài tập. Tiếp theo là <strong>Phần 7 — JS Nâng Cao &amp; Trình Duyệt</strong>: các API trình duyệt mạnh mẽ ít được dạy nhưng rất hữu ích trong thực tế.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 32 ================= -->",
+      "questions": [
+        {
+          "question": "1. Phương thức nào chạy nhiều Promise song song mà KHÔNG bị dừng khi một Promise reject?",
+          "options": [
+            "Promise.all()",
+            "Promise.allSettled()",
+            "Promise.race()"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s28"
+      ],
+      "words": 389
+    },
+    {
+      "id": "chapter29",
+      "file": "chapter29.html",
+      "title": "Web Storage (localStorage/sessionStorage)",
+      "summary": "Lưu dữ liệu trực tiếp trên trình duyệt người dùng — không cần gọi server, tồn tại giữa các lần tải trang.",
+      "content": "<section class=\"chapter\" id=\"s29\">\n      \n      <p class=\"lead\">Lưu dữ liệu trực tiếp trên trình duyệt người dùng — không cần gọi server, tồn tại giữa các lần tải trang.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">web_storage.js</span>\n        \n        <pre><code>// localStorage - LƯU VĨNH VIỄN cho tới khi bị xóa thủ công\nlocalStorage.setItem('ten_nguoi_dung', 'Huy');\nlocalStorage.getItem('ten_nguoi_dung');        // \"Huy\"\nlocalStorage.removeItem('ten_nguoi_dung');\nlocalStorage.clear();                             // xóa TOÀN BỘ dữ liệu localStorage\n\n// Lưu object phải chuyển qua chuỗi JSON trước\nconst nguoiDung = { ten: \"Huy\", tuoi: 20 };\nlocalStorage.setItem('nguoiDung', JSON.stringify(nguoiDung));\nconst daLuu = JSON.parse(localStorage.getItem('nguoiDung'));\n\n// sessionStorage - CÙNG cú pháp, nhưng chỉ tồn tại trong PHIÊN TAB hiện tại\nsessionStorage.setItem('gio_hang_tam', JSON.stringify([1, 2, 3]));\n// Đóng tab lại là mất - khác localStorage vẫn còn sau khi đóng trình duyệt</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Tiêu chí</th><th>localStorage</th><th>sessionStorage</th><th>Cookie</th></tr>\n        <tr><td>Thời gian tồn tại</td><td>Vĩnh viễn (tới khi xóa)</td><td>Chỉ trong phiên tab</td><td>Tùy đặt (có thể có hạn)</td></tr>\n        <tr><td>Dung lượng</td><td>~5-10MB</td><td>~5-10MB</td><td>~4KB (rất nhỏ)</td></tr>\n        <tr><td>Tự động gửi lên server</td><td>Không</td><td>Không</td><td>Có (mỗi request)</td></tr>\n      </tbody></table>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        Web Storage chỉ lưu được <strong>chuỗi (string)</strong> — object/array phải <code>JSON.stringify()</code> trước khi lưu, và <code>JSON.parse()</code> khi đọc ra. Không bao giờ lưu dữ liệu nhạy cảm (mật khẩu, token quan trọng) trong localStorage vì bất kỳ script nào chạy trên trang (kể cả từ lỗ hổng XSS đã học) đều đọc được.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 32</h4>\n        <p>localStorage lưu vĩnh viễn, sessionStorage chỉ trong phiên tab — cả hai chỉ lưu chuỗi, cần JSON.stringify/parse cho dữ liệu phức tạp. Không dùng cho dữ liệu nhạy cảm vì dễ bị đọc qua XSS.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 33 ================= -->",
+      "questions": [],
+      "ids": [
+        "s29"
+      ],
+      "words": 233
+    },
+    {
+      "id": "chapter30",
+      "file": "chapter30.html",
+      "title": "IndexedDB — Lưu trữ dữ liệu lớn",
+      "summary": "Khi localStorage (vài MB, chỉ string) không đủ — cơ sở dữ liệu NoSQL đầy đủ chạy ngay trong trình duyệt.",
+      "content": "<section class=\"chapter\" id=\"s30\">\n      \n      <p class=\"lead\">Khi localStorage (vài MB, chỉ string) không đủ — cơ sở dữ liệu NoSQL đầy đủ chạy ngay trong trình duyệt.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">indexeddb_basic.js</span>\n        \n        <pre><code>const yeuCauMo = indexedDB.open('CuaHangDB', 1);      // tên database, phiên bản\n\nyeuCauMo.onupgradeneeded = (event) =&gt; {                  // chạy khi tạo mới/nâng cấp version\n    const db = event.target.result;\n    const store = db.createObjectStore('sanPham', { keyPath: 'id' });   // tạo \"bảng\"\n    store.createIndex('theoTen', 'ten', { unique: false });               // tạo chỉ mục để tìm nhanh theo tên\n};\n\nyeuCauMo.onsuccess = (event) =&gt; {\n    const db = event.target.result;\n\n    // Thêm dữ liệu\n    const giaoDich = db.transaction('sanPham', 'readwrite');\n    giaoDich.objectStore('sanPham').add({ id: 1, ten: 'Áo thun', gia: 150000 });\n\n    // Đọc dữ liệu\n    const giaoDichDoc = db.transaction('sanPham', 'readonly');\n    const yeuCau = giaoDichDoc.objectStore('sanPham').get(1);\n    yeuCau.onsuccess = () =&gt; console.log(yeuCau.result);\n};</code></pre>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">Ghi chú</div>\n        IndexedDB là API bất đồng bộ dựa trên <strong>event</strong> (cũ hơn Promise), cú pháp khá dài dòng — trong thực tế, hầu hết dự án dùng thư viện wrapper như <code>idb</code> (của Jake Archibald) để có cú pháp Promise gọn gàng hơn nhiều.\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        IndexedDB là nền tảng lưu trữ offline cho <strong>Progressive Web App (PWA)</strong> — cho phép ứng dụng web hoạt động cả khi mất mạng, lưu trữ hàng nghìn bản ghi mà localStorage không kham nổi.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 33</h4>\n        <p>IndexedDB là NoSQL database chạy trong trình duyệt, lưu được dữ liệu lớn và có cấu trúc (không chỉ string như localStorage) — nền tảng cho ứng dụng offline-first/PWA.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 34 ================= -->",
+      "questions": [],
+      "ids": [
+        "s30"
+      ],
+      "words": 236
+    },
+    {
+      "id": "chapter31",
+      "file": "chapter31.html",
+      "title": "Web Workers — Đa luồng trong trình duyệt",
+      "summary": "JavaScript vốn đơn luồng (single-threaded) — Web Worker cho phép chạy code nặng ở \"luồng nền\" mà không làm đứng giao diện.",
+      "content": "<section class=\"chapter\" id=\"s31\">\n      \n      <p class=\"lead\">JavaScript vốn đơn luồng (single-threaded) — Web Worker cho phép chạy code nặng ở \"luồng nền\" mà không làm đứng giao diện.</p>\n\n      <h3>Vấn đề: tác vụ nặng làm \"đứng hình\" giao diện</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">van_de_khong_worker.js</span>\n        \n        <pre><code>function tinhToanNang() {\n    let tong = 0;\n    for (let i = 0; i &lt; 10_000_000_000; i++) { tong += i; }   // vòng lặp CỰC LỚN\n    return tong;\n}\ntinhToanNang();\n// Trong lúc chạy đoạn này, TOÀN BỘ trang bị \"đứng hình\" -\n// không click được nút, không cuộn được trang - vì JS chỉ có 1 luồng chính</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">worker.js (file riêng)</span>\n        \n        <pre><code>// File worker.js - chạy trên LUỒNG RIÊNG, tách biệt hoàn toàn khỏi giao diện\nself.onmessage = (event) =&gt; {\n    const { soBatDau, soKetThuc } = event.data;\n    let tong = 0;\n    for (let i = soBatDau; i &lt; soKetThuc; i++) { tong += i; }\n    self.postMessage(tong);          // gửi kết quả VỀ luồng chính khi xong\n};</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">main.js</span>\n        \n        <pre><code>const worker = new Worker('worker.js');\n\nworker.postMessage({ soBatDau: 0, soKetThuc: 10_000_000_000 });   // gửi việc CHO worker\n\nworker.onmessage = (event) =&gt; {\n    console.log('Kết quả:', event.data);      // nhận kết quả, giao diện KHÔNG hề bị đứng lúc tính toán\n};</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        Web Worker <strong>KHÔNG truy cập được DOM</strong> trực tiếp (không thể <code>document.getElementById(...)</code>) — chỉ giao tiếp với luồng chính qua <code>postMessage()</code>/<code>onmessage</code>. Phù hợp cho tính toán thuần túy (xử lý ảnh, phân tích dữ liệu lớn, mã hóa...), không phù hợp thao tác giao diện.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 34</h4>\n        <p>Web Worker chạy JS trên luồng nền riêng biệt, tránh làm \"đứng\" giao diện khi xử lý tác vụ nặng — giao tiếp với luồng chính qua postMessage(), không truy cập được DOM trực tiếp.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 35 ================= -->",
+      "questions": [],
+      "ids": [
+        "s31"
+      ],
+      "words": 278
+    },
+    {
+      "id": "chapter32",
+      "file": "chapter32.html",
+      "title": "WebSocket API (client thuần)",
+      "summary": "API WebSocket gốc của trình duyệt — nền tảng mà các thư viện như Socket.IO (đã học ở Full-Stack JS) xây dựng bên trên.",
+      "content": "<section class=\"chapter\" id=\"s32\">\n      \n      <p class=\"lead\">API WebSocket gốc của trình duyệt — nền tảng mà các thư viện như Socket.IO (đã học ở Full-Stack JS) xây dựng bên trên.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">websocket_client.js</span>\n        \n        <pre><code>const socket = new WebSocket('wss://echo.websocket.org');   // wss:// = WebSocket qua HTTPS\n\nsocket.onopen = () =&gt; {\n    console.log('Đã kết nối!');\n    socket.send('Xin chào server!');            // gửi tin nhắn TỚI server\n};\n\nsocket.onmessage = (event) =&gt; {\n    console.log('Nhận được:', event.data);        // nhận tin nhắn TỪ server\n};\n\nsocket.onerror = (error) =&gt; {\n    console.log('Lỗi kết nối:', error);\n};\n\nsocket.onclose = () =&gt; {\n    console.log('Đã ngắt kết nối');\n};\n\n// Đóng kết nối chủ động khi không cần nữa\n// socket.close();</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Tiêu chí</th><th>WebSocket thuần</th><th>Socket.IO</th></tr>\n        <tr><td>Có sẵn trong trình duyệt</td><td>Có, không cần cài thêm</td><td>Cần thư viện <code>socket.io-client</code></td></tr>\n        <tr><td>Tự động reconnect khi mất mạng</td><td>Không — phải tự viết logic</td><td>Có sẵn</td></tr>\n        <tr><td>Fallback khi trình duyệt cũ không hỗ trợ</td><td>Không</td><td>Có (tự chuyển sang long-polling)</td></tr>\n        <tr><td>Đặt tên sự kiện tùy chỉnh</td><td>Không — chỉ có 1 kênh <code>onmessage</code></td><td>Có (<code>socket.on('ten_su_kien', ...)</code>)</td></tr>\n      </tbody></table>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Hiểu WebSocket API thuần giúp hiểu ĐÚNG bản chất cách Socket.IO hoạt động bên dưới — Socket.IO thực chất là WebSocket API được \"bọc\" thêm nhiều tiện ích (reconnect, fallback, event namespace) để dùng dễ dàng và ổn định hơn trong thực tế.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 35</h4>\n        <p>WebSocket API là chuẩn gốc của trình duyệt cho giao tiếp hai chiều real-time, đơn giản nhưng thiếu các tiện ích nâng cao (reconnect, fallback) mà Socket.IO cung cấp sẵn.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 36 ================= -->",
+      "questions": [],
+      "ids": [
+        "s32"
+      ],
+      "words": 233
+    },
+    {
+      "id": "chapter33",
+      "file": "chapter33.html",
+      "title": "Unit Testing với Jest",
+      "summary": "Viết code tự động kiểm tra code khác — nền tảng để refactor tự tin mà không lo \"vô tình làm hỏng cái gì đó\".",
+      "content": "<section class=\"chapter\" id=\"s33\">\n      \n      <p class=\"lead\">Viết code tự động kiểm tra code khác — nền tảng để refactor tự tin mà không lo \"vô tình làm hỏng cái gì đó\".</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">terminal</span>\n        \n        <pre><code>npm install --save-dev jest</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">toanHoc.js</span>\n        \n        <pre><code>function cong(a, b) {\n    return a + b;\n}\nfunction chia(a, b) {\n    if (b === 0) throw new Error('Không thể chia cho 0');\n    return a / b;\n}\nmodule.exports = { cong, chia };</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">toanHoc.test.js</span>\n        \n        <pre><code>const { cong, chia } = require('./toanHoc');\n\ntest('cong 3 va 5 phai bang 8', () =&gt; {\n    expect(cong(3, 5)).toBe(8);\n});\n\ndescribe('ham chia', () =&gt; {                          // describe nhóm các test liên quan\n    test('chia 10 cho 2 phai bang 5', () =&gt; {\n        expect(chia(10, 2)).toBe(5);\n    });\n\n    test('chia cho 0 phai nem ra loi', () =&gt; {\n        expect(() =&gt; chia(10, 0)).toThrow('Không thể chia cho 0');\n    });\n});\n\n// Chạy: npx jest</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Matcher</th><th>Công dụng</th></tr>\n        <tr><td><code>toBe(x)</code></td><td>So sánh giá trị nguyên thủy (số, chuỗi, boolean) chính xác</td></tr>\n        <tr><td><code>toEqual(x)</code></td><td>So sánh NỘI DUNG object/array (không cần cùng tham chiếu)</td></tr>\n        <tr><td><code>toThrow()</code></td><td>Kiểm tra hàm có ném ra lỗi không</td></tr>\n        <tr><td><code>toBeNull()</code> / <code>toBeUndefined()</code></td><td>Kiểm tra giá trị null/undefined</td></tr>\n      </tbody></table>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Nguyên tắc AAA khi viết test: <strong>Arrange</strong> (chuẩn bị dữ liệu đầu vào) → <strong>Act</strong> (gọi hàm cần test) → <strong>Assert</strong> (kiểm tra kết quả đúng như mong đợi) — cấu trúc này giúp test luôn rõ ràng, dễ đọc dù logic phức tạp tới đâu.\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">Ghi chú — Vitest</div>\n        Jest vẫn cực kỳ phổ biến và là kiến thức nền tảng bắt buộc phải biết — cú pháp <code>test()</code>, <code>describe()</code>, các matcher <code>expect()</code> gần như giống hệt nhau giữa các framework. Tuy nhiên, với dự án mới năm 2026 (đặc biệt nếu dùng Vite, Nuxt, SvelteKit...), <strong>Vitest</strong> đang là lựa chọn mặc định được khuyến nghị nhờ tốc độ chạy test nhanh hơn đáng kể và hỗ trợ ES Module tốt hơn. Tin vui: code test viết cho Jest ở trên gần như chạy được ngay với Vitest chỉ sau một vài chỉnh sửa nhỏ về cú pháp import.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 36</h4>\n        <p>Jest cung cấp test()/describe() để tổ chức test, và các matcher (toBe/toEqual/toThrow) để kiểm tra kết quả — viết unit test giúp phát hiện lỗi sớm và tự tin refactor code sau này.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 37 ================= -->",
+      "questions": [],
+      "ids": [
+        "s33"
+      ],
+      "words": 363
+    },
+    {
+      "id": "chapter34",
+      "file": "chapter34.html",
+      "title": "Design Patterns thường gặp trong JS",
+      "summary": "Các khuôn mẫu giải pháp đã được kiểm chứng cho những vấn đề lập trình lặp đi lặp lại.",
+      "content": "<section class=\"chapter\" id=\"s34\">\n      \n      <p class=\"lead\">Các khuôn mẫu giải pháp đã được kiểm chứng cho những vấn đề lập trình lặp đi lặp lại.</p>\n\n      <h3>Module Pattern — đóng gói, tránh ô nhiễm biến toàn cục</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">module_pattern.js</span>\n        \n        <pre><code>const BoDemModule = (function() {\n    let dem = 0;                          // biến PRIVATE - không truy cập được từ bên ngoài\n\n    return {                                 // chỉ những gì return ra mới là PUBLIC\n        tang() { dem++; return dem; },\n        layGiaTri() { return dem; },\n    };\n})();\n\nBoDemModule.tang();\nconsole.log(BoDemModule.layGiaTri());   // 1\n// console.log(BoDemModule.dem);        // undefined - không truy cập trực tiếp được</code></pre>\n      </div>\n\n      <h3>Observer Pattern — nền tảng của Event System</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">observer_pattern.js</span>\n        \n        <pre><code>class BoPhatSuKien {\n    constructor() { this.nguoiNghe = {}; }\n\n    dangKy(tenSuKien, ham) {                              // đăng ký \"lắng nghe\" một sự kiện\n        if (!this.nguoiNghe[tenSuKien]) this.nguoiNghe[tenSuKien] = [];\n        this.nguoiNghe[tenSuKien].push(ham);\n    }\n\n    phatSuKien(tenSuKien, duLieu) {                          // \"phát\" sự kiện, gọi TẤT CẢ hàm đã đăng ký\n        (this.nguoiNghe[tenSuKien] || []).forEach(ham =&gt; ham(duLieu));\n    }\n}\n\nconst boPhat = new BoPhatSuKien();\nboPhat.dangKy('donHangMoi', (duLieu) =&gt; console.log('Có đơn hàng mới:', duLieu));\nboPhat.phatSuKien('donHangMoi', { id: 1, tongTien: 500000 });</code></pre>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">Ghi chú</div>\n        Observer Pattern chính là nguyên lý nền tảng của <code>addEventListener</code> trong DOM (đã học ở chương 12) và hệ thống sự kiện của Node.js (<code>EventEmitter</code>) — hiểu pattern này giúp hiểu sâu hơn cách các API quen thuộc hoạt động bên dưới.\n      </div>\n\n      <h3>Singleton Pattern — đảm bảo chỉ có 1 instance</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">singleton_pattern.js</span>\n        \n        <pre><code>class KetNoiDatabase {\n    static instance;\n\n    constructor() {\n        if (KetNoiDatabase.instance) {\n            return KetNoiDatabase.instance;      // trả về instance CŨ nếu đã tồn tại\n        }\n        KetNoiDatabase.instance = this;\n    }\n}\n\nconst ket_noi1 = new KetNoiDatabase();\nconst ket_noi2 = new KetNoiDatabase();\nconsole.log(ket_noi1 === ket_noi2);   // true - CÙNG một instance duy nhất</code></pre>\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>🎉 Hoàn thành toàn bộ giáo trình JavaScript (37 chương)!</h4>\n        <p>Bạn đã đi qua <strong>37 chương / 7 phần</strong>: từ \"Hello World\" tới bất đồng bộ, Node.js/Express, React, dự án thực tế, ngân hàng bài tập, và giờ là các API trình duyệt nâng cao (Web Storage, IndexedDB, Web Workers, WebSocket, Testing, Design Patterns). Kết hợp cùng giáo trình Full-Stack JS, đây là bộ kiến thức JavaScript đầy đủ nhất trong hệ thống. Chúc bạn thành công! 🟨</p>\n      </div>\n    </section>",
+      "questions": [
+        {
+          "question": "1. Observer Pattern là nền tảng của API quen thuộc nào trong JavaScript?",
+          "options": [
+            "JSON.stringify()",
+            "addEventListener() và EventEmitter",
+            "Array.prototype.map()"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s34"
+      ],
+      "words": 347
+    }
+  ]
+}

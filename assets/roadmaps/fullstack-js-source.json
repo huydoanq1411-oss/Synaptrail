@@ -1,0 +1,204 @@
+{
+  "course": "fullstack-js",
+  "title": "Fullstack JavaScript",
+  "lessons": [
+    {
+      "id": "chapter01",
+      "file": "chapter01.html",
+      "title": "Git",
+      "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
+      "redirect": "../git/chapter01.html",
+      "content": null,
+      "questions": []
+    },
+    {
+      "id": "chapter02",
+      "file": "chapter02.html",
+      "title": "Git",
+      "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
+      "redirect": "../git/chapter02.html",
+      "content": null,
+      "questions": []
+    },
+    {
+      "id": "chapter03",
+      "file": "chapter03.html",
+      "title": "TypeScript",
+      "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
+      "redirect": "../typescript/chapter01.html",
+      "content": null,
+      "questions": []
+    },
+    {
+      "id": "chapter04",
+      "file": "chapter04.html",
+      "title": "TypeScript",
+      "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
+      "redirect": "../typescript/chapter02.html",
+      "content": null,
+      "questions": []
+    },
+    {
+      "id": "chapter05",
+      "file": "chapter05.html",
+      "title": "Bài học đã chuyển — Bootstrap",
+      "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
+      "redirect": "../bootstrap/chapter01.html",
+      "content": null,
+      "questions": []
+    },
+    {
+      "id": "chapter06",
+      "file": "chapter06.html",
+      "title": "Bài học đã chuyển — Bootstrap",
+      "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
+      "redirect": "../bootstrap/chapter02.html",
+      "content": null,
+      "questions": []
+    },
+    {
+      "id": "chapter07",
+      "file": "chapter07.html",
+      "title": "SASS / SCSS",
+      "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
+      "redirect": "../sass/chapter01.html",
+      "content": null,
+      "questions": []
+    },
+    {
+      "id": "chapter08",
+      "file": "chapter08.html",
+      "title": "SASS / SCSS",
+      "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
+      "redirect": "../sass/chapter02.html",
+      "content": null,
+      "questions": []
+    },
+    {
+      "id": "chapter09",
+      "file": "chapter09.html",
+      "title": "MySQL",
+      "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
+      "redirect": "../mysql/chapter01.html",
+      "content": null,
+      "questions": []
+    },
+    {
+      "id": "chapter10",
+      "file": "chapter10.html",
+      "title": "MySQL",
+      "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
+      "redirect": "../mysql/chapter02.html",
+      "content": null,
+      "questions": []
+    },
+    {
+      "id": "chapter11",
+      "file": "chapter11.html",
+      "title": "MySQL",
+      "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
+      "redirect": "../mysql/chapter03.html",
+      "content": null,
+      "questions": []
+    },
+    {
+      "id": "chapter12",
+      "file": "chapter12.html",
+      "title": "ORM",
+      "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
+      "redirect": "../orm/chapter01.html",
+      "content": null,
+      "questions": []
+    },
+    {
+      "id": "chapter13",
+      "file": "chapter13.html",
+      "title": "ORM",
+      "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
+      "redirect": "../orm/chapter02.html",
+      "content": null,
+      "questions": []
+    },
+    {
+      "id": "chapter14",
+      "file": "chapter14.html",
+      "title": "GraphQL",
+      "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
+      "redirect": "../graphql/chapter01.html",
+      "content": null,
+      "questions": []
+    },
+    {
+      "id": "chapter15",
+      "file": "chapter15.html",
+      "title": "GraphQL",
+      "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
+      "redirect": "../graphql/chapter02.html",
+      "content": null,
+      "questions": []
+    },
+    {
+      "id": "chapter16",
+      "file": "chapter16.html",
+      "title": "Socket.IO",
+      "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
+      "redirect": "../socketio/chapter01.html",
+      "content": null,
+      "questions": []
+    },
+    {
+      "id": "chapter17",
+      "file": "chapter17.html",
+      "title": "NestJS",
+      "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
+      "redirect": "../nestjs/chapter01.html",
+      "content": null,
+      "questions": []
+    },
+    {
+      "id": "chapter18",
+      "file": "chapter18.html",
+      "title": "NestJS",
+      "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
+      "redirect": "../nestjs/chapter02.html",
+      "content": null,
+      "questions": []
+    },
+    {
+      "id": "chapter19",
+      "file": "chapter19.html",
+      "title": "Docker",
+      "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
+      "redirect": "../docker/chapter01.html",
+      "content": null,
+      "questions": []
+    },
+    {
+      "id": "chapter20",
+      "file": "chapter20.html",
+      "title": "Docker",
+      "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
+      "redirect": "../docker/chapter02.html",
+      "content": null,
+      "questions": []
+    },
+    {
+      "id": "chapter21",
+      "file": "chapter21.html",
+      "title": "Docker",
+      "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
+      "redirect": "../docker/chapter03.html",
+      "content": null,
+      "questions": []
+    },
+    {
+      "id": "chapter22",
+      "file": "chapter22.html",
+      "title": "Dự án Full Stack",
+      "summary": "Nội dung thuộc khóa Fullstack JavaScript.",
+      "redirect": "../projects/fullstack-js.html",
+      "content": null,
+      "questions": []
+    }
+  ]
+}

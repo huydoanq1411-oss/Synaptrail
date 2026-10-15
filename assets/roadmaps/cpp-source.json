@@ -1,0 +1,769 @@
+{
+  "course": "cpp",
+  "title": "C++",
+  "lessons": [
+    {
+      "id": "chapter01",
+      "file": "chapter01.html",
+      "title": "Giới thiệu C++",
+      "summary": "C++ là gì, tại sao nên học, và nó khác gì so với C và các ngôn ngữ hiện đại khác.",
+      "content": "<section class=\"chapter\" id=\"s1\">\n      \n      <p class=\"lead\">C++ là gì, tại sao nên học, và nó khác gì so với C và các ngôn ngữ hiện đại khác.</p>\n\n      <h3>C++ là gì?</h3>\n      <p>C++ là ngôn ngữ lập trình biên dịch (compiled), đa mục đích, do Bjarne Stroustrup phát triển từ ngôn ngữ C vào năm 1985 với triết lý \"zero-overhead abstraction\" — cho phép viết code trừu tượng hóa cao mà không phải trả giá về hiệu năng.</p>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">Ghi chú</div>\n        Ngôn ngữ \"biên dịch\" (compiled) nghĩa là code nguồn được dịch trực tiếp thành mã máy (machine code) trước khi chạy, khác với Python (thông dịch) — vì vậy chương trình C++ chạy nhanh hơn đáng kể nhưng phải biên dịch lại mỗi khi sửa code.\n      </div>\n\n      <h3>Tại sao nên học C++?</h3>\n      <ul>\n        <li><strong>Hiệu năng cực cao</strong> — kiểm soát trực tiếp bộ nhớ, gần với phần cứng hơn hầu hết ngôn ngữ khác.</li>\n        <li><strong>Nền tảng của nhiều hệ thống lớn</strong> — game engine (Unreal Engine), hệ điều hành, trình duyệt, phần mềm nhúng.</li>\n        <li><strong>Kiểm soát bộ nhớ thủ công</strong> — hiểu sâu cách máy tính hoạt động, nền tảng tốt để học các ngôn ngữ khác.</li>\n        <li><strong>Đa mô hình (multi-paradigm)</strong> — hỗ trợ lập trình thủ tục, hướng đối tượng và generic programming.</li>\n      </ul>\n\n      <h3>C++ dùng để làm gì?</h3>\n      <table>\n        <tbody><tr><th>Lĩnh vực</th><th>Ví dụ</th></tr>\n        <tr><td>Phát triển game</td><td>Unreal Engine, nhiều game engine AAA</td></tr>\n        <tr><td>Hệ điều hành &amp; driver</td><td>Windows, phần lớn nhân Linux driver</td></tr>\n        <tr><td>Phần mềm nhúng (embedded)</td><td>Firmware, IoT, robot</td></tr>\n        <tr><td>Phần mềm hiệu năng cao</td><td>Trình duyệt (Chrome), hệ thống giao dịch tài chính tốc độ cao</td></tr>\n      </tbody></table>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo ghi nhớ</div>\n        C++ = \"C với các lớp\" (C with Classes) — tên gọi ban đầu của ngôn ngữ này, phản ánh đúng bản chất: nó là C được bổ sung thêm lập trình hướng đối tượng và nhiều tính năng hiện đại khác.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 1</h4>\n        <p>C++ là ngôn ngữ biên dịch hiệu năng cao, đa mô hình, phát triển từ C — nền tảng của game engine, hệ điều hành và phần mềm hiệu năng cao.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 2 ================= -->",
+      "questions": [
+        {
+          "question": "1. Theo chương này, C++ thuộc loại ngôn ngữ nào?",
+          "options": [
+            "Đánh dấu",
+            "Biên dịch",
+            "Chỉ truy vấn cơ sở dữ liệu",
+            "Chỉ cấu hình giao diện"
+          ],
+          "answer": 1,
+          "explanation": "Giải thích đáp ánA. Sai: C++ không dùng vai trò của HTML.B. Đúng: mã được biên dịch trước khi chạy theo bài.C. Sai: Bài mô tả ngôn ngữ đa mục đích.D. Sai: Bài liệt kê nhiều ứng dụng ngoài giao diện."
+        },
+        {
+          "question": "2. “Đa mô hình” của C++ trong bài có nghĩa gì?",
+          "options": [
+            "Chỉ dùng hướng đối tượng",
+            "Chỉ dùng lập trình thủ tục",
+            "Hỗ trợ thủ tục, hướng đối tượng và generic",
+            "Không cho tổ chức mã"
+          ],
+          "answer": 2,
+          "explanation": "Giải thích đáp ánA. Sai: Bài còn nêu thủ tục và generic.B. Sai: Đây chỉ là một mô hình được hỗ trợ.C. Đúng: ba mô hình được liệt kê.D. Sai: Đa mô hình không có nghĩa thiếu cấu trúc."
+        },
+        {
+          "question": "3. Trong các tình huống sau, đâu là ứng dụng C++ được bài nêu?",
+          "options": [
+            "Viết thành phần cho game engine",
+            "Viết thẻ HTML làm chương trình C++",
+            "Đổi mọi file .cpp thành bảng tính để chạy",
+            "Chỉ dùng CSS để biên dịch mã C++"
+          ],
+          "answer": 0,
+          "explanation": "Giải thích đáp ánA. Đúng: bài nêu phát triển game và engine.B. Sai: HTML không phải ví dụ chương trình C++.C. Sai: Bài không có quy trình này.D. Sai: CSS không phải công cụ biên dịch C++."
+        },
+        {
+          "question": "4. Nhóm cần làm firmware cho robot. Vì sao C++ là lựa chọn liên quan nội dung bài?",
+          "options": [
+            "Vì C++ là định dạng ảnh",
+            "Vì không cần quan tâm công cụ chạy",
+            "Vì robot chỉ đọc HTML",
+            "Bài liệt kê C++ cho hệ thống nhúng và robot"
+          ],
+          "answer": 3,
+          "explanation": "Giải thích đáp ánA. Sai: Bài mô tả ngôn ngữ lập trình.B. Sai: Quy trình biên dịch vẫn cần công cụ.C. Sai: Không phải nội dung được bài nêu.D. Đúng: tình huống khớp nhóm ứng dụng đó."
+        },
+        {
+          "question": "5. Bạn sửa mã nguồn nhưng chạy lại bản thực thi cũ. Bước còn thiếu theo bài là gì?",
+          "options": [
+            "Chỉ đổi màu trình soạn thảo",
+            "Biên dịch lại mã nguồn",
+            "Đổi tên ngôn ngữ sang Python",
+            "Xóa mọi đoạn nguồn"
+          ],
+          "answer": 1,
+          "explanation": "Giải thích đáp ánA. Sai: Không tạo bản thực thi mới.B. Đúng: sửa nguồn cần cập nhật chương trình biên dịch.C. Sai: Không cần đổi ngôn ngữ để cập nhật mã.D. Sai: Xóa nguồn không tạo phiên bản chương trình mới."
+        }
+      ],
+      "ids": [
+        "s1"
+      ],
+      "words": 333
+    },
+    {
+      "id": "chapter02",
+      "file": "chapter02.html",
+      "title": "Cài đặt trình biên dịch",
+      "summary": "Chuẩn bị môi trường biên dịch và soạn thảo trước khi viết dòng code đầu tiên.",
+      "content": "<section class=\"chapter\" id=\"s2\">\n      \n      <p class=\"lead\">Chuẩn bị môi trường biên dịch và soạn thảo trước khi viết dòng code đầu tiên.</p>\n\n      <h3>Bước 1: Cài đặt trình biên dịch (compiler)</h3>\n      <table>\n        <tbody><tr><th>Hệ điều hành</th><th>Trình biên dịch khuyến nghị</th></tr>\n        <tr><td>Windows</td><td>MinGW-w64 (GCC cho Windows) hoặc Visual Studio</td></tr>\n        <tr><td>macOS</td><td>Clang (cài qua Xcode Command Line Tools)</td></tr>\n        <tr><td>Linux</td><td>GCC (thường có sẵn, hoặc <code>sudo apt install g++</code>)</td></tr>\n      </tbody></table>\n\n      <h3>Bước 2: Kiểm tra cài đặt</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">terminal</span>\n        <pre><code>g++ --version\n# Kết quả mong đợi: g++ (GCC) 14.x hoặc 15.x trở lên</code></pre>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">Ghi chú — Chuẩn C++ hiện hành</div>\n        Giáo trình này dùng C++11 trở lên làm nền tảng (đủ cho hầu hết công việc thực tế). Chuẩn mới nhất đã CHÍNH THỨC ban hành là <strong>C++23</strong> (2024) — được GCC 11+ hỗ trợ khá đầy đủ; C++26 hiện đang trong giai đoạn hoàn thiện, dự kiến ban hành chính thức năm 2026. Muốn biên dịch theo một chuẩn cụ thể, thêm cờ: <code>g++ -std=c++23 chuong_trinh.cpp</code>.\n      </div>\n\n      <h3>Bước 3: Chọn công cụ soạn thảo</h3>\n      <p>VS Code với extension \"C/C++\" (Microsoft) là lựa chọn phổ biến nhất — nhẹ, miễn phí, hỗ trợ debug và IntelliSense tốt.</p>\n\n      <div class=\"box warning\">\n        <div class=\"box-title\">Cảnh báo</div>\n        Trên Windows, nếu gõ <code>g++</code> báo \"not recognized\", cần thêm đường dẫn thư mục <code>bin</code> của MinGW vào biến môi trường PATH của hệ thống.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 2</h4>\n        <p>Cần cài trình biên dịch (GCC/Clang/MSVC) và một IDE như VS Code. Luôn kiểm tra bằng lệnh <code>g++ --version</code> trước khi bắt đầu.</p>\n      </div>\n    \n</section>\n\n    <!-- ================= CHƯƠNG 3 ================= -->",
+      "questions": [
+        {
+          "question": "1. Để biên dịch mã C++, cần thành phần nào?",
+          "options": [
+            "Trình biên dịch như GCC, Clang hoặc MSVC",
+            "Chỉ theme của VS Code",
+            "Chỉ trình duyệt",
+            "Chỉ file ảnh"
+          ],
+          "answer": 0,
+          "explanation": "Giải thích đáp ánA. Đúng: các compiler này được bài liệt kê.B. Sai: Theme không biên dịch mã.C. Sai: Trình duyệt không thay compiler trong bài.D. Sai: File ảnh không phải công cụ phát triển."
+        },
+        {
+          "question": "2. Lệnh nào kiểm tra bản cài g++?",
+          "options": [
+            "g++ hello.exe",
+            "java -version",
+            "g++ --version",
+            "g++ --theme"
+          ],
+          "answer": 2,
+          "explanation": "Giải thích đáp ánA. Sai: Đây không phải lệnh kiểm tra phiên bản trong bài.B. Sai: Lệnh này kiểm tra Java, không phải g++.C. Đúng: bài dùng lệnh này để kiểm tra.D. Sai: Không phải tùy chọn kiểm tra phiên bản."
+        },
+        {
+          "question": "3. Theo bảng trong bài, môi trường nào đi với Clang qua Xcode Command Line Tools?",
+          "options": [
+            "Chỉ Windows với MinGW",
+            "macOS",
+            "Mọi trang web không cần cài gì",
+            "Chỉ Java runtime"
+          ],
+          "answer": 1,
+          "explanation": "Giải thích đáp ánA. Sai: Bảng gắn Windows với MinGW/MSVC.B. Đúng: bảng gắn macOS với Clang/Xcode tools.C. Sai: Bảng đang nói về công cụ trên máy.D. Sai: Java runtime không phải môi trường này."
+        },
+        {
+          "question": "4. Muốn chọn chuẩn C++23 theo cú pháp đã nêu, chọn lệnh nào?",
+          "options": [
+            "g++ --version=c++23 chuong_trinh.cpp",
+            "g++ chuong_trinh.cpp -theme=c++23",
+            "java -std=c++23 chuong_trinh.cpp",
+            "g++ -std=c++23 chuong_trinh.cpp"
+          ],
+          "answer": 3,
+          "explanation": "Giải thích đáp ánA. Sai: --version không phải cách chọn chuẩn ở bài.B. Sai: Theme không chọn chuẩn biên dịch.C. Sai: Bài dùng compiler C++, không dùng java.D. Đúng: cờ chọn chuẩn được bài minh họa."
+        },
+        {
+          "question": "5. Trên Windows, g++ báo “not recognized” dù MinGW đã có. Cần kiểm tra gì?",
+          "options": [
+            "Thư mục bin của MinGW trong PATH",
+            "Mọi dấu chấm phẩy trong chương trình",
+            "Màu biểu tượng IDE",
+            "Tên biến trong Java"
+          ],
+          "answer": 0,
+          "explanation": "Giải thích đáp ánA. Đúng: bài nêu bổ sung/kiểm tra đường dẫn này.B. Sai: Lệnh chưa được tìm thấy, chưa đến bước biên dịch nguồn.C. Sai: Màu không ảnh hưởng việc tìm lệnh.D. Sai: Không liên quan công cụ C++."
+        }
+      ],
+      "ids": [
+        "s2"
+      ],
+      "words": 233
+    },
+    {
+      "id": "chapter03",
+      "file": "chapter03.html",
+      "title": "Chương trình đầu tiên",
+      "summary": "Viết, biên dịch và chạy \"Hello, World!\" — hiểu cấu trúc cơ bản của một file .cpp.",
+      "content": "<section class=\"chapter\" id=\"s3\">\n      \n      <p class=\"lead\">Viết, biên dịch và chạy \"Hello, World!\" — hiểu cấu trúc cơ bản của một file .cpp.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">hello.cpp</span>\n        \n        <pre><code>#include &lt;iostream&gt;      // thư viện nhập/xuất chuẩn\n\nint main() {                  // hàm main - điểm bắt đầu BẮT BUỘC của mọi chương trình C++\n    std::cout &lt;&lt; \"Hello, World!\" &lt;&lt; std::endl;\n    return 0;                   // trả về 0 nghĩa là chương trình chạy thành công\n}</code></pre>\n      </div>\n\n      <h3>Biên dịch và chạy</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">terminal</span>\n        <pre><code>g++ hello.cpp -o hello     # biên dịch file .cpp thành file thực thi \"hello\"\n./hello                       # chạy file thực thi (Linux/macOS)\nhello.exe                       # chạy trên Windows</code></pre>\n      </div>\n\n      <h3>Giải thích từng phần</h3>\n      <table>\n        <tbody><tr><th>Thành phần</th><th>Ý nghĩa</th></tr>\n        <tr><td><code>#include &lt;iostream&gt;</code></td><td>Nhúng thư viện xử lý nhập/xuất chuẩn (cin, cout)</td></tr>\n        <tr><td><code>int main()</code></td><td>Hàm chính, nơi chương trình bắt đầu thực thi</td></tr>\n        <tr><td><code>std::cout</code></td><td>Đối tượng xuất dữ liệu ra màn hình (thuộc namespace std)</td></tr>\n        <tr><td><code>return 0;</code></td><td>Kết thúc hàm main, báo hiệu chạy thành công</td></tr>\n      </tbody></table>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        Mọi chương trình C++ đều <strong>bắt buộc</strong> phải có hàm <code>main()</code> — đây là điểm khởi đầu duy nhất mà hệ điều hành gọi tới khi chạy chương trình.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 3</h4>\n        <p>Chương trình C++ cần <code>#include</code> để nhúng thư viện, hàm <code>main()</code> bắt buộc, và phải biên dịch (g++) trước khi chạy được, khác với Python chạy trực tiếp.</p>\n      </div>\n    \n</section>\n\n    <!-- ================= CHƯƠNG 4 ================= -->",
+      "questions": [
+        {
+          "question": "1. Trong ví dụ hello.cpp, main đóng vai trò gì?",
+          "options": [
+            "Lưu chuỗi đầu ra",
+            "Chọn màu terminal",
+            "Điểm bắt đầu của chương trình",
+            "Thay thế file mã nguồn"
+          ],
+          "answer": 2,
+          "explanation": "Giải thích đáp ánA. Sai: Chuỗi nằm trong lệnh cout.B. Sai: Ví dụ không có chức năng này.C. Đúng: bài giải thích main như điểm vào.D. Sai: main là hàm trong nguồn, không thay file."
+        },
+        {
+          "question": "2. Trong ví dụ, return 0 biểu thị điều gì?",
+          "options": [
+            "Chắc chắn in số 0",
+            "Kết thúc main với mã thành công",
+            "Lặp main vô hạn",
+            "Bắt đầu biên dịch"
+          ],
+          "answer": 1,
+          "explanation": "Giải thích đáp ánA. Sai: return không phải lệnh cout.B. Đúng: đây là ý nghĩa trong bài.C. Sai: Lệnh kết thúc hàm, không tạo vòng lặp.D. Sai: Biên dịch diễn ra trước khi chạy."
+        },
+        {
+          "question": "3. Đoạn xuất dưới đây in gì?",
+          "options": [
+            "Hello, World! rồi xuống dòng",
+            "std::cout",
+            "Hello, World!0",
+            "Không có nội dung nào"
+          ],
+          "answer": 0,
+          "explanation": "Giải thích đáp ánA. Đúng: cout in chuỗi và endl xuống dòng.B. Sai: Tên đối tượng không phải chuỗi được in.C. Sai: return 0 không thêm vào đầu ra.D. Sai: Lệnh cout thực hiện xuất."
+        },
+        {
+          "question": "4. Lệnh g++ hello.cpp -o hello tạo đầu ra nào theo bài?",
+          "options": [
+            "Chỉ file HTML",
+            "Mã Java trong hello.java",
+            "Chỉ thay tên nguồn thành hello",
+            "File thực thi mang tên hello theo môi trường"
+          ],
+          "answer": 3,
+          "explanation": "Giải thích đáp ánA. Sai: Đó không phải đầu ra của quy trình này.B. Sai: Bài không chuyển C++ sang Java.C. Sai: Compiler không đơn thuần đổi tên nguồn.D. Đúng: -o đặt tên đầu ra biên dịch."
+        },
+        {
+          "question": "5. Đã dùng cout/endl trong mẫu nhưng quên include thư viện được bài yêu cầu. Cần thêm gì?",
+          "options": [
+            "#include <string> thay mọi thư viện",
+            "#include <iostream>",
+            "Xóa hàm main",
+            "Đổi return 0 thành cout"
+          ],
+          "answer": 1,
+          "explanation": "Giải thích đáp ánA. Sai: string không phải header được mẫu này chỉ định.B. Đúng: header nhập/xuất chuẩn trong hello.cpp.C. Sai: Xóa điểm vào không bổ sung thư viện.D. Sai: Không sửa việc thiếu include."
+        }
+      ],
+      "ids": [
+        "s3"
+      ],
+      "words": 205
+    },
+    {
+      "id": "chapter04",
+      "file": "chapter04.html",
+      "title": "Biến & Kiểu dữ liệu",
+      "summary": "C++ yêu cầu khai báo kiểu dữ liệu tường minh (static typing) — khác biệt lớn so với Python.",
+      "content": "<section class=\"chapter\" id=\"s4\">\n      \n      <p class=\"lead\">C++ yêu cầu khai báo kiểu dữ liệu tường minh (static typing) — khác biệt lớn so với Python.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">bien.cpp</span>\n        \n        <pre><code>#include &lt;iostream&gt;\n#include &lt;string&gt;\nusing namespace std;\n\nint main() {\n    int tuoi = 20;                 // số nguyên\n    double diem_tb = 8.5;            // số thực (độ chính xác cao)\n    float chieu_cao = 1.75f;           // số thực (độ chính xác thấp hơn double)\n    char ky_tu = 'A';                    // một ký tự duy nhất\n    bool dang_hoc = true;                 // đúng/sai\n    string ten = \"Huy\";                     // chuỗi (cần #include &lt;string&gt;)\n\n    cout &lt;&lt; ten &lt;&lt; \" \" &lt;&lt; tuoi &lt;&lt; \" \" &lt;&lt; diem_tb &lt;&lt; endl;\n    return 0;\n}</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Kiểu</th><th>Kích thước điển hình</th><th>Mô tả</th></tr>\n        <tr><td><code>int</code></td><td>4 byte</td><td>Số nguyên</td></tr>\n        <tr><td><code>double</code></td><td>8 byte</td><td>Số thực độ chính xác cao (mặc định nên dùng)</td></tr>\n        <tr><td><code>float</code></td><td>4 byte</td><td>Số thực độ chính xác thấp hơn, tiết kiệm bộ nhớ</td></tr>\n        <tr><td><code>char</code></td><td>1 byte</td><td>Một ký tự</td></tr>\n        <tr><td><code>bool</code></td><td>1 byte</td><td>true/false</td></tr>\n        <tr><td><code>string</code></td><td>thay đổi</td><td>Chuỗi ký tự (từ thư viện chuẩn)</td></tr>\n      </tbody></table>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng — Static Typing</div>\n        Khác với Python, C++ yêu cầu khai báo kiểu <strong>tường minh</strong> và <strong>không thể đổi kiểu</strong> của biến sau khi khai báo — <code>int x = 5;</code> thì <code>x</code> mãi mãi là số nguyên. Đây gọi là \"static typing\", giúp trình biên dịch phát hiện lỗi sớm hơn Python.\n      </div>\n\n      <h3>Hằng số (const)</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">const.cpp</span>\n        \n        <pre><code>const double PI = 3.14159;   // const = giá trị không thể thay đổi sau khi gán\n// PI = 3.14;                  // LỖI biên dịch nếu bỏ comment dòng này</code></pre>\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 4</h4>\n        <p>C++ là ngôn ngữ static typing — mọi biến phải khai báo kiểu tường minh và không thể đổi kiểu sau đó. <code>const</code> tạo hằng số không thể thay đổi.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 5 ================= -->",
+      "questions": [
+        {
+          "question": "1. Static typing được chương mô tả như thế nào?",
+          "options": [
+            "Kiểu của biến được xác định khi khai báo",
+            "Biến luôn tự đổi kiểu theo mọi giá trị mới",
+            "Không được khai báo biến",
+            "Mọi biến đều là string"
+          ],
+          "answer": 0,
+          "explanation": "Giải thích đáp ánA. Đúng: ví dụ int x giữ kiểu int.B. Sai: Đây không phải cách bài giải thích.C. Sai: Bài có nhiều khai báo biến.D. Sai: Bài liệt kê int, double, bool và các kiểu khác."
+        },
+        {
+          "question": "2. const trong ví dụ có ý nghĩa gì?",
+          "options": [
+            "Biến luôn tăng một",
+            "Chỉ cho phép chuỗi",
+            "Không được thay đổi giá trị sau khởi tạo",
+            "Luôn làm giá trị bằng 0"
+          ],
+          "answer": 2,
+          "explanation": "Giải thích đáp ánA. Sai: Đây là hành vi của ++, không phải const.B. Sai: PI trong bài là double.C. Đúng: phép gán lại PI được đánh dấu lỗi.D. Sai: Ví dụ PI khởi tạo 3.14159."
+        },
+        {
+          "question": "3. Dòng xuất tương ứng ví dụ bien.cpp cho nội dung nào?",
+          "options": [
+            "20 Huy 8.5",
+            "Huy 20 8.5",
+            "Huy208.5",
+            "ten tuoi diem_tb"
+          ],
+          "answer": 1,
+          "explanation": "Giải thích đáp ánA. Sai: Thứ tự trong biểu thức bắt đầu bằng ten.B. Đúng: các giá trị được xuất theo thứ tự với khoảng trắng.C. Sai: Có khoảng trắng được xuất giữa các giá trị.D. Sai: cout dùng giá trị biến, không in tên biến."
+        },
+        {
+          "question": "4. Cần lưu đúng/sai như dang_hoc trong ví dụ. Chọn khai báo nào?",
+          "options": [
+            "char dang_hoc = 'A';",
+            "string dang_hoc = \"true\";",
+            "double dang_hoc = 8.5;",
+            "bool dang_hoc = true;"
+          ],
+          "answer": 3,
+          "explanation": "Giải thích đáp ánA. Sai: char ở đây lưu ký tự.B. Sai: Đây là chuỗi chữ, không phải bool.C. Sai: Đây là số thực.D. Đúng: bool biểu diễn giá trị logic trong mẫu."
+        },
+        {
+          "question": "5. Nếu bỏ comment ở dòng thứ hai, lỗi nào xảy ra?",
+          "options": [
+            "Gán lại một hằng const",
+            "PI chưa được khai báo",
+            "double không nhận số thực",
+            "Hai giá trị giống nhau nên lỗi"
+          ],
+          "answer": 0,
+          "explanation": "Giải thích đáp ánA. Đúng: PI không được thay đổi sau khởi tạo.B. Sai: PI đã khai báo ở dòng đầu.C. Sai: double được dùng chính cho số thực.D. Sai: Lỗi do const, không do việc so sánh hai giá trị."
+        }
+      ],
+      "ids": [
+        "s4"
+      ],
+      "words": 272
+    },
+    {
+      "id": "chapter05",
+      "file": "chapter05.html",
+      "title": "Toán tử",
+      "summary": "Các phép toán số học, so sánh, logic và toán tử tăng/giảm đặc trưng của C++.",
+      "content": "<section class=\"chapter\" id=\"s5\">\n      \n      <p class=\"lead\">Các phép toán số học, so sánh, logic và toán tử tăng/giảm đặc trưng của C++.</p>\n\n      <table>\n        <tbody><tr><th>Loại</th><th>Toán tử</th><th>Ví dụ</th></tr>\n        <tr><td>Số học</td><td><code>+ - * / %</code></td><td><code>7 % 2</code> → 1</td></tr>\n        <tr><td>So sánh</td><td><code>== != &gt; &lt; &gt;= &lt;=</code></td><td><code>5 &gt; 3</code> → true</td></tr>\n        <tr><td>Logic</td><td><code>&amp;&amp; || !</code></td><td><code>true &amp;&amp; false</code> → false</td></tr>\n        <tr><td>Tăng/giảm</td><td><code>++ --</code></td><td><code>i++</code> tăng i lên 1</td></tr>\n        <tr><td>Gán kết hợp</td><td><code>+= -= *= /=</code></td><td><code>x += 5</code> tương đương <code>x = x + 5</code></td></tr>\n      </tbody></table>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">toan_tu.cpp</span>\n        \n        <pre><code>int a = 10, b = 3;\ncout &lt;&lt; a / b &lt;&lt; endl;    // 3 - chia số nguyên LÀM TRÒN XUỐNG (khác Python!)\ncout &lt;&lt; a % b &lt;&lt; endl;      // 1 - chia lấy dư\ncout &lt;&lt; (double)a / b &lt;&lt; endl;  // 3.333... - ép kiểu để có kết quả thực\n\nint i = 5;\ncout &lt;&lt; i++ &lt;&lt; endl;   // in ra 5, SAU ĐÓ mới tăng i lên 6 (post-increment)\ncout &lt;&lt; ++i &lt;&lt; endl;    // tăng i lên 7 TRƯỚC, rồi in ra 7 (pre-increment)</code></pre>\n      </div>\n\n      <div class=\"box warning\">\n        <div class=\"box-title\">Lỗi thường gặp</div>\n        Phép chia hai số nguyên (<code>int / int</code>) trong C++ luôn cho kết quả <strong>int</strong> (làm tròn xuống), không tự động ra số thực như một số ngôn ngữ khác. Muốn kết quả thực, phải ép kiểu ít nhất một toán hạng sang <code>double</code>.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 5</h4>\n        <p>C++ có đầy đủ toán tử số học/so sánh/logic, thêm toán tử tăng/giảm (<code>++/--</code>) tiện lợi. Lưu ý phép chia số nguyên luôn cho kết quả nguyên.</p>\n      </div>\n    \n</section>\n\n    <!-- ================= CHƯƠNG 6 ================= -->",
+      "questions": [
+        {
+          "question": "1. Phép % trong chương là phép gì?",
+          "options": [
+            "Thương thực",
+            "Chia lấy dư",
+            "So sánh bằng",
+            "Gán kết hợp"
+          ],
+          "answer": 1,
+          "explanation": "Giải thích đáp ánA. Sai: Phép chia thực dùng /.B. Đúng: 7 % 2 được minh họa bằng 1.C. Sai: So sánh bằng là ==.D. Sai: Gán kết hợp gồm +=, -=..."
+        },
+        {
+          "question": "2. Theo bài, ++i và i++ khác nhau ở đâu?",
+          "options": [
+            "Cả hai đều giảm i",
+            "i++ luôn tăng hai lần",
+            "++i không đổi i",
+            "++i tăng trước khi dùng; i++ dùng giá trị cũ rồi tăng"
+          ],
+          "answer": 3,
+          "explanation": "Giải thích đáp ánA. Sai: Cả hai đều tăng.B. Sai: i++ chỉ tăng một.C. Sai: ++i thay đổi i.D. Đúng: ví dụ in 5 rồi 7 thể hiện hai cách."
+        },
+        {
+          "question": "3. Với a=10, b=3, a/b và a%b lần lượt là gì?",
+          "options": [
+            "3 và 1",
+            "3.333… và 1",
+            "1 và 3",
+            "3 và 0"
+          ],
+          "answer": 0,
+          "explanation": "Giải thích đáp ánA. Đúng: thương nguyên 3, dư 1.B. Sai: Không ép kiểu nên a/b vẫn là phép chia nguyên.C. Sai: Thương và dư đã bị đảo.D. Sai: 10 không chia hết cho 3."
+        },
+        {
+          "question": "4. Hai lệnh xuất sau in lần lượt gì?",
+          "options": [
+            "6 rồi 7",
+            "5 rồi 6",
+            "5 rồi 7",
+            "7 rồi 5"
+          ],
+          "answer": 2,
+          "explanation": "Giải thích đáp ánA. Sai: i++ dùng giá trị cũ là 5 ở lần đầu.B. Sai: ++i tăng trước lần in thứ hai.C. Đúng: sau i++, i=6; ++i làm i=7.D. Sai: Thứ tự tăng và sử dụng không bị đảo."
+        },
+        {
+          "question": "5. Muốn thương thực từ hai int dương nhưng viết a/b. Sửa theo bài thế nào?",
+          "options": [
+            "Chỉ thay / bằng %",
+            "Ép một toán hạng sang double trước chia",
+            "Đổi tên biến thành doubleA",
+            "Chỉ thêm endl"
+          ],
+          "answer": 1,
+          "explanation": "Giải thích đáp ánA. Sai: % cho phần dư, không cho thương thực.B. Đúng: mẫu dùng (double)a / b.C. Sai: Tên không thay đổi kiểu.D. Sai: endl ảnh hưởng xuất, không đổi phép chia."
+        }
+      ],
+      "ids": [
+        "s5"
+      ],
+      "words": 240
+    },
+    {
+      "id": "chapter06",
+      "file": "chapter06.html",
+      "title": "Input/Output (cin/cout)",
+      "summary": "Nhận dữ liệu từ người dùng và xuất dữ liệu ra màn hình bằng luồng (stream).",
+      "content": "<section class=\"chapter\" id=\"s6\">\n      \n      <p class=\"lead\">Nhận dữ liệu từ người dùng và xuất dữ liệu ra màn hình bằng luồng (stream).</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">io.cpp</span>\n        \n        <pre><code>#include &lt;iostream&gt;\nusing namespace std;\n\nint main() {\n    string ten;\n    int tuoi;\n\n    cout &lt;&lt; \"Nhập tên: \";\n    cin &gt;&gt; ten;                 // đọc MỘT TỪ (dừng ở khoảng trắng)\n\n    cout &lt;&lt; \"Nhập tuổi: \";\n    cin &gt;&gt; tuoi;                  // cin tự động chuyển đổi sang đúng kiểu int\n\n    cout &lt;&lt; \"Xin chào \" &lt;&lt; ten &lt;&lt; \", \" &lt;&lt; tuoi &lt;&lt; \" tuổi\" &lt;&lt; endl;\n    return 0;\n}</code></pre>\n      </div>\n\n      <h3>Đọc cả dòng có khoảng trắng với getline</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">getline.cpp</span>\n        \n        <pre><code>string ho_ten;\ncout &lt;&lt; \"Nhập họ tên đầy đủ: \";\ncin.ignore();                 // bỏ qua ký tự xuống dòng còn sót lại từ cin &gt;&gt; trước đó\ngetline(cin, ho_ten);           // đọc TOÀN BỘ dòng, kể cả khoảng trắng\ncout &lt;&lt; \"Xin chào \" &lt;&lt; ho_ten &lt;&lt; endl;</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        <code>cin &gt;&gt;</code> chỉ đọc đến khoảng trắng đầu tiên — muốn đọc cả câu (VD: \"Nguyễn Văn A\") phải dùng <code>getline()</code>, và thường cần <code>cin.ignore()</code> trước đó để \"dọn\" ký tự xuống dòng còn sót lại.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 6</h4>\n        <p><code>cout &lt;&lt;</code> xuất dữ liệu, <code>cin &gt;&gt;</code> nhận một từ, <code>getline()</code> nhận cả dòng có khoảng trắng.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 7 ================= -->",
+      "questions": [],
+      "ids": [
+        "s6"
+      ],
+      "words": 198
+    },
+    {
+      "id": "chapter07",
+      "file": "chapter07.html",
+      "title": "Điều kiện (if/switch)",
+      "summary": "Câu lệnh rẽ nhánh chương trình dựa trên điều kiện.",
+      "content": "<section class=\"chapter\" id=\"s7\">\n      \n      <p class=\"lead\">Câu lệnh rẽ nhánh chương trình dựa trên điều kiện.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">if_else.cpp</span>\n        \n        <pre><code>int diem = 8;\n\nif (diem &gt;= 8) {\n    cout &lt;&lt; \"Giỏi\" &lt;&lt; endl;\n} else if (diem &gt;= 6.5) {\n    cout &lt;&lt; \"Khá\" &lt;&lt; endl;\n} else {\n    cout &lt;&lt; \"Cần cố gắng\" &lt;&lt; endl;\n}</code></pre>\n      </div>\n\n      <h3>switch — rẽ nhánh nhiều trường hợp</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">switch.cpp</span>\n        \n        <pre><code>int thu = 3;\nswitch (thu) {\n    case 1:\n        cout &lt;&lt; \"Thứ Hai\"; break;      // BẮT BUỘC có break, nếu không sẽ \"rơi\" xuống case dưới\n    case 2:\n        cout &lt;&lt; \"Thứ Ba\"; break;\n    case 3:\n        cout &lt;&lt; \"Thứ Tư\"; break;\n    default:\n        cout &lt;&lt; \"Ngày khác\";\n}</code></pre>\n      </div>\n\n      <div class=\"box warning\">\n        <div class=\"box-title\">Lỗi thường gặp — quên break</div>\n        Nếu quên <code>break</code> trong mỗi case, chương trình sẽ tiếp tục thực thi các case tiếp theo (gọi là \"fall-through\") thay vì dừng lại — đây là lỗi rất phổ biến với người mới học C++.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 7</h4>\n        <p><code>if/else if/else</code> dùng cho điều kiện tổng quát, <code>switch</code> phù hợp khi so sánh một biến với nhiều giá trị cụ thể — luôn nhớ <code>break</code> trong mỗi case.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 8 ================= -->",
+      "questions": [],
+      "ids": [
+        "s7"
+      ],
+      "words": 178
+    },
+    {
+      "id": "chapter08",
+      "file": "chapter08.html",
+      "title": "Vòng lặp",
+      "summary": "for, while và do-while — ba dạng vòng lặp trong C++.",
+      "content": "<section class=\"chapter\" id=\"s8\">\n      \n      <p class=\"lead\">for, while và do-while — ba dạng vòng lặp trong C++.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">vong_lap.cpp</span>\n        \n        <pre><code>// for - biết trước số lần lặp\nfor (int i = 0; i &lt; 5; i++) {\n    cout &lt;&lt; i &lt;&lt; \" \";\n}   // 0 1 2 3 4\n\n// while - lặp khi điều kiện còn đúng\nint dem = 0;\nwhile (dem &lt; 5) {\n    cout &lt;&lt; dem &lt;&lt; \" \";\n    dem++;\n}\n\n// do-while - LUÔN chạy ít nhất 1 lần trước khi kiểm tra điều kiện\nint x = 10;\ndo {\n    cout &lt;&lt; \"Chạy ít nhất 1 lần\" &lt;&lt; endl;\n} while (x &lt; 5);   // điều kiện sai ngay từ đầu nhưng vẫn chạy 1 lần</code></pre>\n      </div>\n\n      <h3>Vòng lặp for kiểu range-based (C++11+)</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">range_for.cpp</span>\n        \n        <pre><code>int mang[] = {10, 20, 30, 40};\nfor (int gia_tri : mang) {     // duyệt trực tiếp qua từng phần tử, giống Python \"for x in list\"\n    cout &lt;&lt; gia_tri &lt;&lt; \" \";\n}</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        <code>do-while</code> hữu ích khi bạn cần chạy khối lệnh <strong>ít nhất một lần</strong> trước khi kiểm tra điều kiện — ví dụ hiện menu và chờ người dùng chọn.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 8</h4>\n        <p><code>for</code> phù hợp khi biết trước số lần lặp, <code>while</code> khi lặp theo điều kiện, <code>do-while</code> đảm bảo chạy ít nhất 1 lần. Range-based for (C++11+) giúp duyệt mảng ngắn gọn hơn.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 9 ================= -->",
+      "questions": [
+        {
+          "question": "1. Vòng lặp nào LUÔN chạy ít nhất một lần dù điều kiện sai ngay từ đầu?",
+          "options": [
+            "do-while",
+            "while",
+            "for"
+          ],
+          "answer": 0,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s8"
+      ],
+      "words": 224
+    },
+    {
+      "id": "chapter09",
+      "file": "chapter09.html",
+      "title": "Mảng (Array)",
+      "summary": "Tập hợp các phần tử cùng kiểu dữ liệu, kích thước cố định, lưu liên tục trong bộ nhớ.",
+      "content": "<section class=\"chapter\" id=\"s9\">\n      \n      <p class=\"lead\">Tập hợp các phần tử cùng kiểu dữ liệu, kích thước cố định, lưu liên tục trong bộ nhớ.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">array.cpp</span>\n        \n        <pre><code>int diem[5] = {90, 85, 78, 92, 88};   // mảng 5 phần tử, kích thước CỐ ĐỊNH\n\ncout &lt;&lt; diem[0] &lt;&lt; endl;        // 90 - truy cập theo chỉ số, bắt đầu từ 0\ndiem[1] = 100;                       // gán lại giá trị\n\nint tong = 0;\nfor (int i = 0; i &lt; 5; i++) {\n    tong += diem[i];\n}\ncout &lt;&lt; \"Tổng: \" &lt;&lt; tong &lt;&lt; endl;\n\n// Mảng 2 chiều (ma trận)\nint ma_tran[2][3] = {{1,2,3}, {4,5,6}};\ncout &lt;&lt; ma_tran[1][2] &lt;&lt; endl;   // 6</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        Mảng trong C++ (kiểu C-style array) có kích thước <strong>cố định tại thời điểm biên dịch</strong> và <strong>không tự kiểm tra tràn chỉ số</strong> — truy cập <code>diem[10]</code> trên mảng 5 phần tử sẽ gây lỗi khó lường (undefined behavior) thay vì báo lỗi rõ ràng như Python.\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Trong thực tế hiện đại, nên ưu tiên dùng <code>std::vector</code> (mảng động, tự động thay đổi kích thước, thuộc STL) thay vì mảng C-style — sẽ học chi tiết ở phần STL sắp tới.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 9</h4>\n        <p>Mảng C++ có kích thước cố định, truy cập nhanh theo chỉ số nhưng không tự kiểm tra tràn biên — cần cẩn thận khi thao tác, hoặc dùng <code>std::vector</code> an toàn hơn.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 10 ================= -->",
+      "questions": [],
+      "ids": [
+        "s9"
+      ],
+      "words": 229
+    },
+    {
+      "id": "chapter10",
+      "file": "chapter10.html",
+      "title": "Hàm (Function)",
+      "summary": "Khối lệnh có tên, tái sử dụng được — yêu cầu khai báo kiểu trả về và kiểu tham số tường minh.",
+      "content": "<section class=\"chapter\" id=\"s10\">\n      \n      <p class=\"lead\">Khối lệnh có tên, tái sử dụng được — yêu cầu khai báo kiểu trả về và kiểu tham số tường minh.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">function.cpp</span>\n        \n        <pre><code>#include &lt;iostream&gt;\nusing namespace std;\n\nint cong(int a, int b) {      // kiểu trả về (int) PHẢI khai báo tường minh\n    return a + b;\n}\n\nvoid chao_hoi(string ten) {     // void = hàm không trả về giá trị gì\n    cout &lt;&lt; \"Xin chào \" &lt;&lt; ten &lt;&lt; endl;\n}\n\nint giai_thua(int n) {           // đệ quy vẫn hoạt động như các ngôn ngữ khác\n    if (n &lt;= 1) return 1;\n    return n * giai_thua(n - 1);\n}\n\nint main() {\n    cout &lt;&lt; cong(3, 5) &lt;&lt; endl;     // 8\n    chao_hoi(\"Huy\");\n    cout &lt;&lt; giai_thua(5) &lt;&lt; endl;      // 120\n    return 0;\n}</code></pre>\n      </div>\n\n      <h3>Tham số mặc định và truyền tham chiếu</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">function_advanced.cpp</span>\n        \n        <pre><code>void gioi_thieu(string ten, int tuoi = 18) {   // tuoi có giá trị mặc định\n    cout &lt;&lt; ten &lt;&lt; \", \" &lt;&lt; tuoi &lt;&lt; \" tuổi\" &lt;&lt; endl;\n}\n\nvoid tang_gap_doi(int &amp;n) {      // &amp; = truyền theo tham chiếu, SỬA được biến gốc\n    n = n * 2;\n}\n\nint main() {\n    gioi_thieu(\"Lan\");    // Lan, 18 tuổi (dùng mặc định)\n\n    int x = 5;\n    tang_gap_doi(x);\n    cout &lt;&lt; x &lt;&lt; endl;   // 10 - x đã bị thay đổi vì truyền tham chiếu\n}</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        Mặc định, C++ truyền tham số theo <strong>giá trị (pass by value)</strong> — hàm nhận bản sao, sửa bên trong hàm KHÔNG ảnh hưởng biến gốc. Muốn sửa được biến gốc, phải truyền theo <strong>tham chiếu</strong> bằng dấu <code>&amp;</code> (sẽ học kỹ ở chương 11).\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 10</h4>\n        <p>Hàm C++ yêu cầu khai báo kiểu trả về tường minh (<code>void</code> nếu không trả về gì). Mặc định truyền theo giá trị; dùng <code>&amp;</code> để truyền theo tham chiếu khi cần sửa biến gốc.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 11 ================= -->",
+      "questions": [],
+      "ids": [
+        "s10"
+      ],
+      "words": 303
+    },
+    {
+      "id": "chapter11",
+      "file": "chapter11.html",
+      "title": "Con trỏ & Tham chiếu",
+      "summary": "Hai khái niệm đặc trưng và quan trọng nhất của C++ — thao tác trực tiếp với địa chỉ bộ nhớ.",
+      "content": "<section class=\"chapter\" id=\"s11\">\n      \n      <p class=\"lead\">Hai khái niệm đặc trưng và quan trọng nhất của C++ — thao tác trực tiếp với địa chỉ bộ nhớ.</p>\n\n      <h3>Con trỏ (Pointer)</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">pointer.cpp</span>\n        \n        <pre><code>int so = 10;\nint* con_tro = &amp;so;    // &amp; = lấy ĐỊA CHỈ của biến \"so\"\n\ncout &lt;&lt; so &lt;&lt; endl;             // 10 - giá trị của so\ncout &lt;&lt; &amp;so &lt;&lt; endl;              // địa chỉ bộ nhớ của so (dạng 0x...)\ncout &lt;&lt; con_tro &lt;&lt; endl;           // cùng địa chỉ đó - con_tro LƯU địa chỉ\ncout &lt;&lt; *con_tro &lt;&lt; endl;           // 10 - * = \"dereference\", lấy GIÁ TRỊ tại địa chỉ đó\n\n*con_tro = 99;    // thay đổi giá trị THÔNG QUA con trỏ\ncout &lt;&lt; so &lt;&lt; endl;   // 99 - biến gốc \"so\" cũng bị thay đổi!</code></pre>\n      </div>\n\n      <h3>Tham chiếu (Reference)</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">reference.cpp</span>\n        \n        <pre><code>int so = 10;\nint&amp; tham_chieu = so;    // tham_chieu là một \"BÍ DANH\" khác của so, không phải biến riêng\n\ntham_chieu = 20;\ncout &lt;&lt; so &lt;&lt; endl;   // 20 - thay đổi tham chiếu = thay đổi biến gốc luôn</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Tiêu chí</th><th>Con trỏ (Pointer)</th><th>Tham chiếu (Reference)</th></tr>\n        <tr><td>Có thể null?</td><td>Có (<code>nullptr</code>)</td><td>Không, luôn phải trỏ tới một biến có thật</td></tr>\n        <tr><td>Đổi trỏ tới biến khác?</td><td>Được</td><td>Không (gán 1 lần duy nhất)</td></tr>\n        <tr><td>Cú pháp truy cập</td><td>Cần <code>*</code> để lấy giá trị</td><td>Dùng trực tiếp như biến thường</td></tr>\n      </tbody></table>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        Con trỏ là nguồn gốc của rất nhiều lỗi kinh điển trong C++: <strong>dangling pointer</strong> (trỏ tới bộ nhớ đã giải phóng), <strong>memory leak</strong> (quên giải phóng bộ nhớ đã cấp phát). Luôn khởi tạo con trỏ với <code>nullptr</code> nếu chưa trỏ tới đâu, và kiểm tra trước khi dùng.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 11</h4>\n        <p>Con trỏ lưu địa chỉ bộ nhớ, có thể đổi trỏ và có thể null. Tham chiếu là bí danh cố định của một biến, an toàn hơn nhưng kém linh hoạt hơn con trỏ.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 12 ================= -->",
+      "questions": [
+        {
+          "question": "1. Toán tử nào dùng để lấy GIÁ TRỊ tại địa chỉ mà con trỏ đang trỏ tới?",
+          "options": [
+            "*con_tro (dereference)",
+            "&con_tro",
+            "con_tro++"
+          ],
+          "answer": 0,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s11"
+      ],
+      "words": 308
+    },
+    {
+      "id": "chapter12",
+      "file": "chapter12.html",
+      "title": "OOP cơ bản (Class & Object)",
+      "summary": "Nền tảng lập trình hướng đối tượng trong C++ — class là khuôn mẫu, object là thực thể.",
+      "content": "<section class=\"chapter\" id=\"s12\">\n      \n      <p class=\"lead\">Nền tảng lập trình hướng đối tượng trong C++ — class là khuôn mẫu, object là thực thể.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">class_basic.cpp</span>\n        \n        <pre><code>#include &lt;iostream&gt;\nusing namespace std;\n\nclass SinhVien {\nprivate:                       // chỉ truy cập được từ bên trong class (encapsulation)\n    string ten;\n    int tuoi;\n\npublic:                        // truy cập được từ bên ngoài\n    SinhVien(string t, int tu) {   // constructor - tự chạy khi tạo object\n        ten = t;\n        tuoi = tu;\n    }\n\n    void gioi_thieu() {           // phương thức (method)\n        cout &lt;&lt; \"Tôi tên \" &lt;&lt; ten &lt;&lt; \", \" &lt;&lt; tuoi &lt;&lt; \" tuổi\" &lt;&lt; endl;\n    }\n\n    int lay_tuoi() {              // getter - đọc thuộc tính private\n        return tuoi;\n    }\n};\n\nint main() {\n    SinhVien sv1(\"Huy\", 20);    // tạo object, tự động gọi constructor\n    sv1.gioi_thieu();             // Tôi tên Huy, 20 tuổi\n    cout &lt;&lt; sv1.lay_tuoi() &lt;&lt; endl;   // 20\n    return 0;\n}</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Từ khóa</th><th>Ý nghĩa</th></tr>\n        <tr><td><code>private</code></td><td>Thuộc tính/phương thức chỉ dùng được bên trong class</td></tr>\n        <tr><td><code>public</code></td><td>Truy cập được từ bên ngoài class</td></tr>\n        <tr><td><code>protected</code></td><td>Truy cập được từ class con (kế thừa) nhưng không từ bên ngoài</td></tr>\n      </tbody></table>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Nguyên tắc chuẩn: luôn để thuộc tính là <code>private</code> và cung cấp phương thức <code>public</code> (getter/setter) để truy cập có kiểm soát — đây là nguyên tắc <strong>Encapsulation</strong>, sẽ được học sâu hơn ở phần OOP nâng cao.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 12</h4>\n        <p>Class định nghĩa thuộc tính (private) và phương thức (public), constructor tự chạy khi tạo object. Đây là nền tảng để học OOP nâng cao (kế thừa, đa hình) ở phần tiếp theo.</p>\n      </div>\n\n    </section>\n\n    <!-- ================= CHƯƠNG 13 ================= -->",
+      "questions": [
+        {
+          "question": "1. Từ khóa nào giúp thuộc tính CHỈ truy cập được từ bên trong class?",
+          "options": [
+            "public",
+            "private",
+            "static"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s12"
+      ],
+      "words": 248
+    },
+    {
+      "id": "chapter13",
+      "file": "chapter13.html",
+      "title": "Kế thừa (Inheritance)",
+      "summary": "Class con kế thừa thuộc tính và phương thức từ class cha, tái sử dụng code.",
+      "content": "<section class=\"chapter\" id=\"s13\">\n      \n      <p class=\"lead\">Class con kế thừa thuộc tính và phương thức từ class cha, tái sử dụng code.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">inheritance.cpp</span>\n        \n        <pre><code>class DongVat {\nprotected:                          // protected = truy cập được từ class con, KHÔNG từ bên ngoài\n    string ten;\npublic:\n    DongVat(string t) : ten(t) {}     // initializer list - cách khởi tạo thuộc tính hiệu quả hơn gán trong thân hàm\n    void an() {\n        cout &lt;&lt; ten &lt;&lt; \" đang ăn\" &lt;&lt; endl;\n    }\n};\n\nclass Cho : public DongVat {          // Cho KẾ THỪA public từ DongVat\npublic:\n    Cho(string t) : DongVat(t) {}       // gọi constructor của lớp cha\n    void sua() {\n        cout &lt;&lt; ten &lt;&lt; \" sủa: Gâu gâu!\" &lt;&lt; endl;   // dùng được \"ten\" vì nó protected\n    }\n};\n\nint main() {\n    Cho cho(\"Milu\");\n    cho.an();     // kế thừa từ DongVat\n    cho.sua();      // riêng của Cho\n}</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Kiểu kế thừa</th><th>Ý nghĩa</th></tr>\n        <tr><td><code>public</code></td><td>Thành viên public/protected của cha giữ nguyên mức truy cập ở con (phổ biến nhất)</td></tr>\n        <tr><td><code>protected</code></td><td>Thành viên public của cha trở thành protected ở con</td></tr>\n        <tr><td><code>private</code></td><td>Mọi thành viên kế thừa đều trở thành private ở con (hiếm dùng)</td></tr>\n      </tbody></table>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 13</h4>\n        <p>Kế thừa <code>public</code> là phổ biến nhất. <code>protected</code> cho phép class con truy cập thuộc tính cha mà vẫn ẩn với bên ngoài. Initializer list là cách khởi tạo thuộc tính chuẩn và hiệu quả trong C++.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 14 ================= -->",
+      "questions": [],
+      "ids": [
+        "s13"
+      ],
+      "words": 220
+    },
+    {
+      "id": "chapter14",
+      "file": "chapter14.html",
+      "title": "Đa hình & Hàm ảo (Virtual)",
+      "summary": "Cho phép gọi đúng phương thức của class con thông qua con trỏ/tham chiếu class cha — nền tảng đa hình trong C++.",
+      "content": "<section class=\"chapter\" id=\"s14\">\n      \n      <p class=\"lead\">Cho phép gọi đúng phương thức của class con thông qua con trỏ/tham chiếu class cha — nền tảng đa hình trong C++.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">virtual.cpp</span>\n        \n        <pre><code>class Hinh {\npublic:\n    virtual double dienTich() {         // \"virtual\" - BẮT BUỘC để đa hình hoạt động đúng\n        return 0;\n    }\n    virtual ~Hinh() {}                     // destructor ảo - QUAN TRỌNG khi có kế thừa + con trỏ\n};\n\nclass HinhVuong : public Hinh {\nprivate:\n    double canh;\npublic:\n    HinhVuong(double c) : canh(c) {}\n    double dienTich() override {         // \"override\" giúp trình biên dịch kiểm tra đúng chữ ký\n        return canh * canh;\n    }\n};\n\nclass HinhTron : public Hinh {\nprivate:\n    double banKinh;\npublic:\n    HinhTron(double r) : banKinh(r) {}\n    double dienTich() override {\n        return 3.14 * banKinh * banKinh;\n    }\n};\n\nint main() {\n    Hinh* danhSach[2];\n    danhSach[0] = new HinhVuong(4);\n    danhSach[1] = new HinhTron(3);\n\n    for (int i = 0; i &lt; 2; i++) {\n        cout &lt;&lt; danhSach[i]-&gt;dienTich() &lt;&lt; endl;   // gọi ĐÚNG phiên bản của từng class con\n    }\n    for (int i = 0; i &lt; 2; i++) delete danhSach[i];    // giải phóng bộ nhớ đã cấp phát\n}</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        Nếu KHÔNG khai báo <code>virtual</code>, gọi phương thức thông qua con trỏ class cha sẽ luôn chạy phiên bản của class cha (gọi là \"static binding\") thay vì phiên bản đã override ở class con — đây là lỗi khái niệm rất phổ biến khi mới học đa hình trong C++.\n      </div>\n\n      <div class=\"box warning\">\n        <div class=\"box-title\">Cảnh báo</div>\n        Luôn khai báo <strong>destructor ảo</strong> (<code>virtual ~Hinh()</code>) cho class cha nếu có kế thừa — nếu không, <code>delete</code> qua con trỏ class cha sẽ KHÔNG gọi destructor của class con, gây rò rỉ bộ nhớ (memory leak).\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 14</h4>\n        <p><code>virtual</code> cho phép đa hình hoạt động đúng (dynamic binding). Luôn khai báo destructor ảo cho class cha có kế thừa để tránh memory leak.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 15 ================= -->",
+      "questions": [
+        {
+          "question": "1. Từ khóa nào bắt buộc để đa hình (gọi đúng phương thức class con qua con trỏ cha) hoạt động?",
+          "options": [
+            "virtual",
+            "static",
+            "const"
+          ],
+          "answer": 0,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s14"
+      ],
+      "words": 306
+    },
+    {
+      "id": "chapter15",
+      "file": "chapter15.html",
+      "title": "Toán tử Overloading",
+      "summary": "Định nghĩa lại ý nghĩa của toán tử (+, -, ==...) khi áp dụng lên object tự định nghĩa.",
+      "content": "<section class=\"chapter\" id=\"s15\">\n      \n      <p class=\"lead\">Định nghĩa lại ý nghĩa của toán tử (+, -, ==...) khi áp dụng lên object tự định nghĩa.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">operator_overload.cpp</span>\n        \n        <pre><code>class DiemSo {\npublic:\n    int x, y;\n    DiemSo(int x, int y) : x(x), y(y) {}\n\n    DiemSo operator+(const DiemSo&amp; khac) {    // định nghĩa lại ý nghĩa của dấu +\n        return DiemSo(x + khac.x, y + khac.y);\n    }\n\n    bool operator==(const DiemSo&amp; khac) {       // định nghĩa lại ý nghĩa của ==\n        return x == khac.x &amp;&amp; y == khac.y;\n    }\n\n    friend ostream&amp; operator&lt;&lt;(ostream&amp; os, const DiemSo&amp; d) {   // cho phép cout &lt;&lt; object\n        os &lt;&lt; \"(\" &lt;&lt; d.x &lt;&lt; \", \" &lt;&lt; d.y &lt;&lt; \")\";\n        return os;\n    }\n};\n\nint main() {\n    DiemSo a(1, 2), b(3, 4);\n    DiemSo c = a + b;         // gọi operator+ đã định nghĩa\n    cout &lt;&lt; c &lt;&lt; endl;          // (4, 6) - nhờ operator&lt;&lt; đã định nghĩa\n    cout &lt;&lt; (a == b) &lt;&lt; endl;    // 0 (false)\n}</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Chỉ nên overload toán tử khi ý nghĩa mới thực sự trực quan (VD: cộng hai vector, hai phân số) — lạm dụng overload cho các thao tác không liên quan tới ý nghĩa gốc của toán tử sẽ làm code khó hiểu.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 15</h4>\n        <p>Operator overloading cho phép object tự định nghĩa hoạt động tự nhiên với các toán tử chuẩn (+, ==, &lt;&lt;...), giúp code trực quan hơn khi làm việc với kiểu dữ liệu tự tạo.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 16 ================= -->",
+      "questions": [],
+      "ids": [
+        "s15"
+      ],
+      "words": 237
+    },
+    {
+      "id": "chapter16",
+      "file": "chapter16.html",
+      "title": "vector & string (STL)",
+      "summary": "STL (Standard Template Library) cung cấp các cấu trúc dữ liệu mạnh mẽ, an toàn hơn mảng C-style.",
+      "content": "<section class=\"chapter\" id=\"s16\">\n      \n      <p class=\"lead\">STL (Standard Template Library) cung cấp các cấu trúc dữ liệu mạnh mẽ, an toàn hơn mảng C-style.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">vector_basic.cpp</span>\n        \n        <pre><code>#include &lt;vector&gt;\n#include &lt;algorithm&gt;\nusing namespace std;\n\nint main() {\n    vector&lt;int&gt; ds = {5, 2, 8, 1, 9};    // mảng ĐỘNG - tự thay đổi kích thước\n\n    ds.push_back(10);          // thêm vào cuối - O(1) amortized\n    ds.pop_back();                // xóa phần tử cuối\n    cout &lt;&lt; ds.size() &lt;&lt; endl;      // kích thước hiện tại\n\n    sort(ds.begin(), ds.end());   // sắp xếp - cần #include &lt;algorithm&gt;\n\n    for (int x : ds) {              // duyệt bằng range-based for\n        cout &lt;&lt; x &lt;&lt; \" \";\n    }\n\n    // vector 2 chiều\n    vector&lt;vector&lt;int&gt;&gt; maTran(3, vector&lt;int&gt;(3, 0));   // ma trận 3x3 toàn số 0\n}</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">string_stl.cpp</span>\n        \n        <pre><code>#include &lt;string&gt;\n\nstring s = \"Xin chao\";\ncout &lt;&lt; s.length() &lt;&lt; endl;             // độ dài chuỗi\ncout &lt;&lt; s.substr(0, 3) &lt;&lt; endl;           // \"Xin\" - cắt chuỗi từ vị trí 0, độ dài 3\ncout &lt;&lt; (s.find(\"chao\") != string::npos) &lt;&lt; endl;   // kiểm tra chứa chuỗi con\ns += \" Python\";                             // nối chuỗi bằng +=\ncout &lt;&lt; s &lt;&lt; endl;                           // \"Xin chao Python\"</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        <code>vector</code> nên là lựa chọn <strong>mặc định</strong> thay cho mảng C-style trong hầu hết trường hợp — tự động quản lý bộ nhớ, tự thay đổi kích thước, và có <code>.size()</code>/<code>.at()</code> giúp code an toàn hơn nhiều.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 16</h4>\n        <p><code>vector</code> là mảng động an toàn, nên dùng thay mảng C-style trong code hiện đại. <code>string</code> của STL cung cấp đầy đủ phương thức xử lý chuỗi tiện lợi.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 17 ================= -->",
+      "questions": [],
+      "ids": [
+        "s16"
+      ],
+      "words": 252
+    },
+    {
+      "id": "chapter17",
+      "file": "chapter17.html",
+      "title": "map & set (STL)",
+      "summary": "Cấu trúc dữ liệu key-value và tập hợp không trùng lặp, tự động sắp xếp theo key.",
+      "content": "<section class=\"chapter\" id=\"s17\">\n      \n      <p class=\"lead\">Cấu trúc dữ liệu key-value và tập hợp không trùng lặp, tự động sắp xếp theo key.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">map_basic.cpp</span>\n        \n        <pre><code>#include &lt;map&gt;\n#include &lt;unordered_map&gt;\n\nmap&lt;string, int&gt; diem;         // map - TỰ ĐỘNG sắp xếp theo key\ndiem[\"Huy\"] = 85;\ndiem[\"Lan\"] = 92;\n\nfor (auto&amp; cap : diem) {           // \"auto\" tự suy luận kiểu dữ liệu\n    cout &lt;&lt; cap.first &lt;&lt; \": \" &lt;&lt; cap.second &lt;&lt; endl;\n}\n\nif (diem.find(\"Huy\") != diem.end()) {    // kiểm tra key có tồn tại\n    cout &lt;&lt; \"Tìm thấy Huy: \" &lt;&lt; diem[\"Huy\"] &lt;&lt; endl;\n}\n\nunordered_map&lt;string, int&gt; diemNhanh;    // KHÔNG sắp xếp nhưng NHANH HƠN map (hash table)\ndiemNhanh[\"Nam\"] = 78;</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">set_basic.cpp</span>\n        \n        <pre><code>#include &lt;set&gt;\n\nset&lt;int&gt; ds = {5, 2, 8, 2, 1};   // tự động loại trùng lặp VÀ sắp xếp\nfor (int x : ds) cout &lt;&lt; x &lt;&lt; \" \";    // 1 2 5 8\n\nds.insert(3);\nds.erase(2);\ncout &lt;&lt; (ds.count(5) &gt; 0) &lt;&lt; endl;   // kiểm tra tồn tại</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Cấu trúc</th><th>Đặc điểm</th><th>Độ phức tạp truy cập</th></tr>\n        <tr><td><code>map</code></td><td>Key-value, tự sắp xếp theo key</td><td>O(log n)</td></tr>\n        <tr><td><code>unordered_map</code></td><td>Key-value, KHÔNG sắp xếp (hash table)</td><td>O(1) trung bình</td></tr>\n        <tr><td><code>set</code></td><td>Tập hợp duy nhất, tự sắp xếp</td><td>O(log n)</td></tr>\n      </tbody></table>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Nếu không cần dữ liệu được sắp xếp, ưu tiên <code>unordered_map</code>/<code>unordered_set</code> vì nhanh hơn <code>map</code>/<code>set</code> thông thường — chỉ dùng bản có thứ tự khi thực sự cần duyệt theo key đã sắp xếp.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 17</h4>\n        <p><code>map/set</code> tự sắp xếp theo key với O(log n), <code>unordered_map/unordered_set</code> nhanh hơn (O(1) trung bình) nhưng không có thứ tự — chọn tùy theo nhu cầu bài toán.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 18 ================= -->",
+      "questions": [],
+      "ids": [
+        "s17"
+      ],
+      "words": 252
+    },
+    {
+      "id": "chapter18",
+      "file": "chapter18.html",
+      "title": "Quản lý bộ nhớ động (new/delete)",
+      "summary": "Cấp phát và giải phóng bộ nhớ thủ công trên heap — trách nhiệm và cũng là nguồn lỗi lớn nhất của C++.",
+      "content": "<section class=\"chapter\" id=\"s18\">\n      \n      <p class=\"lead\">Cấp phát và giải phóng bộ nhớ thủ công trên heap — trách nhiệm và cũng là nguồn lỗi lớn nhất của C++.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">memory_management.cpp</span>\n        \n        <pre><code>int* p = new int(10);        // cấp phát 1 số nguyên trên heap, khởi tạo giá trị 10\ncout &lt;&lt; *p &lt;&lt; endl;             // 10\ndelete p;                          // BẮT BUỘC giải phóng khi không dùng nữa\np = nullptr;                          // gán null để tránh dangling pointer sau khi delete\n\nint* mang = new int[5];        // cấp phát MẢNG động\nmang[0] = 100;\ndelete[] mang;                    // dùng delete[] (có ngoặc vuông) cho mảng, KHÔNG phải delete</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng — Memory Leak</div>\n        Mỗi <code>new</code> phải có đúng một <code>delete</code> tương ứng. Quên <code>delete</code> gây <strong>memory leak</strong> (rò rỉ bộ nhớ) — chương trình chạy càng lâu càng chiếm nhiều RAM cho tới khi hệ thống hết bộ nhớ hoặc crash.\n      </div>\n\n      <div class=\"box warning\">\n        <div class=\"box-title\">Cảnh báo — Dangling Pointer &amp; Double Delete</div>\n        Dùng con trỏ SAU KHI đã <code>delete</code> (dangling pointer) hoặc gọi <code>delete</code> hai lần trên cùng một con trỏ đều gây lỗi runtime nghiêm trọng, khó debug. Đây là lý do C++ hiện đại khuyến khích dùng smart pointer (chương 19) thay vì new/delete thủ công.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 18</h4>\n        <p><code>new</code>/<code>delete</code> cấp phát và giải phóng bộ nhớ trên heap thủ công. Lỗi quên delete (memory leak) và dùng sau khi delete (dangling pointer) là hai lỗi kinh điển cần đặc biệt cẩn trọng.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 19 ================= -->",
+      "questions": [],
+      "ids": [
+        "s18"
+      ],
+      "words": 235
+    },
+    {
+      "id": "chapter19",
+      "file": "chapter19.html",
+      "title": "Smart Pointers",
+      "summary": "Con trỏ thông minh (C++11+) tự động giải phóng bộ nhớ — giải pháp hiện đại thay thế new/delete thủ công.",
+      "content": "<section class=\"chapter\" id=\"s19\">\n      \n      <p class=\"lead\">Con trỏ thông minh (C++11+) tự động giải phóng bộ nhớ — giải pháp hiện đại thay thế new/delete thủ công.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">smart_pointers.cpp</span>\n        \n        <pre><code>#include &lt;memory&gt;\n\nvoid vi_du_unique_ptr() {\n    unique_ptr&lt;int&gt; p = make_unique&lt;int&gt;(10);   // TỰ ĐỘNG delete khi ra khỏi phạm vi hàm\n    cout &lt;&lt; *p &lt;&lt; endl;\n    // KHÔNG cần gọi delete - unique_ptr tự lo việc đó!\n}   // p tự động được giải phóng tại đây\n\nvoid vi_du_shared_ptr() {\n    shared_ptr&lt;int&gt; p1 = make_shared&lt;int&gt;(20);\n    shared_ptr&lt;int&gt; p2 = p1;                       // CÙNG chia sẻ quyền sở hữu, đếm tham chiếu tăng lên 2\n    cout &lt;&lt; p1.use_count() &lt;&lt; endl;                  // 2 - số lượng shared_ptr đang trỏ tới cùng dữ liệu\n}   // bộ nhớ chỉ được giải phóng khi CẢ p1 và p2 đều ra khỏi phạm vi</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Loại</th><th>Đặc điểm</th></tr>\n        <tr><td><code>unique_ptr</code></td><td>CHỈ MỘT con trỏ sở hữu tài nguyên, không thể sao chép, chỉ có thể \"move\"</td></tr>\n        <tr><td><code>shared_ptr</code></td><td>NHIỀU con trỏ có thể cùng sở hữu, tự đếm tham chiếu, giải phóng khi về 0</td></tr>\n        <tr><td><code>weak_ptr</code></td><td>Tham chiếu tới shared_ptr mà KHÔNG tăng đếm tham chiếu, tránh circular reference</td></tr>\n      </tbody></table>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo — C++ hiện đại</div>\n        Nguyên tắc vàng của C++ hiện đại (C++11 trở lên): <strong>hầu như không bao giờ dùng <code>new</code>/<code>delete</code> trực tiếp nữa</strong> — luôn ưu tiên <code>unique_ptr</code> (mặc định) hoặc <code>shared_ptr</code> (khi thực sự cần chia sẻ sở hữu) để tránh hoàn toàn memory leak.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 19</h4>\n        <p>Smart pointer (<code>unique_ptr</code>, <code>shared_ptr</code>) tự động quản lý vòng đời bộ nhớ, gần như loại bỏ hoàn toàn memory leak — là chuẩn mực bắt buộc trong C++ hiện đại.</p>\n      </div>\n\n    </section>\n\n    <!-- ================= CHƯƠNG 20 ================= -->",
+      "questions": [
+        {
+          "question": "1. Smart pointer nào chỉ cho phép MỘT chủ sở hữu duy nhất tại một thời điểm?",
+          "options": [
+            "shared_ptr",
+            "unique_ptr",
+            "weak_ptr"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s19"
+      ],
+      "words": 257
+    },
+    {
+      "id": "chapter20",
+      "file": "chapter20.html",
+      "title": "Function Template",
+      "summary": "Viết một hàm duy nhất hoạt động với nhiều kiểu dữ liệu khác nhau — tránh lặp code cho từng kiểu.",
+      "content": "<section class=\"chapter\" id=\"s20\">\n      \n      <p class=\"lead\">Viết một hàm duy nhất hoạt động với nhiều kiểu dữ liệu khác nhau — tránh lặp code cho từng kiểu.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">function_template.cpp</span>\n        \n        <pre><code>template &lt;typename T&gt;         // T là kiểu tổng quát, \"typename\" có thể thay bằng \"class\"\nT timMax(T a, T b) {\n    return (a &gt; b) ? a : b;\n}\n\nint main() {\n    cout &lt;&lt; timMax(3, 7) &lt;&lt; endl;           // T tự suy luận là int -&gt; 7\n    cout &lt;&lt; timMax(3.5, 2.1) &lt;&lt; endl;         // T tự suy luận là double -&gt; 3.5\n    cout &lt;&lt; timMax&lt;string&gt;(\"abc\", \"abd\") &lt;&lt; endl;   // chỉ định T tường minh -&gt; \"abd\"\n}</code></pre>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">Ghi chú</div>\n        Trình biên dịch tự động sinh ra một phiên bản hàm riêng cho MỖI kiểu dữ liệu được dùng (gọi là \"template instantiation\") — nghĩa là <code>timMax(3, 7)</code> và <code>timMax(3.5, 2.1)</code> thực chất biên dịch thành hai hàm máy hoàn toàn khác nhau.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 20</h4>\n        <p>Function template dùng <code>template &lt;typename T&gt;</code> để viết một hàm hoạt động với nhiều kiểu dữ liệu, trình biên dịch tự sinh phiên bản cụ thể cho từng kiểu được dùng.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 21 ================= -->",
+      "questions": [],
+      "ids": [
+        "s20"
+      ],
+      "words": 181
+    },
+    {
+      "id": "chapter21",
+      "file": "chapter21.html",
+      "title": "Class Template",
+      "summary": "Tương tự function template nhưng áp dụng cho toàn bộ class — chính là cách STL (vector, map...) được xây dựng.",
+      "content": "<section class=\"chapter\" id=\"s21\">\n      \n      <p class=\"lead\">Tương tự function template nhưng áp dụng cho toàn bộ class — chính là cách STL (vector, map...) được xây dựng.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">class_template.cpp</span>\n        \n        <pre><code>template &lt;typename T&gt;\nclass Hop {\nprivate:\n    T noiDung;\npublic:\n    Hop(T noiDung) : noiDung(noiDung) {}\n\n    T layNoiDung() {\n        return noiDung;\n    }\n\n    void datNoiDung(T giaTri) {\n        noiDung = giaTri;\n    }\n};\n\nint main() {\n    Hop&lt;int&gt; hopSo(42);              // T = int\n    Hop&lt;string&gt; hopChuoi(\"Xin chào\");   // T = string\n\n    cout &lt;&lt; hopSo.layNoiDung() &lt;&lt; endl;       // 42\n    cout &lt;&lt; hopChuoi.layNoiDung() &lt;&lt; endl;      // Xin chào\n}</code></pre>\n      </div>\n\n      <h3>Template với nhiều kiểu tham số</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">multi_type_template.cpp</span>\n        \n        <pre><code>template &lt;typename K, typename V&gt;\nclass CapKeyValue {\npublic:\n    K key;\n    V value;\n    CapKeyValue(K k, V v) : key(k), value(v) {}\n};\n\nCapKeyValue&lt;string, int&gt; diem(\"Huy\", 85);   // K=string, V=int</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        <code>vector&lt;T&gt;</code>, <code>map&lt;K,V&gt;</code> mà bạn đã học ở STL (chương 16-17) chính là class template — hiểu class template giúp bạn hiểu rõ hơn cách các cấu trúc dữ liệu chuẩn của C++ hoạt động bên dưới.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 21</h4>\n        <p>Class template cho phép định nghĩa class hoạt động với nhiều kiểu dữ liệu, có thể có nhiều tham số kiểu (K, V...) — nền tảng xây dựng nên các container của STL.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 22 ================= -->",
+      "questions": [],
+      "ids": [
+        "s21"
+      ],
+      "words": 195
+    },
+    {
+      "id": "chapter22",
+      "file": "chapter22.html",
+      "title": "Exception Handling (try/catch)",
+      "summary": "Cơ chế xử lý lỗi runtime bằng try-catch-throw, giúp chương trình không crash đột ngột.",
+      "content": "<section class=\"chapter\" id=\"s22\">\n      \n      <p class=\"lead\">Cơ chế xử lý lỗi runtime bằng try-catch-throw, giúp chương trình không crash đột ngột.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">exception_basic.cpp</span>\n        \n        <pre><code>#include &lt;stdexcept&gt;\n\ndouble chia(double a, double b) {\n    if (b == 0) {\n        throw invalid_argument(\"Không thể chia cho 0!\");   // ném ra exception có sẵn của thư viện chuẩn\n    }\n    return a / b;\n}\n\nint main() {\n    try {\n        cout &lt;&lt; chia(10, 0) &lt;&lt; endl;\n    } catch (const invalid_argument&amp; e) {         // bắt CHÍNH XÁC loại exception đó\n        cout &lt;&lt; \"Lỗi: \" &lt;&lt; e.what() &lt;&lt; endl;         // .what() lấy thông báo lỗi\n    } catch (const exception&amp; e) {                    // bắt các exception khác (nếu có)\n        cout &lt;&lt; \"Lỗi khác: \" &lt;&lt; e.what() &lt;&lt; endl;\n    }\n    cout &lt;&lt; \"Chương trình tiếp tục chạy bình thường\" &lt;&lt; endl;\n}</code></pre>\n      </div>\n\n      <h3>Custom Exception</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">custom_exception.cpp</span>\n        \n        <pre><code>class SoDuKhongDuException : public exception {    // kế thừa từ exception chuẩn\nprivate:\n    string thongBao;\npublic:\n    SoDuKhongDuException(string msg) : thongBao(msg) {}\n    const char* what() const noexcept override {      // override phương thức what()\n        return thongBao.c_str();\n    }\n};\n\nvoid rutTien(double soDu, double soTien) {\n    if (soTien &gt; soDu) {\n        throw SoDuKhongDuException(\"Số dư không đủ!\");\n    }\n}</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        Không giống Java, C++ không bắt buộc phải khai báo hoặc bắt exception (không có \"checked exception\"). Nếu một exception được throw mà không có catch nào bắt được, chương trình sẽ gọi <code>terminate()</code> và crash ngay lập tức.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 22</h4>\n        <p><code>try/catch/throw</code> xử lý lỗi runtime. Custom exception kế thừa từ <code>std::exception</code> và override <code>what()</code>. C++ không bắt buộc xử lý exception như Java.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 23 ================= -->",
+      "questions": [
+        {
+          "question": "1. Từ khóa nào dùng để \"ném\" ra một exception trong C++?",
+          "options": [
+            "throw",
+            "raise",
+            "catch"
+          ],
+          "answer": 0,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s22"
+      ],
+      "words": 251
+    },
+    {
+      "id": "chapter23",
+      "file": "chapter23.html",
+      "title": "Lambda Expression",
+      "summary": "Hàm ẩn danh (C++11+) — cực kỳ hữu ích khi dùng với các thuật toán của STL.",
+      "content": "<section class=\"chapter\" id=\"s23\">\n      \n      <p class=\"lead\">Hàm ẩn danh (C++11+) — cực kỳ hữu ích khi dùng với các thuật toán của STL.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">lambda_basic.cpp</span>\n        \n        <pre><code>#include &lt;algorithm&gt;\n#include &lt;vector&gt;\n\nauto binhPhuong = [](int x) { return x * x; };   // [] = capture list, () = tham số\ncout &lt;&lt; binhPhuong(5) &lt;&lt; endl;                       // 25\n\nvector&lt;int&gt; ds = {5, 2, 8, 1, 9};\n\nsort(ds.begin(), ds.end(), [](int a, int b) {     // lambda làm tiêu chí so sánh cho sort\n    return a &gt; b;                                          // sắp xếp GIẢM dần\n});\n\nint nguong = 5;\nint demLon = count_if(ds.begin(), ds.end(), [nguong](int x) {   // \"capture\" biến nguong từ bên ngoài\n    return x &gt; nguong;\n});\ncout &lt;&lt; demLon &lt;&lt; endl;</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Capture</th><th>Ý nghĩa</th></tr>\n        <tr><td><code>[]</code></td><td>Không lấy biến nào từ phạm vi ngoài</td></tr>\n        <tr><td><code>[x]</code></td><td>Lấy biến x theo giá trị (copy)</td></tr>\n        <tr><td><code>[&amp;x]</code></td><td>Lấy biến x theo tham chiếu (có thể sửa biến gốc)</td></tr>\n        <tr><td><code>[=]</code></td><td>Lấy TẤT CẢ biến ngoài theo giá trị</td></tr>\n        <tr><td><code>[&amp;]</code></td><td>Lấy TẤT CẢ biến ngoài theo tham chiếu</td></tr>\n      </tbody></table>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Lambda kết hợp với các thuật toán STL (<code>sort</code>, <code>find_if</code>, <code>count_if</code>, <code>for_each</code>) là phong cách viết C++ hiện đại — ngắn gọn hơn nhiều so với việc tự viết hàm so sánh riêng.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 23</h4>\n        <p>Lambda tạo hàm ẩn danh ngay tại chỗ sử dụng, với capture list linh hoạt để lấy biến từ phạm vi ngoài — rất mạnh khi kết hợp với các thuật toán STL.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 24 ================= -->",
+      "questions": [],
+      "ids": [
+        "s23"
+      ],
+      "words": 228
+    },
+    {
+      "id": "chapter24",
+      "file": "chapter24.html",
+      "title": "Namespace & File nhiều module",
+      "summary": "Tổ chức code lớn thành nhiều file, tránh xung đột tên giữa các thư viện khác nhau.",
+      "content": "<section class=\"chapter\" id=\"s24\">\n      \n      <p class=\"lead\">Tổ chức code lớn thành nhiều file, tránh xung đột tên giữa các thư viện khác nhau.</p>\n\n      <h3>Namespace — tránh xung đột tên</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">namespace.cpp</span>\n        \n        <pre><code>namespace ToanHoc {\n    double PI = 3.14159;\n    double tinhChuVi(double banKinh) {\n        return 2 * PI * banKinh;\n    }\n}\n\nnamespace VatLy {\n    double PI = 3.14;   // KHÔNG xung đột với ToanHoc::PI vì khác namespace\n}\n\nint main() {\n    cout &lt;&lt; ToanHoc::PI &lt;&lt; endl;              // truy cập qua toán tử ::\n    cout &lt;&lt; ToanHoc::tinhChuVi(5) &lt;&lt; endl;\n}</code></pre>\n      </div>\n\n      <h3>Chia code thành file .h (khai báo) và .cpp (triển khai)</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">ToanHoc.h</span>\n        \n        <pre><code>#ifndef TOANHOC_H     // header guard - tránh khai báo trùng lặp khi include nhiều lần\n#define TOANHOC_H\n\nint cong(int a, int b);   // chỉ KHAI BÁO, không có thân hàm\n\n#endif</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">ToanHoc.cpp</span>\n        \n        <pre><code>#include \"ToanHoc.h\"\n\nint cong(int a, int b) {     // TRIỂN KHAI thực sự nằm ở file .cpp\n    return a + b;\n}</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">main.cpp</span>\n        \n        <pre><code>#include \"ToanHoc.h\"     // chỉ cần include file header\n\nint main() {\n    cout &lt;&lt; cong(3, 5) &lt;&lt; endl;\n}\n// Biên dịch: g++ main.cpp ToanHoc.cpp -o chuong_trinh</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        <code>#ifndef/#define/#endif</code> (header guard) ngăn lỗi \"khai báo trùng lặp\" khi một file header vô tình được <code>#include</code> nhiều lần trong cùng một quá trình biên dịch — luôn cần có trong mọi file <code>.h</code>.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 24</h4>\n        <p><code>namespace</code> tránh xung đột tên giữa các thư viện. Dự án thực tế tách file <code>.h</code> (khai báo) và <code>.cpp</code> (triển khai), luôn có header guard để tránh include trùng lặp.</p>\n      </div>\n\n    </section>\n\n    <!-- ================= CHƯƠNG 25 ================= -->",
+      "questions": [],
+      "ids": [
+        "s24"
+      ],
+      "words": 246
+    },
+    {
+      "id": "chapter25",
+      "file": "chapter25.html",
+      "title": "STL Algorithms (sort, find, count...)",
+      "summary": "Thư viện <algorithm> cung cấp sẵn các thuật toán đã tối ưu — nên dùng thay vì tự viết lại.",
+      "content": "<section class=\"chapter\" id=\"s25\">\n      \n      <p class=\"lead\">Thư viện <code>&lt;algorithm&gt;</code> cung cấp sẵn các thuật toán đã tối ưu — nên dùng thay vì tự viết lại.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">algorithm_basic.cpp</span>\n        \n        <pre><code>#include &lt;algorithm&gt;\n#include &lt;vector&gt;\n\nvector&lt;int&gt; ds = {5, 2, 8, 1, 9, 2};\n\nsort(ds.begin(), ds.end());                          // sắp xếp tăng dần - O(n log n)\nreverse(ds.begin(), ds.end());                          // đảo ngược thứ tự\n\nauto it = find(ds.begin(), ds.end(), 8);                 // tìm phần tử -&gt; trả về iterator\nif (it != ds.end()) cout &lt;&lt; \"Tìm thấy tại vị trí: \" &lt;&lt; (it - ds.begin()) &lt;&lt; endl;\n\nint demSo2 = count(ds.begin(), ds.end(), 2);               // đếm số lần xuất hiện của 2\nint tong = accumulate(ds.begin(), ds.end(), 0);              // tính tổng (cần #include &lt;numeric&gt;)\nint lonNhat = *max_element(ds.begin(), ds.end());              // phần tử lớn nhất\n\nbool coTrung = binary_search(ds.begin(), ds.end(), 5);         // tìm kiếm nhị phân (CẦN đã sort trước)</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Hàm</th><th>Công dụng</th><th>Độ phức tạp</th></tr>\n        <tr><td><code>sort</code></td><td>Sắp xếp</td><td>O(n log n)</td></tr>\n        <tr><td><code>find</code></td><td>Tìm tuyến tính</td><td>O(n)</td></tr>\n        <tr><td><code>binary_search</code></td><td>Tìm nhị phân (cần dữ liệu đã sort)</td><td>O(log n)</td></tr>\n        <tr><td><code>accumulate</code></td><td>Tính tổng/gộp giá trị</td><td>O(n)</td></tr>\n      </tbody></table>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Luôn ưu tiên dùng thuật toán STL có sẵn thay vì tự viết vòng lặp thủ công — chúng đã được tối ưu kỹ lưỡng, code ngắn gọn hơn, và giảm khả năng có lỗi tự tạo ra.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 25</h4>\n        <p>Thư viện <code>&lt;algorithm&gt;</code> cung cấp sort/find/count/accumulate/binary_search đã tối ưu sẵn — nên tận dụng tối đa thay vì tự cài đặt lại thuật toán cơ bản.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 26 ================= -->",
+      "questions": [],
+      "ids": [
+        "s25"
+      ],
+      "words": 229
+    },
+    {
+      "id": "chapter26",
+      "file": "chapter26.html",
+      "title": "Linked List tự cài đặt",
+      "summary": "Xây dựng danh sách liên kết từ đầu bằng con trỏ — bài tập kinh điển để hiểu sâu quản lý bộ nhớ.",
+      "content": "<section class=\"chapter\" id=\"s26\">\n      \n      <p class=\"lead\">Xây dựng danh sách liên kết từ đầu bằng con trỏ — bài tập kinh điển để hiểu sâu quản lý bộ nhớ.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">linked_list.cpp</span>\n        \n        <pre><code>struct Node {\n    int giaTri;\n    Node* tiepTheo;\n    Node(int gt) : giaTri(gt), tiepTheo(nullptr) {}\n};\n\nclass LinkedList {\nprivate:\n    Node* dau = nullptr;\npublic:\n    void themCuoi(int giaTri) {\n        Node* nodeMoi = new Node(giaTri);\n        if (!dau) { dau = nodeMoi; return; }\n        Node* hienTai = dau;\n        while (hienTai-&gt;tiepTheo) hienTai = hienTai-&gt;tiepTheo;\n        hienTai-&gt;tiepTheo = nodeMoi;\n    }\n\n    void in() {\n        Node* hienTai = dau;\n        while (hienTai) {\n            cout &lt;&lt; hienTai-&gt;giaTri &lt;&lt; \" -&gt; \";\n            hienTai = hienTai-&gt;tiepTheo;\n        }\n        cout &lt;&lt; \"NULL\" &lt;&lt; endl;\n    }\n\n    ~LinkedList() {                       // destructor - PHẢI tự giải phóng từng node\n        Node* hienTai = dau;\n        while (hienTai) {\n            Node* tam = hienTai;\n            hienTai = hienTai-&gt;tiepTheo;\n            delete tam;\n        }\n    }\n};\n\nint main() {\n    LinkedList ll;\n    ll.themCuoi(1); ll.themCuoi(2); ll.themCuoi(3);\n    ll.in();   // 1 -&gt; 2 -&gt; 3 -&gt; NULL\n}   // destructor tự động chạy khi ll ra khỏi phạm vi, giải phóng toàn bộ node</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        Vì mỗi node được cấp phát bằng <code>new</code>, class phải có <strong>destructor</strong> tự giải phóng toàn bộ node bằng <code>delete</code> — nếu không, mọi node sẽ bị rò rỉ bộ nhớ khi object LinkedList bị hủy.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 26</h4>\n        <p>Linked List tự cài đặt bằng struct Node và con trỏ, minh họa việc quản lý bộ nhớ động thủ công — destructor phải tự giải phóng từng node để tránh memory leak.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 27 ================= -->",
+      "questions": [],
+      "ids": [
+        "s26"
+      ],
+      "words": 244
+    },
+    {
+      "id": "chapter27",
+      "file": "chapter27.html",
+      "title": "Stack & Queue tự cài đặt",
+      "summary": "Cài đặt hai cấu trúc dữ liệu nền tảng bằng vector — hiểu bên trong std::stack/std::queue hoạt động ra sao.",
+      "content": "<section class=\"chapter\" id=\"s27\">\n      \n      <p class=\"lead\">Cài đặt hai cấu trúc dữ liệu nền tảng bằng vector — hiểu bên trong <code>std::stack</code>/<code>std::queue</code> hoạt động ra sao.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">stack_queue.cpp</span>\n        \n        <pre><code>#include &lt;stack&gt;\n#include &lt;queue&gt;\n\n// Dùng std::stack có sẵn - LIFO\nstack&lt;int&gt; ngan_xep;\nngan_xep.push(1); ngan_xep.push(2); ngan_xep.push(3);\ncout &lt;&lt; ngan_xep.top() &lt;&lt; endl;   // 3 - xem phần tử trên cùng\nngan_xep.pop();                       // xóa phần tử trên cùng (KHÔNG trả về giá trị)\n\n// Dùng std::queue có sẵn - FIFO\nqueue&lt;int&gt; hang_doi;\nhang_doi.push(1); hang_doi.push(2); hang_doi.push(3);\ncout &lt;&lt; hang_doi.front() &lt;&lt; endl;   // 1 - xem phần tử đầu tiên\nhang_doi.pop();                          // xóa phần tử đầu tiên\n\n// Ứng dụng thực tế: kiểm tra ngoặc hợp lệ dùng stack\nbool ngoacHopLe(string s) {\n    stack&lt;char&gt; st;\n    for (char c : s) {\n        if (c == '(') st.push(c);\n        else if (c == ')') {\n            if (st.empty()) return false;\n            st.pop();\n        }\n    }\n    return st.empty();\n}</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        <code>std::stack</code> và <code>std::queue</code> thực chất là \"container adapter\" — mặc định được xây dựng bên trên <code>deque</code>, giới hạn chỉ cho phép các thao tác đặc trưng (push/pop/top hoặc push/pop/front) để đảm bảo tính đúng đắn của cấu trúc dữ liệu.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 27</h4>\n        <p><code>std::stack</code> (LIFO) và <code>std::queue</code> (FIFO) là container adapter có sẵn trong STL, cung cấp interface an toàn, giới hạn đúng các thao tác đặc trưng của từng cấu trúc.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 28 ================= -->",
+      "questions": [],
+      "ids": [
+        "s27"
+      ],
+      "words": 215
+    },
+    {
+      "id": "chapter28",
+      "file": "chapter28.html",
+      "title": "Đệ quy & Chia để trị",
+      "summary": "Kỹ thuật giải bài toán bằng cách chia nhỏ thành bài toán con giống hệt cấu trúc — nền tảng của nhiều thuật toán hiệu quả.",
+      "content": "<section class=\"chapter\" id=\"s28\">\n      \n      <p class=\"lead\">Kỹ thuật giải bài toán bằng cách chia nhỏ thành bài toán con giống hệt cấu trúc — nền tảng của nhiều thuật toán hiệu quả.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">recursion.cpp</span>\n        \n        <pre><code>long long giaiThua(int n) {\n    if (n &lt;= 1) return 1;              // điều kiện dừng - BẮT BUỘC\n    return n * giaiThua(n - 1);\n}\n\n// Merge Sort - ví dụ kinh điển của chia để trị (divide and conquer)\nvoid tron(vector&lt;int&gt;&amp; ds, int trai, int giua, int phai) {\n    vector&lt;int&gt; tam;\n    int i = trai, j = giua + 1;\n    while (i &lt;= giua &amp;&amp; j &lt;= phai) {\n        if (ds[i] &lt;= ds[j]) tam.push_back(ds[i++]);\n        else tam.push_back(ds[j++]);\n    }\n    while (i &lt;= giua) tam.push_back(ds[i++]);\n    while (j &lt;= phai) tam.push_back(ds[j++]);\n    for (int k = 0; k &lt; tam.size(); k++) ds[trai + k] = tam[k];\n}\n\nvoid mergeSort(vector&lt;int&gt;&amp; ds, int trai, int phai) {\n    if (trai &gt;= phai) return;                    // điều kiện dừng\n    int giua = trai + (phai - trai) / 2;\n    mergeSort(ds, trai, giua);                       // chia nửa trái\n    mergeSort(ds, giua + 1, phai);                      // chia nửa phải\n    tron(ds, trai, giua, phai);                            // trộn lại (conquer)\n}</code></pre>\n      </div>\n\n      <div class=\"box warning\">\n        <div class=\"box-title\">Cảnh báo — Stack Overflow</div>\n        Mỗi lần gọi đệ quy tốn thêm một \"khung\" trên call stack. Đệ quy quá sâu (VD: đệ quy không có điều kiện dừng đúng, hoặc n quá lớn) sẽ gây lỗi <code>Segmentation fault</code> do tràn stack — khác với Python báo lỗi rõ ràng <code>RecursionError</code>.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 28</h4>\n        <p>Đệ quy cần điều kiện dừng rõ ràng để tránh stack overflow. Chia để trị (divide and conquer) như Merge Sort chia bài toán lớn thành các phần nhỏ hơn, giải rồi kết hợp lại.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 29 ================= -->",
+      "questions": [
+        {
+          "question": "1. Độ phức tạp thời gian của Merge Sort là gì?",
+          "options": [
+            "O(n²)",
+            "O(n log n)",
+            "O(n)"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s28"
+      ],
+      "words": 273
+    },
+    {
+      "id": "chapter29",
+      "file": "chapter29.html",
+      "title": "Dự án: Quản lý sinh viên (OOP + File)",
+      "summary": "Dự án tổng hợp: class, vector, đọc/ghi file — mô phỏng ứng dụng console hoàn chỉnh.",
+      "content": "<section class=\"chapter\" id=\"s29\">\n      \n      <p class=\"lead\">Dự án tổng hợp: class, vector, đọc/ghi file — mô phỏng ứng dụng console hoàn chỉnh.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">quan_ly_sinh_vien.cpp</span>\n        \n        <pre><code>#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;fstream&gt;\n#include &lt;sstream&gt;\nusing namespace std;\n\nclass SinhVien {\npublic:\n    string maSV, ten;\n    double diem;\n    SinhVien(string ma, string t, double d) : maSV(ma), ten(t), diem(d) {}\n\n    string toDong() const {                          // chuyển thành 1 dòng để ghi file CSV\n        return maSV + \",\" + ten + \",\" + to_string(diem);\n    }\n};\n\nclass QuanLySinhVien {\nprivate:\n    vector&lt;SinhVien&gt; danhSach;\n    string tenFile = \"sinhvien.csv\";\npublic:\n    void themSinhVien(const SinhVien&amp; sv) {\n        danhSach.push_back(sv);\n    }\n\n    void luuFile() {\n        ofstream file(tenFile);\n        for (const auto&amp; sv : danhSach) {\n            file &lt;&lt; sv.toDong() &lt;&lt; \"\\n\";\n        }\n        file.close();\n    }\n\n    void docFile() {\n        ifstream file(tenFile);\n        string dong;\n        while (getline(file, dong)) {\n            stringstream ss(dong);\n            string ma, ten, diemStr;\n            getline(ss, ma, ',');\n            getline(ss, ten, ',');\n            getline(ss, diemStr, ',');\n            danhSach.push_back(SinhVien(ma, ten, stod(diemStr)));\n        }\n    }\n\n    void inDanhSach() {\n        for (const auto&amp; sv : danhSach) {\n            cout &lt;&lt; sv.maSV &lt;&lt; \" - \" &lt;&lt; sv.ten &lt;&lt; \" - \" &lt;&lt; sv.diem &lt;&lt; endl;\n        }\n    }\n};\n\nint main() {\n    QuanLySinhVien ql;\n    ql.themSinhVien(SinhVien(\"SV001\", \"Huy\", 8.5));\n    ql.themSinhVien(SinhVien(\"SV002\", \"Lan\", 9.2));\n    ql.luuFile();\n    ql.inDanhSach();\n}</code></pre>\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 29</h4>\n        <p>Dự án minh họa việc kết hợp class, vector, và fstream (đọc/ghi file CSV) để xây dựng ứng dụng console hoàn chỉnh có lưu trữ dữ liệu bền vững.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 30 ================= -->",
+      "questions": [],
+      "ids": [
+        "s29"
+      ],
+      "words": 220
+    },
+    {
+      "id": "chapter30",
+      "file": "chapter30.html",
+      "title": "Dự án: Cấu trúc dữ liệu Ma trận",
+      "summary": "Dự án tổng hợp OOP + operator overloading — xây dựng class Ma trận hỗ trợ các phép toán cơ bản.",
+      "content": "<section class=\"chapter\" id=\"s30\">\n      \n      <p class=\"lead\">Dự án tổng hợp OOP + operator overloading — xây dựng class Ma trận hỗ trợ các phép toán cơ bản.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">ma_tran.cpp</span>\n        \n        <pre><code>class MaTran {\nprivate:\n    vector&lt;vector&lt;int&gt;&gt; duLieu;\n    int soHang, soCot;\npublic:\n    MaTran(int h, int c) : soHang(h), soCot(c) {\n        duLieu = vector&lt;vector&lt;int&gt;&gt;(h, vector&lt;int&gt;(c, 0));\n    }\n\n    void dat(int hang, int cot, int giaTri) {\n        duLieu[hang][cot] = giaTri;\n    }\n\n    int lay(int hang, int cot) const {\n        return duLieu[hang][cot];\n    }\n\n    MaTran operator+(const MaTran&amp; khac) const {        // overload phép cộng ma trận\n        MaTran ketQua(soHang, soCot);\n        for (int i = 0; i &lt; soHang; i++)\n            for (int j = 0; j &lt; soCot; j++)\n                ketQua.dat(i, j, duLieu[i][j] + khac.lay(i, j));\n        return ketQua;\n    }\n\n    void in() const {\n        for (int i = 0; i &lt; soHang; i++) {\n            for (int j = 0; j &lt; soCot; j++) cout &lt;&lt; duLieu[i][j] &lt;&lt; \" \";\n            cout &lt;&lt; endl;\n        }\n    }\n};\n\nint main() {\n    MaTran a(2, 2), b(2, 2);\n    a.dat(0,0,1); a.dat(0,1,2); a.dat(1,0,3); a.dat(1,1,4);\n    b.dat(0,0,5); b.dat(0,1,6); b.dat(1,0,7); b.dat(1,1,8);\n\n    MaTran c = a + b;    // dùng operator+ đã overload\n    c.in();                 // 6 8 / 10 12\n}</code></pre>\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>🎉 Hoàn thành phần lý thuyết!</h4>\n        <p>Bạn đã đi qua <strong>30 chương lý thuyết</strong>. Tiếp theo là <strong>Ngân hàng bài tập</strong> để luyện tập củng cố — thử tự giải trước khi xem đáp án!</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 31 ================= -->",
+      "questions": [
+        {
+          "question": "1. Trong C++ hiện đại, nên ưu tiên dùng gì thay cho new/delete thủ công?",
+          "options": [
+            "Smart pointer (unique_ptr, shared_ptr)",
+            "Mảng C-style",
+            "Biến global"
+          ],
+          "answer": 0,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s30"
+      ],
+      "words": 215
+    },
+    {
+      "id": "chapter31",
+      "file": "chapter31.html",
+      "title": "Bài tập Cơ bản (Dễ)",
+      "summary": "8 bài tập củng cố cú pháp nền tảng, vòng lặp, hàm và mảng.",
+      "content": "<section class=\"chapter\" id=\"s31\">\n      \n      <p class=\"lead\">8 bài tập củng cố cú pháp nền tảng, vòng lặp, hàm và mảng.</p>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 1: Kiểm tra số nguyên tố</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>bool laSoNguyenTo(int n) {\n    if (n &lt; 2) return false;\n    for (int i = 2; i * i &lt;= n; i++) {\n        if (n % i == 0) return false;\n    }\n    return true;\n}</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 2: Tìm phần tử lớn thứ 2 trong mảng</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>int timLonThu2(vector&lt;int&gt;&amp; ds) {\n    int max1 = INT_MIN, max2 = INT_MIN;\n    for (int x : ds) {\n        if (x &gt; max1) { max2 = max1; max1 = x; }\n        else if (x &gt; max2 &amp;&amp; x != max1) max2 = x;\n    }\n    return max2;\n}</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 3: Đảo ngược chuỗi tại chỗ</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>void daoNguoc(string&amp; s) {\n    int trai = 0, phai = s.length() - 1;\n    while (trai &lt; phai) {\n        swap(s[trai], s[phai]);\n        trai++; phai--;\n    }\n}</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 4: Tính dãy Fibonacci bằng vòng lặp</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>vector&lt;long long&gt; fibonacci(int n) {\n    vector&lt;long long&gt; ds = {0, 1};\n    for (int i = 2; i &lt; n; i++) {\n        ds.push_back(ds[i-1] + ds[i-2]);\n    }\n    return ds;\n}</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 5: Kiểm tra chuỗi Palindrome</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>bool laPalindrome(string s) {\n    int trai = 0, phai = s.length() - 1;\n    while (trai &lt; phai) {\n        if (s[trai] != s[phai]) return false;\n        trai++; phai--;\n    }\n    return true;\n}</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 6: Đếm tần suất ký tự trong chuỗi</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>map&lt;char, int&gt; demKyTu(string s) {\n    map&lt;char, int&gt; dem;\n    for (char c : s) dem[c]++;\n    return dem;\n}</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 7: Tìm ước chung lớn nhất (GCD)</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>int ucln(int a, int b) {\n    while (b != 0) {\n        int tam = b;\n        b = a % b;\n        a = tam;\n    }\n    return a;\n}</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 8: Loại bỏ phần tử trùng lặp khỏi vector</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>vector&lt;int&gt; loaiTrung(vector&lt;int&gt; ds) {\n    sort(ds.begin(), ds.end());\n    ds.erase(unique(ds.begin(), ds.end()), ds.end());   // unique() gom trùng lặp liền kề về cuối\n    return ds;\n}</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 31</h4>\n        <p>8 bài tập cơ bản củng cố vòng lặp, mảng, chuỗi — nền tảng trước khi chuyển sang bài tập kết hợp con trỏ, OOP và STL.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 32 ================= -->",
+      "questions": [],
+      "ids": [
+        "s31"
+      ],
+      "words": 337
+    },
+    {
+      "id": "chapter32",
+      "file": "chapter32.html",
+      "title": "Bài tập Con trỏ, OOP & STL",
+      "summary": "7 bài tập vận dụng con trỏ, class, và STL — mức độ thường gặp trong bài tập lớn và phỏng vấn kỹ thuật.",
+      "content": "<section class=\"chapter\" id=\"s32\">\n      \n      <p class=\"lead\">7 bài tập vận dụng con trỏ, class, và STL — mức độ thường gặp trong bài tập lớn và phỏng vấn kỹ thuật.</p>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 1: Hoán đổi 2 số dùng con trỏ</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>void hoanDoi(int* a, int* b) {\n    int tam = *a;\n    *a = *b;\n    *b = tam;\n}\n// gọi: hoanDoi(&amp;x, &amp;y);</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 2: Class Stack tự cài đặt bằng mảng động</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>class MyStack {\nprivate:\n    vector&lt;int&gt; duLieu;\npublic:\n    void push(int x) { duLieu.push_back(x); }\n    void pop() { if (!duLieu.empty()) duLieu.pop_back(); }\n    int top() { return duLieu.back(); }\n    bool empty() { return duLieu.empty(); }\n};</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 3: Đếm tần suất từ trong câu bằng map</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>map&lt;string, int&gt; demTu(string cau) {\n    map&lt;string, int&gt; dem;\n    stringstream ss(cau);\n    string tu;\n    while (ss &gt;&gt; tu) dem[tu]++;\n    return dem;\n}</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 4: Class Phân số với operator overloading đầy đủ</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>class PhanSo {\npublic:\n    int tu, mau;\n    PhanSo(int t, int m) : tu(t), mau(m) {}\n    PhanSo operator*(const PhanSo&amp; k) {\n        return PhanSo(tu * k.tu, mau * k.mau);\n    }\n    friend ostream&amp; operator&lt;&lt;(ostream&amp; os, const PhanSo&amp; p) {\n        os &lt;&lt; p.tu &lt;&lt; \"/\" &lt;&lt; p.mau;\n        return os;\n    }\n};</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 5: Kiểm tra 2 chuỗi Anagram bằng unordered_map</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>bool laAnagram(string s1, string s2) {\n    if (s1.length() != s2.length()) return false;\n    unordered_map&lt;char, int&gt; dem;\n    for (char c : s1) dem[c]++;\n    for (char c : s2) dem[c]--;\n    for (auto&amp; cap : dem) if (cap.second != 0) return false;\n    return true;\n}</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 6: Tìm 2 số trong mảng có tổng bằng target (Two Sum)</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; ds, int target) {\n    unordered_map&lt;int, int&gt; daThay;    // giá trị -&gt; chỉ số, tra cứu O(1)\n    for (int i = 0; i &lt; ds.size(); i++) {\n        int conLai = target - ds[i];\n        if (daThay.count(conLai)) return {daThay[conLai], i};\n        daThay[ds[i]] = i;\n    }\n    return {};\n}</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 7: Smart pointer tự quản lý mảng động</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>void viDu() {\n    unique_ptr&lt;int[]&gt; mang(new int[10]);   // smart pointer cho MẢNG động\n    for (int i = 0; i &lt; 10; i++) mang[i] = i * i;\n    cout &lt;&lt; mang[5] &lt;&lt; endl;                  // 25\n}   // tự động giải phóng, không cần delete[] thủ công</code></pre>\n        </div></div>\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>🎉 Hoàn thành toàn bộ giáo trình + ngân hàng bài tập C++!</h4>\n        <p>Bạn đã hoàn thành <strong>32 chương / 6 phần</strong>: 30 chương lý thuyết cộng với 15 bài tập thực hành. Đây là nền tảng vững chắc để làm dự án thực tế và tham gia phỏng vấn kỹ thuật C++. Chúc bạn thành công! ⚡</p>\n      </div>\n    </section>",
+      "questions": [
+        {
+          "question": "1. Cấu trúc nào phù hợp nhất để giải bài Two Sum với độ phức tạp O(n)?",
+          "options": [
+            "unordered_map (hash table)",
+            "vector duyệt lồng nhau",
+            "set có thứ tự"
+          ],
+          "answer": 0,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s32"
+      ],
+      "words": 404
+    }
+  ]
+}

@@ -1,79 +1,6 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-
-<script>
-(function(){
-  try{
-    var t = localStorage.getItem('synaptrail-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', t);
-  }catch(e){
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-})();
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/lesson.css">
-<title>Chương 1 — Nhập Môn React &amp; JSX — Giáo Trình React | Synaptrail</title>
-<link rel="stylesheet" href="../assets/ui.css">
-</head>
-<body>
-<div id="progress-bar"></div>
-<div id="topbar">
-  <span class="brand">⚛️ React</span>
-  <div class="topbar-right">
-    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
-    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
-  </div>
-</div>
-<div class="layout">
-  <aside id="sidebar">
-    <div class="brand">⚛️ React</div>
-    <div class="sub">26 chương</div>
-    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
-    <div class="nav-group-title">Danh sách chương</div>
-    <a class="nav-link active" href="chapter01.html">Chương 1 — Nhập Môn React &amp; JSX</a>
-    <a class="nav-link" href="chapter02.html">Chương 2 — Props — Truyền Dữ Liệu Giữa Component</a>
-    <a class="nav-link" href="chapter03.html">Chương 3 — State &amp; useState Hook</a>
-    <a class="nav-link" href="chapter04.html">Chương 4 — Xử Lý Sự Kiện &amp; Form Trong React</a>
-    <a class="nav-link" href="chapter05.html">Chương 5 — Conditional Rendering — Hiển thị có điều kiện</a>
-    <a class="nav-link" href="chapter06.html">Chương 6 — Lists &amp; Keys — Danh sách trong React</a>
-    <a class="nav-link" href="chapter07.html">Chương 7 — useEffect — Side Effects &amp; Vòng đời Component</a>
-    <a class="nav-link" href="chapter08.html">Chương 8 — Fetch dữ liệu từ API trong React</a>
-    <a class="nav-link" href="chapter09.html">Chương 9 — Custom Hooks — Tái sử dụng logic</a>
-    <a class="nav-link" href="chapter10.html">Chương 10 — useRef &amp; Thao tác DOM trực tiếp</a>
-    <a class="nav-link" href="chapter11.html">Chương 11 — Context API — Chia sẻ state toàn cục</a>
-    <a class="nav-link" href="chapter12.html">Chương 12 — useReducer — Quản lý state phức tạp</a>
-    <a class="nav-link" href="chapter13.html">Chương 13 — React Router — Điều hướng SPA cơ bản</a>
-    <a class="nav-link" href="chapter14.html">Chương 14 — React Router nâng cao — Nested Routes &amp; Params</a>
-    <a class="nav-link" href="chapter15.html">Chương 15 — Styling trong React — CSS Modules &amp; styled-components</a>
-    <a class="nav-link" href="chapter16.html">Chương 16 — Performance — useMemo &amp; useCallback</a>
-    <a class="nav-link" href="chapter17.html">Chương 17 — React.memo &amp; Tối ưu re-render</a>
-    <a class="nav-link" href="chapter18.html">Chương 18 — Error Boundaries &amp; Xử lý lỗi</a>
-    <a class="nav-link" href="chapter19.html">Chương 19 — Portals — Modal &amp; Tooltip</a>
-    <a class="nav-link" href="chapter20.html">Chương 20 — Redux Toolkit — Giới thiệu &amp; Store</a>
-    <a class="nav-link" href="chapter21.html">Chương 21 — Redux Toolkit — Slice, Thunk &amp; kết nối API</a>
-    <a class="nav-link" href="chapter22.html">Chương 22 — Form nâng cao — react-hook-form &amp; Validation</a>
-    <a class="nav-link" href="chapter23.html">Chương 23 — Testing React Components — Jest &amp; Testing Library</a>
-    <a class="nav-link" href="chapter24.html">Chương 24 — Giới thiệu Next.js — SSR &amp; File-based Routing</a>
-    <a class="nav-link" href="chapter25.html">Chương 25 — Triển khai ứng dụng React lên Production</a>
-    <a class="nav-link" href="chapter26.html">Chương 26 — Dự án cuối khóa: Ứng dụng React hoàn chỉnh</a>
-    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
-  </aside>
-  <div class="main-col">
-<div class="chpage">
-  <div class="crumb">
-    <a href="../index.html">🏠 Trang chủ</a> ·
-    <a href="index.html">⚛️ React</a> ·
-    <span>Chương 1 — Nhập Môn React &amp; JSX</span>
-  </div>
-  <main style="padding:0;max-width:none;">
-<section class="chapter" id="s1">
-      <h2>Chương <span class="num">1</span> — Nhập Môn React &amp; JSX</h2>
+<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Nhập Môn React &amp; JSX — React | Synaptrail</title><meta name="description" content="Tự động hóa chính nguyên lý &quot;render lại từ dữ liệu&quot; bạn đã tự tay xây ở Bài 18 chương JavaScript — làm quen với component và cú pháp JSX."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="react" data-skill="react" data-node="chapter01"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/react.html#chapter01"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">React / BÀI 1</p><h1>Nhập Môn React &amp; JSX</h1><p class="rm-lead">Tự động hóa chính nguyên lý &quot;render lại từ dữ liệu&quot; bạn đã tự tay xây ở Bài 18 chương JavaScript — làm quen với component và cú pháp JSX.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter01">Làm quiz ở trang riêng <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s1">
+      
       <p class="lead">Tự động hóa chính nguyên lý "render lại từ dữ liệu" bạn đã tự tay xây ở Bài 18 chương JavaScript — làm quen với component và cú pháp JSX.</p>
 
       <h3>Giới thiệu</h3>
@@ -101,7 +28,7 @@
 
       <div class="code-wrap">
         <span class="code-label">nhúng React qua CDN</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>&lt;script src="https://unpkg.com/react@19/umd/react.development.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/react-dom@19/umd/react-dom.development.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/@babel/standalone/babel.min.js"&gt;&lt;/script&gt;
@@ -119,7 +46,7 @@
 
       <div class="code-wrap">
         <span class="code-label">JSX cơ bản</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>const phanTu = &lt;h1&gt;Xin chào React!&lt;/h1&gt;;
 // thực chất Babel "dịch" dòng trên thành:
 // const phanTu = React.createElement("h1", null, "Xin chào React!");</code></pre>
@@ -131,7 +58,7 @@
 
       <div class="code-wrap">
         <span class="code-label">nhúng biểu thức</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>const ten = "Full Stack Blueprint";
 const phanTu = &lt;h1&gt;Chào mừng đến với {ten}!&lt;/h1&gt;;
 // bất kỳ biểu thức JS nào cũng dùng được trong { }: biến, phép tính, gọi hàm...</code></pre>
@@ -140,9 +67,9 @@ const phanTu = &lt;h1&gt;Chào mừng đến với {ten}!&lt;/h1&gt;;
       <h4 class="subh">2.4. Ba quy tắc JSX quan trọng cần nhớ</h4>
 
       <table>
-        <tr><th>Quy tắc</th><th>Ví dụ</th></tr>
+        <tbody><tr><th>Quy tắc</th><th>Ví dụ</th></tr>
         <tr><td>Chỉ một phần tử gốc</td><td>Phải bọc nhiều phần tử trong một thẻ cha duy nhất (hoặc <code>&lt;&gt;...&lt;/&gt;</code>)</td></tr><tr><td>Dùng <code>className</code> thay vì <code>class</code></td><td><code>&lt;div className="card"&gt;</code>, vì <code>class</code> là từ khóa JavaScript</td></tr><tr><td>Mọi thẻ phải tự đóng hoặc có thẻ đóng</td><td><code>&lt;img /&gt;</code>, <code>&lt;br /&gt;</code> — không được để mở lửng như HTML thường</td></tr>
-      </table>
+      </tbody></table>
 
       <h4 class="subh">2.5. Component — hàm trả về JSX</h4>
 
@@ -150,7 +77,7 @@ const phanTu = &lt;h1&gt;Chào mừng đến với {ten}!&lt;/h1&gt;;
 
       <div class="code-wrap">
         <span class="code-label">component cơ bản</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>function LoiChao() {
   return &lt;h1&gt;Xin chào từ component!&lt;/h1&gt;;
 }</code></pre>
@@ -167,7 +94,7 @@ const phanTu = &lt;h1&gt;Chào mừng đến với {ten}!&lt;/h1&gt;;
       <div class="code-wrap">
         <span class="code-label">react-hello.html
 📋 Copy</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>&lt;div id="root"&gt;&lt;/div&gt;
 
 &lt;script src="https://unpkg.com/react@19/umd/react.development.js"&gt;&lt;/script&gt;
@@ -211,34 +138,34 @@ const phanTu = &lt;h1&gt;Chào mừng đến với {ten}!&lt;/h1&gt;;
       <p>Nhấp vào từng mục để xem chi tiết lỗi và cách khắc phục:</p>
 
       <div class="accordion">
-        <div class="accordion-head" onclick="this.parentElement.classList.toggle('open')">Trả về nhiều phần tử gốc cùng lúc</div>
+        <button class="accordion-head" type="button" data-course-toggle="section">Trả về nhiều phần tử gốc cùng lúc</button>
         <div class="accordion-body"><div class="accordion-body-inner">
           <p>Viết <code class="mono">return &lt;h1&gt;A&lt;/h1&gt;&lt;p&gt;B&lt;/p&gt;;</code> — báo lỗi <code class="mono">Adjacent JSX elements must be wrapped in an enclosing tag</code>, vì một component chỉ được trả về đúng <strong>một</strong> phần tử gốc.</p>
-<p class="fix" style="color:var(--ok);">✅ Cách khắc phục: bọc trong một <code class="mono">&lt;div&gt;</code>, hoặc dùng <code class="mono">&lt;&gt;...&lt;/&gt;</code> (Fragment) nếu không muốn thêm thẻ HTML thừa vào DOM.</p>
+<p class="fix">✅ Cách khắc phục: bọc trong một <code class="mono">&lt;div&gt;</code>, hoặc dùng <code class="mono">&lt;&gt;...&lt;/&gt;</code> (Fragment) nếu không muốn thêm thẻ HTML thừa vào DOM.</p>
         </div></div>
       </div>
 
       <div class="accordion">
-        <div class="accordion-head" onclick="this.parentElement.classList.toggle('open')">Dùng <code class="mono">class</code> thay vì <code class="mono">className</code></div>
+        <button class="accordion-head" type="button" data-course-toggle="section">Dùng <code class="mono">class</code> thay vì <code class="mono">className</code></button>
         <div class="accordion-body"><div class="accordion-body-inner">
           <p>Viết <code class="mono">&lt;div class="card"&gt;</code> (thói quen từ HTML thuần) — React vẫn hiển thị được nhưng cảnh báo trong console, vì <code class="mono">class</code> là từ khóa dành riêng trong JavaScript.</p>
-<p class="fix" style="color:var(--ok);">✅ Cách khắc phục: luôn dùng <code class="mono">className</code> thay cho <code class="mono">class</code> trong mọi JSX.</p>
+<p class="fix">✅ Cách khắc phục: luôn dùng <code class="mono">className</code> thay cho <code class="mono">class</code> trong mọi JSX.</p>
         </div></div>
       </div>
 
       <div class="accordion">
-        <div class="accordion-head" onclick="this.parentElement.classList.toggle('open')">Đặt tên component viết thường</div>
+        <button class="accordion-head" type="button" data-course-toggle="section">Đặt tên component viết thường</button>
         <div class="accordion-body"><div class="accordion-body-inner">
           <p>Viết <code class="mono">function thongTinKhoaHoc() { }</code> rồi gọi <code class="mono">&lt;thongTinKhoaHoc /&gt;</code> — React hiểu nhầm đây là một thẻ HTML thường (như <code class="mono">&lt;div&gt;</code>) chứ không phải component, không hiển thị gì.</p>
-<p class="fix" style="color:var(--ok);">✅ Cách khắc phục: luôn đặt tên component viết hoa chữ cái đầu (PascalCase) — quy tắc bắt buộc của React, không phải chỉ là gợi ý.</p>
+<p class="fix">✅ Cách khắc phục: luôn đặt tên component viết hoa chữ cái đầu (PascalCase) — quy tắc bắt buộc của React, không phải chỉ là gợi ý.</p>
         </div></div>
       </div>
 
       <div class="accordion">
-        <div class="accordion-head" onclick="this.parentElement.classList.toggle('open')">Quên <code class="mono">type="text/babel"</code> trên thẻ script</div>
+        <button class="accordion-head" type="button" data-course-toggle="section">Quên <code class="mono">type="text/babel"</code> trên thẻ script</button>
         <div class="accordion-body"><div class="accordion-body-inner">
           <p>Viết JSX trong thẻ <code class="mono">&lt;script&gt;</code> thường (thiếu <code class="mono">type="text/babel"</code>) — trình duyệt không hiểu cú pháp JSX, báo lỗi cú pháp ngay tại dấu <code class="mono">&lt;</code> đầu tiên trong JSX.</p>
-<p class="fix" style="color:var(--ok);">✅ Cách khắc phục: mọi thẻ script chứa JSX (khi học không dùng build tool) đều cần <code class="mono">type="text/babel"</code> để Babel kịp "dịch" trước khi trình duyệt chạy.</p>
+<p class="fix">✅ Cách khắc phục: mọi thẻ script chứa JSX (khi học không dùng build tool) đều cần <code class="mono">type="text/babel"</code> để Babel kịp "dịch" trước khi trình duyệt chạy.</p>
         </div></div>
       </div>
 
@@ -255,7 +182,7 @@ const phanTu = &lt;h1&gt;Chào mừng đến với {ten}!&lt;/h1&gt;;
 <li>Giữ mỗi component tập trung vào đúng một phần giao diện, đặt tên rõ ràng theo vai trò hiển thị.</li>
 <li>Khi làm dự án thật (ngoài phạm vi khóa học này), luôn dùng công cụ build thay vì CDN + Babel standalone.</li></ul>
 
-      <h3>Tip & Note</h3>
+      <h3>Tip &amp; Note</h3>
 
       <div class="box tip">
         <div class="box-title">💡 Tip</div>
@@ -299,54 +226,6 @@ const phanTu = &lt;h1&gt;Chào mừng đến với {ten}!&lt;/h1&gt;;
         từ component cha xuống component con, biến component tĩnh thành những khối UI thực sự tái sử dụng được với dữ liệu khác nhau.</p>
       </div>
 
-      <div class="quiz" data-quiz="q1">
-        <h4>📝 Quiz nhanh — Chương 1</h4>
-        <div class="quiz-q" data-answer="1">
-          <p>1. JSX thực chất là cú pháp đường tắt cho lời gọi hàm nào?</p>
-          <span class="quiz-opt" data-idx="0"><code class="mono">document.createElement()</code></span>
-          <span class="quiz-opt" data-idx="1"><code class="mono">React.createElement()</code></span>
-          <span class="quiz-opt" data-idx="2"><code class="mono">JSON.parse()</code></span>
-          <span class="quiz-opt" data-idx="3"><code class="mono">ReactDOM.render()</code></span>
-        </div>
-        <div class="quiz-q" data-answer="2">
-          <p>2. Trong JSX, thuộc tính nào thay thế cho <code class="mono">class</code> của HTML?</p>
-          <span class="quiz-opt" data-idx="0"><code class="mono">cssClass</code></span>
-          <span class="quiz-opt" data-idx="1"><code class="mono">styleName</code></span>
-          <span class="quiz-opt" data-idx="2"><code class="mono">className</code></span>
-          <span class="quiz-opt" data-idx="3">Vẫn dùng <code class="mono">class</code> bình thường</span>
-        </div>
-        <div class="quiz-q" data-answer="0">
-          <p>3. Tên component React phải tuân theo quy tắc nào?</p>
-          <span class="quiz-opt" data-idx="0">Viết hoa chữ cái đầu (PascalCase)</span>
-          <span class="quiz-opt" data-idx="1">Toàn bộ chữ hoa</span>
-          <span class="quiz-opt" data-idx="2">Bắt đầu bằng dấu gạch dưới</span>
-          <span class="quiz-opt" data-idx="3">Không có quy tắc nào</span>
-        </div>
-        <div class="quiz-q" data-answer="3">
-          <p>4. Một component JSX được phép trả về bao nhiêu phần tử gốc?</p>
-          <span class="quiz-opt" data-idx="0">Không giới hạn</span>
-          <span class="quiz-opt" data-idx="1">Đúng 2</span>
-          <span class="quiz-opt" data-idx="2">Đúng 3</span>
-          <span class="quiz-opt" data-idx="3">Đúng 1 (hoặc dùng Fragment để bọc nhiều phần tử)</span>
-        </div>
-        <button class="quiz-btn" onclick="gradeQuiz('q1')">Chấm điểm</button>
-        <div class="quiz-result" id="result-q1"></div>
-      </div>
+      
 
-    </section>
-  </main>
-  <div class="chnav">
-    <span class="nav-btn prev disabled">← Đầu khóa</span>
-    <a class="nav-btn next" href="chapter02.html">Chương 2 — Props — Truyền Dữ Liệu Giữa Component →</a>
-  </div>
-</div>
-</div>
-</div>
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
-
-<script src="../assets/code-highlighter.js"></script>
-<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
-
-</body>
-</html>
+    </section></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><span></span><a href="chapter02.html">Bài tiếp theo<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/react.html#chapter01"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>

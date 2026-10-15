@@ -1,91 +1,11 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-
-<script>
-(function(){
-  try{
-    var t = localStorage.getItem('synaptrail-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', t);
-  }catch(e){
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-})();
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/lesson.css">
-<title>Chương 4 — Biến &amp; Kiểu dữ liệu — Giáo Trình Java | Synaptrail</title>
-<link rel="stylesheet" href="../assets/ui.css">
-<link rel="stylesheet" href="../assets/progress.css">
-<link rel="stylesheet" href="../assets/quiz-feedback.css">
-</head>
-<body>
-<div id="progress-bar"></div>
-<div id="topbar">
-  <span class="brand">☕ Java</span>
-  <div class="topbar-right">
-    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
-    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
-  </div>
-</div>
-<div class="layout">
-  <aside id="sidebar">
-    <div class="brand">☕ Java</div>
-    <div class="sub">31 chương</div>
-    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
-    <div class="nav-group-title">Danh sách chương</div>
-    <a class="nav-link" href="chapter01.html">Chương 1 — Giới thiệu Java</a>
-    <a class="nav-link" href="chapter02.html">Chương 2 — Cài đặt JDK &amp; IDE</a>
-    <a class="nav-link" href="chapter03.html">Chương 3 — Chương trình đầu tiên</a>
-    <a class="nav-link active" href="chapter04.html">Chương 4 — Biến &amp; Kiểu dữ liệu</a>
-    <a class="nav-link" href="chapter05.html">Chương 5 — Toán tử</a>
-    <a class="nav-link" href="chapter06.html">Chương 6 — Input/Output (Scanner)</a>
-    <a class="nav-link" href="chapter07.html">Chương 7 — Điều kiện (if/switch)</a>
-    <a class="nav-link" href="chapter08.html">Chương 8 — Vòng lặp</a>
-    <a class="nav-link" href="chapter09.html">Chương 9 — Mảng (Array)</a>
-    <a class="nav-link" href="chapter10.html">Chương 10 — Method (Hàm)</a>
-    <a class="nav-link" href="chapter11.html">Chương 11 — OOP cơ bản (Class &amp; Object)</a>
-    <a class="nav-link" href="chapter12.html">Chương 12 — Exception cơ bản</a>
-    <a class="nav-link" href="chapter13.html">Chương 13 — Kế thừa (extends)</a>
-    <a class="nav-link" href="chapter14.html">Chương 14 — Đa hình &amp; Interface</a>
-    <a class="nav-link" href="chapter15.html">Chương 15 — Abstract Class</a>
-    <a class="nav-link" href="chapter16.html">Chương 16 — ArrayList &amp; LinkedList</a>
-    <a class="nav-link" href="chapter17.html">Chương 17 — HashMap &amp; HashSet</a>
-    <a class="nav-link" href="chapter18.html">Chương 18 — Generics</a>
-    <a class="nav-link" href="chapter19.html">Chương 19 — Stream API &amp; Lambda</a>
-    <a class="nav-link" href="chapter20.html">Chương 20 — Thread cơ bản</a>
-    <a class="nav-link" href="chapter21.html">Chương 21 — Synchronized &amp; Race Condition</a>
-    <a class="nav-link" href="chapter22.html">Chương 22 — ExecutorService</a>
-    <a class="nav-link" href="chapter23.html">Chương 23 — File I/O</a>
-    <a class="nav-link" href="chapter24.html">Chương 24 — Record &amp; Optional</a>
-    <a class="nav-link" href="chapter25.html">Chương 25 — Giới thiệu Spring Boot &amp; Dependency Injection</a>
-    <a class="nav-link" href="chapter26.html">Chương 26 — REST Controller</a>
-    <a class="nav-link" href="chapter27.html">Chương 27 — Service &amp; Repository (JPA)</a>
-    <a class="nav-link" href="chapter28.html">Chương 28 — Dự án: Quản lý sinh viên (OOP + Collections)</a>
-    <a class="nav-link" href="chapter29.html">Chương 29 — Dự án: REST API Quản lý công việc</a>
-    <a class="nav-link" href="chapter30.html">Chương 30 — Bài tập Cơ bản (Dễ)</a>
-    <a class="nav-link" href="chapter31.html">Chương 31 — Bài tập OOP &amp; Collections</a>
-    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
-  </aside>
-  <div class="main-col">
-<div class="chpage">
-  <div class="crumb">
-    <a href="../index.html">🏠 Trang chủ</a> ·
-    <a href="index.html">☕ Java</a> ·
-    <span>Chương 4 — Biến &amp; Kiểu dữ liệu</span>
-  </div>
-  <main style="padding:0;max-width:none;">
-<section class="chapter" id="s4">
-      <h2>Chương <span class="num">4</span> — Biến &amp; Kiểu dữ liệu</h2>
+<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Biến &amp; Kiểu dữ liệu — Java | Synaptrail</title><meta name="description" content="Java phân biệt rõ ràng kiểu nguyên thủy (primitive) và kiểu tham chiếu (reference)."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="java" data-skill="java" data-node="chapter04"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/java.html#chapter04"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">Java / BÀI 4</p><h1>Biến &amp; Kiểu dữ liệu</h1><p class="rm-lead">Java phân biệt rõ ràng kiểu nguyên thủy (primitive) và kiểu tham chiếu (reference).</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter04">Làm quiz ở trang riêng <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s4">
+      
       <p class="lead">Java phân biệt rõ ràng kiểu nguyên thủy (primitive) và kiểu tham chiếu (reference).</p>
 
       <div class="code-wrap">
         <span class="code-label">bien.java</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>int tuoi = 20;                  // số nguyên
 double diemTb = 8.5;               // số thực độ chính xác cao
 float chieuCao = 1.75f;              // số thực, cần hậu tố "f"
@@ -97,13 +17,13 @@ System.out.println(ten + " " + tuoi);   // nối chuỗi bằng dấu +</code></
       </div>
 
       <table>
-        <tr><th>Kiểu nguyên thủy (primitive)</th><th>Kích thước</th><th>Mô tả</th></tr>
+        <tbody><tr><th>Kiểu nguyên thủy (primitive)</th><th>Kích thước</th><th>Mô tả</th></tr>
         <tr><td><code>int</code></td><td>4 byte</td><td>Số nguyên</td></tr>
         <tr><td><code>long</code></td><td>8 byte</td><td>Số nguyên lớn, cần hậu tố "L" (VD: 100L)</td></tr>
         <tr><td><code>double</code></td><td>8 byte</td><td>Số thực độ chính xác cao (mặc định nên dùng)</td></tr>
         <tr><td><code>boolean</code></td><td>1 bit</td><td>true/false</td></tr>
         <tr><td><code>char</code></td><td>2 byte</td><td>Một ký tự Unicode</td></tr>
-      </table>
+      </tbody></table>
 
       <div class="box important">
         <div class="box-title">Quan trọng — Quy ước đặt tên</div>
@@ -113,32 +33,7 @@ System.out.println(ten + " " + tuoi);   // nối chuỗi bằng dấu +</code></
       <h3>Kiểu nguyên thủy vs Kiểu tham chiếu</h3>
       <p><code>int, double, boolean, char</code> là kiểu <strong>nguyên thủy</strong> — lưu trực tiếp giá trị. <code>String</code>, mảng, và object của class tự định nghĩa là kiểu <strong>tham chiếu</strong> — biến lưu địa chỉ trỏ tới object trong bộ nhớ heap.</p>
 
-      <div class="quiz" data-quiz="q4" data-quiz-feedback>
-<h4>Quiz — Chương 4 · 5 câu</h4>
-<div class="quiz-q" data-answer="1" data-question-kind="concept" role="group" aria-labelledby="q4-question-1"><span class="quiz-kind">Nhớ khái niệm</span><p id="q4-question-1">1. String trong Java thuộc nhóm nào theo bài?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Nguyên thủy">A. Nguyên thủy</span>
-<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Tham chiếu">B. Tham chiếu</span>
-<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Kiểu số nguyên">C. Kiểu số nguyên</span>
-<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Toán tử logic">D. Toán tử logic</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> Bài phân biệt String với int, char và boolean.</li><li><strong>B. Đúng:</strong> String là kiểu tham chiếu.</li><li><strong>C. Sai:</strong> String biểu diễn chuỗi, không phải int.</li><li><strong>D. Sai:</strong> String là kiểu dữ liệu, không phải toán tử.</li></ul></div></div>
-<div class="quiz-q" data-answer="3" data-question-kind="concept" role="group" aria-labelledby="q4-question-2"><span class="quiz-kind">Nhớ khái niệm</span><p id="q4-question-2">2. Quy ước nào dùng cho tên biến trong bài?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. PascalCase như DiemTb">A. PascalCase như DiemTb</span>
-<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Chỉ dùng chữ hoa như DIEMTB">B. Chỉ dùng chữ hoa như DIEMTB</span>
-<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Bắt đầu bằng số như 1diem">C. Bắt đầu bằng số như 1diem</span>
-<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. camelCase như diemTb">D. camelCase như diemTb</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> Bài dùng PascalCase cho lớp.</li><li><strong>B. Sai:</strong> Không phải quy ước biến nêu trong bài.</li><li><strong>C. Sai:</strong> Đây không phải ví dụ camelCase hợp lệ.</li><li><strong>D. Đúng:</strong> bài dùng diemTb cho tên biến.</li></ul></div></div>
-<div class="quiz-q" data-answer="0" data-question-kind="application" role="group" aria-labelledby="q4-question-3"><span class="quiz-kind">Áp dụng / đọc code</span><p id="q4-question-3">3. Khai báo nào biểu diễn đúng một ký tự theo mẫu?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. char kyTu = 'A';">A. char kyTu = 'A';</span>
-<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. String kyTu = &quot;A&quot;;">B. String kyTu = &quot;A&quot;;</span>
-<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. boolean kyTu = true;">C. boolean kyTu = true;</span>
-<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. int kyTu = 20;">D. int kyTu = 20;</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Đúng:</strong> ký tự dùng nháy đơn trong ví dụ.</li><li><strong>B. Sai:</strong> Đây là chuỗi, không phải biến char.</li><li><strong>C. Sai:</strong> Đây là giá trị logic, không phải ký tự.</li><li><strong>D. Sai:</strong> Đây là số nguyên trong mẫu khai báo.</li></ul></div></div>
-<div class="quiz-q" data-answer="2" data-question-kind="application" role="group" aria-labelledby="q4-question-4"><span class="quiz-kind">Áp dụng / đọc code</span><p id="q4-question-4">4. Đoạn mã in nội dung nào?</p><pre aria-label="Đoạn mã cần đọc"><code>String ten = &quot;Huy&quot;;
-int tuoi = 20;
-System.out.println(ten + &quot; &quot; + tuoi);</code></pre><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. 20 Huy">A. 20 Huy</span>
-<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Huy20">B. Huy20</span>
-<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Huy 20">C. Huy 20</span>
-<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. ten tuoi">D. ten tuoi</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> Thứ tự nối bắt đầu bằng ten.</li><li><strong>B. Sai:</strong> Có chuỗi khoảng trắng ở giữa.</li><li><strong>C. Đúng:</strong> nối ten, khoảng trắng rồi tuoi.</li><li><strong>D. Sai:</strong> Tên biến được thay bằng giá trị của chúng.</li></ul></div></div>
-<div class="quiz-q" data-answer="1" data-question-kind="error" role="group" aria-labelledby="q4-question-5"><span class="quiz-kind">Tìm lỗi</span><p id="q4-question-5">5. Theo mẫu của bài, cần sửa dòng nào?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. int tuoi = 20;">A. int tuoi = 20;</span>
-<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. float chieuCao = 1.75;">B. float chieuCao = 1.75;</span>
-<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. char kyTu = 'A';">C. char kyTu = 'A';</span>
-<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. boolean dangHoc = true;">D. boolean dangHoc = true;</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> Số nguyên này đúng mẫu int.</li><li><strong>B. Đúng:</strong> dùng 1.75f để có literal float như bài.</li><li><strong>C. Sai:</strong> Một ký tự trong nháy đơn là đúng mẫu.</li><li><strong>D. Sai:</strong> Giá trị true phù hợp boolean.</li></ul></div></div>
-<button class="quiz-btn" onclick="gradeQuiz('q4')" aria-label="Chấm năm câu quiz chương 4">Chấm điểm</button><div class="quiz-result" id="result-q4"></div><p class="quiz-feedback-status" role="status" aria-live="polite"></p>
-</div>
+      
 
       <div class="summary-box">
         <h4>📌 Tổng kết chương 4</h4>
@@ -146,22 +41,4 @@ System.out.println(ten + &quot; &quot; + tuoi);</code></pre><span class="quiz-op
       </div>
     </section>
 
-    <!-- ================= CHƯƠNG 5 ================= -->
-  </main>
-  <div class="chnav">
-    <a class="nav-btn prev" href="chapter03.html">← Chương 3 — Chương trình đầu tiên</a>
-    <a class="nav-btn next" href="chapter05.html">Chương 5 — Toán tử →</a>
-  </div>
-</div>
-</div>
-</div>
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
-
-<script src="../assets/code-highlighter.js"></script>
-<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
-
-<script src="../assets/progress.js"></script>
-<script src="../assets/quiz-feedback.js"></script>
-</body>
-</html>
+    <!-- ================= CHƯƠNG 5 ================= --></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter03.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bài trước</a><a href="chapter05.html">Bài tiếp theo<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/java.html#chapter04"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>

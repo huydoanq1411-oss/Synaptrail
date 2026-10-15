@@ -1,86 +1,6 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
+<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Chương trình đầu tiên — Java | Synaptrail</title><meta name="description" content="Viết Hello World hoàn chỉnh, hiểu từng dòng và phân biệt sửa mã, biên dịch, chạy cùng lỗi ở mỗi bước."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="java" data-skill="java" data-node="chapter03"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/java.html#chapter03"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">Java / BÀI 3</p><h1>Chương trình đầu tiên</h1><p class="rm-lead">Viết Hello World hoàn chỉnh, hiểu từng dòng và phân biệt sửa mã, biên dịch, chạy cùng lỗi ở mỗi bước.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter03">Làm quiz ở trang riêng <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s3">
 
-<script>
-(function(){
-  try{
-    var t = localStorage.getItem('synaptrail-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', t);
-  }catch(e){
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-})();
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/lesson.css">
-<title>Chương 3 — Chương trình đầu tiên — Giáo Trình Java | Synaptrail</title>
-<link rel="stylesheet" href="../assets/ui.css">
-<link rel="stylesheet" href="../assets/progress.css">
-<link rel="stylesheet" href="../assets/quiz-feedback.css">
-</head>
-<body>
-<div id="progress-bar"></div>
-<div id="topbar">
-  <span class="brand">☕ Java</span>
-  <div class="topbar-right">
-    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
-    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
-  </div>
-</div>
-<div class="layout">
-  <aside id="sidebar">
-    <div class="brand">☕ Java</div>
-    <div class="sub">31 chương</div>
-    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
-    <div class="nav-group-title">Danh sách chương</div>
-    <a class="nav-link" href="chapter01.html">Chương 1 — Giới thiệu Java</a>
-    <a class="nav-link" href="chapter02.html">Chương 2 — Cài đặt JDK &amp; IDE</a>
-    <a class="nav-link active" href="chapter03.html">Chương 3 — Chương trình đầu tiên</a>
-    <a class="nav-link" href="chapter04.html">Chương 4 — Biến &amp; Kiểu dữ liệu</a>
-    <a class="nav-link" href="chapter05.html">Chương 5 — Toán tử</a>
-    <a class="nav-link" href="chapter06.html">Chương 6 — Input/Output (Scanner)</a>
-    <a class="nav-link" href="chapter07.html">Chương 7 — Điều kiện (if/switch)</a>
-    <a class="nav-link" href="chapter08.html">Chương 8 — Vòng lặp</a>
-    <a class="nav-link" href="chapter09.html">Chương 9 — Mảng (Array)</a>
-    <a class="nav-link" href="chapter10.html">Chương 10 — Method (Hàm)</a>
-    <a class="nav-link" href="chapter11.html">Chương 11 — OOP cơ bản (Class &amp; Object)</a>
-    <a class="nav-link" href="chapter12.html">Chương 12 — Exception cơ bản</a>
-    <a class="nav-link" href="chapter13.html">Chương 13 — Kế thừa (extends)</a>
-    <a class="nav-link" href="chapter14.html">Chương 14 — Đa hình &amp; Interface</a>
-    <a class="nav-link" href="chapter15.html">Chương 15 — Abstract Class</a>
-    <a class="nav-link" href="chapter16.html">Chương 16 — ArrayList &amp; LinkedList</a>
-    <a class="nav-link" href="chapter17.html">Chương 17 — HashMap &amp; HashSet</a>
-    <a class="nav-link" href="chapter18.html">Chương 18 — Generics</a>
-    <a class="nav-link" href="chapter19.html">Chương 19 — Stream API &amp; Lambda</a>
-    <a class="nav-link" href="chapter20.html">Chương 20 — Thread cơ bản</a>
-    <a class="nav-link" href="chapter21.html">Chương 21 — Synchronized &amp; Race Condition</a>
-    <a class="nav-link" href="chapter22.html">Chương 22 — ExecutorService</a>
-    <a class="nav-link" href="chapter23.html">Chương 23 — File I/O</a>
-    <a class="nav-link" href="chapter24.html">Chương 24 — Record &amp; Optional</a>
-    <a class="nav-link" href="chapter25.html">Chương 25 — Giới thiệu Spring Boot &amp; Dependency Injection</a>
-    <a class="nav-link" href="chapter26.html">Chương 26 — REST Controller</a>
-    <a class="nav-link" href="chapter27.html">Chương 27 — Service &amp; Repository (JPA)</a>
-    <a class="nav-link" href="chapter28.html">Chương 28 — Dự án: Quản lý sinh viên (OOP + Collections)</a>
-    <a class="nav-link" href="chapter29.html">Chương 29 — Dự án: REST API Quản lý công việc</a>
-    <a class="nav-link" href="chapter30.html">Chương 30 — Bài tập Cơ bản (Dễ)</a>
-    <a class="nav-link" href="chapter31.html">Chương 31 — Bài tập OOP &amp; Collections</a>
-    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
-  </aside>
-  <div class="main-col">
-<div class="chpage">
-  <div class="crumb">
-    <a href="../index.html">🏠 Trang chủ</a> ·
-    <a href="index.html">☕ Java</a> ·
-    <span>Chương 3 — Chương trình đầu tiên</span>
-  </div>
-  <main style="padding:0;max-width:none;">
-<section class="chapter" id="s3">
-<h2>Chương <span class="num">3</span> — Chương trình đầu tiên</h2>
 <p class="lead">Viết Hello World hoàn chỉnh, hiểu từng dòng và phân biệt sửa mã, biên dịch, chạy cùng lỗi ở mỗi bước.</p>
 <h3>1. Mục tiêu học</h3>
 <ul><li>Tạo file đúng tên, biên dịch bằng javac và chạy bằng java.</li><li>Giải thích lớp, chữ ký main, chuỗi, dấu chấm phẩy và ngoặc khối.</li><li>Quan sát khác nhau giữa print và println; kiểm chứng thay đổi bằng đầu ra cụ thể.</li></ul>
@@ -95,7 +15,7 @@
 <h3>4. Ví dụ từng bước</h3>
 <h4>A. Viết và chạy Hello World</h4>
 <p>Tạo file HelloWorld.java, lưu dạng văn bản UTF-8. Kiểm tra trình soạn thảo không tự thêm đuôi .txt. Nhập mã sau thay vì sao chép kết quả đã chạy, rồi lưu trước khi mở terminal.</p>
-<div class="code-wrap"><span class="code-label">HelloWorld.java</span><button class="copy-btn" onclick="copyCode(this)" aria-label="Sao chép HelloWorld.java">Copy</button><pre><code>public class HelloWorld {
+<div class="code-wrap"><span class="code-label">HelloWorld.java</span><pre><code>public class HelloWorld {
     public static void main(String[] args) {
         System.out.println("Hello, World!");
     }
@@ -106,7 +26,7 @@ java HelloWorld</code></pre></div>
 <p>Biên dịch xong sẽ có HelloWorld.class. Khi chạy, đầu ra cần đúng <strong>Hello, World!</strong> và một ký tự xuống dòng. Nếu không thấy file class hoặc có thông báo lỗi, dừng lại đọc lỗi đầu tiên trước khi thử chạy.</p>
 <h4>B. Kiểm soát xuống dòng</h4>
 <p>Ví dụ thứ hai chỉ thay cách in, không dùng thêm kiến thức về biến. Lưu trong file GreetingLines.java để cả hai chương trình tồn tại độc lập và bạn có thể đối chiếu.</p>
-<div class="code-wrap"><span class="code-label">GreetingLines.java</span><button class="copy-btn" onclick="copyCode(this)" aria-label="Sao chép GreetingLines.java">Copy</button><pre><code>public class GreetingLines {
+<div class="code-wrap"><span class="code-label">GreetingLines.java</span><pre><code>public class GreetingLines {
     public static void main(String[] args) {
         System.out.print("Hello, ");
         System.out.println("Synaptrail!");
@@ -124,50 +44,8 @@ java HelloWorld</code></pre></div>
 <div class="box note"><div class="box-title">Vừa — Thiết kế đầu ra</div><p>Viết ba lệnh in để tạo đúng hai dòng “Java lesson” và “Chapter 3”. Dùng ít nhất một print, một println. Ghi dự đoán trước khi chạy.</p></div>
 <div class="box note"><div class="box-title">Khó — Phân loại lỗi</div><p>Tạo bản sao riêng, lần lượt thử sai tên file, thiếu chấm phẩy và quên biên dịch lại. Ghi bước phát hiện, thông báo hoặc đầu ra, rồi khôi phục bản đúng. Không ghi đè chương trình đã kiểm chứng.</p></div>
 <div class="summary-box"><h4>7. Tóm tắt</h4><p>Giữ đúng tên lớp/file và chữ ký main. javac biên dịch, java chạy. print không tự xuống dòng; println có xuống dòng. Kiểm chứng mỗi thay đổi bằng đầu ra và sửa một vấn đề mỗi lần.</p></div>
-<div class="quiz" data-quiz="q3" data-quiz-feedback>
-<h4>Quiz — Chương 3 · 5 câu</h4>
-<div class="quiz-q" data-answer="0" data-question-kind="concept" role="group" aria-labelledby="q3-question-1"><span class="quiz-kind">Nhớ khái niệm</span><p id="q3-question-1">1. Trong mẫu truyền thống của bài, phương thức nào là điểm bắt đầu?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. public static void main(String[] args)">A. public static void main(String[] args)</span>
-<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. public static void Main(String[] args)">B. public static void Main(String[] args)</span>
-<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. public static void start(String[] args)">C. public static void start(String[] args)</span>
-<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. System.out.println(String[] args)">D. System.out.println(String[] args)</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Đúng:</strong> mẫu dùng chữ ký này làm điểm vào.</li><li><strong>B. Sai:</strong> Java phân biệt main và Main.</li><li><strong>C. Sai:</strong> Mẫu trong bài không dùng start làm điểm vào.</li><li><strong>D. Sai:</strong> Đây không phải chữ ký main.</li></ul></div></div>
-<div class="quiz-q" data-answer="2" data-question-kind="concept" role="group" aria-labelledby="q3-question-2"><span class="quiz-kind">Nhớ khái niệm</span><p id="q3-question-2">2. println khác print như thế nào?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. println không in được chuỗi">A. println không in được chuỗi</span>
-<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. print luôn thêm hai dòng trống">B. print luôn thêm hai dòng trống</span>
-<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. println thêm xuống dòng sau nội dung">C. println thêm xuống dòng sau nội dung</span>
-<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. println tự biên dịch chương trình">D. println tự biên dịch chương trình</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> Cả hai ví dụ đều in chuỗi.</li><li><strong>B. Sai:</strong> print không tự thêm xuống dòng.</li><li><strong>C. Đúng:</strong> đó là khác biệt được bài minh họa.</li><li><strong>D. Sai:</strong> Biên dịch do javac, không phải phương thức in.</li></ul></div></div>
-<div class="quiz-q" data-answer="1" data-question-kind="application" role="group" aria-labelledby="q3-question-3"><span class="quiz-kind">Áp dụng / đọc code</span><p id="q3-question-3">3. Đầu ra của đoạn mã là gì?</p><pre aria-label="Đoạn mã cần đọc"><code>System.out.print(&quot;Hello, &quot;);
-System.out.println(&quot;Synaptrail!&quot;);</code></pre><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Hello, và Synaptrail! trên hai dòng">A. Hello, và Synaptrail! trên hai dòng</span>
-<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Hello, Synaptrail! trên một dòng">B. Hello, Synaptrail! trên một dòng</span>
-<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Chỉ Synaptrail!">C. Chỉ Synaptrail!</span>
-<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Hello, Synaptrail! trên hai dòng giống nhau">D. Hello, Synaptrail! trên hai dòng giống nhau</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> print đầu tiên chưa xuống dòng.</li><li><strong>B. Đúng:</strong> println nối vào nội dung đã in, rồi xuống dòng.</li><li><strong>C. Sai:</strong> print vẫn ghi nội dung đầu tiên.</li><li><strong>D. Sai:</strong> Không có lệnh lặp lại nội dung.</li></ul></div></div>
-<div class="quiz-q" data-answer="3" data-question-kind="application" role="group" aria-labelledby="q3-question-4"><span class="quiz-kind">Áp dụng / đọc code</span><p id="q3-question-4">4. Đứng trong thư mục chứa HelloWorld.java, chọn thứ tự lệnh đúng.</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. java HelloWorld.java rồi javac HelloWorld.class">A. java HelloWorld.java rồi javac HelloWorld.class</span>
-<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. javac HelloWorld.class rồi java HelloWorld.java">B. javac HelloWorld.class rồi java HelloWorld.java</span>
-<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. java HelloWorld.class rồi java HelloWorld">C. java HelloWorld.class rồi java HelloWorld</span>
-<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. javac HelloWorld.java rồi java HelloWorld">D. javac HelloWorld.java rồi java HelloWorld</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> Không phải quy trình hai bước trong bài.</li><li><strong>B. Sai:</strong> javac cần mã nguồn; file class không phải đầu vào này.</li><li><strong>C. Sai:</strong> Tên lớp trong chế độ này không có đuôi .class.</li><li><strong>D. Đúng:</strong> biên dịch nguồn rồi chạy tên lớp.</li></ul></div></div>
-<div class="quiz-q" data-answer="0" data-question-kind="error" role="group" aria-labelledby="q3-question-5"><span class="quiz-kind">Tìm lỗi</span><p id="q3-question-5">5. File helloWorld.java chứa public class HelloWorld. Lỗi cần sửa là gì?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Đổi tên file thành HelloWorld.java">A. Đổi tên file thành HelloWorld.java</span>
-<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Đổi println thành print">B. Đổi println thành print</span>
-<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Xóa mọi dấu ngoặc">C. Xóa mọi dấu ngoặc</span>
-<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Thêm .class vào tên lớp">D. Thêm .class vào tên lớp</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Đúng:</strong> tên phải khớp cả chữ hoa và chữ thường.</li><li><strong>B. Sai:</strong> Phương thức in không sửa tên file.</li><li><strong>C. Sai:</strong> Ngoặc xác định cấu trúc lớp và main.</li><li><strong>D. Sai:</strong> Tên lớp không mang đuôi file.</li></ul></div></div>
-<button class="quiz-btn" onclick="gradeQuiz('q3')" aria-label="Chấm năm câu quiz chương 3">Chấm điểm</button><div class="quiz-result" id="result-q3"></div><p class="quiz-feedback-status" role="status" aria-live="polite"></p>
-</div>
+
 <p>Tài liệu: <a href="https://docs.oracle.com/javase/tutorial/getStarted/application/index.html">giải thích Hello World</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html">cách chạy bằng java</a>.</p>
 </section>
 
-    <!-- ================= CHƯƠNG 4 ================= -->
-  </main>
-  <div class="chnav">
-    <a class="nav-btn prev" href="chapter02.html">← Chương 2 — Cài đặt JDK &amp; IDE</a>
-    <a class="nav-btn next" href="chapter04.html">Chương 4 — Biến &amp; Kiểu dữ liệu →</a>
-  </div>
-</div>
-</div>
-</div>
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
-
-<script src="../assets/code-highlighter.js"></script>
-<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
-
-<script src="../assets/progress.js"></script>
-<script src="../assets/quiz-feedback.js"></script>
-</body>
-</html>
+    <!-- ================= CHƯƠNG 4 ================= --></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter02.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bài trước</a><a href="chapter04.html">Bài tiếp theo<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/java.html#chapter03"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>

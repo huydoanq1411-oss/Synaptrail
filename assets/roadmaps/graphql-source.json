@@ -1,0 +1,30 @@
+{
+  "course": "graphql",
+  "title": "GraphQL",
+  "lessons": [
+    {
+      "id": "chapter01",
+      "file": "chapter01.html",
+      "title": "GraphQL — Query & Mutation",
+      "summary": "Ngôn ngữ truy vấn API thay thế REST — client tự quyết định CHÍNH XÁC dữ liệu nào cần lấy, không thừa không thiếu.",
+      "content": "<section class=\"chapter\" id=\"s14\">\n      \n      <p class=\"lead\">Ngôn ngữ truy vấn API thay thế REST — client tự quyết định CHÍNH XÁC dữ liệu nào cần lấy, không thừa không thiếu.</p>\n\n      <h3>Vấn đề REST gặp phải: Over-fetching &amp; Under-fetching</h3>\n      <table>\n        <tbody><tr><th>Vấn đề</th><th>Mô tả</th></tr>\n        <tr><td><strong>Over-fetching</strong></td><td>API REST trả về NHIỀU trường hơn client cần, lãng phí băng thông</td></tr>\n        <tr><td><strong>Under-fetching</strong></td><td>Client phải gọi NHIỀU endpoint khác nhau mới đủ dữ liệu cần hiển thị</td></tr>\n      </tbody></table>\n\n      <h3>GraphQL Query — chỉ lấy đúng field cần</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">query.graphql</span>\n        \n        <pre><code>query {\n  sanPham(id: 1) {\n    ten                        # CHỈ lấy đúng những field liệt kê ở đây\n    gia\n    danhMuc {                    # lấy LUÔN dữ liệu quan hệ trong CÙNG 1 lần gọi\n      ten\n    }\n  }\n}\n\n# Kết quả trả về CHÍNH XÁC những gì đã yêu cầu, không thừa field nào khác</code></pre>\n      </div>\n\n      <h3>Mutation — thay đổi dữ liệu (tương đương POST/PUT/DELETE)</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">mutation.graphql</span>\n        \n        <pre><code>mutation {\n  taoSanPham(ten: \"Áo thun\", gia: 150000) {\n    id            # yêu cầu server trả về id vừa tạo\n    ten\n  }\n}</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        GraphQL chỉ có <strong>MỘT endpoint duy nhất</strong> (thường là <code>/graphql</code>), khác hẳn REST có nhiều endpoint riêng cho từng resource (<code>/san-pham</code>, <code>/don-hang</code>...). Loại truy vấn (Query để đọc, Mutation để ghi) được xác định qua NỘI DUNG gửi lên, không phải qua URL hay phương thức HTTP.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 1</h4>\n        <p>GraphQL Query cho phép client lấy CHÍNH XÁC dữ liệu cần (giải quyết over/under-fetching của REST), Mutation dùng để thay đổi dữ liệu — tất cả qua một endpoint duy nhất.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 19 ================= -->",
+      "questions": [],
+      "ids": [
+        "s14"
+      ],
+      "words": 239
+    },
+    {
+      "id": "chapter02",
+      "file": "chapter02.html",
+      "title": "GraphQL Server với Apollo",
+      "summary": "Xây dựng GraphQL API bằng Node.js — Apollo Server là thư viện phổ biến nhất cho việc này.",
+      "content": "<section class=\"chapter\" id=\"s15\">\n      \n      <p class=\"lead\">Xây dựng GraphQL API bằng Node.js — Apollo Server là thư viện phổ biến nhất cho việc này.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">terminal</span>\n        \n        <pre><code>npm install @apollo/server graphql</code></pre>\n      </div>\n\n      <h3>Định nghĩa Schema — \"hợp đồng\" mô tả dữ liệu API</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">schema.js</span>\n        \n        <pre><code>const typeDefs = `#graphql\n  type SanPham {\n    id: ID!\n    ten: String!\n    gia: Float!\n  }\n\n  type Query {                                    # tất cả truy vấn ĐỌC được phép\n    tatCaSanPham: [SanPham!]!\n    sanPham(id: ID!): SanPham\n  }\n\n  type Mutation {                                   # tất cả thao tác GHI được phép\n    taoSanPham(ten: String!, gia: Float!): SanPham!\n  }\n`;</code></pre>\n      </div>\n\n      <h3>Resolver — hàm THỰC SỰ lấy/thay đổi dữ liệu</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">resolvers.js</span>\n        \n        <pre><code>const resolvers = {\n    Query: {\n        tatCaSanPham: async () =&gt; {\n            return await SanPham.findAll();          // dùng lại Sequelize/Prisma đã học ở chương 16-17\n        },\n        sanPham: async (_, { id }) =&gt; {\n            return await SanPham.findByPk(id);\n        },\n    },\n    Mutation: {\n        taoSanPham: async (_, { ten, gia }) =&gt; {\n            return await SanPham.create({ ten, gia });\n        },\n    },\n};</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">server.js</span>\n        \n        <pre><code>const { ApolloServer } = require('@apollo/server');\nconst { startStandaloneServer } = require('@apollo/server/standalone');\n\nconst server = new ApolloServer({ typeDefs, resolvers });\nconst { url } = await startStandaloneServer(server, { listen: { port: 4000 } });\nconsole.log(`GraphQL server sẵn sàng tại ${url}`);</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Resolver GraphQL hoạt động rất giống route handler Express đã học — chỉ khác cách tổ chức: một schema mô tả TOÀN BỘ khả năng của API, resolver là nơi hiện thực logic thực tế cho từng field.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 2</h4>\n        <p>Apollo Server cần typeDefs (schema mô tả kiểu dữ liệu/query/mutation) và resolvers (hàm thực thi logic) — có thể tái sử dụng ORM đã học để resolver lấy dữ liệu từ database.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 20 ================= -->",
+      "questions": [],
+      "ids": [
+        "s15"
+      ],
+      "words": 268
+    }
+  ]
+}

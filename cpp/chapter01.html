@@ -1,86 +1,6 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-
-<script>
-(function(){
-  try{
-    var t = localStorage.getItem('synaptrail-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', t);
-  }catch(e){
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-})();
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/lesson.css">
-<title>Chương 1 — Giới thiệu C++ — Giáo Trình C++ | Synaptrail</title>
-<link rel="stylesheet" href="../assets/ui.css">
-<link rel="stylesheet" href="../assets/quiz-feedback.css">
-</head>
-<body>
-<div id="progress-bar"></div>
-<div id="topbar">
-  <span class="brand">🔧 C++</span>
-  <div class="topbar-right">
-    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
-    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
-  </div>
-</div>
-<div class="layout">
-  <aside id="sidebar">
-    <div class="brand">🔧 C++</div>
-    <div class="sub">32 chương</div>
-    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
-    <div class="nav-group-title">Danh sách chương</div>
-    <a class="nav-link active" href="chapter01.html">Chương 1 — Giới thiệu C++</a>
-    <a class="nav-link" href="chapter02.html">Chương 2 — Cài đặt trình biên dịch</a>
-    <a class="nav-link" href="chapter03.html">Chương 3 — Chương trình đầu tiên</a>
-    <a class="nav-link" href="chapter04.html">Chương 4 — Biến &amp; Kiểu dữ liệu</a>
-    <a class="nav-link" href="chapter05.html">Chương 5 — Toán tử</a>
-    <a class="nav-link" href="chapter06.html">Chương 6 — Input/Output (cin/cout)</a>
-    <a class="nav-link" href="chapter07.html">Chương 7 — Điều kiện (if/switch)</a>
-    <a class="nav-link" href="chapter08.html">Chương 8 — Vòng lặp</a>
-    <a class="nav-link" href="chapter09.html">Chương 9 — Mảng (Array)</a>
-    <a class="nav-link" href="chapter10.html">Chương 10 — Hàm (Function)</a>
-    <a class="nav-link" href="chapter11.html">Chương 11 — Con trỏ &amp; Tham chiếu</a>
-    <a class="nav-link" href="chapter12.html">Chương 12 — OOP cơ bản (Class &amp; Object)</a>
-    <a class="nav-link" href="chapter13.html">Chương 13 — Kế thừa (Inheritance)</a>
-    <a class="nav-link" href="chapter14.html">Chương 14 — Đa hình &amp; Hàm ảo (Virtual)</a>
-    <a class="nav-link" href="chapter15.html">Chương 15 — Toán tử Overloading</a>
-    <a class="nav-link" href="chapter16.html">Chương 16 — vector &amp; string (STL)</a>
-    <a class="nav-link" href="chapter17.html">Chương 17 — map &amp; set (STL)</a>
-    <a class="nav-link" href="chapter18.html">Chương 18 — Quản lý bộ nhớ động (new/delete)</a>
-    <a class="nav-link" href="chapter19.html">Chương 19 — Smart Pointers</a>
-    <a class="nav-link" href="chapter20.html">Chương 20 — Function Template</a>
-    <a class="nav-link" href="chapter21.html">Chương 21 — Class Template</a>
-    <a class="nav-link" href="chapter22.html">Chương 22 — Exception Handling (try/catch)</a>
-    <a class="nav-link" href="chapter23.html">Chương 23 — Lambda Expression</a>
-    <a class="nav-link" href="chapter24.html">Chương 24 — Namespace &amp; File nhiều module</a>
-    <a class="nav-link" href="chapter25.html">Chương 25 — STL Algorithms (sort, find, count...)</a>
-    <a class="nav-link" href="chapter26.html">Chương 26 — Linked List tự cài đặt</a>
-    <a class="nav-link" href="chapter27.html">Chương 27 — Stack &amp; Queue tự cài đặt</a>
-    <a class="nav-link" href="chapter28.html">Chương 28 — Đệ quy &amp; Chia để trị</a>
-    <a class="nav-link" href="chapter29.html">Chương 29 — Dự án: Quản lý sinh viên (OOP + File)</a>
-    <a class="nav-link" href="chapter30.html">Chương 30 — Dự án: Cấu trúc dữ liệu Ma trận</a>
-    <a class="nav-link" href="chapter31.html">Chương 31 — Bài tập Cơ bản (Dễ)</a>
-    <a class="nav-link" href="chapter32.html">Chương 32 — Bài tập Con trỏ, OOP &amp; STL</a>
-    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
-  </aside>
-  <div class="main-col">
-<div class="chpage">
-  <div class="crumb">
-    <a href="../index.html">🏠 Trang chủ</a> ·
-    <a href="index.html">🔧 C++</a> ·
-    <span>Chương 1 — Giới thiệu C++</span>
-  </div>
-  <main style="padding:0;max-width:none;">
-<section class="chapter" id="s1">
-      <h2>Chương <span class="num">1</span> — Giới thiệu C++</h2>
+<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Giới thiệu C++ — C++ | Synaptrail</title><meta name="description" content="C++ là gì, tại sao nên học, và nó khác gì so với C và các ngôn ngữ hiện đại khác."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="cpp" data-skill="cpp" data-node="chapter01"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/cpp.html#chapter01"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">C++ / BÀI 1</p><h1>Giới thiệu C++</h1><p class="rm-lead">C++ là gì, tại sao nên học, và nó khác gì so với C và các ngôn ngữ hiện đại khác.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter01">Làm quiz ở trang riêng <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s1">
+      
       <p class="lead">C++ là gì, tại sao nên học, và nó khác gì so với C và các ngôn ngữ hiện đại khác.</p>
 
       <h3>C++ là gì?</h3>
@@ -101,42 +21,19 @@
 
       <h3>C++ dùng để làm gì?</h3>
       <table>
-        <tr><th>Lĩnh vực</th><th>Ví dụ</th></tr>
+        <tbody><tr><th>Lĩnh vực</th><th>Ví dụ</th></tr>
         <tr><td>Phát triển game</td><td>Unreal Engine, nhiều game engine AAA</td></tr>
-        <tr><td>Hệ điều hành & driver</td><td>Windows, phần lớn nhân Linux driver</td></tr>
+        <tr><td>Hệ điều hành &amp; driver</td><td>Windows, phần lớn nhân Linux driver</td></tr>
         <tr><td>Phần mềm nhúng (embedded)</td><td>Firmware, IoT, robot</td></tr>
         <tr><td>Phần mềm hiệu năng cao</td><td>Trình duyệt (Chrome), hệ thống giao dịch tài chính tốc độ cao</td></tr>
-      </table>
+      </tbody></table>
 
       <div class="box tip">
         <div class="box-title">Mẹo ghi nhớ</div>
         C++ = "C với các lớp" (C with Classes) — tên gọi ban đầu của ngôn ngữ này, phản ánh đúng bản chất: nó là C được bổ sung thêm lập trình hướng đối tượng và nhiều tính năng hiện đại khác.
       </div>
 
-      <div class="quiz" data-quiz="q1" data-quiz-feedback>
-<h4>Quiz — Chương 1 · 5 câu</h4>
-<div class="quiz-q" data-answer="1" data-question-kind="concept" role="group" aria-labelledby="q1-question-1"><span class="quiz-kind">Nhớ khái niệm</span><p id="q1-question-1">1. Theo chương này, C++ thuộc loại ngôn ngữ nào?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Đánh dấu">A. Đánh dấu</span>
-<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Biên dịch">B. Biên dịch</span>
-<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Chỉ truy vấn cơ sở dữ liệu">C. Chỉ truy vấn cơ sở dữ liệu</span>
-<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Chỉ cấu hình giao diện">D. Chỉ cấu hình giao diện</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> C++ không dùng vai trò của HTML.</li><li><strong>B. Đúng:</strong> mã được biên dịch trước khi chạy theo bài.</li><li><strong>C. Sai:</strong> Bài mô tả ngôn ngữ đa mục đích.</li><li><strong>D. Sai:</strong> Bài liệt kê nhiều ứng dụng ngoài giao diện.</li></ul></div></div>
-<div class="quiz-q" data-answer="2" data-question-kind="concept" role="group" aria-labelledby="q1-question-2"><span class="quiz-kind">Nhớ khái niệm</span><p id="q1-question-2">2. “Đa mô hình” của C++ trong bài có nghĩa gì?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Chỉ dùng hướng đối tượng">A. Chỉ dùng hướng đối tượng</span>
-<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Chỉ dùng lập trình thủ tục">B. Chỉ dùng lập trình thủ tục</span>
-<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Hỗ trợ thủ tục, hướng đối tượng và generic">C. Hỗ trợ thủ tục, hướng đối tượng và generic</span>
-<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Không cho tổ chức mã">D. Không cho tổ chức mã</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> Bài còn nêu thủ tục và generic.</li><li><strong>B. Sai:</strong> Đây chỉ là một mô hình được hỗ trợ.</li><li><strong>C. Đúng:</strong> ba mô hình được liệt kê.</li><li><strong>D. Sai:</strong> Đa mô hình không có nghĩa thiếu cấu trúc.</li></ul></div></div>
-<div class="quiz-q" data-answer="0" data-question-kind="application" role="group" aria-labelledby="q1-question-3"><span class="quiz-kind">Áp dụng / đọc code</span><p id="q1-question-3">3. Trong các tình huống sau, đâu là ứng dụng C++ được bài nêu?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Viết thành phần cho game engine">A. Viết thành phần cho game engine</span>
-<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Viết thẻ HTML làm chương trình C++">B. Viết thẻ HTML làm chương trình C++</span>
-<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Đổi mọi file .cpp thành bảng tính để chạy">C. Đổi mọi file .cpp thành bảng tính để chạy</span>
-<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Chỉ dùng CSS để biên dịch mã C++">D. Chỉ dùng CSS để biên dịch mã C++</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Đúng:</strong> bài nêu phát triển game và engine.</li><li><strong>B. Sai:</strong> HTML không phải ví dụ chương trình C++.</li><li><strong>C. Sai:</strong> Bài không có quy trình này.</li><li><strong>D. Sai:</strong> CSS không phải công cụ biên dịch C++.</li></ul></div></div>
-<div class="quiz-q" data-answer="3" data-question-kind="application" role="group" aria-labelledby="q1-question-4"><span class="quiz-kind">Áp dụng / đọc code</span><p id="q1-question-4">4. Nhóm cần làm firmware cho robot. Vì sao C++ là lựa chọn liên quan nội dung bài?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Vì C++ là định dạng ảnh">A. Vì C++ là định dạng ảnh</span>
-<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Vì không cần quan tâm công cụ chạy">B. Vì không cần quan tâm công cụ chạy</span>
-<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Vì robot chỉ đọc HTML">C. Vì robot chỉ đọc HTML</span>
-<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Bài liệt kê C++ cho hệ thống nhúng và robot">D. Bài liệt kê C++ cho hệ thống nhúng và robot</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> Bài mô tả ngôn ngữ lập trình.</li><li><strong>B. Sai:</strong> Quy trình biên dịch vẫn cần công cụ.</li><li><strong>C. Sai:</strong> Không phải nội dung được bài nêu.</li><li><strong>D. Đúng:</strong> tình huống khớp nhóm ứng dụng đó.</li></ul></div></div>
-<div class="quiz-q" data-answer="1" data-question-kind="error" role="group" aria-labelledby="q1-question-5"><span class="quiz-kind">Tìm lỗi</span><p id="q1-question-5">5. Bạn sửa mã nguồn nhưng chạy lại bản thực thi cũ. Bước còn thiếu theo bài là gì?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Chỉ đổi màu trình soạn thảo">A. Chỉ đổi màu trình soạn thảo</span>
-<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Biên dịch lại mã nguồn">B. Biên dịch lại mã nguồn</span>
-<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Đổi tên ngôn ngữ sang Python">C. Đổi tên ngôn ngữ sang Python</span>
-<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Xóa mọi đoạn nguồn">D. Xóa mọi đoạn nguồn</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> Không tạo bản thực thi mới.</li><li><strong>B. Đúng:</strong> sửa nguồn cần cập nhật chương trình biên dịch.</li><li><strong>C. Sai:</strong> Không cần đổi ngôn ngữ để cập nhật mã.</li><li><strong>D. Sai:</strong> Xóa nguồn không tạo phiên bản chương trình mới.</li></ul></div></div>
-<button class="quiz-btn" onclick="gradeQuiz('q1')" aria-label="Chấm năm câu quiz chương 1">Chấm điểm</button><div class="quiz-result" id="result-q1"></div><p class="quiz-feedback-status" role="status" aria-live="polite"></p>
-</div>
+      
 
       <div class="summary-box">
         <h4>📌 Tổng kết chương 1</h4>
@@ -144,21 +41,4 @@
       </div>
     </section>
 
-    <!-- ================= CHƯƠNG 2 ================= -->
-  </main>
-  <div class="chnav">
-    <span class="nav-btn disabled">← Chương trước</span>
-    <a class="nav-btn next" href="chapter02.html">Chương 2 — Cài đặt trình biên dịch →</a>
-  </div>
-</div>
-</div>
-</div>
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
-
-<script src="../assets/code-highlighter.js"></script>
-<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
-
-<script src="../assets/quiz-feedback.js"></script>
-</body>
-</html>
+    <!-- ================= CHƯƠNG 2 ================= --></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><span></span><a href="chapter02.html">Bài tiếp theo<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/cpp.html#chapter01"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>

@@ -1,68 +1,19 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-
-<script>
-(function(){
-  try{
-    var t = localStorage.getItem('synaptrail-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', t);
-  }catch(e){
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-})();
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/lesson.css">
-<title>Chương 1 — Git — Kiểm soát phiên bản — Git | Synaptrail</title>
-<link rel="stylesheet" href="../assets/ui.css">
-</head>
-<body>
-<div id="progress-bar"></div>
-<div id="topbar">
-  <span class="brand">🚀 Git</span>
-  <div class="topbar-right">
-    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
-    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
-  </div>
-</div>
-<div class="layout">
-  <aside id="sidebar">
-    <div class="brand">🚀 Git</div>
-    <div class="sub">2 chương</div>
-    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
-    <div class="nav-group-title">Danh sách chương</div>
-    <a class="nav-link active" href="chapter01.html">Chương 1 — Git — Kiểm soát phiên bản</a>
-<a class="nav-link" href="chapter02.html">Chương 2 — GitHub &amp; Quy trình làm việc nhóm</a>
-    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
-  </aside>
-  <div class="main-col">
-<div class="chpage">
-  <div class="crumb">
-    <a href="../index.html">🏠 Trang chủ</a> ·
-    <a href="index.html">🚀 Git</a> ·
-    <span>Chương 1 — Git — Kiểm soát phiên bản</span>
-  </div>
-  <main style="padding:0;max-width:none;">
-<section class="chapter" id="s1">
-      <h2>Chương <span class="num">1</span> — Git — Kiểm soát phiên bản</h2>
+<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Git — Kiểm soát phiên bản — Git | Synaptrail</title><meta name="description" content="Công cụ bắt buộc với mọi lập trình viên — theo dõi lịch sử thay đổi code và cho phép làm việc nhóm an toàn."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="git" data-skill="git" data-node="chapter01"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/git.html#chapter01"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">Git / BÀI 1</p><h1>Git — Kiểm soát phiên bản</h1><p class="rm-lead">Công cụ bắt buộc với mọi lập trình viên — theo dõi lịch sử thay đổi code và cho phép làm việc nhóm an toàn.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s1">
+      
       <p class="lead">Công cụ bắt buộc với mọi lập trình viên — theo dõi lịch sử thay đổi code và cho phép làm việc nhóm an toàn.</p>
 
       <h3>3 khu vực làm việc của Git</h3>
       <table>
-        <tr><th>Khu vực</th><th>Ý nghĩa</th></tr>
+        <tbody><tr><th>Khu vực</th><th>Ý nghĩa</th></tr>
         <tr><td><strong>Working Directory</strong></td><td>Thư mục code thực tế bạn đang chỉnh sửa</td></tr>
         <tr><td><strong>Staging Area</strong></td><td>Nơi "chuẩn bị" các thay đổi trước khi commit chính thức</td></tr>
         <tr><td><strong>Repository (.git)</strong></td><td>Lịch sử toàn bộ các commit đã lưu vĩnh viễn</td></tr>
-      </table>
+      </tbody></table>
 
       <div class="code-wrap">
         <span class="code-label">terminal</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>git init                              # khởi tạo repository trong thư mục hiện tại
 git status                              # xem trạng thái: file nào đã sửa, chưa staged...
 git add file.js                           # đưa 1 file vào staging area
@@ -74,7 +25,7 @@ git log --oneline                                # xem lịch sử commit dạng
       <h3>Làm việc với nhánh (Branch)</h3>
       <div class="code-wrap">
         <span class="code-label">terminal</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>git branch                            # xem danh sách nhánh hiện có
 git branch tinh-nang-moi                 # tạo nhánh mới
 git checkout tinh-nang-moi                  # chuyển sang nhánh đó
@@ -101,17 +52,4 @@ git branch -d tinh-nang-moi                           # xóa nhánh sau khi đã
       </div>
     </section>
 
-    <!-- ================= CHƯƠNG 2 ================= -->
-  </main>
-  <div class="chnav"><a class="nav-btn prev" href="index.html">← Mục lục</a><a class="nav-btn next" href="chapter02.html">Chương 2 — GitHub &amp; Quy trình làm việc nhóm →</a></div>
-</div>
-</div>
-</div>
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
-
-<script src="../assets/code-highlighter.js"></script>
-<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
-
-</body>
-</html>
+    <!-- ================= CHƯƠNG 2 ================= --></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><span></span><a href="chapter02.html">Bài tiếp theo<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/git.html#chapter01"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>

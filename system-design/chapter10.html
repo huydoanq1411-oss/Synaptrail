@@ -1,63 +1,6 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-
-<script>
-(function(){
-  try{
-    var t = localStorage.getItem('synaptrail-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', t);
-  }catch(e){
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-})();
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/lesson.css">
-<title>Chương 10 — Case Study: Thiết kế URL Shortener — Giáo Trình System Design | Synaptrail</title>
-<link rel="stylesheet" href="../assets/ui.css">
-</head>
-<body>
-<div id="progress-bar"></div>
-<div id="topbar">
-  <span class="brand">🏗️ System Design</span>
-  <div class="topbar-right">
-    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
-    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
-  </div>
-</div>
-<div class="layout">
-  <aside id="sidebar">
-    <div class="brand">🏗️ System Design</div>
-    <div class="sub">10 chương</div>
-    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
-    <div class="nav-group-title">Danh sách chương</div>
-    <a class="nav-link" href="chapter01.html">Chương 1 — System Design là gì?</a>
-    <a class="nav-link" href="chapter02.html">Chương 2 — Vertical vs Horizontal Scaling</a>
-    <a class="nav-link" href="chapter03.html">Chương 3 — Load Balancing</a>
-    <a class="nav-link" href="chapter04.html">Chương 4 — Caching Strategies</a>
-    <a class="nav-link" href="chapter05.html">Chương 5 — Database Scaling (Replication &amp; Sharding)</a>
-    <a class="nav-link" href="chapter06.html">Chương 6 — CAP Theorem</a>
-    <a class="nav-link" href="chapter07.html">Chương 7 — Message Queue &amp; Xử lý bất đồng bộ</a>
-    <a class="nav-link" href="chapter08.html">Chương 8 — Microservices vs Monolith</a>
-    <a class="nav-link" href="chapter09.html">Chương 9 — API Gateway &amp; Rate Limiting</a>
-    <a class="nav-link active" href="chapter10.html">Chương 10 — Case Study: Thiết kế URL Shortener</a>
-    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
-  </aside>
-  <div class="main-col">
-<div class="chpage">
-  <div class="crumb">
-    <a href="../index.html">🏠 Trang chủ</a> ·
-    <a href="index.html">🏗️ System Design</a> ·
-    <span>Chương 10 — Case Study: Thiết kế URL Shortener</span>
-  </div>
-  <main style="padding:0;max-width:none;">
-<section class="chapter" id="s10">
-      <h2>Chương <span class="num">10</span> — Case Study: Thiết kế URL Shortener</h2>
+<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Case Study: Thiết kế URL Shortener — System Design | Synaptrail</title><meta name="description" content="Áp dụng toàn bộ kiến thức đã học vào một bài toán System Design kinh điển — dạng câu hỏi phổ biến nhất trong phỏng vấn."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="system-design" data-skill="system-design" data-node="chapter10"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/system-design.html#chapter10"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">System Design / BÀI 10</p><h1>Case Study: Thiết kế URL Shortener</h1><p class="rm-lead">Áp dụng toàn bộ kiến thức đã học vào một bài toán System Design kinh điển — dạng câu hỏi phổ biến nhất trong phỏng vấn.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter10">Làm quiz ở trang riêng <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s10">
+      
       <p class="lead">Áp dụng toàn bộ kiến thức đã học vào một bài toán System Design kinh điển — dạng câu hỏi phổ biến nhất trong phỏng vấn.</p>
 
       <h3>Bước 1: Làm rõ yêu cầu (Requirements)</h3>
@@ -69,7 +12,7 @@
       <h3>Bước 2: Thiết kế API cơ bản</h3>
       <div class="code-wrap">
         <span class="code-label">api_design.txt</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>POST /api/rut-gon
   Input:  { "url_goc": "https://example.com/bai-viet-rat-dai..." }
   Output: { "url_ngan": "https://sho.rt/aZ3kP9" }
@@ -82,14 +25,14 @@ GET /aZ3kP9
       <p>Dùng Base62 (chữ a-z, A-Z, số 0-9 = 62 ký tự) encode một ID số nguyên tăng dần — với 6 ký tự, có thể tạo <strong>62⁶ ≈ 56 tỷ</strong> mã khác nhau, thừa sức cho hàng trăm triệu URL.</p>
       <div class="code-wrap">
         <span class="code-label">base62_concept.py</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>BANG_KY_TU = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 def ma_hoa_base62(so_id):
     if so_id == 0:
         return BANG_KY_TU[0]
     ket_qua = ""
-    while so_id > 0:
+    while so_id &gt; 0:
         ket_qua = BANG_KY_TU[so_id % 62] + ket_qua
         so_id //= 62
     return ket_qua
@@ -99,47 +42,22 @@ print(ma_hoa_base62(125_000_000))   # ví dụ: "8M0T"</code></pre>
 
       <h3>Bước 4: Áp dụng toàn bộ kiến thức đã học</h3>
       <table>
-        <tr><th>Kỹ thuật (đã học ở chương nào)</th><th>Áp dụng vào bài toán</th></tr>
+        <tbody><tr><th>Kỹ thuật (đã học ở chương nào)</th><th>Áp dụng vào bài toán</th></tr>
         <tr><td>Caching (ch.4)</td><td>Cache các URL được truy cập nhiều nhất trong Redis — vì tỉ lệ đọc:ghi rất cao (100:1)</td></tr>
         <tr><td>Database Replication (ch.5)</td><td>Nhiều Replica phục vụ ĐỌC (redirect) song song, giảm tải cho Primary</td></tr>
         <tr><td>Load Balancing (ch.3)</td><td>Phân phối hàng triệu request redirect/giây qua nhiều server</td></tr>
         <tr><td>Horizontal Scaling (ch.2)</td><td>Thêm server khi lượng truy cập tăng, vì service này có thể thiết kế stateless</td></tr>
-      </table>
+      </tbody></table>
 
       <div class="box tip">
         <div class="box-title">Mẹo — Tư duy trả lời phỏng vấn System Design</div>
         Không có "đáp án đúng duy nhất" cho câu hỏi này — điều người phỏng vấn đánh giá là khả năng bạn <strong>đặt câu hỏi làm rõ yêu cầu, ước tính quy mô, và giải thích ĐÁNH ĐỔI</strong> của từng quyết định thiết kế (VD: "tại sao chọn cache thay vì tính toán lại mỗi lần"), không phải việc nhớ đúng một kiến trúc mẫu.
       </div>
 
-      <div class="quiz" data-quiz="q10">
-        <h4>📝 Quiz tổng kết cuối khóa System Design</h4>
-        <div class="quiz-q" data-answer="1">
-          <p>1. Với tỉ lệ đọc:ghi 100:1 của URL Shortener, kỹ thuật nào mang lại lợi ích lớn nhất?</p>
-          <span class="quiz-opt" data-idx="0">Sharding dữ liệu theo alphabet</span>
-          <span class="quiz-opt" data-idx="1">Caching các URL phổ biến + Database Replication để phục vụ đọc</span>
-          <span class="quiz-opt" data-idx="2">Chỉ dùng một server duy nhất cho đơn giản</span>
-        </div>
-        <button class="quiz-btn" onclick="gradeQuiz('q10')">Chấm điểm</button>
-        <div class="quiz-result" id="result-q10"></div>
-      </div>
+      
 
       <div class="summary-box">
         <h4>🎉 Hoàn thành toàn bộ giáo trình System Design!</h4>
         <p>Bạn đã đi qua <strong>10 chương / 2 phần lớn</strong>: từ khái niệm Scalability, Load Balancing, Caching, Database Scaling, CAP Theorem, đến Message Queue, Microservices, API Gateway và một Case Study thực chiến. Đây là nền tảng tư duy quan trọng để thiết kế hệ thống thực tế và trả lời câu hỏi System Design trong phỏng vấn. Chúc bạn thành công! 🏗️</p>
       </div>
-    </section>
-  </main>
-  <div class="chnav">
-    <a class="nav-btn prev" href="chapter09.html">← Chương 9 — API Gateway &amp; Rate Limiting</a>
-    <span class="nav-btn disabled">Chương tiếp →</span>
-  </div>
-</div>
-</div>
-</div>
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
-<script src="../assets/code-highlighter.js"></script>
-<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
-
-</body>
-</html>
+    </section></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter09.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bài trước</a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/system-design.html#chapter10"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>

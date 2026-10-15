@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Toán cho Machine Learning — Machine Learning | Synaptrail</title><meta name="description" content="Bạn không cần là nhà toán học để làm ML, nhưng hiểu 4 trụ cột toán học dưới đây sẽ giúp bạn không còn &quot;học vẹt&quot; công thức mà thực sự hiểu vì sao một thuật toán hoạt động. Phần 2 đi qua 4 ga tiếp theo: Đại số tuyến tính, Giải tích, Xác suất thống kê và Tối ưu hóa — nền tảng để hiểu mọi mô hình từ Linear Regression đến Deep Learning."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="machine-learning" data-skill="machine-learning" data-node="phan-2-toan-cho-ml"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/machine-learning.html#phan-2-toan-cho-ml"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">Machine Learning / BÀI 2</p><h1>Toán cho Machine Learning</h1><p class="rm-lead">Bạn không cần là nhà toán học để làm ML, nhưng hiểu 4 trụ cột toán học dưới đây sẽ giúp bạn không còn &quot;học vẹt&quot; công thức mà thực sự hiểu vì sao một thuật toán hoạt động. Phần 2 đi qua 4 ga tiếp theo: Đại số tuyến tính, Giải tích, Xác suất thống kê và Tối ưu hóa — nền tảng để hiểu mọi mô hình từ Linear Regression đến Deep Learning.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><div class="mlhero" id="gioi-thieu">
+      <span class="eyebrow">● Phần 2 / 15 — Toán cho Machine Learning</span>
+      
+      <p class="lead">Bạn không cần là nhà toán học để làm ML, nhưng hiểu <b>4 trụ cột toán học</b> dưới đây sẽ giúp bạn
+        không còn "học vẹt" công thức mà thực sự hiểu vì sao một thuật toán hoạt động. Phần 2 đi qua 4 ga tiếp theo:
+        Đại số tuyến tính, Giải tích, Xác suất thống kê và Tối ưu hóa — nền tảng để hiểu mọi mô hình từ Linear Regression đến Deep Learning.</p>
+      <div class="diagram-card">
+<svg class="roadmap-svg" viewBox="0 0 860 210" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="lineGrad" x1="0" x2="1" y1="0" y2="0">
+<stop offset="0%" stop-color="#0D9488"></stop>
+<stop offset="100%" stop-color="#5B4EE5"></stop>
+</linearGradient>
+</defs>
+<path d="M40,110 H820" stroke="url(#lineGrad)" stroke-linecap="round" stroke-width="6"></path>
+<path d="M760,110 H840" stroke="var(--border)" stroke-dasharray="2 10" stroke-linecap="round" stroke-width="6"></path>
+<g font-family="Space Grotesk, sans-serif">
+<g>
+<circle cx="80" cy="110" fill="var(--border)" r="13"></circle>
+<text fill="var(--muted)" font-size="10" text-anchor="middle" x="80" y="150">Phần 1 ✓</text>
+</g>
+<g>
+<circle cx="240" cy="110" fill="#0D9488" r="15"></circle>
+<circle cx="240" cy="110" fill="#fff" r="6"></circle>
+<text fill="var(--ink)" font-size="12" font-weight="700" text-anchor="middle" x="240" y="70">Ga 6</text>
+<text fill="var(--muted)" font-size="10.5" text-anchor="middle" x="240" y="150">Đại số tuyến tính</text>
+</g>
+<g>
+<circle cx="400" cy="110" fill="#0D9488" r="15"></circle>
+<circle cx="400" cy="110" fill="#fff" r="6"></circle>
+<text fill="var(--ink)" font-size="12" font-weight="700" text-anchor="middle" x="400" y="70">Ga 7</text>
+<text fill="var(--muted)" font-size="10.5" text-anchor="middle" x="400" y="150">Giải tích</text>
+</g>
+<g>
+<circle cx="560" cy="110" fill="#5B4EE5" r="15"></circle>
+<circle cx="560" cy="110" fill="#fff" r="6"></circle>
+<text fill="var(--ink)" font-size="12" font-weight="700" text-anchor="middle" x="560" y="70">Ga 8</text>
+<text fill="var(--muted)" font-size="10.5" text-anchor="middle" x="560" y="150">Xác suất thống kê</text>
+</g>
+<g>
+<circle cx="720" cy="110" fill="#5B4EE5" r="15"></circle>
+<circle cx="720" cy="110" fill="#fff" r="6"></circle>
+<text fill="var(--ink)" font-size="12" font-weight="700" text-anchor="middle" x="720" y="70">Ga 9</text>
+<text fill="var(--muted)" font-size="10.5" text-anchor="middle" x="720" y="150">Tối ưu hóa</text>
+</g>
+<text fill="var(--muted)" font-size="11" font-style="italic" x="800" y="90">Phần 3 →</text>
+</g>
+</svg>
+<div class="diagram-caption">Bạn đã hoàn thành Phần 1 (mờ) — giờ đến 4 "ga" toán học của Phần 2.</div>
+</div>
+    </div>
+
+<div class="box note">
+<div class="box-title">📌 Vì sao cần học toán trước khi vào thuật toán cụ thể?</div>
+        Ở các phần sau, khi học Linear Regression, Gradient Boosting hay Neural Network, bạn sẽ liên tục gặp lại: <b>vector/ma trận</b> (biểu diễn dữ liệu),
+        <b>đạo hàm/gradient</b> (cách mô hình "học"), <b>xác suất</b> (cách mô hình định lượng độ chắc chắn) và <b>tối ưu hóa</b> (cách tìm ra tham số tốt nhất).
+        Phần 2 xây nền cho tất cả những điều đó, với trọng tâm là <i>trực giác</i> chứ không phải chứng minh toán học hàn lâm.
+      </div>
+ ================================================================ 
+ CHƯƠNG 6: ĐẠI SỐ TUYẾN TÍNH 
+ ================================================================ 
+<div class="mlchap open" id="chuong-6">
+<button class="chapter-head" type="button" data-course-toggle="section">
+<div class="ch-left">
+<div class="ch-badge">6</div>
+<div>
+<h2>Đại số tuyến tính cho Machine Learning</h2>
+<div class="ch-sub">Vector, ma trận, phép nhân, norm, trị riêng</div>
+</div>
+</div>
+<svg class="chevron" fill="none" height="20" viewBox="0 0 24 24" width="20"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg>
+</button>
+<div class="chapter-body">
+<div class="chapter-inner">
+<h3>6.1. Vì sao ML "nói chuyện" bằng ngôn ngữ đại số tuyến tính?</h3>
+<p>Mọi dữ liệu đưa vào mô hình ML — một dòng trong bảng Excel, một bức ảnh, một đoạn văn bản — đều được biểu diễn dưới dạng
+            <b>số</b> sắp xếp trong vector hoặc ma trận. Việc "huấn luyện mô hình" thực chất là hàng loạt phép toán đại số tuyến tính
+            (cộng, nhân ma trận) lặp đi lặp lại hàng triệu lần.</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Khái niệm</th><th>Định nghĩa</th><th>Ví dụ trong ML</th></tr></thead>
+<tbody>
+<tr><td><b>Scalar</b></td><td>Một số đơn lẻ</td><td>Learning rate = 0.01</td></tr>
+<tr><td><b>Vector</b></td><td>Dãy số 1 chiều</td><td>Một mẫu dữ liệu: [tuổi, lương, số năm kinh nghiệm]</td></tr>
+<tr><td><b>Matrix (Ma trận)</b></td><td>Bảng số 2 chiều</td><td>Toàn bộ tập dữ liệu: mỗi hàng là 1 mẫu, mỗi cột là 1 đặc trưng</td></tr>
+<tr><td><b>Tensor</b></td><td>Mảng số nhiều hơn 2 chiều</td><td>Một batch ảnh màu: (số_ảnh, chiều_cao, chiều_rộng, kênh_màu)</td></tr>
+</tbody>
+</table>
+</div>
+<div class="diagram-card">
+<svg viewBox="0 0 500 150" width="420">
+<g fill="var(--ink)" font-family="Space Grotesk" font-size="12">
+<rect fill="var(--teal-dim)" height="40" stroke="var(--teal)" width="40" x="10" y="55"></rect>
+<text text-anchor="middle" x="30" y="79">5</text>
+<text fill="var(--muted)" font-size="10.5" text-anchor="middle" x="30" y="30">Scalar</text>
+<rect fill="var(--teal-dim)" height="90" stroke="var(--teal)" width="30" x="90" y="35"></rect>
+<text font-size="10.5" text-anchor="middle" x="105" y="55">2</text>
+<text font-size="10.5" text-anchor="middle" x="105" y="80">7</text>
+<text font-size="10.5" text-anchor="middle" x="105" y="105">1</text>
+<text fill="var(--muted)" font-size="10.5" text-anchor="middle" x="105" y="20">Vector</text>
+<rect fill="var(--violet-dim)" height="90" stroke="var(--violet)" width="90" x="160" y="35"></rect>
+<line stroke="var(--violet)" x1="190" x2="190" y1="35" y2="125"></line>
+<line stroke="var(--violet)" x1="220" x2="220" y1="35" y2="125"></line>
+<line stroke="var(--violet)" x1="160" x2="250" y1="65" y2="65"></line>
+<line stroke="var(--violet)" x1="160" x2="250" y1="95" y2="95"></line>
+<text fill="var(--muted)" font-size="10.5" text-anchor="middle" x="205" y="20">Ma trận</text>
+<g transform="translate(300,35)">
+<rect fill="var(--amber-dim)" height="70" stroke="var(--amber)" width="70" x="0" y="0"></rect>
+<rect fill="var(--amber-dim)" height="70" opacity="0.7" stroke="var(--amber)" width="70" x="18" y="-15"></rect>
+<rect fill="var(--amber-dim)" height="70" opacity="0.5" stroke="var(--amber)" width="70" x="36" y="-30"></rect>
+</g>
+<text fill="var(--muted)" font-size="10.5" text-anchor="middle" x="365" y="20">Tensor (3D+)</text>
+</g>
+</svg>
+<div class="diagram-caption">Từ scalar → vector → ma trận → tensor: số chiều tăng dần.</div>
+</div>
+<h3>6.2. Các phép toán vector &amp; ma trận cơ bản với NumPy</h3>
+ <div class="code-wrap">
+<span class="code-label">python</span>
+
+<pre><code>import numpy as np
+
+v1 = np.array([2, 3, 4])
+v2 = np.array([1, 0, 1])
+
+# Cộng / trừ vector - theo từng phần tử
+print(v1 + v2)          # [3 3 5]
+
+# Tích vô hướng (dot product) - nền tảng của mọi lớp neural network
+tich_vo_huong = np.dot(v1, v2)
+print(tich_vo_huong)    # 2*1 + 3*0 + 4*1 = 6
+
+# Norm (độ dài) của vector - đo "kích thước" của vector
+norm_l2 = np.linalg.norm(v1)          # căn(2^2+3^2+4^2)
+norm_l1 = np.linalg.norm(v1, ord=1)   # |2|+|3|+|4|
+print("L2 norm:", norm_l2, "| L1 norm:", norm_l1)
+
+# Nhân ma trận thật sự (không phải element-wise)
+A = np.array([[1, 2], [3, 4]])
+B = np.array([[5, 6], [7, 8]])
+print(A @ B)            # nhân ma trận chuẩn
+print(A.T)              # ma trận chuyển vị
+
+# Ma trận nghịch đảo - dùng trong công thức nghiệm đóng của Linear Regression
+A_inv = np.linalg.inv(A)
+print(A_inv)</code></pre>
+</div>
+<div class="line-explain">
+<ol>
+<li><code>np.dot(v1, v2)</code> — tích vô hướng: nhân từng cặp phần tử tương ứng rồi cộng lại; đây chính là phép toán lặp lại hàng tỷ lần bên trong mỗi lớp của neural network.</li>
+<li><code>np.linalg.norm(v1)</code> — norm L2 (Euclidean norm) đo "độ dài" vector trong không gian; dùng để đo khoảng cách giữa các điểm dữ liệu (ví dụ trong KNN).</li>
+<li><code>np.linalg.norm(v1, ord=1)</code> — norm L1, tổng trị tuyệt đối các phần tử; xuất hiện trong regularization L1 (Lasso).</li>
+<li><code>A @ B</code> — toán tử <code>@</code> là cách viết gọn của <code>np.matmul</code>, thực hiện nhân ma trận đúng quy tắc toán học (hàng nhân cột).</li>
+<li><code>A.T</code> — chuyển vị: đổi hàng thành cột, thường dùng khi cần khớp kích thước ma trận để nhân.</li>
+<li><code>np.linalg.inv(A)</code> — tính ma trận nghịch đảo <code>A⁻¹</code> sao cho <code>A @ A_inv</code> xấp xỉ ma trận đơn vị; là thành phần trong công thức nghiệm đóng (closed-form) của hồi quy tuyến tính: <code>w = (XᵀX)⁻¹Xᵀy</code>.</li>
+</ol>
+</div>
+<div class="box warning">
+<div class="box-title">⚠️ Lưu ý</div>
+              Không phải ma trận nào cũng có nghịch đảo (ma trận suy biến / singular matrix sẽ báo lỗi). Trong thực hành ML hiện đại, người ta hiếm khi tính nghịch đảo trực tiếp vì tốn chi phí tính toán với ma trận lớn — thay vào đó dùng Gradient Descent (xem Chương 9).
+            </div>
+<div class="box note">
+<div class="box-title">🆕 Cập nhật 2026 — Tích vô hướng (dot product) chính là "phép toán lõi" đứng sau RAG</div>
+              Tích vô hướng và norm vừa học ở trên không chỉ là bài tập toán trừu tượng — chúng là công thức chính xác đứng sau việc <b>tìm kiếm ngữ nghĩa (semantic search)</b> trong các ứng dụng RAG (Chương 45):
+               <div class="code-wrap">
+<span class="code-label">python</span>
+
+<pre><code># Cosine similarity - đo "độ giống nhau về nghĩa" giữa 2 embedding vector
+def cosine_similarity(a, b):
+    return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
+
+# a, b là 2 embedding vector (đại diện cho 2 câu văn bản)
+# Giá trị càng gần 1 → 2 câu càng gần nghĩa nhau
+# Giá trị càng gần 0 → 2 câu càng ít liên quan</code></pre>
+</div>
+              Khi một hệ thống RAG "tìm đoạn văn bản liên quan nhất tới câu hỏi", về bản chất nó đang tính <b>cosine similarity</b> (dùng chính <code>np.dot</code> và <code>np.linalg.norm</code> vừa học) giữa embedding của câu hỏi và embedding của hàng nghìn/triệu đoạn văn bản đã lưu sẵn, rồi chọn ra những đoạn có điểm cao nhất. Đây là lý do đại số tuyến tính vẫn là nền tảng bắt buộc, kể cả khi làm việc với LLM hiện đại.
+            </div>
+<h3>6.3. Trị riêng &amp; vector riêng (Eigenvalues &amp; Eigenvectors) — trực giác</h3>
+<p>Khi nhân một ma trận vuông <code>A</code> với một vector <code>x</code>, thông thường hướng của vector sẽ thay đổi.
+            Nhưng có một số vector đặc biệt — gọi là <b>vector riêng (eigenvector)</b> — chỉ bị "kéo giãn" theo đúng hướng cũ, với hệ số giãn gọi là <b>trị riêng (eigenvalue)</b>:
+            <code>A·x = λ·x</code>. Khái niệm này là nền tảng của <b>PCA (Principal Component Analysis)</b> — thuật toán giảm chiều dữ liệu sẽ học ở phần sau.</p>
+ <div class="code-wrap">
+<span class="code-label">python</span>
+
+<pre><code>A = np.array([[2, 0], [0, 3]])
+tri_rieng, vector_rieng = np.linalg.eig(A)
+print("Trị riêng:", tri_rieng)         # [2. 3.]
+print("Vector riêng:\n", vector_rieng)  # các cột là vector riêng tương ứng</code></pre>
+</div>
+<div class="box tip">
+<div class="box-title">💡 Mẹo ghi nhớ</div>
+              Hãy tưởng tượng ma trận <code>A</code> như một "phép biến hình" không gian. Vector riêng là những "trục" đặc biệt không bị xoay khi biến hình, chỉ bị kéo dài/thu ngắn. PCA tận dụng điều này để tìm ra "trục" mà dữ liệu biến thiên nhiều nhất.
+            </div>
+<h4>Bài tập thực hành</h4>
+<div class="exercise">
+<h4>Bài 1</h4>
+<p>Cho hai vector <code>a = [3, 4]</code> và <code>b = [1, 2]</code>. Tính tích vô hướng, norm L2 của <code>a</code>, và cho biết góc giữa 2 vector có &gt; 90° hay không (gợi ý: tích vô hướng dương nghĩa là góc &lt; 90°).</p>
+<button class="reveal-btn" type="button" data-course-toggle="answer">Xem đáp án</button>
+<div class="answer-panel">
+ <div class="code-wrap">
+<span class="code-label">python</span>
+
+<pre><code>a = np.array([3, 4])
+b = np.array([1, 2])
+print(np.dot(a, b))          # 3*1+4*2 = 11 (dương -&gt; góc &lt; 90 độ)
+print(np.linalg.norm(a))     # 5.0</code></pre>
+</div>
+</div>
+</div>
+<div class="exercise">
+<h4>Bài 2</h4>
+<p>Cho ma trận <code>M = [[4, 2], [1, 3]]</code>, hãy tính ma trận chuyển vị và nhân <code>M</code> với chuyển vị của chính nó (<code>M @ M.T</code>).</p>
+<button class="reveal-btn" type="button" data-course-toggle="answer">Xem đáp án</button>
+<div class="answer-panel">
+ <div class="code-wrap">
+<span class="code-label">python</span>
+
+<pre><code>M = np.array([[4, 2], [1, 3]])
+print(M.T)          # [[4 1] [2 3]]
+print(M @ M.T)      # [[20 10] [10 10]]</code></pre>
+</div>
+</div>
+</div>
+<div class="grid-2">
+<div class="mistake-card"><b>❌ Lỗi thường gặp:</b> Dùng <code>*</code> khi ý định là nhân ma trận, dẫn tới kết quả nhân từng phần tử (element-wise) thay vì nhân ma trận chuẩn.</div>
+<div class="practice-card"><b>✅ Best Practice:</b> Luôn kiểm tra <code>shape</code> của các ma trận trước khi nhân — số cột ma trận trái phải bằng số hàng ma trận phải.</div>
+</div>
+<div class="summary-box">
+<h4>🎯 Tổng kết Chương 6</h4>
+<ul>
+<li>Dữ liệu trong ML luôn được biểu diễn dưới dạng vector/ma trận/tensor.</li>
+<li>Dot product, norm và phép nhân ma trận là 3 phép toán xuất hiện xuyên suốt mọi mô hình.</li>
+<li>Eigenvalue/eigenvector là nền tảng của PCA — thuật toán giảm chiều sẽ học sau.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+ ================================================================ 
+ CHƯƠNG 7: GIẢI TÍCH 
+ ================================================================ 
+<div class="mlchap" id="chuong-7">
+<button class="chapter-head" type="button" data-course-toggle="section">
+<div class="ch-left">
+<div class="ch-badge">7</div>
+<div>
+<h2>Giải tích (Calculus) cho Machine Learning</h2>
+<div class="ch-sub">Đạo hàm, gradient, chain rule — nền tảng của việc "học"</div>
+</div>
+</div>
+<svg class="chevron" fill="none" height="20" viewBox="0 0 24 24" width="20"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg>
+</button>
+<div class="chapter-body">
+<div class="chapter-inner">
+<h3>7.1. Đạo hàm là gì, hiểu theo cách trực giác nhất</h3>
+<p><b>Đạo hàm</b> của một hàm số tại một điểm cho biết <i>độ dốc (slope)</i> của đồ thị hàm số tại điểm đó — nói cách khác,
+            nếu bạn nhích biến đầu vào một chút, giá trị đầu ra sẽ thay đổi bao nhiêu và theo hướng nào.</p>
+<div class="diagram-card">
+<svg viewBox="0 0 400 220" width="360">
+<g>
+<path d="M20,200 Q120,20 380,120" fill="none" stroke="var(--teal)" stroke-width="3"></path>
+<line stroke="var(--border)" x1="20" x2="380" y1="200" y2="200"></line>
+<line stroke="var(--border)" x1="20" x2="20" y1="200" y2="10"></line>
+<circle cx="150" cy="65" fill="var(--violet)" r="6"></circle>
+<line stroke="var(--amber)" stroke-dasharray="4 3" stroke-width="2" x1="80" x2="220" y1="110" y2="35"></line>
+<text fill="var(--amber)" font-family="Space Grotesk" font-size="11" x="230" y="35">tiếp tuyến = đạo hàm</text>
+<text fill="var(--violet)" font-family="Space Grotesk" font-size="11" text-anchor="middle" x="150" y="50">điểm x</text>
+</g>
+</svg>
+<div class="diagram-caption">Đạo hàm tại một điểm = độ dốc của đường tiếp tuyến tại điểm đó.</div>
+</div>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Hàm số f(x)</th><th>Đạo hàm f'(x)</th><th>Ý nghĩa</th></tr></thead>
+<tbody>
+<tr><td>f(x) = c (hằng số)</td><td>0</td><td>Hằng số không đổi → độ dốc bằng 0</td></tr>
+<tr><td>f(x) = x</td><td>1</td><td>Đường thẳng 45° → độ dốc không đổi bằng 1</td></tr>
+<tr><td>f(x) = x²</td><td>2x</td><td>Độ dốc tăng dần khi x tăng — hình parabol</td></tr>
+<tr><td>f(x) = x³</td><td>3x²</td><td>Quy tắc lũy thừa: đưa số mũ xuống làm hệ số, giảm số mũ đi 1</td></tr>
+</tbody>
+</table>
+</div>
+<h3>7.2. Đạo hàm riêng &amp; Gradient</h3>
+<p>Khi hàm số có <b>nhiều biến</b> (ví dụ hàm mất mát phụ thuộc vào hàng trăm trọng số của neural network), ta dùng
+            <b>đạo hàm riêng (partial derivative)</b> — đạo hàm theo từng biến, coi các biến khác là hằng số. Gộp tất cả đạo hàm riêng lại thành một vector, ta được <b>gradient</b>,
+            ký hiệu <code>∇f</code> — vector chỉ theo <i>hướng tăng nhanh nhất</i> của hàm số.</p>
+<div class="box tip">
+<div class="box-title">💡 Vì sao Gradient quan trọng bậc nhất trong ML?</div>
+              Toàn bộ quá trình huấn luyện neural network dựa trên việc tính gradient của hàm mất mát theo từng trọng số, rồi
+              <b>đi ngược hướng gradient</b> (vì ta muốn giảm mất mát, không phải tăng) để cập nhật trọng số — đây chính là <b>Gradient Descent</b>, học kỹ ở Chương 9.
+            </div>
+<h3>7.3. Chain Rule — quy tắc chuỗi</h3>
+<p>Khi một hàm số là hàm hợp của nhiều hàm khác (ví dụ <code>y = f(g(x))</code>), <b>chain rule</b> cho phép tính đạo hàm bằng cách nhân các đạo hàm thành phần:
+            <code>dy/dx = dy/dg · dg/dx</code>. Đây chính là nguyên lý toán học đứng sau thuật toán <b>Backpropagation</b> dùng để huấn luyện mọi mạng nơ-ron sâu.</p>
+<div class="box tip">
+<div class="box-title">💡 Ví dụ cụ thể bằng số — vì sao mạng nhiều lớp cần chain rule</div>
+              Cho <code>g(x) = 2x + 1</code> và <code>f(g) = g²</code>, vậy <code>y = f(g(x)) = (2x+1)²</code> — hãy tưởng tượng <code>g</code> là "Lớp 1" và <code>f</code> là "Lớp 2" của một mạng nơ-ron rất nhỏ. Tại <code>x = 2</code>:
+              <ul>
+<li><code>g(2) = 2(2)+1 = 5</code>, và <code>dg/dx = 2</code> (đạo hàm của <code>2x+1</code>).</li>
+<li><code>f(g) = g²</code> nên <code>dy/dg = 2g = 2(5) = 10</code> (đạo hàm của <code>g²</code> tại <code>g=5</code>).</li>
+<li>Theo chain rule: <code>dy/dx = dy/dg · dg/dx = 10 × 2 = 20</code>.</li>
+</ul>
+              Kiểm chứng trực tiếp: <code>y = (2x+1)²</code> có đạo hàm <code>dy/dx = 2(2x+1)·2 = 4(2x+1)</code>, tại <code>x=2</code>: <code>4(5) = 20</code> — khớp! Với mạng nơ-ron thật (Phần 14) có hàng chục lớp thay vì 2 hàm, Backpropagation làm đúng phép nhân liên hoàn này — chỉ là lặp lại nhiều lần hơn, mỗi lớp một "mắt xích" trong chuỗi nhân.
+            </div>
+<h3>7.4. Minh họa bằng code: tính đạo hàm số (numerical) và Gradient Descent 1 biến</h3>
+ <div class="code-wrap">
+<span class="code-label">python</span>
+
+<pre><code>import numpy as np
+
+# Hàm số cần khảo sát: f(x) = x^2 + 3
+def f(x):
+    return x**2 + 3
+
+# Tính đạo hàm bằng phương pháp số (numerical differentiation)
+def dao_ham_so(f, x, h=1e-5):
+    return (f(x + h) - f(x - h)) / (2 * h)
+
+print("Đạo hàm tại x=2 (số học):", dao_ham_so(f, 2))   # xấp xỉ 4.0
+print("Đạo hàm tại x=2 (công thức 2x):", 2 * 2)          # 4.0 - khớp nhau!
+
+# Gradient Descent đơn giản: tìm x sao cho f(x) nhỏ nhất
+x = 10.0                 # điểm khởi tạo ban đầu
+learning_rate = 0.1
+lich_su_x = [x]
+
+for buoc in range(20):
+    grad = dao_ham_so(f, x)      # tính độ dốc tại điểm hiện tại
+    x = x - learning_rate * grad # đi NGƯỢC hướng độ dốc để giảm f(x)
+    lich_su_x.append(x)
+
+print("x hội tụ về:", round(x, 4))   # tiến gần 0, vì f(x) nhỏ nhất tại x=0</code></pre>
+</div>
+<div class="line-explain">
+<ol>
+<li><code>dao_ham_so(f, x, h=1e-5)</code> — ước lượng đạo hàm bằng công thức sai phân trung tâm: nhích <code>x</code> một khoảng rất nhỏ <code>h</code> theo cả 2 hướng và đo độ thay đổi của <code>f</code>.</li>
+<li>So sánh với đạo hàm công thức <code>2x</code> để kiểm chứng cách tính số là chính xác — kỹ thuật này gọi là <i>gradient checking</i>, thường dùng để debug code tính gradient thủ công.</li>
+<li><code>x = x - learning_rate * grad</code> — đây chính là công thức cập nhật của Gradient Descent: di chuyển <code>x</code> một bước nhỏ theo hướng <b>ngược</b> với gradient.</li>
+<li>Vòng lặp 20 bước cho thấy <code>x</code> dần hội tụ về 0 — đúng bằng điểm cực tiểu thật sự của hàm <code>f(x) = x² + 3</code>.</li>
+</ol>
+</div>
+<div class="box important">
+<div class="box-title">🔴 Quan trọng</div>
+              Trong thực tế, các framework như PyTorch/TensorFlow không dùng đạo hàm số (chậm, kém chính xác) mà dùng <b>Automatic Differentiation</b> —
+              tính đạo hàm chính xác tuyệt đối bằng cách áp dụng chain rule tự động lên đồ thị tính toán. Chúng ta sẽ gặp lại khái niệm này ở chương PyTorch/TensorFlow.
+            </div>
+<h4>Bài tập thực hành</h4>
+<div class="exercise">
+<h4>Bài 1</h4>
+<p>Cho hàm <code>f(x) = (x - 3)^2</code>. Bằng suy luận (không code), điểm cực tiểu của hàm này nằm ở đâu? Sau đó viết code Gradient Descent để kiểm chứng.</p>
+<button class="reveal-btn" type="button" data-course-toggle="answer">Xem đáp án</button>
+<div class="answer-panel">
+<p>Cực tiểu tại <code>x = 3</code> vì <code>(x-3)^2 ≥ 0</code> và bằng 0 khi <code>x = 3</code>.</p>
+ <div class="code-wrap">
+<span class="code-label">python</span>
+
+<pre><code>def f2(x):
+    return (x - 3)**2
+
+x = 0.0
+lr = 0.2
+for _ in range(30):
+    grad = dao_ham_so(f2, x)
+    x = x - lr * grad
+print(round(x, 3))   # tiến gần 3.0</code></pre>
+</div>
+</div>
+</div>
+<div class="grid-2">
+<div class="mistake-card"><b>❌ Lỗi thường gặp:</b> Chọn <code>learning_rate</code> quá lớn khiến quá trình tối ưu "nhảy qua nhảy lại" quanh điểm cực tiểu, không hội tụ (sẽ khảo sát kỹ ở Chương 9).</div>
+<div class="practice-card"><b>✅ Best Practice:</b> Khi tự cài đặt gradient thủ công, luôn kiểm chứng bằng đạo hàm số (numerical gradient) để phát hiện lỗi công thức sớm.</div>
+</div>
+<div class="summary-box">
+<h4>🎯 Tổng kết Chương 7</h4>
+<ul>
+<li>Đạo hàm đo độ dốc — nền tảng để biết nên điều chỉnh tham số theo hướng nào.</li>
+<li>Gradient là vector đạo hàm riêng, chỉ hướng tăng nhanh nhất của hàm nhiều biến.</li>
+<li>Chain rule cho phép tính đạo hàm của hàm hợp — chính là cơ chế của Backpropagation.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+ ================================================================ 
+ CHƯƠNG 8: XÁC SUẤT THỐNG KÊ 
+ ================================================================ 
+<div class="mlchap" id="chuong-8">
+<button class="chapter-head" type="button" data-course-toggle="section">
+<div class="ch-left">
+<div class="ch-badge">8</div>
+<div>
+<h2>Xác suất thống kê cho Machine Learning</h2>
+<div class="ch-sub">Phân phối, kỳ vọng, phương sai, Bayes' theorem</div>
+</div>
+</div>
+<svg class="chevron" fill="none" height="20" viewBox="0 0 24 24" width="20"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg>
+</button>
+<div class="chapter-body">
+<div class="chapter-inner">
+<h3>8.1. Vì sao ML cần xác suất thống kê?</h3>
+<p>Dữ liệu thực tế luôn có <b>nhiễu (noise)</b> và <b>tính không chắc chắn</b>. Xác suất thống kê cho ta ngôn ngữ để định lượng
+            sự không chắc chắn đó — ví dụ mô hình phân loại spam không nói "chắc chắn 100% là spam" mà nói "xác suất 92% là spam".</p>
+<h3>8.2. Kỳ vọng, phương sai, độ lệch chuẩn</h3>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Đại lượng</th><th>Công thức (mẫu)</th><th>Ý nghĩa</th></tr></thead>
+<tbody>
+<tr><td><b>Kỳ vọng / Trung bình (Mean)</b></td><td>μ = Σxᵢ / n</td><td>Giá trị "trung tâm" đại diện cho dữ liệu</td></tr>
+<tr><td><b>Phương sai (Variance)</b></td><td>σ² = Σ(xᵢ-μ)² / n</td><td>Đo mức độ phân tán dữ liệu quanh trung bình</td></tr>
+<tr><td><b>Độ lệch chuẩn (Std)</b></td><td>σ = √(σ²)</td><td>Giống phương sai nhưng cùng đơn vị với dữ liệu gốc</td></tr>
+<tr><td><b>Hiệp phương sai (Covariance)</b></td><td>cov(X,Y)</td><td>Đo mức độ 2 biến biến thiên cùng nhau</td></tr>
+<tr><td><b>Hệ số tương quan (Correlation)</b></td><td>corr(X,Y) ∈ [-1,1]</td><td>Covariance đã chuẩn hóa, dễ so sánh hơn</td></tr>
+</tbody>
+</table>
+</div>
+ <div class="code-wrap">
+<span class="code-label">python</span>
+
+<pre><code>import numpy as np
+
+diem_thi = np.array([7.5, 8.0, 6.5, 9.0, 5.5, 8.5])
+
+print("Trung bình:", diem_thi.mean())
+print("Phương sai:", diem_thi.var())
+print("Độ lệch chuẩn:", diem_thi.std())
+
+gio_hoc = np.array([2, 3, 1, 4, 0.5, 3.5])
+print("Hệ số tương quan:", np.corrcoef(gio_hoc, diem_thi)[0, 1])</code></pre>
+</div>
+<div class="line-explain">
+<ol>
+<li><code>diem_thi.mean()</code> — điểm trung bình của cả lớp, đại diện cho xu hướng chung.</li>
+<li><code>diem_thi.var()</code> / <code>.std()</code> — đo mức độ điểm số phân tán rộng hay hẹp quanh giá trị trung bình.</li>
+<li><code>np.corrcoef(gio_hoc, diem_thi)</code> — trả về ma trận tương quan 2x2; phần tử ở hàng 0 cột 1 chính là hệ số tương quan giữa "giờ học" và "điểm thi". Giá trị gần 1 nghĩa là học nhiều điểm càng cao (tương quan thuận mạnh).</li>
+</ol>
+</div>
+<h3>8.3. Phân phối chuẩn (Normal Distribution) — "ngôi sao" của thống kê</h3>
+<p>Rất nhiều hiện tượng tự nhiên (chiều cao, sai số đo lường...) tuân theo phân phối chuẩn — hình chuông đối xứng qua giá trị trung bình.</p>
+<div class="diagram-card">
+<svg viewBox="0 0 400 160" width="360">
+<path d="M20,140 C80,140 90,20 200,20 C310,20 320,140 380,140" fill="none" stroke="var(--violet)" stroke-width="3"></path>
+<line stroke="var(--amber)" stroke-dasharray="4 3" x1="200" x2="200" y1="20" y2="140"></line>
+<text fill="var(--muted)" font-family="Space Grotesk" font-size="11" text-anchor="middle" x="200" y="155">μ (trung bình)</text>
+<text fill="var(--muted)" font-size="10" x="60" y="150">-2σ</text>
+<text fill="var(--muted)" font-size="10" x="330" y="150">+2σ</text>
+</svg>
+<div class="diagram-caption">Phân phối chuẩn: đối xứng qua μ, độ "phình" quyết định bởi σ (độ lệch chuẩn).</div>
+</div>
+ <div class="code-wrap">
+<span class="code-label">python</span>
+
+<pre><code># Sinh 1000 mẫu ngẫu nhiên theo phân phối chuẩn (mean=170, std=8)
+chieu_cao = np.random.normal(loc=170, scale=8, size=1000)
+print("Trung bình mẫu:", chieu_cao.mean())   # xấp xỉ 170
+print("Độ lệch chuẩn mẫu:", chieu_cao.std()) # xấp xỉ 8</code></pre>
+</div>
+<h3>8.4. Định lý Bayes (Bayes' Theorem)</h3>
+<p>Định lý Bayes cho phép cập nhật xác suất của một giả thuyết khi có thêm bằng chứng mới — nền tảng của thuật toán <b>Naive Bayes</b> sẽ học ở phần Classification:</p>
+<div class="box note">
+<div class="box-title">📖 Công thức</div>
+<p>P(A|B) = P(B|A) · P(A) / P(B)</p>
+</div>
+<ul>
+<li><b>P(A|B)</b>: xác suất A đúng, biết rằng B đã xảy ra (posterior — cái ta muốn tìm)</li>
+<li><b>P(B|A)</b>: xác suất quan sát được B, nếu A đúng (likelihood)</li>
+<li><b>P(A)</b>: xác suất A đúng trước khi biết B (prior)</li>
+<li><b>P(B)</b>: xác suất tổng quát của B (evidence)</li>
+</ul>
+ <div class="code-wrap">
+<span class="code-label">python</span>
+
+<pre><code># Ví dụ kinh điển: xét nghiệm bệnh hiếm
+# P(benh) = 0.01 (1% dân số mắc bệnh) - prior
+# P(duong_tinh | benh) = 0.99 (xét nghiệm đúng 99% nếu có bệnh) - likelihood
+# P(duong_tinh | khong_benh) = 0.05 (dương tính giả 5%)
+
+p_benh = 0.01
+p_duongtinh_neu_benh = 0.99
+p_duongtinh_neu_khongbenh = 0.05
+
+# P(duong_tinh) = P(duong_tinh|benh)*P(benh) + P(duong_tinh|khong_benh)*P(khong_benh)
+p_duongtinh = (p_duongtinh_neu_benh * p_benh) + (p_duongtinh_neu_khongbenh * (1 - p_benh))
+
+# Áp dụng định lý Bayes
+p_benh_neu_duongtinh = (p_duongtinh_neu_benh * p_benh) / p_duongtinh
+print(f"Xác suất thực sự mắc bệnh nếu xét nghiệm dương tính: {p_benh_neu_duongtinh:.2%}")
+# Kết quả gây bất ngờ: chỉ khoảng 16.7%, dù xét nghiệm "chính xác 99%"!</code></pre>
+</div>
+<div class="box important">
+<div class="box-title">🔴 Insight quan trọng</div>
+              Ví dụ trên minh họa một trực giác sai lầm phổ biến: xét nghiệm "chính xác 99%" nghe rất đáng tin, nhưng vì bệnh quá hiếm
+              (prior thấp), phần lớn kết quả dương tính thực chất là <b>dương tính giả</b>. Đây là lý do vì sao hiểu prior rất quan trọng khi diễn giải kết quả mô hình ML trong thực tế, đặc biệt với các bài toán mất cân bằng lớp (imbalanced classification).
+            </div>
+<h3>8.5. A/B Testing — xác suất thống kê ứng dụng vào quyết định kinh doanh</h3>
+<p>Sau khi deploy (Chương 36), câu hỏi thực tế thường là: "Mô hình mới có <i>thực sự</i> tốt hơn mô hình cũ không, hay chênh lệch quan sát được chỉ là do may rủi ngẫu nhiên?" — đây chính xác là bài toán <b>kiểm định giả thuyết thống kê (hypothesis testing)</b>, ứng dụng thực tế phổ biến nhất của Chương này.</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Khái niệm</th><th>Ý nghĩa</th></tr></thead>
+<tbody>
+<tr><td><b>Giả thuyết không (H₀)</b></td><td>Giả định mặc định: "không có sự khác biệt" — mô hình mới và cũ có tỉ lệ chuyển đổi (conversion rate) như nhau</td></tr>
+<tr><td><b>p-value</b></td><td>Xác suất quan sát được chênh lệch <i>lớn như đã thấy hoặc lớn hơn</i>, NẾU giả thuyết H₀ đúng (tức là nếu thực sự không có khác biệt gì)</td></tr>
+<tr><td><b>Mức ý nghĩa (α)</b></td><td>Ngưỡng quyết định, thường chọn 0.05 — nếu p-value &lt; α, ta "bác bỏ H₀", kết luận chênh lệch có ý nghĩa thống kê</td></tr>
+</tbody>
+</table>
+</div>
+ <div class="code-wrap">
+<span class="code-label">python</span>
+
+<pre><code>from scipy import stats
+import numpy as np
+
+# Nhóm A: 1000 người dùng thấy mô hình gợi ý cũ, 120 người click
+# Nhóm B: 1000 người dùng thấy mô hình gợi ý mới, 180 người click
+click_A = np.array([1]*120 + [0]*880)
+click_B = np.array([1]*180 + [0]*820)
+
+# Two-proportion z-test - kiểm tra 2 tỉ lệ có khác nhau có ý nghĩa thống kê không
+thong_ke, p_value = stats.ttest_ind(click_A, click_B)
+print(f"p-value = {p_value:.4f}")   # ví dụ này cho p-value ≈ 0.0002
+
+if p_value &lt; 0.05:
+    print("-&gt; Bác bỏ H0: chênh lệch CÓ ý nghĩa thống kê, mô hình B có vẻ thực sự tốt hơn")
+else:
+    print("-&gt; KHÔNG đủ bằng chứng để khẳng định mô hình B tốt hơn mô hình A")</code></pre>
+</div>
+<div class="box warning">
+<div class="box-title">⚠️ Sai lầm thường gặp: "p-value thấp" ≠ "khác biệt lớn có ý nghĩa thực tế"</div>
+              Với lượng dữ liệu đủ lớn, ngay cả một chênh lệch cực nhỏ (VD: 12.0% vs 12.01%) cũng có thể cho p-value &lt; 0.05 về mặt thống kê — nhưng chênh lệch đó có thể hoàn toàn <i>không đáng để đánh đổi chi phí</i> chuyển sang mô hình mới trong thực tế kinh doanh. Luôn xem xét thêm "effect size" (độ lớn thực tế của chênh lệch), không chỉ dừng ở việc p-value có dưới ngưỡng hay không.
+            </div>
+<h3>8.6. Multi-Armed Bandit — khi A/B Testing tĩnh chưa đủ tốt</h3>
+<p>A/B Testing ở trên có một hạn chế: phải chờ đủ dữ liệu rồi mới quyết định, trong lúc chờ, <b>một nửa người dùng vẫn phải xem phiên bản kém hơn</b> — gây tổn thất "chi phí cơ hội" trong suốt thời gian thử nghiệm. <b>Multi-Armed Bandit</b> (đặt tên theo máy đánh bạc nhiều cần kéo) giải quyết vấn đề này bằng cách <i>vừa thử nghiệm vừa tối ưu cùng lúc</i>, thay vì tách biệt 2 giai đoạn.</p>
+<div class="box tip">
+<div class="box-title">💡 Đây chính là bài toán Reinforcement Learning đơn giản nhất</div>
+              Multi-Armed Bandit thực chất là phiên bản "rút gọn" của RL (sẽ học đầy đủ ở Chương 51): vẫn có Action (chọn phiên bản nào cho user tiếp theo) và Reward (user có click/mua hàng không), nhưng KHÔNG có khái niệm State thay đổi theo thời gian — mỗi lượt đều là một quyết định độc lập. Chiến lược Epsilon-Greedy (sẽ học chi tiết ở 51.3) ra đời chính từ bài toán Bandit này trước khi mở rộng sang RL đầy đủ.
+            </div>
+ <div class="code-wrap">
+<span class="code-label">python</span>
+
+<pre><code>import numpy as np
+
+class BanditDonGian:
+    def __init__(self, so_phien_ban):
+        self.so_lan_thu = np.zeros(so_phien_ban)
+        self.tong_thuong = np.zeros(so_phien_ban)
+
+    def chon_phien_ban(self, epsilon=0.1):
+        if np.random.random() &lt; epsilon or self.so_lan_thu.sum() == 0:
+            return np.random.randint(len(self.so_lan_thu))   # Exploration
+        ty_le_thanh_cong = self.tong_thuong / np.maximum(self.so_lan_thu, 1)
+        return np.argmax(ty_le_thanh_cong)                    # Exploitation
+
+    def cap_nhat(self, phien_ban, thuong):
+        self.so_lan_thu[phien_ban] += 1
+        self.tong_thuong[phien_ban] += thuong
+
+# 3 phiên bản giao diện, tỉ lệ click thật (bandit không biết trước con số này)
+ty_le_click_that = [0.10, 0.15, 0.22]
+bandit = BanditDonGian(so_phien_ban=3)
+
+for _ in range(5000):
+    v = bandit.chon_phien_ban(epsilon=0.1)
+    thuong = 1 if np.random.random() &lt; ty_le_click_that[v] else 0
+    bandit.cap_nhat(v, thuong)
+
+print("Số lần mỗi phiên bản được chọn:", bandit.so_lan_thu)
+# Phiên bản tốt nhất (0.22) sẽ được chọn NHIỀU hơn hẳn ngay trong lúc thử nghiệm</code></pre>
+</div>
+<div class="box note">
+<div class="box-title">📌 Khi nào chọn Bandit thay vì A/B Testing cổ điển?</div>
+              A/B Testing phù hợp khi cần <b>kết luận chắc chắn, có ý nghĩa thống kê rõ ràng</b> để báo cáo/ra quyết định lớn (đổi cả sản phẩm). Bandit phù hợp khi có <b>nhiều phương án cần tối ưu liên tục</b> và chấp nhận đánh đổi độ chắc chắn thống kê để giảm tổn thất trong lúc thử nghiệm — ứng dụng phổ biến: xếp hạng quảng cáo, thử nghiệm tiêu đề bài viết, gợi ý sản phẩm theo thời gian thực.
+            </div>
+<h4>Bài tập thực hành</h4>
+<div class="exercise">
+<h4>Bài 1</h4>
+<p>Cho mảng điểm <code>[4, 6, 8, 10, 12]</code>. Tính trung bình, phương sai và độ lệch chuẩn bằng NumPy.</p>
+<button class="reveal-btn" type="button" data-course-toggle="answer">Xem đáp án</button>
+<div class="answer-panel">
+ <div class="code-wrap">
+<span class="code-label">python</span>
+
+<pre><code>diem = np.array([4, 6, 8, 10, 12])
+print(diem.mean())  # 8.0
+print(diem.var())   # 8.0
+print(diem.std())   # 2.828...</code></pre>
+</div>
+</div>
+</div>
+<div class="exercise">
+<h4>Bài 2</h4>
+<p>Giả sử prior mắc bệnh là 5% thay vì 1% (giữ nguyên các xác suất khác trong ví dụ Bayes). Xác suất thực sự mắc bệnh nếu dương tính sẽ tăng hay giảm? Tính cụ thể.</p>
+<button class="reveal-btn" type="button" data-course-toggle="answer">Xem đáp án</button>
+<div class="answer-panel">
+<p>Prior cao hơn sẽ làm xác suất posterior <b>tăng</b> lên, vì bệnh phổ biến hơn nên dương tính có nhiều khả năng là thật hơn.</p>
+ <div class="code-wrap">
+<span class="code-label">python</span>
+
+<pre><code>p_benh = 0.05
+p_duongtinh = (0.99 * p_benh) + (0.05 * (1 - p_benh))
+p_benh_neu_duongtinh = (0.99 * p_benh) / p_duongtinh
+print(f"{p_benh_neu_duongtinh:.2%}")  # khoảng 51.1%</code></pre>
+</div>
+</div>
+</div>
+<div class="grid-2">
+<div class="mistake-card"><b>❌ Lỗi thường gặp:</b> Nhầm lẫn correlation với causation — hai biến tương quan cao không có nghĩa biến này gây ra biến kia.</div>
+<div class="practice-card"><b>✅ Best Practice:</b> Luôn xem xét prior (tỉ lệ nền) khi diễn giải xác suất dự đoán của mô hình, đặc biệt với dữ liệu mất cân bằng lớp.</div>
+</div>
+<div class="summary-box">
+<h4>🎯 Tổng kết Chương 8</h4>
+<ul>
+<li>Mean, variance, std là 3 đại lượng thống kê mô tả cơ bản nhất.</li>
+<li>Phân phối chuẩn xuất hiện khắp nơi trong tự nhiên và trong giả định của nhiều mô hình thống kê.</li>
+<li>Định lý Bayes cho phép cập nhật niềm tin dựa trên bằng chứng — nền tảng của Naive Bayes.</li>
+<li>A/B Testing dùng p-value để kiểm định chênh lệch có ý nghĩa thống kê hay chỉ do ngẫu nhiên — nhưng p-value thấp không đồng nghĩa chênh lệch đáng để hành động trong thực tế.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+ ================================================================ 
+ CHƯƠNG 9: TỐI ƯU HÓA 
+ ================================================================ 
+<div class="mlchap" id="chuong-9">
+<button class="chapter-head" type="button" data-course-toggle="section">
+<div class="ch-left">
+<div class="ch-badge">9</div>
+<div>
+<h2>Tối ưu hóa (Optimization) cho Machine Learning</h2>
+<div class="ch-sub">Loss function, Gradient Descent, Learning rate</div>
+</div>
+</div>
+<svg class="chevron" fill="none" height="20" viewBox="0 0 24 24" width="20"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg>
+</button>
+<div class="chapter-body">
+<div class="chapter-inner">
+<h3>9.1. Bài toán tối ưu hóa trong ML là gì?</h3>
+<p>"Huấn luyện mô hình" về bản chất là <b>bài toán tối ưu hóa</b>: tìm bộ tham số (trọng số) sao cho một <b>hàm mất mát (loss function)</b> —
+            đo mức độ dự đoán sai của mô hình — đạt giá trị <i>nhỏ nhất</i>.</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Loss function</th><th>Dùng cho</th><th>Công thức (ý tưởng)</th></tr></thead>
+<tbody>
+<tr><td><b>MSE (Mean Squared Error)</b></td><td>Regression</td><td>Trung bình bình phương sai số dự đoán</td></tr>
+<tr><td><b>MAE (Mean Absolute Error)</b></td><td>Regression</td><td>Trung bình trị tuyệt đối sai số</td></tr>
+<tr><td><b>Cross-Entropy Loss</b></td><td>Classification</td><td>Đo "khoảng cách" giữa phân phối xác suất dự đoán và nhãn thật</td></tr>
+</tbody>
+</table>
+</div>
+<h3>9.2. Gradient Descent — thuật toán tối ưu phổ biến nhất</h3>
+<p>Ý tưởng: bắt đầu từ một điểm ngẫu nhiên, lặp lại việc <b>tính gradient</b> của loss function theo tham số, rồi <b>di chuyển ngược hướng gradient</b> một bước nhỏ (quyết định bởi <b>learning rate</b>), cho tới khi hội tụ.</p>
+<div class="diagram-card">
+<svg viewBox="0 0 400 200" width="360">
+<path d="M20,180 Q200,10 380,180" fill="none" stroke="var(--border)" stroke-width="3"></path>
+<circle cx="60" cy="150" fill="var(--rose)" r="6"></circle>
+<circle cx="110" cy="100" fill="var(--amber)" r="6"></circle>
+<circle cx="160" cy="60" fill="var(--amber)" r="6"></circle>
+<circle cx="195" cy="35" fill="var(--teal)" r="6"></circle>
+<path d="M60,150 L110,100 L160,60 L195,35" fill="none" stroke="var(--violet)" stroke-dasharray="4 3" stroke-width="2"></path>
+<text fill="var(--muted)" font-size="10" text-anchor="middle" x="60" y="170">bắt đầu</text>
+<text fill="var(--teal)" font-size="10" font-weight="700" text-anchor="middle" x="195" y="20">cực tiểu</text>
+</svg>
+<div class="diagram-caption">Gradient Descent: mỗi bước tiến gần hơn tới điểm cực tiểu của hàm mất mát.</div>
+</div>
+<h3>9.3. Ba biến thể của Gradient Descent</h3>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Biến thể</th><th>Dùng bao nhiêu dữ liệu mỗi bước cập nhật</th><th>Đặc điểm</th></tr></thead>
+<tbody>
+<tr><td><b>Batch GD</b></td><td>Toàn bộ tập dữ liệu</td><td>Ổn định nhưng chậm, tốn bộ nhớ với dữ liệu lớn</td></tr>
+<tr><td><b>Stochastic GD (SGD)</b></td><td>Chỉ 1 mẫu mỗi bước</td><td>Nhanh, nhưng đường đi "nhiễu" (dao động)</td></tr>
+<tr><td><b>Mini-batch GD</b></td><td>Một nhóm nhỏ mẫu (ví dụ 32, 64, 128)</td><td>Cân bằng tốc độ và ổn định — phổ biến nhất trong Deep Learning</td></tr>
+</tbody>
+</table>
+</div>
+<h3>9.4. Ảnh hưởng của Learning Rate</h3>
+<div class="diagram-card">
+<svg viewBox="0 0 600 160" width="100%">
+<g font-family="Space Grotesk" font-size="11">
+<path d="M20,140 Q80,20 200,20 Q320,20 380,140" fill="none" stroke="var(--border)" stroke-width="2"></path>
+<path d="M340,130 L280,60 L210,100 L180,30" fill="none" stroke="var(--rose)" stroke-width="2"></path>
+<text fill="var(--rose)" font-size="10" text-anchor="middle" x="340" y="150">LR quá lớn: dao động, không hội tụ</text>
+<path d="M420,140 Q480,20 600,20" fill="none" stroke="var(--border)" stroke-width="2" transform="translate(0,0)"></path>
+</g>
+</svg>
+<div class="diagram-caption">Learning rate quá lớn khiến các bước cập nhật "nhảy qua" điểm cực tiểu thay vì tiến gần dần.</div>
+</div>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Learning rate</th><th>Hiện tượng</th></tr></thead>
+<tbody>
+<tr><td>Quá nhỏ</td><td>Hội tụ rất chậm, tốn nhiều vòng lặp, dễ bị kẹt ở điểm gần khởi tạo</td></tr>
+<tr><td>Vừa phải</td><td>Hội tụ ổn định và tương đối nhanh về điểm cực tiểu</td></tr>
+<tr><td>Quá lớn</td><td>Dao động qua lại quanh điểm cực tiểu, thậm chí phân kỳ (giá trị loss tăng dần thay vì giảm)</td></tr>
+</tbody>
+</table>
+</div>
+<h3>9.5. Cài đặt Gradient Descent để tối ưu hàm 2 biến</h3>
+ <div class="code-wrap">
+<span class="code-label">python</span>
+
+<pre><code>import numpy as np
+
+# Hàm mất mát ví dụ: f(w1, w2) = (w1-2)^2 + (w2+1)^2 -&gt; cực tiểu tại (2, -1)
+def loss(w):
+    return (w[0] - 2)**2 + (w[1] + 1)**2
+
+def gradient(w):
+    dw1 = 2 * (w[0] - 2)
+    dw2 = 2 * (w[1] + 1)
+    return np.array([dw1, dw2])
+
+w = np.array([0.0, 0.0])   # khởi tạo tham số ban đầu
+learning_rate = 0.1
+so_vong_lap = 50
+
+for i in range(so_vong_lap):
+    grad = gradient(w)
+    w = w - learning_rate * grad
+    if i % 10 == 0:
+        print(f"Vòng {i}: w = {w.round(3)}, loss = {loss(w):.4f}")
+
+print("Kết quả cuối cùng:", w.round(3))   # tiến gần [2, -1]</code></pre>
+</div>
+<div class="line-explain">
+<ol>
+<li><code>loss(w)</code> — hàm mất mát nhận vào vector 2 tham số, trả về một số vô hướng đo "sai" tới đâu.</li>
+<li><code>gradient(w)</code> — tính đạo hàm riêng theo từng tham số <code>w1</code>, <code>w2</code>, gộp thành vector gradient.</li>
+<li><code>w = w - learning_rate * grad</code> — công thức cập nhật Gradient Descent tổng quát, áp dụng đồng thời cho cả vector tham số nhờ broadcasting của NumPy.</li>
+<li>Vòng lặp in log mỗi 10 bước để quan sát <code>w</code> tiến dần về <code>[2, -1]</code> và <code>loss</code> giảm dần về 0.</li>
+</ol>
+</div>
+<div class="box warning">
+<div class="box-title">⚠️ Local minima vs Global minima</div>
+              Với hàm loss phức tạp (như trong Deep Learning), có thể tồn tại nhiều điểm cực tiểu cục bộ (local minima). Gradient Descent không đảm bảo luôn tìm được cực tiểu toàn cục (global minimum) — đây là lý do các biến thể nâng cao như <b>Momentum, Adam</b> ra đời (sẽ gặp lại ở chương Deep Learning).
+            </div>
+<h4>Bài tập thực hành</h4>
+<div class="exercise">
+<h4>Bài 1</h4>
+<p>Sửa ví dụ 9.5 để hàm mất mát là <code>f(w1,w2) = (w1-5)^2 + (w2-5)^2</code> (cực tiểu tại (5,5)), và thử với learning_rate = 1.1 (quá lớn). Quan sát điều gì xảy ra với loss.</p>
+<button class="reveal-btn" type="button" data-course-toggle="answer">Xem đáp án</button>
+<div class="answer-panel">
+<p>Với <code>learning_rate = 1.1 &gt; 1</code>, mỗi bước cập nhật sẽ "vọt qua" điểm cực tiểu và đi xa hơn vị trí ban đầu theo chiều ngược lại, khiến <code>loss</code> <b>tăng dần theo từng vòng lặp thay vì giảm</b> — đây là hiện tượng phân kỳ (divergence), minh chứng rõ ràng cho việc chọn learning rate quá lớn.</p>
+</div>
+</div>
+<div class="grid-2">
+<div class="mistake-card"><b>❌ Lỗi thường gặp:</b> Chọn một learning rate cố định "cho mọi bài toán" mà không thử nghiệm — mỗi bài toán/kiến trúc mô hình thường cần learning rate khác nhau.</div>
+<div class="practice-card"><b>✅ Best Practice:</b> Bắt đầu với learning rate phổ biến (như 0.01, 0.001), theo dõi đường cong loss, và giảm dần learning rate nếu thấy loss dao động mạnh.</div>
+</div>
+<div class="summary-box">
+<h4>🎯 Tổng kết Chương 9</h4>
+<ul>
+<li>Huấn luyện mô hình = bài toán tối ưu hóa: tìm tham số cực tiểu hóa hàm mất mát.</li>
+<li>Gradient Descent (Batch/Stochastic/Mini-batch) là thuật toán tối ưu nền tảng của ML/DL.</li>
+<li>Learning rate là siêu tham số cực kỳ quan trọng — quá nhỏ thì chậm, quá lớn thì phân kỳ.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="next-hint"><p>✅ Bạn vừa hoàn thành <b>Phần 2</b>: Đại số tuyến tính, Giải tích, Xác suất thống kê và Tối ưu hóa cho Machine Learning.</p></div></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="phan-1-nen-tang-ml.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bài trước</a><a href="phan-3-truc-quan-hoa-du-lieu.html">Bài tiếp theo<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/machine-learning.html#phan-2-toan-cho-ml"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>

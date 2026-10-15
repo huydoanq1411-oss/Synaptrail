@@ -1,79 +1,6 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-
-<script>
-(function(){
-  try{
-    var t = localStorage.getItem('synaptrail-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', t);
-  }catch(e){
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-})();
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/lesson.css">
-<title>Chương 2 — Props — Truyền Dữ Liệu Giữa Component — Giáo Trình React | Synaptrail</title>
-<link rel="stylesheet" href="../assets/ui.css">
-</head>
-<body>
-<div id="progress-bar"></div>
-<div id="topbar">
-  <span class="brand">⚛️ React</span>
-  <div class="topbar-right">
-    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
-    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
-  </div>
-</div>
-<div class="layout">
-  <aside id="sidebar">
-    <div class="brand">⚛️ React</div>
-    <div class="sub">26 chương</div>
-    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
-    <div class="nav-group-title">Danh sách chương</div>
-    <a class="nav-link" href="chapter01.html">Chương 1 — Nhập Môn React &amp; JSX</a>
-    <a class="nav-link active" href="chapter02.html">Chương 2 — Props — Truyền Dữ Liệu Giữa Component</a>
-    <a class="nav-link" href="chapter03.html">Chương 3 — State &amp; useState Hook</a>
-    <a class="nav-link" href="chapter04.html">Chương 4 — Xử Lý Sự Kiện &amp; Form Trong React</a>
-    <a class="nav-link" href="chapter05.html">Chương 5 — Conditional Rendering — Hiển thị có điều kiện</a>
-    <a class="nav-link" href="chapter06.html">Chương 6 — Lists &amp; Keys — Danh sách trong React</a>
-    <a class="nav-link" href="chapter07.html">Chương 7 — useEffect — Side Effects &amp; Vòng đời Component</a>
-    <a class="nav-link" href="chapter08.html">Chương 8 — Fetch dữ liệu từ API trong React</a>
-    <a class="nav-link" href="chapter09.html">Chương 9 — Custom Hooks — Tái sử dụng logic</a>
-    <a class="nav-link" href="chapter10.html">Chương 10 — useRef &amp; Thao tác DOM trực tiếp</a>
-    <a class="nav-link" href="chapter11.html">Chương 11 — Context API — Chia sẻ state toàn cục</a>
-    <a class="nav-link" href="chapter12.html">Chương 12 — useReducer — Quản lý state phức tạp</a>
-    <a class="nav-link" href="chapter13.html">Chương 13 — React Router — Điều hướng SPA cơ bản</a>
-    <a class="nav-link" href="chapter14.html">Chương 14 — React Router nâng cao — Nested Routes &amp; Params</a>
-    <a class="nav-link" href="chapter15.html">Chương 15 — Styling trong React — CSS Modules &amp; styled-components</a>
-    <a class="nav-link" href="chapter16.html">Chương 16 — Performance — useMemo &amp; useCallback</a>
-    <a class="nav-link" href="chapter17.html">Chương 17 — React.memo &amp; Tối ưu re-render</a>
-    <a class="nav-link" href="chapter18.html">Chương 18 — Error Boundaries &amp; Xử lý lỗi</a>
-    <a class="nav-link" href="chapter19.html">Chương 19 — Portals — Modal &amp; Tooltip</a>
-    <a class="nav-link" href="chapter20.html">Chương 20 — Redux Toolkit — Giới thiệu &amp; Store</a>
-    <a class="nav-link" href="chapter21.html">Chương 21 — Redux Toolkit — Slice, Thunk &amp; kết nối API</a>
-    <a class="nav-link" href="chapter22.html">Chương 22 — Form nâng cao — react-hook-form &amp; Validation</a>
-    <a class="nav-link" href="chapter23.html">Chương 23 — Testing React Components — Jest &amp; Testing Library</a>
-    <a class="nav-link" href="chapter24.html">Chương 24 — Giới thiệu Next.js — SSR &amp; File-based Routing</a>
-    <a class="nav-link" href="chapter25.html">Chương 25 — Triển khai ứng dụng React lên Production</a>
-    <a class="nav-link" href="chapter26.html">Chương 26 — Dự án cuối khóa: Ứng dụng React hoàn chỉnh</a>
-    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
-  </aside>
-  <div class="main-col">
-<div class="chpage">
-  <div class="crumb">
-    <a href="../index.html">🏠 Trang chủ</a> ·
-    <a href="index.html">⚛️ React</a> ·
-    <span>Chương 2 — Props — Truyền Dữ Liệu Giữa Component</span>
-  </div>
-  <main style="padding:0;max-width:none;">
-<section class="chapter" id="s2">
-      <h2>Chương <span class="num">2</span> — Props — Truyền Dữ Liệu Giữa Component</h2>
+<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Props — Truyền Dữ Liệu Giữa Component — React | Synaptrail</title><meta name="description" content="Biến component tĩnh thành khối UI thực sự tái sử dụng được — dựng lại chính xác 6 card khóa học ở trang chủ chỉ bằng MỘT component duy nhất."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="react" data-skill="react" data-node="chapter02"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/react.html#chapter02"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">React / BÀI 2</p><h1>Props — Truyền Dữ Liệu Giữa Component</h1><p class="rm-lead">Biến component tĩnh thành khối UI thực sự tái sử dụng được — dựng lại chính xác 6 card khóa học ở trang chủ chỉ bằng MỘT component duy nhất.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter02">Làm quiz ở trang riêng <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s2">
+      
       <p class="lead">Biến component tĩnh thành khối UI thực sự tái sử dụng được — dựng lại chính xác 6 card khóa học ở trang chủ chỉ bằng MỘT component duy nhất.</p>
 
       <h3>Giới thiệu</h3>
@@ -98,7 +25,7 @@
 
       <div class="code-wrap">
         <span class="code-label">truyền props</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>&lt;TheKhoaHoc ten="React.js" icon="⚛️" soBaiHoc={20} /&gt;
 // ten, icon, soBaiHoc là các props — viết y hệt thuộc tính HTML
 // giá trị chuỗi dùng dấu nháy, giá trị JS khác (số, biến...) dùng { }</code></pre>
@@ -110,7 +37,7 @@
 
       <div class="code-wrap">
         <span class="code-label">nhận props (cách đầy đủ)</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>function TheKhoaHoc(props) {
   return &lt;h3&gt;{props.ten} — {props.soBaiHoc} bài&lt;/h3&gt;;
 }</code></pre>
@@ -120,7 +47,7 @@
 
       <div class="code-wrap">
         <span class="code-label">nhận props (destructuring — khuyến khích)</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>function TheKhoaHoc({ ten, soBaiHoc }) {
   return &lt;h3&gt;{ten} — {soBaiHoc} bài&lt;/h3&gt;;
 }</code></pre>
@@ -138,7 +65,7 @@
 
       <div class="code-wrap">
         <span class="code-label">render danh sách</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>const danhSachKhoaHoc = [
   { id: 1, ten: "HTML &amp; CSS", icon: "🧱" },
   { id: 2, ten: "JavaScript", icon: "⚡" }
@@ -170,7 +97,7 @@ function DanhSach() {
       <div class="code-wrap">
         <span class="code-label">props.html
 📋 Copy</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>&lt;div id="root"&gt;&lt;/div&gt;
 
 &lt;script src="https://unpkg.com/react@19/umd/react.development.js"&gt;&lt;/script&gt;
@@ -230,34 +157,34 @@ function DanhSach() {
       <p>Nhấp vào từng mục để xem chi tiết lỗi và cách khắc phục:</p>
 
       <div class="accordion">
-        <div class="accordion-head" onclick="this.parentElement.classList.toggle('open')">Cố sửa trực tiếp props</div>
+        <button class="accordion-head" type="button" data-course-toggle="section">Cố sửa trực tiếp props</button>
         <div class="accordion-body"><div class="accordion-body-inner">
           <p>Viết <code class="mono">props.ten = "Tên mới";</code> bên trong component con — React sẽ báo lỗi hoặc bỏ qua thay đổi, vì props được coi là bất biến (immutable) từ góc nhìn của component con.</p>
-<p class="fix" style="color:var(--ok);">✅ Cách khắc phục: nếu cần dữ liệu thay đổi được, đó là dấu hiệu cần dùng <strong>state</strong> (Bài 3) thay vì props.</p>
+<p class="fix">✅ Cách khắc phục: nếu cần dữ liệu thay đổi được, đó là dấu hiệu cần dùng <strong>state</strong> (Bài 3) thay vì props.</p>
         </div></div>
       </div>
 
       <div class="accordion">
-        <div class="accordion-head" onclick="this.parentElement.classList.toggle('open')">Quên prop <code class="mono">key</code> khi render danh sách</div>
+        <button class="accordion-head" type="button" data-course-toggle="section">Quên prop <code class="mono">key</code> khi render danh sách</button>
         <div class="accordion-body"><div class="accordion-body-inner">
           <p>Viết <code class="mono">.map(kh =&gt; &lt;TheKhoaHoc ten={kh.ten} /&gt;)</code> (thiếu <code class="mono">key</code>) — React vẫn hiển thị được nhưng cảnh báo trong console <code class="mono">Warning: Each child in a list should have a unique "key" prop</code>, và có thể gây lỗi hiển thị khó lường khi danh sách thay đổi.</p>
-<p class="fix" style="color:var(--ok);">✅ Cách khắc phục: luôn thêm <code class="mono">key</code> (dùng id ổn định) cho mọi phần tử được tạo ra từ <code class="mono">.map()</code>.</p>
+<p class="fix">✅ Cách khắc phục: luôn thêm <code class="mono">key</code> (dùng id ổn định) cho mọi phần tử được tạo ra từ <code class="mono">.map()</code>.</p>
         </div></div>
       </div>
 
       <div class="accordion">
-        <div class="accordion-head" onclick="this.parentElement.classList.toggle('open')">Dùng chỉ số mảng (index) làm <code class="mono">key</code></div>
+        <button class="accordion-head" type="button" data-course-toggle="section">Dùng chỉ số mảng (index) làm <code class="mono">key</code></button>
         <div class="accordion-body"><div class="accordion-body-inner">
           <p>Viết <code class="mono">.map((kh, index) =&gt; &lt;TheKhoaHoc key={index} /&gt;)</code> — hoạt động được với danh sách tĩnh, nhưng gây lỗi hiển thị khó lường nếu danh sách có thể thêm/xóa/sắp xếp lại — đúng bài học "id thay vì index" từ Bài 18 chương JavaScript.</p>
-<p class="fix" style="color:var(--ok);">✅ Cách khắc phục: luôn ưu tiên id thật của dữ liệu (như <code class="mono">kh.id</code>) làm key, chỉ dùng index khi chắc chắn danh sách hoàn toàn tĩnh, không bao giờ thay đổi.</p>
+<p class="fix">✅ Cách khắc phục: luôn ưu tiên id thật của dữ liệu (như <code class="mono">kh.id</code>) làm key, chỉ dùng index khi chắc chắn danh sách hoàn toàn tĩnh, không bao giờ thay đổi.</p>
         </div></div>
       </div>
 
       <div class="accordion">
-        <div class="accordion-head" onclick="this.parentElement.classList.toggle('open')">Quên dấu ngoặc nhọn khi truyền props không phải chuỗi</div>
+        <button class="accordion-head" type="button" data-course-toggle="section">Quên dấu ngoặc nhọn khi truyền props không phải chuỗi</button>
         <div class="accordion-body"><div class="accordion-body-inner">
           <p>Viết <code class="mono">&lt;TheKhoaHoc soBaiHoc="11" /&gt;</code> khi muốn truyền số <code class="mono">11</code> — nếu dùng dấu nháy, giá trị thực chất là <strong>chuỗi</strong> <code class="mono">"11"</code>, không phải số, có thể gây lỗi khi component con thực hiện phép tính trên prop này.</p>
-<p class="fix" style="color:var(--ok);">✅ Cách khắc phục: giá trị không phải chuỗi (số, boolean, biến, object...) luôn cần bọc trong <code class="mono">{ }</code>: <code class="mono">soBaiHoc={11}</code>.</p>
+<p class="fix">✅ Cách khắc phục: giá trị không phải chuỗi (số, boolean, biến, object...) luôn cần bọc trong <code class="mono">{ }</code>: <code class="mono">soBaiHoc={11}</code>.</p>
         </div></div>
       </div>
 
@@ -274,7 +201,7 @@ function DanhSach() {
 <li>Bọc mọi giá trị không phải chuỗi trong <code class="mono">{ }</code> khi truyền props.</li>
 <li>Giữ component con càng "vô tri" càng tốt — chỉ nhận props và hiển thị, không tự ý biết về nguồn gốc dữ liệu.</li></ul>
 
-      <h3>Tip & Note</h3>
+      <h3>Tip &amp; Note</h3>
 
       <div class="box tip">
         <div class="box-title">💡 Tip</div>
@@ -319,54 +246,6 @@ function DanhSach() {
         bạn sẽ học <strong>State &amp; useState</strong> — cách cho component "trí nhớ" của riêng nó.</p>
       </div>
 
-      <div class="quiz" data-quiz="q2">
-        <h4>📝 Quiz nhanh — Chương 2</h4>
-        <div class="quiz-q" data-answer="2">
-          <p>1. Props chảy theo hướng nào giữa các component?</p>
-          <span class="quiz-opt" data-idx="0">Từ con lên cha</span>
-          <span class="quiz-opt" data-idx="1">Hai chiều tự do</span>
-          <span class="quiz-opt" data-idx="2">Từ cha xuống con</span>
-          <span class="quiz-opt" data-idx="3">Không có hướng cố định</span>
-        </div>
-        <div class="quiz-q" data-answer="1">
-          <p>2. Prop nào bắt buộc phải có khi render danh sách bằng <code class="mono">.map()</code>?</p>
-          <span class="quiz-opt" data-idx="0"><code class="mono">id</code></span>
-          <span class="quiz-opt" data-idx="1"><code class="mono">key</code></span>
-          <span class="quiz-opt" data-idx="2"><code class="mono">name</code></span>
-          <span class="quiz-opt" data-idx="3">Không cần prop nào đặc biệt</span>
-        </div>
-        <div class="quiz-q" data-answer="0">
-          <p>3. Component con có được phép sửa trực tiếp props nhận vào không?</p>
-          <span class="quiz-opt" data-idx="0">Không, props chỉ đọc</span>
-          <span class="quiz-opt" data-idx="1">Có, thoải mái sửa</span>
-          <span class="quiz-opt" data-idx="2">Chỉ sửa được số, không sửa được chuỗi</span>
-          <span class="quiz-opt" data-idx="3">Tùy trình duyệt</span>
-        </div>
-        <div class="quiz-q" data-answer="3">
-          <p>4. Khi truyền một giá trị số làm prop, cần dùng ký hiệu nào?</p>
-          <span class="quiz-opt" data-idx="0">Dấu nháy đơn <code class="mono">' '</code></span>
-          <span class="quiz-opt" data-idx="1">Dấu nháy kép <code class="mono">" "</code></span>
-          <span class="quiz-opt" data-idx="2">Không cần ký hiệu gì</span>
-          <span class="quiz-opt" data-idx="3">Dấu ngoặc nhọn <code class="mono">{ }</code></span>
-        </div>
-        <button class="quiz-btn" onclick="gradeQuiz('q2')">Chấm điểm</button>
-        <div class="quiz-result" id="result-q2"></div>
-      </div>
+      
 
-    </section>
-  </main>
-  <div class="chnav">
-    <a class="nav-btn prev" href="chapter01.html">← Chương 1 — Nhập Môn React &amp; JSX</a>
-    <a class="nav-btn next" href="chapter03.html">Chương 3 — State &amp; useState Hook →</a>
-  </div>
-</div>
-</div>
-</div>
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
-
-<script src="../assets/code-highlighter.js"></script>
-<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
-
-</body>
-</html>
+    </section></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter01.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bài trước</a><a href="chapter03.html">Bài tiếp theo<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/react.html#chapter02"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>

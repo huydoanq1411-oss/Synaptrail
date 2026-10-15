@@ -1,0 +1,41 @@
+{
+  "course": "sass",
+  "title": "Sass",
+  "lessons": [
+    {
+      "id": "chapter01",
+      "file": "chapter01.html",
+      "title": "SASS/SCSS — Biến & Nesting",
+      "summary": "CSS Preprocessor — viết CSS với cú pháp mạnh mẽ hơn (biến, lồng nhau, hàm...), rồi biên dịch ra CSS thuần.",
+      "content": "<section class=\"chapter\" id=\"s7\">\n      \n      <p class=\"lead\">CSS Preprocessor — viết CSS với cú pháp mạnh mẽ hơn (biến, lồng nhau, hàm...), rồi biên dịch ra CSS thuần.</p>\n\n      <h3>Biến trong SCSS</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">style.scss</span>\n        \n        <pre><code>$mau-chinh: #4f46e5;          // biến SCSS dùng dấu $ (khác CSS Variables dùng --)\n$khoang-cach: 16px;\n$bo-goc: 8px;\n\n.nut {\n    background-color: $mau-chinh;\n    padding: $khoang-cach;\n    border-radius: $bo-goc;\n}</code></pre>\n      </div>\n\n      <h3>Nesting — lồng selector theo cấu trúc HTML</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">nesting.scss</span>\n        \n        <pre><code>.navbar {\n    background: white;\n\n    .logo {                    // tương đương .navbar .logo trong CSS thường\n        font-weight: bold;\n    }\n\n    ul {\n        list-style: none;\n\n        li {                      // tương đương .navbar ul li\n            display: inline-block;\n\n            &amp;:hover {                 // &amp; = tham chiếu tới chính selector cha (.navbar ul li:hover)\n                color: $mau-chinh;\n            }\n\n            &amp;.active {                 // tương đương .navbar ul li.active\n                font-weight: bold;\n            }\n        }\n    }\n}</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        Trình duyệt <strong>KHÔNG hiểu file .scss trực tiếp</strong> — cần công cụ biên dịch (Sass CLI, hoặc tích hợp sẵn trong Vite/Webpack) để chuyển .scss thành file .css thuần trước khi trình duyệt có thể sử dụng.\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">terminal</span>\n        \n        <pre><code>npm install -g sass\nsass style.scss style.css          # biên dịch 1 lần\nsass --watch style.scss:style.css     # tự động biên dịch lại mỗi khi file .scss thay đổi</code></pre>\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 1</h4>\n        <p>SCSS thêm biến ($ten) và nesting (lồng selector theo cấu trúc HTML, dùng &amp; để tham chiếu selector cha) — cần biên dịch ra CSS thuần trước khi trình duyệt dùng được.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 8 ================= -->",
+      "questions": [],
+      "ids": [
+        "s7"
+      ],
+      "words": 226
+    },
+    {
+      "id": "chapter02",
+      "file": "chapter02.html",
+      "title": "SASS/SCSS — Mixin & Tổ chức Folder",
+      "summary": "Tái sử dụng khối CSS bằng Mixin, và cách tổ chức nhiều file .scss cho dự án lớn theo chuẩn thực tế.",
+      "content": "<section class=\"chapter\" id=\"s8\">\n      \n      <p class=\"lead\">Tái sử dụng khối CSS bằng Mixin, và cách tổ chức nhiều file .scss cho dự án lớn theo chuẩn thực tế.</p>\n\n      <h3>Mixin — \"hàm\" cho CSS</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">mixin.scss</span>\n        \n        <pre><code>@mixin flex-center($huong: row) {     // mixin có THAM SỐ, giá trị mặc định row\n    display: flex;\n    flex-direction: $huong;\n    justify-content: center;\n    align-items: center;\n}\n\n.hero {\n    @include flex-center();              // dùng mixin, giống gọi hàm\n    height: 100vh;\n}\n\n.sidebar {\n    @include flex-center(column);          // truyền tham số khác giá trị mặc định\n}</code></pre>\n      </div>\n\n      <h3>@use để chia nhỏ file SCSS (cách hiện đại, thay cho @import cũ)</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">cấu trúc thư mục dự án SCSS chuẩn</span>\n        <pre><code>styles/\n├── main.scss              # file gốc, @use các file khác\n├── _variables.scss          # biến màu, khoảng cách... (dấu _ = \"partial\", không tự biên dịch riêng)\n├── _mixins.scss               # các mixin dùng chung\n├── _navbar.scss                 # style riêng cho navbar\n└── _footer.scss                   # style riêng cho footer</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">main.scss</span>\n        \n        <pre><code>@use 'variables' as v;\n@use 'mixins' as m;\n@use 'navbar';\n@use 'footer';\n\n.hero {\n    @include m.flex-center();\n    background: v.$mau-chinh;\n}</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Tên file bắt đầu bằng dấu gạch dưới (VD: <code>_variables.scss</code>) được gọi là \"partial\" — Sass biết đây chỉ là file để <code>@use</code>/<code>@import</code> vào file khác, không tự biên dịch thành file .css riêng lẻ.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 2</h4>\n        <p>Mixin (@mixin/@include) tái sử dụng khối CSS như hàm, có thể nhận tham số. Dự án lớn nên tách nhiều file .scss theo chức năng (biến, mixin, từng component), dùng @use để ghép lại.</p>\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>🎉 Hoàn thành Phần 1!</h4>\n        <p>Bạn đã nắm vững Git/GitHub, TypeScript, Bootstrap, SASS. Trước khi qua Phần 2, hãy hoàn thành lộ trình riêng <a href=\"../react/chapter01.html\">React.js Từ Zero Đến Hero</a> (JSX, Hooks, Router, Context, Redux). Sau đó quay lại đây để học <strong>Phần 2 — Backend chuyên sâu</strong>: MySQL, ORM, GraphQL, real-time và NestJS.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 9 ================= -->",
+      "questions": [
+        {
+          "question": "1. Mixin trong SCSS có vai trò tương tự khái niệm gì trong lập trình thông thường?",
+          "options": [
+            "Hàm (function) — có thể nhận tham số, tái sử dụng nhiều lần",
+            "Vòng lặp (loop)",
+            "Kiểu dữ liệu (data type)"
+          ],
+          "answer": 0,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s8"
+      ],
+      "words": 294
+    }
+  ]
+}

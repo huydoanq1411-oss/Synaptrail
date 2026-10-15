@@ -1,0 +1,29 @@
+{
+  "course": "socketio",
+  "title": "Socket.IO",
+  "lessons": [
+    {
+      "id": "chapter01",
+      "file": "chapter01.html",
+      "title": "Socket.IO — Giao tiếp Real-time",
+      "summary": "HTTP request-response truyền thống không phù hợp cho chat, thông báo tức thời — Socket.IO cho phép server \"chủ động\" gửi dữ liệu về client.",
+      "content": "<section class=\"chapter\" id=\"s16\">\n      \n      <p class=\"lead\">HTTP request-response truyền thống không phù hợp cho chat, thông báo tức thời — Socket.IO cho phép server \"chủ động\" gửi dữ liệu về client.</p>\n\n      <h3>WebSocket là gì?</h3>\n      <p>Khác với HTTP (client luôn phải hỏi trước, server mới trả lời), WebSocket duy trì một kết nối MỞ LIÊN TỤC giữa client-server, cho phép CẢ HAI BÊN chủ động gửi dữ liệu bất cứ lúc nào. Socket.IO là thư viện phổ biến nhất để dùng WebSocket dễ dàng trong Node.js.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">terminal</span>\n        \n        <pre><code>npm install socket.io          # phía server\nnpm install socket.io-client     # phía client (React/trình duyệt)</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">server.js</span>\n        \n        <pre><code>const { Server } = require('socket.io');\nconst io = new Server(3001, { cors: { origin: '*' } });\n\nio.on('connection', (socket) =&gt; {\n    console.log('Người dùng đã kết nối:', socket.id);\n\n    socket.on('gui_tin_nhan', (duLieu) =&gt; {             // lắng nghe sự kiện TỪ client\n        console.log('Nhận tin nhắn:', duLieu);\n        io.emit('tin_nhan_moi', duLieu);                    // gửi tới TẤT CẢ client đang kết nối\n    });\n\n    socket.on('disconnect', () =&gt; {\n        console.log('Người dùng đã ngắt kết nối');\n    });\n});</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">ChatBox.jsx</span>\n        \n        <pre><code>import { useEffect, useState } from 'react';\nimport { io } from 'socket.io-client';\n\nconst socket = io('http://localhost:3001');\n\nfunction ChatBox() {\n    const [tinNhans, setTinNhans] = useState([]);\n\n    useEffect(() =&gt; {\n        socket.on('tin_nhan_moi', (duLieu) =&gt; {           // lắng nghe tin nhắn MỚI từ server\n            setTinNhans(truoc =&gt; [...truoc, duLieu]);\n        });\n        return () =&gt; socket.off('tin_nhan_moi');              // dọn dẹp listener khi component unmount\n    }, []);\n\n    const guiTinNhan = (noiDung) =&gt; {\n        socket.emit('gui_tin_nhan', { noiDung, thoiGian: Date.now() });\n    };\n\n    return (/* giao diện hiển thị tinNhans và ô nhập liệu */ null);\n}</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        <code>io.emit()</code> gửi tới TẤT CẢ client. Để gửi RIÊNG cho một người (VD: thông báo cá nhân), dùng <code>socket.emit()</code> trên đúng socket đó, hoặc tổ chức theo \"room\" (<code>socket.join()</code>/<code>io.to(room).emit()</code>) để gửi cho một nhóm cụ thể.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 1</h4>\n        <p>Socket.IO dùng WebSocket để giao tiếp real-time hai chiều — phù hợp cho chat, thông báo tức thời, cập nhật trực tiếp. socket.emit()/socket.on() gửi và lắng nghe sự kiện tùy chỉnh giữa client-server.</p>\n      </div>\n\n      <div class=\"roadmap-note\">\n        ✅ Đã hoàn thành 20 chương (Công cụ nền tảng + ReactJS + MySQL/ORM + GraphQL/Socket.IO). Đang tiếp tục ngay với <strong>Phần 5 — NestJS, Docker &amp; Triển khai VPS</strong>, không dừng lại.\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 21 ================= -->",
+      "questions": [
+        {
+          "question": "1. Sự khác biệt cốt lõi giữa WebSocket và HTTP request-response truyền thống là gì?",
+          "options": [
+            "WebSocket chỉ dùng được cho hình ảnh",
+            "WebSocket duy trì kết nối mở liên tục, cho phép server chủ động gửi dữ liệu bất cứ lúc nào",
+            "HTTP nhanh hơn WebSocket trong mọi trường hợp"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s16"
+      ],
+      "words": 357
+    }
+  ]
+}

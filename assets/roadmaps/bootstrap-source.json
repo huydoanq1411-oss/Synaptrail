@@ -1,0 +1,41 @@
+{
+  "course": "bootstrap",
+  "title": "Bootstrap",
+  "lessons": [
+    {
+      "id": "chapter01",
+      "file": "chapter01.html",
+      "title": "Bootstrap — Grid System",
+      "summary": "Framework CSS phổ biến nhất thế giới — xây giao diện responsive nhanh chóng nhờ hệ lưới 12 cột có sẵn.",
+      "content": "<section class=\"chapter\" id=\"s5\">\n      \n      <p class=\"lead\">Framework CSS phổ biến nhất thế giới — xây giao diện responsive nhanh chóng nhờ hệ lưới 12 cột có sẵn.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">index.html</span>\n        \n        <pre><code>&lt;!-- Nhúng Bootstrap qua CDN --&gt;\n&lt;link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css\" rel=\"stylesheet\"&gt;\n&lt;script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js\"&gt;&lt;/script&gt;</code></pre>\n      </div>\n\n      <h3>Hệ lưới 12 cột (Grid System)</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">grid_system.html</span>\n        \n        <pre><code>&lt;div class=\"container\"&gt;\n    &lt;div class=\"row\"&gt;\n        &lt;div class=\"col-4\"&gt;Chiếm 4/12 cột&lt;/div&gt;\n        &lt;div class=\"col-8\"&gt;Chiếm 8/12 cột&lt;/div&gt;\n    &lt;/div&gt;\n\n    &lt;!-- Responsive: khác nhau theo kích thước màn hình --&gt;\n    &lt;div class=\"row\"&gt;\n        &lt;div class=\"col-12 col-md-6 col-lg-4\"&gt;\n            Mobile: full width | Tablet: 1/2 | Desktop: 1/3\n        &lt;/div&gt;\n    &lt;/div&gt;\n&lt;/div&gt;</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Breakpoint</th><th>Tiền tố class</th><th>Kích thước màn hình</th></tr>\n        <tr><td>Extra small</td><td>col- (không tiền tố)</td><td>&lt; 576px</td></tr>\n        <tr><td>Small</td><td>col-sm-</td><td>≥ 576px</td></tr>\n        <tr><td>Medium</td><td>col-md-</td><td>≥ 768px</td></tr>\n        <tr><td>Large</td><td>col-lg-</td><td>≥ 992px</td></tr>\n        <tr><td>Extra large</td><td>col-xl-</td><td>≥ 1200px</td></tr>\n      </tbody></table>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">Ghi chú</div>\n        Bootstrap Grid dựa trên Flexbox (đã học ở giáo trình HTML/CSS chương 12) — <code>.container</code> giới hạn chiều rộng tối đa, <code>.row</code> là flex container, <code>.col-*</code> là các flex item chia theo 12 phần.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 1</h4>\n        <p>Bootstrap Grid dùng hệ 12 cột với các class col-*, kết hợp tiền tố breakpoint (sm/md/lg/xl) để tạo layout responsive nhanh chóng mà không cần tự viết CSS Grid/Flexbox từ đầu.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 6 ================= -->",
+      "questions": [],
+      "ids": [
+        "s5"
+      ],
+      "words": 174
+    },
+    {
+      "id": "chapter02",
+      "file": "chapter02.html",
+      "title": "Bootstrap — Components & Utilities",
+      "summary": "Thư viện component dựng sẵn (nút, form, modal, navbar...) và các class tiện ích giúp code HTML thuần gần như không cần viết CSS riêng.",
+      "content": "<section class=\"chapter\" id=\"s6\">\n      \n      <p class=\"lead\">Thư viện component dựng sẵn (nút, form, modal, navbar...) và các class tiện ích giúp code HTML thuần gần như không cần viết CSS riêng.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">components.html</span>\n        \n        <pre><code>&lt;!-- Navbar --&gt;\n&lt;nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\"&gt;\n    &lt;div class=\"container\"&gt;\n        &lt;a class=\"navbar-brand\" href=\"#\"&gt;TechShop&lt;/a&gt;\n    &lt;/div&gt;\n&lt;/nav&gt;\n\n&lt;!-- Card --&gt;\n&lt;div class=\"card\" style=\"width: 18rem;\"&gt;\n    &lt;div class=\"card-body\"&gt;\n        &lt;h5 class=\"card-title\"&gt;Sản phẩm A&lt;/h5&gt;\n        &lt;p class=\"card-text\"&gt;Mô tả ngắn gọn về sản phẩm.&lt;/p&gt;\n        &lt;button class=\"btn btn-primary\"&gt;Mua ngay&lt;/button&gt;\n    &lt;/div&gt;\n&lt;/div&gt;\n\n&lt;!-- Modal (popup) --&gt;\n&lt;button class=\"btn btn-primary\" data-bs-toggle=\"modal\" data-bs-target=\"#myModal\"&gt;Mở popup&lt;/button&gt;\n&lt;div class=\"modal\" id=\"myModal\"&gt;\n    &lt;div class=\"modal-dialog\"&gt;\n        &lt;div class=\"modal-content\"&gt;\n            &lt;div class=\"modal-body\"&gt;Nội dung popup&lt;/div&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n&lt;/div&gt;</code></pre>\n      </div>\n\n      <h3>Utility classes — tiện ích nhanh</h3>\n      <table>\n        <tbody><tr><th>Class</th><th>Công dụng</th></tr>\n        <tr><td><code>d-flex</code>, <code>justify-content-center</code></td><td>Tương đương display:flex, justify-content:center</td></tr>\n        <tr><td><code>mt-3</code>, <code>p-4</code></td><td>margin-top cấp 3, padding cấp 4 (thang đo 0-5 của Bootstrap)</td></tr>\n        <tr><td><code>text-center</code>, <code>fw-bold</code></td><td>Căn giữa chữ, chữ đậm</td></tr>\n        <tr><td><code>d-none d-md-block</code></td><td>Ẩn trên mobile, hiện từ tablet trở lên (responsive utility)</td></tr>\n      </tbody></table>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Component tương tác (modal, dropdown, carousel...) cần JavaScript của Bootstrap (<code>bootstrap.bundle.min.js</code>) — chỉ nhúng CSS thôi thì các component này sẽ có giao diện đúng nhưng KHÔNG hoạt động (mở/đóng) được.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 2</h4>\n        <p>Bootstrap cung cấp component dựng sẵn (navbar, card, modal) và utility class (d-flex, mt-3, text-center) giúp xây giao diện nhanh — component tương tác cần nhúng thêm phần JavaScript.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 7 ================= -->",
+      "questions": [
+        {
+          "question": "1. Class nào chiếm 1/2 chiều rộng (6/12 cột) trên màn hình từ tablet (md) trở lên?",
+          "options": [
+            "col-half",
+            "col-md-6",
+            "col-50"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s6"
+      ],
+      "words": 200
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "course": "system-design",
+  "title": "System Design",
+  "lessons": [
+    {
+      "id": "chapter01",
+      "file": "chapter01.html",
+      "title": "System Design là gì?",
+      "summary": "Không phải viết code — mà là thiết kế cách các thành phần hệ thống phối hợp để phục vụ hàng triệu người dùng đáng tin cậy.",
+      "content": "<section class=\"chapter\" id=\"s1\">\n      \n      <p class=\"lead\">Không phải viết code — mà là thiết kế cách các thành phần hệ thống phối hợp để phục vụ hàng triệu người dùng đáng tin cậy.</p>\n\n      <h3>Khác biệt so với lập trình thông thường</h3>\n      <p>Lập trình thông thường tập trung vào: \"Làm sao viết đúng function này?\". System Design tập trung vào: \"Làm sao hệ thống vẫn hoạt động khi có 10 triệu người dùng cùng lúc, một server bị sập, hay lượng dữ liệu tăng gấp 100 lần?\"</p>\n\n      <table>\n        <tbody><tr><th>Khía cạnh</th><th>Câu hỏi cốt lõi</th></tr>\n        <tr><td><strong>Scalability</strong></td><td>Hệ thống có phục vụ được nhiều người dùng/dữ liệu hơn khi cần không?</td></tr>\n        <tr><td><strong>Reliability</strong></td><td>Hệ thống có tiếp tục hoạt động đúng khi một phần bị lỗi không?</td></tr>\n        <tr><td><strong>Availability</strong></td><td>Hệ thống có luôn \"sẵn sàng\" phục vụ, ít thời gian gián đoạn không?</td></tr>\n        <tr><td><strong>Latency</strong></td><td>Thời gian phản hồi có đủ nhanh cho trải nghiệm người dùng không?</td></tr>\n      </tbody></table>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">Ghi chú</div>\n        Không có thiết kế nào \"đúng tuyệt đối\" trong System Design — mọi quyết định đều là <strong>đánh đổi (trade-off)</strong>. Câu trả lời chuẩn cho hầu hết câu hỏi System Design là \"còn tùy\" (it depends) — tùy vào quy mô, ngân sách, và yêu cầu cụ thể.\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Khi bắt đầu thiết kế bất kỳ hệ thống nào, luôn hỏi trước: <strong>quy mô là bao nhiêu?</strong> (số người dùng, lượng request/giây, lượng dữ liệu) — câu trả lời hoàn toàn khác nhau giữa hệ thống phục vụ 100 người dùng và 100 triệu người dùng.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 1</h4>\n        <p>System Design là thiết kế cách các thành phần hệ thống phối hợp ở quy mô lớn, cân bằng giữa scalability/reliability/availability/latency — mọi quyết định đều là đánh đổi tùy theo yêu cầu cụ thể.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 2 ================= -->",
+      "questions": [],
+      "ids": [
+        "s1"
+      ],
+      "words": 278
+    },
+    {
+      "id": "chapter02",
+      "file": "chapter02.html",
+      "title": "Vertical vs Horizontal Scaling",
+      "summary": "Hai chiến lược cơ bản để hệ thống xử lý được nhiều tải hơn — nền tảng của mọi quyết định mở rộng hệ thống.",
+      "content": "<section class=\"chapter\" id=\"s2\">\n      \n      <p class=\"lead\">Hai chiến lược cơ bản để hệ thống xử lý được nhiều tải hơn — nền tảng của mọi quyết định mở rộng hệ thống.</p>\n\n      <table>\n        <tbody><tr><th>Tiêu chí</th><th>Vertical Scaling (Scale Up)</th><th>Horizontal Scaling (Scale Out)</th></tr>\n        <tr><td>Cách thực hiện</td><td>Nâng cấp máy chủ HIỆN CÓ (thêm CPU/RAM)</td><td>Thêm NHIỀU máy chủ chạy song song</td></tr>\n        <tr><td>Giới hạn</td><td>Có trần vật lý (máy mạnh nhất cũng có giới hạn)</td><td>Gần như không giới hạn — thêm máy là xong</td></tr>\n        <tr><td>Độ phức tạp</td><td>Đơn giản — không cần sửa code</td><td>Phức tạp hơn — cần load balancer, đồng bộ state</td></tr>\n        <tr><td>Rủi ro</td><td>Một điểm lỗi duy nhất (single point of failure)</td><td>Một máy chết, các máy khác vẫn hoạt động</td></tr>\n      </tbody></table>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        Horizontal Scaling đòi hỏi ứng dụng phải <strong>\"stateless\"</strong> (không lưu trạng thái phiên làm việc trực tiếp trên từng server) — nếu không, người dùng có thể bị \"mất\" phiên đăng nhập khi request của họ được chuyển sang một server khác không có dữ liệu phiên đó.\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Hầu hết hệ thống hiện đại quy mô lớn ưu tiên <strong>Horizontal Scaling</strong> vì tính linh hoạt và khả năng chịu lỗi tốt hơn — nhưng với dự án nhỏ/vừa, Vertical Scaling đơn giản hơn nhiều và thường là bước khởi đầu hợp lý trước khi cần phức tạp hóa.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 2</h4>\n        <p>Vertical Scaling nâng cấp máy hiện có (đơn giản, có giới hạn); Horizontal Scaling thêm nhiều máy (phức tạp hơn, gần như không giới hạn, cần ứng dụng stateless).</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 3 ================= -->",
+      "questions": [
+        {
+          "question": "1. Yêu cầu quan trọng để một ứng dụng có thể Horizontal Scaling hiệu quả là gì?",
+          "options": [
+            "Phải viết bằng ngôn ngữ biên dịch (C++/Java)",
+            "Ứng dụng phải \"stateless\", không lưu trạng thái phiên trực tiếp trên từng server",
+            "Phải dùng cùng một hệ điều hành trên mọi máy"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s2"
+      ],
+      "words": 241
+    },
+    {
+      "id": "chapter03",
+      "file": "chapter03.html",
+      "title": "Load Balancing",
+      "summary": "Khi đã có nhiều server (Horizontal Scaling), cần một cơ chế phân phối request đều đặn giữa chúng.",
+      "content": "<section class=\"chapter\" id=\"s3\">\n      \n      <p class=\"lead\">Khi đã có nhiều server (Horizontal Scaling), cần một cơ chế phân phối request đều đặn giữa chúng.</p>\n\n      <h3>Load Balancer đứng ở đâu?</h3>\n      <pre><code>                    ┌─────────────┐\nNgười dùng  ───────▶│Load Balancer│\n                    └──────┬──────┘\n                 ┌─────────┼─────────┐\n                 ▼         ▼         ▼\n            Server 1   Server 2   Server 3</code></pre>\n\n      <h3>Các thuật toán phân phối phổ biến</h3>\n      <table>\n        <tbody><tr><th>Thuật toán</th><th>Cách hoạt động</th></tr>\n        <tr><td><strong>Round Robin</strong></td><td>Phân request lần lượt theo vòng tròn qua từng server</td></tr>\n        <tr><td><strong>Least Connections</strong></td><td>Ưu tiên gửi tới server đang có ÍT kết nối đang xử lý nhất</td></tr>\n        <tr><td><strong>IP Hash</strong></td><td>Băm địa chỉ IP người dùng để LUÔN gửi về cùng 1 server (session affinity)</td></tr>\n      </tbody></table>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng — Health Check</div>\n        Load Balancer liên tục \"kiểm tra sức khỏe\" (health check) từng server — nếu một server ngừng phản hồi, Load Balancer TỰ ĐỘNG ngừng gửi request tới đó, chuyển hướng sang các server còn khỏe mạnh. Đây là cơ chế cốt lõi giúp hệ thống chịu lỗi (fault-tolerant).\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Bản thân Load Balancer cũng có thể là \"single point of failure\" nếu chỉ có MỘT cái — hệ thống thực tế thường có ít nhất 2 Load Balancer (chính + dự phòng) để tránh toàn bộ hệ thống sập khi Load Balancer gặp sự cố.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 3</h4>\n        <p>Load Balancer phân phối request giữa nhiều server (Round Robin/Least Connections/IP Hash) và tự động loại bỏ server lỗi qua health check — thành phần bắt buộc khi áp dụng Horizontal Scaling.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 4 ================= -->",
+      "questions": [],
+      "ids": [
+        "s3"
+      ],
+      "words": 229
+    },
+    {
+      "id": "chapter04",
+      "file": "chapter04.html",
+      "title": "Caching Strategies",
+      "summary": "Lưu tạm kết quả đã tính toán/truy vấn để trả lời nhanh hơn nhiều lần — kỹ thuật tối ưu hiệu năng quan trọng bậc nhất.",
+      "content": "<section class=\"chapter\" id=\"s4\">\n      \n      <p class=\"lead\">Lưu tạm kết quả đã tính toán/truy vấn để trả lời nhanh hơn nhiều lần — kỹ thuật tối ưu hiệu năng quan trọng bậc nhất.</p>\n\n      <h3>Cache nằm ở đâu trong hệ thống?</h3>\n      <table>\n        <tbody><tr><th>Vị trí</th><th>Ví dụ</th></tr>\n        <tr><td>Trình duyệt (Client-side)</td><td>Cache ảnh, CSS, JS tĩnh</td></tr>\n        <tr><td>CDN (Content Delivery Network)</td><td>Lưu bản sao nội dung tĩnh gần vị trí địa lý người dùng</td></tr>\n        <tr><td>Application-level (Redis/Memcached)</td><td>Lưu kết quả truy vấn database phổ biến</td></tr>\n        <tr><td>Database Query Cache</td><td>Database tự cache kết quả câu truy vấn lặp lại</td></tr>\n      </tbody></table>\n\n      <h3>Các chiến lược cache phổ biến</h3>\n      <table>\n        <tbody><tr><th>Chiến lược</th><th>Cách hoạt động</th></tr>\n        <tr><td><strong>Cache-Aside</strong></td><td>Ứng dụng tự kiểm tra cache trước, nếu không có (cache miss) mới truy vấn database rồi lưu lại vào cache</td></tr>\n        <tr><td><strong>Write-Through</strong></td><td>Mỗi lần ghi dữ liệu, ghi ĐỒNG THỜI vào cả cache và database</td></tr>\n        <tr><td><strong>TTL (Time To Live)</strong></td><td>Dữ liệu trong cache tự động hết hạn sau một khoảng thời gian, đảm bảo không quá cũ</td></tr>\n      </tbody></table>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng — Cache Invalidation</div>\n        Câu nói kinh điển trong ngành: <em>\"Có hai vấn đề khó nhất trong khoa học máy tính: cache invalidation và đặt tên biến.\"</em> Khi dữ liệu gốc thay đổi, cache phải được cập nhật/xóa ĐÚNG LÚC — nếu không, người dùng sẽ thấy dữ liệu cũ (stale data), gây ra lỗi khó phát hiện.\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Cache hiệu quả nhất cho dữ liệu <strong>đọc nhiều, ghi ít</strong> (VD: thông tin sản phẩm, bài viết) — với dữ liệu thay đổi liên tục (giá cổ phiếu real-time), cache có thể gây hại nhiều hơn lợi nếu không quản lý TTL cẩn thận.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 4</h4>\n        <p>Cache lưu tạm dữ liệu ở nhiều tầng (browser/CDN/Redis) để giảm tải database và tăng tốc phản hồi. Cache-Aside/Write-Through là chiến lược phổ biến; cache invalidation (biết khi nào làm mới dữ liệu) là thách thức lớn nhất.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 5 ================= -->",
+      "questions": [
+        {
+          "question": "1. Vấn đề nào được xem là một trong những thách thức khó nhất khi dùng cache?",
+          "options": [
+            "Cache Invalidation - biết khi nào cần cập nhật/xóa dữ liệu cache cũ",
+            "Cache luôn làm chậm hệ thống",
+            "Cache chỉ hoạt động trên trình duyệt Chrome"
+          ],
+          "answer": 0,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s4"
+      ],
+      "words": 293
+    },
+    {
+      "id": "chapter05",
+      "file": "chapter05.html",
+      "title": "Database Scaling (Replication & Sharding)",
+      "summary": "Khi một database không đủ sức xử lý toàn bộ tải — hai kỹ thuật chính để mở rộng tầng lưu trữ dữ liệu.",
+      "content": "<section class=\"chapter\" id=\"s5\">\n      \n      <p class=\"lead\">Khi một database không đủ sức xử lý toàn bộ tải — hai kỹ thuật chính để mở rộng tầng lưu trữ dữ liệu.</p>\n\n      <h3>Replication — nhân bản dữ liệu</h3>\n      <pre><code>         ┌──────────────┐\n         │ Primary (Ghi)  │  ← MỌI lệnh ghi (INSERT/UPDATE/DELETE) đi qua đây\n         └───────┬────────┘\n        ┌────────┼────────┐\n        ▼        ▼        ▼\n   Replica 1  Replica 2  Replica 3   ← chỉ phục vụ ĐỌC (SELECT), giảm tải cho Primary</code></pre>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">Ghi chú</div>\n        Replication phù hợp khi hệ thống có <strong>tỉ lệ đọc nhiều hơn ghi</strong> rất nhiều (phổ biến ở hầu hết ứng dụng web) — nhân rộng khả năng đọc mà không cần chia nhỏ dữ liệu.\n      </div>\n\n      <h3>Sharding — chia nhỏ dữ liệu theo chiều ngang</h3>\n      <p>Khi dữ liệu QUÁ LỚN để một máy chứa hết, Sharding chia bảng thành nhiều phần (shard) trên các máy khác nhau, thường theo một \"khóa phân vùng\" (shard key) — VD: chia người dùng theo khu vực địa lý, hoặc theo khoảng ID.</p>\n\n      <table>\n        <tbody><tr><th>Tiêu chí</th><th>Replication</th><th>Sharding</th></tr>\n        <tr><td>Mục đích chính</td><td>Tăng khả năng ĐỌC, chịu lỗi</td><td>Tăng khả năng lưu trữ VÀ ghi</td></tr>\n        <tr><td>Dữ liệu trên mỗi máy</td><td>Giống hệt nhau (bản sao)</td><td>Khác nhau (mỗi máy giữ MỘT PHẦN dữ liệu)</td></tr>\n        <tr><td>Độ phức tạp</td><td>Tương đối đơn giản</td><td>Phức tạp hơn nhiều (JOIN giữa các shard khó khăn)</td></tr>\n      </tbody></table>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        Chọn sai <strong>shard key</strong> là lỗi thiết kế nghiêm trọng nhất khi sharding — nếu dữ liệu phân bố không đều giữa các shard (VD: một khu vực có quá nhiều người dùng), một số máy sẽ quá tải trong khi máy khác gần như rảnh rỗi (\"hotspot\").\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 5</h4>\n        <p>Replication nhân bản dữ liệu để tăng khả năng đọc và chịu lỗi. Sharding chia nhỏ dữ liệu để vượt qua giới hạn lưu trữ/ghi của một máy — phức tạp hơn nhiều, cần chọn shard key cẩn thận để tránh hotspot.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 6 ================= -->",
+      "questions": [],
+      "ids": [
+        "s5"
+      ],
+      "words": 300
+    },
+    {
+      "id": "chapter06",
+      "file": "chapter06.html",
+      "title": "CAP Theorem",
+      "summary": "Định lý nền tảng nhất của hệ thống phân tán — giải thích tại sao KHÔNG có database nào \"hoàn hảo mọi mặt\".",
+      "content": "<section class=\"chapter\" id=\"s6\">\n      \n      <p class=\"lead\">Định lý nền tảng nhất của hệ thống phân tán — giải thích tại sao KHÔNG có database nào \"hoàn hảo mọi mặt\".</p>\n\n      <h3>3 tính chất của CAP</h3>\n      <table>\n        <tbody><tr><th>Chữ cái</th><th>Ý nghĩa</th></tr>\n        <tr><td><strong>C - Consistency</strong></td><td>Mọi node đọc dữ liệu đều thấy CÙNG một giá trị mới nhất, tại cùng thời điểm</td></tr>\n        <tr><td><strong>A - Availability</strong></td><td>Hệ thống LUÔN phản hồi được request, không bao giờ từ chối</td></tr>\n        <tr><td><strong>P - Partition Tolerance</strong></td><td>Hệ thống vẫn hoạt động dù mạng giữa các node bị gián đoạn (mất kết nối tạm thời)</td></tr>\n      </tbody></table>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng — Chỉ chọn được 2 trong 3</div>\n        CAP Theorem phát biểu: khi xảy ra <strong>Partition</strong> (điều KHÔNG THỂ tránh khỏi trong hệ thống phân tán thực tế — mạng luôn có thể gián đoạn), hệ thống buộc phải chọn giữa <strong>Consistency</strong> HOẶC <strong>Availability</strong>, không thể có cả hai cùng lúc.\n      </div>\n\n      <table>\n        <tbody><tr><th>Lựa chọn</th><th>Ý nghĩa</th><th>Ví dụ hệ thống</th></tr>\n        <tr><td><strong>CP</strong> (ưu tiên Consistency)</td><td>Thà từ chối phục vụ còn hơn trả về dữ liệu cũ/sai</td><td>Hệ thống ngân hàng, giao dịch tài chính</td></tr>\n        <tr><td><strong>AP</strong> (ưu tiên Availability)</td><td>Luôn trả lời, chấp nhận dữ liệu có thể hơi cũ trong thời gian ngắn</td><td>Mạng xã hội, hệ thống đếm lượt like</td></tr>\n      </tbody></table>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Đừng nghĩ CAP là \"chọn 1 trong 3 vĩnh viễn\" — thực tế đây là lựa chọn xảy ra <strong>CHỈ KHI có sự cố mạng (partition)</strong>. Phần lớn thời gian hệ thống hoạt động bình thường, cả Consistency và Availability đều đạt được — CAP chỉ buộc phải đánh đổi trong tình huống bất thường.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 6</h4>\n        <p>CAP Theorem: khi có sự cố mạng (Partition — không thể tránh), hệ thống phải chọn giữa Consistency (dữ liệu luôn đúng) hoặc Availability (luôn phản hồi) — lựa chọn phụ thuộc vào bản chất nghiệp vụ (tài chính ưu tiên CP, mạng xã hội thường ưu tiên AP).</p>\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>🎉 Hoàn thành Phần 1!</h4>\n        <p>Bạn đã nắm vững nền tảng Scalability. Tiếp theo là <strong>Phần 2 — Kiến trúc &amp; Case Study</strong>: Message Queue, Microservices, API Gateway, và áp dụng vào một bài toán thiết kế thực tế.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 7 ================= -->",
+      "questions": [
+        {
+          "question": "1. Một hệ thống ngân hàng nên ưu tiên yếu tố nào trong CAP khi có sự cố mạng?",
+          "options": [
+            "Availability - luôn phải phản hồi bằng mọi giá",
+            "Consistency - thà từ chối còn hơn hiển thị số dư sai",
+            "Không yếu tố nào quan trọng cả"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s6"
+      ],
+      "words": 339
+    },
+    {
+      "id": "chapter07",
+      "file": "chapter07.html",
+      "title": "Message Queue & Xử lý bất đồng bộ",
+      "summary": "Tách rời các thành phần hệ thống bằng hàng đợi tin nhắn — xử lý tác vụ nặng mà không làm chậm phản hồi cho người dùng.",
+      "content": "<section class=\"chapter\" id=\"s7\">\n      \n      <p class=\"lead\">Tách rời các thành phần hệ thống bằng hàng đợi tin nhắn — xử lý tác vụ nặng mà không làm chậm phản hồi cho người dùng.</p>\n\n      <h3>Vấn đề: xử lý đồng bộ chặn người dùng chờ đợi</h3>\n      <pre><code>KHÔNG dùng Message Queue:\nNgười dùng đăng ký ──▶ Server: tạo tài khoản + gửi email + tạo báo cáo... ──▶ (chờ 5 giây) ──▶ Phản hồi\n\nDÙNG Message Queue:\nNgười dùng đăng ký ──▶ Server: tạo tài khoản ──▶ Phản hồi NGAY (0.2 giây)\n                              │\n                              └──▶ Đẩy việc \"gửi email\" vào QUEUE, xử lý ngầm phía sau</code></pre>\n\n      <h3>Kiến trúc Producer - Queue - Consumer</h3>\n      <table>\n        <tbody><tr><th>Thành phần</th><th>Vai trò</th></tr>\n        <tr><td><strong>Producer</strong></td><td>Thành phần TẠO tác vụ, đẩy vào hàng đợi (VD: server chính sau khi tạo tài khoản)</td></tr>\n        <tr><td><strong>Queue</strong></td><td>Nơi lưu trữ tạm các tác vụ đang chờ xử lý (RabbitMQ, Kafka, AWS SQS...)</td></tr>\n        <tr><td><strong>Consumer</strong></td><td>Thành phần LẤY tác vụ từ hàng đợi và xử lý (VD: worker gửi email riêng biệt)</td></tr>\n      </tbody></table>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        Message Queue giúp hệ thống <strong>chịu tải đột biến</strong> tốt hơn nhiều — nếu 10.000 người đăng ký cùng lúc, server chính chỉ cần tạo tài khoản nhanh và đẩy việc gửi email vào queue; các consumer xử lý email dần dần theo tốc độ riêng, không làm sập server chính.\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Dấu hiệu nhận biết tác vụ NÊN đưa vào queue xử lý bất đồng bộ: gửi email/thông báo, xử lý ảnh/video, tạo báo cáo, ghi log phân tích — bất kỳ việc gì người dùng <strong>không cần thấy kết quả ngay lập tức</strong>.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 7</h4>\n        <p>Message Queue tách Producer (tạo tác vụ) khỏi Consumer (xử lý tác vụ) qua một hàng đợi trung gian — giúp phản hồi nhanh cho người dùng và chịu được tải đột biến tốt hơn xử lý đồng bộ.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 8 ================= -->",
+      "questions": [],
+      "ids": [
+        "s7"
+      ],
+      "words": 296
+    },
+    {
+      "id": "chapter08",
+      "file": "chapter08.html",
+      "title": "Microservices vs Monolith",
+      "summary": "Hai triết lý tổ chức code ở tầm kiến trúc — một trong những quyết định ảnh hưởng lớn nhất tới cách đội ngũ phát triển vận hành.",
+      "content": "<section class=\"chapter\" id=\"s8\">\n      \n      <p class=\"lead\">Hai triết lý tổ chức code ở tầm kiến trúc — một trong những quyết định ảnh hưởng lớn nhất tới cách đội ngũ phát triển vận hành.</p>\n\n      <h3>Monolith — một khối thống nhất</h3>\n      <p>Toàn bộ ứng dụng (đăng nhập, sản phẩm, thanh toán, thông báo...) nằm trong <strong>MỘT codebase, MỘT quá trình triển khai duy nhất</strong>.</p>\n\n      <h3>Microservices — chia nhỏ theo chức năng</h3>\n      <p>Mỗi chức năng nghiệp vụ (đăng nhập, sản phẩm, thanh toán...) là <strong>một service ĐỘC LẬP</strong>, có database riêng, triển khai riêng, giao tiếp với nhau qua API/message queue.</p>\n\n      <table>\n        <tbody><tr><th>Tiêu chí</th><th>Monolith</th><th>Microservices</th></tr>\n        <tr><td>Triển khai</td><td>Một lần deploy toàn bộ ứng dụng</td><td>Deploy độc lập từng service</td></tr>\n        <tr><td>Mở rộng (scale)</td><td>Phải scale TOÀN BỘ ứng dụng dù chỉ 1 phần bị quá tải</td><td>Chỉ scale RIÊNG service đang quá tải</td></tr>\n        <tr><td>Độ phức tạp vận hành</td><td>Đơn giản — 1 hệ thống để quản lý</td><td>Phức tạp hơn nhiều — network, monitoring, đồng bộ dữ liệu giữa nhiều service</td></tr>\n        <tr><td>Phù hợp với</td><td>Team nhỏ, dự án mới bắt đầu</td><td>Team lớn, nhiều nhóm phát triển song song, hệ thống đã trưởng thành</td></tr>\n      </tbody></table>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        Microservices <strong>KHÔNG phải lựa chọn mặc định tốt hơn</strong> — nó giải quyết vấn đề tổ chức con người (nhiều team làm việc độc lập) nhiều hơn là vấn đề kỹ thuật thuần túy. Rất nhiều công ty khởi đầu với Monolith, chỉ tách dần thành Microservices khi đội ngũ và hệ thống đã đủ lớn để cần thiết.\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Nguyên tắc phổ biến trong ngành: <em>\"Đừng bắt đầu với Microservices\"</em> — hãy xây Monolith có cấu trúc TỐT (module rõ ràng, tách biệt logic) trước, chỉ tách thành Microservices khi thực sự cảm nhận được nỗi đau của việc không tách (team giẫm chân nhau, không scale riêng được phần cần thiết).\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 8</h4>\n        <p>Monolith đơn giản, phù hợp team nhỏ/dự án mới. Microservices cho phép scale/triển khai độc lập nhưng phức tạp hơn nhiều về vận hành — nên bắt đầu với Monolith có cấu trúc tốt, chỉ tách khi thực sự cần thiết.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 9 ================= -->",
+      "questions": [
+        {
+          "question": "1. Lý do chính khiến nhiều công ty áp dụng Microservices là gì?",
+          "options": [
+            "Microservices luôn chạy nhanh hơn Monolith",
+            "Cho phép nhiều team phát triển và triển khai độc lập, scale riêng từng phần",
+            "Microservices dễ code hơn Monolith"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s8"
+      ],
+      "words": 336
+    },
+    {
+      "id": "chapter09",
+      "file": "chapter09.html",
+      "title": "API Gateway & Rate Limiting",
+      "summary": "Điểm vào duy nhất cho toàn bộ hệ thống microservices, và cơ chế bảo vệ hệ thống khỏi bị quá tải/lạm dụng.",
+      "content": "<section class=\"chapter\" id=\"s9\">\n      \n      <p class=\"lead\">Điểm vào duy nhất cho toàn bộ hệ thống microservices, và cơ chế bảo vệ hệ thống khỏi bị quá tải/lạm dụng.</p>\n\n      <h3>API Gateway — \"cổng\" duy nhất vào hệ thống</h3>\n      <pre><code>Client ──▶ API Gateway ──┬──▶ Service Đăng nhập\n                          ├──▶ Service Sản phẩm\n                          ├──▶ Service Thanh toán\n                          └──▶ Service Thông báo\n\nClient CHỈ cần biết địa chỉ API Gateway, không cần biết chi tiết\ntừng service đang chạy ở đâu, bao nhiêu instance</code></pre>\n\n      <table>\n        <tbody><tr><th>Nhiệm vụ của API Gateway</th><th>Mô tả</th></tr>\n        <tr><td>Định tuyến (Routing)</td><td>Chuyển request tới đúng microservice tương ứng</td></tr>\n        <tr><td>Xác thực (Authentication)</td><td>Kiểm tra token/quyền truy cập TẬP TRUNG, không cần mỗi service tự làm</td></tr>\n        <tr><td>Rate Limiting</td><td>Giới hạn số request/giây từ mỗi client</td></tr>\n        <tr><td>Logging/Monitoring</td><td>Ghi log tập trung mọi request vào hệ thống</td></tr>\n      </tbody></table>\n\n      <h3>Rate Limiting — giới hạn tốc độ request</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">y_tuong_rate_limiting.js</span>\n        \n        <pre><code>// Thuật toán Token Bucket - ý tưởng phổ biến nhất\n// Mỗi client có một \"xô\" chứa token, mỗi request tốn 1 token\n// Token được \"làm đầy\" lại theo thời gian với tốc độ cố định\n\nfunction kiemTraRateLimit(clientId) {\n    const xo = layXoToken(clientId);\n    if (xo.soToken &gt; 0) {\n        xo.soToken--;\n        return true;       // cho phép request\n    }\n    return false;             // từ chối - trả về HTTP 429 Too Many Requests\n}</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        Rate Limiting bảo vệ hệ thống khỏi <strong>cả tấn công (DDoS) lẫn lỗi vô tình</strong> (một client bug gửi request lặp vô hạn) — không có rate limiting, một client duy nhất hành xử sai có thể làm sập toàn bộ hệ thống cho mọi người dùng khác.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 9</h4>\n        <p>API Gateway là điểm vào duy nhất, xử lý routing/xác thực/logging tập trung cho hệ thống microservices. Rate Limiting (VD: Token Bucket) giới hạn tốc độ request để bảo vệ hệ thống khỏi quá tải và lạm dụng.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 10 ================= -->",
+      "questions": [],
+      "ids": [
+        "s9"
+      ],
+      "words": 294
+    },
+    {
+      "id": "chapter10",
+      "file": "chapter10.html",
+      "title": "Case Study: Thiết kế URL Shortener",
+      "summary": "Áp dụng toàn bộ kiến thức đã học vào một bài toán System Design kinh điển — dạng câu hỏi phổ biến nhất trong phỏng vấn.",
+      "content": "<section class=\"chapter\" id=\"s10\">\n      \n      <p class=\"lead\">Áp dụng toàn bộ kiến thức đã học vào một bài toán System Design kinh điển — dạng câu hỏi phổ biến nhất trong phỏng vấn.</p>\n\n      <h3>Bước 1: Làm rõ yêu cầu (Requirements)</h3>\n      <ul>\n        <li><strong>Chức năng:</strong> Rút gọn URL dài thành URL ngắn; khi truy cập URL ngắn, chuyển hướng (redirect) tới URL gốc</li>\n        <li><strong>Quy mô ước tính:</strong> 100 triệu URL mới/tháng, tỉ lệ đọc:ghi khoảng 100:1 (đọc/redirect nhiều hơn tạo mới rất nhiều)</li>\n      </ul>\n\n      <h3>Bước 2: Thiết kế API cơ bản</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">api_design.txt</span>\n        \n        <pre><code>POST /api/rut-gon\n  Input:  { \"url_goc\": \"https://example.com/bai-viet-rat-dai...\" }\n  Output: { \"url_ngan\": \"https://sho.rt/aZ3kP9\" }\n\nGET /aZ3kP9\n  -&gt; HTTP 302 Redirect tới url_goc tương ứng</code></pre>\n      </div>\n\n      <h3>Bước 3: Thuật toán sinh mã rút gọn</h3>\n      <p>Dùng Base62 (chữ a-z, A-Z, số 0-9 = 62 ký tự) encode một ID số nguyên tăng dần — với 6 ký tự, có thể tạo <strong>62⁶ ≈ 56 tỷ</strong> mã khác nhau, thừa sức cho hàng trăm triệu URL.</p>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">base62_concept.py</span>\n        \n        <pre><code>BANG_KY_TU = \"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\"\n\ndef ma_hoa_base62(so_id):\n    if so_id == 0:\n        return BANG_KY_TU[0]\n    ket_qua = \"\"\n    while so_id &gt; 0:\n        ket_qua = BANG_KY_TU[so_id % 62] + ket_qua\n        so_id //= 62\n    return ket_qua\n\nprint(ma_hoa_base62(125_000_000))   # ví dụ: \"8M0T\"</code></pre>\n      </div>\n\n      <h3>Bước 4: Áp dụng toàn bộ kiến thức đã học</h3>\n      <table>\n        <tbody><tr><th>Kỹ thuật (đã học ở chương nào)</th><th>Áp dụng vào bài toán</th></tr>\n        <tr><td>Caching (ch.4)</td><td>Cache các URL được truy cập nhiều nhất trong Redis — vì tỉ lệ đọc:ghi rất cao (100:1)</td></tr>\n        <tr><td>Database Replication (ch.5)</td><td>Nhiều Replica phục vụ ĐỌC (redirect) song song, giảm tải cho Primary</td></tr>\n        <tr><td>Load Balancing (ch.3)</td><td>Phân phối hàng triệu request redirect/giây qua nhiều server</td></tr>\n        <tr><td>Horizontal Scaling (ch.2)</td><td>Thêm server khi lượng truy cập tăng, vì service này có thể thiết kế stateless</td></tr>\n      </tbody></table>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo — Tư duy trả lời phỏng vấn System Design</div>\n        Không có \"đáp án đúng duy nhất\" cho câu hỏi này — điều người phỏng vấn đánh giá là khả năng bạn <strong>đặt câu hỏi làm rõ yêu cầu, ước tính quy mô, và giải thích ĐÁNH ĐỔI</strong> của từng quyết định thiết kế (VD: \"tại sao chọn cache thay vì tính toán lại mỗi lần\"), không phải việc nhớ đúng một kiến trúc mẫu.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>🎉 Hoàn thành toàn bộ giáo trình System Design!</h4>\n        <p>Bạn đã đi qua <strong>10 chương / 2 phần lớn</strong>: từ khái niệm Scalability, Load Balancing, Caching, Database Scaling, CAP Theorem, đến Message Queue, Microservices, API Gateway và một Case Study thực chiến. Đây là nền tảng tư duy quan trọng để thiết kế hệ thống thực tế và trả lời câu hỏi System Design trong phỏng vấn. Chúc bạn thành công! 🏗️</p>\n      </div>\n    </section>",
+      "questions": [
+        {
+          "question": "1. Với tỉ lệ đọc:ghi 100:1 của URL Shortener, kỹ thuật nào mang lại lợi ích lớn nhất?",
+          "options": [
+            "Sharding dữ liệu theo alphabet",
+            "Caching các URL phổ biến + Database Replication để phục vụ đọc",
+            "Chỉ dùng một server duy nhất cho đơn giản"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s10"
+      ],
+      "words": 416
+    }
+  ]
+}

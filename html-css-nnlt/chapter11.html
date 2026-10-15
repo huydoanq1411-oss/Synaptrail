@@ -1,86 +1,21 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-
-<script>
-(function(){
-  try{
-    var t = localStorage.getItem('synaptrail-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', t);
-  }catch(e){
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-})();
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/lesson.css">
-<title>Chương 11 — Display &amp; Vị trí (Position) — Giáo Trình HTML &amp; CSS (NNLT) | Synaptrail</title>
-<link rel="stylesheet" href="../assets/ui.css">
-</head>
-<body>
-<div id="progress-bar"></div>
-<div id="topbar">
-  <span class="brand">🧱 HTML & CSS</span>
-  <div class="topbar-right">
-    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
-    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
-  </div>
-</div>
-<div class="layout">
-  <aside id="sidebar">
-    <div class="brand">🧱 HTML & CSS</div>
-    <div class="sub">18 chương</div>
-    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
-    <div class="nav-group-title">Danh sách chương</div>
-    <a class="nav-link" href="chapter01.html">Chương 1 — Giới thiệu HTML</a>
-    <a class="nav-link" href="chapter02.html">Chương 2 — Cấu trúc trang HTML</a>
-    <a class="nav-link" href="chapter03.html">Chương 3 — Thẻ văn bản &amp; Danh sách</a>
-    <a class="nav-link" href="chapter04.html">Chương 4 — Liên kết &amp; Hình ảnh</a>
-    <a class="nav-link" href="chapter05.html">Chương 5 — Bảng (Table)</a>
-    <a class="nav-link" href="chapter06.html">Chương 6 — Form &amp; Input</a>
-    <a class="nav-link" href="chapter07.html">Chương 7 — Thẻ ngữ nghĩa (Semantic HTML)</a>
-    <a class="nav-link" href="chapter08.html">Chương 8 — Giới thiệu CSS &amp; Selector</a>
-    <a class="nav-link" href="chapter09.html">Chương 9 — Màu sắc &amp; Typography</a>
-    <a class="nav-link" href="chapter10.html">Chương 10 — Box Model</a>
-    <a class="nav-link active" href="chapter11.html">Chương 11 — Display &amp; Vị trí (Position)</a>
-    <a class="nav-link" href="chapter12.html">Chương 12 — Flexbox</a>
-    <a class="nav-link" href="chapter13.html">Chương 13 — CSS Grid</a>
-    <a class="nav-link" href="chapter14.html">Chương 14 — Responsive Design &amp; Media Query</a>
-    <a class="nav-link" href="chapter15.html">Chương 15 — CSS Variables &amp; Transition/Animation</a>
-    <a class="nav-link" href="chapter16.html">Chương 16 — Dự án: Landing Page — Cấu trúc HTML</a>
-    <a class="nav-link" href="chapter17.html">Chương 17 — Dự án: Landing Page — Style CSS hoàn chỉnh</a>
-    <a class="nav-link" href="chapter18.html">Chương 18 — Checklist &amp; Lỗi thường gặp</a>
-    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
-  </aside>
-  <div class="main-col">
-<div class="chpage">
-  <div class="crumb">
-    <a href="../index.html">🏠 Trang chủ</a> ·
-    <a href="index.html">🧱 HTML & CSS</a> ·
-    <span>Chương 11 — Display &amp; Vị trí (Position)</span>
-  </div>
-  <main style="padding:0;max-width:none;">
-<section class="chapter" id="s11">
-      <h2>Chương <span class="num">11</span> — Display &amp; Vị trí (Position)</h2>
+<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Display &amp; Vị trí (Position) — HTML &amp; CSS | Synaptrail</title><meta name="description" content="Kiểm soát cách phần tử chiếm không gian và vị trí của nó trên trang."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="html-css-nnlt" data-skill="html-css-nnlt" data-node="chapter11"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/html-css-nnlt.html#chapter11"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">HTML &amp; CSS / BÀI 11</p><h1>Display &amp; Vị trí (Position)</h1><p class="rm-lead">Kiểm soát cách phần tử chiếm không gian và vị trí của nó trên trang.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter11">Làm quiz ở trang riêng <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s11">
+      
       <p class="lead">Kiểm soát cách phần tử chiếm không gian và vị trí của nó trên trang.</p>
 
       <h3>Thuộc tính display</h3>
       <table>
-        <tr><th>Giá trị</th><th>Đặc điểm</th><th>Ví dụ thẻ mặc định</th></tr>
+        <tbody><tr><th>Giá trị</th><th>Đặc điểm</th><th>Ví dụ thẻ mặc định</th></tr>
         <tr><td><code>block</code></td><td>Chiếm TOÀN BỘ chiều rộng, luôn xuống dòng mới</td><td>div, p, h1-h6</td></tr>
         <tr><td><code>inline</code></td><td>Chỉ chiếm đúng kích thước nội dung, KHÔNG xuống dòng, không set width/height được</td><td>span, a, strong</td></tr>
         <tr><td><code>inline-block</code></td><td>Không xuống dòng NHƯNG set được width/height</td><td>img</td></tr>
         <tr><td><code>none</code></td><td>Ẩn hoàn toàn, không chiếm không gian</td><td>-</td></tr>
-      </table>
+      </tbody></table>
 
       <h3>Thuộc tính position</h3>
       <div class="code-wrap">
         <span class="code-label">position.css</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>.static-vi-du   { position: static; }     /* MẶC ĐỊNH - theo dòng chảy tự nhiên của trang */
 .relative-vi-du { position: relative; top: 10px; left: 10px; }  /* dịch chuyển SO VỚI vị trí gốc của chính nó */
 .absolute-vi-du { position: absolute; top: 0; right: 0; }         /* định vị SO VỚI phần tử cha GẦN NHẤT có position khác static */
@@ -93,17 +28,7 @@
         <code>position: absolute</code> định vị theo phần tử cha gần nhất có <code>position</code> KHÁC <code>static</code> — nếu không có cha nào như vậy, nó sẽ định vị theo toàn bộ trang (<code>&lt;html&gt;</code>). Đây là nguồn gốc của rất nhiều lỗi layout khó hiểu với người mới.
       </div>
 
-      <div class="quiz" data-quiz="q11">
-        <h4>📝 Quiz nhanh — Chương 8-11</h4>
-        <div class="quiz-q" data-answer="2">
-          <p>1. Giá trị position nào giữ phần tử "dính" tại một vị trí cố định trên MÀN HÌNH khi cuộn trang?</p>
-          <span class="quiz-opt" data-idx="0">relative</span>
-          <span class="quiz-opt" data-idx="1">absolute</span>
-          <span class="quiz-opt" data-idx="2">fixed</span>
-        </div>
-        <button class="quiz-btn" onclick="gradeQuiz('q11')">Chấm điểm</button>
-        <div class="quiz-result" id="result-q11"></div>
-      </div>
+      
 
       <div class="summary-box">
         <h4>📌 Tổng kết chương 11</h4>
@@ -111,20 +36,4 @@
       </div>
     </section>
 
-    <!-- ================= CHƯƠNG 12 ================= -->
-  </main>
-  <div class="chnav">
-    <a class="nav-btn prev" href="chapter10.html">← Chương 10 — Box Model</a>
-    <a class="nav-btn next" href="chapter12.html">Chương 12 — Flexbox →</a>
-  </div>
-</div>
-</div>
-</div>
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
-
-<script src="../assets/code-highlighter.js"></script>
-<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
-
-</body>
-</html>
+    <!-- ================= CHƯƠNG 12 ================= --></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter10.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bài trước</a><a href="chapter12.html">Bài tiếp theo<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/html-css-nnlt.html#chapter11"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>

@@ -1,97 +1,18 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-
-<script>
-(function(){
-  try{
-    var t = localStorage.getItem('synaptrail-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', t);
-  }catch(e){
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-})();
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/lesson.css">
-<title>Chương 10 — Method (Hàm) — Giáo Trình Java | Synaptrail</title>
-<link rel="stylesheet" href="../assets/ui.css">
-<link rel="stylesheet" href="../assets/progress.css">
-</head>
-<body>
-<div id="progress-bar"></div>
-<div id="topbar">
-  <span class="brand">☕ Java</span>
-  <div class="topbar-right">
-    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
-    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
-  </div>
-</div>
-<div class="layout">
-  <aside id="sidebar">
-    <div class="brand">☕ Java</div>
-    <div class="sub">31 chương</div>
-    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
-    <div class="nav-group-title">Danh sách chương</div>
-    <a class="nav-link" href="chapter01.html">Chương 1 — Giới thiệu Java</a>
-    <a class="nav-link" href="chapter02.html">Chương 2 — Cài đặt JDK &amp; IDE</a>
-    <a class="nav-link" href="chapter03.html">Chương 3 — Chương trình đầu tiên</a>
-    <a class="nav-link" href="chapter04.html">Chương 4 — Biến &amp; Kiểu dữ liệu</a>
-    <a class="nav-link" href="chapter05.html">Chương 5 — Toán tử</a>
-    <a class="nav-link" href="chapter06.html">Chương 6 — Input/Output (Scanner)</a>
-    <a class="nav-link" href="chapter07.html">Chương 7 — Điều kiện (if/switch)</a>
-    <a class="nav-link" href="chapter08.html">Chương 8 — Vòng lặp</a>
-    <a class="nav-link" href="chapter09.html">Chương 9 — Mảng (Array)</a>
-    <a class="nav-link active" href="chapter10.html">Chương 10 — Method (Hàm)</a>
-    <a class="nav-link" href="chapter11.html">Chương 11 — OOP cơ bản (Class &amp; Object)</a>
-    <a class="nav-link" href="chapter12.html">Chương 12 — Exception cơ bản</a>
-    <a class="nav-link" href="chapter13.html">Chương 13 — Kế thừa (extends)</a>
-    <a class="nav-link" href="chapter14.html">Chương 14 — Đa hình &amp; Interface</a>
-    <a class="nav-link" href="chapter15.html">Chương 15 — Abstract Class</a>
-    <a class="nav-link" href="chapter16.html">Chương 16 — ArrayList &amp; LinkedList</a>
-    <a class="nav-link" href="chapter17.html">Chương 17 — HashMap &amp; HashSet</a>
-    <a class="nav-link" href="chapter18.html">Chương 18 — Generics</a>
-    <a class="nav-link" href="chapter19.html">Chương 19 — Stream API &amp; Lambda</a>
-    <a class="nav-link" href="chapter20.html">Chương 20 — Thread cơ bản</a>
-    <a class="nav-link" href="chapter21.html">Chương 21 — Synchronized &amp; Race Condition</a>
-    <a class="nav-link" href="chapter22.html">Chương 22 — ExecutorService</a>
-    <a class="nav-link" href="chapter23.html">Chương 23 — File I/O</a>
-    <a class="nav-link" href="chapter24.html">Chương 24 — Record &amp; Optional</a>
-    <a class="nav-link" href="chapter25.html">Chương 25 — Giới thiệu Spring Boot &amp; Dependency Injection</a>
-    <a class="nav-link" href="chapter26.html">Chương 26 — REST Controller</a>
-    <a class="nav-link" href="chapter27.html">Chương 27 — Service &amp; Repository (JPA)</a>
-    <a class="nav-link" href="chapter28.html">Chương 28 — Dự án: Quản lý sinh viên (OOP + Collections)</a>
-    <a class="nav-link" href="chapter29.html">Chương 29 — Dự án: REST API Quản lý công việc</a>
-    <a class="nav-link" href="chapter30.html">Chương 30 — Bài tập Cơ bản (Dễ)</a>
-    <a class="nav-link" href="chapter31.html">Chương 31 — Bài tập OOP &amp; Collections</a>
-    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
-  </aside>
-  <div class="main-col">
-<div class="chpage">
-  <div class="crumb">
-    <a href="../index.html">🏠 Trang chủ</a> ·
-    <a href="index.html">☕ Java</a> ·
-    <span>Chương 10 — Method (Hàm)</span>
-  </div>
-  <main style="padding:0;max-width:none;">
-<section class="chapter" id="s10">
-      <h2>Chương <span class="num">10</span> — Method (Hàm)</h2>
+<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Method (Hàm) — Java | Synaptrail</title><meta name="description" content="Trong Java, mọi hàm đều phải nằm trong một class — gọi là &quot;method&quot;."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="java" data-skill="java" data-node="chapter10"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/java.html#chapter10"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">Java / BÀI 10</p><h1>Method (Hàm)</h1><p class="rm-lead">Trong Java, mọi hàm đều phải nằm trong một class — gọi là &quot;method&quot;.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s10">
+      
       <p class="lead">Trong Java, mọi hàm đều phải nằm trong một class — gọi là "method".</p>
 
       <div class="code-wrap">
         <span class="code-label">Method.java</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>public class Toan {
     public static int cong(int a, int b) {    // static = gọi được KHÔNG CẦN tạo object
         return a + b;
     }
 
     public static int giaiThua(int n) {
-        if (n <= 1) return 1;
+        if (n &lt;= 1) return 1;
         return n * giaiThua(n - 1);
     }
 
@@ -105,7 +26,7 @@
       <h3>Overloading — nhiều method cùng tên, khác tham số</h3>
       <div class="code-wrap">
         <span class="code-label">overloading.java</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>static int cong(int a, int b) { return a + b; }
 static double cong(double a, double b) { return a + b; }     // overload theo kiểu tham số
 static int cong(int a, int b, int c) { return a + b + c; }     // overload theo SỐ LƯỢNG tham số
@@ -124,21 +45,4 @@ static int cong(int a, int b, int c) { return a + b + c; }     // overload theo 
       </div>
     </section>
 
-    <!-- ================= CHƯƠNG 11 ================= -->
-  </main>
-  <div class="chnav">
-    <a class="nav-btn prev" href="chapter09.html">← Chương 9 — Mảng (Array)</a>
-    <a class="nav-btn next" href="chapter11.html">Chương 11 — OOP cơ bản (Class &amp; Object) →</a>
-  </div>
-</div>
-</div>
-</div>
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
-
-<script src="../assets/code-highlighter.js"></script>
-<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
-
-<script src="../assets/progress.js"></script>
-</body>
-</html>
+    <!-- ================= CHƯƠNG 11 ================= --></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter09.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bài trước</a><a href="chapter11.html">Bài tiếp theo<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/java.html#chapter10"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>

@@ -1,101 +1,20 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-
-<script>
-(function(){
-  try{
-    var t = localStorage.getItem('synaptrail-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', t);
-  }catch(e){
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-})();
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/lesson.css">
-<title>Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn — Giáo Trình JavaScript (NNLT) | Synaptrail</title>
-<link rel="stylesheet" href="../assets/ui.css">
-</head>
-<body>
-<div id="progress-bar"></div>
-<div id="topbar">
-  <span class="brand">⚡ JavaScript</span>
-  <div class="topbar-right">
-    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
-    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
-  </div>
-</div>
-<div class="layout">
-  <aside id="sidebar">
-    <div class="brand">⚡ JavaScript</div>
-    <div class="sub">37 chương</div>
-    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
-    <div class="nav-group-title">Danh sách chương</div>
-    <a class="nav-link" href="chapter01.html">Chương 1 — Giới thiệu JavaScript</a>
-    <a class="nav-link" href="chapter02.html">Chương 2 — Cách chạy JS (Browser &amp; Node.js)</a>
-    <a class="nav-link" href="chapter03.html">Chương 3 — Chương trình đầu tiên</a>
-    <a class="nav-link" href="chapter04.html">Chương 4 — Biến (var/let/const)</a>
-    <a class="nav-link" href="chapter05.html">Chương 5 — Kiểu dữ liệu</a>
-    <a class="nav-link" href="chapter06.html">Chương 6 — Toán tử</a>
-    <a class="nav-link" href="chapter07.html">Chương 7 — Điều kiện</a>
-    <a class="nav-link" href="chapter08.html">Chương 8 — Vòng lặp</a>
-    <a class="nav-link" href="chapter09.html">Chương 9 — Hàm (Function &amp; Arrow Function)</a>
-    <a class="nav-link" href="chapter10.html">Chương 10 — Mảng (Array)</a>
-    <a class="nav-link" href="chapter11.html">Chương 11 — Object</a>
-    <a class="nav-link" href="chapter12.html">Chương 12 — DOM cơ bản</a>
-    <a class="nav-link" href="chapter13.html">Chương 13 — Callback &amp; Callback Hell</a>
-    <a class="nav-link" href="chapter14.html">Chương 14 — Promise</a>
-    <a class="nav-link" href="chapter15.html">Chương 15 — async/await</a>
-    <a class="nav-link" href="chapter16.html">Chương 16 — Fetch API &amp; JSON</a>
-    <a class="nav-link" href="chapter17.html">Chương 17 — Destructuring &amp; Spread nâng cao</a>
-    <a class="nav-link" href="chapter18.html">Chương 18 — Class trong JavaScript</a>
-    <a class="nav-link" href="chapter19.html">Chương 19 — Module (import/export)</a>
-    <a class="nav-link" href="chapter20.html">Chương 20 — Giới thiệu Node.js</a>
-    <a class="nav-link" href="chapter21.html">Chương 21 — NPM &amp; package.json</a>
-    <a class="nav-link" href="chapter22.html">Chương 22 — File System (fs module)</a>
-    <a class="nav-link" href="chapter23.html">Chương 23 — Express — Server cơ bản</a>
-    <a class="nav-link" href="chapter24.html">Chương 24 — Express — REST API &amp; Middleware</a>
-    <a class="nav-link" href="chapter25.html">Chương 25 — Dự án: Todo App (Vanilla JS)</a>
-    <a class="nav-link" href="chapter26.html">Chương 26 — Dự án: Todo App (React)</a>
-    <a class="nav-link" href="chapter27.html">Chương 27 — Bài tập Cơ bản (Dễ)</a>
-    <a class="nav-link" href="chapter28.html">Chương 28 — Bài tập Mảng, Object &amp; Bất đồng bộ</a>
-    <a class="nav-link" href="chapter29.html">Chương 29 — Web Storage (localStorage/sessionStorage)</a>
-    <a class="nav-link active" href="chapter30.html">Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn</a>
-    <a class="nav-link" href="chapter31.html">Chương 31 — Web Workers — Đa luồng trong trình duyệt</a>
-    <a class="nav-link" href="chapter32.html">Chương 32 — WebSocket API (client thuần)</a>
-    <a class="nav-link" href="chapter33.html">Chương 33 — Unit Testing với Jest</a>
-    <a class="nav-link" href="chapter34.html">Chương 34 — Design Patterns thường gặp trong JS</a>
-    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
-  </aside>
-  <div class="main-col">
-<div class="chpage">
-  <div class="crumb">
-    <a href="../index.html">🏠 Trang chủ</a> ·
-    <a href="index.html">⚡ JavaScript</a> ·
-    <span>Chương 30 — IndexedDB — Lưu trữ dữ liệu lớn</span>
-  </div>
-  <main style="padding:0;max-width:none;">
-<section class="chapter" id="s30">
-      <h2>Chương <span class="num">30</span> — IndexedDB — Lưu trữ dữ liệu lớn</h2>
+<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>IndexedDB — Lưu trữ dữ liệu lớn — JavaScript | Synaptrail</title><meta name="description" content="Khi localStorage (vài MB, chỉ string) không đủ — cơ sở dữ liệu NoSQL đầy đủ chạy ngay trong trình duyệt."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="javascript-nnlt" data-skill="javascript-nnlt" data-node="chapter30"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/javascript-nnlt.html#chapter30"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">JavaScript / BÀI 30</p><h1>IndexedDB — Lưu trữ dữ liệu lớn</h1><p class="rm-lead">Khi localStorage (vài MB, chỉ string) không đủ — cơ sở dữ liệu NoSQL đầy đủ chạy ngay trong trình duyệt.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s30">
+      
       <p class="lead">Khi localStorage (vài MB, chỉ string) không đủ — cơ sở dữ liệu NoSQL đầy đủ chạy ngay trong trình duyệt.</p>
 
       <div class="code-wrap">
         <span class="code-label">indexeddb_basic.js</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>const yeuCauMo = indexedDB.open('CuaHangDB', 1);      // tên database, phiên bản
 
-yeuCauMo.onupgradeneeded = (event) => {                  // chạy khi tạo mới/nâng cấp version
+yeuCauMo.onupgradeneeded = (event) =&gt; {                  // chạy khi tạo mới/nâng cấp version
     const db = event.target.result;
     const store = db.createObjectStore('sanPham', { keyPath: 'id' });   // tạo "bảng"
     store.createIndex('theoTen', 'ten', { unique: false });               // tạo chỉ mục để tìm nhanh theo tên
 };
 
-yeuCauMo.onsuccess = (event) => {
+yeuCauMo.onsuccess = (event) =&gt; {
     const db = event.target.result;
 
     // Thêm dữ liệu
@@ -105,7 +24,7 @@ yeuCauMo.onsuccess = (event) => {
     // Đọc dữ liệu
     const giaoDichDoc = db.transaction('sanPham', 'readonly');
     const yeuCau = giaoDichDoc.objectStore('sanPham').get(1);
-    yeuCau.onsuccess = () => console.log(yeuCau.result);
+    yeuCau.onsuccess = () =&gt; console.log(yeuCau.result);
 };</code></pre>
       </div>
 
@@ -125,20 +44,4 @@ yeuCauMo.onsuccess = (event) => {
       </div>
     </section>
 
-    <!-- ================= CHƯƠNG 34 ================= -->
-  </main>
-  <div class="chnav">
-    <a class="nav-btn prev" href="chapter29.html">← Chương 29 — Web Storage (localStorage/sessionStorage)</a>
-    <a class="nav-btn next" href="chapter31.html">Chương 31 — Web Workers — Đa luồng trong trình duyệt →</a>
-  </div>
-</div>
-</div>
-</div>
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
-
-<script src="../assets/code-highlighter.js"></script>
-<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
-
-</body>
-</html>
+    <!-- ================= CHƯƠNG 34 ================= --></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter29.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bài trước</a><a href="chapter31.html">Bài tiếp theo<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/javascript-nnlt.html#chapter30"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>

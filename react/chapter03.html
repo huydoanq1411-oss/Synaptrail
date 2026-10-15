@@ -1,79 +1,6 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-
-<script>
-(function(){
-  try{
-    var t = localStorage.getItem('synaptrail-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', t);
-  }catch(e){
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-})();
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/lesson.css">
-<title>Chương 3 — State &amp; useState Hook — Giáo Trình React | Synaptrail</title>
-<link rel="stylesheet" href="../assets/ui.css">
-</head>
-<body>
-<div id="progress-bar"></div>
-<div id="topbar">
-  <span class="brand">⚛️ React</span>
-  <div class="topbar-right">
-    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
-    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
-  </div>
-</div>
-<div class="layout">
-  <aside id="sidebar">
-    <div class="brand">⚛️ React</div>
-    <div class="sub">26 chương</div>
-    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
-    <div class="nav-group-title">Danh sách chương</div>
-    <a class="nav-link" href="chapter01.html">Chương 1 — Nhập Môn React &amp; JSX</a>
-    <a class="nav-link" href="chapter02.html">Chương 2 — Props — Truyền Dữ Liệu Giữa Component</a>
-    <a class="nav-link active" href="chapter03.html">Chương 3 — State &amp; useState Hook</a>
-    <a class="nav-link" href="chapter04.html">Chương 4 — Xử Lý Sự Kiện &amp; Form Trong React</a>
-    <a class="nav-link" href="chapter05.html">Chương 5 — Conditional Rendering — Hiển thị có điều kiện</a>
-    <a class="nav-link" href="chapter06.html">Chương 6 — Lists &amp; Keys — Danh sách trong React</a>
-    <a class="nav-link" href="chapter07.html">Chương 7 — useEffect — Side Effects &amp; Vòng đời Component</a>
-    <a class="nav-link" href="chapter08.html">Chương 8 — Fetch dữ liệu từ API trong React</a>
-    <a class="nav-link" href="chapter09.html">Chương 9 — Custom Hooks — Tái sử dụng logic</a>
-    <a class="nav-link" href="chapter10.html">Chương 10 — useRef &amp; Thao tác DOM trực tiếp</a>
-    <a class="nav-link" href="chapter11.html">Chương 11 — Context API — Chia sẻ state toàn cục</a>
-    <a class="nav-link" href="chapter12.html">Chương 12 — useReducer — Quản lý state phức tạp</a>
-    <a class="nav-link" href="chapter13.html">Chương 13 — React Router — Điều hướng SPA cơ bản</a>
-    <a class="nav-link" href="chapter14.html">Chương 14 — React Router nâng cao — Nested Routes &amp; Params</a>
-    <a class="nav-link" href="chapter15.html">Chương 15 — Styling trong React — CSS Modules &amp; styled-components</a>
-    <a class="nav-link" href="chapter16.html">Chương 16 — Performance — useMemo &amp; useCallback</a>
-    <a class="nav-link" href="chapter17.html">Chương 17 — React.memo &amp; Tối ưu re-render</a>
-    <a class="nav-link" href="chapter18.html">Chương 18 — Error Boundaries &amp; Xử lý lỗi</a>
-    <a class="nav-link" href="chapter19.html">Chương 19 — Portals — Modal &amp; Tooltip</a>
-    <a class="nav-link" href="chapter20.html">Chương 20 — Redux Toolkit — Giới thiệu &amp; Store</a>
-    <a class="nav-link" href="chapter21.html">Chương 21 — Redux Toolkit — Slice, Thunk &amp; kết nối API</a>
-    <a class="nav-link" href="chapter22.html">Chương 22 — Form nâng cao — react-hook-form &amp; Validation</a>
-    <a class="nav-link" href="chapter23.html">Chương 23 — Testing React Components — Jest &amp; Testing Library</a>
-    <a class="nav-link" href="chapter24.html">Chương 24 — Giới thiệu Next.js — SSR &amp; File-based Routing</a>
-    <a class="nav-link" href="chapter25.html">Chương 25 — Triển khai ứng dụng React lên Production</a>
-    <a class="nav-link" href="chapter26.html">Chương 26 — Dự án cuối khóa: Ứng dụng React hoàn chỉnh</a>
-    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
-  </aside>
-  <div class="main-col">
-<div class="chpage">
-  <div class="crumb">
-    <a href="../index.html">🏠 Trang chủ</a> ·
-    <a href="index.html">⚛️ React</a> ·
-    <span>Chương 3 — State &amp; useState Hook</span>
-  </div>
-  <main style="padding:0;max-width:none;">
-<section class="chapter" id="s3">
-      <h2>Chương <span class="num">3</span> — State &amp; useState Hook</h2>
+<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>State &amp; useState Hook — React | Synaptrail</title><meta name="description" content="Cho component &quot;trí nhớ&quot; của riêng nó — dữ liệu có thể tự thay đổi theo thời gian, và giao diện tự động cập nhật theo mỗi khi nó đổi."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="react" data-skill="react" data-node="chapter03"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/react.html#chapter03"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">React / BÀI 3</p><h1>State &amp; useState Hook</h1><p class="rm-lead">Cho component &quot;trí nhớ&quot; của riêng nó — dữ liệu có thể tự thay đổi theo thời gian, và giao diện tự động cập nhật theo mỗi khi nó đổi.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter03">Làm quiz ở trang riêng <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s3">
+      
       <p class="lead">Cho component "trí nhớ" của riêng nó — dữ liệu có thể tự thay đổi theo thời gian, và giao diện tự động cập nhật theo mỗi khi nó đổi.</p>
 
       <h3>Giới thiệu</h3>
@@ -98,7 +25,7 @@
 
       <div class="code-wrap">
         <span class="code-label">cú pháp cơ bản</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>const [soLuot, setSoLuot] = useState(0);
 // soLuot: giá trị hiện tại — setSoLuot: hàm để CẬP NHẬT giá trị đó — 0: giá trị khởi tạo</code></pre>
       </div>
@@ -110,7 +37,7 @@
 
       <div class="code-wrap">
         <span class="code-label">cập nhật state</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>function DemSoLan() {
   const [soLuot, setSoLuot] = useState(0);
 
@@ -129,9 +56,9 @@
       <h4 class="subh">2.3. State vs Props — khác nhau ở đâu?</h4>
 
       <table>
-        <tr><th></th><th>Props</th><th>State</th></tr>
+        <tbody><tr><th></th><th>Props</th><th>State</th></tr>
         <tr><td>Nguồn gốc</td><td>Từ component cha truyền xuống</td><td>Tự phát sinh bên trong chính component</td></tr><tr><td>Ai sửa được</td><td>Chỉ component cha (con chỉ đọc)</td><td>Chính component đó, qua hàm setter</td></tr><tr><td>Ví dụ</td><td><code>ten</code>, <code>icon</code> ở Bài 2</td><td>Số lần click, nội dung input</td></tr>
-      </table>
+      </tbody></table>
 
       <h4 class="subh">2.4. Cập nhật state dựa trên giá trị trước đó — dùng hàm callback</h4>
 
@@ -139,7 +66,7 @@
 
       <div class="code-wrap">
         <span class="code-label">functional update</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>setSoLuot(soLuotHienTai =&gt; soLuotHienTai + 1);
 // an toàn hơn khi có nhiều lần cập nhật liên tiếp gần nhau</code></pre>
       </div>
@@ -148,7 +75,7 @@
 
       <div class="code-wrap">
         <span class="code-label">nhiều state</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>const [ten, setTen] = useState("");
 const [dangSang, setDangSang] = useState(true);
 // gọi useState nhiều lần, mỗi lần quản lý một mảnh dữ liệu riêng biệt</code></pre>
@@ -166,7 +93,7 @@ const [dangSang, setDangSang] = useState(true);
       <div class="code-wrap">
         <span class="code-label">state.html
 📋 Copy</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>&lt;div id="root"&gt;&lt;/div&gt;
 
 &lt;script src="https://unpkg.com/react@19/umd/react.development.js"&gt;&lt;/script&gt;
@@ -232,34 +159,34 @@ const [dangSang, setDangSang] = useState(true);
       <p>Nhấp vào từng mục để xem chi tiết lỗi và cách khắc phục:</p>
 
       <div class="accordion">
-        <div class="accordion-head" onclick="this.parentElement.classList.toggle('open')">Gán trực tiếp thay vì gọi hàm setter</div>
+        <button class="accordion-head" type="button" data-course-toggle="section">Gán trực tiếp thay vì gọi hàm setter</button>
         <div class="accordion-body"><div class="accordion-body-inner">
           <p>Viết <code class="mono">soLan = soLan + 1;</code> thay vì <code class="mono">setSoLan(soLan + 1);</code> — biến state có thể đổi giá trị trong bộ nhớ, nhưng React <strong>không hề biết</strong> điều đó xảy ra, nên không render lại, giao diện vẫn hiển thị giá trị cũ.</p>
-<p class="fix" style="color:var(--ok);">✅ Cách khắc phục: luôn dùng hàm setter (được trả về từ <code class="mono">useState</code>) để cập nhật state, không bao giờ gán trực tiếp.</p>
+<p class="fix">✅ Cách khắc phục: luôn dùng hàm setter (được trả về từ <code class="mono">useState</code>) để cập nhật state, không bao giờ gán trực tiếp.</p>
         </div></div>
       </div>
 
       <div class="accordion">
-        <div class="accordion-head" onclick="this.parentElement.classList.toggle('open')">Gọi <code class="mono">useState</code> bên trong điều kiện hoặc vòng lặp</div>
+        <button class="accordion-head" type="button" data-course-toggle="section">Gọi <code class="mono">useState</code> bên trong điều kiện hoặc vòng lặp</button>
         <div class="accordion-body"><div class="accordion-body-inner">
           <p>Viết <code class="mono">if (dieuKien) { const [x, setX] = useState(0); }</code> — React báo lỗi <code class="mono">Rendered more hooks than during the previous render</code>, vì Hook phải được gọi theo <strong>đúng thứ tự</strong> giống hệt nhau ở mọi lần render.</p>
-<p class="fix" style="color:var(--ok);">✅ Cách khắc phục: luôn gọi mọi Hook (bao gồm <code class="mono">useState</code>) ở <strong>cấp cao nhất</strong> của component, không đặt trong <code class="mono">if</code>, vòng lặp, hay hàm lồng bên trong.</p>
+<p class="fix">✅ Cách khắc phục: luôn gọi mọi Hook (bao gồm <code class="mono">useState</code>) ở <strong>cấp cao nhất</strong> của component, không đặt trong <code class="mono">if</code>, vòng lặp, hay hàm lồng bên trong.</p>
         </div></div>
       </div>
 
       <div class="accordion">
-        <div class="accordion-head" onclick="this.parentElement.classList.toggle('open')">Gọi hàm ngay khi truyền vào <code class="mono">onClick</code></div>
+        <button class="accordion-head" type="button" data-course-toggle="section">Gọi hàm ngay khi truyền vào <code class="mono">onClick</code></button>
         <div class="accordion-body"><div class="accordion-body-inner">
           <p>Viết <code class="mono">onClick={setSoLan(soLan + 1)}</code> (có dấu ngoặc gọi hàm ngay) — hàm này chạy <strong>ngay khi render</strong>, không phải khi người dùng click, thường gây vòng lặp render vô hạn.</p>
-<p class="fix" style="color:var(--ok);">✅ Cách khắc phục: truyền một hàm (không gọi ngay) — hoặc dùng arrow function bọc lại: <code class="mono">onClick={() =&gt; setSoLan(soLan + 1)}</code>, đúng như code mẫu ở trên.</p>
+<p class="fix">✅ Cách khắc phục: truyền một hàm (không gọi ngay) — hoặc dùng arrow function bọc lại: <code class="mono">onClick={() =&gt; setSoLan(soLan + 1)}</code>, đúng như code mẫu ở trên.</p>
         </div></div>
       </div>
 
       <div class="accordion">
-        <div class="accordion-head" onclick="this.parentElement.classList.toggle('open')">Nghĩ rằng gọi setter sẽ đổi giá trị ngay lập tức trong cùng dòng code</div>
+        <button class="accordion-head" type="button" data-course-toggle="section">Nghĩ rằng gọi setter sẽ đổi giá trị ngay lập tức trong cùng dòng code</button>
         <div class="accordion-body"><div class="accordion-body-inner">
           <p>Viết <code class="mono">setSoLan(soLan + 1); console.log(soLan);</code> và mong đợi <code class="mono">console.log</code> in ra giá trị mới — thực tế nó vẫn in giá trị <strong>cũ</strong>, vì cập nhật state là <strong>bất đồng bộ</strong> (liên hệ Bài 11 chương JavaScript), giá trị mới chỉ có ở lần render tiếp theo.</p>
-<p class="fix" style="color:var(--ok);">✅ Cách khắc phục: không mong đợi đọc được giá trị mới ngay sau khi gọi setter trong cùng một hàm; nếu cần logic dựa trên giá trị mới, xử lý ở lần render kế tiếp hoặc dùng <code class="mono">useEffect</code> (học ở bài sau).</p>
+<p class="fix">✅ Cách khắc phục: không mong đợi đọc được giá trị mới ngay sau khi gọi setter trong cùng một hàm; nếu cần logic dựa trên giá trị mới, xử lý ở lần render kế tiếp hoặc dùng <code class="mono">useEffect</code> (học ở bài sau).</p>
         </div></div>
       </div>
 
@@ -276,7 +203,7 @@ const [dangSang, setDangSang] = useState(true);
 <li>Tách mỗi mảnh dữ liệu độc lập thành một <code class="mono">useState</code> riêng, thay vì gộp mọi thứ vào một state object phức tạp.</li>
 <li>Không mong đợi đọc được giá trị state mới ngay sau khi gọi setter trong cùng một hàm.</li></ul>
 
-      <h3>Tip & Note</h3>
+      <h3>Tip &amp; Note</h3>
 
       <div class="box tip">
         <div class="box-title">💡 Tip</div>
@@ -321,54 +248,6 @@ const [dangSang, setDangSang] = useState(true);
         và làm việc với form một cách bài bản.</p>
       </div>
 
-      <div class="quiz" data-quiz="q3">
-        <h4>📝 Quiz nhanh — Chương 3</h4>
-        <div class="quiz-q" data-answer="1">
-          <p>1. <code class="mono">useState(0)</code> trả về gì?</p>
-          <span class="quiz-opt" data-idx="0">Một object</span>
-          <span class="quiz-opt" data-idx="1">Một mảng gồm 2 phần tử: giá trị và hàm setter</span>
-          <span class="quiz-opt" data-idx="2">Chỉ một số duy nhất</span>
-          <span class="quiz-opt" data-idx="3">Một component mới</span>
-        </div>
-        <div class="quiz-q" data-answer="2">
-          <p>2. Cách nào ĐÚNG để cập nhật state?</p>
-          <span class="quiz-opt" data-idx="0"><code class="mono">soLan = soLan + 1;</code></span>
-          <span class="quiz-opt" data-idx="1"><code class="mono">soLan++;</code></span>
-          <span class="quiz-opt" data-idx="2"><code class="mono">setSoLan(soLan + 1);</code></span>
-          <span class="quiz-opt" data-idx="3">Cả ba đều đúng như nhau</span>
-        </div>
-        <div class="quiz-q" data-answer="0">
-          <p>3. Hook nên được gọi ở đâu trong component?</p>
-          <span class="quiz-opt" data-idx="0">Cấp cao nhất, không trong if/vòng lặp</span>
-          <span class="quiz-opt" data-idx="1">Chỉ bên trong sự kiện onClick</span>
-          <span class="quiz-opt" data-idx="2">Bên trong vòng lặp for</span>
-          <span class="quiz-opt" data-idx="3">Vị trí nào cũng được</span>
-        </div>
-        <div class="quiz-q" data-answer="3">
-          <p>4. Khác biệt cốt lõi giữa Props và State là gì?</p>
-          <span class="quiz-opt" data-idx="0">Không có khác biệt nào</span>
-          <span class="quiz-opt" data-idx="1">Props chỉ dùng cho số, State chỉ dùng cho chuỗi</span>
-          <span class="quiz-opt" data-idx="2">State không thể thay đổi</span>
-          <span class="quiz-opt" data-idx="3">Props đến từ component cha, State tự phát sinh và quản lý bên trong chính component</span>
-        </div>
-        <button class="quiz-btn" onclick="gradeQuiz('q3')">Chấm điểm</button>
-        <div class="quiz-result" id="result-q3"></div>
-      </div>
+      
 
-    </section>
-  </main>
-  <div class="chnav">
-    <a class="nav-btn prev" href="chapter02.html">← Chương 2 — Props — Truyền Dữ Liệu Giữa Component</a>
-    <a class="nav-btn next" href="chapter04.html">Chương 4 — Xử Lý Sự Kiện &amp; Form Trong React →</a>
-  </div>
-</div>
-</div>
-</div>
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
-
-<script src="../assets/code-highlighter.js"></script>
-<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
-
-</body>
-</html>
+    </section></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter02.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bài trước</a><a href="chapter04.html">Bài tiếp theo<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/react.html#chapter03"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>

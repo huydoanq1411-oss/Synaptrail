@@ -1,5 +1,6 @@
 /* Existing exercise interactions, shared by migrated course lessons. */
 document.addEventListener('DOMContentLoaded',()=>{
+ document.querySelectorAll('[data-course-print]').forEach(b=>b.addEventListener('click',()=>window.print()));
  document.querySelectorAll('[data-course-toggle]').forEach(button=>{
   const kind=button.dataset.courseToggle,target=kind==='answer'?button.nextElementSibling:button.parentElement;
   if(!target)return;

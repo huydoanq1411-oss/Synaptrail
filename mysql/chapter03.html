@@ -1,67 +1,17 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-
-<script>
-(function(){
-  try{
-    var t = localStorage.getItem('synaptrail-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', t);
-  }catch(e){
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-})();
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/lesson.css">
-<title>Chương 3 — Kết nối Node.js với MySQL — MySQL | Synaptrail</title>
-<link rel="stylesheet" href="../assets/ui.css">
-</head>
-<body>
-<div id="progress-bar"></div>
-<div id="topbar">
-  <span class="brand">🚀 MySQL</span>
-  <div class="topbar-right">
-    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
-    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
-  </div>
-</div>
-<div class="layout">
-  <aside id="sidebar">
-    <div class="brand">🚀 MySQL</div>
-    <div class="sub">3 chương</div>
-    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
-    <div class="nav-group-title">Danh sách chương</div>
-    <a class="nav-link" href="chapter01.html">Chương 1 — MySQL — Truy vấn cơ bản</a>
-<a class="nav-link" href="chapter02.html">Chương 2 — MySQL — JOIN &amp; Truy vấn nâng cao</a>
-<a class="nav-link active" href="chapter03.html">Chương 3 — Kết nối Node.js với MySQL</a>
-    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
-  </aside>
-  <div class="main-col">
-<div class="chpage">
-  <div class="crumb">
-    <a href="../index.html">🏠 Trang chủ</a> ·
-    <a href="index.html">🚀 MySQL</a> ·
-    <span>Chương 3 — Kết nối Node.js với MySQL</span>
-  </div>
-  <main style="padding:0;max-width:none;">
-<section class="chapter" id="s11">
-      <h2>Chương <span class="num">3</span> — Kết nối Node.js với MySQL</h2>
+<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kết nối Node.js với MySQL — MySQL | Synaptrail</title><meta name="description" content="Truy vấn database trực tiếp từ code Node.js/Express — bước đệm trước khi dùng ORM tiện lợi hơn ở chương sau."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="mysql" data-skill="mysql" data-node="chapter03"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/mysql.html#chapter03"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">MySQL / BÀI 3</p><h1>Kết nối Node.js với MySQL</h1><p class="rm-lead">Truy vấn database trực tiếp từ code Node.js/Express — bước đệm trước khi dùng ORM tiện lợi hơn ở chương sau.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s11">
+      
       <p class="lead">Truy vấn database trực tiếp từ code Node.js/Express — bước đệm trước khi dùng ORM tiện lợi hơn ở chương sau.</p>
 
       <div class="code-wrap">
         <span class="code-label">terminal</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>npm install mysql2</code></pre>
       </div>
 
       <div class="code-wrap">
         <span class="code-label">db.js</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>const mysql = require('mysql2/promise');
 
 const pool = mysql.createPool({            // connection pool - tái sử dụng kết nối, hiệu quả hơn tạo mới mỗi lần
@@ -76,7 +26,7 @@ module.exports = pool;</code></pre>
 
       <div class="code-wrap">
         <span class="code-label">routes/sanPham.js</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>const express = require('express');
 const router = express.Router();
 const pool = require('../db');
@@ -109,17 +59,4 @@ module.exports = router;</code></pre>
       </div>
     </section>
 
-    <!-- ================= CHƯƠNG 16 ================= -->
-  </main>
-  <div class="chnav"><a class="nav-btn prev" href="chapter02.html">← Chương 2 — MySQL — JOIN &amp; Truy vấn nâng cao</a><a class="nav-btn next" href="index.html">Mục lục →</a></div>
-</div>
-</div>
-</div>
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
-
-<script src="../assets/code-highlighter.js"></script>
-<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
-
-</body>
-</html>
+    <!-- ================= CHƯƠNG 16 ================= --></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter02.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bài trước</a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/mysql.html#chapter03"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>

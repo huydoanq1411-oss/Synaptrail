@@ -1,0 +1,808 @@
+{
+  "course": "java",
+  "title": "Java",
+  "lessons": [
+    {
+      "id": "chapter01",
+      "file": "chapter01.html",
+      "title": "Giới thiệu Java",
+      "summary": "Hiểu đường đi từ mã nguồn đến chương trình chạy được, trước khi học cú pháp và viết ứng dụng lớn.",
+      "content": "<section class=\"chapter\" id=\"s1\">\n\n<p class=\"lead\">Hiểu đường đi từ mã nguồn đến chương trình chạy được, trước khi học cú pháp và viết ứng dụng lớn.</p>\n<h3>1. Mục tiêu học</h3>\n<ul><li>Phân biệt mã nguồn, bytecode, JVM và công cụ biên dịch.</li><li>Giải thích khả năng chạy trên nhiều hệ điều hành cùng những giới hạn thực tế.</li><li>Đọc một chương trình nhỏ, dự đoán đầu ra và thử thay đổi thông báo.</li></ul>\n<p>Không cần biết Java trước khi đọc bài này. Bạn chỉ cần thao tác với file văn bản và mở terminal. Nếu máy chưa có JDK, hãy đọc chương 2 trước khi thực hành, rồi quay lại các ví dụ dưới đây.</p>\n<h3>2. Vấn đề thực tế</h3>\n<p>Một nhóm làm công cụ in thông báo nhận hàng cho cửa hàng. Người viết mã dùng Windows, người kiểm thử dùng Linux. Nhóm muốn giữ một bộ mã nguồn, thay vì viết lại toàn bộ chương trình cho từng máy. Đây là tình huống phù hợp để hiểu vai trò của Java và máy ảo.</p>\n<p>Hãy chia công việc thành hai bước: chuyển văn bản chương trình sang dạng JVM hiểu được, rồi nhờ JVM thực thi. Khi kết quả không xuất hiện, việc biết hai bước này giúp bạn hỏi đúng câu: biên dịch chưa thành công, hay chương trình đã chạy nhưng làm sai điều mong muốn?</p>\n<h3>3. Lý thuyết nền</h3>\n<p>Java vừa là tên ngôn ngữ, vừa gắn với một hệ sinh thái công cụ và thư viện. File có đuôi <code>.java</code> chứa mã nguồn để con người đọc và sửa. Trình biên dịch <code>javac</code> kiểm tra mã rồi tạo file <code>.class</code> chứa bytecode; lệnh <code>java</code> khởi động JVM để chạy lớp được chỉ định.</p>\n<p>JVM có bản triển khai phù hợp với từng hệ điều hành và kiến trúc máy. Vì thế bytecode có thể được dùng trên nhiều môi trường có runtime tương thích. Điều này không có nghĩa mọi chương trình tự động chạy trên mọi thiết bị: phiên bản runtime, thư viện phụ thuộc và những thành phần riêng của hệ điều hành vẫn quan trọng.</p>\n<p>Java hỗ trợ lập trình hướng đối tượng nhưng cũng có kiểu nguyên thủy như int và boolean. Bạn không cần hiểu toàn bộ OOP để chạy chương trình đầu tiên. Trong đợt học này, hãy xem lớp là nơi tổ chức mã; các chương sau sẽ giải thích đối tượng, phương thức và trách nhiệm của từng lớp.</p>\n<div class=\"box important\"><div class=\"box-title\">Một giới hạn cần nhớ</div><p>Bytecode tạo cho phiên bản Java mới hơn không mặc nhiên chạy được trên runtime cũ. Khi chia sẻ chương trình, hãy ghi rõ phiên bản dùng để biên dịch và chạy; đừng chỉ nói “máy có Java”.</p></div>\n<h3>4. Ví dụ từng bước</h3>\n<p>Ví dụ mô phỏng thông báo nhận hàng, chưa dùng nhập liệu hoặc cơ sở dữ liệu. Lưu đúng tên <code>WelcomeJava.java</code>. Mỗi dòng có một nhiệm vụ đơn giản để bạn quan sát được toàn bộ quá trình.</p>\n<div class=\"code-wrap\"><span class=\"code-label\">WelcomeJava.java</span><pre><code>public class WelcomeJava {\n    public static void main(String[] args) {\n        System.out.println(\"Welcome to Java\");\n        System.out.println(\"Order received\");\n    }\n}</code></pre></div>\n<ol><li>Dòng đầu đặt tên lớp công khai. Với cách tổ chức này, tên file phải là WelcomeJava.java, phân biệt chữ hoa và chữ thường.</li><li>Dòng thứ hai khai báo main, điểm bắt đầu mà lệnh java sẽ gọi. Tạm giữ nguyên chữ ký; chương 3 sẽ giải thích từng thành phần.</li><li>Dòng thứ ba in lời chào rồi xuống dòng. Văn bản trong dấu nháy kép là dữ liệu, không phải câu lệnh Java.</li><li>Dòng thứ tư in thông báo nhận hàng. Nó chạy sau dòng chào vì hai lệnh được viết theo thứ tự.</li><li>Dấu ngoặc đóng đầu tiên kết thúc main; dấu còn lại kết thúc lớp. Cặp ngoặc mở và đóng xác định phạm vi mã.</li></ol>\n<div class=\"code-wrap\"><span class=\"code-label\">Terminal — chạy trong thư mục chứa file</span><pre><code>javac WelcomeJava.java\njava WelcomeJava</code></pre></div>\n<p>Lệnh đầu biên dịch; nếu thành công, xuất hiện WelcomeJava.class. Lệnh thứ hai chạy tên lớp, không thêm đuôi .class. Kết quả là hai dòng: <strong>Welcome to Java</strong>, rồi <strong>Order received</strong>. Không cần mạng hoặc thư viện ngoài để thực hiện ví dụ này.</p>\n<p>Đổi thông báo nhận hàng thành “Order ready”, lưu file và chạy lại cả hai lệnh. Nếu chỉ chạy lệnh java, bạn có thể vẫn thấy kết quả cũ vì JVM đang dùng file class đã biên dịch trước đó. Thử nghiệm này giúp phân biệt việc sửa mã với việc cập nhật chương trình chạy.</p>\n<p>Trước khi mở rộng ví dụ, tự trả lời ba câu hỏi: file nào là đầu vào của trình biên dịch, file nào được tạo ra và lệnh nào thực thi chương trình? Nếu chưa chắc, kiểm tra danh sách file sau mỗi bước thay vì đoán từ giao diện của IDE.</p>\n<h3>5. Lỗi thường gặp</h3>\n<ul><li>Nhầm Java với JavaScript vì tên gần nhau: đây là hai ngôn ngữ khác nhau, không dùng chung trình biên dịch hoặc quy tắc cú pháp.</li><li>Cho rằng bytecode là mã nguồn: sửa file .java và biên dịch lại; không mở file .class để chỉnh như văn bản.</li><li>Thấy lệnh java chạy được rồi kết luận đã đủ công cụ phát triển: kiểm tra thêm javac; runtime đơn lẻ có thể thiếu trình biên dịch.</li><li>Khẳng định Java “hoàn toàn hướng đối tượng”: ghi nhớ các kiểu nguyên thủy và học mô hình thực tế thay vì khẩu hiệu.</li></ul>\n<h3>6. Bài tập ba mức</h3>\n<div class=\"box note\"><div class=\"box-title\">Dễ — Đổi thông báo</div><p>Đổi dòng chào thành “Hello Synaptrail”, giữ dòng nhận hàng. Biên dịch và chạy lại; kết quả phải có đúng hai dòng. Ghi rõ file bạn đã sửa và file được tạo.</p></div>\n<div class=\"box note\"><div class=\"box-title\">Vừa — Thử kết quả cũ</div><p>Biên dịch bản gốc, sửa nội dung mà chưa biên dịch lại, rồi chạy. So sánh với kết quả sau khi biên dịch mới. Giải thích sự khác nhau, không xóa file class trước thử nghiệm.</p></div>\n<div class=\"box note\"><div class=\"box-title\">Khó — Hướng dẫn bàn giao</div><p>Viết checklist để bạn học chạy chương trình từ mã nguồn trên máy khác: công cụ, phiên bản, tên file, thư mục và lệnh. Nếu có máy thứ hai, kiểm chứng; nếu không, dùng thư mục mới và ghi giới hạn thử nghiệm.</p></div>\n<div class=\"summary-box\"><h4>7. Tóm tắt</h4><p>Mã nguồn .java được javac biên dịch thành bytecode .class; JVM thực thi bytecode khi bạn chạy lệnh java. Khả năng đa nền tảng cần môi trường tương thích. Học bằng cách dự đoán, chạy và quan sát file tạo ra.</p></div>\n\n<p>Đối chiếu: <a href=\"https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html\">lệnh java</a> và <a href=\"https://docs.oracle.com/en/java/javase/21/docs/specs/man/javac.html\">lệnh javac</a>.</p>\n</section>\n\n    <!-- ================= CHƯƠNG 2 ================= -->",
+      "questions": [
+        {
+          "question": "1. javac chuyển mã nguồn Java thành gì?",
+          "options": [
+            "HTML",
+            "Mã nguồn JavaScript",
+            "Bytecode trong file .class",
+            "Thông báo nhận hàng"
+          ],
+          "answer": 2,
+          "explanation": "Giải thích đáp ánA. Sai: HTML là tài liệu web, không phải đầu ra của javac.B. Sai: Java và JavaScript là hai ngôn ngữ khác nhau.C. Đúng: bài mô tả javac tạo bytecode .class.D. Sai: Thông báo là đầu ra khi chương trình chạy."
+        },
+        {
+          "question": "2. Vai trò của JVM trong quy trình ở bài là gì?",
+          "options": [
+            "Thực thi bytecode",
+            "Soạn thảo file .java",
+            "Tự sửa mọi lỗi lập trình",
+            "Biến Java thành JavaScript"
+          ],
+          "answer": 0,
+          "explanation": "Giải thích đáp ánA. Đúng: JVM thực thi chương trình đã biên dịch.B. Sai: Trình soạn thảo phục vụ bước viết mã.C. Sai: Biên dịch và thực thi không bảo đảm đúng yêu cầu.D. Sai: Bài không có bước chuyển đổi này."
+        },
+        {
+          "question": "3. Hai lệnh in này tạo đầu ra nào?",
+          "options": [
+            "Hai thông báo trên cùng một dòng",
+            "Welcome to Java rồi Order received, trên hai dòng",
+            "Chỉ Order received",
+            "Tên file WelcomeJava.java"
+          ],
+          "answer": 1,
+          "explanation": "Giải thích đáp ánA. Sai: println xuống dòng sau mỗi thông báo.B. Đúng: hai println chạy theo thứ tự.C. Sai: Lệnh đầu cũng được thực thi.D. Sai: Chương trình không in tên file."
+        },
+        {
+          "question": "4. Muốn bàn giao bytecode cho máy khác, cần kiểm tra điều gì?",
+          "options": [
+            "Chỉ cần cùng trình soạn thảo",
+            "Chỉ cần có internet",
+            "Chỉ cần cùng tên người dùng",
+            "Phiên bản runtime và các phụ thuộc phù hợp"
+          ],
+          "answer": 3,
+          "explanation": "Giải thích đáp ánA. Sai: Trình soạn thảo không thực thi bytecode.B. Sai: Ví dụ không cần mạng; runtime mới là điều cần kiểm tra.C. Sai: Tên người dùng không bảo đảm môi trường tương thích.D. Đúng: bài nêu phiên bản, phụ thuộc và hệ điều hành."
+        },
+        {
+          "question": "5. Đổi thông báo trong .java nhưng chạy vẫn thấy thông báo cũ. Thiếu bước nào?",
+          "options": [
+            "Lưu rồi biên dịch lại file nguồn",
+            "Đổi tên JVM",
+            "Sửa trực tiếp file .class như văn bản",
+            "Chuyển sang JavaScript"
+          ],
+          "answer": 0,
+          "explanation": "Giải thích đáp ánA. Đúng: cần cập nhật file .class trước khi chạy.B. Sai: Tên JVM không cập nhật mã đã biên dịch.C. Sai: Bài yêu cầu sửa mã nguồn, không sửa bytecode như văn bản.D. Sai: Không cần đổi ngôn ngữ để sửa thông báo."
+        }
+      ],
+      "ids": [
+        "s1"
+      ],
+      "words": 1065
+    },
+    {
+      "id": "chapter02",
+      "file": "chapter02.html",
+      "title": "Cài đặt JDK & IDE",
+      "summary": "Chuẩn bị môi trường học Java, xác nhận đúng công cụ và chạy thử trước khi dựa vào nút Run của IDE.",
+      "content": "<section class=\"chapter\" id=\"s2\">\n\n<p class=\"lead\">Chuẩn bị môi trường học Java, xác nhận đúng công cụ và chạy thử trước khi dựa vào nút Run của IDE.</p>\n<h3>1. Mục tiêu học</h3>\n<ul><li>Phân biệt JVM, runtime và bộ công cụ phát triển JDK.</li><li>Kiểm tra java, javac, PATH và phiên bản mà terminal đang sử dụng.</li><li>Chạy chương trình kiểm tra môi trường rồi cấu hình trình soạn thảo phù hợp.</li></ul>\n\n<h3>2. Vấn đề thực tế</h3>\n<p>Bạn bấm Run trong IDE và chương trình chạy, nhưng terminal báo không tìm thấy javac. Bạn học khác có java phiên bản cũ dù đã cài JDK mới. Cả hai tình huống có thể xuất phát từ việc mỗi công cụ đang chọn một đường dẫn khác nhau.</p>\n<p>Thay vì cài lại nhiều lần, hãy kiểm tra tuần tự: phần mềm có tồn tại không, terminal đang tìm ở đâu, và IDE đang dùng JDK nào? Một chương trình nhỏ cùng bản ghi phiên bản sẽ giúp bạn trao đổi lỗi chính xác hơn ảnh chụp nút Run.</p>\n<h3>3. Lý thuyết nền</h3>\n<p>JVM là thành phần thực thi bytecode. Runtime gồm JVM và những thư viện, thành phần cần khi chạy. JDK cung cấp công cụ phát triển, nổi bật là javac, cùng môi trường chạy. Cách đóng gói runtime phụ thuộc bản phân phối; đừng mặc định JDK hiện đại luôn có một thư mục jre riêng.</p>\n<p>PATH là danh sách nơi hệ điều hành tìm executable khi bạn gõ tên lệnh. JAVA_HOME thường trỏ tới thư mục gốc JDK để công cụ phát triển sử dụng; tự đặt biến này không bảo đảm lệnh java đã đổi. Bạn vẫn cần kiểm tra PATH và cấu hình riêng của IDE.</p>\n<p>Ví dụ của đợt này được kiểm tra bằng JDK 21, đồng thời biên dịch nhắm Java 8. Bạn có thể dùng JDK 21 làm môi trường thống nhất cho khóa học; đây là lựa chọn thực hành của bài, không phải yêu cầu rằng mọi dự án Java đều phải dùng phiên bản đó.</p>\n<h3>4. Ví dụ từng bước</h3>\n<h4>A. Chuẩn bị và kiểm tra công cụ</h4>\n<p>Từ trang chính thức của bản phân phối như Eclipse Temurin, chọn JDK phù hợp hệ điều hành và kiến trúc máy. Đọc hướng dẫn của gói cài đặt; bản archive cần giải nén vào thư mục ổn định. Không chọn runtime-only nếu mục tiêu là biên dịch mã.</p>\n<ol><li>Cài hoặc giải nén JDK; ghi lại thư mục chứa bin/java và bin/javac.</li><li>Mở terminal mới sau khi thay cấu hình, tránh dùng phiên làm việc vẫn giữ môi trường cũ.</li><li>Chạy hai lệnh dưới đây. Cả hai phải được tìm thấy; đọc dòng phiên bản, không chỉ kiểm tra có chữ Java.</li></ol>\n<div class=\"code-wrap\"><span class=\"code-label\">Terminal — kiểm tra JDK</span><pre><code>java -version\njavac -version</code></pre></div>\n<p>Lệnh thứ nhất báo phiên bản runtime; lệnh thứ hai báo trình biên dịch. Số bản vá có thể khác ví dụ trong tài liệu, nhưng nếu một lệnh là Java 8 và lệnh kia là Java 21, hãy kiểm tra lại lựa chọn đường dẫn trước khi tiếp tục.</p>\n<p>Trên PowerShell, dùng <code>Get-Command java,javac</code> để xem executable được chọn. Trên macOS/Linux, dùng <code>command -v java</code> và <code>command -v javac</code>. Những lệnh này dùng cú pháp riêng của shell; không dán lệnh PowerShell vào Bash hoặc ngược lại.</p>\n<h4>B. Xác nhận môi trường bằng chương trình</h4>\n<p>Tạo thư mục làm bài riêng, lưu file dưới đây thành EnvironmentCheck.java. Chạy từ chính thư mục đó để tách lỗi đường dẫn khỏi lỗi lập trình.</p>\n<div class=\"code-wrap\"><span class=\"code-label\">EnvironmentCheck.java</span><pre><code>public class EnvironmentCheck {\n    public static void main(String[] args) {\n        System.out.println(\"Compiler and runtime are ready\");\n        System.out.println(System.getProperty(\"java.version\"));\n    }\n}</code></pre></div>\n<ol><li>Dòng đầu khai báo lớp public; tên lớp quyết định tên file trong ví dụ.</li><li>Dòng main tạo điểm bắt đầu chương trình, giữ nguyên chữ ký này khi thử môi trường.</li><li>Dòng in thông báo xác nhận mã đã biên dịch và được thực thi đến vị trí đó.</li><li>Dòng getProperty đọc phiên bản runtime đang chạy chương trình, rồi in nó ra. Đây không phải cách hỏi phiên bản javac.</li><li>Hai dấu ngoặc cuối đóng phương thức và lớp; không bỏ chúng khi sao chép.</li></ol>\n<div class=\"code-wrap\"><span class=\"code-label\">Terminal — biên dịch và chạy</span><pre><code>javac EnvironmentCheck.java\njava EnvironmentCheck</code></pre></div>\n<p>Kết quả đầu là <strong>Compiler and runtime are ready</strong>; dòng sau là phiên bản của runtime trên máy. Không cần khớp một số bản vá cố định. Kiểm tra file EnvironmentCheck.class được tạo, rồi ghi phiên bản vào ghi chú thực hành.</p>\n<h4>C. Dùng IDE sau khi terminal hoạt động</h4>\n<p>Mở thư mục làm bài trong IDE thay vì chỉ mở một file rời. Với VS Code, dùng các Java extension theo hướng dẫn chính thức và kiểm tra JDK mà chúng chọn. Với IDE khác, tìm cấu hình JDK của dự án. Chạy cùng file kiểm tra, đối chiếu dòng phiên bản với terminal.</p>\n\n<h3>5. Lỗi thường gặp</h3>\n<ul><li>Chỉ cài runtime: java chạy nhưng javac thiếu. Kiểm tra lại gói tải trước khi chỉnh PATH.</li><li>PATH ưu tiên bản cũ: kiểm tra đường dẫn thực tế, không dựa riêng vào tên thư mục mới cài.</li><li>JAVA_HOME trỏ tới bin thay vì thư mục gốc JDK: sửa theo yêu cầu công cụ rồi kiểm tra lại.</li><li>Chỉnh biến môi trường nhưng không mở terminal mới: phiên cũ có thể chưa nhận cấu hình mới.</li><li>Tải gói sai kiến trúc hoặc dùng nguồn không rõ: xác nhận thông tin máy và lấy hướng dẫn từ nhà phân phối.</li></ul>\n<h3>6. Bài tập ba mức</h3>\n<div class=\"box note\"><div class=\"box-title\">Dễ — Ghi phiên bản</div><p>Chạy hai lệnh kiểm tra và lưu đầu ra vào ghi chú. Ghi executable mà terminal chọn. Tiêu chí đạt: xác định được cả công cụ chạy và biên dịch.</p></div>\n<div class=\"box note\"><div class=\"box-title\">Vừa — So sánh terminal và IDE</div><p>Chạy EnvironmentCheck ở cả hai nơi. So sánh phiên bản; nếu khác, tìm cấu hình JDK của IDE. Không đổi toàn hệ thống chỉ để làm hai kết quả giống nhau.</p></div>\n<div class=\"box note\"><div class=\"box-title\">Khó — Hướng dẫn tái lập</div><p>Viết checklist cho máy mới: hệ điều hành, kiến trúc, nguồn JDK, đường dẫn, phiên bản và các bước kiểm tra. Nhờ bạn học làm theo, hoặc thử trong thư mục mới; ghi rõ phần chưa kiểm chứng.</p></div>\n<div class=\"summary-box\"><h4>7. Tóm tắt</h4><p>Cài JDK đúng gói, xác nhận java và javac rồi chạy chương trình nhỏ. PATH, JAVA_HOME và lựa chọn JDK của IDE là những cấu hình liên quan nhưng không đồng nhất.</p></div>\n\n<p>Tài liệu: <a href=\"https://adoptium.net/installation\">cài Eclipse Temurin</a>, <a href=\"https://code.visualstudio.com/docs/java/java-tutorial\">Java trong VS Code</a>.</p>\n</section>\n\n    <!-- ================= CHƯƠNG 3 ================= -->",
+      "questions": [
+        {
+          "question": "1. Bộ công cụ nào cung cấp javac để phát triển Java?",
+          "options": [
+            "Chỉ runtime",
+            "JDK",
+            "Chỉ Java extension",
+            "File .class"
+          ],
+          "answer": 1,
+          "explanation": "Giải thích đáp ánA. Sai: Runtime đơn lẻ có thể không có javac.B. Đúng: JDK cung cấp công cụ phát triển, gồm javac.C. Sai: Extension không tự bảo đảm compiler đã cài.D. Sai: File .class là kết quả biên dịch, không phải bộ công cụ."
+        },
+        {
+          "question": "2. PATH được dùng để làm gì khi gõ lệnh?",
+          "options": [
+            "Lưu mã nguồn của lớp",
+            "Lưu điểm quiz",
+            "Tìm executable theo tên lệnh",
+            "Xác định nội dung chuỗi in"
+          ],
+          "answer": 2,
+          "explanation": "Giải thích đáp ánA. Sai: Mã nguồn nằm trong file .java.B. Sai: PATH không liên quan dữ liệu học tập.C. Đúng: hệ điều hành tìm trong các vị trí thuộc PATH.D. Sai: Chuỗi in được khai báo trong chương trình."
+        },
+        {
+          "question": "3. java báo phiên bản 8 nhưng javac báo 21. Bước tiếp theo phù hợp là gì?",
+          "options": [
+            "Kiểm tra executable và PATH đang được chọn",
+            "Kết luận hai lệnh chắc chắn dùng cùng JDK",
+            "Xóa mọi file .java",
+            "Bỏ qua phiên bản vì IDE vẫn chạy"
+          ],
+          "answer": 0,
+          "explanation": "Giải thích đáp ánA. Đúng: có thể hai lệnh trỏ đến hai bản cài đặt.B. Sai: Hai phiên bản khác nhau không hỗ trợ kết luận này.C. Sai: Xóa mã nguồn không sửa đường dẫn công cụ.D. Sai: Bài yêu cầu kiểm tra môi trường terminal và IDE."
+        },
+        {
+          "question": "4. Dòng này cho biết phiên bản của thành phần nào?",
+          "options": [
+            "Trình duyệt đang mở bài",
+            "Trình biên dịch chắc chắn",
+            "Java extension chắc chắn",
+            "Runtime đang chạy chương trình"
+          ],
+          "answer": 3,
+          "explanation": "Giải thích đáp ánA. Sai: Mã đang chạy trong Java runtime, không phải trình duyệt.B. Sai: Thuộc tính này không hỏi phiên bản javac.C. Sai: Extension không phải giá trị java.version.D. Đúng: EnvironmentCheck đọc phiên bản runtime."
+        },
+        {
+          "question": "5. Đặt JAVA_HOME vào thư mục bin rồi cho rằng lệnh java đã đổi là sai ở đâu?",
+          "options": [
+            "JAVA_HOME phải là tên file nguồn",
+            "JAVA_HOME thường là thư mục gốc JDK; vẫn phải kiểm tra PATH",
+            "Không được dùng terminal mới",
+            "PATH chỉ có tác dụng trong IDE"
+          ],
+          "answer": 1,
+          "explanation": "Giải thích đáp ánA. Sai: Nó không trỏ đến file .java.B. Đúng: hai cấu hình liên quan nhưng không đồng nhất.C. Sai: Bài khuyên mở terminal mới sau thay đổi.D. Sai: PATH được hệ điều hành dùng khi tìm lệnh."
+        }
+      ],
+      "ids": [
+        "s2"
+      ],
+      "words": 1054
+    },
+    {
+      "id": "chapter03",
+      "file": "chapter03.html",
+      "title": "Chương trình đầu tiên",
+      "summary": "Viết Hello World hoàn chỉnh, hiểu từng dòng và phân biệt sửa mã, biên dịch, chạy cùng lỗi ở mỗi bước.",
+      "content": "<section class=\"chapter\" id=\"s3\">\n\n<p class=\"lead\">Viết Hello World hoàn chỉnh, hiểu từng dòng và phân biệt sửa mã, biên dịch, chạy cùng lỗi ở mỗi bước.</p>\n<h3>1. Mục tiêu học</h3>\n<ul><li>Tạo file đúng tên, biên dịch bằng javac và chạy bằng java.</li><li>Giải thích lớp, chữ ký main, chuỗi, dấu chấm phẩy và ngoặc khối.</li><li>Quan sát khác nhau giữa print và println; kiểm chứng thay đổi bằng đầu ra cụ thể.</li></ul>\n<p>Trước khi bắt đầu, cả java và javac phải hoạt động như chương 2. Chuẩn bị thư mục riêng và trình soạn thảo văn bản; chưa cần Maven, Gradle hoặc framework. Quy trình nhỏ này giúp bạn nhìn rõ từng bước trước khi IDE tự động hóa chúng.</p>\n<h3>2. Vấn đề thực tế</h3>\n<p>Bạn cần chương trình chào người dùng khi mở công cụ nhận hàng. Yêu cầu đầu tiên rất nhỏ: hiển thị lời chào đúng một lần và kết thúc. Một chương trình như vậy là phép kiểm tra tốt cho môi trường, vì không phụ thuộc dữ liệu bên ngoài hoặc giao diện phức tạp.</p>\n\n<h3>3. Lý thuyết nền</h3>\n<p>Trong mẫu truyền thống của bài, lớp public tổ chức mã và main là điểm vào chương trình. Chữ ký <code>public static void main(String[] args)</code> tương thích với Java 8 trở lên. Đây là quy ước dùng xuyên suốt ví dụ, không phải tuyên bố rằng mọi phiên bản Java mới chỉ cho phép một dạng chương trình.</p>\n<p>Java phân biệt chữ hoa và chữ thường: main khác Main, String khác string. Một chuỗi văn bản đặt trong nháy kép. Lệnh gọi phương thức thường kết thúc bằng dấu chấm phẩy; ngoặc nhọn bao quanh khối mã. Khoảng trắng và thụt dòng giúp người đọc, còn dấu ngoặc quyết định cấu trúc.</p>\n<p>Trong quy trình hai bước, javac nhận file .java; java nhận tên lớp để chạy bytecode đã có. Hai lệnh không thể đổi chỗ. Biên dịch thành công cho biết mã hợp lệ theo kiểm tra của compiler, không chứng minh chương trình đã thực hiện đúng yêu cầu người dùng.</p>\n<h3>4. Ví dụ từng bước</h3>\n<h4>A. Viết và chạy Hello World</h4>\n<p>Tạo file HelloWorld.java, lưu dạng văn bản UTF-8. Kiểm tra trình soạn thảo không tự thêm đuôi .txt. Nhập mã sau thay vì sao chép kết quả đã chạy, rồi lưu trước khi mở terminal.</p>\n<div class=\"code-wrap\"><span class=\"code-label\">HelloWorld.java</span><pre><code>public class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\");\n    }\n}</code></pre></div>\n<ol><li><code>public class HelloWorld</code> khai báo lớp công khai. Vì lớp này là public, file phải tên HelloWorld.java, đúng cả chữ hoa.</li><li><code>public</code> trong main cho phép truy cập; <code>static</code> cho phép gọi mà không tạo đối tượng HelloWorld trước.</li><li><code>void</code> nói rằng main không trả về giá trị. Bạn chưa cần viết return cho chương trình đơn giản này.</li><li><code>String[] args</code> là mảng tham số từ dòng lệnh. Ví dụ chưa đọc mảng; vẫn giữ khai báo để đúng mẫu.</li><li><code>System.out.println</code> gửi văn bản tới đầu ra chuẩn rồi xuống dòng. Nháy kép không được in; dấu chấm phẩy kết thúc lệnh.</li><li>Dấu ngoặc đóng đầu tiên kết thúc main; dấu thứ hai kết thúc lớp. Thụt dòng cho thấy quan hệ bao chứa giữa các khối.</li></ol>\n<div class=\"code-wrap\"><span class=\"code-label\">Terminal — cùng thư mục với mã nguồn</span><pre><code>javac HelloWorld.java\njava HelloWorld</code></pre></div>\n<p>Biên dịch xong sẽ có HelloWorld.class. Khi chạy, đầu ra cần đúng <strong>Hello, World!</strong> và một ký tự xuống dòng. Nếu không thấy file class hoặc có thông báo lỗi, dừng lại đọc lỗi đầu tiên trước khi thử chạy.</p>\n<h4>B. Kiểm soát xuống dòng</h4>\n<p>Ví dụ thứ hai chỉ thay cách in, không dùng thêm kiến thức về biến. Lưu trong file GreetingLines.java để cả hai chương trình tồn tại độc lập và bạn có thể đối chiếu.</p>\n<div class=\"code-wrap\"><span class=\"code-label\">GreetingLines.java</span><pre><code>public class GreetingLines {\n    public static void main(String[] args) {\n        System.out.print(\"Hello, \");\n        System.out.println(\"Synaptrail!\");\n        System.out.println(\"Ready to learn\");\n    }\n}</code></pre></div>\n<ol><li>Dòng đầu đặt tên lớp mới; dòng main giữ nguyên điểm bắt đầu quen thuộc.</li><li><code>print</code> viết “Hello, ” nhưng chưa xuống dòng. Khoảng trắng sau dấu phẩy thuộc dữ liệu chuỗi.</li><li><code>println</code> tiếp theo nối “Synaptrail!” trên cùng dòng, rồi xuống dòng.</li><li>Lệnh cuối in “Ready to learn” trên dòng mới. Hai ngoặc đóng kết thúc phương thức và lớp.</li></ol>\n<p>Biên dịch bằng <code>javac GreetingLines.java</code>, chạy <code>java GreetingLines</code>. Kết quả có hai dòng: <strong>Hello, Synaptrail!</strong> và <strong>Ready to learn</strong>. Đừng dự đoán ba dòng chỉ vì có ba lệnh in.</p>\n<p>Đổi print đầu tiên thành println, biên dịch lại và quan sát kết quả thành ba dòng. Sau đó hoàn nguyên và chạy lại. Hãy giữ bản ghi đầu ra trước/sau, vì đó là bằng chứng rõ hơn cảm giác “code vẫn đúng”.</p>\n<p>Khi thử nghiệm, chỉ thay một yếu tố mỗi lần: chuỗi, phương thức in hoặc tên lớp. Nếu đổi nhiều thứ cùng lúc rồi gặp lỗi, bạn khó biết thay đổi nào gây ra vấn đề. Đây là thói quen debug hữu ích ngay từ chương đầu tiên có mã.</p>\n<h3>5. Lỗi thường gặp</h3>\n<ul><li>File và lớp public lệch tên: sửa cho trùng, kể cả hoa thường; không chỉ đổi nhãn hiển thị trong IDE.</li><li>Thiếu dấu chấm phẩy hoặc ngoặc: đọc lỗi compiler, kiểm tra dòng đó và dòng ngay trước; vị trí báo lỗi có thể nằm sau chỗ thiếu.</li><li>Chạy java HelloWorld.class: với chế độ chạy lớp, bỏ đuôi .class và đứng đúng thư mục hoặc cấu hình classpath.</li><li>Sửa chuỗi nhưng thấy kết quả cũ: lưu file và biên dịch lại, rồi xác nhận terminal đang dùng đúng thư mục.</li><li>Dùng dấu nháy cong từ trình soạn thảo văn bản: thay bằng nháy kép ASCII trong mã nguồn.</li></ul>\n<h3>6. Bài tập ba mức</h3>\n<div class=\"box note\"><div class=\"box-title\">Dễ — Chào khóa học</div><p>Đổi Hello World thành “Hello Java”. Chạy chương trình; chỉ một dòng lời chào. Giữ tên lớp và file, không sửa chữ ký main.</p></div>\n<div class=\"box note\"><div class=\"box-title\">Vừa — Thiết kế đầu ra</div><p>Viết ba lệnh in để tạo đúng hai dòng “Java lesson” và “Chapter 3”. Dùng ít nhất một print, một println. Ghi dự đoán trước khi chạy.</p></div>\n<div class=\"box note\"><div class=\"box-title\">Khó — Phân loại lỗi</div><p>Tạo bản sao riêng, lần lượt thử sai tên file, thiếu chấm phẩy và quên biên dịch lại. Ghi bước phát hiện, thông báo hoặc đầu ra, rồi khôi phục bản đúng. Không ghi đè chương trình đã kiểm chứng.</p></div>\n<div class=\"summary-box\"><h4>7. Tóm tắt</h4><p>Giữ đúng tên lớp/file và chữ ký main. javac biên dịch, java chạy. print không tự xuống dòng; println có xuống dòng. Kiểm chứng mỗi thay đổi bằng đầu ra và sửa một vấn đề mỗi lần.</p></div>\n\n<p>Tài liệu: <a href=\"https://docs.oracle.com/javase/tutorial/getStarted/application/index.html\">giải thích Hello World</a>, <a href=\"https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html\">cách chạy bằng java</a>.</p>\n</section>\n\n    <!-- ================= CHƯƠNG 4 ================= -->",
+      "questions": [
+        {
+          "question": "1. Trong mẫu truyền thống của bài, phương thức nào là điểm bắt đầu?",
+          "options": [
+            "public static void main(String[] args)",
+            "public static void Main(String[] args)",
+            "public static void start(String[] args)",
+            "System.out.println(String[] args)"
+          ],
+          "answer": 0,
+          "explanation": "Giải thích đáp ánA. Đúng: mẫu dùng chữ ký này làm điểm vào.B. Sai: Java phân biệt main và Main.C. Sai: Mẫu trong bài không dùng start làm điểm vào.D. Sai: Đây không phải chữ ký main."
+        },
+        {
+          "question": "2. println khác print như thế nào?",
+          "options": [
+            "println không in được chuỗi",
+            "print luôn thêm hai dòng trống",
+            "println thêm xuống dòng sau nội dung",
+            "println tự biên dịch chương trình"
+          ],
+          "answer": 2,
+          "explanation": "Giải thích đáp ánA. Sai: Cả hai ví dụ đều in chuỗi.B. Sai: print không tự thêm xuống dòng.C. Đúng: đó là khác biệt được bài minh họa.D. Sai: Biên dịch do javac, không phải phương thức in."
+        },
+        {
+          "question": "3. Đầu ra của đoạn mã là gì?",
+          "options": [
+            "Hello, và Synaptrail! trên hai dòng",
+            "Hello, Synaptrail! trên một dòng",
+            "Chỉ Synaptrail!",
+            "Hello, Synaptrail! trên hai dòng giống nhau"
+          ],
+          "answer": 1,
+          "explanation": "Giải thích đáp ánA. Sai: print đầu tiên chưa xuống dòng.B. Đúng: println nối vào nội dung đã in, rồi xuống dòng.C. Sai: print vẫn ghi nội dung đầu tiên.D. Sai: Không có lệnh lặp lại nội dung."
+        },
+        {
+          "question": "4. Đứng trong thư mục chứa HelloWorld.java, chọn thứ tự lệnh đúng.",
+          "options": [
+            "java HelloWorld.java rồi javac HelloWorld.class",
+            "javac HelloWorld.class rồi java HelloWorld.java",
+            "java HelloWorld.class rồi java HelloWorld",
+            "javac HelloWorld.java rồi java HelloWorld"
+          ],
+          "answer": 3,
+          "explanation": "Giải thích đáp ánA. Sai: Không phải quy trình hai bước trong bài.B. Sai: javac cần mã nguồn; file class không phải đầu vào này.C. Sai: Tên lớp trong chế độ này không có đuôi .class.D. Đúng: biên dịch nguồn rồi chạy tên lớp."
+        },
+        {
+          "question": "5. File helloWorld.java chứa public class HelloWorld. Lỗi cần sửa là gì?",
+          "options": [
+            "Đổi tên file thành HelloWorld.java",
+            "Đổi println thành print",
+            "Xóa mọi dấu ngoặc",
+            "Thêm .class vào tên lớp"
+          ],
+          "answer": 0,
+          "explanation": "Giải thích đáp ánA. Đúng: tên phải khớp cả chữ hoa và chữ thường.B. Sai: Phương thức in không sửa tên file.C. Sai: Ngoặc xác định cấu trúc lớp và main.D. Sai: Tên lớp không mang đuôi file."
+        }
+      ],
+      "ids": [
+        "s3"
+      ],
+      "words": 1077
+    },
+    {
+      "id": "chapter04",
+      "file": "chapter04.html",
+      "title": "Biến & Kiểu dữ liệu",
+      "summary": "Java phân biệt rõ ràng kiểu nguyên thủy (primitive) và kiểu tham chiếu (reference).",
+      "content": "<section class=\"chapter\" id=\"s4\">\n      \n      <p class=\"lead\">Java phân biệt rõ ràng kiểu nguyên thủy (primitive) và kiểu tham chiếu (reference).</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">bien.java</span>\n        \n        <pre><code>int tuoi = 20;                  // số nguyên\ndouble diemTb = 8.5;               // số thực độ chính xác cao\nfloat chieuCao = 1.75f;              // số thực, cần hậu tố \"f\"\nchar kyTu = 'A';                       // MỘT ký tự (dấu nháy đơn)\nboolean dangHoc = true;                  // true/false\nString ten = \"Huy\";                        // KIỂU THAM CHIẾU (viết hoa chữ S), không phải primitive\n\nSystem.out.println(ten + \" \" + tuoi);   // nối chuỗi bằng dấu +</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Kiểu nguyên thủy (primitive)</th><th>Kích thước</th><th>Mô tả</th></tr>\n        <tr><td><code>int</code></td><td>4 byte</td><td>Số nguyên</td></tr>\n        <tr><td><code>long</code></td><td>8 byte</td><td>Số nguyên lớn, cần hậu tố \"L\" (VD: 100L)</td></tr>\n        <tr><td><code>double</code></td><td>8 byte</td><td>Số thực độ chính xác cao (mặc định nên dùng)</td></tr>\n        <tr><td><code>boolean</code></td><td>1 bit</td><td>true/false</td></tr>\n        <tr><td><code>char</code></td><td>2 byte</td><td>Một ký tự Unicode</td></tr>\n      </tbody></table>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng — Quy ước đặt tên</div>\n        Java dùng <strong>camelCase</strong> cho biến và method (<code>diemTb</code>, <code>tinhTong()</code>), và <strong>PascalCase</strong> cho tên class (<code>HelloWorld</code>, <code>SinhVien</code>) — vi phạm quy ước này không gây lỗi nhưng bị coi là code không chuyên nghiệp.\n      </div>\n\n      <h3>Kiểu nguyên thủy vs Kiểu tham chiếu</h3>\n      <p><code>int, double, boolean, char</code> là kiểu <strong>nguyên thủy</strong> — lưu trực tiếp giá trị. <code>String</code>, mảng, và object của class tự định nghĩa là kiểu <strong>tham chiếu</strong> — biến lưu địa chỉ trỏ tới object trong bộ nhớ heap.</p>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 4</h4>\n        <p>Java có 8 kiểu nguyên thủy (int, double, boolean...) lưu giá trị trực tiếp, và kiểu tham chiếu (String, mảng, object) lưu địa chỉ trong heap. Quy ước đặt tên: camelCase cho biến, PascalCase cho class.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 5 ================= -->",
+      "questions": [
+        {
+          "question": "1. String trong Java thuộc nhóm nào theo bài?",
+          "options": [
+            "Nguyên thủy",
+            "Tham chiếu",
+            "Kiểu số nguyên",
+            "Toán tử logic"
+          ],
+          "answer": 1,
+          "explanation": "Giải thích đáp ánA. Sai: Bài phân biệt String với int, char và boolean.B. Đúng: String là kiểu tham chiếu.C. Sai: String biểu diễn chuỗi, không phải int.D. Sai: String là kiểu dữ liệu, không phải toán tử."
+        },
+        {
+          "question": "2. Quy ước nào dùng cho tên biến trong bài?",
+          "options": [
+            "PascalCase như DiemTb",
+            "Chỉ dùng chữ hoa như DIEMTB",
+            "Bắt đầu bằng số như 1diem",
+            "camelCase như diemTb"
+          ],
+          "answer": 3,
+          "explanation": "Giải thích đáp ánA. Sai: Bài dùng PascalCase cho lớp.B. Sai: Không phải quy ước biến nêu trong bài.C. Sai: Đây không phải ví dụ camelCase hợp lệ.D. Đúng: bài dùng diemTb cho tên biến."
+        },
+        {
+          "question": "3. Khai báo nào biểu diễn đúng một ký tự theo mẫu?",
+          "options": [
+            "char kyTu = 'A';",
+            "String kyTu = \"A\";",
+            "boolean kyTu = true;",
+            "int kyTu = 20;"
+          ],
+          "answer": 0,
+          "explanation": "Giải thích đáp ánA. Đúng: ký tự dùng nháy đơn trong ví dụ.B. Sai: Đây là chuỗi, không phải biến char.C. Sai: Đây là giá trị logic, không phải ký tự.D. Sai: Đây là số nguyên trong mẫu khai báo."
+        },
+        {
+          "question": "4. Đoạn mã in nội dung nào?",
+          "options": [
+            "20 Huy",
+            "Huy20",
+            "Huy 20",
+            "ten tuoi"
+          ],
+          "answer": 2,
+          "explanation": "Giải thích đáp ánA. Sai: Thứ tự nối bắt đầu bằng ten.B. Sai: Có chuỗi khoảng trắng ở giữa.C. Đúng: nối ten, khoảng trắng rồi tuoi.D. Sai: Tên biến được thay bằng giá trị của chúng."
+        },
+        {
+          "question": "5. Theo mẫu của bài, cần sửa dòng nào?",
+          "options": [
+            "int tuoi = 20;",
+            "float chieuCao = 1.75;",
+            "char kyTu = 'A';",
+            "boolean dangHoc = true;"
+          ],
+          "answer": 1,
+          "explanation": "Giải thích đáp ánA. Sai: Số nguyên này đúng mẫu int.B. Đúng: dùng 1.75f để có literal float như bài.C. Sai: Một ký tự trong nháy đơn là đúng mẫu.D. Sai: Giá trị true phù hợp boolean."
+        }
+      ],
+      "ids": [
+        "s4"
+      ],
+      "words": 252
+    },
+    {
+      "id": "chapter05",
+      "file": "chapter05.html",
+      "title": "Toán tử",
+      "summary": "Các phép toán số học, so sánh, logic quen thuộc — tương tự C++ vì Java kế thừa cú pháp từ C.",
+      "content": "<section class=\"chapter\" id=\"s5\">\n      \n      <p class=\"lead\">Các phép toán số học, so sánh, logic quen thuộc — tương tự C++ vì Java kế thừa cú pháp từ C.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">toan_tu.java</span>\n        \n        <pre><code>int a = 10, b = 3;\nSystem.out.println(a / b);         // 3 - chia số nguyên làm tròn xuống\nSystem.out.println(a % b);           // 1 - chia lấy dư\nSystem.out.println((double) a / b);    // 3.333... - ép kiểu để có kết quả thực\n\nboolean ketQua = (a &gt; 5) &amp;&amp; (b &lt; 5);   // &amp;&amp; và || cho logic\nSystem.out.println(ketQua);              // true\n\nint dem = 0;\ndem++;         // hậu tố tăng\n++dem;          // tiền tố tăng\nSystem.out.println(dem);   // 2</code></pre>\n      </div>\n\n      <h3>So sánh String — lỗi kinh điển với người mới</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">so_sanh_string.java</span>\n        \n        <pre><code>String s1 = new String(\"hello\");\nString s2 = new String(\"hello\");\n\nSystem.out.println(s1 == s2);          // false! == so sánh ĐỊA CHỈ, không phải nội dung\nSystem.out.println(s1.equals(s2));       // true - .equals() so sánh NỘI DUNG</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng — Lỗi kinh điển</div>\n        Với kiểu tham chiếu như <code>String</code>, toán tử <code>==</code> so sánh <strong>địa chỉ bộ nhớ</strong>, không phải nội dung. Luôn dùng <code>.equals()</code> để so sánh nội dung chuỗi — đây là một trong những lỗi phổ biến nhất của người mới học Java.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 5</h4>\n        <p>Toán tử số học/logic của Java tương tự C++. Lưu ý đặc biệt: dùng <code>.equals()</code> chứ không dùng <code>==</code> để so sánh nội dung String.</p>\n      </div>\n    \n</section>\n\n    <!-- ================= CHƯƠNG 6 ================= -->",
+      "questions": [
+        {
+          "question": "1. Toán tử % trong ví dụ dùng để làm gì?",
+          "options": [
+            "Lấy phần dư",
+            "Lấy thương thực",
+            "Nối mọi chuỗi",
+            "So sánh nội dung String"
+          ],
+          "answer": 0,
+          "explanation": "Giải thích đáp ánA. Đúng: 10 % 3 cho 1.B. Sai: Phép chia thực cần / với toán hạng phù hợp.C. Sai: Ví dụ nối chuỗi dùng +.D. Sai: Bài dùng equals để so nội dung."
+        },
+        {
+          "question": "2. Muốn so sánh nội dung hai String theo bài, chọn cách nào?",
+          "options": [
+            "Chỉ dùng ==",
+            "Dùng %",
+            "Dùng equals",
+            "Dùng ++"
+          ],
+          "answer": 2,
+          "explanation": "Giải thích đáp ánA. Sai: Ví dụ == so tham chiếu, không so nội dung.B. Sai: % phục vụ số học, không so chuỗi.C. Đúng: equals so nội dung String trong ví dụ.D. Sai: ++ là tăng giá trị số."
+        },
+        {
+          "question": "3. Hai dòng in dưới đây cho kết quả nào?",
+          "options": [
+            "3.333… rồi 1",
+            "3 rồi 1",
+            "1 rồi 3",
+            "3 rồi 0"
+          ],
+          "answer": 1,
+          "explanation": "Giải thích đáp ánA. Sai: a/b với hai int cho thương nguyên.B. Đúng: 10/3 là 3 và dư 1.C. Sai: Đã đảo thương và phần dư.D. Sai: 10 không chia hết cho 3."
+        },
+        {
+          "question": "4. Biến ketQua có giá trị gì?",
+          "options": [
+            "false vì a lớn hơn b",
+            "10",
+            "3",
+            "true"
+          ],
+          "answer": 3,
+          "explanation": "Giải thích đáp ánA. Sai: Biểu thức không kiểm tra a lớn hơn b.B. Sai: Kết quả khai báo boolean, không phải a.C. Sai: Không trả trực tiếp giá trị b.D. Đúng: cả a>5 và b<5 đều đúng."
+        },
+        {
+          "question": "5. Hai new String(\"hello\") có cùng nội dung. Vì sao kiểm tra s1 == s2 không đạt mục tiêu?",
+          "options": [
+            "== so tham chiếu; cần s1.equals(s2) để so nội dung",
+            "Chuỗi phải viết hoa mới so được",
+            "Cần đổi String thành int",
+            "== luôn đúng cho mọi String"
+          ],
+          "answer": 0,
+          "explanation": "Giải thích đáp ánA. Đúng: hai đối tượng mới không có cùng tham chiếu.B. Sai: Chữ hoa không sửa cách so tham chiếu.C. Sai: Đổi kiểu không giải quyết so nội dung chuỗi.D. Sai: Ví dụ trong bài cho kết quả false."
+        }
+      ],
+      "ids": [
+        "s5"
+      ],
+      "words": 224
+    },
+    {
+      "id": "chapter06",
+      "file": "chapter06.html",
+      "title": "Input/Output (Scanner)",
+      "summary": "Nhận dữ liệu từ bàn phím bằng class Scanner của Java.",
+      "content": "<section class=\"chapter\" id=\"s6\">\n      \n      <p class=\"lead\">Nhận dữ liệu từ bàn phím bằng class Scanner của Java.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">NhapLieu.java</span>\n        \n        <pre><code>import java.util.Scanner;\n\npublic class NhapLieu {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n\n        System.out.print(\"Nhập tên: \");\n        String ten = scanner.nextLine();       // đọc cả dòng, kể cả khoảng trắng\n\n        System.out.print(\"Nhập tuổi: \");\n        int tuoi = scanner.nextInt();             // đọc một số nguyên\n\n        System.out.println(\"Xin chào \" + ten + \", \" + tuoi + \" tuổi\");\n        scanner.close();                              // nên đóng Scanner sau khi dùng xong\n    }\n}</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Phương thức</th><th>Đọc kiểu gì</th></tr>\n        <tr><td><code>nextLine()</code></td><td>Cả dòng (String, kể cả khoảng trắng)</td></tr>\n        <tr><td><code>nextInt()</code></td><td>Số nguyên</td></tr>\n        <tr><td><code>nextDouble()</code></td><td>Số thực</td></tr>\n      </tbody></table>\n\n      <div class=\"box warning\">\n        <div class=\"box-title\">Lỗi thường gặp</div>\n        Gọi <code>nextInt()</code> rồi gọi <code>nextLine()</code> ngay sau đó thường trả về chuỗi rỗng — vì <code>nextInt()</code> không \"ăn\" luôn ký tự xuống dòng. Cách khắc phục: thêm một <code>scanner.nextLine()</code> thừa để \"dọn\" bộ đệm trước khi đọc dòng tiếp theo.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 6</h4>\n        <p><code>Scanner</code> (từ <code>java.util</code>) đọc dữ liệu nhập từ bàn phím với các phương thức <code>nextLine()/nextInt()/nextDouble()</code> tương ứng từng kiểu.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 7 ================= -->",
+      "questions": [],
+      "ids": [
+        "s6"
+      ],
+      "words": 162
+    },
+    {
+      "id": "chapter07",
+      "file": "chapter07.html",
+      "title": "Điều kiện (if/switch)",
+      "summary": "Câu lệnh rẽ nhánh — cú pháp gần như giống hệt C++.",
+      "content": "<section class=\"chapter\" id=\"s7\">\n      \n      <p class=\"lead\">Câu lệnh rẽ nhánh — cú pháp gần như giống hệt C++.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">if_else.java</span>\n        \n        <pre><code>int diem = 8;\n\nif (diem &gt;= 8) {\n    System.out.println(\"Giỏi\");\n} else if (diem &gt;= 6) {\n    System.out.println(\"Khá\");\n} else {\n    System.out.println(\"Cần cố gắng\");\n}</code></pre>\n      </div>\n\n      <h3>Switch expression hiện đại (Java 14+)</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">switch_moi.java</span>\n        \n        <pre><code>int thu = 3;\nString tenThu = switch (thu) {       // switch KIỂU MỚI trả về giá trị trực tiếp\n    case 1 -&gt; \"Thứ Hai\";\n    case 2 -&gt; \"Thứ Ba\";\n    case 3 -&gt; \"Thứ Tư\";\n    default -&gt; \"Ngày khác\";\n};\nSystem.out.println(tenThu);   // Thứ Tư - KHÔNG cần break, không bị fall-through</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Switch kiểu mới (mũi tên <code>-&gt;</code>, từ Java 14+) an toàn hơn switch cổ điển vì không có fall-through và có thể trả về giá trị trực tiếp — nên ưu tiên dùng nếu dự án dùng Java 14 trở lên.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 7</h4>\n        <p>Java hỗ trợ cả switch cổ điển (cần break) và switch expression hiện đại (an toàn hơn, trả về giá trị trực tiếp) từ Java 14 trở lên.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 8 ================= -->",
+      "questions": [],
+      "ids": [
+        "s7"
+      ],
+      "words": 171
+    },
+    {
+      "id": "chapter08",
+      "file": "chapter08.html",
+      "title": "Vòng lặp",
+      "summary": "for, while, do-while và enhanced for (for-each).",
+      "content": "<section class=\"chapter\" id=\"s8\">\n      \n      <p class=\"lead\">for, while, do-while và enhanced for (for-each).</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">vong_lap.java</span>\n        \n        <pre><code>for (int i = 0; i &lt; 5; i++) {\n    System.out.print(i + \" \");\n}   // 0 1 2 3 4\n\nint dem = 0;\nwhile (dem &lt; 5) {\n    System.out.print(dem + \" \");\n    dem++;\n}\n\nint[] mang = {10, 20, 30};\nfor (int giaTri : mang) {     // enhanced for (for-each) - giống range-based for của C++\n    System.out.print(giaTri + \" \");\n}</code></pre>\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 8</h4>\n        <p>Java có đầy đủ for/while/do-while giống C++, cộng thêm enhanced for (for-each) để duyệt mảng/collection ngắn gọn.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 9 ================= -->",
+      "questions": [
+        {
+          "question": "1. Cú pháp switch expression hiện đại (Java 14+) dùng ký hiệu gì thay cho break?",
+          "options": [
+            "-> (mũi tên)",
+            ":: (hai dấu hai chấm)",
+            "=> (mũi tên kép)"
+          ],
+          "answer": 0,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s8"
+      ],
+      "words": 93
+    },
+    {
+      "id": "chapter09",
+      "file": "chapter09.html",
+      "title": "Mảng (Array)",
+      "summary": "Tập hợp phần tử cùng kiểu, kích thước cố định — trong Java, mảng LUÔN là kiểu tham chiếu (object).",
+      "content": "<section class=\"chapter\" id=\"s9\">\n      \n      <p class=\"lead\">Tập hợp phần tử cùng kiểu, kích thước cố định — trong Java, mảng LUÔN là kiểu tham chiếu (object).</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">array.java</span>\n        \n        <pre><code>int[] diem = {90, 85, 78, 92, 88};    // khai báo và khởi tạo mảng\nSystem.out.println(diem[0]);              // 90 - truy cập theo chỉ số, bắt đầu từ 0\nSystem.out.println(diem.length);            // 5 - .length là THUỘC TÍNH, không phải hàm\n\nint[] mangRong = new int[10];   // mảng 10 phần tử, mặc định toàn số 0\n\n// Mảng 2 chiều\nint[][] maTran = {{1,2,3}, {4,5,6}};\nSystem.out.println(maTran[1][2]);   // 6</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        Truy cập chỉ số vượt quá kích thước mảng (VD: <code>diem[10]</code> trên mảng 5 phần tử) sẽ ném ra <code>ArrayIndexOutOfBoundsException</code> ngay lập tức — an toàn hơn C++ (nơi lỗi này gây \"undefined behavior\" khó lường).\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 9</h4>\n        <p>Mảng Java có <code>.length</code> để lấy kích thước, tự động ném exception rõ ràng khi truy cập sai chỉ số — an toàn hơn mảng C-style của C++.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 10 ================= -->",
+      "questions": [],
+      "ids": [
+        "s9"
+      ],
+      "words": 158
+    },
+    {
+      "id": "chapter10",
+      "file": "chapter10.html",
+      "title": "Method (Hàm)",
+      "summary": "Trong Java, mọi hàm đều phải nằm trong một class — gọi là \"method\".",
+      "content": "<section class=\"chapter\" id=\"s10\">\n      \n      <p class=\"lead\">Trong Java, mọi hàm đều phải nằm trong một class — gọi là \"method\".</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">Method.java</span>\n        \n        <pre><code>public class Toan {\n    public static int cong(int a, int b) {    // static = gọi được KHÔNG CẦN tạo object\n        return a + b;\n    }\n\n    public static int giaiThua(int n) {\n        if (n &lt;= 1) return 1;\n        return n * giaiThua(n - 1);\n    }\n\n    public static void main(String[] args) {\n        System.out.println(cong(3, 5));       // 8\n        System.out.println(giaiThua(5));        // 120\n    }\n}</code></pre>\n      </div>\n\n      <h3>Overloading — nhiều method cùng tên, khác tham số</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">overloading.java</span>\n        \n        <pre><code>static int cong(int a, int b) { return a + b; }\nstatic double cong(double a, double b) { return a + b; }     // overload theo kiểu tham số\nstatic int cong(int a, int b, int c) { return a + b + c; }     // overload theo SỐ LƯỢNG tham số\n\n// Java tự động chọn đúng method phù hợp dựa trên kiểu/số lượng tham số truyền vào</code></pre>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">Ghi chú</div>\n        <strong>Method Overloading</strong> (nhiều method cùng tên nhưng khác tham số) khác với <strong>Overriding</strong> (ghi đè method của lớp cha) — hai khái niệm dễ nhầm sẽ được phân biệt rõ ở phần OOP nâng cao.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 10</h4>\n        <p>Method luôn thuộc về một class. <code>static</code> cho phép gọi method mà không cần tạo object. Overloading cho phép nhiều method cùng tên với tham số khác nhau.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 11 ================= -->",
+      "questions": [],
+      "ids": [
+        "s10"
+      ],
+      "words": 225
+    },
+    {
+      "id": "chapter11",
+      "file": "chapter11.html",
+      "title": "OOP cơ bản (Class & Object)",
+      "summary": "Java là ngôn ngữ hướng đối tượng thuần túy — mọi chương trình đều xoay quanh class và object.",
+      "content": "<section class=\"chapter\" id=\"s11\">\n      \n      <p class=\"lead\">Java là ngôn ngữ hướng đối tượng thuần túy — mọi chương trình đều xoay quanh class và object.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">SinhVien.java</span>\n        \n        <pre><code>public class SinhVien {\n    private String ten;      // private = chỉ truy cập được bên trong class (encapsulation)\n    private int tuoi;\n\n    public SinhVien(String ten, int tuoi) {   // constructor - tên PHẢI trùng tên class\n        this.ten = ten;          // \"this\" phân biệt biến của object với tham số cùng tên\n        this.tuoi = tuoi;\n    }\n\n    public void gioiThieu() {\n        System.out.println(\"Tôi tên \" + this.ten + \", \" + this.tuoi + \" tuổi\");\n    }\n\n    public int getTuoi() {         // getter - quy ước đặt tên \"getXyz\"\n        return tuoi;\n    }\n\n    public void setTuoi(int tuoi) {   // setter - quy ước đặt tên \"setXyz\"\n        if (tuoi &gt; 0) {                 // có thể kiểm tra ràng buộc trước khi gán\n            this.tuoi = tuoi;\n        }\n    }\n}\n\n// Trong file khác hoặc method main:\nSinhVien sv = new SinhVien(\"Huy\", 20);   // \"new\" tạo object mới\nsv.gioiThieu();                              // Tôi tên Huy, 20 tuổi\nsv.setTuoi(21);\nSystem.out.println(sv.getTuoi());              // 21</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Quy ước getter/setter (<code>getXyz()</code>/<code>setXyz()</code>) là chuẩn mực bắt buộc trong Java — nhiều framework (Spring, Jackson khi convert JSON) dựa vào đúng quy ước đặt tên này để hoạt động tự động.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 11</h4>\n        <p>Object được tạo bằng từ khóa <code>new</code>. <code>this</code> tham chiếu tới chính object hiện tại. Getter/setter là quy ước chuẩn để truy cập thuộc tính private có kiểm soát.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 12 ================= -->",
+      "questions": [
+        {
+          "question": "1. Từ khóa nào dùng để tạo một object mới từ class trong Java?",
+          "options": [
+            "create",
+            "new",
+            "make"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s11"
+      ],
+      "words": 237
+    },
+    {
+      "id": "chapter12",
+      "file": "chapter12.html",
+      "title": "Exception cơ bản",
+      "summary": "Cơ chế xử lý lỗi bằng try-catch-finally — tương tự Python nhưng có thêm \"checked exception\" đặc trưng của Java.",
+      "content": "<section class=\"chapter\" id=\"s12\">\n      \n      <p class=\"lead\">Cơ chế xử lý lỗi bằng try-catch-finally — tương tự Python nhưng có thêm \"checked exception\" đặc trưng của Java.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">Exception.java</span>\n        \n        <pre><code>public class XuLyLoi {\n    public static void main(String[] args) {\n        try {\n            int[] mang = {1, 2, 3};\n            System.out.println(mang[5]);          // sẽ gây lỗi\n        } catch (ArrayIndexOutOfBoundsException e) {\n            System.out.println(\"Lỗi: truy cập chỉ số ngoài phạm vi - \" + e.getMessage());\n        } finally {\n            System.out.println(\"Khối này LUÔN chạy, dù có lỗi hay không\");\n        }\n    }\n}</code></pre>\n      </div>\n\n      <h3>Checked vs Unchecked Exception</h3>\n      <table>\n        <tbody><tr><th>Loại</th><th>Đặc điểm</th><th>Ví dụ</th></tr>\n        <tr><td><strong>Checked</strong></td><td>Bắt buộc phải xử lý hoặc khai báo <code>throws</code>, kiểm tra lúc biên dịch</td><td><code>IOException</code></td></tr>\n        <tr><td><strong>Unchecked</strong></td><td>Không bắt buộc xử lý, chỉ xảy ra lúc runtime</td><td><code>NullPointerException</code>, <code>ArithmeticException</code></td></tr>\n      </tbody></table>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">custom_exception.java</span>\n        \n        <pre><code>class SoDuKhongDuException extends Exception {    // custom exception kế thừa từ Exception\n    public SoDuKhongDuException(String thongBao) {\n        super(thongBao);\n    }\n}\n\nstatic void rutTien(double soDu, double soTien) throws SoDuKhongDuException {\n    if (soTien &gt; soDu) {\n        throw new SoDuKhongDuException(\"Số dư không đủ!\");\n    }\n}</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        <code>NullPointerException</code> (NPE) là lỗi phổ biến nhất trong Java — xảy ra khi gọi method trên một biến tham chiếu đang là <code>null</code>. Luôn kiểm tra <code>if (obj != null)</code> trước khi thao tác, hoặc dùng <code>Optional</code> (Java 8+) để xử lý an toàn hơn.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 12</h4>\n        <p>Java phân biệt checked exception (bắt buộc xử lý) và unchecked exception (runtime). NullPointerException là lỗi phổ biến nhất — luôn kiểm tra null trước khi dùng biến tham chiếu.</p>\n      </div>\n\n    </section>\n\n    <!-- ================= CHƯƠNG 13 ================= -->",
+      "questions": [
+        {
+          "question": "1. Exception nào phổ biến nhất khi gọi method trên biến đang là null?",
+          "options": [
+            "NullPointerException",
+            "ArrayIndexOutOfBoundsException",
+            "ClassNotFoundException"
+          ],
+          "answer": 0,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s12"
+      ],
+      "words": 232
+    },
+    {
+      "id": "chapter13",
+      "file": "chapter13.html",
+      "title": "Kế thừa (extends)",
+      "summary": "Class con kế thừa từ class cha bằng từ khóa extends — Java chỉ hỗ trợ đơn kế thừa (một class chỉ extends được một class cha).",
+      "content": "<section class=\"chapter\" id=\"s13\">\n      \n      <p class=\"lead\">Class con kế thừa từ class cha bằng từ khóa <code>extends</code> — Java chỉ hỗ trợ đơn kế thừa (một class chỉ extends được một class cha).</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">Inheritance.java</span>\n        \n        <pre><code>class DongVat {\n    protected String ten;              // protected = truy cập được từ class con\n    public DongVat(String ten) { this.ten = ten; }\n    public void an() {\n        System.out.println(ten + \" đang ăn\");\n    }\n}\n\nclass Cho extends DongVat {           // Cho KẾ THỪA từ DongVat\n    public Cho(String ten) {\n        super(ten);                       // gọi constructor của lớp cha - PHẢI là dòng đầu tiên\n    }\n    public void sua() {\n        System.out.println(ten + \" sủa: Gâu gâu!\");\n    }\n\n    @Override                             // annotation - giúp trình biên dịch kiểm tra đúng override\n    public void an() {\n        super.an();                          // gọi lại phương thức GỐC của cha\n        System.out.println(ten + \" ăn rất ngon miệng\");\n    }\n}\n\n// Cho cho = new Cho(\"Milu\");\n// cho.an();    // gọi phiên bản ĐÃ OVERRIDE ở Cho\n// cho.sua();</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        Java chỉ hỗ trợ <strong>đơn kế thừa class</strong> (một class chỉ extends được đúng một class cha) — khác C++ cho phép đa kế thừa. Để có hành vi tương tự đa kế thừa, Java dùng <strong>interface</strong> (chương 14).\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 13</h4>\n        <p><code>extends</code> tạo quan hệ kế thừa, <code>super()</code> gọi constructor cha, <code>@Override</code> đánh dấu ghi đè phương thức. Java chỉ hỗ trợ đơn kế thừa class.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 14 ================= -->",
+      "questions": [],
+      "ids": [
+        "s13"
+      ],
+      "words": 225
+    },
+    {
+      "id": "chapter14",
+      "file": "chapter14.html",
+      "title": "Đa hình & Interface",
+      "summary": "Interface định nghĩa \"hợp đồng\" mà class phải tuân theo — cách Java đạt được đa kế thừa hành vi.",
+      "content": "<section class=\"chapter\" id=\"s14\">\n      \n      <p class=\"lead\">Interface định nghĩa \"hợp đồng\" mà class phải tuân theo — cách Java đạt được đa kế thừa hành vi.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">Interface.java</span>\n        \n        <pre><code>interface Hinh {                      // interface - chỉ khai báo phương thức, không có thân hàm\n    double dienTich();                     // mặc định là public abstract\n}\n\nclass HinhVuong implements Hinh {       // \"implements\" - class TUÂN THEO interface\n    private double canh;\n    public HinhVuong(double canh) { this.canh = canh; }\n\n    @Override\n    public double dienTich() {              // BẮT BUỘC triển khai mọi phương thức của interface\n        return canh * canh;\n    }\n}\n\nclass HinhTron implements Hinh {\n    private double banKinh;\n    public HinhTron(double r) { this.banKinh = r; }\n\n    @Override\n    public double dienTich() {\n        return 3.14 * banKinh * banKinh;\n    }\n}\n\n// Đa hình: một biến kiểu Hinh có thể trỏ tới bất kỳ class nào implements nó\nHinh[] danhSach = {new HinhVuong(4), new HinhTron(3)};\nfor (Hinh h : danhSach) {\n    System.out.println(h.dienTich());   // gọi ĐÚNG phiên bản của từng class\n}</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Một class Java có thể <code>implements</code> <strong>nhiều interface</strong> cùng lúc (khác với chỉ <code>extends</code> được một class) — đây là cách Java giải quyết nhu cầu \"đa kế thừa hành vi\" mà không gặp vấn đề phức tạp của đa kế thừa class như C++.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 14</h4>\n        <p>Interface định nghĩa hợp đồng các phương thức bắt buộc. Class dùng <code>implements</code> để tuân theo, có thể implements nhiều interface — nền tảng đa hình linh hoạt của Java.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 15 ================= -->",
+      "questions": [],
+      "ids": [
+        "s14"
+      ],
+      "words": 239
+    },
+    {
+      "id": "chapter15",
+      "file": "chapter15.html",
+      "title": "Abstract Class",
+      "summary": "Class trung gian giữa class thường và interface — vừa có thể có phương thức đã triển khai, vừa có phương thức bắt buộc override.",
+      "content": "<section class=\"chapter\" id=\"s15\">\n      \n      <p class=\"lead\">Class trung gian giữa class thường và interface — vừa có thể có phương thức đã triển khai, vừa có phương thức bắt buộc override.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">AbstractClass.java</span>\n        \n        <pre><code>abstract class PhuongTien {              // \"abstract\" - KHÔNG THỂ tạo object trực tiếp\n    protected String ten;\n    public PhuongTien(String ten) { this.ten = ten; }\n\n    public void thongTin() {                  // phương thức THƯỜNG - đã có sẵn triển khai\n        System.out.println(\"Phương tiện: \" + ten);\n    }\n\n    public abstract void diChuyen();          // phương thức TRỪU TƯỢNG - BẮT BUỘC class con override\n}\n\nclass XeMay extends PhuongTien {\n    public XeMay(String ten) { super(ten); }\n\n    @Override\n    public void diChuyen() {\n        System.out.println(ten + \" chạy bằng động cơ 2 bánh\");\n    }\n}\n\n// PhuongTien pt = new PhuongTien(\"X\");   // LỖI - không thể khởi tạo abstract class\nXeMay xm = new XeMay(\"Honda\");\nxm.thongTin();       // kế thừa từ abstract class\nxm.diChuyen();          // Honda chạy bằng động cơ 2 bánh</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Tiêu chí</th><th>Interface</th><th>Abstract Class</th></tr>\n        <tr><td>Đa kế thừa</td><td>Implements được nhiều</td><td>Chỉ extends được một</td></tr>\n        <tr><td>Phương thức đã triển khai</td><td>Từ Java 8+ có thể (default method)</td><td>Có, từ đầu</td></tr>\n        <tr><td>Thuộc tính (field)</td><td>Chỉ hằng số (public static final)</td><td>Có thể có thuộc tính thường</td></tr>\n        <tr><td>Dùng khi</td><td>Định nghĩa \"khả năng\" chung không liên quan huyết thống</td><td>Các class có QUAN HỆ \"là một loại của\" rõ ràng</td></tr>\n      </tbody></table>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 15</h4>\n        <p>Abstract class không thể khởi tạo trực tiếp, có thể chứa cả phương thức đã triển khai và phương thức trừu tượng bắt buộc override — dùng khi các class con có quan hệ họ hàng rõ ràng.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 16 ================= -->",
+      "questions": [
+        {
+          "question": "1. Điều gì KHÔNG thể làm với abstract class?",
+          "options": [
+            "Kế thừa nó bằng extends",
+            "Tạo object trực tiếp bằng new",
+            "Có phương thức đã triển khai sẵn"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s15"
+      ],
+      "words": 250
+    },
+    {
+      "id": "chapter16",
+      "file": "chapter16.html",
+      "title": "ArrayList & LinkedList",
+      "summary": "Hai cài đặt phổ biến của interface List trong Collections Framework — danh sách động, khác mảng cố định.",
+      "content": "<section class=\"chapter\" id=\"s16\">\n      \n      <p class=\"lead\">Hai cài đặt phổ biến của interface <code>List</code> trong Collections Framework — danh sách động, khác mảng cố định.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">ArrayListDemo.java</span>\n        \n        <pre><code>import java.util.ArrayList;\nimport java.util.List;\n\nList&lt;String&gt; ds = new ArrayList&lt;&gt;();    // khai báo kiểu interface List, khởi tạo ArrayList\nds.add(\"Táo\");\nds.add(\"Cam\");\nds.add(\"Chuối\");\n\nSystem.out.println(ds.get(0));               // \"Táo\" - truy cập theo chỉ số\nds.remove(\"Cam\");                                // xóa theo GIÁ TRỊ\nSystem.out.println(ds.size());                    // 2\n\nfor (String tc : ds) {                            // duyệt bằng enhanced for\n    System.out.println(tc);\n}</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Tiêu chí</th><th>ArrayList</th><th>LinkedList</th></tr>\n        <tr><td>Cấu trúc bên trong</td><td>Mảng động</td><td>Danh sách liên kết đôi</td></tr>\n        <tr><td>Truy cập theo chỉ số</td><td>O(1) - nhanh</td><td>O(n) - chậm</td></tr>\n        <tr><td>Thêm/xóa ở đầu</td><td>O(n) - chậm</td><td>O(1) - nhanh</td></tr>\n        <tr><td>Dùng khi</td><td>Truy cập ngẫu nhiên nhiều</td><td>Thêm/xóa ở đầu/cuối thường xuyên</td></tr>\n      </tbody></table>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Luôn khai báo biến theo kiểu <strong>interface</strong> (<code>List&lt;String&gt; ds = new ArrayList&lt;&gt;()</code>) thay vì kiểu cụ thể — giúp dễ dàng đổi cài đặt (VD: sang LinkedList) sau này mà không cần sửa code sử dụng.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 16</h4>\n        <p><code>ArrayList</code> phù hợp khi cần truy cập ngẫu nhiên nhanh, <code>LinkedList</code> phù hợp khi thêm/xóa nhiều ở đầu danh sách — cả hai đều triển khai interface <code>List</code>.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 17 ================= -->",
+      "questions": [],
+      "ids": [
+        "s16"
+      ],
+      "words": 179
+    },
+    {
+      "id": "chapter17",
+      "file": "chapter17.html",
+      "title": "HashMap & HashSet",
+      "summary": "Chọn cấu trúc để tra cứu theo khóa, loại dữ liệu trùng và xử lý thống kê đơn giản bằng Java.",
+      "content": "<section class=\"chapter\" id=\"s17\">\n  \n  <p class=\"lead\">Chọn cấu trúc để tra cứu theo khóa, loại dữ liệu trùng và xử lý thống kê đơn giản bằng Java.</p>\n\n  <h3>1. Mục tiêu học</h3>\n  <ul>\n    <li>Phân biệt cặp khóa–giá trị của <code>HashMap</code> với phần tử duy nhất của <code>HashSet</code>.</li>\n    <li>Thêm, cập nhật, tìm kiếm và xóa dữ liệu; dự đoán kết quả trước khi chạy.</li>\n    <li>Giải thích khóa trùng, giá trị mặc định và lựa chọn thứ tự duyệt.</li>\n  </ul>\n  <p>Bạn cần biết biến, vòng lặp và lớp cơ bản. Ví dụ dưới đây là chương trình hoàn chỉnh, tương thích Java 8 trở lên; tên file phải trùng tên lớp public.</p>\n\n  <h3>2. Vấn đề thực tế</h3>\n  <p>Một cửa hàng nhận danh sách món hàng: sách, bút, sách, vở. Người quản lý cần biết mỗi món xuất hiện bao nhiêu lần và có bao nhiêu loại hàng khác nhau. Dùng danh sách rồi quét lại từ đầu cho từng món sẽ làm cách xử lý dài và khó mở rộng.</p>\n  <p>Hãy tách hai câu hỏi: “sách có số lượng bao nhiêu?” cần liên hệ tên hàng với số lượng; “đã gặp sách chưa?” chỉ cần kiểm tra sự tồn tại. Câu hỏi đầu phù hợp với map, câu hỏi sau phù hợp với set.</p>\n\n  <h3>3. Lý thuyết nền</h3>\n  <p><code>Map&lt;K, V&gt;</code> biểu diễn quan hệ từ khóa K đến giá trị V. Mỗi khóa chỉ có một giá trị hiện tại; hai khóa khác nhau có thể cùng giá trị. Gọi <code>put</code> lần nữa với cùng khóa sẽ cập nhật giá trị, không tăng số khóa.</p>\n  <p><code>Set&lt;E&gt;</code> chứa các phần tử không trùng theo quy tắc so sánh của chúng. <code>add</code> trả về true khi thêm thành công, false khi phần tử đã có. Nó không đếm số lần xuất hiện; muốn đếm, hãy dùng map.</p>\n  <p>Cả hai cấu trúc dùng mã băm để xác định vị trí lưu và dùng <code>equals</code> để phân biệt các đối tượng. Cùng mã băm chưa chắc là cùng phần tử. Với lớp tự tạo, hai đối tượng bằng nhau phải có cùng <code>hashCode</code>; tránh sửa thuộc tính tham gia so sánh khi đối tượng đang là khóa.</p>\n  <div class=\"box important\">\n    <div class=\"box-title\">Chọn đúng cấu trúc</div>\n    <p>Tra cứu cơ bản thường đạt O(1) khi mã băm phân bố tốt, không phải bảo đảm cho mọi dữ liệu. HashMap và HashSet không cam kết thứ tự. Cần thứ tự chèn: chọn LinkedHashMap/LinkedHashSet; cần sắp xếp: cân nhắc TreeMap/TreeSet.</p>\n  </div>\n\n  <h3>4. Ví dụ từng bước</h3>\n  <h4>A. Đếm số lần xuất hiện bằng HashMap</h4>\n  <p>Lưu mã dưới đây thành <code>HashMapDemo.java</code>. Dự đoán ba dòng kết quả trước khi biên dịch, rồi đối chiếu dự đoán của bạn.</p>\n  <div class=\"code-wrap\">\n    <span class=\"code-label\">HashMapDemo.java</span>\n    \n    <pre><code>import java.util.HashMap;\nimport java.util.Map;\n\npublic class HashMapDemo {\n    public static void main(String[] args) {\n        Map&lt;String, Integer&gt; counts = new HashMap&lt;&gt;();\n        String[] items = {\"sach\", \"but\", \"sach\", \"vo\"};\n        for (String item : items) {\n            int previous = counts.getOrDefault(item, 0);\n            counts.put(item, previous + 1);\n        }\n        System.out.println(counts.get(\"sach\"));\n        System.out.println(counts.getOrDefault(\"thuoc\", 0));\n        System.out.println(counts.size());\n    }\n}</code></pre>\n  </div>\n  <ol>\n    <li>Hai dòng <code>import</code> đưa lớp triển khai và interface vào phạm vi sử dụng.</li>\n    <li><code>public class</code> đặt tên chương trình; <code>main</code> là điểm bắt đầu chạy.</li>\n    <li>Dòng khai báo <code>counts</code> chọn khóa String và giá trị Integer, khởi tạo map rỗng.</li>\n    <li>Mảng <code>items</code> mô phỏng dữ liệu cửa hàng; vòng for lấy từng tên hàng.</li>\n    <li><code>getOrDefault</code> lấy số đếm cũ; tên chưa có được tính là 0.</li>\n    <li><code>put</code> ghi số cũ cộng một. Lần gặp “sach” thứ hai cập nhật 1 thành 2.</li>\n    <li>Ba dòng <code>println</code> lần lượt in số sách, số thước và số khóa: <strong>2, 0, 3</strong>.</li>\n    <li>Các dấu ngoặc đóng kết thúc vòng lặp, phương thức và lớp; không đặt lệnh ngoài phương thức.</li>\n  </ol>\n\n  <h4>B. Loại trùng bằng HashSet</h4>\n  <div class=\"code-wrap\">\n    <span class=\"code-label\">HashSetDemo.java</span>\n    \n    <pre><code>import java.util.HashSet;\nimport java.util.Set;\n\npublic class HashSetDemo {\n    public static void main(String[] args) {\n        Set&lt;String&gt; names = new HashSet&lt;&gt;();\n        System.out.println(names.add(\"sach\"));\n        System.out.println(names.add(\"sach\"));\n        names.add(\"but\");\n        System.out.println(names.size());\n        System.out.println(names.contains(\"but\"));\n        names.remove(\"but\");\n        System.out.println(names.contains(\"but\"));\n    }\n}</code></pre>\n  </div>\n  <ol>\n    <li>Hai import chọn HashSet và interface Set; khai báo lớp và main giống ví dụ A.</li>\n    <li>Dòng tạo <code>names</code> chuẩn bị tập hợp String rỗng.</li>\n    <li>Hai lần thêm “sach” in <strong>true</strong> rồi <strong>false</strong>: bản trùng không được thêm.</li>\n    <li>Thêm “but” làm kích thước thành <strong>2</strong>; kiểm tra tồn tại in <strong>true</strong>.</li>\n    <li><code>remove</code> xóa “but”; lần kiểm tra cuối in <strong>false</strong>. Các ngoặc đóng kết thúc chương trình.</li>\n  </ol>\n  <p>Chạy bằng <code>javac HashMapDemo.java HashSetDemo.java</code>, sau đó <code>java HashMapDemo</code> và <code>java HashSetDemo</code>. Không so sánh thứ tự khi in cả map hoặc set.</p>\n\n  <h3>5. Lỗi thường gặp</h3>\n  <ul>\n    <li>Đọc khóa thiếu bằng <code>get</code> rồi gán vào int có thể gây NullPointerException do tự mở hộp null. Với số đếm, dùng giá trị mặc định.</li>\n    <li>Cho rằng <code>getOrDefault</code> thay mọi null: khóa có giá trị null vẫn trả null. Ví dụ đếm trên luôn lưu số nguyên.</li>\n    <li>Trông chờ thứ tự chèn hoặc dùng vị trí chỉ số với HashSet. Set không phải danh sách.</li>\n    <li>Sửa cấu trúc trong lúc duyệt for-each có thể gây ConcurrentModificationException. Nếu cần xóa lúc duyệt, dùng iterator phù hợp.</li>\n  </ul>\n\n  <h3>6. Bài tập ba mức</h3>\n  <div class=\"box note\">\n    <div class=\"box-title\">Dễ — Đếm màu</div>\n    <p>Đếm mảng “do, xanh, do”. In số “do” và số màu khác nhau. Kết quả phải là 2 và 2; thử thêm mảng rỗng.</p>\n  </div>\n  <div class=\"box note\">\n    <div class=\"box-title\">Vừa — Chuẩn hóa tên hàng</div>\n    <p>Loại khoảng trắng hai đầu và chuyển tên về chữ thường trước khi đếm. Với “ Sach ” và “sach”, chỉ còn một khóa, giá trị 2. Quy định rõ cách xử lý chuỗi rỗng.</p>\n  </div>\n  <div class=\"box note\">\n    <div class=\"box-title\">Khó — Thống kê giỏ hàng</div>\n    <p>Viết phương thức trả map số lượng và tập hợp món xuất hiện ít nhất hai lần. Thử dữ liệu rỗng, toàn khác nhau và toàn trùng. Giải thích vì sao dùng cả map lẫn set; không dựa vào thứ tự duyệt.</p>\n  </div>\n\n  <div class=\"summary-box\">\n    <h4>7. Tóm tắt</h4>\n    <p>Map trả lời “khóa này gắn với gì?”, set trả lời “phần tử này đã có chưa?”. Khóa trùng cập nhật map; phần tử trùng không tăng set. Chọn cấu trúc theo câu hỏi, rồi kiểm tra dữ liệu thiếu và trùng.</p>\n  </div>\n\n  \n  <p>Tài liệu đối chiếu: <a href=\"https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/HashMap.html\">HashMap</a> và <a href=\"https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/HashSet.html\">HashSet trong Java API</a>.</p>\n</section>\n\n    <!-- ================= CHƯƠNG 18 ================= -->",
+      "questions": [
+        {
+          "question": "1. Cấu trúc nào phù hợp để tra cứu tên hàng → số lượng?",
+          "options": [
+            "HashMap",
+            "HashSet",
+            "ArrayList không cần tìm kiếm"
+          ],
+          "answer": 0,
+          "explanation": ""
+        },
+        {
+          "question": "2. put cùng khóa lần thứ hai làm gì?",
+          "options": [
+            "Tạo khóa trùng",
+            "Cập nhật giá trị",
+            "Luôn báo lỗi"
+          ],
+          "answer": 1,
+          "explanation": ""
+        },
+        {
+          "question": "3. add cùng phần tử vào HashSet lần thứ hai trả về gì?",
+          "options": [
+            "true",
+            "null",
+            "false"
+          ],
+          "answer": 2,
+          "explanation": ""
+        },
+        {
+          "question": "4. Khóa chưa tồn tại: getOrDefault(key, 0) trả gì?",
+          "options": [
+            "0",
+            "Tự thêm khóa vào map",
+            "Luôn trả null"
+          ],
+          "answer": 0,
+          "explanation": ""
+        },
+        {
+          "question": "5. Muốn giữ thứ tự thêm các phần tử duy nhất, chọn gì?",
+          "options": [
+            "HashSet",
+            "LinkedHashSet",
+            "HashMap tự sắp xếp"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s17"
+      ],
+      "words": 991
+    },
+    {
+      "id": "chapter18",
+      "file": "chapter18.html",
+      "title": "Generics",
+      "summary": "Cho phép viết class/method hoạt động với nhiều kiểu dữ liệu khác nhau mà vẫn an toàn về kiểu (type-safe).",
+      "content": "<section class=\"chapter\" id=\"s18\">\n      \n      <p class=\"lead\">Cho phép viết class/method hoạt động với nhiều kiểu dữ liệu khác nhau mà vẫn an toàn về kiểu (type-safe).</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">Generics.java</span>\n        \n        <pre><code>class Hop&lt;T&gt; {                    // T là kiểu tổng quát (type parameter) - có thể đặt tên khác\n    private T noiDung;\n\n    public void dat(T noiDung) {\n        this.noiDung = noiDung;\n    }\n\n    public T lay() {\n        return noiDung;\n    }\n}\n\nHop&lt;String&gt; hopChuoi = new Hop&lt;&gt;();     // T được thay bằng String\nhopChuoi.dat(\"Xin chào\");\nString s = hopChuoi.lay();                    // KHÔNG cần ép kiểu, an toàn tại thời điểm biên dịch\n\nHop&lt;Integer&gt; hopSo = new Hop&lt;&gt;();\nhopSo.dat(42);\n\n// Generic method\nstatic &lt;T&gt; T phanTuDauTien(List&lt;T&gt; ds) {\n    return ds.get(0);\n}</code></pre>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">Ghi chú</div>\n        Trước khi có Generics (trước Java 5), lập trình viên phải dùng <code>Object</code> chung chung rồi tự ép kiểu thủ công — dễ gây lỗi <code>ClassCastException</code> lúc runtime. Generics chuyển việc kiểm tra kiểu sang <strong>lúc biên dịch</strong>, an toàn hơn nhiều.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 18</h4>\n        <p>Generics (<code>&lt;T&gt;</code>) cho phép class/method hoạt động với nhiều kiểu dữ liệu mà vẫn kiểm tra kiểu tại thời điểm biên dịch, tránh lỗi ép kiểu runtime.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 19 ================= -->",
+      "questions": [],
+      "ids": [
+        "s18"
+      ],
+      "words": 181
+    },
+    {
+      "id": "chapter19",
+      "file": "chapter19.html",
+      "title": "Stream API & Lambda",
+      "summary": "Xử lý Collection theo phong cách lập trình hàm (functional programming) — Java 8+.",
+      "content": "<section class=\"chapter\" id=\"s19\">\n      \n      <p class=\"lead\">Xử lý Collection theo phong cách lập trình hàm (functional programming) — Java 8+.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">StreamAPI.java</span>\n        \n        <pre><code>import java.util.List;\nimport java.util.stream.Collectors;\n\nList&lt;Integer&gt; so = List.of(5, 2, 8, 1, 9, 4);\n\nList&lt;Integer&gt; soChan = so.stream()\n    .filter(x -&gt; x % 2 == 0)            // lambda expression - hàm ẩn danh ngắn gọn\n    .collect(Collectors.toList());\nSystem.out.println(soChan);              // [2, 8, 4]\n\nint tong = so.stream()\n    .mapToInt(Integer::intValue)           // method reference - cách viết gọn của lambda\n    .sum();\nSystem.out.println(tong);                     // 29\n\nList&lt;String&gt; ten = List.of(\"Huy\", \"Lan\", \"Nam\");\nString ketQua = ten.stream()\n    .filter(t -&gt; t.length() &gt; 3)\n    .map(String::toUpperCase)\n    .collect(Collectors.joining(\", \"));\nSystem.out.println(ketQua);   // \"LAN\" nếu chỉ Lan/Nam đủ dài, tùy ví dụ</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Stream API (<code>filter/map/reduce/collect</code>) là phong cách xử lý Collection hiện đại nhất của Java, tương đương <code>map/filter/reduce</code> của JavaScript hay list comprehension của Python — nên ưu tiên dùng thay vòng lặp thủ công khi xử lý dữ liệu.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 19</h4>\n        <p>Stream API kết hợp lambda expression cho phép xử lý Collection theo phong cách hàm ngắn gọn (filter/map/collect), là cách viết Java hiện đại và chuyên nghiệp nhất từ Java 8 trở lên.</p>\n      </div>\n\n    </section>\n\n    <!-- ================= CHƯƠNG 20 ================= -->",
+      "questions": [
+        {
+          "question": "1. Phương thức Stream nào dùng để LỌC phần tử theo điều kiện?",
+          "options": [
+            "filter()",
+            "map()",
+            "collect()"
+          ],
+          "answer": 0,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s19"
+      ],
+      "words": 179
+    },
+    {
+      "id": "chapter20",
+      "file": "chapter20.html",
+      "title": "Thread cơ bản",
+      "summary": "Chạy nhiều luồng thực thi song song trong Java — hai cách tạo Thread cơ bản.",
+      "content": "<section class=\"chapter\" id=\"s20\">\n      \n      <p class=\"lead\">Chạy nhiều luồng thực thi song song trong Java — hai cách tạo Thread cơ bản.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">ThreadDemo.java</span>\n        \n        <pre><code>// Cách 1: kế thừa Thread\nclass TaiXuong extends Thread {\n    public void run() {                          // override phương thức run()\n        System.out.println(\"Đang tải file...\");\n    }\n}\n\n// Cách 2: implements Runnable (KHUYẾN NGHỊ - linh hoạt hơn vì Java chỉ đơn kế thừa)\nclass XuLyDuLieu implements Runnable {\n    public void run() {\n        System.out.println(\"Đang xử lý dữ liệu...\");\n    }\n}\n\npublic class ThreadDemo {\n    public static void main(String[] args) throws InterruptedException {\n        Thread t1 = new TaiXuong();\n        Thread t2 = new Thread(new XuLyDuLieu());\n\n        t1.start();      // start() - KHÔNG gọi run() trực tiếp, để JVM tạo luồng thật\n        t2.start();\n        t1.join();          // chờ t1 hoàn thành trước khi tiếp tục\n        t2.join();\n        System.out.println(\"Tất cả đã hoàn thành!\");\n    }\n}</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        Luôn gọi <code>.start()</code>, KHÔNG BAO GIỜ gọi <code>.run()</code> trực tiếp nếu muốn chạy song song thật sự — gọi <code>.run()</code> trực tiếp chỉ chạy như một method bình thường trên luồng hiện tại, không tạo luồng mới.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 20</h4>\n        <p>Nên ưu tiên <code>implements Runnable</code> hơn <code>extends Thread</code> vì Java chỉ đơn kế thừa class. <code>.start()</code> tạo luồng thật, <code>.join()</code> chờ luồng hoàn thành.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 21 ================= -->",
+      "questions": [],
+      "ids": [
+        "s20"
+      ],
+      "words": 199
+    },
+    {
+      "id": "chapter21",
+      "file": "chapter21.html",
+      "title": "Synchronized & Race Condition",
+      "summary": "Vấn đề tranh chấp dữ liệu khi nhiều luồng cùng truy cập, và cách Java giải quyết bằng synchronized.",
+      "content": "<section class=\"chapter\" id=\"s21\">\n      \n      <p class=\"lead\">Vấn đề tranh chấp dữ liệu khi nhiều luồng cùng truy cập, và cách Java giải quyết bằng <code>synchronized</code>.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">RaceCondition.java</span>\n        \n        <pre><code>class BoDem {\n    private int giaTri = 0;\n\n    public synchronized void tang() {    // \"synchronized\" - chỉ MỘT luồng được vào tại một thời điểm\n        giaTri++;\n    }\n\n    public int layGiaTri() {\n        return giaTri;\n    }\n}\n\npublic class Main {\n    public static void main(String[] args) throws InterruptedException {\n        BoDem boDem = new BoDem();\n        Runnable tangNhieuLan = () -&gt; {\n            for (int i = 0; i &lt; 1000; i++) boDem.tang();\n        };\n\n        Thread t1 = new Thread(tangNhieuLan);\n        Thread t2 = new Thread(tangNhieuLan);\n        t1.start(); t2.start();\n        t1.join(); t2.join();\n\n        System.out.println(boDem.layGiaTri());   // 2000 CHÍNH XÁC nhờ synchronized\n    }                                                  // nếu bỏ synchronized, kết quả thường &lt; 2000!\n}</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng — Race Condition</div>\n        Nếu bỏ <code>synchronized</code>, hai luồng có thể cùng đọc giá trị <code>giaTri</code> cũ, cùng cộng 1, rồi cùng ghi lại — làm mất đi một lần tăng. Đây gọi là <strong>race condition</strong> — lỗi rất khó tái hiện và debug vì kết quả sai khác nhau mỗi lần chạy.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 21</h4>\n        <p><code>synchronized</code> đảm bảo chỉ một luồng truy cập đoạn code/tài nguyên tại một thời điểm, ngăn race condition — nhưng cần cẩn thận vì dùng quá nhiều sẽ làm giảm hiệu năng đa luồng.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 22 ================= -->",
+      "questions": [],
+      "ids": [
+        "s21"
+      ],
+      "words": 214
+    },
+    {
+      "id": "chapter22",
+      "file": "chapter22.html",
+      "title": "ExecutorService",
+      "summary": "Cách quản lý thread hiện đại, chuyên nghiệp hơn việc tự tạo Thread thủ công — dùng \"thread pool\".",
+      "content": "<section class=\"chapter\" id=\"s22\">\n      \n      <p class=\"lead\">Cách quản lý thread hiện đại, chuyên nghiệp hơn việc tự tạo Thread thủ công — dùng \"thread pool\".</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">ExecutorServiceDemo.java</span>\n        \n        <pre><code>import java.util.concurrent.*;\n\npublic class Main {\n    public static void main(String[] args) throws Exception {\n        ExecutorService executor = Executors.newFixedThreadPool(3);    // pool gồm 3 luồng tái sử dụng\n\n        for (int i = 1; i &lt;= 5; i++) {\n            int taskId = i;\n            executor.submit(() -&gt; {\n                System.out.println(\"Đang xử lý task \" + taskId + \" bởi \" + Thread.currentThread().getName());\n            });\n        }\n\n        executor.shutdown();                                    // không nhận task mới, chờ task hiện tại xong\n\n        // Future - lấy kết quả trả về từ task bất đồng bộ\n        ExecutorService executor2 = Executors.newSingleThreadExecutor();\n        Future&lt;Integer&gt; ketQua = executor2.submit(() -&gt; 10 + 20);\n        System.out.println(ketQua.get());   // 30 - .get() chờ và lấy kết quả\n        executor2.shutdown();\n    }\n}</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Tự tạo Thread mới liên tục rất tốn tài nguyên. <code>ExecutorService</code> tái sử dụng một nhóm luồng cố định (thread pool) — đây là cách quản lý đa luồng chuẩn mực trong Java thực tế, thay vì tự quản lý Thread thủ công.\n      </div>\n\n      <h3>Virtual Threads (Java 21+) — bước tiến lớn nhất của Java hiện đại</h3>\n      <p>Thread truyền thống (ở trên) ánh xạ trực tiếp tới thread hệ điều hành — tốn bộ nhớ (mỗi thread ~1MB) nên thường giới hạn ở vài nghìn thread cùng lúc. Từ Java 21 (chính thức ổn định, không còn preview), Java bổ sung <strong>Virtual Thread</strong> — thread \"ảo\" siêu nhẹ do JVM quản lý, cho phép chạy HÀNG TRIỆU thread đồng thời mà không cần thay đổi cách viết code:</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">VirtualThreadDemo.java</span>\n        \n        <pre><code>// Chỉ cần đổi 1 dòng so với ExecutorService truyền thống ở trên\ntry (ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor()) {\n    for (int i = 1; i &lt;= 10_000; i++) {         // 10,000 task chạy đồng thời - vẫn nhẹ nhàng\n        int taskId = i;\n        executor.submit(() -&gt; {\n            System.out.println(\"Task \" + taskId + \" chạy trên \" + Thread.currentThread());\n        });\n    }\n}   // try-with-resources tự động shutdown() khi kết thúc khối lệnh</code></pre>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">Ghi chú</div>\n        Virtual Thread phù hợp nhất cho các tác vụ <strong>I/O-bound</strong> (gọi API, truy vấn database, đọc file...) — khi một virtual thread bị block chờ I/O, JVM tự động \"mượn\" thread hệ điều hành bên dưới cho virtual thread khác dùng, thay vì giữ chết một thread OS quý giá. Với tác vụ nặng tính toán (CPU-bound), thread pool cố định như <code>newFixedThreadPool</code> vẫn phù hợp hơn.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 22</h4>\n        <p><code>ExecutorService</code> quản lý thread pool hiệu quả, <code>Future</code> cho phép lấy kết quả trả về từ task chạy bất đồng bộ — cách tiếp cận đa luồng chuyên nghiệp trong Java.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 23 ================= -->",
+      "questions": [],
+      "ids": [
+        "s22"
+      ],
+      "words": 431
+    },
+    {
+      "id": "chapter23",
+      "file": "chapter23.html",
+      "title": "File I/O",
+      "summary": "Đọc và ghi file bằng các lớp hiện đại của Java (NIO) và cách xử lý cũ hơn (IO).",
+      "content": "<section class=\"chapter\" id=\"s23\">\n      \n      <p class=\"lead\">Đọc và ghi file bằng các lớp hiện đại của Java (NIO) và cách xử lý cũ hơn (IO).</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">FileIODemo.java</span>\n        \n        <pre><code>import java.nio.file.*;\nimport java.util.List;\nimport java.io.IOException;\n\npublic class FileIODemo {\n    public static void main(String[] args) {\n        try {\n            // Ghi file - API hiện đại (java.nio.file)\n            Files.writeString(Path.of(\"ghi_chu.txt\"), \"Xin chào Java!\\n\");\n\n            // Đọc toàn bộ nội dung\n            String noiDung = Files.readString(Path.of(\"ghi_chu.txt\"));\n            System.out.println(noiDung);\n\n            // Đọc từng dòng vào List\n            List&lt;String&gt; dongList = Files.readAllLines(Path.of(\"ghi_chu.txt\"));\n            for (String dong : dongList) {\n                System.out.println(dong);\n            }\n        } catch (IOException e) {\n            System.out.println(\"Lỗi đọc/ghi file: \" + e.getMessage());\n        }\n    }\n}</code></pre>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">Ghi chú</div>\n        <code>java.nio.file</code> (NIO.2, từ Java 7+) với các lớp <code>Path</code>/<code>Files</code> là API hiện đại, ngắn gọn hơn nhiều so với <code>FileReader</code>/<code>BufferedReader</code> kiểu cũ của <code>java.io</code> — nên ưu tiên dùng trong code mới.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 23</h4>\n        <p><code>Files.writeString()</code>/<code>readString()</code>/<code>readAllLines()</code> (java.nio.file) là cách đọc/ghi file hiện đại, ngắn gọn nhất trong Java — luôn xử lý <code>IOException</code> có thể xảy ra.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 24 ================= -->",
+      "questions": [],
+      "ids": [
+        "s23"
+      ],
+      "words": 154
+    },
+    {
+      "id": "chapter24",
+      "file": "chapter24.html",
+      "title": "Record & Optional",
+      "summary": "Hai tính năng hiện đại của Java (14+ và 8+) giúp code ngắn gọn và an toàn hơn với giá trị null.",
+      "content": "<section class=\"chapter\" id=\"s24\">\n      \n      <p class=\"lead\">Hai tính năng hiện đại của Java (14+ và 8+) giúp code ngắn gọn và an toàn hơn với giá trị null.</p>\n\n      <h3>Record — class dữ liệu ngắn gọn (Java 14+)</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">RecordDemo.java</span>\n        \n        <pre><code>record SinhVien(String ten, int tuoi, double diem) {}   // 1 dòng thay vì cả class dài với getter/equals/toString\n\npublic class Main {\n    public static void main(String[] args) {\n        SinhVien sv = new SinhVien(\"Huy\", 20, 8.5);\n        System.out.println(sv.ten());        // getter tự động sinh, tên = tên field (không có \"get\")\n        System.out.println(sv);                // SinhVien[ten=Huy, tuoi=20, diem=8.5] - toString() tự sinh\n\n        SinhVien sv2 = new SinhVien(\"Huy\", 20, 8.5);\n        System.out.println(sv.equals(sv2));      // true - equals() tự sinh, so sánh theo GIÁ TRỊ\n    }\n}</code></pre>\n      </div>\n\n      <h3>Optional — xử lý null an toàn (Java 8+)</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">OptionalDemo.java</span>\n        \n        <pre><code>import java.util.Optional;\n\nOptional&lt;String&gt; timEmail(int userId) {\n    // giả lập tìm không thấy\n    return Optional.empty();\n}\n\nOptional&lt;String&gt; ketQua = timEmail(5);\nSystem.out.println(ketQua.isPresent());              // false\nSystem.out.println(ketQua.orElse(\"Không có email\"));   // \"Không có email\" - giá trị mặc định an toàn\n\nketQua.ifPresent(email -&gt; System.out.println(\"Tìm thấy: \" + email));   // chỉ chạy nếu CÓ giá trị</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        <code>Optional</code> giúp phương thức thể hiện rõ ràng \"có thể không có giá trị trả về\" ngay trong kiểu trả về, thay vì trả về <code>null</code> ngầm và dễ gây <code>NullPointerException</code> ở nơi gọi (đã học ở chương 12).\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 24</h4>\n        <p><code>record</code> (Java 14+) tạo class dữ liệu bất biến chỉ với 1 dòng, tự sinh constructor/getter/equals/toString. <code>Optional</code> (Java 8+) giúp xử lý giá trị có thể vắng mặt an toàn hơn null.</p>\n      </div>\n\n    </section>\n\n    <!-- ================= CHƯƠNG 25 ================= -->",
+      "questions": [
+        {
+          "question": "1. record trong Java tự động sinh những gì?",
+          "options": [
+            "Chỉ có constructor",
+            "Constructor, getter, equals(), toString()",
+            "Chỉ có getter"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s24"
+      ],
+      "words": 247
+    },
+    {
+      "id": "chapter25",
+      "file": "chapter25.html",
+      "title": "Giới thiệu Spring Boot & Dependency Injection",
+      "summary": "Framework phổ biến nhất để xây dựng ứng dụng Java doanh nghiệp — giảm cấu hình thủ công tới mức tối thiểu.",
+      "content": "<section class=\"chapter\" id=\"s25\">\n      \n      <p class=\"lead\">Framework phổ biến nhất để xây dựng ứng dụng Java doanh nghiệp — giảm cấu hình thủ công tới mức tối thiểu.</p>\n\n      <h3>Spring Boot là gì?</h3>\n      <p>Spring Boot là framework xây dựng trên nền Spring Framework, giúp tạo ứng dụng Java (đặc biệt là web/REST API) nhanh chóng với cấu hình tối thiểu — theo triết lý \"convention over configuration\" (quy ước thay vì cấu hình thủ công).</p>\n\n      <h3>Dependency Injection (DI) — khái niệm cốt lõi</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">DependencyInjection.java</span>\n        \n        <pre><code>// KHÔNG dùng DI - class tự tạo dependency của mình -&gt; khó test, khó thay đổi\nclass DichVuEmail {\n    private KetNoiSMTP ketNoi = new KetNoiSMTP();   // tự tạo bên trong -&gt; chặt chẽ, khó thay thế\n}\n\n// CÓ dùng DI - dependency được \"tiêm\" từ bên ngoài vào\n@Service                                    // annotation đánh dấu đây là 1 Spring Bean\nclass DichVuEmail {\n    private final KetNoiSMTP ketNoi;\n\n    @Autowired                                // Spring TỰ ĐỘNG \"tiêm\" object KetNoiSMTP vào đây\n    public DichVuEmail(KetNoiSMTP ketNoi) {\n        this.ketNoi = ketNoi;\n    }\n}</code></pre>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">Ghi chú</div>\n        Dependency Injection giúp các class không cần tự tạo ra những thứ chúng phụ thuộc — Spring (gọi là \"IoC Container\") tự quản lý việc tạo và \"tiêm\" các object cần thiết, giúp code dễ test (thay bằng mock) và dễ thay đổi implementation.\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo — Cách viết hiện đại hơn</div>\n        Nếu class chỉ có <strong>đúng một constructor</strong>, Spring (từ bản 4.3 trở đi) tự động hiểu đó là nơi cần tiêm dependency — annotation <code>@Autowired</code> có thể LƯỢC BỎ hoàn toàn mà code vẫn chạy y hệt. Cách viết này (constructor injection không cần <code>@Autowired</code>) hiện là khuyến nghị phổ biến nhất trong cộng đồng Spring vì code gọn hơn mà vẫn rõ ràng.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 25</h4>\n        <p>Spring Boot giảm thiểu cấu hình thủ công cho ứng dụng Java doanh nghiệp. Dependency Injection (qua <code>@Autowired</code>) giúp các class nhận dependency từ bên ngoài thay vì tự tạo, dễ test và bảo trì hơn.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 26 ================= -->",
+      "questions": [],
+      "ids": [
+        "s25"
+      ],
+      "words": 321
+    },
+    {
+      "id": "chapter26",
+      "file": "chapter26.html",
+      "title": "REST Controller",
+      "summary": "Xây dựng REST API bằng Spring Boot — chỉ cần vài annotation để định nghĩa endpoint.",
+      "content": "<section class=\"chapter\" id=\"s26\">\n      \n      <p class=\"lead\">Xây dựng REST API bằng Spring Boot — chỉ cần vài annotation để định nghĩa endpoint.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">SinhVienController.java</span>\n        \n        <pre><code>import org.springframework.web.bind.annotation.*;\nimport java.util.*;\n\n@RestController                          // đánh dấu class này xử lý REST API, tự trả về JSON\n@RequestMapping(\"/api/sinh-vien\")          // tiền tố chung cho mọi endpoint trong class này\npublic class SinhVienController {\n\n    private List&lt;SinhVien&gt; danhSach = new ArrayList&lt;&gt;();\n\n    @GetMapping                               // GET /api/sinh-vien\n    public List&lt;SinhVien&gt; layTatCa() {\n        return danhSach;                          // Spring TỰ ĐỘNG chuyển List thành JSON\n    }\n\n    @GetMapping(\"/{id}\")                        // GET /api/sinh-vien/5\n    public SinhVien layTheoId(@PathVariable int id) {\n        return danhSach.stream()\n            .filter(sv -&gt; sv.getId() == id)\n            .findFirst()\n            .orElseThrow(() -&gt; new RuntimeException(\"Không tìm thấy\"));\n    }\n\n    @PostMapping                              // POST /api/sinh-vien\n    public SinhVien taoMoi(@RequestBody SinhVien sv) {   // @RequestBody tự parse JSON -&gt; object\n        danhSach.add(sv);\n        return sv;\n    }\n}</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Annotation</th><th>Ý nghĩa</th></tr>\n        <tr><td><code>@RestController</code></td><td>Class xử lý REST API, tự động serialize kết quả sang JSON</td></tr>\n        <tr><td><code>@GetMapping/@PostMapping</code></td><td>Ánh xạ method với phương thức HTTP tương ứng</td></tr>\n        <tr><td><code>@PathVariable</code></td><td>Lấy giá trị từ đường dẫn URL (VD: <code>/sinh-vien/{id}</code>)</td></tr>\n        <tr><td><code>@RequestBody</code></td><td>Parse JSON body của request thành object Java</td></tr>\n      </tbody></table>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 26</h4>\n        <p>Spring Boot dùng annotation (<code>@RestController</code>, <code>@GetMapping</code>...) để định nghĩa REST API cực kỳ ngắn gọn, tự động xử lý serialize/deserialize JSON.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 27 ================= -->",
+      "questions": [],
+      "ids": [
+        "s26"
+      ],
+      "words": 188
+    },
+    {
+      "id": "chapter27",
+      "file": "chapter27.html",
+      "title": "Service & Repository (JPA)",
+      "summary": "Kiến trúc 3 lớp chuẩn của Spring Boot: Controller → Service → Repository — và JPA để làm việc với database không cần viết SQL thủ công.",
+      "content": "<section class=\"chapter\" id=\"s27\">\n      \n      <p class=\"lead\">Kiến trúc 3 lớp chuẩn của Spring Boot: Controller → Service → Repository — và JPA để làm việc với database không cần viết SQL thủ công.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">SinhVien.java (Entity)</span>\n        \n        <pre><code>import jakarta.persistence.*;\n\n@Entity                                    // đánh dấu class này ánh xạ với 1 bảng database\npublic class SinhVien {\n    @Id\n    @GeneratedValue(strategy = GenerationType.IDENTITY)   // tự động tăng id\n    private Long id;\n    private String ten;\n    private double diem;\n    // constructor, getter, setter...\n}</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">SinhVienRepository.java</span>\n        \n        <pre><code>import org.springframework.data.jpa.repository.JpaRepository;\n\npublic interface SinhVienRepository extends JpaRepository&lt;SinhVien, Long&gt; {\n    // KHÔNG CẦN viết implementation - Spring Data JPA tự sinh code thực thi!\n    List&lt;SinhVien&gt; findByDiemGreaterThan(double diem);   // tự sinh câu truy vấn từ TÊN method\n}</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">SinhVienService.java</span>\n        \n        <pre><code>@Service\npublic class SinhVienService {\n    private final SinhVienRepository repo;\n\n    public SinhVienService(SinhVienRepository repo) {   // dependency injection qua constructor\n        this.repo = repo;\n    }\n\n    public SinhVien taoSinhVien(SinhVien sv) {\n        // có thể thêm logic nghiệp vụ (validate, tính toán...) TRƯỚC khi lưu\n        return repo.save(sv);\n    }\n\n    public List&lt;SinhVien&gt; laySinhVienGioi() {\n        return repo.findByDiemGreaterThan(8.0);\n    }\n}</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Spring Data JPA có thể <strong>tự sinh câu truy vấn từ tên method</strong> (VD: <code>findByDiemGreaterThan</code>) — không cần viết SQL cho các truy vấn đơn giản, giúp tiết kiệm rất nhiều code lặp lại (boilerplate).\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 27</h4>\n        <p>Kiến trúc 3 lớp: Controller (xử lý HTTP) → Service (logic nghiệp vụ) → Repository (truy cập dữ liệu). Spring Data JPA tự sinh truy vấn từ tên method, giảm code lặp lại đáng kể.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 28 ================= -->",
+      "questions": [
+        {
+          "question": "1. Lớp nào trong kiến trúc Spring Boot chịu trách nhiệm chứa logic nghiệp vụ?",
+          "options": [
+            "Controller",
+            "Service",
+            "Repository"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s27"
+      ],
+      "words": 235
+    },
+    {
+      "id": "chapter28",
+      "file": "chapter28.html",
+      "title": "Dự án: Quản lý sinh viên (OOP + Collections)",
+      "summary": "Dự án console tổng hợp: class, interface, Collections, Stream API — không cần Spring Boot.",
+      "content": "<section class=\"chapter\" id=\"s28\">\n      \n      <p class=\"lead\">Dự án console tổng hợp: class, interface, Collections, Stream API — không cần Spring Boot.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">QuanLySinhVien.java</span>\n        \n        <pre><code>import java.util.*;\nimport java.util.stream.Collectors;\n\nclass SinhVien {\n    private String maSV, ten;\n    private double diem;\n\n    public SinhVien(String maSV, String ten, double diem) {\n        this.maSV = maSV; this.ten = ten; this.diem = diem;\n    }\n    public String getTen() { return ten; }\n    public double getDiem() { return diem; }\n    @Override\n    public String toString() {\n        return maSV + \" - \" + ten + \" - \" + diem;\n    }\n}\n\npublic class QuanLySinhVien {\n    private List&lt;SinhVien&gt; danhSach = new ArrayList&lt;&gt;();\n\n    public void themSinhVien(SinhVien sv) {\n        danhSach.add(sv);\n    }\n\n    public List&lt;SinhVien&gt; laySinhVienGioi() {              // dùng Stream API (chương 19)\n        return danhSach.stream()\n            .filter(sv -&gt; sv.getDiem() &gt;= 8.0)\n            .sorted((a, b) -&gt; Double.compare(b.getDiem(), a.getDiem()))\n            .collect(Collectors.toList());\n    }\n\n    public double tinhDiemTrungBinh() {\n        return danhSach.stream()\n            .mapToDouble(SinhVien::getDiem)\n            .average()\n            .orElse(0);\n    }\n\n    public static void main(String[] args) {\n        QuanLySinhVien ql = new QuanLySinhVien();\n        ql.themSinhVien(new SinhVien(\"SV001\", \"Huy\", 8.5));\n        ql.themSinhVien(new SinhVien(\"SV002\", \"Lan\", 9.2));\n        ql.themSinhVien(new SinhVien(\"SV003\", \"Nam\", 6.5));\n\n        ql.laySinhVienGioi().forEach(System.out::println);\n        System.out.printf(\"Điểm TB: %.2f%n\", ql.tinhDiemTrungBinh());\n    }\n}</code></pre>\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 28</h4>\n        <p>Dự án minh họa kết hợp OOP (encapsulation, toString override), Collections (ArrayList), và Stream API (filter/sorted/collect) trong một ứng dụng console hoàn chỉnh.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 29 ================= -->",
+      "questions": [],
+      "ids": [
+        "s28"
+      ],
+      "words": 192
+    },
+    {
+      "id": "chapter29",
+      "file": "chapter29.html",
+      "title": "Dự án: REST API Quản lý công việc",
+      "summary": "Dự án tổng hợp Spring Boot hoàn chỉnh: Entity, Repository, Service, Controller.",
+      "content": "<section class=\"chapter\" id=\"s29\">\n      \n      <p class=\"lead\">Dự án tổng hợp Spring Boot hoàn chỉnh: Entity, Repository, Service, Controller.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">CongViec.java</span>\n        \n        <pre><code>@Entity\npublic class CongViec {\n    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)\n    private Long id;\n    private String tieuDe;\n    private boolean hoanThanh = false;\n    // constructor, getter, setter...\n}</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">CongViecController.java</span>\n        \n        <pre><code>@RestController\n@RequestMapping(\"/api/cong-viec\")\npublic class CongViecController {\n    private final CongViecService service;\n\n    public CongViecController(CongViecService service) {\n        this.service = service;\n    }\n\n    @GetMapping\n    public List&lt;CongViec&gt; layTatCa() {\n        return service.layTatCa();\n    }\n\n    @PostMapping\n    public CongViec taoMoi(@RequestBody CongViec cv) {\n        return service.taoCongViec(cv);\n    }\n\n    @PutMapping(\"/{id}/hoan-thanh\")\n    public CongViec danhDauHoanThanh(@PathVariable Long id) {\n        return service.danhDauHoanThanh(id);\n    }\n\n    @DeleteMapping(\"/{id}\")\n    public void xoa(@PathVariable Long id) {\n        service.xoa(id);\n    }\n}</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Đây chính là bộ khung (skeleton) chuẩn cho mọi REST API thực tế bằng Spring Boot — chỉ cần thay đổi Entity, logic nghiệp vụ trong Service, và endpoint trong Controller để áp dụng cho bất kỳ bài toán CRUD nào khác.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>🎉 Hoàn thành phần lý thuyết!</h4>\n        <p>Bạn đã đi qua <strong>29 chương lý thuyết</strong>. Tiếp theo là <strong>Ngân hàng bài tập</strong> để luyện tập củng cố — thử tự giải trước khi xem đáp án!</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 30 ================= -->",
+      "questions": [
+        {
+          "question": "1. Annotation nào đánh dấu một class là Entity ánh xạ với bảng database?",
+          "options": [
+            "@Service",
+            "@Entity",
+            "@RestController"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s29"
+      ],
+      "words": 173
+    },
+    {
+      "id": "chapter30",
+      "file": "chapter30.html",
+      "title": "Bài tập Cơ bản (Dễ)",
+      "summary": "8 bài tập củng cố cú pháp nền tảng, vòng lặp, method và mảng.",
+      "content": "<section class=\"chapter\" id=\"s30\">\n      \n      <p class=\"lead\">8 bài tập củng cố cú pháp nền tảng, vòng lặp, method và mảng.</p>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 1: Kiểm tra số nguyên tố</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>static boolean laSoNguyenTo(int n) {\n    if (n &lt; 2) return false;\n    for (int i = 2; i * i &lt;= n; i++) {\n        if (n % i == 0) return false;\n    }\n    return true;\n}</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 2: Đảo ngược một số nguyên</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>static int daoNguoc(int n) {\n    int ketQua = 0;\n    while (n != 0) {\n        ketQua = ketQua * 10 + n % 10;\n        n /= 10;\n    }\n    return ketQua;\n}</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 3: Kiểm tra chuỗi Palindrome</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>static boolean laPalindrome(String s) {\n    String daoNguoc = new StringBuilder(s).reverse().toString();\n    return s.equals(daoNguoc);\n}</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 4: Tìm phần tử lớn nhất trong mảng</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>static int timMax(int[] mang) {\n    int lonNhat = mang[0];\n    for (int x : mang) {\n        if (x &gt; lonNhat) lonNhat = x;\n    }\n    return lonNhat;\n}</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 5: Tính giai thừa bằng đệ quy</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>static long giaiThua(int n) {\n    if (n &lt;= 1) return 1;\n    return n * giaiThua(n - 1);\n}</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 6: Đếm nguyên âm trong chuỗi</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>static int demNguyenAm(String s) {\n    int dem = 0;\n    String nguyenAm = \"aeiouAEIOU\";\n    for (char c : s.toCharArray()) {\n        if (nguyenAm.indexOf(c) != -1) dem++;\n    }\n    return dem;\n}</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 7: Kiểm tra năm nhuận</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>static boolean laNamNhuan(int nam) {\n    return (nam % 4 == 0 &amp;&amp; nam % 100 != 0) || (nam % 400 == 0);\n}</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 8: Sắp xếp mảng bằng Bubble Sort</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>static void bubbleSort(int[] mang) {\n    for (int i = 0; i &lt; mang.length - 1; i++) {\n        for (int j = 0; j &lt; mang.length - i - 1; j++) {\n            if (mang[j] &gt; mang[j + 1]) {\n                int tam = mang[j];\n                mang[j] = mang[j + 1];\n                mang[j + 1] = tam;\n            }\n        }\n    }\n}</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 30</h4>\n        <p>8 bài tập cơ bản củng cố vòng lặp, mảng, chuỗi, đệ quy — nền tảng trước khi chuyển sang bài tập kết hợp OOP và Collections.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 31 ================= -->",
+      "questions": [],
+      "ids": [
+        "s30"
+      ],
+      "words": 334
+    },
+    {
+      "id": "chapter31",
+      "file": "chapter31.html",
+      "title": "Bài tập OOP & Collections",
+      "summary": "7 bài tập vận dụng class, interface, Collections và Stream API — mức độ thường gặp trong bài test tuyển dụng Junior Java Developer.",
+      "content": "<section class=\"chapter\" id=\"s31\">\n      \n      <p class=\"lead\">7 bài tập vận dụng class, interface, Collections và Stream API — mức độ thường gặp trong bài test tuyển dụng Junior Java Developer.</p>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 1: Class ChongDoi (Stack) tự cài đặt bằng ArrayList</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>class MyStack&lt;T&gt; {\n    private List&lt;T&gt; duLieu = new ArrayList&lt;&gt;();\n\n    public void push(T x) { duLieu.add(x); }\n    public T pop() {\n        if (duLieu.isEmpty()) throw new RuntimeException(\"Stack rỗng\");\n        return duLieu.remove(duLieu.size() - 1);\n    }\n    public T top() { return duLieu.get(duLieu.size() - 1); }\n    public boolean isEmpty() { return duLieu.isEmpty(); }\n}</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 2: Đếm tần suất từ bằng HashMap</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>static Map&lt;String, Integer&gt; demTu(String[] tuList) {\n    Map&lt;String, Integer&gt; dem = new HashMap&lt;&gt;();\n    for (String tu : tuList) {\n        dem.put(tu, dem.getOrDefault(tu, 0) + 1);\n    }\n    return dem;\n}</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 3: Interface HinhHoc với nhiều class triển khai</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>interface HinhHoc {\n    double dienTich();\n    double chuVi();\n}\n\nclass HinhChuNhat implements HinhHoc {\n    private double dai, rong;\n    public HinhChuNhat(double d, double r) { dai = d; rong = r; }\n    public double dienTich() { return dai * rong; }\n    public double chuVi() { return 2 * (dai + rong); }\n}</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 4: Two Sum bằng HashMap (O(n))</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>static int[] twoSum(int[] nums, int target) {\n    Map&lt;Integer, Integer&gt; daThay = new HashMap&lt;&gt;();\n    for (int i = 0; i &lt; nums.length; i++) {\n        int conLai = target - nums[i];\n        if (daThay.containsKey(conLai)) {\n            return new int[]{daThay.get(conLai), i};\n        }\n        daThay.put(nums[i], i);\n    }\n    return new int[]{};\n}</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 5: Sắp xếp danh sách Object theo nhiều tiêu chí</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>List&lt;SinhVien&gt; ds = ...;\nds.sort(Comparator.comparing(SinhVien::getDiem).reversed()\n        .thenComparing(SinhVien::getTen));   // sắp theo điểm giảm dần, nếu bằng thì theo tên</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 6: Lớp Singleton (Design Pattern)</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>class KetNoiDatabase {\n    private static KetNoiDatabase instance;\n    private KetNoiDatabase() {}                 // constructor private\n\n    public static KetNoiDatabase getInstance() {\n        if (instance == null) {\n            instance = new KetNoiDatabase();\n        }\n        return instance;\n    }\n}</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">Bài 7: Nhóm sinh viên theo xếp loại bằng Stream groupingBy</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>Map&lt;String, List&lt;SinhVien&gt;&gt; nhom = danhSach.stream()\n    .collect(Collectors.groupingBy(sv -&gt;\n        sv.getDiem() &gt;= 8 ? \"Giỏi\" : sv.getDiem() &gt;= 6.5 ? \"Khá\" : \"TB\"));</code></pre>\n        </div></div>\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>🎉 Hoàn thành toàn bộ giáo trình + ngân hàng bài tập Java!</h4>\n        <p>Bạn đã hoàn thành <strong>31 chương / 6 phần</strong>: 29 chương lý thuyết cộng với 15 bài tập thực hành. Đây là nền tảng vững chắc để làm dự án thực tế và tham gia phỏng vấn kỹ thuật Java. Chúc bạn thành công! ☕</p>\n      </div>\n    </section>",
+      "questions": [
+        {
+          "question": "1. Design pattern nào đảm bảo một class chỉ có duy nhất một instance?",
+          "options": [
+            "Factory",
+            "Singleton",
+            "Observer"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s31"
+      ],
+      "words": 383
+    }
+  ]
+}

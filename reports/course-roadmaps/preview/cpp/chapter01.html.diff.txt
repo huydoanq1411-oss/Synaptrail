@@ -1,0 +1,21 @@
+--- cpp/chapter01.html (original)
++++ cpp/chapter01.html (preview)
+- Sidebar, embedded quiz and old lesson shell
++ Shared roadmap lesson shell, SVG Back/Home, separate quiz link
++ Preserved lesson content and IDs
+
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Giới thiệu C++ — C++ | Synaptrail</title><meta name="description" content="C++ là gì, tại sao nên học, và nó khác gì so với C và các ngôn ngữ hiện đại khác."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="cpp" data-skill="cpp" data-node="chapter01"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/cpp.html#chapter01"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">C++ / BÀI 1</p><h1>Giới thiệu C++</h1><p class="rm-lead">C++ là gì, tại sao nên học, và nó khác gì so với C và các ngôn ngữ hiện đại khác.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter01">Làm quiz ở trang riêng <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s1">
+      
+      <p class="lead">C++ là gì, tại sao nên học, và nó khác gì so với C và các ngôn ngữ hiện đại khác.</p>
+
+      <h3>C++ là gì?</h3>
+      <p>C++ là ngôn ngữ lập trình biên dịch (compiled), đa mục đích, do Bjarne Stroustrup phát triển từ ngôn ngữ C vào năm 1985 với triết lý "zero-overhead abstraction" — cho phép viết code trừu tượng hóa cao mà không phải trả giá về hiệu năng.</p>
+
+      <div class="box note">
+        <div class="box-title">Ghi chú</div>
+        Ngôn ngữ "biên dịch" (compiled) nghĩa là code nguồn được dịch trực tiếp thành mã máy (machine code) trước khi chạy, khác với Python (thông dịch) — vì vậy chương trình C++ chạy nhanh hơn đáng kể nhưng phải biên dịch lại mỗi khi sửa code.
+      </div>
+
+      <h3>Tại sao nên học C++?</h3>
+  

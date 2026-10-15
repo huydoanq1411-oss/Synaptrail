@@ -1,0 +1,41 @@
+{
+  "course": "typescript",
+  "title": "TypeScript",
+  "lessons": [
+    {
+      "id": "chapter01",
+      "file": "chapter01.html",
+      "title": "TypeScript — Kiểu dữ liệu cơ bản",
+      "summary": "JavaScript được bổ sung hệ thống kiểu tĩnh — phát hiện lỗi ngay lúc viết code thay vì đợi tới khi chạy.",
+      "content": "<section class=\"chapter\" id=\"s3\">\n      \n      <p class=\"lead\">JavaScript được bổ sung hệ thống kiểu tĩnh — phát hiện lỗi ngay lúc viết code thay vì đợi tới khi chạy.</p>\n\n      <h3>TypeScript là gì?</h3>\n      <p>TypeScript là \"siêu tập\" (superset) của JavaScript — mọi code JS hợp lệ đều là code TS hợp lệ, cộng thêm hệ thống kiểu dữ liệu tĩnh. TypeScript được biên dịch (compile) ngược lại thành JavaScript thuần để chạy được trên trình duyệt/Node.js.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">vi_du.ts</span>\n        \n        <pre><code>let ten: string = \"Huy\";              // khai báo kiểu tường minh\nlet tuoi: number = 20;\nlet dangHoc: boolean = true;\nlet diem: number[] = [8.5, 9.0, 7.5];      // mảng số\n\nfunction cong(a: number, b: number): number {   // kiểu tham số VÀ kiểu trả về\n    return a + b;\n}\n\ncong(3, 5);        // OK\n// cong(\"3\", 5);   // LỖI BIÊN DỊCH - phát hiện NGAY, không cần chạy thử mới biết</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Lệnh</th><th>Công dụng</th></tr>\n        <tr><td><code>npm install -g typescript</code></td><td>Cài đặt trình biên dịch TypeScript toàn cục</td></tr>\n        <tr><td><code>tsc file.ts</code></td><td>Biên dịch file .ts thành file .js</td></tr>\n        <tr><td><code>tsc --init</code></td><td>Tạo file cấu hình tsconfig.json cho dự án</td></tr>\n      </tbody></table>\n\n      <h3>Kiểu Union — biến có thể là MỘT TRONG NHIỀU kiểu</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">union_type.ts</span>\n        \n        <pre><code>let id: string | number;    // id có thể là string HOẶC number\nid = \"abc123\";                // OK\nid = 12345;                     // cũng OK\n// id = true;                  // LỖI - boolean không nằm trong union này\n\ntype TrangThai = \"dang_xu_ly\" | \"hoan_thanh\" | \"loi\";   // literal type - chỉ nhận đúng 3 giá trị này\nlet trangThaiDonHang: TrangThai = \"dang_xu_ly\";</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        TypeScript chỉ kiểm tra kiểu <strong>lúc biên dịch</strong> — sau khi biên dịch ra JavaScript, mọi thông tin kiểu dữ liệu bị loại bỏ hoàn toàn (gọi là \"type erasure\"). TypeScript không làm code chạy nhanh hơn, nó chỉ giúp bắt lỗi SỚM HƠN trong quá trình phát triển.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 1</h4>\n        <p>TypeScript thêm kiểu tĩnh vào JavaScript, biên dịch ra JS thuần để chạy. Kiểu Union (|) cho phép biến nhận nhiều kiểu dữ liệu khác nhau một cách có kiểm soát.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 4 ================= -->",
+      "questions": [],
+      "ids": [
+        "s3"
+      ],
+      "words": 331
+    },
+    {
+      "id": "chapter02",
+      "file": "chapter02.html",
+      "title": "TypeScript — Interface, Type & Generics",
+      "summary": "Định nghĩa \"hình dạng\" của object và viết code tổng quát hoạt động với nhiều kiểu dữ liệu.",
+      "content": "<section class=\"chapter\" id=\"s4\">\n      \n      <p class=\"lead\">Định nghĩa \"hình dạng\" của object và viết code tổng quát hoạt động với nhiều kiểu dữ liệu.</p>\n\n      <h3>Interface — định nghĩa cấu trúc object</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">interface.ts</span>\n        \n        <pre><code>interface SinhVien {\n    ten: string;\n    tuoi: number;\n    email?: string;              // dấu ? = thuộc tính TÙY CHỌN, không bắt buộc\n    readonly maSV: string;         // readonly = không thể gán lại sau khi khởi tạo\n}\n\nfunction gioiThieu(sv: SinhVien): string {\n    return `${sv.ten}, ${sv.tuoi} tuổi`;\n}\n\nconst sv1: SinhVien = { ten: \"Huy\", tuoi: 20, maSV: \"SV001\" };   // email không bắt buộc\nconsole.log(gioiThieu(sv1));</code></pre>\n      </div>\n\n      <h3>Generics — code tổng quát cho nhiều kiểu dữ liệu</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">generics.ts</span>\n        \n        <pre><code>function phanTuDauTien&lt;T&gt;(ds: T[]): T {    // T là kiểu tổng quát, tự suy luận theo input\n    return ds[0];\n}\n\nconsole.log(phanTuDauTien&lt;number&gt;([1, 2, 3]));        // 1 - T = number\nconsole.log(phanTuDauTien&lt;string&gt;([\"a\", \"b\"]));          // \"a\" - T = string\nconsole.log(phanTuDauTien([true, false]));                    // T tự suy luận = boolean, không cần chỉ định\n\ninterface HopChua&lt;T&gt; {          // interface cũng dùng được generics\n    noiDung: T;\n}\nconst hopSo: HopChua&lt;number&gt; = { noiDung: 42 };</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Tiêu chí</th><th>Interface</th><th>Type</th></tr>\n        <tr><td>Mở rộng thêm sau</td><td>Có thể \"declaration merging\" (khai báo nhiều lần, tự gộp)</td><td>Không thể mở rộng sau khi định nghĩa</td></tr>\n        <tr><td>Dùng cho Union type</td><td>Không hỗ trợ trực tiếp</td><td>Hỗ trợ (VD: type ID = string | number)</td></tr>\n        <tr><td>Khuyến nghị dùng khi</td><td>Định nghĩa cấu trúc object, class</td><td>Union, Tuple, kiểu phức tạp khác</td></tr>\n      </tbody></table>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 2</h4>\n        <p>Interface định nghĩa cấu trúc object với thuộc tính tùy chọn (?)/readonly. Generics (&lt;T&gt;) cho phép viết hàm/interface tổng quát, hoạt động an toàn với nhiều kiểu dữ liệu.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 5 ================= -->",
+      "questions": [
+        {
+          "question": "1. Dấu ? sau tên thuộc tính trong interface có ý nghĩa gì?",
+          "options": [
+            "Thuộc tính đó là TÙY CHỌN, không bắt buộc phải có",
+            "Thuộc tính đó chỉ nhận giá trị boolean",
+            "Thuộc tính đó bắt buộc phải là null"
+          ],
+          "answer": 0,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s4"
+      ],
+      "words": 255
+    }
+  ]
+}

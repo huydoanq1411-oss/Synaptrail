@@ -1,0 +1,41 @@
+{
+  "course": "orm",
+  "title": "ORM",
+  "lessons": [
+    {
+      "id": "chapter01",
+      "file": "chapter01.html",
+      "title": "ORM Sequelize",
+      "summary": "Object-Relational Mapping — thao tác database bằng object/class JavaScript thay vì viết SQL thuần tay.",
+      "content": "<section class=\"chapter\" id=\"s12\">\n      \n      <p class=\"lead\">Object-Relational Mapping — thao tác database bằng object/class JavaScript thay vì viết SQL thuần tay.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">terminal</span>\n        \n        <pre><code>npm install sequelize mysql2</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">models/SanPham.js</span>\n        \n        <pre><code>const { Sequelize, DataTypes } = require('sequelize');\nconst sequelize = new Sequelize('cua_hang', 'root', process.env.DB_PASSWORD, { dialect: 'mysql' });\n\nconst SanPham = sequelize.define('SanPham', {          // định nghĩa model TƯƠNG ỨNG với 1 bảng\n    ten: { type: DataTypes.STRING, allowNull: false },\n    gia: { type: DataTypes.DECIMAL(10, 2), allowNull: false },\n    soLuong: { type: DataTypes.INTEGER, defaultValue: 0 },\n});\n\nmodule.exports = { sequelize, SanPham };</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">su_dung.js</span>\n        \n        <pre><code>const { SanPham } = require('./models/SanPham');\n\n// CREATE\nconst spMoi = await SanPham.create({ ten: 'Áo thun', gia: 150000 });\n\n// READ\nconst tatCa = await SanPham.findAll();\nconst mot = await SanPham.findByPk(1);                             // tìm theo khóa chính\nconst locGia = await SanPham.findAll({ where: { gia: { [Op.gt]: 100000 } } });   // WHERE gia &gt; 100000\n\n// UPDATE\nawait SanPham.update({ gia: 180000 }, { where: { id: 1 } });\n\n// DELETE\nawait SanPham.destroy({ where: { id: 1 } });</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Sequelize tự động sinh câu SQL đúng chuẩn, ĐÃ chống SQL Injection sẵn — code trông giống thao tác object JavaScript thông thường, không cần tự viết chuỗi SQL nữa.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 1</h4>\n        <p>Sequelize ánh xạ bảng database thành model JavaScript, cung cấp phương thức create/findAll/update/destroy — viết code database mà không cần viết SQL trực tiếp.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 17 ================= -->",
+      "questions": [],
+      "ids": [
+        "s12"
+      ],
+      "words": 222
+    },
+    {
+      "id": "chapter02",
+      "file": "chapter02.html",
+      "title": "ORM Prisma",
+      "summary": "ORM hiện đại, được ưa chuộng gần đây nhờ type-safety mạnh mẽ khi kết hợp với TypeScript.",
+      "content": "<section class=\"chapter\" id=\"s13\">\n      \n      <p class=\"lead\">ORM hiện đại, được ưa chuộng gần đây nhờ type-safety mạnh mẽ khi kết hợp với TypeScript.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">terminal</span>\n        \n        <pre><code>npm install prisma @prisma/client\nnpx prisma init                  # tạo file schema.prisma và .env</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">prisma/schema.prisma</span>\n        \n        <pre><code>datasource db {\n    provider = \"mysql\"\n    url      = env(\"DATABASE_URL\")\n}\n\ngenerator client {\n    provider = \"prisma-client-js\"\n}\n\nmodel SanPham {                        // định nghĩa model ngay trong file schema riêng, KHÔNG lẫn vào code\n    id       Int      @id @default(autoincrement())\n    ten      String\n    gia      Decimal\n    soLuong  Int      @default(0)\n    donHangs DonHang[]                    // quan hệ 1-nhiều với bảng DonHang\n}</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">terminal</span>\n        \n        <pre><code>npx prisma migrate dev --name init     # tạo bảng thật trong database dựa theo schema\nnpx prisma generate                       # sinh ra Prisma Client với TYPE ĐẦY ĐỦ cho TypeScript</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">su_dung.ts</span>\n        \n        <pre><code>import { PrismaClient } from '@prisma/client';\nconst prisma = new PrismaClient();\n\nconst spMoi = await prisma.sanPham.create({ data: { ten: 'Áo thun', gia: 150000 } });\nconst tatCa = await prisma.sanPham.findMany();\nconst locGia = await prisma.sanPham.findMany({ where: { gia: { gt: 100000 } } });\nawait prisma.sanPham.update({ where: { id: 1 }, data: { gia: 180000 } });\nawait prisma.sanPham.delete({ where: { id: 1 } });</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Tiêu chí</th><th>Sequelize</th><th>Prisma</th></tr>\n        <tr><td>Định nghĩa model</td><td>Trực tiếp trong code JS</td><td>File schema.prisma riêng biệt, dễ nhìn tổng quan</td></tr>\n        <tr><td>Hỗ trợ TypeScript</td><td>Có, nhưng không mạnh bằng</td><td>Type-safety CỰC MẠNH, tự sinh type chính xác</td></tr>\n        <tr><td>Migration (đồng bộ schema → database)</td><td>Cần viết migration thủ công</td><td>Tự động qua `prisma migrate`</td></tr>\n        <tr><td>Độ phổ biến hiện tại</td><td>Lâu đời, ổn định</td><td>Đang tăng trưởng nhanh, xu hướng mới</td></tr>\n      </tbody></table>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 2</h4>\n        <p>Prisma dùng file schema riêng biệt, migration tự động, và type-safety mạnh — xu hướng ORM hiện đại, đặc biệt hợp với TypeScript. Cả Sequelize lẫn Prisma đều loại bỏ hoàn toàn rủi ro SQL Injection khi dùng đúng cách.</p>\n      </div>\n\n      <div class=\"roadmap-note\">\n        ✅ Đã hoàn thành 17 chương (Công cụ nền tảng + ReactJS + MySQL/ORM). Đang tiếp tục ngay với <strong>Phần 4 — GraphQL &amp; Socket.IO</strong>, không dừng lại.\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 18 ================= -->",
+      "questions": [
+        {
+          "question": "1. Tại sao KHÔNG BAO GIỜ nên nối chuỗi trực tiếp để tạo câu SQL từ input người dùng?",
+          "options": [
+            "Vì chạy chậm hơn",
+            "Vì tạo lỗ hổng SQL Injection nghiêm trọng",
+            "Vì cú pháp JavaScript không cho phép"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s13"
+      ],
+      "words": 313
+    }
+  ]
+}

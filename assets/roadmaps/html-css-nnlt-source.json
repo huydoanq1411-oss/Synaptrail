@@ -1,0 +1,288 @@
+{
+  "course": "html-css-nnlt",
+  "title": "HTML & CSS",
+  "lessons": [
+    {
+      "id": "chapter01",
+      "file": "chapter01.html",
+      "title": "Giới thiệu HTML",
+      "summary": "HTML là \"bộ xương\" của mọi trang web — ngôn ngữ đánh dấu (markup), không phải ngôn ngữ lập trình.",
+      "content": "<section class=\"chapter\" id=\"s1\">\n      \n      <p class=\"lead\">HTML là \"bộ xương\" của mọi trang web — ngôn ngữ đánh dấu (markup), không phải ngôn ngữ lập trình.</p>\n\n      <h3>HTML là gì?</h3>\n      <p>HTML (HyperText Markup Language) là ngôn ngữ đánh dấu dùng để xây dựng <strong>cấu trúc và nội dung</strong> của trang web — tiêu đề, đoạn văn, hình ảnh, liên kết... Trình duyệt đọc file HTML và hiển thị thành trang web mà người dùng nhìn thấy.</p>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        HTML <strong>KHÔNG phải ngôn ngữ lập trình</strong> — nó không có biến, vòng lặp, hay logic điều kiện. HTML chỉ mô tả cấu trúc/nội dung; CSS lo phần trình bày; JavaScript lo phần tương tác/logic. Ba thứ này luôn đi cùng nhau khi xây dựng web.\n      </div>\n\n      <h3>Bộ ba nền tảng của web</h3>\n      <table>\n        <tbody><tr><th>Công nghệ</th><th>Vai trò</th></tr>\n        <tr><td>HTML</td><td>Cấu trúc &amp; nội dung (\"bộ xương\")</td></tr>\n        <tr><td>CSS</td><td>Trình bày &amp; bố cục (\"quần áo, trang điểm\")</td></tr>\n        <tr><td>JavaScript</td><td>Tương tác &amp; logic (\"bộ não, hành động\")</td></tr>\n      </tbody></table>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Không cần cài đặt gì để bắt đầu học HTML — chỉ cần một trình soạn thảo (VS Code) và một trình duyệt. Tạo file <code>.html</code>, mở bằng trình duyệt là thấy kết quả ngay lập tức.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 1</h4>\n        <p>HTML là ngôn ngữ đánh dấu xây dựng cấu trúc trang web, luôn đi cùng CSS (trình bày) và JavaScript (tương tác) để tạo nên một trang web hoàn chỉnh.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 2 ================= -->",
+      "questions": [],
+      "ids": [
+        "s1"
+      ],
+      "words": 223
+    },
+    {
+      "id": "chapter02",
+      "file": "chapter02.html",
+      "title": "Cấu trúc trang HTML",
+      "summary": "Bộ khung tối thiểu mà mọi trang HTML đều cần có.",
+      "content": "<section class=\"chapter\" id=\"s2\">\n      \n      <p class=\"lead\">Bộ khung tối thiểu mà mọi trang HTML đều cần có.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">index.html</span>\n        \n        <pre><code>&lt;!DOCTYPE html&gt;                          &lt;!-- khai báo đây là tài liệu HTML5 --&gt;\n&lt;html lang=\"vi\"&gt;                           &lt;!-- thẻ gốc, lang giúp trình duyệt/SEO biết ngôn ngữ --&gt;\n&lt;head&gt;\n    &lt;meta charset=\"UTF-8\"&gt;                    &lt;!-- mã hóa ký tự, BẮT BUỘC để hiển thị đúng tiếng Việt --&gt;\n    &lt;meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"&gt;\n    &lt;title&gt;Trang web đầu tiên&lt;/title&gt;           &lt;!-- hiện trên tab trình duyệt --&gt;\n&lt;/head&gt;\n&lt;body&gt;\n    &lt;h1&gt;Xin chào, đây là trang web đầu tiên của tôi!&lt;/h1&gt;\n    &lt;p&gt;Nội dung hiển thị trên trang nằm trong thẻ body.&lt;/p&gt;\n&lt;/body&gt;\n&lt;/html&gt;</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Thẻ</th><th>Vai trò</th></tr>\n        <tr><td><code>&lt;!DOCTYPE html&gt;</code></td><td>Khai báo phiên bản HTML5, luôn ở dòng đầu tiên</td></tr>\n        <tr><td><code>&lt;head&gt;</code></td><td>Thông tin \"ẩn\" — không hiển thị trực tiếp (title, meta, link CSS)</td></tr>\n        <tr><td><code>&lt;body&gt;</code></td><td>Toàn bộ nội dung HIỂN THỊ trên trang</td></tr>\n      </tbody></table>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        <code>&lt;meta charset=\"UTF-8\"&gt;</code> gần như luôn <strong>bắt buộc</strong> với trang tiếng Việt — thiếu dòng này, các ký tự có dấu sẽ hiển thị thành ký tự lỗi (mojibake) trên một số trình duyệt/hệ thống.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 2</h4>\n        <p>Mọi trang HTML cần khung tối thiểu: DOCTYPE, html, head (chứa meta/title), và body (chứa nội dung hiển thị). Luôn khai báo <code>charset=\"UTF-8\"</code>.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 3 ================= -->",
+      "questions": [],
+      "ids": [
+        "s2"
+      ],
+      "words": 190
+    },
+    {
+      "id": "chapter03",
+      "file": "chapter03.html",
+      "title": "Thẻ văn bản & Danh sách",
+      "summary": "Các thẻ HTML cơ bản nhất để hiển thị nội dung văn bản có cấu trúc.",
+      "content": "<section class=\"chapter\" id=\"s3\">\n      \n      <p class=\"lead\">Các thẻ HTML cơ bản nhất để hiển thị nội dung văn bản có cấu trúc.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">van_ban.html</span>\n        \n        <pre><code>&lt;h1&gt;Tiêu đề lớn nhất&lt;/h1&gt;             &lt;!-- h1 -&gt; h6, cỡ chữ giảm dần theo số --&gt;\n&lt;h2&gt;Tiêu đề cấp 2&lt;/h2&gt;\n&lt;p&gt;Đây là một đoạn văn bản (paragraph).&lt;/p&gt;\n\n&lt;strong&gt;Chữ in đậm, có ý nghĩa quan trọng&lt;/strong&gt;\n&lt;em&gt;Chữ in nghiêng, nhấn mạnh&lt;/em&gt;\n&lt;br&gt;                                     &lt;!-- xuống dòng, KHÔNG có thẻ đóng --&gt;\n&lt;hr&gt;                                     &lt;!-- đường kẻ ngang phân cách --&gt;\n\n&lt;ul&gt;                                     &lt;!-- danh sách KHÔNG thứ tự (dấu chấm) --&gt;\n    &lt;li&gt;Táo&lt;/li&gt;\n    &lt;li&gt;Cam&lt;/li&gt;\n&lt;/ul&gt;\n\n&lt;ol&gt;                                     &lt;!-- danh sách CÓ thứ tự (số) --&gt;\n    &lt;li&gt;Bước 1&lt;/li&gt;\n    &lt;li&gt;Bước 2&lt;/li&gt;\n&lt;/ol&gt;</code></pre>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">Ghi chú — strong/em vs b/i</div>\n        <code>&lt;strong&gt;</code>/<code>&lt;em&gt;</code> mang ý nghĩa ngữ nghĩa (quan trọng/nhấn mạnh), trong khi <code>&lt;b&gt;</code>/<code>&lt;i&gt;</code> chỉ thuần túy về mặt hiển thị (đậm/nghiêng). Nên ưu tiên <code>strong</code>/<code>em</code> vì tốt hơn cho SEO và trình đọc màn hình (screen reader).\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 3</h4>\n        <p><code>h1-h6</code> cho tiêu đề, <code>p</code> cho đoạn văn, <code>ul/ol/li</code> cho danh sách. Ưu tiên thẻ mang ý nghĩa ngữ nghĩa (<code>strong/em</code>) hơn thẻ chỉ về hiển thị (<code>b/i</code>).</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 4 ================= -->",
+      "questions": [],
+      "ids": [
+        "s3"
+      ],
+      "words": 175
+    },
+    {
+      "id": "chapter04",
+      "file": "chapter04.html",
+      "title": "Liên kết & Hình ảnh",
+      "summary": "Hai thẻ biến trang web tĩnh thành mạng lưới siêu liên kết (hypertext) đúng nghĩa.",
+      "content": "<section class=\"chapter\" id=\"s4\">\n      \n      <p class=\"lead\">Hai thẻ biến trang web tĩnh thành mạng lưới siêu liên kết (hypertext) đúng nghĩa.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">lien_ket_hinh_anh.html</span>\n        \n        <pre><code>&lt;a href=\"https://example.com\"&gt;Truy cập example.com&lt;/a&gt;\n&lt;a href=\"trang-khac.html\"&gt;Trang khác trong cùng website&lt;/a&gt;\n&lt;a href=\"#phan-gioi-thieu\"&gt;Nhảy tới phần Giới thiệu&lt;/a&gt;      &lt;!-- liên kết nội bộ trang, tới id --&gt;\n&lt;a href=\"https://example.com\" target=\"_blank\"&gt;Mở tab mới&lt;/a&gt;\n\n&lt;img src=\"hinh-anh.jpg\" alt=\"Mô tả hình ảnh\" width=\"400\"&gt;\n&lt;!-- alt BẮT BUỘC: hiện khi ảnh lỗi, và giúp screen reader đọc cho người khiếm thị --&gt;</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Thuộc tính</th><th>Ý nghĩa</th></tr>\n        <tr><td><code>href</code></td><td>Đường dẫn đích của liên kết</td></tr>\n        <tr><td><code>target=\"_blank\"</code></td><td>Mở liên kết ở tab mới</td></tr>\n        <tr><td><code>src</code></td><td>Đường dẫn tới file hình ảnh</td></tr>\n        <tr><td><code>alt</code></td><td>Văn bản thay thế — BẮT BUỘC vì lý do SEO và khả năng tiếp cận</td></tr>\n      </tbody></table>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        Luôn viết thuộc tính <code>alt</code> có ý nghĩa cho mọi thẻ <code>&lt;img&gt;</code> — đây không chỉ là \"thói quen tốt\" mà thực sự cần thiết cho người dùng khiếm thị (screen reader đọc nội dung alt) và cải thiện SEO.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 4</h4>\n        <p><code>&lt;a href=\"...\"&gt;</code> tạo liên kết, <code>&lt;img src=\"...\" alt=\"...\"&gt;</code> nhúng hình ảnh — luôn viết <code>alt</code> đầy đủ ý nghĩa cho mọi hình ảnh.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 5 ================= -->",
+      "questions": [],
+      "ids": [
+        "s4"
+      ],
+      "words": 178
+    },
+    {
+      "id": "chapter05",
+      "file": "chapter05.html",
+      "title": "Bảng (Table)",
+      "summary": "Hiển thị dữ liệu dạng bảng — chỉ nên dùng cho DỮ LIỆU dạng bảng, không dùng để dàn trang (layout).",
+      "content": "<section class=\"chapter\" id=\"s5\">\n      \n      <p class=\"lead\">Hiển thị dữ liệu dạng bảng — chỉ nên dùng cho DỮ LIỆU dạng bảng, không dùng để dàn trang (layout).</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">bang.html</span>\n        \n        <pre><code>&lt;table&gt;\n    &lt;thead&gt;\n        &lt;tr&gt;\n            &lt;th&gt;Tên&lt;/th&gt;             &lt;!-- th = tiêu đề cột, tự động in đậm --&gt;\n            &lt;th&gt;Điểm&lt;/th&gt;\n        &lt;/tr&gt;\n    &lt;/thead&gt;\n    &lt;tbody&gt;\n        &lt;tr&gt;\n            &lt;td&gt;Huy&lt;/td&gt;               &lt;!-- td = một ô dữ liệu --&gt;\n            &lt;td&gt;8.5&lt;/td&gt;\n        &lt;/tr&gt;\n        &lt;tr&gt;\n            &lt;td&gt;Lan&lt;/td&gt;\n            &lt;td&gt;9.2&lt;/td&gt;\n        &lt;/tr&gt;\n    &lt;/tbody&gt;\n&lt;/table&gt;</code></pre>\n      </div>\n\n      <div class=\"box warning\">\n        <div class=\"box-title\">Lưu ý lịch sử</div>\n        Trước đây (~2000s), người ta hay dùng <code>&lt;table&gt;</code> để dàn bố cục toàn trang web — đây là cách làm <strong>đã lỗi thời</strong>. Ngày nay chỉ dùng table cho dữ liệu dạng bảng thật sự (báo cáo, thời khóa biểu...), còn bố cục trang dùng CSS (Flexbox/Grid — sẽ học ở chương 12 và phần sau).\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 5</h4>\n        <p><code>table/thead/tbody/tr/th/td</code> tạo bảng dữ liệu có cấu trúc rõ ràng. Chỉ dùng cho dữ liệu dạng bảng, không dùng để dàn trang.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 6 ================= -->",
+      "questions": [],
+      "ids": [
+        "s5"
+      ],
+      "words": 146
+    },
+    {
+      "id": "chapter06",
+      "file": "chapter06.html",
+      "title": "Form & Input",
+      "summary": "Thu thập dữ liệu từ người dùng — nền tảng của đăng nhập, đăng ký, tìm kiếm, liên hệ...",
+      "content": "<section class=\"chapter\" id=\"s6\">\n      \n      <p class=\"lead\">Thu thập dữ liệu từ người dùng — nền tảng của đăng nhập, đăng ký, tìm kiếm, liên hệ...</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">form.html</span>\n        \n        <pre><code>&lt;form action=\"/dang-ky\" method=\"POST\"&gt;\n    &lt;label for=\"ten\"&gt;Họ tên:&lt;/label&gt;\n    &lt;input type=\"text\" id=\"ten\" name=\"ten\" placeholder=\"Nhập họ tên\" required&gt;\n\n    &lt;label for=\"email\"&gt;Email:&lt;/label&gt;\n    &lt;input type=\"email\" id=\"email\" name=\"email\" required&gt;\n\n    &lt;label for=\"tuoi\"&gt;Tuổi:&lt;/label&gt;\n    &lt;input type=\"number\" id=\"tuoi\" name=\"tuoi\" min=\"1\" max=\"120\"&gt;\n\n    &lt;label&gt;Giới tính:&lt;/label&gt;\n    &lt;input type=\"radio\" id=\"nam\" name=\"gioitinh\" value=\"nam\"&gt;\n    &lt;label for=\"nam\"&gt;Nam&lt;/label&gt;\n    &lt;input type=\"radio\" id=\"nu\" name=\"gioitinh\" value=\"nu\"&gt;\n    &lt;label for=\"nu\"&gt;Nữ&lt;/label&gt;\n\n    &lt;input type=\"checkbox\" id=\"dongy\" name=\"dongy\"&gt;\n    &lt;label for=\"dongy\"&gt;Tôi đồng ý với điều khoản&lt;/label&gt;\n\n    &lt;button type=\"submit\"&gt;Đăng ký&lt;/button&gt;\n&lt;/form&gt;</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Loại input</th><th>Công dụng</th></tr>\n        <tr><td><code>text</code></td><td>Nhập chữ một dòng</td></tr>\n        <tr><td><code>email</code></td><td>Tự động kiểm tra định dạng email</td></tr>\n        <tr><td><code>number</code></td><td>Chỉ nhận số, có thể giới hạn min/max</td></tr>\n        <tr><td><code>radio</code></td><td>Chọn MỘT trong nhiều lựa chọn (cùng \"name\")</td></tr>\n        <tr><td><code>checkbox</code></td><td>Chọn nhiều lựa chọn độc lập</td></tr>\n      </tbody></table>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo — Khả năng tiếp cận</div>\n        Luôn gắn <code>&lt;label for=\"id-cua-input\"&gt;</code> đúng với <code>id</code> của input tương ứng — điều này cho phép người dùng bấm vào label để focus input, và giúp screen reader đọc đúng ý nghĩa của từng trường.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 6</h4>\n        <p><code>form</code> thu thập dữ liệu qua nhiều loại <code>input</code> (text, email, radio, checkbox...). Luôn gắn <code>label</code> đúng với input để đảm bảo khả năng tiếp cận.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 7 ================= -->",
+      "questions": [],
+      "ids": [
+        "s6"
+      ],
+      "words": 188
+    },
+    {
+      "id": "chapter07",
+      "file": "chapter07.html",
+      "title": "Thẻ ngữ nghĩa (Semantic HTML)",
+      "summary": "Dùng thẻ đúng ý nghĩa cấu trúc thay vì lạm dụng <div> cho mọi thứ — tốt cho SEO và khả năng bảo trì.",
+      "content": "<section class=\"chapter\" id=\"s7\">\n      \n      <p class=\"lead\">Dùng thẻ đúng ý nghĩa cấu trúc thay vì lạm dụng <code>&lt;div&gt;</code> cho mọi thứ — tốt cho SEO và khả năng bảo trì.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">semantic.html</span>\n        \n        <pre><code>&lt;header&gt;                          &lt;!-- phần đầu trang: logo, menu --&gt;\n    &lt;nav&gt;                            &lt;!-- khu vực điều hướng --&gt;\n        &lt;a href=\"/\"&gt;Trang chủ&lt;/a&gt;\n        &lt;a href=\"/gioi-thieu\"&gt;Giới thiệu&lt;/a&gt;\n    &lt;/nav&gt;\n&lt;/header&gt;\n\n&lt;main&gt;                            &lt;!-- nội dung CHÍNH của trang, chỉ 1 thẻ main/trang --&gt;\n    &lt;article&gt;                       &lt;!-- nội dung độc lập, có thể đứng riêng (bài viết) --&gt;\n        &lt;h1&gt;Tiêu đề bài viết&lt;/h1&gt;\n        &lt;p&gt;Nội dung bài viết...&lt;/p&gt;\n    &lt;/article&gt;\n\n    &lt;aside&gt;                          &lt;!-- nội dung PHỤ, liên quan nhưng không cốt lõi --&gt;\n        &lt;h3&gt;Bài viết liên quan&lt;/h3&gt;\n    &lt;/aside&gt;\n&lt;/main&gt;\n\n&lt;footer&gt;                          &lt;!-- phần chân trang: bản quyền, liên hệ --&gt;\n    &lt;p&gt;© 2026 Công ty ABC&lt;/p&gt;\n&lt;/footer&gt;</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Thẻ ngữ nghĩa</th><th>Thay thế cho</th></tr>\n        <tr><td><code>&lt;header&gt;</code></td><td><code>&lt;div class=\"header\"&gt;</code></td></tr>\n        <tr><td><code>&lt;nav&gt;</code></td><td><code>&lt;div class=\"nav\"&gt;</code></td></tr>\n        <tr><td><code>&lt;main&gt;</code></td><td><code>&lt;div class=\"main-content\"&gt;</code></td></tr>\n        <tr><td><code>&lt;footer&gt;</code></td><td><code>&lt;div class=\"footer\"&gt;</code></td></tr>\n      </tbody></table>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        Thẻ ngữ nghĩa không thay đổi giao diện mặc định nhiều so với <code>div</code>, nhưng giúp trình duyệt, công cụ tìm kiếm (SEO) và screen reader <strong>hiểu đúng cấu trúc và tầm quan trọng</strong> của từng phần nội dung — nên ưu tiên dùng thay vì <code>div</code> chung chung khi có thẻ ngữ nghĩa phù hợp.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 7</h4>\n        <p>Thẻ ngữ nghĩa (<code>header/nav/main/article/aside/footer</code>) mô tả đúng vai trò từng phần trang, tốt cho SEO và khả năng tiếp cận — nên ưu tiên hơn <code>div</code> chung chung.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 8 ================= -->",
+      "questions": [
+        {
+          "question": "1. Thuộc tính nào BẮT BUỘC nên có trên mọi thẻ <img>?",
+          "options": [
+            "width",
+            "alt",
+            "title"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s7"
+      ],
+      "words": 220
+    },
+    {
+      "id": "chapter08",
+      "file": "chapter08.html",
+      "title": "Giới thiệu CSS & Selector",
+      "summary": "CSS (Cascading Style Sheets) trình bày giao diện cho các thẻ HTML — bắt đầu phần \"trang điểm\" cho bộ xương đã xây.",
+      "content": "<section class=\"chapter\" id=\"s8\">\n      \n      <p class=\"lead\">CSS (Cascading Style Sheets) trình bày giao diện cho các thẻ HTML — bắt đầu phần \"trang điểm\" cho bộ xương đã xây.</p>\n\n      <h3>3 cách áp dụng CSS</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">3_cach_dung_css.html</span>\n        \n        <pre><code>&lt;!-- Cách 1: Inline - viết trực tiếp trên thẻ (ít dùng, khó bảo trì) --&gt;\n&lt;p style=\"color: red;\"&gt;Chữ màu đỏ&lt;/p&gt;\n\n&lt;!-- Cách 2: Internal - viết trong thẻ style ở head --&gt;\n&lt;head&gt;\n    &lt;style&gt;\n        p { color: blue; }\n    &lt;/style&gt;\n&lt;/head&gt;\n\n&lt;!-- Cách 3: External - file .css riêng, LIÊN KẾT vào HTML (CÁCH CHUẨN, nên dùng) --&gt;\n&lt;head&gt;\n    &lt;link rel=\"stylesheet\" href=\"style.css\"&gt;\n&lt;/head&gt;</code></pre>\n      </div>\n\n      <h3>Các loại Selector cơ bản</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">style.css</span>\n        \n        <pre><code>p { color: navy; }                  /* Selector theo THẺ - áp dụng cho MỌI thẻ &lt;p&gt; */\n.canh-bao { color: red; }             /* Selector theo CLASS - dùng dấu chấm, tái sử dụng nhiều lần */\n#tieu-de-chinh { font-size: 32px; }     /* Selector theo ID - dấu #, CHỈ DÙNG 1 LẦN/trang */\np.canh-bao { font-weight: bold; }         /* Kết hợp: thẻ p VÀ có class canh-bao */\ndiv p { margin: 10px; }                     /* Selector con cháu: mọi p BÊN TRONG div */</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Selector</th><th>Cú pháp</th><th>Khi nào dùng</th></tr>\n        <tr><td>Thẻ</td><td><code>p { }</code></td><td>Style chung cho mọi thẻ cùng loại</td></tr>\n        <tr><td>Class</td><td><code>.ten-class { }</code></td><td>Tái sử dụng cho NHIỀU phần tử — phổ biến nhất</td></tr>\n        <tr><td>ID</td><td><code>#ten-id { }</code></td><td>CHỈ 1 phần tử duy nhất trên trang</td></tr>\n      </tbody></table>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Luôn ưu tiên <strong>external CSS</strong> (file .css riêng) — tách biệt nội dung (HTML) và trình bày (CSS), giúp dễ bảo trì và tái sử dụng style cho nhiều trang. Chỉ dùng inline CSS khi thực sự cần override nhanh, tạm thời.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 8</h4>\n        <p>CSS có 3 cách áp dụng (inline/internal/external), nên ưu tiên external. Selector theo class là phổ biến nhất vì tái sử dụng được cho nhiều phần tử.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 9 ================= -->",
+      "questions": [],
+      "ids": [
+        "s8"
+      ],
+      "words": 294
+    },
+    {
+      "id": "chapter09",
+      "file": "chapter09.html",
+      "title": "Màu sắc & Typography",
+      "summary": "Các cách khai báo màu sắc và kiểm soát kiểu chữ trong CSS.",
+      "content": "<section class=\"chapter\" id=\"s9\">\n      \n      <p class=\"lead\">Các cách khai báo màu sắc và kiểm soát kiểu chữ trong CSS.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">mau_sac_typography.css</span>\n        \n        <pre><code>.vi-du-mau {\n    color: red;                      /* tên màu có sẵn */\n    color: #ff0000;                    /* mã hex - PHỔ BIẾN NHẤT trong thực tế */\n    color: rgb(255, 0, 0);               /* red, green, blue - mỗi giá trị 0-255 */\n    color: rgba(255, 0, 0, 0.5);           /* thêm alpha - độ trong suốt 0-1 */\n    background-color: #f0f0f0;               /* màu NỀN, khác với \"color\" là màu CHỮ */\n}\n\n.vi-du-chu {\n    font-family: 'Arial', sans-serif;        /* luôn có font dự phòng (fallback) */\n    font-size: 16px;                            /* 16px là kích thước chuẩn dễ đọc */\n    font-weight: bold;                            /* độ đậm: normal/bold/100-900 */\n    font-style: italic;                              /* in nghiêng */\n    text-align: center;                                /* căn giữa văn bản */\n    line-height: 1.6;                                    /* khoảng cách dòng - ảnh hưởng LỚN tới dễ đọc */\n    text-decoration: underline;                            /* gạch chân (mặc định của thẻ a) */\n}</code></pre>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">Ghi chú — Đơn vị đo trong CSS</div>\n        <code>px</code> (pixel) là đơn vị cố định. <code>%</code>, <code>em</code>, <code>rem</code> là đơn vị TƯƠNG ĐỐI — <code>rem</code> tính theo cỡ chữ gốc của toàn trang (thường 16px), giúp thiết kế responsive nhất quán hơn <code>em</code> (tính theo phần tử cha).\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 9</h4>\n        <p>Màu khai báo qua tên/hex/rgb(a); hex phổ biến nhất trong thực tế. Typography kiểm soát qua font-family/size/weight, luôn đặt font dự phòng và chú ý line-height để dễ đọc.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 10 ================= -->",
+      "questions": [],
+      "ids": [
+        "s9"
+      ],
+      "words": 231
+    },
+    {
+      "id": "chapter10",
+      "file": "chapter10.html",
+      "title": "Box Model",
+      "summary": "Mọi phần tử HTML đều là một \"hộp\" — hiểu Box Model là nền tảng bắt buộc để làm chủ CSS layout.",
+      "content": "<section class=\"chapter\" id=\"s10\">\n      \n      <p class=\"lead\">Mọi phần tử HTML đều là một \"hộp\" — hiểu Box Model là nền tảng bắt buộc để làm chủ CSS layout.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">box_model.css</span>\n        \n        <pre><code>.hop {\n    width: 300px;\n    height: 150px;\n    padding: 20px;          /* khoảng cách BÊN TRONG, giữa nội dung và viền */\n    border: 2px solid black;   /* đường viền */\n    margin: 10px;                 /* khoảng cách BÊN NGOÀI, giữa hộp này và hộp khác */\n}</code></pre>\n      </div>\n\n      <h3>Cấu trúc Box Model (từ trong ra ngoài)</h3>\n      <pre><code>┌─────────── margin (khoảng cách với hộp khác) ───────────┐\n│  ┌───────── border (đường viền) ─────────┐               │\n│  │  ┌────── padding (đệm bên trong) ───┐  │               │\n│  │  │         content (nội dung)        │  │               │\n│  │  └────────────────────────────────┘  │               │\n│  └────────────────────────────────────┘               │\n└──────────────────────────────────────────────────────┘</code></pre>\n\n      <h3>box-sizing — thuộc tính cực kỳ quan trọng</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">box_sizing.css</span>\n        \n        <pre><code>* {\n    box-sizing: border-box;   /* NÊN đặt cho MỌI phần tử ngay từ đầu dự án */\n}\n/* Mặc định (content-box): width chỉ tính content, padding/border CỘNG THÊM ra ngoài\n   -&gt; hộp thực tế LỚN HƠN width đã khai báo, rất dễ gây lỗi layout khó hiểu\n\n   border-box: width đã BAO GỒM cả padding và border\n   -&gt; hộp thực tế ĐÚNG BẰNG width đã khai báo, dễ kiểm soát hơn nhiều */</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        <code>* { box-sizing: border-box; }</code> gần như là dòng CSS đầu tiên bắt buộc trong mọi dự án thực tế — giúp việc tính toán kích thước layout trực quan và dễ dự đoán hơn rất nhiều.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 10</h4>\n        <p>Box Model gồm content-padding-border-margin từ trong ra ngoài. Luôn đặt <code>box-sizing: border-box</code> toàn cục để width bao gồm cả padding/border, tránh lỗi layout khó hiểu.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 11 ================= -->",
+      "questions": [],
+      "ids": [
+        "s10"
+      ],
+      "words": 267
+    },
+    {
+      "id": "chapter11",
+      "file": "chapter11.html",
+      "title": "Display & Vị trí (Position)",
+      "summary": "Kiểm soát cách phần tử chiếm không gian và vị trí của nó trên trang.",
+      "content": "<section class=\"chapter\" id=\"s11\">\n      \n      <p class=\"lead\">Kiểm soát cách phần tử chiếm không gian và vị trí của nó trên trang.</p>\n\n      <h3>Thuộc tính display</h3>\n      <table>\n        <tbody><tr><th>Giá trị</th><th>Đặc điểm</th><th>Ví dụ thẻ mặc định</th></tr>\n        <tr><td><code>block</code></td><td>Chiếm TOÀN BỘ chiều rộng, luôn xuống dòng mới</td><td>div, p, h1-h6</td></tr>\n        <tr><td><code>inline</code></td><td>Chỉ chiếm đúng kích thước nội dung, KHÔNG xuống dòng, không set width/height được</td><td>span, a, strong</td></tr>\n        <tr><td><code>inline-block</code></td><td>Không xuống dòng NHƯNG set được width/height</td><td>img</td></tr>\n        <tr><td><code>none</code></td><td>Ẩn hoàn toàn, không chiếm không gian</td><td>-</td></tr>\n      </tbody></table>\n\n      <h3>Thuộc tính position</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">position.css</span>\n        \n        <pre><code>.static-vi-du   { position: static; }     /* MẶC ĐỊNH - theo dòng chảy tự nhiên của trang */\n.relative-vi-du { position: relative; top: 10px; left: 10px; }  /* dịch chuyển SO VỚI vị trí gốc của chính nó */\n.absolute-vi-du { position: absolute; top: 0; right: 0; }         /* định vị SO VỚI phần tử cha GẦN NHẤT có position khác static */\n.fixed-vi-du    { position: fixed; bottom: 20px; right: 20px; }     /* định vị SO VỚI TRÌNH DUYỆT, không cuộn theo trang */\n.sticky-vi-du   { position: sticky; top: 0; }                          /* \"dính\" lại khi cuộn qua một điểm nhất định */</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        <code>position: absolute</code> định vị theo phần tử cha gần nhất có <code>position</code> KHÁC <code>static</code> — nếu không có cha nào như vậy, nó sẽ định vị theo toàn bộ trang (<code>&lt;html&gt;</code>). Đây là nguồn gốc của rất nhiều lỗi layout khó hiểu với người mới.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 11</h4>\n        <p><code>display</code> kiểm soát cách phần tử chiếm không gian (block/inline/inline-block). <code>position</code> kiểm soát vị trí chính xác (static/relative/absolute/fixed/sticky) theo các hệ quy chiếu khác nhau.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 12 ================= -->",
+      "questions": [
+        {
+          "question": "1. Giá trị position nào giữ phần tử \"dính\" tại một vị trí cố định trên MÀN HÌNH khi cuộn trang?",
+          "options": [
+            "relative",
+            "absolute",
+            "fixed"
+          ],
+          "answer": 2,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s11"
+      ],
+      "words": 248
+    },
+    {
+      "id": "chapter12",
+      "file": "chapter12.html",
+      "title": "Flexbox",
+      "summary": "Hệ thống layout một chiều mạnh mẽ nhất của CSS hiện đại — giải quyết hầu hết bài toán căn chỉnh, phân bố không gian.",
+      "content": "<section class=\"chapter\" id=\"s12\">\n      \n      <p class=\"lead\">Hệ thống layout một chiều mạnh mẽ nhất của CSS hiện đại — giải quyết hầu hết bài toán căn chỉnh, phân bố không gian.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">flexbox_basic.css</span>\n        \n        <pre><code>.container {\n    display: flex;                    /* BIẾN container thành flex container */\n    flex-direction: row;                 /* row (ngang, mặc định) hoặc column (dọc) */\n    justify-content: center;               /* căn chỉnh theo TRỤC CHÍNH (main axis) */\n    align-items: center;                     /* căn chỉnh theo TRỤC PHỤ (cross axis) */\n    gap: 16px;                                  /* khoảng cách giữa các phần tử con */\n    flex-wrap: wrap;                               /* cho phép xuống dòng khi không đủ chỗ */\n}\n\n.item {\n    flex: 1;                            /* phần tử con TỰ GIÃN NỞ đều chia không gian còn lại */\n}</code></pre>\n      </div>\n\n      <h3>Các giá trị justify-content phổ biến</h3>\n      <table>\n        <tbody><tr><th>Giá trị</th><th>Hiệu ứng</th></tr>\n        <tr><td><code>flex-start</code></td><td>Dồn về đầu (mặc định)</td></tr>\n        <tr><td><code>center</code></td><td>Căn giữa</td></tr>\n        <tr><td><code>flex-end</code></td><td>Dồn về cuối</td></tr>\n        <tr><td><code>space-between</code></td><td>Phần tử đầu/cuối sát mép, khoảng cách đều nhau ở giữa</td></tr>\n        <tr><td><code>space-around</code></td><td>Khoảng cách đều nhau xung quanh MỖI phần tử</td></tr>\n      </tbody></table>\n\n      <h3>Ví dụ thực tế: Căn giữa hoàn hảo (huyền thoại \"centering problem\")</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">can_giua_hoan_hao.css</span>\n        \n        <pre><code>.can-giua-man-hinh {\n    display: flex;\n    justify-content: center;   /* căn giữa theo chiều ngang */\n    align-items: center;         /* căn giữa theo chiều dọc */\n    height: 100vh;                  /* chiều cao bằng TOÀN BỘ màn hình */\n}\n/* Chỉ 4 dòng CSS đã giải quyết vấn đề \"căn giữa div\" từng là nỗi ám ảnh trước khi có Flexbox! */</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo ghi nhớ</div>\n        <code>justify-content</code> luôn theo <strong>trục chính</strong> (main axis — mặc định là ngang), <code>align-items</code> luôn theo <strong>trục phụ</strong> (cross axis — mặc định là dọc). Đổi <code>flex-direction: column</code> thì hai trục này HOÁN ĐỔI vai trò cho nhau.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 12</h4>\n        <p>Flexbox (<code>display: flex</code>) là công cụ layout một chiều mạnh mẽ, giải quyết căn chỉnh/phân bố không gian dễ dàng với <code>justify-content</code> (trục chính) và <code>align-items</code> (trục phụ).</p>\n      </div>\n\n    </section>\n\n    <!-- ================= CHƯƠNG 13 ================= -->",
+      "questions": [
+        {
+          "question": "1. Thuộc tính nào biến một phần tử thành Flex Container?",
+          "options": [
+            "display: flex",
+            "position: flex",
+            "flex: container"
+          ],
+          "answer": 0,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s12"
+      ],
+      "words": 295
+    },
+    {
+      "id": "chapter13",
+      "file": "chapter13.html",
+      "title": "CSS Grid",
+      "summary": "Hệ thống layout HAI CHIỀU (hàng và cột đồng thời) — bổ sung hoàn hảo cho Flexbox (một chiều).",
+      "content": "<section class=\"chapter\" id=\"s13\">\n      \n      <p class=\"lead\">Hệ thống layout HAI CHIỀU (hàng và cột đồng thời) — bổ sung hoàn hảo cho Flexbox (một chiều).</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">grid_basic.css</span>\n        \n        <pre><code>.container {\n    display: grid;\n    grid-template-columns: 200px 1fr 1fr;    /* 3 cột: cố định 200px, hai cột còn lại chia đều phần dư */\n    grid-template-rows: 80px auto 60px;        /* 3 hàng: header cố định, content tự động, footer cố định */\n    gap: 16px;                                    /* khoảng cách giữa các ô, cả hàng lẫn cột */\n}\n\n.header { grid-column: 1 / -1; }    /* chiếm TOÀN BỘ chiều ngang (từ cột 1 tới cột cuối cùng) */\n.sidebar { grid-row: 2; grid-column: 1; }\n.content { grid-row: 2; grid-column: 2 / 4; }   /* chiếm từ cột 2 tới trước cột 4 (tức cột 2-3) */</code></pre>\n      </div>\n\n      <h3>Đơn vị fr — phần tỉ lệ độc quyền của Grid</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">fr_unit.css</span>\n        \n        <pre><code>.grid-3-cot-deu {\n    display: grid;\n    grid-template-columns: 1fr 1fr 1fr;    /* 3 cột chia đều KHÔNG GIAN CÒN LẠI */\n}\n\n.grid-ty-le {\n    display: grid;\n    grid-template-columns: 2fr 1fr;    /* cột đầu RỘNG GẤP ĐÔI cột sau */\n}</code></pre>\n      </div>\n\n      <h3>grid-template-areas — đặt tên trực quan cho layout</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">grid_areas.css</span>\n        \n        <pre><code>.container {\n    display: grid;\n    grid-template-columns: 200px 1fr;\n    grid-template-areas:\n        \"sidebar header\"\n        \"sidebar content\"\n        \"sidebar footer\";                /* trực quan hóa layout NGAY TRONG CSS */\n}\n.header  { grid-area: header; }\n.sidebar { grid-area: sidebar; }\n.content { grid-area: content; }\n.footer  { grid-area: footer; }</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo — Khi nào dùng Grid, khi nào dùng Flexbox?</div>\n        <strong>Grid</strong> cho bố cục TỔNG THỂ trang (header/sidebar/content/footer) — cần kiểm soát cả hàng LẪN cột. <strong>Flexbox</strong> cho bố cục các phần tử NHỎ theo MỘT hướng (thanh menu ngang, danh sách card). Hai công cụ này bổ sung cho nhau, không thay thế nhau.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 13</h4>\n        <p>CSS Grid (<code>display: grid</code>) kiểm soát layout 2 chiều với <code>grid-template-columns/rows</code>, đơn vị <code>fr</code>, và <code>grid-template-areas</code> để đặt tên trực quan — công cụ mạnh nhất cho bố cục tổng thể trang.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 14 ================= -->",
+      "questions": [],
+      "ids": [
+        "s13"
+      ],
+      "words": 317
+    },
+    {
+      "id": "chapter14",
+      "file": "chapter14.html",
+      "title": "Responsive Design & Media Query",
+      "summary": "Làm cho trang web hiển thị tốt trên MỌI kích thước màn hình — điện thoại, tablet, desktop.",
+      "content": "<section class=\"chapter\" id=\"s14\">\n      \n      <p class=\"lead\">Làm cho trang web hiển thị tốt trên MỌI kích thước màn hình — điện thoại, tablet, desktop.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">media_query.css</span>\n        \n        <pre><code>.container {\n    display: grid;\n    grid-template-columns: repeat(3, 1fr);   /* mặc định: 3 cột trên màn hình LỚN */\n}\n\n/* Mobile-first: viết style MẶC ĐỊNH cho màn hình nhỏ trước, sau đó \"nới rộng\" dần */\n@media (max-width: 768px) {                    /* áp dụng khi màn hình &lt;= 768px (tablet) */\n    .container {\n        grid-template-columns: repeat(2, 1fr);   /* chỉ còn 2 cột */\n    }\n}\n\n@media (max-width: 480px) {                    /* áp dụng khi màn hình &lt;= 480px (điện thoại) */\n    .container {\n        grid-template-columns: 1fr;              /* chỉ còn 1 cột, xếp chồng dọc */\n    }\n}</code></pre>\n      </div>\n\n      <h3>Thẻ viewport — bắt buộc cho responsive</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">viewport.html</span>\n        \n        <pre><code>&lt;meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"&gt;\n&lt;!-- KHÔNG có dòng này, trình duyệt mobile sẽ hiển thị trang như trên desktop\n     rồi tự thu nhỏ toàn bộ lại - responsive sẽ KHÔNG hoạt động đúng --&gt;</code></pre>\n      </div>\n\n      <h3>Breakpoint phổ biến trong thực tế</h3>\n      <table>\n        <tbody><tr><th>Thiết bị</th><th>Breakpoint tham khảo</th></tr>\n        <tr><td>Điện thoại</td><td>&lt; 480px</td></tr>\n        <tr><td>Tablet</td><td>481px - 768px</td></tr>\n        <tr><td>Laptop nhỏ</td><td>769px - 1024px</td></tr>\n        <tr><td>Desktop</td><td>&gt; 1024px</td></tr>\n      </tbody></table>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng — Mobile-First</div>\n        Cách tiếp cận hiện đại là viết CSS <strong>mặc định cho màn hình nhỏ trước</strong> (mobile-first), rồi dùng <code>@media (min-width: ...)</code> để \"mở rộng\" cho màn hình lớn hơn — thay vì làm ngược lại. Cách này giúp trang tải nhanh hơn trên mobile (thiết bị chiếm phần lớn lưu lượng truy cập web hiện nay).\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">Ghi chú — Container Query</div>\n        Media Query chỉ phản ứng theo kích thước TOÀN MÀN HÌNH. Từ 2023, các trình duyệt hiện đại hỗ trợ thêm <strong>Container Query</strong> (<code>@container</code>) — cho phép một component tự đổi layout dựa theo kích thước của CHÍNH THẺ CHA chứa nó, bất kể màn hình to hay nhỏ. Rất hữu ích cho component tái sử dụng (VD: một card hiển thị khác nhau tùy đặt trong sidebar hẹp hay khu vực chính rộng):\n        <pre><code>.card-container { container-type: inline-size; }\n\n@container (min-width: 400px) {\n    .card { display: flex; }   /* đổi layout khi THẺ CHA rộng &gt;= 400px, không phải màn hình */\n}</code></pre>\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 14</h4>\n        <p><code>@media</code> query áp dụng CSS khác nhau theo kích thước màn hình. Luôn có thẻ viewport, và ưu tiên cách tiếp cận mobile-first cho hiệu năng tốt hơn.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 15 ================= -->",
+      "questions": [
+        {
+          "question": "1. Thẻ meta nào BẮT BUỘC phải có để responsive design hoạt động đúng trên mobile?",
+          "options": [
+            "<meta name=\"viewport\"...>",
+            "<meta name=\"responsive\"...>",
+            "<meta charset=\"UTF-8\">"
+          ],
+          "answer": 0,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s14"
+      ],
+      "words": 376
+    },
+    {
+      "id": "chapter15",
+      "file": "chapter15.html",
+      "title": "CSS Variables & Transition/Animation",
+      "summary": "Biến CSS giúp quản lý style nhất quán toàn dự án; transition/animation thổi hồn chuyển động vào giao diện.",
+      "content": "<section class=\"chapter\" id=\"s15\">\n      \n      <p class=\"lead\">Biến CSS giúp quản lý style nhất quán toàn dự án; transition/animation thổi hồn chuyển động vào giao diện.</p>\n\n      <h3>CSS Custom Properties (Biến CSS)</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">css_variables.css</span>\n        \n        <pre><code>:root {                                  /* khai báo biến TOÀN CỤC ở gốc tài liệu */\n    --mau-chinh: #3b82f6;\n    --mau-phu: #f59e0b;\n    --khoang-cach: 16px;\n    --bo-goc: 8px;\n}\n\n.nut {\n    background-color: var(--mau-chinh);       /* dùng biến bằng var() */\n    padding: var(--khoang-cach);\n    border-radius: var(--bo-goc);\n}\n\n/* Đổi 1 chỗ duy nhất -&gt; áp dụng cho TOÀN BỘ trang dùng biến đó - rất tiện khi đổi theme */\n[data-theme=\"dark\"] {\n    --mau-chinh: #60a5fa;\n}</code></pre>\n      </div>\n\n      <h3>Transition — chuyển động mượt khi thuộc tính thay đổi</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">transition.css</span>\n        \n        <pre><code>.nut {\n    background-color: #3b82f6;\n    transition: background-color 0.3s ease, transform 0.2s ease;   /* thuộc tính, thời gian, kiểu chuyển động */\n}\n.nut:hover {\n    background-color: #2563eb;      /* nhờ transition, màu ĐỔI TỪ TỪ thay vì đổi đột ngột */\n    transform: translateY(-2px);       /* hiệu ứng \"nhấc lên\" nhẹ khi hover */\n}</code></pre>\n      </div>\n\n      <h3>Animation — chuyển động phức tạp, lặp lại</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">animation.css</span>\n        \n        <pre><code>@keyframes nhap-nhay {                 /* định nghĩa các \"mốc\" của chuyển động */\n    0%   { opacity: 0; transform: translateY(10px); }\n    100% { opacity: 1; transform: translateY(0); }\n}\n\n.thong-bao {\n    animation: nhap-nhay 0.5s ease-out;   /* tên animation, thời gian, kiểu chuyển động */\n}\n\n.icon-xoay {\n    animation: xoay 2s linear infinite;      /* infinite = lặp lại VÔ HẠN */\n}\n@keyframes xoay {\n    from { transform: rotate(0deg); }\n    to   { transform: rotate(360deg); }\n}</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        <code>transition</code> phù hợp cho chuyển động ĐƠN GIẢN, phản ứng với sự kiện (hover, click). <code>animation</code> + <code>@keyframes</code> phù hợp cho chuyển động PHỨC TẠP, nhiều bước, hoặc lặp lại tự động không cần sự kiện kích hoạt.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 15</h4>\n        <p>CSS Variables (<code>--ten: giá-trị</code> + <code>var()</code>) giúp quản lý style nhất quán, dễ đổi theme. <code>transition</code> cho chuyển động đơn giản phản ứng sự kiện, <code>animation</code>/<code>@keyframes</code> cho chuyển động phức tạp/lặp lại.</p>\n      </div>\n\n    </section>\n\n    <!-- ================= CHƯƠNG 16 ================= -->",
+      "questions": [
+        {
+          "question": "1. Cú pháp nào dùng để khai báo và sử dụng một biến CSS?",
+          "options": [
+            "$mau-chinh và use(mau-chinh)",
+            "--mau-chinh và var(--mau-chinh)",
+            "@mau-chinh và get(mau-chinh)"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s15"
+      ],
+      "words": 309
+    },
+    {
+      "id": "chapter16",
+      "file": "chapter16.html",
+      "title": "Dự án: Landing Page — Cấu trúc HTML",
+      "summary": "Xây dựng cấu trúc HTML hoàn chỉnh cho một trang landing page giới thiệu sản phẩm — tổng hợp mọi thẻ đã học.",
+      "content": "<section class=\"chapter\" id=\"s16\">\n      \n      <p class=\"lead\">Xây dựng cấu trúc HTML hoàn chỉnh cho một trang landing page giới thiệu sản phẩm — tổng hợp mọi thẻ đã học.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">index.html</span>\n        \n        <pre><code>&lt;!DOCTYPE html&gt;\n&lt;html lang=\"vi\"&gt;\n&lt;head&gt;\n    &lt;meta charset=\"UTF-8\"&gt;\n    &lt;meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"&gt;\n    &lt;title&gt;TaskFlow - Quản lý công việc thông minh&lt;/title&gt;\n    &lt;link rel=\"stylesheet\" href=\"style.css\"&gt;\n&lt;/head&gt;\n&lt;body&gt;\n    &lt;header class=\"header\"&gt;\n        &lt;nav class=\"navbar\"&gt;\n            &lt;div class=\"logo\"&gt;TaskFlow&lt;/div&gt;\n            &lt;ul class=\"nav-links\"&gt;\n                &lt;li&gt;&lt;a href=\"#tinh-nang\"&gt;Tính năng&lt;/a&gt;&lt;/li&gt;\n                &lt;li&gt;&lt;a href=\"#gia\"&gt;Bảng giá&lt;/a&gt;&lt;/li&gt;\n                &lt;li&gt;&lt;a href=\"#lien-he\"&gt;Liên hệ&lt;/a&gt;&lt;/li&gt;\n            &lt;/ul&gt;\n            &lt;button class=\"btn btn-primary\"&gt;Dùng thử miễn phí&lt;/button&gt;\n        &lt;/nav&gt;\n    &lt;/header&gt;\n\n    &lt;main&gt;\n        &lt;section class=\"hero\"&gt;\n            &lt;h1&gt;Quản lý công việc chưa bao giờ dễ dàng đến thế&lt;/h1&gt;\n            &lt;p&gt;TaskFlow giúp đội nhóm của bạn tổ chức, theo dõi và hoàn thành công việc hiệu quả hơn.&lt;/p&gt;\n            &lt;button class=\"btn btn-primary btn-large\"&gt;Bắt đầu ngay&lt;/button&gt;\n        &lt;/section&gt;\n\n        &lt;section id=\"tinh-nang\" class=\"features\"&gt;\n            &lt;h2&gt;Tính năng nổi bật&lt;/h2&gt;\n            &lt;div class=\"features-grid\"&gt;\n                &lt;article class=\"feature-card\"&gt;\n                    &lt;h3&gt;📋 Bảng công việc&lt;/h3&gt;\n                    &lt;p&gt;Sắp xếp công việc theo trạng thái trực quan&lt;/p&gt;\n                &lt;/article&gt;\n                &lt;article class=\"feature-card\"&gt;\n                    &lt;h3&gt;👥 Cộng tác nhóm&lt;/h3&gt;\n                    &lt;p&gt;Làm việc cùng đồng đội theo thời gian thực&lt;/p&gt;\n                &lt;/article&gt;\n                &lt;article class=\"feature-card\"&gt;\n                    &lt;h3&gt;📊 Báo cáo&lt;/h3&gt;\n                    &lt;p&gt;Theo dõi tiến độ với biểu đồ trực quan&lt;/p&gt;\n                &lt;/article&gt;\n            &lt;/div&gt;\n        &lt;/section&gt;\n    &lt;/main&gt;\n\n    &lt;footer class=\"footer\"&gt;\n        &lt;p&gt;&amp;copy; 2026 TaskFlow. Đã đăng ký bản quyền.&lt;/p&gt;\n    &lt;/footer&gt;\n&lt;/body&gt;\n&lt;/html&gt;</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Chú ý cách dùng thẻ ngữ nghĩa xuyên suốt: <code>header/nav</code> cho đầu trang, <code>main</code> bọc nội dung chính, <code>section</code> cho từng khối nội dung lớn, <code>article</code> cho các card tính năng độc lập, <code>footer</code> cho chân trang — đúng tinh thần chương 7.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 16</h4>\n        <p>Cấu trúc landing page hoàn chỉnh dùng thẻ ngữ nghĩa nhất quán: header/nav, main/section/article, footer — sẵn sàng để tạo kiểu bằng CSS ở chương tiếp theo.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 17 ================= -->",
+      "questions": [],
+      "ids": [
+        "s16"
+      ],
+      "words": 261
+    },
+    {
+      "id": "chapter17",
+      "file": "chapter17.html",
+      "title": "Dự án: Landing Page — Style CSS hoàn chỉnh",
+      "summary": "Áp dụng toàn bộ kiến thức CSS đã học: biến, Flexbox, Grid, responsive — để hoàn thiện giao diện.",
+      "content": "<section class=\"chapter\" id=\"s17\">\n      \n      <p class=\"lead\">Áp dụng toàn bộ kiến thức CSS đã học: biến, Flexbox, Grid, responsive — để hoàn thiện giao diện.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">style.css</span>\n        \n        <pre><code>* { box-sizing: border-box; margin: 0; padding: 0; }    /* reset cơ bản - chương 10 */\n\n:root {                                                     /* CSS Variables - chương 15 */\n    --mau-chinh: #4f46e5;\n    --mau-chu: #1f2937;\n    --mau-nen-nhat: #f9fafb;\n    --bo-goc: 12px;\n}\n\nbody { font-family: 'Segoe UI', sans-serif; color: var(--mau-chu); line-height: 1.6; }\n\n.navbar {                                                    /* Flexbox cho thanh nav - chương 12 */\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 20px 40px;\n}\n.nav-links { display: flex; list-style: none; gap: 32px; }\n.nav-links a { text-decoration: none; color: var(--mau-chu); }\n\n.btn {\n    padding: 12px 28px;\n    border: none;\n    border-radius: var(--bo-goc);\n    cursor: pointer;\n    font-weight: 600;\n    transition: transform 0.2s ease;                          /* transition - chương 15 */\n}\n.btn:hover { transform: translateY(-2px); }\n.btn-primary { background: var(--mau-chinh); color: white; }\n\n.hero {                                                     /* Flexbox căn giữa - chương 12 */\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    text-align: center;\n    padding: 100px 20px;\n    background: var(--mau-nen-nhat);\n}\n.hero h1 { font-size: 3rem; max-width: 700px; margin-bottom: 20px; }\n.hero p { font-size: 1.2rem; color: #6b7280; max-width: 550px; margin-bottom: 32px; }\n\n.features { padding: 80px 40px; text-align: center; }\n.features h2 { font-size: 2.2rem; margin-bottom: 48px; }\n\n.features-grid {                                             /* CSS Grid - chương 13 */\n    display: grid;\n    grid-template-columns: repeat(3, 1fr);\n    gap: 32px;\n}\n.feature-card {\n    padding: 32px;\n    border-radius: var(--bo-goc);\n    background: white;\n    box-shadow: 0 2px 12px rgba(0,0,0,.08);\n}\n\n.footer { text-align: center; padding: 30px; background: var(--mau-chu); color: white; }\n\n/* Responsive - chương 14 */\n@media (max-width: 768px) {\n    .nav-links { display: none; }                            /* ẩn menu trên mobile (thực tế cần thêm hamburger menu) */\n    .hero h1 { font-size: 2rem; }\n    .features-grid { grid-template-columns: 1fr; }            /* chuyển về 1 cột trên mobile */\n}</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        Đây là ví dụ về cách các kỹ thuật CSS đã học <strong>kết hợp với nhau</strong> trong một dự án thực tế: Flexbox cho các thanh ngang (navbar, hero), Grid cho lưới card tính năng, CSS Variables cho theme nhất quán, và media query để responsive — không có kỹ thuật nào đứng riêng lẻ trong thực tế.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 17</h4>\n        <p>Dự án tổng hợp: reset CSS, CSS Variables cho theme, Flexbox cho bố cục ngang, Grid cho lưới card, transition cho tương tác mượt, và media query cho responsive — toàn bộ kỹ thuật của giáo trình trong một file thực tế.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 18 ================= -->",
+      "questions": [],
+      "ids": [
+        "s17"
+      ],
+      "words": 398
+    },
+    {
+      "id": "chapter18",
+      "file": "chapter18.html",
+      "title": "Checklist & Lỗi thường gặp",
+      "summary": "Danh sách kiểm tra trước khi hoàn thành một trang web, và các lỗi phổ biến nhất của người mới học.",
+      "content": "<section class=\"chapter\" id=\"s18\">\n      \n      <p class=\"lead\">Danh sách kiểm tra trước khi hoàn thành một trang web, và các lỗi phổ biến nhất của người mới học.</p>\n\n      <h3>Checklist trước khi \"launch\" một trang</h3>\n      <ul>\n        <li>✅ Có <code>&lt;meta charset=\"UTF-8\"&gt;</code> và <code>&lt;meta name=\"viewport\"...&gt;</code>?</li>\n        <li>✅ Mọi <code>&lt;img&gt;</code> đều có <code>alt</code> mô tả có ý nghĩa?</li>\n        <li>✅ Đã đặt <code>* { box-sizing: border-box; }</code>?</li>\n        <li>✅ Đã kiểm tra trên ít nhất 3 kích thước màn hình (mobile/tablet/desktop)?</li>\n        <li>✅ Dùng thẻ ngữ nghĩa (header/nav/main/footer) thay vì toàn <code>div</code>?</li>\n        <li>✅ Mọi <code>&lt;input&gt;</code> trong form đều có <code>&lt;label&gt;</code> tương ứng?</li>\n      </ul>\n\n      <h3>Lỗi thường gặp (Common Mistakes)</h3>\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">1. Quên đóng thẻ hoặc lồng thẻ sai thứ tự</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <pre><code>&lt;!-- SAI - lồng chéo, thẻ p đóng SAU thẻ div --&gt;\n&lt;div&gt;&lt;p&gt;Nội dung&lt;/div&gt;&lt;/p&gt;\n\n&lt;!-- ĐÚNG - thẻ mở sau phải đóng trước (như ngăn xếp) --&gt;\n&lt;div&gt;&lt;p&gt;Nội dung&lt;/p&gt;&lt;/div&gt;</code></pre>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">2. Nhầm margin và padding</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <p><code>padding</code> là khoảng cách BÊN TRONG (giữa nội dung và viền), <code>margin</code> là khoảng cách BÊN NGOÀI (giữa phần tử này với phần tử khác). Xem lại Box Model ở chương 10.</p>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">3. Dùng ID cho style thay vì class</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <p>ID chỉ nên dùng 1 lần/trang (thường cho JavaScript hoặc liên kết neo <code>#id</code>). Dùng ID cho style khiến CSS khó tái sử dụng và độ ưu tiên (specificity) quá cao, khó override sau này. Luôn ưu tiên <code>class</code>.</p>\n        </div></div>\n      </div>\n\n      <div class=\"accordion\">\n        <button class=\"accordion-head\" type=\"button\" data-course-toggle=\"section\">4. Quên box-sizing: border-box</button>\n        <div class=\"accordion-body\"><div class=\"accordion-body-inner\">\n          <p>Không đặt <code>box-sizing: border-box</code>, width khai báo sẽ KHÔNG bao gồm padding/border — hộp thực tế lớn hơn dự kiến, gây lỗi layout tràn ra ngoài rất khó debug. Xem lại chương 10.</p>\n        </div></div>\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>🎉 Hoàn thành toàn bộ giáo trình HTML &amp; CSS!</h4>\n        <p>Bạn đã đi qua <strong>18 chương / 4 phần lớn</strong>: từ thẻ HTML cơ bản đến Flexbox, Grid, responsive design, và một dự án Landing Page hoàn chỉnh. Bước tiếp theo tự nhiên: học JavaScript (đã có trong bộ giáo trình) để thêm tương tác cho trang web, hoặc học một framework CSS như Tailwind. Chúc bạn thành công trên con đường trở thành Web Developer! 🌐</p>\n      </div>\n    </section>",
+      "questions": [
+        {
+          "question": "1. Nên ưu tiên dùng gì để style, giúp CSS dễ tái sử dụng?",
+          "options": [
+            "ID (#ten-id)",
+            "Class (.ten-class)",
+            "Inline style"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s18"
+      ],
+      "words": 328
+    }
+  ]
+}

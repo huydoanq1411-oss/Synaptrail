@@ -1,171 +1,16 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-
-<script>
-(function(){
-  try{
-    var t = localStorage.getItem('synaptrail-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', t);
-  }catch(e){
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-})();
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/lesson.css">
-<title>Chương 20 — Function cơ bản — Giáo Trình Python | Synaptrail</title>
-<link rel="stylesheet" href="../assets/ui.css">
-</head>
-<body>
-<div id="progress-bar"></div>
-<div id="topbar">
-  <span class="brand">🐍 Python</span>
-  <div class="topbar-right">
-    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
-    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
-  </div>
-</div>
-<div class="layout">
-  <aside id="sidebar">
-    <div class="brand">🐍 Python</div>
-    <div class="sub">108 chương</div>
-    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
-    <div class="nav-group-title">Danh sách chương</div>
-    <a class="nav-link" href="chapter001.html">Chương 1 — Giới thiệu Python</a>
-    <a class="nav-link" href="chapter002.html">Chương 2 — Cài đặt Python và VS Code / PyCharm</a>
-    <a class="nav-link" href="chapter003.html">Chương 3 — Chạy chương trình đầu tiên</a>
-    <a class="nav-link" href="chapter004.html">Chương 4 — Biến (Variables)</a>
-    <a class="nav-link" href="chapter005.html">Chương 5 — Kiểu dữ liệu</a>
-    <a class="nav-link" href="chapter006.html">Chương 6 — Toán tử (Operators)</a>
-    <a class="nav-link" href="chapter007.html">Chương 7 — Input / Output</a>
-    <a class="nav-link" href="chapter008.html">Chương 8 — Comment</a>
-    <a class="nav-link" href="chapter009.html">Chương 9 — Ép kiểu dữ liệu (Type Casting)</a>
-    <a class="nav-link" href="chapter010.html">Chương 10 — String (Chuỗi)</a>
-    <a class="nav-link" href="chapter011.html">Chương 11 — Number (Số)</a>
-    <a class="nav-link" href="chapter012.html">Chương 12 — Boolean</a>
-    <a class="nav-link" href="chapter013.html">Chương 13 — if, elif, else</a>
-    <a class="nav-link" href="chapter014.html">Chương 14 — match-case</a>
-    <a class="nav-link" href="chapter015.html">Chương 15 — Vòng lặp for</a>
-    <a class="nav-link" href="chapter016.html">Chương 16 — Vòng lặp while</a>
-    <a class="nav-link" href="chapter017.html">Chương 17 — break</a>
-    <a class="nav-link" href="chapter018.html">Chương 18 — continue</a>
-    <a class="nav-link" href="chapter019.html">Chương 19 — pass</a>
-    <a class="nav-link active" href="chapter020.html">Chương 20 — Function cơ bản</a>
-    <a class="nav-link" href="chapter021.html">Chương 21 — Tham số hàm (Parameters)</a>
-    <a class="nav-link" href="chapter022.html">Chương 22 — Giá trị trả về (Return)</a>
-    <a class="nav-link" href="chapter023.html">Chương 23 — Lambda</a>
-    <a class="nav-link" href="chapter024.html">Chương 24 — Recursion (Đệ quy)</a>
-    <a class="nav-link" href="chapter025.html">Chương 25 — Scope (Phạm vi biến)</a>
-    <a class="nav-link" href="chapter026.html">Chương 26 — Decorator</a>
-    <a class="nav-link" href="chapter027.html">Chương 27 — List</a>
-    <a class="nav-link" href="chapter028.html">Chương 28 — Tuple</a>
-    <a class="nav-link" href="chapter029.html">Chương 29 — Set</a>
-    <a class="nav-link" href="chapter030.html">Chương 30 — Dictionary</a>
-    <a class="nav-link" href="chapter031.html">Chương 31 — Stack &amp; Queue</a>
-    <a class="nav-link" href="chapter032.html">Chương 32 — Collections</a>
-    <a class="nav-link" href="chapter033.html">Chương 33 — Class &amp; Object</a>
-    <a class="nav-link" href="chapter034.html">Chương 34 — Constructor (__init__)</a>
-    <a class="nav-link" href="chapter035.html">Chương 35 — Encapsulation (Đóng gói)</a>
-    <a class="nav-link" href="chapter036.html">Chương 36 — Inheritance (Kế thừa)</a>
-    <a class="nav-link" href="chapter037.html">Chương 37 — Polymorphism (Đa hình)</a>
-    <a class="nav-link" href="chapter038.html">Chương 38 — Abstraction (Trừu tượng)</a>
-    <a class="nav-link" href="chapter039.html">Chương 39 — Magic Methods</a>
-    <a class="nav-link" href="chapter040.html">Chương 40 — Dataclass</a>
-    <a class="nav-link" href="chapter041.html">Chương 41 — Module &amp; Package</a>
-    <a class="nav-link" href="chapter042.html">Chương 42 — pip &amp; Virtual Environment</a>
-    <a class="nav-link" href="chapter043.html">Chương 43 — Try / Except / Finally</a>
-    <a class="nav-link" href="chapter044.html">Chương 44 — Raise &amp; Custom Exception</a>
-    <a class="nav-link" href="chapter045.html">Chương 45 — File TXT</a>
-    <a class="nav-link" href="chapter046.html">Chương 46 — File CSV &amp; JSON</a>
-    <a class="nav-link" href="chapter047.html">Chương 47 — File XML &amp; Pickle</a>
-    <a class="nav-link" href="chapter048.html">Chương 48 — os &amp; sys</a>
-    <a class="nav-link" href="chapter049.html">Chương 49 — math &amp; random</a>
-    <a class="nav-link" href="chapter050.html">Chương 50 — datetime &amp; pathlib</a>
-    <a class="nav-link" href="chapter051.html">Chương 51 — shutil &amp; logging</a>
-    <a class="nav-link" href="chapter052.html">Chương 52 — threading &amp; multiprocessing</a>
-    <a class="nav-link" href="chapter053.html">Chương 53 — asyncio</a>
-    <a class="nav-link" href="chapter054.html">Chương 54 — Big O Notation</a>
-    <a class="nav-link" href="chapter055.html">Chương 55 — Sorting (Thuật toán sắp xếp)</a>
-    <a class="nav-link" href="chapter056.html">Chương 56 — Searching &amp; Hashing</a>
-    <a class="nav-link" href="chapter057.html">Chương 57 — Greedy &amp; Divide and Conquer</a>
-    <a class="nav-link" href="chapter058.html">Chương 58 — Dynamic Programming (Quy hoạch động)</a>
-    <a class="nav-link" href="chapter059.html">Chương 59 — Backtracking (Quay lui)</a>
-    <a class="nav-link" href="chapter060.html">Chương 60 — Linked List</a>
-    <a class="nav-link" href="chapter061.html">Chương 61 — Tree, Binary Tree &amp; BST</a>
-    <a class="nav-link" href="chapter062.html">Chương 62 — Heap</a>
-    <a class="nav-link" href="chapter063.html">Chương 63 — Graph (Đồ thị)</a>
-    <a class="nav-link" href="chapter064.html">Chương 64 — Trie &amp; Union Find</a>
-    <a class="nav-link" href="chapter065.html">Chương 65 — Generator &amp; Iterator</a>
-    <a class="nav-link" href="chapter066.html">Chương 66 — Context Manager</a>
-    <a class="nav-link" href="chapter067.html">Chương 67 — Closure</a>
-    <a class="nav-link" href="chapter068.html">Chương 68 — Metaclass &amp; Reflection</a>
-    <a class="nav-link" href="chapter069.html">Chương 69 — Typing (Type Hints)</a>
-    <a class="nav-link" href="chapter070.html">Chương 70 — SQLite</a>
-    <a class="nav-link" href="chapter071.html">Chương 71 — MySQL &amp; PostgreSQL</a>
-    <a class="nav-link" href="chapter072.html">Chương 72 — SQLAlchemy (ORM)</a>
-    <a class="nav-link" href="chapter073.html">Chương 73 — Flask</a>
-    <a class="nav-link" href="chapter074.html">Chương 74 — Django (Tổng quan)</a>
-    <a class="nav-link" href="chapter075.html">Chương 75 — FastAPI</a>
-    <a class="nav-link" href="chapter076.html">Chương 76 — REST API</a>
-    <a class="nav-link" href="chapter077.html">Chương 77 — Authentication &amp; JWT</a>
-    <a class="nav-link" href="chapter078.html">Chương 78 — NumPy</a>
-    <a class="nav-link" href="chapter079.html">Chương 79 — Pandas</a>
-    <a class="nav-link" href="chapter080.html">Chương 80 — Matplotlib, Seaborn &amp; Plotly</a>
-    <a class="nav-link" href="chapter081.html">Chương 81 — Scikit-learn</a>
-    <a class="nav-link" href="chapter082.html">Chương 82 — TensorFlow &amp; PyTorch</a>
-    <a class="nav-link" href="chapter083.html">Chương 83 — OpenCV</a>
-    <a class="nav-link" href="chapter084.html">Chương 84 — BeautifulSoup &amp; Requests</a>
-    <a class="nav-link" href="chapter085.html">Chương 85 — Selenium</a>
-    <a class="nav-link" href="chapter086.html">Chương 86 — PyAutoGUI &amp; Schedule</a>
-    <a class="nav-link" href="chapter087.html">Chương 87 — unittest &amp; pytest</a>
-    <a class="nav-link" href="chapter088.html">Chương 88 — Mock</a>
-    <a class="nav-link" href="chapter089.html">Chương 89 — Git &amp; GitHub</a>
-    <a class="nav-link" href="chapter090.html">Chương 90 — Docker</a>
-    <a class="nav-link" href="chapter091.html">Chương 91 — CI/CD</a>
-    <a class="nav-link" href="chapter092.html">Chương 92 — Profiling &amp; Memory Optimization</a>
-    <a class="nav-link" href="chapter093.html">Chương 93 — Clean Code</a>
-    <a class="nav-link" href="chapter094.html">Chương 94 — SOLID</a>
-    <a class="nav-link" href="chapter095.html">Chương 95 — Design Patterns</a>
-    <a class="nav-link" href="chapter096.html">Chương 96 — Refactoring</a>
-    <a class="nav-link" href="chapter097.html">Chương 97 — Dự án: Máy tính &amp; Quản lý sinh viên</a>
-    <a class="nav-link" href="chapter098.html">Chương 98 — Dự án: Quản lý thư viện &amp; Bán hàng</a>
-    <a class="nav-link" href="chapter099.html">Chương 99 — Dự án: Web API, Web Scraper &amp; AI Chatbot</a>
-    <a class="nav-link" href="chapter100.html">Chương 100 — Phỏng vấn Python</a>
-    <a class="nav-link" href="chapter101.html">Chương 101 — Phụ lục: Cheat Sheet, Lỗi thường gặp &amp; Roadmap</a>
-    <a class="nav-link" href="chapter102.html">Chương 102 — Bài tập Cơ bản (Dễ)</a>
-    <a class="nav-link" href="chapter103.html">Chương 103 — Bài tập Trung bình</a>
-    <a class="nav-link" href="chapter104.html">Chương 104 — Bài tập Khó &amp; Thuật toán</a>
-    <a class="nav-link" href="chapter105.html">Chương 105 — Regular Expressions (re)</a>
-    <a class="nav-link" href="chapter106.html">Chương 106 — itertools &amp; functools</a>
-    <a class="nav-link" href="chapter107.html">Chương 107 — GUI với Tkinter</a>
-    <a class="nav-link" href="chapter108.html">Chương 108 — Đóng gói &amp; Phát hành Package</a>
-    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
-  </aside>
-  <div class="main-col">
-<div class="chpage">
-  <div class="crumb">
-    <a href="../index.html">🏠 Trang chủ</a> ·
-    <a href="index.html">🐍 Python</a> ·
-    <span>Chương 20 — Function cơ bản</span>
-  </div>
-  <main style="padding:0;max-width:none;">
-<section class="chapter" id="s20">
-      <h2>Chương <span class="num">20</span> — Function cơ bản</h2>
+<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Function cơ bản — Python | Synaptrail</title><meta name="description" content="Hàm là khối lệnh có tên, tái sử dụng được, giúp code gọn gàng và tránh lặp lại."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="python" data-skill="python" data-node="chapter020"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/python.html#chapter020"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">Python / BÀI 20</p><h1>Function cơ bản</h1><p class="rm-lead">Hàm là khối lệnh có tên, tái sử dụng được, giúp code gọn gàng và tránh lặp lại.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s20">
+      
       <p class="lead">Hàm là khối lệnh có tên, tái sử dụng được, giúp code gọn gàng và tránh lặp lại.</p>
 
       <h3>Định nghĩa và gọi hàm</h3>
       <div class="code-wrap">
         <span class="code-label">function.py</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>def chao_hoi():
     print("Xin chào!")
 
-chao_hoi()   # gọi hàm -> in ra "Xin chào!"</code></pre>
+chao_hoi()   # gọi hàm -&gt; in ra "Xin chào!"</code></pre>
       </div>
 
       <div class="box note">
@@ -176,7 +21,7 @@ chao_hoi()   # gọi hàm -> in ra "Xin chào!"</code></pre>
       <h3>Docstring — tài liệu hóa hàm</h3>
       <div class="code-wrap">
         <span class="code-label">docstring.py</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>def tinh_dien_tich_hcn(dai, rong):
     """Tính diện tích hình chữ nhật từ chiều dài và chiều rộng."""
     return dai * rong
@@ -190,20 +35,4 @@ print(tinh_dien_tich_hcn.__doc__)</code></pre>
       </div>
     </section>
 
-    <!-- ================= CHƯƠNG 21 ================= -->
-  </main>
-  <div class="chnav">
-    <a class="nav-btn prev" href="chapter019.html">← Chương 19 — pass</a>
-    <a class="nav-btn next" href="chapter021.html">Chương 21 — Tham số hàm (Parameters) →</a>
-  </div>
-</div>
-</div>
-</div>
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="2"></script>
-
-<script src="../assets/code-highlighter.js"></script>
-<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
-
-</body>
-</html>
+    <!-- ================= CHƯƠNG 21 ================= --></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter019.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bài trước</a><a href="chapter021.html">Bài tiếp theo<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/python.html#chapter020"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>

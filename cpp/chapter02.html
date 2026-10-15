@@ -1,95 +1,15 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-
-<script>
-(function(){
-  try{
-    var t = localStorage.getItem('synaptrail-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', t);
-  }catch(e){
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-})();
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/lesson.css">
-<title>Chương 2 — Cài đặt trình biên dịch — Giáo Trình C++ | Synaptrail</title>
-<link rel="stylesheet" href="../assets/ui.css">
-<link rel="stylesheet" href="../assets/quiz-feedback.css">
-</head>
-<body>
-<div id="progress-bar"></div>
-<div id="topbar">
-  <span class="brand">🔧 C++</span>
-  <div class="topbar-right">
-    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
-    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
-  </div>
-</div>
-<div class="layout">
-  <aside id="sidebar">
-    <div class="brand">🔧 C++</div>
-    <div class="sub">32 chương</div>
-    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
-    <div class="nav-group-title">Danh sách chương</div>
-    <a class="nav-link" href="chapter01.html">Chương 1 — Giới thiệu C++</a>
-    <a class="nav-link active" href="chapter02.html">Chương 2 — Cài đặt trình biên dịch</a>
-    <a class="nav-link" href="chapter03.html">Chương 3 — Chương trình đầu tiên</a>
-    <a class="nav-link" href="chapter04.html">Chương 4 — Biến &amp; Kiểu dữ liệu</a>
-    <a class="nav-link" href="chapter05.html">Chương 5 — Toán tử</a>
-    <a class="nav-link" href="chapter06.html">Chương 6 — Input/Output (cin/cout)</a>
-    <a class="nav-link" href="chapter07.html">Chương 7 — Điều kiện (if/switch)</a>
-    <a class="nav-link" href="chapter08.html">Chương 8 — Vòng lặp</a>
-    <a class="nav-link" href="chapter09.html">Chương 9 — Mảng (Array)</a>
-    <a class="nav-link" href="chapter10.html">Chương 10 — Hàm (Function)</a>
-    <a class="nav-link" href="chapter11.html">Chương 11 — Con trỏ &amp; Tham chiếu</a>
-    <a class="nav-link" href="chapter12.html">Chương 12 — OOP cơ bản (Class &amp; Object)</a>
-    <a class="nav-link" href="chapter13.html">Chương 13 — Kế thừa (Inheritance)</a>
-    <a class="nav-link" href="chapter14.html">Chương 14 — Đa hình &amp; Hàm ảo (Virtual)</a>
-    <a class="nav-link" href="chapter15.html">Chương 15 — Toán tử Overloading</a>
-    <a class="nav-link" href="chapter16.html">Chương 16 — vector &amp; string (STL)</a>
-    <a class="nav-link" href="chapter17.html">Chương 17 — map &amp; set (STL)</a>
-    <a class="nav-link" href="chapter18.html">Chương 18 — Quản lý bộ nhớ động (new/delete)</a>
-    <a class="nav-link" href="chapter19.html">Chương 19 — Smart Pointers</a>
-    <a class="nav-link" href="chapter20.html">Chương 20 — Function Template</a>
-    <a class="nav-link" href="chapter21.html">Chương 21 — Class Template</a>
-    <a class="nav-link" href="chapter22.html">Chương 22 — Exception Handling (try/catch)</a>
-    <a class="nav-link" href="chapter23.html">Chương 23 — Lambda Expression</a>
-    <a class="nav-link" href="chapter24.html">Chương 24 — Namespace &amp; File nhiều module</a>
-    <a class="nav-link" href="chapter25.html">Chương 25 — STL Algorithms (sort, find, count...)</a>
-    <a class="nav-link" href="chapter26.html">Chương 26 — Linked List tự cài đặt</a>
-    <a class="nav-link" href="chapter27.html">Chương 27 — Stack &amp; Queue tự cài đặt</a>
-    <a class="nav-link" href="chapter28.html">Chương 28 — Đệ quy &amp; Chia để trị</a>
-    <a class="nav-link" href="chapter29.html">Chương 29 — Dự án: Quản lý sinh viên (OOP + File)</a>
-    <a class="nav-link" href="chapter30.html">Chương 30 — Dự án: Cấu trúc dữ liệu Ma trận</a>
-    <a class="nav-link" href="chapter31.html">Chương 31 — Bài tập Cơ bản (Dễ)</a>
-    <a class="nav-link" href="chapter32.html">Chương 32 — Bài tập Con trỏ, OOP &amp; STL</a>
-    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
-  </aside>
-  <div class="main-col">
-<div class="chpage">
-  <div class="crumb">
-    <a href="../index.html">🏠 Trang chủ</a> ·
-    <a href="index.html">🔧 C++</a> ·
-    <span>Chương 2 — Cài đặt trình biên dịch</span>
-  </div>
-  <main style="padding:0;max-width:none;">
-<section class="chapter" id="s2">
-      <h2>Chương <span class="num">2</span> — Cài đặt trình biên dịch</h2>
+<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cài đặt trình biên dịch — C++ | Synaptrail</title><meta name="description" content="Chuẩn bị môi trường biên dịch và soạn thảo trước khi viết dòng code đầu tiên."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="cpp" data-skill="cpp" data-node="chapter02"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/cpp.html#chapter02"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">C++ / BÀI 2</p><h1>Cài đặt trình biên dịch</h1><p class="rm-lead">Chuẩn bị môi trường biên dịch và soạn thảo trước khi viết dòng code đầu tiên.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter02">Làm quiz ở trang riêng <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s2">
+      
       <p class="lead">Chuẩn bị môi trường biên dịch và soạn thảo trước khi viết dòng code đầu tiên.</p>
 
       <h3>Bước 1: Cài đặt trình biên dịch (compiler)</h3>
       <table>
-        <tr><th>Hệ điều hành</th><th>Trình biên dịch khuyến nghị</th></tr>
+        <tbody><tr><th>Hệ điều hành</th><th>Trình biên dịch khuyến nghị</th></tr>
         <tr><td>Windows</td><td>MinGW-w64 (GCC cho Windows) hoặc Visual Studio</td></tr>
         <tr><td>macOS</td><td>Clang (cài qua Xcode Command Line Tools)</td></tr>
         <tr><td>Linux</td><td>GCC (thường có sẵn, hoặc <code>sudo apt install g++</code>)</td></tr>
-      </table>
+      </tbody></table>
 
       <h3>Bước 2: Kiểm tra cài đặt</h3>
       <div class="code-wrap">
@@ -115,47 +35,7 @@
         <h4>📌 Tổng kết chương 2</h4>
         <p>Cần cài trình biên dịch (GCC/Clang/MSVC) và một IDE như VS Code. Luôn kiểm tra bằng lệnh <code>g++ --version</code> trước khi bắt đầu.</p>
       </div>
-    <div class="quiz" data-quiz="q2" data-quiz-feedback>
-<h4>Quiz — Chương 2 · 5 câu</h4>
-<div class="quiz-q" data-answer="0" data-question-kind="concept" role="group" aria-labelledby="q2-question-1"><span class="quiz-kind">Nhớ khái niệm</span><p id="q2-question-1">1. Để biên dịch mã C++, cần thành phần nào?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Trình biên dịch như GCC, Clang hoặc MSVC">A. Trình biên dịch như GCC, Clang hoặc MSVC</span>
-<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Chỉ theme của VS Code">B. Chỉ theme của VS Code</span>
-<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Chỉ trình duyệt">C. Chỉ trình duyệt</span>
-<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Chỉ file ảnh">D. Chỉ file ảnh</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Đúng:</strong> các compiler này được bài liệt kê.</li><li><strong>B. Sai:</strong> Theme không biên dịch mã.</li><li><strong>C. Sai:</strong> Trình duyệt không thay compiler trong bài.</li><li><strong>D. Sai:</strong> File ảnh không phải công cụ phát triển.</li></ul></div></div>
-<div class="quiz-q" data-answer="2" data-question-kind="concept" role="group" aria-labelledby="q2-question-2"><span class="quiz-kind">Nhớ khái niệm</span><p id="q2-question-2">2. Lệnh nào kiểm tra bản cài g++?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. g++ hello.exe">A. g++ hello.exe</span>
-<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. java -version">B. java -version</span>
-<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. g++ --version">C. g++ --version</span>
-<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. g++ --theme">D. g++ --theme</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> Đây không phải lệnh kiểm tra phiên bản trong bài.</li><li><strong>B. Sai:</strong> Lệnh này kiểm tra Java, không phải g++.</li><li><strong>C. Đúng:</strong> bài dùng lệnh này để kiểm tra.</li><li><strong>D. Sai:</strong> Không phải tùy chọn kiểm tra phiên bản.</li></ul></div></div>
-<div class="quiz-q" data-answer="1" data-question-kind="application" role="group" aria-labelledby="q2-question-3"><span class="quiz-kind">Áp dụng / đọc code</span><p id="q2-question-3">3. Theo bảng trong bài, môi trường nào đi với Clang qua Xcode Command Line Tools?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Chỉ Windows với MinGW">A. Chỉ Windows với MinGW</span>
-<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. macOS">B. macOS</span>
-<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Mọi trang web không cần cài gì">C. Mọi trang web không cần cài gì</span>
-<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Chỉ Java runtime">D. Chỉ Java runtime</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> Bảng gắn Windows với MinGW/MSVC.</li><li><strong>B. Đúng:</strong> bảng gắn macOS với Clang/Xcode tools.</li><li><strong>C. Sai:</strong> Bảng đang nói về công cụ trên máy.</li><li><strong>D. Sai:</strong> Java runtime không phải môi trường này.</li></ul></div></div>
-<div class="quiz-q" data-answer="3" data-question-kind="application" role="group" aria-labelledby="q2-question-4"><span class="quiz-kind">Áp dụng / đọc code</span><p id="q2-question-4">4. Muốn chọn chuẩn C++23 theo cú pháp đã nêu, chọn lệnh nào?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. g++ --version=c++23 chuong_trinh.cpp">A. g++ --version=c++23 chuong_trinh.cpp</span>
-<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. g++ chuong_trinh.cpp -theme=c++23">B. g++ chuong_trinh.cpp -theme=c++23</span>
-<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. java -std=c++23 chuong_trinh.cpp">C. java -std=c++23 chuong_trinh.cpp</span>
-<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. g++ -std=c++23 chuong_trinh.cpp">D. g++ -std=c++23 chuong_trinh.cpp</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> --version không phải cách chọn chuẩn ở bài.</li><li><strong>B. Sai:</strong> Theme không chọn chuẩn biên dịch.</li><li><strong>C. Sai:</strong> Bài dùng compiler C++, không dùng java.</li><li><strong>D. Đúng:</strong> cờ chọn chuẩn được bài minh họa.</li></ul></div></div>
-<div class="quiz-q" data-answer="0" data-question-kind="error" role="group" aria-labelledby="q2-question-5"><span class="quiz-kind">Tìm lỗi</span><p id="q2-question-5">5. Trên Windows, g++ báo “not recognized” dù MinGW đã có. Cần kiểm tra gì?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Thư mục bin của MinGW trong PATH">A. Thư mục bin của MinGW trong PATH</span>
-<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Mọi dấu chấm phẩy trong chương trình">B. Mọi dấu chấm phẩy trong chương trình</span>
-<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Màu biểu tượng IDE">C. Màu biểu tượng IDE</span>
-<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Tên biến trong Java">D. Tên biến trong Java</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Đúng:</strong> bài nêu bổ sung/kiểm tra đường dẫn này.</li><li><strong>B. Sai:</strong> Lệnh chưa được tìm thấy, chưa đến bước biên dịch nguồn.</li><li><strong>C. Sai:</strong> Màu không ảnh hưởng việc tìm lệnh.</li><li><strong>D. Sai:</strong> Không liên quan công cụ C++.</li></ul></div></div>
-<button class="quiz-btn" onclick="gradeQuiz('q2')" aria-label="Chấm năm câu quiz chương 2">Chấm điểm</button><div class="quiz-result" id="result-q2"></div><p class="quiz-feedback-status" role="status" aria-live="polite"></p>
-</div>
+    
 </section>
 
-    <!-- ================= CHƯƠNG 3 ================= -->
-  </main>
-  <div class="chnav">
-    <a class="nav-btn prev" href="chapter01.html">← Chương 1 — Giới thiệu C++</a>
-    <a class="nav-btn next" href="chapter03.html">Chương 3 — Chương trình đầu tiên →</a>
-  </div>
-</div>
-</div>
-</div>
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
-
-<script src="../assets/code-highlighter.js"></script>
-<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
-
-<script src="../assets/quiz-feedback.js"></script>
-</body>
-</html>
+    <!-- ================= CHƯƠNG 3 ================= --></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter01.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bài trước</a><a href="chapter03.html">Bài tiếp theo<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/cpp.html#chapter02"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>

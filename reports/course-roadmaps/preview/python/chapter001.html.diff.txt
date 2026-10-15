@@ -1,0 +1,22 @@
+--- python/chapter001.html (original)
++++ python/chapter001.html (preview)
+- Sidebar, embedded quiz and old lesson shell
++ Shared roadmap lesson shell, SVG Back/Home, separate quiz link
++ Preserved lesson content and IDs
+
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Giới thiệu Python — Python | Synaptrail</title><meta name="description" content="Python là gì, tại sao nên học, và nó khác gì so với các ngôn ngữ lập trình khác."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="python" data-skill="python" data-node="chapter001"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/python.html#chapter001"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">Python / BÀI 1</p><h1>Giới thiệu Python</h1><p class="rm-lead">Python là gì, tại sao nên học, và nó khác gì so với các ngôn ngữ lập trình khác.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter001">Làm quiz ở trang riêng <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s1">
+      
+      <p class="lead">Python là gì, tại sao nên học, và nó khác gì so với các ngôn ngữ lập trình khác.</p>
+
+      <h3>Python là gì?</h3>
+      <p>Python là một ngôn ngữ lập trình bậc cao, thông dịch (interpreted), đa mục đích, được thiết kế với triết lý ưu tiên sự rõ ràng và dễ đọc của mã nguồn. Python được Guido van Rossum tạo ra và phát hành lần đầu năm 1991.</p>
+
+      <div class="box note">
+        <div class="box-title">Ghi chú</div>
+        Ngôn ngữ "thông dịch" (interpreted) nghĩa là mã nguồn được chạy trực tiếp từng dòng bởi một chương trình gọi là interpreter, không cần biên dịch (compile) thành file thực thi trước như C/C++.
+      </div>
+
+      <h3>Tại sao nên học Python?</h3>
+      <ul>
+        <li><strong>Cú pháp 

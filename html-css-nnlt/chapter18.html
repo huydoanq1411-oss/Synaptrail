@@ -1,71 +1,6 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-
-<script>
-(function(){
-  try{
-    var t = localStorage.getItem('synaptrail-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', t);
-  }catch(e){
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-})();
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/lesson.css">
-<title>Chương 18 — Checklist &amp; Lỗi thường gặp — Giáo Trình HTML &amp; CSS (NNLT) | Synaptrail</title>
-<link rel="stylesheet" href="../assets/ui.css">
-</head>
-<body>
-<div id="progress-bar"></div>
-<div id="topbar">
-  <span class="brand">🧱 HTML & CSS</span>
-  <div class="topbar-right">
-    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
-    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
-  </div>
-</div>
-<div class="layout">
-  <aside id="sidebar">
-    <div class="brand">🧱 HTML & CSS</div>
-    <div class="sub">18 chương</div>
-    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
-    <div class="nav-group-title">Danh sách chương</div>
-    <a class="nav-link" href="chapter01.html">Chương 1 — Giới thiệu HTML</a>
-    <a class="nav-link" href="chapter02.html">Chương 2 — Cấu trúc trang HTML</a>
-    <a class="nav-link" href="chapter03.html">Chương 3 — Thẻ văn bản &amp; Danh sách</a>
-    <a class="nav-link" href="chapter04.html">Chương 4 — Liên kết &amp; Hình ảnh</a>
-    <a class="nav-link" href="chapter05.html">Chương 5 — Bảng (Table)</a>
-    <a class="nav-link" href="chapter06.html">Chương 6 — Form &amp; Input</a>
-    <a class="nav-link" href="chapter07.html">Chương 7 — Thẻ ngữ nghĩa (Semantic HTML)</a>
-    <a class="nav-link" href="chapter08.html">Chương 8 — Giới thiệu CSS &amp; Selector</a>
-    <a class="nav-link" href="chapter09.html">Chương 9 — Màu sắc &amp; Typography</a>
-    <a class="nav-link" href="chapter10.html">Chương 10 — Box Model</a>
-    <a class="nav-link" href="chapter11.html">Chương 11 — Display &amp; Vị trí (Position)</a>
-    <a class="nav-link" href="chapter12.html">Chương 12 — Flexbox</a>
-    <a class="nav-link" href="chapter13.html">Chương 13 — CSS Grid</a>
-    <a class="nav-link" href="chapter14.html">Chương 14 — Responsive Design &amp; Media Query</a>
-    <a class="nav-link" href="chapter15.html">Chương 15 — CSS Variables &amp; Transition/Animation</a>
-    <a class="nav-link" href="chapter16.html">Chương 16 — Dự án: Landing Page — Cấu trúc HTML</a>
-    <a class="nav-link" href="chapter17.html">Chương 17 — Dự án: Landing Page — Style CSS hoàn chỉnh</a>
-    <a class="nav-link active" href="chapter18.html">Chương 18 — Checklist &amp; Lỗi thường gặp</a>
-    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
-  </aside>
-  <div class="main-col">
-<div class="chpage">
-  <div class="crumb">
-    <a href="../index.html">🏠 Trang chủ</a> ·
-    <a href="index.html">🧱 HTML & CSS</a> ·
-    <span>Chương 18 — Checklist &amp; Lỗi thường gặp</span>
-  </div>
-  <main style="padding:0;max-width:none;">
-<section class="chapter" id="s18">
-      <h2>Chương <span class="num">18</span> — Checklist &amp; Lỗi thường gặp</h2>
+<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Checklist &amp; Lỗi thường gặp — HTML &amp; CSS | Synaptrail</title><meta name="description" content="Danh sách kiểm tra trước khi hoàn thành một trang web, và các lỗi phổ biến nhất của người mới học."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="html-css-nnlt" data-skill="html-css-nnlt" data-node="chapter18"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/html-css-nnlt.html#chapter18"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">HTML &amp; CSS / BÀI 18</p><h1>Checklist &amp; Lỗi thường gặp</h1><p class="rm-lead">Danh sách kiểm tra trước khi hoàn thành một trang web, và các lỗi phổ biến nhất của người mới học.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter18">Làm quiz ở trang riêng <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s18">
+      
       <p class="lead">Danh sách kiểm tra trước khi hoàn thành một trang web, và các lỗi phổ biến nhất của người mới học.</p>
 
       <h3>Checklist trước khi "launch" một trang</h3>
@@ -80,7 +15,7 @@
 
       <h3>Lỗi thường gặp (Common Mistakes)</h3>
       <div class="accordion">
-        <div class="accordion-head" onclick="this.parentElement.classList.toggle('open')">1. Quên đóng thẻ hoặc lồng thẻ sai thứ tự</div>
+        <button class="accordion-head" type="button" data-course-toggle="section">1. Quên đóng thẻ hoặc lồng thẻ sai thứ tự</button>
         <div class="accordion-body"><div class="accordion-body-inner">
           <pre><code>&lt;!-- SAI - lồng chéo, thẻ p đóng SAU thẻ div --&gt;
 &lt;div&gt;&lt;p&gt;Nội dung&lt;/div&gt;&lt;/p&gt;
@@ -91,56 +26,30 @@
       </div>
 
       <div class="accordion">
-        <div class="accordion-head" onclick="this.parentElement.classList.toggle('open')">2. Nhầm margin và padding</div>
+        <button class="accordion-head" type="button" data-course-toggle="section">2. Nhầm margin và padding</button>
         <div class="accordion-body"><div class="accordion-body-inner">
           <p><code>padding</code> là khoảng cách BÊN TRONG (giữa nội dung và viền), <code>margin</code> là khoảng cách BÊN NGOÀI (giữa phần tử này với phần tử khác). Xem lại Box Model ở chương 10.</p>
         </div></div>
       </div>
 
       <div class="accordion">
-        <div class="accordion-head" onclick="this.parentElement.classList.toggle('open')">3. Dùng ID cho style thay vì class</div>
+        <button class="accordion-head" type="button" data-course-toggle="section">3. Dùng ID cho style thay vì class</button>
         <div class="accordion-body"><div class="accordion-body-inner">
           <p>ID chỉ nên dùng 1 lần/trang (thường cho JavaScript hoặc liên kết neo <code>#id</code>). Dùng ID cho style khiến CSS khó tái sử dụng và độ ưu tiên (specificity) quá cao, khó override sau này. Luôn ưu tiên <code>class</code>.</p>
         </div></div>
       </div>
 
       <div class="accordion">
-        <div class="accordion-head" onclick="this.parentElement.classList.toggle('open')">4. Quên box-sizing: border-box</div>
+        <button class="accordion-head" type="button" data-course-toggle="section">4. Quên box-sizing: border-box</button>
         <div class="accordion-body"><div class="accordion-body-inner">
           <p>Không đặt <code>box-sizing: border-box</code>, width khai báo sẽ KHÔNG bao gồm padding/border — hộp thực tế lớn hơn dự kiến, gây lỗi layout tràn ra ngoài rất khó debug. Xem lại chương 10.</p>
         </div></div>
       </div>
 
-      <div class="quiz" data-quiz="q18">
-        <h4>📝 Quiz tổng kết cuối khóa HTML & CSS</h4>
-        <div class="quiz-q" data-answer="1">
-          <p>1. Nên ưu tiên dùng gì để style, giúp CSS dễ tái sử dụng?</p>
-          <span class="quiz-opt" data-idx="0">ID (#ten-id)</span>
-          <span class="quiz-opt" data-idx="1">Class (.ten-class)</span>
-          <span class="quiz-opt" data-idx="2">Inline style</span>
-        </div>
-        <button class="quiz-btn" onclick="gradeQuiz('q18')">Chấm điểm</button>
-        <div class="quiz-result" id="result-q18"></div>
-      </div>
+      
 
       <div class="summary-box">
-        <h4>🎉 Hoàn thành toàn bộ giáo trình HTML & CSS!</h4>
+        <h4>🎉 Hoàn thành toàn bộ giáo trình HTML &amp; CSS!</h4>
         <p>Bạn đã đi qua <strong>18 chương / 4 phần lớn</strong>: từ thẻ HTML cơ bản đến Flexbox, Grid, responsive design, và một dự án Landing Page hoàn chỉnh. Bước tiếp theo tự nhiên: học JavaScript (đã có trong bộ giáo trình) để thêm tương tác cho trang web, hoặc học một framework CSS như Tailwind. Chúc bạn thành công trên con đường trở thành Web Developer! 🌐</p>
       </div>
-    </section>
-  </main>
-  <div class="chnav">
-    <a class="nav-btn prev" href="chapter17.html">← Chương 17 — Dự án: Landing Page — Style CSS hoàn chỉnh</a>
-    <span class="nav-btn disabled">Chương tiếp →</span>
-  </div>
-</div>
-</div>
-</div>
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
-
-<script src="../assets/code-highlighter.js"></script>
-<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
-
-</body>
-</html>
+    </section></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter17.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bài trước</a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/html-css-nnlt.html#chapter18"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>

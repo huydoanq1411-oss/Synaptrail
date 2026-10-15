@@ -1,79 +1,6 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-
-<script>
-(function(){
-  try{
-    var t = localStorage.getItem('synaptrail-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', t);
-  }catch(e){
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-})();
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/lesson.css">
-<title>Chương 4 — Xử Lý Sự Kiện &amp; Form Trong React — Giáo Trình React | Synaptrail</title>
-<link rel="stylesheet" href="../assets/ui.css">
-</head>
-<body>
-<div id="progress-bar"></div>
-<div id="topbar">
-  <span class="brand">⚛️ React</span>
-  <div class="topbar-right">
-    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
-    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
-  </div>
-</div>
-<div class="layout">
-  <aside id="sidebar">
-    <div class="brand">⚛️ React</div>
-    <div class="sub">26 chương</div>
-    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
-    <div class="nav-group-title">Danh sách chương</div>
-    <a class="nav-link" href="chapter01.html">Chương 1 — Nhập Môn React &amp; JSX</a>
-    <a class="nav-link" href="chapter02.html">Chương 2 — Props — Truyền Dữ Liệu Giữa Component</a>
-    <a class="nav-link" href="chapter03.html">Chương 3 — State &amp; useState Hook</a>
-    <a class="nav-link active" href="chapter04.html">Chương 4 — Xử Lý Sự Kiện &amp; Form Trong React</a>
-    <a class="nav-link" href="chapter05.html">Chương 5 — Conditional Rendering — Hiển thị có điều kiện</a>
-    <a class="nav-link" href="chapter06.html">Chương 6 — Lists &amp; Keys — Danh sách trong React</a>
-    <a class="nav-link" href="chapter07.html">Chương 7 — useEffect — Side Effects &amp; Vòng đời Component</a>
-    <a class="nav-link" href="chapter08.html">Chương 8 — Fetch dữ liệu từ API trong React</a>
-    <a class="nav-link" href="chapter09.html">Chương 9 — Custom Hooks — Tái sử dụng logic</a>
-    <a class="nav-link" href="chapter10.html">Chương 10 — useRef &amp; Thao tác DOM trực tiếp</a>
-    <a class="nav-link" href="chapter11.html">Chương 11 — Context API — Chia sẻ state toàn cục</a>
-    <a class="nav-link" href="chapter12.html">Chương 12 — useReducer — Quản lý state phức tạp</a>
-    <a class="nav-link" href="chapter13.html">Chương 13 — React Router — Điều hướng SPA cơ bản</a>
-    <a class="nav-link" href="chapter14.html">Chương 14 — React Router nâng cao — Nested Routes &amp; Params</a>
-    <a class="nav-link" href="chapter15.html">Chương 15 — Styling trong React — CSS Modules &amp; styled-components</a>
-    <a class="nav-link" href="chapter16.html">Chương 16 — Performance — useMemo &amp; useCallback</a>
-    <a class="nav-link" href="chapter17.html">Chương 17 — React.memo &amp; Tối ưu re-render</a>
-    <a class="nav-link" href="chapter18.html">Chương 18 — Error Boundaries &amp; Xử lý lỗi</a>
-    <a class="nav-link" href="chapter19.html">Chương 19 — Portals — Modal &amp; Tooltip</a>
-    <a class="nav-link" href="chapter20.html">Chương 20 — Redux Toolkit — Giới thiệu &amp; Store</a>
-    <a class="nav-link" href="chapter21.html">Chương 21 — Redux Toolkit — Slice, Thunk &amp; kết nối API</a>
-    <a class="nav-link" href="chapter22.html">Chương 22 — Form nâng cao — react-hook-form &amp; Validation</a>
-    <a class="nav-link" href="chapter23.html">Chương 23 — Testing React Components — Jest &amp; Testing Library</a>
-    <a class="nav-link" href="chapter24.html">Chương 24 — Giới thiệu Next.js — SSR &amp; File-based Routing</a>
-    <a class="nav-link" href="chapter25.html">Chương 25 — Triển khai ứng dụng React lên Production</a>
-    <a class="nav-link" href="chapter26.html">Chương 26 — Dự án cuối khóa: Ứng dụng React hoàn chỉnh</a>
-    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
-  </aside>
-  <div class="main-col">
-<div class="chpage">
-  <div class="crumb">
-    <a href="../index.html">🏠 Trang chủ</a> ·
-    <a href="index.html">⚛️ React</a> ·
-    <span>Chương 4 — Xử Lý Sự Kiện &amp; Form Trong React</span>
-  </div>
-  <main style="padding:0;max-width:none;">
-<section class="chapter" id="s4">
-      <h2>Chương <span class="num">4</span> — Xử Lý Sự Kiện &amp; Form Trong React</h2>
+<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Xử Lý Sự Kiện &amp; Form Trong React — React | Synaptrail</title><meta name="description" content="Lắng nghe hành động người dùng đúng &quot;kiểu React&quot;, và biến mỗi ô input thành một phần của state — không còn phải tự tay đọc DOM như JavaScript thuần."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="react" data-skill="react" data-node="chapter04"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/react.html#chapter04"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">React / BÀI 4</p><h1>Xử Lý Sự Kiện &amp; Form Trong React</h1><p class="rm-lead">Lắng nghe hành động người dùng đúng &quot;kiểu React&quot;, và biến mỗi ô input thành một phần của state — không còn phải tự tay đọc DOM như JavaScript thuần.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter04">Làm quiz ở trang riêng <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s4">
+      
       <p class="lead">Lắng nghe hành động người dùng đúng "kiểu React", và biến mỗi ô input thành một phần của state — không còn phải tự tay đọc DOM như JavaScript thuần.</p>
 
       <h3>Giới thiệu</h3>
@@ -96,7 +23,7 @@
 
       <div class="code-wrap">
         <span class="code-label">cú pháp sự kiện</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>&lt;button onClick={xuLyClick}&gt;Nhấn vào đây&lt;/button&gt;
 // KHÔNG viết onClick="xuLyClick()" như HTML thuần — truyền THAM CHIẾU hàm, không gọi hàm</code></pre>
       </div>
@@ -108,7 +35,7 @@
 
       <div class="code-wrap">
         <span class="code-label">truyền tham số</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>&lt;button onClick={() =&gt; xoaCongViec(id)}&gt;Xóa&lt;/button&gt;
 // bọc trong arrow function để KHÔNG gọi ngay khi render — chỉ gọi khi thật sự click</code></pre>
       </div>
@@ -117,7 +44,7 @@
 
       <div class="code-wrap">
         <span class="code-label">controlled input</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>const [ten, setTen] = useState('');
 
 &lt;input
@@ -135,7 +62,7 @@
 
       <div class="code-wrap">
         <span class="code-label">handler dùng chung</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>const [form, setForm] = useState({ ten: '', email: '' });
 
 function xuLyThayDoi(e) {
@@ -154,7 +81,7 @@ function xuLyThayDoi(e) {
 
       <div class="code-wrap">
         <span class="code-label">submit form</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>function xuLyGui(e) {
   e.preventDefault();  // chặn hành vi mặc định: reload lại trang
   console.log('Dữ liệu gửi đi:', form);
@@ -169,12 +96,12 @@ function xuLyThayDoi(e) {
       <p>Form HTML mặc định sẽ <strong>tải lại trang</strong> khi submit — hành vi này có từ thời web chưa có JavaScript. Trong ứng dụng React (SPA — Single Page Application),
         gần như luôn phải gọi <code class="mono">e.preventDefault()</code> đầu tiên trong hàm xử lý submit để ngăn việc đó.</p>
 
-      <h4 class="subh">2.6. Checkbox & Select — không dùng <code class="mono">value</code> theo cùng cách</h4>
+      <h4 class="subh">2.6. Checkbox &amp; Select — không dùng <code class="mono">value</code> theo cùng cách</h4>
 
       <table>
-        <tr><th>Loại input</th><th>Thuộc tính đọc giá trị</th><th>Event lấy giá trị mới</th></tr>
+        <tbody><tr><th>Loại input</th><th>Thuộc tính đọc giá trị</th><th>Event lấy giá trị mới</th></tr>
         <tr><td>text / textarea</td><td><code>value</code></td><td><code>e.target.value</code></td></tr><tr><td>checkbox</td><td><code>checked</code></td><td><code>e.target.checked</code></td></tr><tr><td>select</td><td><code>value</code></td><td><code>e.target.value</code></td></tr>
-      </table>
+      </tbody></table>
 
       <h3>Ví dụ minh họa</h3>
 
@@ -186,7 +113,7 @@ function xuLyThayDoi(e) {
       <div class="code-wrap">
         <span class="code-label">form.html
 📋 Copy</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>&lt;div id="root"&gt;&lt;/div&gt;
 
 &lt;script src="https://unpkg.com/react@19/umd/react.development.js"&gt;&lt;/script&gt;
@@ -261,34 +188,34 @@ function xuLyThayDoi(e) {
       <p>Nhấp vào từng mục để xem chi tiết lỗi và cách khắc phục:</p>
 
       <div class="accordion">
-        <div class="accordion-head" onclick="this.parentElement.classList.toggle('open')">Quên <code class="mono">e.preventDefault()</code></div>
+        <button class="accordion-head" type="button" data-course-toggle="section">Quên <code class="mono">e.preventDefault()</code></button>
         <div class="accordion-body"><div class="accordion-body-inner">
           <p>Không gọi <code class="mono">e.preventDefault()</code> trong handler <code class="mono">onSubmit</code> — trình duyệt sẽ tải lại toàn bộ trang theo hành vi form HTML mặc định, xóa sạch state hiện tại.</p>
-<p class="fix" style="color:var(--ok);">✅ Cách khắc phục: luôn gọi <code class="mono">e.preventDefault()</code> làm dòng đầu tiên trong hàm xử lý submit.</p>
+<p class="fix">✅ Cách khắc phục: luôn gọi <code class="mono">e.preventDefault()</code> làm dòng đầu tiên trong hàm xử lý submit.</p>
         </div></div>
       </div>
 
       <div class="accordion">
-        <div class="accordion-head" onclick="this.parentElement.classList.toggle('open')">Input báo lỗi "changing an uncontrolled input"</div>
+        <button class="accordion-head" type="button" data-course-toggle="section">Input báo lỗi "changing an uncontrolled input"</button>
         <div class="accordion-body"><div class="accordion-body-inner">
           <p>Khởi tạo state là <code class="mono">useState()</code> (không có giá trị đầu, tức <code class="mono">undefined</code>) rồi gán vào <code class="mono">value</code> — React cảnh báo input chuyển từ "uncontrolled" (không kiểm soát) sang "controlled" giữa chừng.</p>
-<p class="fix" style="color:var(--ok);">✅ Cách khắc phục: luôn khởi tạo state của input bằng giá trị rỗng hợp lệ, ví dụ <code class="mono">useState('')</code> cho chuỗi, không để <code class="mono">undefined</code>.</p>
+<p class="fix">✅ Cách khắc phục: luôn khởi tạo state của input bằng giá trị rỗng hợp lệ, ví dụ <code class="mono">useState('')</code> cho chuỗi, không để <code class="mono">undefined</code>.</p>
         </div></div>
       </div>
 
       <div class="accordion">
-        <div class="accordion-head" onclick="this.parentElement.classList.toggle('open')">Gọi hàm ngay thay vì truyền tham chiếu</div>
+        <button class="accordion-head" type="button" data-course-toggle="section">Gọi hàm ngay thay vì truyền tham chiếu</button>
         <div class="accordion-body"><div class="accordion-body-inner">
           <p>Viết <code class="mono">onClick={xuLyClick()}</code> (có dấu ngoặc) — hàm chạy ngay khi component render, không đợi người dùng click, y hệt lỗi đã gặp ở Bài 3 với <code class="mono">useState</code>.</p>
-<p class="fix" style="color:var(--ok);">✅ Cách khắc phục: truyền tham chiếu hàm <code class="mono">onClick={xuLyClick}</code>, hoặc bọc arrow function nếu cần truyền tham số.</p>
+<p class="fix">✅ Cách khắc phục: truyền tham chiếu hàm <code class="mono">onClick={xuLyClick}</code>, hoặc bọc arrow function nếu cần truyền tham số.</p>
         </div></div>
       </div>
 
       <div class="accordion">
-        <div class="accordion-head" onclick="this.parentElement.classList.toggle('open')">Sửa trực tiếp object state của form</div>
+        <button class="accordion-head" type="button" data-course-toggle="section">Sửa trực tiếp object state của form</button>
         <div class="accordion-body"><div class="accordion-body-inner">
           <p>Viết <code class="mono">form.tieuDe = e.target.value; setForm(form);</code> — sửa thẳng vào object cũ rồi mới gọi setter. React so sánh tham chiếu object để quyết định render lại; vì tham chiếu <code class="mono">form</code> không đổi, đôi khi React không nhận ra cần cập nhật.</p>
-<p class="fix" style="color:var(--ok);">✅ Cách khắc phục: luôn tạo object <strong>mới</strong> bằng spread — <code class="mono">setForm(f =&gt; ({ ...f, tieuDe: e.target.value }))</code>.</p>
+<p class="fix">✅ Cách khắc phục: luôn tạo object <strong>mới</strong> bằng spread — <code class="mono">setForm(f =&gt; ({ ...f, tieuDe: e.target.value }))</code>.</p>
         </div></div>
       </div>
 
@@ -300,7 +227,7 @@ function xuLyThayDoi(e) {
 <li>Validate dữ liệu trước khi cập nhật state hoặc gửi đi, ngay trong handler submit.</li>
 <li>Reset form về trạng thái ban đầu sau khi submit thành công.</li></ul>
 
-      <h3>Tip & Note</h3>
+      <h3>Tip &amp; Note</h3>
 
       <div class="box tip">
         <div class="box-title">💡 Tip</div>
@@ -344,54 +271,6 @@ function xuLyThayDoi(e) {
         ẩn/hiện phần tử tùy theo state, một kỹ thuật dùng trong hầu hết mọi component thực tế.</p>
       </div>
 
-      <div class="quiz" data-quiz="q4">
-        <h4>📝 Quiz nhanh — Chương 4</h4>
-        <div class="quiz-q" data-answer="2">
-          <p>1. Vì sao cần gọi <code class="mono">e.preventDefault()</code> trong <code class="mono">onSubmit</code>?</p>
-          <span class="quiz-opt" data-idx="0">Để form chạy nhanh hơn</span>
-          <span class="quiz-opt" data-idx="1">Để xóa dữ liệu trong form</span>
-          <span class="quiz-opt" data-idx="2">Để chặn hành vi mặc định là tải lại trang</span>
-          <span class="quiz-opt" data-idx="3">Không có tác dụng gì trong React</span>
-        </div>
-        <div class="quiz-q" data-answer="1">
-          <p>2. Với checkbox, cần đọc thuộc tính nào để biết trạng thái hiện tại?</p>
-          <span class="quiz-opt" data-idx="0"><code class="mono">value</code></span>
-          <span class="quiz-opt" data-idx="1"><code class="mono">checked</code></span>
-          <span class="quiz-opt" data-idx="2"><code class="mono">selected</code></span>
-          <span class="quiz-opt" data-idx="3"><code class="mono">active</code></span>
-        </div>
-        <div class="quiz-q" data-answer="0">
-          <p>3. Computed property name <code class="mono">[name]: value</code> dùng để làm gì trong handler dùng chung?</p>
-          <span class="quiz-opt" data-idx="0">Cập nhật đúng field trong object state dựa trên tên input</span>
-          <span class="quiz-opt" data-idx="1">Tạo một input mới</span>
-          <span class="quiz-opt" data-idx="2">Xóa field khỏi object</span>
-          <span class="quiz-opt" data-idx="3">Không có tác dụng gì</span>
-        </div>
-        <div class="quiz-q" data-answer="3">
-          <p>4. Vì sao nên tạo object state MỚI bằng spread thay vì sửa trực tiếp?</p>
-          <span class="quiz-opt" data-idx="0">Để code ngắn hơn</span>
-          <span class="quiz-opt" data-idx="1">Vì spread nhanh hơn vòng lặp</span>
-          <span class="quiz-opt" data-idx="2">Không có lý do gì đặc biệt</span>
-          <span class="quiz-opt" data-idx="3">Để React nhận ra thay đổi qua tham chiếu và render lại đúng</span>
-        </div>
-        <button class="quiz-btn" onclick="gradeQuiz('q4')">Chấm điểm</button>
-        <div class="quiz-result" id="result-q4"></div>
-      </div>
+      
 
-    </section>
-  </main>
-  <div class="chnav">
-    <a class="nav-btn prev" href="chapter03.html">← Chương 3 — State &amp; useState Hook</a>
-    <a class="nav-btn next" href="chapter05.html">Chương 5 — Conditional Rendering — Hiển thị có điều kiện →</a>
-  </div>
-</div>
-</div>
-</div>
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
-
-<script src="../assets/code-highlighter.js"></script>
-<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
-
-</body>
-</html>
+    </section></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter03.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bài trước</a><a href="chapter05.html">Bài tiếp theo<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/react.html#chapter04"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>

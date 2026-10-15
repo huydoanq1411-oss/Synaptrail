@@ -1,54 +1,6 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-
-<script>
-(function(){
-  try{
-    var t = localStorage.getItem('synaptrail-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', t);
-  }catch(e){
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-})();
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/lesson.css">
-<title>Chương 1 — Socket.IO — Giao tiếp Real-time — Socket.IO | Synaptrail</title>
-<link rel="stylesheet" href="../assets/ui.css">
-</head>
-<body>
-<div id="progress-bar"></div>
-<div id="topbar">
-  <span class="brand">🚀 Socket.IO</span>
-  <div class="topbar-right">
-    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
-    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
-  </div>
-</div>
-<div class="layout">
-  <aside id="sidebar">
-    <div class="brand">🚀 Socket.IO</div>
-    <div class="sub">1 chương</div>
-    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
-    <div class="nav-group-title">Danh sách chương</div>
-    <a class="nav-link active" href="chapter01.html">Chương 1 — Socket.IO — Giao tiếp Real-time</a>
-    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
-  </aside>
-  <div class="main-col">
-<div class="chpage">
-  <div class="crumb">
-    <a href="../index.html">🏠 Trang chủ</a> ·
-    <a href="index.html">🚀 Socket.IO</a> ·
-    <span>Chương 1 — Socket.IO — Giao tiếp Real-time</span>
-  </div>
-  <main style="padding:0;max-width:none;">
-<section class="chapter" id="s16">
-      <h2>Chương <span class="num">1</span> — Socket.IO — Giao tiếp Real-time</h2>
+<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Socket.IO — Giao tiếp Real-time — Socket.IO | Synaptrail</title><meta name="description" content="HTTP request-response truyền thống không phù hợp cho chat, thông báo tức thời — Socket.IO cho phép server &quot;chủ động&quot; gửi dữ liệu về client."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="socketio" data-skill="socketio" data-node="chapter01"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/socketio.html#chapter01"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">Socket.IO / BÀI 1</p><h1>Socket.IO — Giao tiếp Real-time</h1><p class="rm-lead">HTTP request-response truyền thống không phù hợp cho chat, thông báo tức thời — Socket.IO cho phép server &quot;chủ động&quot; gửi dữ liệu về client.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter01">Làm quiz ở trang riêng <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s16">
+      
       <p class="lead">HTTP request-response truyền thống không phù hợp cho chat, thông báo tức thời — Socket.IO cho phép server "chủ động" gửi dữ liệu về client.</p>
 
       <h3>WebSocket là gì?</h3>
@@ -56,14 +8,14 @@
 
       <div class="code-wrap">
         <span class="code-label">terminal</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>npm install socket.io          # phía server
 npm install socket.io-client     # phía client (React/trình duyệt)</code></pre>
       </div>
 
       <div class="code-wrap">
         <span class="code-label">server.js</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>const { Server } = require('socket.io');
 const io = new Server(3001, { cors: { origin: '*' } });
 
@@ -83,7 +35,7 @@ io.on('connection', (socket) =&gt; {
 
       <div class="code-wrap">
         <span class="code-label">ChatBox.jsx</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>import { useEffect, useState } from 'react';
 import { io } from 'socket.io-client';
 
@@ -112,17 +64,7 @@ function ChatBox() {
         <code>io.emit()</code> gửi tới TẤT CẢ client. Để gửi RIÊNG cho một người (VD: thông báo cá nhân), dùng <code>socket.emit()</code> trên đúng socket đó, hoặc tổ chức theo "room" (<code>socket.join()</code>/<code>io.to(room).emit()</code>) để gửi cho một nhóm cụ thể.
       </div>
 
-      <div class="quiz" data-quiz="q20">
-        <h4>📝 Quiz tổng kết — Phần GraphQL & Real-time</h4>
-        <div class="quiz-q" data-answer="1">
-          <p>1. Sự khác biệt cốt lõi giữa WebSocket và HTTP request-response truyền thống là gì?</p>
-          <span class="quiz-opt" data-idx="0">WebSocket chỉ dùng được cho hình ảnh</span>
-          <span class="quiz-opt" data-idx="1">WebSocket duy trì kết nối mở liên tục, cho phép server chủ động gửi dữ liệu bất cứ lúc nào</span>
-          <span class="quiz-opt" data-idx="2">HTTP nhanh hơn WebSocket trong mọi trường hợp</span>
-        </div>
-        <button class="quiz-btn" onclick="gradeQuiz('q20')">Chấm điểm</button>
-        <div class="quiz-result" id="result-q20"></div>
-      </div>
+      
 
       <div class="summary-box">
         <h4>📌 Tổng kết chương 1</h4>
@@ -130,21 +72,8 @@ function ChatBox() {
       </div>
 
       <div class="roadmap-note">
-        ✅ Đã hoàn thành 20 chương (Công cụ nền tảng + ReactJS + MySQL/ORM + GraphQL/Socket.IO). Đang tiếp tục ngay với <strong>Phần 5 — NestJS, Docker & Triển khai VPS</strong>, không dừng lại.
+        ✅ Đã hoàn thành 20 chương (Công cụ nền tảng + ReactJS + MySQL/ORM + GraphQL/Socket.IO). Đang tiếp tục ngay với <strong>Phần 5 — NestJS, Docker &amp; Triển khai VPS</strong>, không dừng lại.
       </div>
     </section>
 
-    <!-- ================= CHƯƠNG 21 ================= -->
-  </main>
-  <div class="chnav"><a class="nav-btn prev" href="index.html">← Mục lục</a><a class="nav-btn next" href="index.html">Mục lục →</a></div>
-</div>
-</div>
-</div>
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="0"></script>
-
-<script src="../assets/code-highlighter.js"></script>
-<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
-
-</body>
-</html>
+    <!-- ================= CHƯƠNG 21 ================= --></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><span></span></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/socketio.html#chapter01"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>
