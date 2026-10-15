@@ -1,83 +1,23 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" data-theme="dark">
 <head>
-<script src="../assets/algorithm-entry.js"></script>
-
-<script>
-(function(){
-  try{
-    var t = localStorage.getItem('synaptrail-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', t);
-  }catch(e){
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-})();
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/lesson.css">
-<title>Chương 17 — Cài đặt Linked List — Giáo Trình Thuật Toán &amp; Cấu Trúc Dữ Liệu | Synaptrail</title>
-<link rel="stylesheet" href="../assets/ui.css">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tự xây dựng Singly và Doubly Linked List từ đầu — hiểu rõ cách con trỏ hoạt động bên dưới.">
+  <title>Cài đặt Linked List | Thuật toán — Synaptrail</title>
+  <link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css">
+  <script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script>
 </head>
-<body>
-<div id="progress-bar"></div>
-<div id="topbar">
-  <span class="brand">🧮 Thuật Toán & CTDL</span>
-  <div class="topbar-right">
-    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
-    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
-  </div>
-</div>
-<div class="layout">
-  <aside id="sidebar">
-    <div class="brand">🧮 Thuật Toán & CTDL</div>
-    <div class="sub">23 chương</div>
-    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
-    <div class="nav-group-title">Danh sách chương</div>
-    <a class="nav-link" href="chapter01.html">Chương 1 — Thuật toán là gì?</a>
-    <a class="nav-link" href="chapter02.html">Chương 2 — Big O Notation</a>
-    <a class="nav-link" href="chapter03.html">Chương 3 — Phân tích độ phức tạp</a>
-    <a class="nav-link" href="chapter04.html">Chương 4 — Độ phức tạp không gian (Space Complexity)</a>
-    <a class="nav-link" href="chapter05.html">Chương 5 — Bubble Sort &amp; Selection Sort</a>
-    <a class="nav-link" href="chapter06.html">Chương 6 — Insertion Sort</a>
-    <a class="nav-link" href="chapter07.html">Chương 7 — Merge Sort</a>
-    <a class="nav-link" href="chapter08.html">Chương 8 — Quick Sort</a>
-    <a class="nav-link" href="chapter09.html">Chương 9 — Heap Sort</a>
-    <a class="nav-link" href="chapter10.html">Chương 10 — Counting Sort &amp; Radix Sort</a>
-    <a class="nav-link" href="chapter11.html">Chương 11 — So sánh &amp; lựa chọn thuật toán sắp xếp</a>
-    <a class="nav-link" href="chapter12.html">Chương 12 — Linear Search</a>
-    <a class="nav-link" href="chapter13.html">Chương 13 — Binary Search</a>
-    <a class="nav-link" href="chapter14.html">Chương 14 — Biến thể Binary Search</a>
-    <a class="nav-link" href="chapter15.html">Chương 15 — Hashing &amp; Tra cứu O(1)</a>
-    <a class="nav-link" href="chapter16.html">Chương 16 — Array vs Linked List</a>
-    <a class="nav-link active" href="chapter17.html">Chương 17 — Cài đặt Linked List</a>
-    <a class="nav-link" href="chapter18.html">Chương 18 — Stack — Ứng dụng thực tế</a>
-    <a class="nav-link" href="chapter19.html">Chương 19 — Queue &amp; Deque</a>
-    <a class="nav-link" href="chapter20.html">Chương 20 — Binary Tree &amp; Duyệt cây</a>
-    <a class="nav-link" href="chapter21.html">Chương 21 — Binary Search Tree (BST)</a>
-    <a class="nav-link" href="chapter22.html">Chương 22 — Cây cân bằng (AVL)</a>
-    <a class="nav-link" href="chapter23.html">Chương 23 — Heap &amp; Priority Queue</a>
-    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
-  </aside>
-  <div class="main-col">
-<div class="chpage">
-  <div class="crumb">
-    <a href="../index.html">🏠 Trang chủ</a> ·
-    <a href="index.html">🧮 Thuật Toán & CTDL</a> ·
-    <span>Chương 17 — Cài đặt Linked List</span>
-  </div>
-  <main style="padding:0;max-width:none;">
-<section class="chapter" id="s17">
-      <h2>Chương <span class="num">17</span> — Cài đặt Linked List</h2>
-      <p class="lead">Tự xây dựng Singly và Doubly Linked List từ đầu — hiểu rõ cách con trỏ hoạt động bên dưới.</p>
-
-      <h3>Singly Linked List — liên kết một chiều</h3>
+<body class="algorithm-roadmap algorithm-lesson" data-node="chapter17">
+  <a class="rm-skip" href="#lesson-content">Bỏ qua điều hướng</a>
+  <header class="rm-header ap-header"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter17"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">◐ Giao diện</button></nav></header>
+  <main class="ap-main" id="lesson-content">
+    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 17</p><h1>Cài đặt Linked List</h1><p class="rm-lead">Tự xây dựng Singly và Doubly Linked List từ đầu — hiểu rõ cách con trỏ hoạt động bên dưới.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
+    <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div></div>
+    <p id="ap-message" role="status" aria-live="polite"></p>
+    <article class="rm-lesson-content"><h3>Singly Linked List — liên kết một chiều</h3>
       <div class="code-wrap">
         <span class="code-label">singly_linked_list.py</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>class Node:
     def __init__(self, gia_tri):
         self.gia_tri = gia_tri
@@ -131,7 +71,7 @@ print(ll.hien_thi())   # [1, 2, 3]</code></pre>
       <h3>Doubly Linked List — liên kết hai chiều</h3>
       <div class="code-wrap">
         <span class="code-label">doubly_linked_list.py</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>class DoublyNode:
     def __init__(self, gia_tri):
         self.gia_tri = gia_tri
@@ -150,23 +90,10 @@ print(ll.hien_thi())   # [1, 2, 3]</code></pre>
       <div class="summary-box">
         <h4>📌 Tổng kết chương 17</h4>
         <p>Singly Linked List chỉ có con trỏ tiến, đơn giản và tiết kiệm bộ nhớ hơn. Doubly Linked List có thêm con trỏ lùi, cho phép duyệt hai chiều và xóa node hiệu quả hơn, đánh đổi bằng bộ nhớ.</p>
-      </div>
-    </section>
-
-    <!-- ================= CHƯƠNG 18 ================= -->
+      </div></article>
+    <section class="ap-related"><h2>Bài học liên quan</h2><a href="chapter16.html">Array vs Linked List →</a></section>
+    <nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter16.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Bài trước</span></a><a href="chapter18.html"><span>Bài tiếp theo →</span></a></nav>
+    <footer class="rm-footer"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter17"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a href="../index.html">Trang chủ</a></footer>
   </main>
-  <div class="chnav">
-    <a class="nav-btn prev" href="chapter16.html">← Chương 16 — Array vs Linked List</a>
-    <a class="nav-btn next" href="chapter18.html">Chương 18 — Stack — Ứng dụng thực tế →</a>
-  </div>
-</div>
-</div>
-</div>
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="3"></script>
-
-<script src="../assets/code-highlighter.js"></script>
-<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
-
 </body>
 </html>

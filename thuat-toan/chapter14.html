@@ -1,83 +1,23 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" data-theme="dark">
 <head>
-<script src="../assets/algorithm-entry.js"></script>
-
-<script>
-(function(){
-  try{
-    var t = localStorage.getItem('synaptrail-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', t);
-  }catch(e){
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-})();
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/lesson.css">
-<title>Chương 14 — Biến thể Binary Search — Giáo Trình Thuật Toán &amp; Cấu Trúc Dữ Liệu | Synaptrail</title>
-<link rel="stylesheet" href="../assets/ui.css">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Các bài toán mở rộng từ ý tưởng chia đôi — rất hay gặp trong phỏng vấn kỹ thuật.">
+  <title>Biến thể Binary Search | Thuật toán — Synaptrail</title>
+  <link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css">
+  <script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script>
 </head>
-<body>
-<div id="progress-bar"></div>
-<div id="topbar">
-  <span class="brand">🧮 Thuật Toán & CTDL</span>
-  <div class="topbar-right">
-    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
-    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
-  </div>
-</div>
-<div class="layout">
-  <aside id="sidebar">
-    <div class="brand">🧮 Thuật Toán & CTDL</div>
-    <div class="sub">23 chương</div>
-    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
-    <div class="nav-group-title">Danh sách chương</div>
-    <a class="nav-link" href="chapter01.html">Chương 1 — Thuật toán là gì?</a>
-    <a class="nav-link" href="chapter02.html">Chương 2 — Big O Notation</a>
-    <a class="nav-link" href="chapter03.html">Chương 3 — Phân tích độ phức tạp</a>
-    <a class="nav-link" href="chapter04.html">Chương 4 — Độ phức tạp không gian (Space Complexity)</a>
-    <a class="nav-link" href="chapter05.html">Chương 5 — Bubble Sort &amp; Selection Sort</a>
-    <a class="nav-link" href="chapter06.html">Chương 6 — Insertion Sort</a>
-    <a class="nav-link" href="chapter07.html">Chương 7 — Merge Sort</a>
-    <a class="nav-link" href="chapter08.html">Chương 8 — Quick Sort</a>
-    <a class="nav-link" href="chapter09.html">Chương 9 — Heap Sort</a>
-    <a class="nav-link" href="chapter10.html">Chương 10 — Counting Sort &amp; Radix Sort</a>
-    <a class="nav-link" href="chapter11.html">Chương 11 — So sánh &amp; lựa chọn thuật toán sắp xếp</a>
-    <a class="nav-link" href="chapter12.html">Chương 12 — Linear Search</a>
-    <a class="nav-link" href="chapter13.html">Chương 13 — Binary Search</a>
-    <a class="nav-link active" href="chapter14.html">Chương 14 — Biến thể Binary Search</a>
-    <a class="nav-link" href="chapter15.html">Chương 15 — Hashing &amp; Tra cứu O(1)</a>
-    <a class="nav-link" href="chapter16.html">Chương 16 — Array vs Linked List</a>
-    <a class="nav-link" href="chapter17.html">Chương 17 — Cài đặt Linked List</a>
-    <a class="nav-link" href="chapter18.html">Chương 18 — Stack — Ứng dụng thực tế</a>
-    <a class="nav-link" href="chapter19.html">Chương 19 — Queue &amp; Deque</a>
-    <a class="nav-link" href="chapter20.html">Chương 20 — Binary Tree &amp; Duyệt cây</a>
-    <a class="nav-link" href="chapter21.html">Chương 21 — Binary Search Tree (BST)</a>
-    <a class="nav-link" href="chapter22.html">Chương 22 — Cây cân bằng (AVL)</a>
-    <a class="nav-link" href="chapter23.html">Chương 23 — Heap &amp; Priority Queue</a>
-    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
-  </aside>
-  <div class="main-col">
-<div class="chpage">
-  <div class="crumb">
-    <a href="../index.html">🏠 Trang chủ</a> ·
-    <a href="index.html">🧮 Thuật Toán & CTDL</a> ·
-    <span>Chương 14 — Biến thể Binary Search</span>
-  </div>
-  <main style="padding:0;max-width:none;">
-<section class="chapter" id="s14">
-      <h2>Chương <span class="num">14</span> — Biến thể Binary Search</h2>
-      <p class="lead">Các bài toán mở rộng từ ý tưởng chia đôi — rất hay gặp trong phỏng vấn kỹ thuật.</p>
-
-      <h3>Tìm vị trí chèn (Lower Bound)</h3>
+<body class="algorithm-roadmap algorithm-lesson" data-node="chapter14">
+  <a class="rm-skip" href="#lesson-content">Bỏ qua điều hướng</a>
+  <header class="rm-header ap-header"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter14"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">◐ Giao diện</button></nav></header>
+  <main class="ap-main" id="lesson-content">
+    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 14</p><h1>Biến thể Binary Search</h1><p class="rm-lead">Các bài toán mở rộng từ ý tưởng chia đôi — rất hay gặp trong phỏng vấn kỹ thuật.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
+    <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div></div>
+    <p id="ap-message" role="status" aria-live="polite"></p>
+    <article class="rm-lesson-content"><h3>Tìm vị trí chèn (Lower Bound)</h3>
       <div class="code-wrap">
         <span class="code-label">lower_bound.py</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>def tim_vi_tri_chen(ds, target):
     trai, phai = 0, len(ds)
     while trai < phai:
@@ -95,7 +35,7 @@ print(tim_vi_tri_chen([1, 3, 3, 5, 7], 4))   # 3 - chèn giữa 3 và 5</code></
       <h3>Tìm kiếm trong mảng xoay (Rotated Sorted Array)</h3>
       <div class="code-wrap">
         <span class="code-label">search_rotated_array.py</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code># Mảng đã sắp xếp nhưng bị "xoay" tại một điểm nào đó, VD: [4,5,6,7,0,1,2]
 def search_rotated(ds, target):
     trai, phai = 0, len(ds) - 1
@@ -128,23 +68,10 @@ print(search_rotated([4,5,6,7,0,1,2], 0))   # 4</code></pre>
       <div class="summary-box">
         <h4>📌 Tổng kết chương 14</h4>
         <p>Ý tưởng chia đôi của Binary Search mở rộng ra nhiều bài toán: tìm vị trí chèn, tìm kiếm trong mảng xoay, và "binary search on answer" — kỹ thuật rất mạnh trong các bài toán tối ưu hóa.</p>
-      </div>
-    </section>
-
-    <!-- ================= CHƯƠNG 15 ================= -->
+      </div></article>
+    <section class="ap-related"><h2>Bài học liên quan</h2><a href="chapter13.html">Binary Search →</a></section>
+    <nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter13.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Bài trước</span></a><a href="chapter15.html"><span>Bài tiếp theo →</span></a></nav>
+    <footer class="rm-footer"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter14"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a href="../index.html">Trang chủ</a></footer>
   </main>
-  <div class="chnav">
-    <a class="nav-btn prev" href="chapter13.html">← Chương 13 — Binary Search</a>
-    <a class="nav-btn next" href="chapter15.html">Chương 15 — Hashing &amp; Tra cứu O(1) →</a>
-  </div>
-</div>
-</div>
-</div>
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="3"></script>
-
-<script src="../assets/code-highlighter.js"></script>
-<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
-
 </body>
 </html>

@@ -1,82 +1,22 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" data-theme="dark">
 <head>
-<script src="../assets/algorithm-entry.js"></script>
-
-<script>
-(function(){
-  try{
-    var t = localStorage.getItem('synaptrail-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', t);
-  }catch(e){
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-})();
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/lesson.css">
-<title>Chương 19 — Queue &amp; Deque — Giáo Trình Thuật Toán &amp; Cấu Trúc Dữ Liệu | Synaptrail</title>
-<link rel="stylesheet" href="../assets/ui.css">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cấu trúc FIFO (First In First Out) và biến thể hai đầu — nền tảng xử lý theo thứ tự và duyệt BFS.">
+  <title>Queue &amp; Deque | Thuật toán — Synaptrail</title>
+  <link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css">
+  <script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script>
 </head>
-<body>
-<div id="progress-bar"></div>
-<div id="topbar">
-  <span class="brand">🧮 Thuật Toán & CTDL</span>
-  <div class="topbar-right">
-    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
-    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
-  </div>
-</div>
-<div class="layout">
-  <aside id="sidebar">
-    <div class="brand">🧮 Thuật Toán & CTDL</div>
-    <div class="sub">23 chương</div>
-    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
-    <div class="nav-group-title">Danh sách chương</div>
-    <a class="nav-link" href="chapter01.html">Chương 1 — Thuật toán là gì?</a>
-    <a class="nav-link" href="chapter02.html">Chương 2 — Big O Notation</a>
-    <a class="nav-link" href="chapter03.html">Chương 3 — Phân tích độ phức tạp</a>
-    <a class="nav-link" href="chapter04.html">Chương 4 — Độ phức tạp không gian (Space Complexity)</a>
-    <a class="nav-link" href="chapter05.html">Chương 5 — Bubble Sort &amp; Selection Sort</a>
-    <a class="nav-link" href="chapter06.html">Chương 6 — Insertion Sort</a>
-    <a class="nav-link" href="chapter07.html">Chương 7 — Merge Sort</a>
-    <a class="nav-link" href="chapter08.html">Chương 8 — Quick Sort</a>
-    <a class="nav-link" href="chapter09.html">Chương 9 — Heap Sort</a>
-    <a class="nav-link" href="chapter10.html">Chương 10 — Counting Sort &amp; Radix Sort</a>
-    <a class="nav-link" href="chapter11.html">Chương 11 — So sánh &amp; lựa chọn thuật toán sắp xếp</a>
-    <a class="nav-link" href="chapter12.html">Chương 12 — Linear Search</a>
-    <a class="nav-link" href="chapter13.html">Chương 13 — Binary Search</a>
-    <a class="nav-link" href="chapter14.html">Chương 14 — Biến thể Binary Search</a>
-    <a class="nav-link" href="chapter15.html">Chương 15 — Hashing &amp; Tra cứu O(1)</a>
-    <a class="nav-link" href="chapter16.html">Chương 16 — Array vs Linked List</a>
-    <a class="nav-link" href="chapter17.html">Chương 17 — Cài đặt Linked List</a>
-    <a class="nav-link" href="chapter18.html">Chương 18 — Stack — Ứng dụng thực tế</a>
-    <a class="nav-link active" href="chapter19.html">Chương 19 — Queue &amp; Deque</a>
-    <a class="nav-link" href="chapter20.html">Chương 20 — Binary Tree &amp; Duyệt cây</a>
-    <a class="nav-link" href="chapter21.html">Chương 21 — Binary Search Tree (BST)</a>
-    <a class="nav-link" href="chapter22.html">Chương 22 — Cây cân bằng (AVL)</a>
-    <a class="nav-link" href="chapter23.html">Chương 23 — Heap &amp; Priority Queue</a>
-    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
-  </aside>
-  <div class="main-col">
-<div class="chpage">
-  <div class="crumb">
-    <a href="../index.html">🏠 Trang chủ</a> ·
-    <a href="index.html">🧮 Thuật Toán & CTDL</a> ·
-    <span>Chương 19 — Queue &amp; Deque</span>
-  </div>
-  <main style="padding:0;max-width:none;">
-<section class="chapter" id="s19">
-      <h2>Chương <span class="num">19</span> — Queue &amp; Deque</h2>
-      <p class="lead">Cấu trúc FIFO (First In First Out) và biến thể hai đầu — nền tảng xử lý theo thứ tự và duyệt BFS.</p>
-
-      <div class="code-wrap">
+<body class="algorithm-roadmap algorithm-lesson" data-node="chapter19">
+  <a class="rm-skip" href="#lesson-content">Bỏ qua điều hướng</a>
+  <header class="rm-header ap-header"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter19"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">◐ Giao diện</button></nav></header>
+  <main class="ap-main" id="lesson-content">
+    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 19</p><h1>Queue &amp; Deque</h1><p class="rm-lead">Cấu trúc FIFO (First In First Out) và biến thể hai đầu — nền tảng xử lý theo thứ tự và duyệt BFS.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
+    <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter19">Làm quiz ở trang riêng →</a></div>
+    <p id="ap-message" role="status" aria-live="polite"></p>
+    <article class="rm-lesson-content"><div class="code-wrap">
         <span class="code-label">queue_basic.py</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>from collections import deque      # dùng deque, KHÔNG dùng list.pop(0) vì list chậm O(n)
 
 hang_doi = deque()
@@ -89,7 +29,7 @@ print(hang_doi.popleft())  # 1 - dequeue - lấy ra từ ĐẦU</code></pre>
       <h3>Ứng dụng: Hệ thống xếp hàng in tài liệu</h3>
       <div class="code-wrap">
         <span class="code-label">print_queue.py</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>class HangDoiIn:
     def __init__(self):
         self.hang_doi = deque()
@@ -113,7 +53,7 @@ hd.in_tiep_theo()   # in bao_cao.pdf TRƯỚC vì được yêu cầu sớm hơn
       <h3>Deque (Double-Ended Queue) — hàng đợi hai đầu</h3>
       <div class="code-wrap">
         <span class="code-label">deque_both_ends.py</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>d = deque([2, 3, 4])
 d.appendleft(1)     # thêm vào ĐẦU - O(1)
 d.append(5)             # thêm vào CUỐI - O(1)
@@ -127,39 +67,15 @@ print(d.pop())                # 5</code></pre>
         Queue là cấu trúc dữ liệu <strong>bắt buộc</strong> để cài đặt BFS (Breadth-First Search) — sẽ học chi tiết ở phần Đồ thị. Việc chọn đúng Queue thay vì Stack là điểm khác biệt cốt lõi giữa BFS và DFS.
       </div>
 
-      <div class="quiz" data-quiz="q19">
-        <h4>📝 Quiz tổng kết — Phần Cấu trúc dữ liệu tuyến tính</h4>
-        <div class="quiz-q" data-answer="1">
-          <p>1. Cấu trúc dữ liệu nào phù hợp để mô phỏng hàng đợi mua vé (ai xếp hàng trước được phục vụ trước)?</p>
-          <span class="quiz-opt" data-idx="0">Stack (LIFO)</span>
-          <span class="quiz-opt" data-idx="1">Queue (FIFO)</span>
-          <span class="quiz-opt" data-idx="2">Cả hai đều như nhau</span>
-        </div>
-        <button class="quiz-btn" onclick="gradeQuiz('q19')">Chấm điểm</button>
-        <div class="quiz-result" id="result-q19"></div>
-      </div>
+      
 
       <div class="summary-box">
         <h4>📌 Tổng kết chương 19</h4>
         <p>Queue (FIFO) xử lý theo thứ tự đến trước, dùng <code>collections.deque</code> để đạt O(1) ở cả hai đầu. Deque tổng quát hóa cả Stack lẫn Queue trong một cấu trúc duy nhất, và là nền tảng bắt buộc của thuật toán BFS.</p>
-      </div>
-
-    </section>
-
-    <!-- ================= CHƯƠNG 20 ================= -->
+      </div></article>
+    <section class="ap-related"><h2>Bài học liên quan</h2><a href="chapter20.html">Binary Tree &amp; Duyệt cây →</a></section>
+    <nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter18.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Bài trước</span></a><a href="chapter20.html"><span>Bài tiếp theo →</span></a></nav>
+    <footer class="rm-footer"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter19"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a href="../index.html">Trang chủ</a></footer>
   </main>
-  <div class="chnav">
-    <a class="nav-btn prev" href="chapter18.html">← Chương 18 — Stack — Ứng dụng thực tế</a>
-    <a class="nav-btn next" href="chapter20.html">Chương 20 — Binary Tree &amp; Duyệt cây →</a>
-  </div>
-</div>
-</div>
-</div>
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="3"></script>
-
-<script src="../assets/code-highlighter.js"></script>
-<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
-
 </body>
 </html>

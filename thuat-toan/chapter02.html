@@ -1,86 +1,25 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" data-theme="dark">
 <head>
-<script src="../assets/algorithm-entry.js"></script>
-
-<script>
-(function(){
-  try{
-    var t = localStorage.getItem('synaptrail-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', t);
-  }catch(e){
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-})();
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/lesson.css">
-<title>Chương 2 — Big O Notation — Giáo Trình Thuật Toán &amp; Cấu Trúc Dữ Liệu | Synaptrail</title>
-<link rel="stylesheet" href="../assets/ui.css">
-<link rel="stylesheet" href="../assets/quiz-feedback.css">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ngôn ngữ chung để mô tả và so sánh hiệu năng thuật toán, độc lập với phần cứng chạy nó.">
+  <title>Big O Notation | Thuật toán — Synaptrail</title>
+  <link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css">
+  <script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script>
 </head>
-<body>
-<div id="progress-bar"></div>
-<div id="topbar">
-  <span class="brand">🧮 Thuật Toán & CTDL</span>
-  <div class="topbar-right">
-    <a class="home-btn" href="../index.html">🏠 Trang chủ</a>
-    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Mở danh sách chương">☰</button>
-  </div>
-</div>
-<div class="layout">
-  <aside id="sidebar">
-    <div class="brand">🧮 Thuật Toán & CTDL</div>
-    <div class="sub">23 chương</div>
-    <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
-    <div class="nav-group-title">Danh sách chương</div>
-    <a class="nav-link" href="chapter01.html">Chương 1 — Thuật toán là gì?</a>
-    <a class="nav-link active" href="chapter02.html">Chương 2 — Big O Notation</a>
-    <a class="nav-link" href="chapter03.html">Chương 3 — Phân tích độ phức tạp</a>
-    <a class="nav-link" href="chapter04.html">Chương 4 — Độ phức tạp không gian (Space Complexity)</a>
-    <a class="nav-link" href="chapter05.html">Chương 5 — Bubble Sort &amp; Selection Sort</a>
-    <a class="nav-link" href="chapter06.html">Chương 6 — Insertion Sort</a>
-    <a class="nav-link" href="chapter07.html">Chương 7 — Merge Sort</a>
-    <a class="nav-link" href="chapter08.html">Chương 8 — Quick Sort</a>
-    <a class="nav-link" href="chapter09.html">Chương 9 — Heap Sort</a>
-    <a class="nav-link" href="chapter10.html">Chương 10 — Counting Sort &amp; Radix Sort</a>
-    <a class="nav-link" href="chapter11.html">Chương 11 — So sánh &amp; lựa chọn thuật toán sắp xếp</a>
-    <a class="nav-link" href="chapter12.html">Chương 12 — Linear Search</a>
-    <a class="nav-link" href="chapter13.html">Chương 13 — Binary Search</a>
-    <a class="nav-link" href="chapter14.html">Chương 14 — Biến thể Binary Search</a>
-    <a class="nav-link" href="chapter15.html">Chương 15 — Hashing &amp; Tra cứu O(1)</a>
-    <a class="nav-link" href="chapter16.html">Chương 16 — Array vs Linked List</a>
-    <a class="nav-link" href="chapter17.html">Chương 17 — Cài đặt Linked List</a>
-    <a class="nav-link" href="chapter18.html">Chương 18 — Stack — Ứng dụng thực tế</a>
-    <a class="nav-link" href="chapter19.html">Chương 19 — Queue &amp; Deque</a>
-    <a class="nav-link" href="chapter20.html">Chương 20 — Binary Tree &amp; Duyệt cây</a>
-    <a class="nav-link" href="chapter21.html">Chương 21 — Binary Search Tree (BST)</a>
-    <a class="nav-link" href="chapter22.html">Chương 22 — Cây cân bằng (AVL)</a>
-    <a class="nav-link" href="chapter23.html">Chương 23 — Heap &amp; Priority Queue</a>
-    <button id="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span> <span id="theme-label">Chế độ tối</span></button>
-  </aside>
-  <div class="main-col">
-<div class="chpage">
-  <div class="crumb">
-    <a href="../index.html">🏠 Trang chủ</a> ·
-    <a href="index.html">🧮 Thuật Toán & CTDL</a> ·
-    <span>Chương 2 — Big O Notation</span>
-  </div>
-  <main style="padding:0;max-width:none;">
-<section class="chapter" id="s2">
-      <h2>Chương <span class="num">2</span> — Big O Notation</h2>
-      <p class="lead">Ngôn ngữ chung để mô tả và so sánh hiệu năng thuật toán, độc lập với phần cứng chạy nó.</p>
-
-      <h3>Tại sao không đo bằng giây?</h3>
+<body class="algorithm-roadmap algorithm-lesson" data-node="chapter02">
+  <a class="rm-skip" href="#lesson-content">Bỏ qua điều hướng</a>
+  <header class="rm-header ap-header"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter02"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">◐ Giao diện</button></nav></header>
+  <main class="ap-main" id="lesson-content">
+    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 2</p><h1>Big O Notation</h1><p class="rm-lead">Ngôn ngữ chung để mô tả và so sánh hiệu năng thuật toán, độc lập với phần cứng chạy nó.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
+    <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter02">Làm quiz ở trang riêng →</a></div>
+    <p id="ap-message" role="status" aria-live="polite"></p>
+    <article class="rm-lesson-content"><h3>Tại sao không đo bằng giây?</h3>
       <p>Thời gian chạy thực tế (giây) phụ thuộc vào phần cứng, ngôn ngữ, trình biên dịch... Big O đo <strong>tốc độ tăng trưởng</strong> của thời gian chạy theo kích thước đầu vào <code>n</code>, bỏ qua hằng số và các yếu tố phần cứng — cho phép so sánh thuật toán một cách công bằng.</p>
 
       <div class="code-wrap">
         <span class="code-label">vi_du_do_phuc_tap.py</span>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        
         <pre><code>def tim_kiem_tuyen_tinh(ds, target):   # O(n) - trong TRƯỜNG HỢP XẤU NHẤT phải duyệt hết
     for i, x in enumerate(ds):
         if x == target:
@@ -112,52 +51,15 @@ def in_tat_ca_cap(ds):                  # O(n²) - vòng lặp lồng nhau
         Big O luôn mô tả <strong>trường hợp xấu nhất (worst case)</strong> trừ khi nói rõ khác — đây là cách an toàn nhất để đảm bảo thuật toán hoạt động tốt trong mọi tình huống, kể cả tình huống bất lợi nhất.
       </div>
 
-      <div class="quiz" data-quiz="q2" data-quiz-feedback>
-<h4>Quiz — Chương 2 · 5 câu</h4>
-<div class="quiz-q" data-answer="1" data-question-kind="concept" role="group" aria-labelledby="q2-question-1"><span class="quiz-kind">Nhớ khái niệm</span><p id="q2-question-1">1. Big O trong chương dùng để mô tả điều gì?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Số giây chính xác trên mọi máy">A. Số giây chính xác trên mọi máy</span>
-<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Tốc độ tăng trưởng theo kích thước đầu vào">B. Tốc độ tăng trưởng theo kích thước đầu vào</span>
-<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. Tên ngôn ngữ lập trình">C. Tên ngôn ngữ lập trình</span>
-<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Màu của đoạn code">D. Màu của đoạn code</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> Thời gian thực tế còn phụ thuộc môi trường.</li><li><strong>B. Đúng:</strong> Big O mô tả sự tăng trưởng theo n.</li><li><strong>C. Sai:</strong> Không phải thước đo ngôn ngữ.</li><li><strong>D. Sai:</strong> Không liên quan phân tích hiệu năng.</li></ul></div></div>
-<div class="quiz-q" data-answer="3" data-question-kind="concept" role="group" aria-labelledby="q2-question-2"><span class="quiz-kind">Nhớ khái niệm</span><p id="q2-question-2">2. Lấy phần tử đầu của danh sách không rỗng được bài xếp vào lớp nào?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. O(n²)">A. O(n²)</span>
-<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. O(n)">B. O(n)</span>
-<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. O(2ⁿ)">C. O(2ⁿ)</span>
-<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. O(1)">D. O(1)</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> Không có hai vòng lặp.</li><li><strong>B. Sai:</strong> Không duyệt hết danh sách.</li><li><strong>C. Sai:</strong> Không có cấu trúc tăng mũ.</li><li><strong>D. Đúng:</strong> ví dụ dùng một truy cập ds[0].</li></ul></div></div>
-<div class="quiz-q" data-answer="0" data-question-kind="application" role="group" aria-labelledby="q2-question-3"><span class="quiz-kind">Áp dụng / đọc code</span><p id="q2-question-3">3. Tìm kiếm tuyến tính khi target không có cần xét bao nhiêu phần tử?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Tối đa n, nên O(n)">A. Tối đa n, nên O(n)</span>
-<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Luôn một phần tử, nên O(1)">B. Luôn một phần tử, nên O(1)</span>
-<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. n² phần tử">C. n² phần tử</span>
-<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. 2ⁿ phần tử">D. 2ⁿ phần tử</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Đúng:</strong> phải duyệt hết để kết luận không có.</li><li><strong>B. Sai:</strong> Target vắng mặt không cho dừng ở phần tử đầu.</li><li><strong>C. Sai:</strong> Ví dụ chỉ có một vòng lặp.</li><li><strong>D. Sai:</strong> Không có cây nhánh tăng mũ.</li></ul></div></div>
-<div class="quiz-q" data-answer="2" data-question-kind="application" role="group" aria-labelledby="q2-question-4"><span class="quiz-kind">Áp dụng / đọc code</span><p id="q2-question-4">4. Hàm in_tat_ca_cap trong bài có hai vòng lặp qua cùng ds. Độ phức tạp là gì?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. O(1)">A. O(1)</span>
-<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. O(n)">B. O(n)</span>
-<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. O(n²)">C. O(n²)</span>
-<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. O(log n)">D. O(log n)</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> Số lần in tăng theo dữ liệu.</li><li><strong>B. Sai:</strong> Mỗi phần tử ngoài còn duyệt toàn danh sách bên trong.</li><li><strong>C. Đúng:</strong> có n lần nhân n lần.</li><li><strong>D. Sai:</strong> Không có bước chia đôi kích thước.</li></ul></div></div>
-<div class="quiz-q" data-answer="1" data-question-kind="error" role="group" aria-labelledby="q2-question-5"><span class="quiz-kind">Tìm lỗi</span><p id="q2-question-5">5. Kết luận “O(n) nghĩa là luôn chạy đúng n giây” sai ở đâu?</p><span class="quiz-opt" data-idx="0" role="button" tabindex="0" aria-pressed="false" aria-label="A. Big O không có quan hệ với kích thước">A. Big O không có quan hệ với kích thước</span>
-<span class="quiz-opt" data-idx="1" role="button" tabindex="0" aria-pressed="false" aria-label="B. Big O không ấn định thời gian bằng giây">B. Big O không ấn định thời gian bằng giây</span>
-<span class="quiz-opt" data-idx="2" role="button" tabindex="0" aria-pressed="false" aria-label="C. O(n) luôn là O(2ⁿ)">C. O(n) luôn là O(2ⁿ)</span>
-<span class="quiz-opt" data-idx="3" role="button" tabindex="0" aria-pressed="false" aria-label="D. Mọi máy đều có cùng tốc độ">D. Mọi máy đều có cùng tốc độ</span><div class="quiz-explanation" hidden><strong>Giải thích đáp án</strong><ul><li><strong>A. Sai:</strong> Nó có quan hệ với kích thước n.</li><li><strong>B. Đúng:</strong> máy và môi trường ảnh hưởng thời gian thực tế.</li><li><strong>C. Sai:</strong> Đây là hai lớp tăng trưởng khác nhau.</li><li><strong>D. Sai:</strong> Bài nêu rõ phụ thuộc phần cứng.</li></ul></div></div>
-<button class="quiz-btn" onclick="gradeQuiz('q2')" aria-label="Chấm năm câu quiz chương 2">Chấm điểm</button><div class="quiz-result" id="result-q2"></div><p class="quiz-feedback-status" role="status" aria-live="polite"></p>
-</div>
+      
 
       <div class="summary-box">
         <h4>📌 Tổng kết chương 2</h4>
         <p>Big O đo tốc độ tăng trưởng thời gian chạy theo kích thước đầu vào, độc lập phần cứng. Luôn mô tả trường hợp xấu nhất, giúp so sánh thuật toán công bằng.</p>
-      </div>
-    </section>
-
-    <!-- ================= CHƯƠNG 3 ================= -->
+      </div></article>
+    
+    <nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter01.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Bài trước</span></a><a href="chapter03.html"><span>Bài tiếp theo →</span></a></nav>
+    <footer class="rm-footer"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter02"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a href="../index.html">Trang chủ</a></footer>
   </main>
-  <div class="chnav">
-    <a class="nav-btn prev" href="chapter01.html">← Chương 1 — Thuật toán là gì?</a>
-    <a class="nav-btn next" href="chapter03.html">Chương 3 — Phân tích độ phức tạp →</a>
-  </div>
-</div>
-</div>
-</div>
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<script src="../assets/lesson.js" data-lesson-phase="setup" data-lesson-theme="3"></script>
-
-<script src="../assets/code-highlighter.js"></script>
-<script src="../assets/lesson.js" data-lesson-phase="finish"></script>
-
-<script src="../assets/quiz-feedback.js"></script>
 </body>
 </html>
