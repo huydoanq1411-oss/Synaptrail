@@ -1,4 +1,5 @@
 @import url('background.css');
+@import url('studio.css');
 /* Shared presentation layer; existing lesson scripts and routes remain authoritative. */
 :root,html[data-theme="dark"]{--bg:#081425;--bg-soft:#0e1e33;--bg-card:#12243b;--border:#2c425c;--text:#edf4ff;--text-dim:#aec0d6;--accent:#67e8f9;--accent2:#67e8f9;--paper:var(--bg-card);--paper-soft:var(--bg-soft);--ink:var(--text);--ink-soft:var(--text-dim);--line:var(--accent);--line-soft:var(--border);--code-bg:#07111f;--amber:#67e8f9;--amber-soft:#16384b;--grad-accent:linear-gradient(var(--accent),var(--accent));--shadow:0 8px 24px #0002;--shadow-hover:0 12px 28px #0003;--radius-lg:20px;--radius-md:14px}
 :root,html[data-theme="light"]{--bg:#fff;--bg-soft:#f7faf9;--bg-card:#fff;--border:#dce8e5;--text:#203a36;--text-dim:#5c706c;--accent:#0f766e;--accent2:#0f766e;--paper:var(--bg-card);--paper-soft:#f2f7f5;--ink:var(--text);--ink-soft:var(--text-dim);--line:var(--accent);--line-soft:var(--border);--code-bg:#f3f7f6;--amber:#0f766e;--amber-soft:#e5f2ee;--kw:#7b3f99;--str:#356239;--num:#925014;--com:#5c706c;--fn:#266486;--type:#126c68;--ok:#267249;--warn:#8a591c;--danger:#b8374c;--info:#266486}
