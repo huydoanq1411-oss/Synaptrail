@@ -45,6 +45,7 @@ for(const [index,node] of lessons.entries()){
 const groups=data.nodes.filter(n=>n.side==='spine');
 const fallback='<ol class="fallback-list">'+groups.map(n=>'<li><h2>'+esc(n.title)+'</h2><p>'+esc(n.summary)+(n.comingSoon?' · Sắp có':'')+'</p><ol>'+data.nodes.filter(c=>c.parent===n.id).map(c=>'<li id="'+esc(c.id)+'">'+(c.chapter?'<a href="../'+esc(c.chapter)+'">'+esc(c.title)+' →</a>':'<strong>'+esc(c.title)+' · Sắp có</strong>')+'</li>').join('')+'</ol></li>').join('')+'</ol>';
 const page=path.join(root,'roadmap/thuat-toan.html');
-fs.writeFileSync(page,fs.readFileSync(page,'utf8').replace(/<!-- fallback:start -->[\s\S]*?<!-- fallback:end -->/,'<!-- fallback:start -->\n'+fallback+'\n<!-- fallback:end -->'));
+const nextFallback='<div class="rm-next" id="rm-next"><noscript>'+data.continueWith.map(n=>'<a href="../'+esc(n.chapter)+'">'+esc(n.title)+'</a>').join('')+'</noscript></div>';
+fs.writeFileSync(page,fs.readFileSync(page,'utf8').replace(/<!-- fallback:start -->[\s\S]*?<!-- fallback:end -->/,'<!-- fallback:start -->\n'+fallback+'\n<!-- fallback:end -->').replace(/<div class="rm-next" id="rm-next">[\s\S]*?<\/div>/,nextFallback));
 for(const node of data.nodes){if(node.chapter&&!fs.existsSync(path.join(root,node.chapter)))throw Error('Missing '+node.chapter);for(const id of node.related)if(!data.nodes.some(n=>n.id===id))throw Error('Missing relation '+id);}
 console.log('Generated 23 standalone lessons; separated '+Object.keys(quizzes.chapters).length+' chapter quizzes; refreshed roadmap fallback.');
