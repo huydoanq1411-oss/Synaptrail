@@ -9,7 +9,7 @@
     for (const [course,chapters] of Object.entries(value)) {
       if (!safeKey(course) || !isObject(chapters)) throw Error('Môn học trong file không hợp lệ.');
       for (const [chapter,record] of Object.entries(chapters)) {
-        if (!safeKey(chapter) || !isObject(record) || typeof record.done !== 'boolean' || !Number.isFinite(record.quizScore) || record.quizScore < 0 || record.quizScore > 100 || typeof record.updatedAt !== 'string' || !Number.isFinite(Date.parse(record.updatedAt)) || Object.keys(record).some(k => !['done','quizScore','updatedAt'].includes(k))) throw Error('Bản ghi tiến độ không hợp lệ: ' + course + '/' + chapter);
+        if (!safeKey(chapter) || !isObject(record) || typeof record.done !== 'boolean' || !Number.isFinite(record.quizScore) || record.quizScore < 0 || record.quizScore > 100 || typeof record.updatedAt !== 'string' || !Number.isFinite(Date.parse(record.updatedAt)) || (record.status !== undefined && (!['learning','done','skip'].includes(record.status) || record.done !== (record.status === 'done'))) || Object.keys(record).some(k => !['done','quizScore','updatedAt','status'].includes(k))) throw Error('Bản ghi tiến độ không hợp lệ: ' + course + '/' + chapter);
       }
     }
     return value;
@@ -23,7 +23,8 @@
         if (!safeKey(course) || !safeKey(chapter)) throw Error('Mã môn học/chương không hợp lệ.');
         const data=read();const previous=data[course]?.[chapter] || {done:false,quizScore:0};
         data[course] ||= {};
-        data[course][chapter]={done:patch.done ?? previous.done,quizScore:Math.max(previous.quizScore,patch.quizScore ?? previous.quizScore),updatedAt:new Date().toISOString()};
+        const status=patch.status ?? (patch.done === undefined ? previous.status : (patch.done ? 'done' : 'learning'));
+        data[course][chapter]={done:status ? status === 'done' : (patch.done ?? previous.done),quizScore:Math.max(previous.quizScore,patch.quizScore ?? previous.quizScore),updatedAt:new Date().toISOString(),...(status ? {status} : {})};
         return write(data);
       },
       importData(text) {
