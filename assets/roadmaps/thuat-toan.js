@@ -1,5 +1,13 @@
 /* Canonical algorithm roadmap and lesson content. Generate pages: node scripts/sync-algorithm-roadmap.cjs */
 globalThis.SynaptrailRoadmapData = {
+  "layout": {
+    "nen-tang": {"right": [{"nodes": ["chapter01", "chapter02", "chapter03", "chapter04"]}]},
+    "sap-xep": {"left": [{"title": "Sắp xếp cơ bản", "tiles": true, "nodes": ["chapter05", "chapter06"]}, {"nodes": ["chapter11"]}], "right": [{"title": "Sắp xếp nâng cao", "hub": true, "nodes": ["chapter07", "chapter08", "chapter09", "chapter10"]}]},
+    "tim-kiem": {"left": [{"nodes": ["chapter12", "chapter13"]}], "right": [{"nodes": ["chapter14", "chapter15"]}]},
+    "tuyen-tinh": {"left": [{"title": "Lưu trữ & liên kết", "nodes": ["chapter16", "chapter17"]}], "right": [{"title": "Ngăn xếp & hàng đợi", "tiles": true, "nodes": ["chapter18", "chapter19"]}]},
+    "cay": {"left": [{"nodes": ["chapter20", "chapter21", "chapter22"]}], "right": [{"nodes": ["chapter23"]}]},
+    "do-thi": {"right": [{"nodes": ["bfs-dfs", "dijkstra", "union-find"]}]}
+  },
   "course": "thuat-toan",
   "title": "Thuật toán & Cấu trúc dữ liệu",
   "continueWith": [

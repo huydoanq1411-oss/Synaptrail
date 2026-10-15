@@ -8,19 +8,33 @@
     const make=(tag,className,text)=>{const e=document.createElement(tag);if(className)e.className=className;if(text!==undefined)e.textContent=text;return e;};
     try{store=SynaptrailProgress.createStore(localStorage);current=store.read();}catch{notify('Không đọc được bộ nhớ tiến độ. Bạn vẫn có thể mở các bài học.');}
     data.continueWith.forEach(item=>{const a=make('a','',item.title);a.href='../'+item.chapter;$('rm-next').append(a);});
-    const groups=data.nodes.filter(n=>n.side==='spine');
+    const groups=data.nodes.filter(n=>n.side==='spine'),hubs=new Map();
     groups.forEach(group=>{
-      const stage=make('li','rm-stage');stage.dataset.stage=group.id;const children=data.nodes.filter(n=>n.parent===group.id);let left=0,right=0;
+      const stage=make('li','rm-stage');stage.dataset.stage=group.id;const children=data.nodes.filter(n=>n.parent===group.id);
+      const plan=data.layout?.[group.id]||{left:[{nodes:children.filter(n=>n.side==='left').map(n=>n.id)}],right:[{nodes:children.filter(n=>n.side==='right').map(n=>n.id)}]};
       [group,...children].forEach(node=>{
         const b=make('button','rm-node');b.type='button';b.id=node.id;b.dataset.node=node.id;b.dataset.type=node.type;b.dataset.soon=String(node.comingSoon);
         b.append(make('span','rm-node-type',types[node.type]),make('span','rm-node-title',node.title),make('span','rm-node-state'));
-        if(node.side==='spine')b.style.gridRow='1 / span '+Math.max(1,children.filter(n=>n.side==='left').length,children.filter(n=>n.side==='right').length);
-        else{b.style.gridColumn=node.side==='left'?'1':'3';b.style.gridRow=String(1+(node.side==='left'?left++:right++));}
         if(node.comingSoon)b.setAttribute('aria-disabled','true');
         b.addEventListener('click',()=>{if(node.comingSoon){notify(node.title+' · Sắp có bài học.');return;}if(node.chapter){location.assign('../'+node.chapter);return;}stage.classList.toggle('rm-stage-selected');notify('Chọn một chủ đề ở hai bên chặng “'+node.title+'” để mở bài học.');});
-        buttons.set(node.id,b);stage.append(b);
-      });$('rm-stages').append(stage);
+        buttons.set(node.id,b);if(node.side==='spine')stage.append(b);
+      });
+      for(const side of ['left','right']){
+        const column=make('div','rm-branch-column');column.dataset.side=side;
+        for(const [index,cluster] of (plan[side]||[]).entries()){
+          if(!cluster.nodes.length)continue;
+          const box=make('div','rm-branch-group');box.classList.toggle('rm-branch-tiles',!!cluster.tiles);box.classList.toggle('rm-branch-framed',!!cluster.title&&!cluster.hub);
+          let hub;
+          if(cluster.title){const title=make('h3','rm-branch-heading',cluster.title);box.append(title);if(cluster.hub){hub=title;hub.classList.add('rm-branch-hub');stage.classList.add('rm-stage-has-hub');hubs.set(group.id+'-'+side+'-'+index,hub);}}
+          cluster.nodes.forEach(id=>{const b=buttons.get(id);if(!b)return;b.dataset.branchSide=side;if(hub)b.dataset.hub=group.id+'-'+side+'-'+index;box.append(b);});column.append(box);
+        }
+        stage.append(column);
+      }
+      $('rm-stages').append(stage);
     });
+    // Keep keyboard traversal in learning order even when visual clusters span both sides.
+    const ordered=groups.flatMap(g=>[g,...data.nodes.filter(n=>n.parent===g.id)]).map(n=>buttons.get(n.id));
+    map.addEventListener('keydown',event=>{if(event.key!=='Tab')return;const index=ordered.indexOf(document.activeElement);if(index<0)return;const next=ordered[index+(event.shiftKey?-1:1)];if(next){event.preventDefault();next.focus();}});
     function render(){
       for(const node of data.nodes){const record=current[data.course]?.[node.id],state=record?.status||(record?.done?'done':null),b=buttons.get(node.id);if(state)b.dataset.state=state;else delete b.dataset.state;const label=[state?states[state]:'',node.comingSoon?'◷ Sắp có':''].filter(Boolean).join(' · ');b.querySelector('.rm-node-state').textContent=label;b.setAttribute('aria-label',node.title+' — '+(label||types[node.type])+(node.chapter?' — Mở trang bài học':''));}
       const available=data.nodes.filter(n=>n.chapter&&!n.comingSoon),done=available.filter(n=>current[data.course]?.[n.id]?.done).length,percent=Math.round(done/available.length*100);$('rm-percent').textContent=percent+'%';$('rm-count').textContent=done+'/'+available.length+' mục hoàn thành';$('rm-progress').value=percent;
@@ -37,9 +51,18 @@
     function draw(){
       const svg=$('rm-connections');svg.replaceChildren();const list=small.matches||reduced.matches;map.classList.toggle('rm-list-mode',list);if(list)return;
       const bounds=svg.getBoundingClientRect();svg.setAttribute('viewBox',`0 0 ${bounds.width} ${bounds.height}`);
-      const box=id=>{const r=buttons.get(id).getBoundingClientRect();return{x:r.left-bounds.left,y:r.top-bounds.top,w:r.width,h:r.height};};
+      const rect=el=>{const r=el.getBoundingClientRect();return{x:r.left-bounds.left,y:r.top-bounds.top,w:r.width,h:r.height};};
+      const box=id=>rect(buttons.get(id));
       const path=(d,cls)=>{const p=document.createElementNS('http://www.w3.org/2000/svg','path');p.setAttribute('d',d);p.setAttribute('class',cls);svg.append(p);};
-      groups.forEach((node,i)=>{const a=box(node.id);if(i<groups.length-1){const b=box(groups[i+1].id);path(`M ${a.x+a.w/2} ${a.y+a.h} L ${b.x+b.w/2} ${b.y}`,'rm-spine-line');}data.nodes.filter(n=>n.parent===node.id).forEach(child=>{const b=box(child.id),left=child.side==='left',sx=left?a.x:a.x+a.w,sy=a.y+a.h/2,ex=left?b.x+b.w:b.x,ey=b.y+b.h/2,mid=(sx+ex)/2;path(`M ${sx} ${sy} C ${mid} ${sy}, ${mid} ${ey}, ${ex} ${ey}`,'rm-branch-line');});});
+      groups.forEach((node,i)=>{
+        const a=box(node.id);if(i<groups.length-1){const b=box(groups[i+1].id);path(`M ${a.x+a.w/2} ${a.y+a.h} L ${b.x+b.w/2} ${b.y}`,'rm-spine-line');}
+        const connected=new Set();
+        data.nodes.filter(n=>n.parent===node.id).forEach(child=>{
+          const button=buttons.get(child.id),b=box(child.id),left=button.dataset.branchSide==='left',hub=hubs.get(button.dataset.hub);
+          if(hub){const h=rect(hub);if(!connected.has(hub)){const sx=left?a.x:a.x+a.w,ex=left?h.x+h.w:h.x;path(`M ${sx} ${a.y+a.h/2} L ${ex} ${h.y+h.h/2}`,'rm-hub-line');connected.add(hub);}const sx=h.x+h.w/2,sy=h.y+h.h,ex=b.x+b.w/2,ey=b.y;path(`M ${sx} ${sy} C ${sx} ${(sy+ey)/2}, ${ex} ${(sy+ey)/2}, ${ex} ${ey}`,'rm-branch-line');}
+          else{const sx=left?a.x:a.x+a.w,sy=a.y+a.h/2,ex=left?b.x+b.w:b.x,ey=b.y+b.h/2,mid=(sx+ex)/2;path(`M ${sx} ${sy} C ${mid} ${sy}, ${mid} ${ey}, ${ex} ${ey}`,'rm-branch-line');}
+        });
+      });
     }
     if(globalThis.ResizeObserver)new ResizeObserver(drawSoon).observe(map);addEventListener('resize',drawSoon);small.addEventListener('change',drawSoon);reduced.addEventListener('change',drawSoon);
     function focusHash(){const b=buttons.get(location.hash.slice(1));if(b){b.focus({preventScroll:true});b.scrollIntoView({block:'center',behavior:'instant'});}}
