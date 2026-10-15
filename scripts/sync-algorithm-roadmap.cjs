@@ -27,6 +27,7 @@ fs.writeFileSync(dataPath,'/* Single runtime source. Chapter excerpts: node scri
 const escape=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const fallback='<ol class="fallback-list">'+ordered.filter(n=>n.side==='spine').map(n=>'<li><h2>'+escape(n.title)+'</h2><p>'+escape(n.summary)+(n.comingSoon?' · Sắp có':'')+'</p><ol>'+ordered.filter(c=>c.parent===n.id).map(c=>'<li><strong>'+escape(c.title)+'</strong><p>'+escape(c.summary)+'</p>'+(c.chapter?'<a href="../'+escape(c.chapter)+'">Mở bài học →</a>':'<span>Sắp có</span>')+'</li>').join('')+'</ol></li>').join('')+'</ol>';
 const page=path.join(root,'roadmap/thuat-toan.html');
-fs.writeFileSync(page,fs.readFileSync(page,'utf8').replace(/<!-- fallback:start -->[\s\S]*?<!-- fallback:end -->/,'<!-- fallback:start -->\n'+fallback+'\n<!-- fallback:end -->'));
+const nextFallback='<div class="rm-next" id="rm-next"><noscript>'+data.continueWith.map(item=>'<a href="../'+escape(item.chapter)+'">'+escape(item.title)+'</a>').join('')+'</noscript></div>';
+fs.writeFileSync(page,fs.readFileSync(page,'utf8').replace(/<!-- fallback:start -->[\s\S]*?<!-- fallback:end -->/,'<!-- fallback:start -->\n'+fallback+'\n<!-- fallback:end -->').replace(/<div class="rm-next" id="rm-next">[\s\S]*?<\/div>/,nextFallback));
 for(const n of data.nodes){if(n.chapter&&!fs.existsSync(path.join(root,n.chapter)))throw Error('Missing chapter '+n.chapter);for(const id of n.related)if(!data.nodes.some(r=>r.id===id))throw Error('Missing relation '+id);}
 console.log('Synced 23 chapters; validated '+data.nodes.length+' nodes; generated no-JS fallback.');
