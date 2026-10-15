@@ -6,6 +6,7 @@
     const $=id=>document.getElementById(id),map=$('rm-map'),buttons=new Map(),types={'bat-buoc':'Bắt buộc','chi-tiet':'Chi tiết','tuy-chon':'Tùy chọn'},states={learning:'◐ Đang học',done:'✓ Đã xong',skip:'↷ Bỏ qua'};
     const notify=text=>{$('rm-message').textContent=text;};let store,current={};
     const make=(tag,className,text)=>{const e=document.createElement(tag);if(className)e.className=className;if(text!==undefined)e.textContent=text;return e;};
+    document.querySelectorAll('.rm-home,.rm-footer a[href="../index.html"]').forEach(a=>{a.classList.add('rm-home');if(a.querySelector('svg'))return;const svg=document.createElementNS('http://www.w3.org/2000/svg','svg'),path=document.createElementNS(svg.namespaceURI,'path');svg.setAttribute('viewBox','0 0 24 24');svg.setAttribute('width','20');svg.setAttribute('height','20');svg.setAttribute('aria-hidden','true');path.setAttribute('d','m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7');path.setAttribute('fill','none');path.setAttribute('stroke','currentColor');path.setAttribute('stroke-width','2');path.setAttribute('stroke-linecap','round');path.setAttribute('stroke-linejoin','round');svg.append(path);a.replaceChildren(svg,make('span','','Trang chủ'));});
     try{store=SynaptrailProgress.createStore(localStorage);current=store.read();}catch{notify('Không đọc được bộ nhớ tiến độ. Bạn vẫn có thể mở các bài học.');}
     data.continueWith.forEach(item=>{const a=make('a','',item.title);a.href='../'+item.chapter;$('rm-next').append(a);});
     const groups=data.nodes.filter(n=>n.side==='spine'),hubs=new Map();
@@ -15,8 +16,7 @@
       [group,...children].forEach(node=>{
         const b=make('button','rm-node');b.type='button';b.id=node.id;b.dataset.node=node.id;b.dataset.type=node.type;b.dataset.soon=String(node.comingSoon);
         b.append(make('span','rm-node-type',types[node.type]),make('span','rm-node-title',node.title),make('span','rm-node-state'));
-        if(node.comingSoon)b.setAttribute('aria-disabled','true');
-        b.addEventListener('click',()=>{if(node.comingSoon){notify(node.title+' · Sắp có bài học.');return;}if(node.chapter){location.assign('../'+node.chapter);return;}stage.classList.toggle('rm-stage-selected');notify('Chọn một chủ đề ở hai bên chặng “'+node.title+'” để mở bài học.');});
+        b.addEventListener('click',()=>location.assign(node.chapter?'../'+node.chapter:'../thuat-toan/chu-de.html?node='+encodeURIComponent(node.id)));
         buttons.set(node.id,b);if(node.side==='spine')stage.append(b);
       });
       for(const side of ['left','right']){
@@ -25,7 +25,7 @@
           if(!cluster.nodes.length)continue;
           const box=make('div','rm-branch-group');box.classList.toggle('rm-branch-tiles',!!cluster.tiles);box.classList.toggle('rm-branch-framed',!!cluster.title&&!cluster.hub);
           let hub;
-          if(cluster.title){const title=make('h3','rm-branch-heading',cluster.title);box.append(title);if(cluster.hub){hub=title;hub.classList.add('rm-branch-hub');stage.classList.add('rm-stage-has-hub');hubs.set(group.id+'-'+side+'-'+index,hub);}}
+          if(cluster.title){const title=make(cluster.hub?'button':'h3','rm-branch-heading',cluster.title);box.append(title);if(cluster.hub){hub=title;hub.type='button';hub.classList.add('rm-branch-hub');hub.addEventListener('click',()=>location.assign('../thuat-toan/chu-de.html?node='+encodeURIComponent(group.id)+'&branch='+side+'-'+index));stage.classList.add('rm-stage-has-hub');hubs.set(group.id+'-'+side+'-'+index,hub);}}
           cluster.nodes.forEach(id=>{const b=buttons.get(id);if(!b)return;b.dataset.branchSide=side;if(hub)b.dataset.hub=group.id+'-'+side+'-'+index;box.append(b);});column.append(box);
         }
         stage.append(column);
@@ -33,10 +33,10 @@
       $('rm-stages').append(stage);
     });
     // Keep keyboard traversal in learning order even when visual clusters span both sides.
-    const ordered=groups.flatMap(g=>[g,...data.nodes.filter(n=>n.parent===g.id)]).map(n=>buttons.get(n.id));
+    const ordered=groups.flatMap(g=>[buttons.get(g.id),...[...hubs.entries()].filter(([id])=>id.startsWith(g.id+'-')).map(([,el])=>el),...data.nodes.filter(n=>n.parent===g.id).map(n=>buttons.get(n.id))]);
     map.addEventListener('keydown',event=>{if(event.key!=='Tab')return;const index=ordered.indexOf(document.activeElement);if(index<0)return;const next=ordered[index+(event.shiftKey?-1:1)];if(next){event.preventDefault();next.focus();}});
     function render(){
-      for(const node of data.nodes){const record=current[data.course]?.[node.id],state=record?.status||(record?.done?'done':null),b=buttons.get(node.id);if(state)b.dataset.state=state;else delete b.dataset.state;const label=[state?states[state]:'',node.comingSoon?'◷ Sắp có':''].filter(Boolean).join(' · ');b.querySelector('.rm-node-state').textContent=label;b.setAttribute('aria-label',node.title+' — '+(label||types[node.type])+(node.chapter?' — Mở trang bài học':''));}
+      for(const node of data.nodes){const record=current[data.course]?.[node.id],state=record?.status||(record?.done?'done':null),b=buttons.get(node.id);if(state)b.dataset.state=state;else delete b.dataset.state;const label=[state?states[state]:'',node.comingSoon?'◷ Sắp có':''].filter(Boolean).join(' · ');b.querySelector('.rm-node-state').textContent=label;b.setAttribute('aria-label',node.title+' — '+(label||types[node.type])+(node.chapter?' — Mở trang bài học':' — Mở trang chủ đề'));}
       const available=data.nodes.filter(n=>n.chapter&&!n.comingSoon),done=available.filter(n=>current[data.course]?.[n.id]?.done).length,percent=Math.round(done/available.length*100);$('rm-percent').textContent=percent+'%';$('rm-count').textContent=done+'/'+available.length+' mục hoàn thành';$('rm-progress').value=percent;
     }
     function read(){try{current=store.read();render();}catch(error){notify(error.message);}}

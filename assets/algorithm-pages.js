@@ -3,6 +3,12 @@
   try{document.documentElement.dataset.theme=localStorage.getItem('synaptrail-theme')==='light'?'light':'dark';}catch{}
   document.addEventListener('DOMContentLoaded',()=>{
     document.body.classList.add('rm-ready');const $=id=>document.getElementById(id),make=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;};
+    document.querySelectorAll('.rm-footer a[href="../index.html"]').forEach(a=>a.classList.add('rm-home'));
+    document.querySelectorAll('.rm-home,.rm-back').forEach(a=>{
+      if(a.querySelector('svg'))return;
+      if(a.classList.contains('rm-home'))a.textContent='Trang chủ';
+      const svg=document.createElementNS('http://www.w3.org/2000/svg','svg'),path=document.createElementNS(svg.namespaceURI,'path');svg.setAttribute('viewBox','0 0 24 24');svg.setAttribute('width','20');svg.setAttribute('height','20');svg.setAttribute('aria-hidden','true');path.setAttribute('d',a.classList.contains('rm-home')?'m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7':'m12 5-7 7 7 7M5 12h14');path.setAttribute('fill','none');path.setAttribute('stroke','currentColor');path.setAttribute('stroke-width','2');path.setAttribute('stroke-linecap','round');path.setAttribute('stroke-linejoin','round');svg.append(path);a.prepend(svg);
+    });
     const notify=message=>{$('ap-message').textContent=message;};let store;
     try{store=SynaptrailProgress.createStore(localStorage);store.read();}catch{notify('Không đọc được bộ nhớ tiến độ. Nội dung vẫn có thể sử dụng.');}
     function labelTheme(){$('rm-theme').textContent=document.documentElement.dataset.theme==='light'?'◐ Chế độ tối':'◐ Chế độ sáng';}
