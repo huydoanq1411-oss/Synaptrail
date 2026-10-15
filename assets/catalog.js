@@ -3,7 +3,7 @@
   const courses = Object.freeze([
   {
     "id": "thuat-toan",
-    "href": "thuat-toan/index.html",
+    "href": "roadmap/thuat-toan.html",
     "name": "Thuật toán"
   },
   {

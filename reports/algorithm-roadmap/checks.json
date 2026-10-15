@@ -262,5 +262,6 @@
   "errors": [],
   "fileProtocol": true,
   "progressChecks": true,
-  "keyboardChecks": true
+  "keyboardChecks": true,
+  "legacyIndexRedirect": true
 }
