@@ -15,4 +15,10 @@
 .algorithm-lesson .rm-lesson-content :is(.chapter-head,.accordion-head){margin-block:var(--space-1)}
 .algorithm-lesson .rm-lesson-content :is(.stats-row,.cards,.grid-2,.grid-3){display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:var(--space-2)}
 .algorithm-roadmap .rm-home{display:inline-flex;align-items:center}
+.algorithm-lesson .rm-lesson-content svg text{fill:var(--content-primary)!important}
+.algorithm-lesson .diagram-card svg{min-width:640px}
+@media(max-width:767px){
+ .algorithm-roadmap[data-course] .rm-stage :is(.rm-branch-column,.rm-branch-group){display:contents}
+ .algorithm-roadmap[data-course] .rm-stage .rm-node{order:var(--rm-learning-order);width:100%;margin-left:0}
+}
 @media(max-width:767px){.algorithm-roadmap .rm-header{height:auto;min-height:78px;flex-wrap:wrap;gap:var(--space-1)}.algorithm-roadmap .rm-header nav{flex-wrap:wrap}}

@@ -14,7 +14,7 @@
       const stage=make('li','rm-stage');stage.dataset.stage=group.id;const children=data.nodes.filter(n=>n.parent===group.id);
       const plan=data.layout?.[group.id]||{left:[{nodes:children.filter(n=>n.side==='left').map(n=>n.id)}],right:[{nodes:children.filter(n=>n.side==='right').map(n=>n.id)}]};
       [group,...children].forEach(node=>{
-        const b=make('button','rm-node');b.type='button';b.id=node.id;b.dataset.node=node.id;b.dataset.type=node.type;b.dataset.soon=String(node.comingSoon);
+        const b=make('button','rm-node');b.type='button';b.id=node.id;b.dataset.node=node.id;b.dataset.type=node.type;b.dataset.soon=String(node.comingSoon);b.style.setProperty('--rm-learning-order',data.nodes.indexOf(node));
         b.append(make('span','rm-node-type',types[node.type]),make('span','rm-node-title',node.title),make('span','rm-node-state'));
         b.addEventListener('click',()=>location.assign(node.chapter?'../'+node.chapter:'../'+data.course+'/chu-de.html?node='+encodeURIComponent(node.id)));
         buttons.set(node.id,b);if(node.side==='spine')stage.append(b);
