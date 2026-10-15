@@ -59,7 +59,7 @@
         const connected=new Set();
         data.nodes.filter(n=>n.parent===node.id).forEach(child=>{
           const button=buttons.get(child.id),b=box(child.id),left=button.dataset.branchSide==='left',hub=hubs.get(button.dataset.hub);
-          if(hub){const h=rect(hub);if(!connected.has(hub)){const sx=left?a.x:a.x+a.w,ex=left?h.x+h.w:h.x;path(`M ${sx} ${a.y+a.h/2} L ${ex} ${h.y+h.h/2}`,'rm-hub-line');connected.add(hub);}const sx=h.x+h.w/2,sy=h.y+h.h,ex=b.x+b.w/2,ey=b.y;path(`M ${sx} ${sy} C ${sx} ${(sy+ey)/2}, ${ex} ${(sy+ey)/2}, ${ex} ${ey}`,'rm-branch-line');}
+          if(hub){const h=rect(hub);if(!connected.has(hub)){const sx=left?a.x:a.x+a.w,ex=left?h.x+h.w:h.x;path(`M ${sx} ${a.y+a.h/2} L ${ex} ${h.y+h.h/2}`,'rm-hub-line');connected.add(hub);}const sx=left?h.x:h.x+h.w,sy=h.y+h.h/2,ex=left?b.x:b.x+b.w,ey=b.y+b.h/2,gap=parseFloat(getComputedStyle(map).getPropertyValue('--rm-rail-gap')),rail=(left?Math.min(sx,ex):Math.max(sx,ex))+(left?-gap:gap);path(`M ${sx} ${sy} C ${rail} ${sy}, ${rail} ${ey}, ${ex} ${ey}`,'rm-branch-line');}
           else{const sx=left?a.x:a.x+a.w,sy=a.y+a.h/2,ex=left?b.x+b.w:b.x,ey=b.y+b.h/2,mid=(sx+ex)/2;path(`M ${sx} ${sy} C ${mid} ${sy}, ${mid} ${ey}, ${ex} ${ey}`,'rm-branch-line');}
         });
       });

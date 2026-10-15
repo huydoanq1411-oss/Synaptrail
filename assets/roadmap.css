@@ -134,6 +134,24 @@ html[data-theme=light] .rm-connections .rm-branch-line{opacity:.85}
 .ap-pagination{display:flex;justify-content:space-between;gap:20px;margin-top:36px;padding-top:24px;border-top:1px solid var(--surface-border)}.ap-pagination a{display:inline-flex;align-items:center;gap:8px;padding:10px 0;font-size:13px}
 .ap-copy{float:right;position:relative;z-index:1;margin:8px 8px -44px 0;padding:5px 10px!important;min-height:30px!important;font-size:11px!important}
 .algorithm-lesson .rm-lesson-content pre{padding-top:52px!important}
+
+/* Stage-specific branch clusters instead of a repeated symmetric grid. */
+.rm-map{--rm-rail-gap:var(--space-3);--rm-node-height:calc(var(--space-4) + var(--space-3));padding:var(--space-3) var(--space-4) var(--space-4)}
+.rm-stage{grid-template-columns:minmax(0,1fr) minmax(180px,.8fr) minmax(0,1fr);column-gap:var(--space-4);row-gap:0;grid-auto-rows:auto;padding-bottom:calc(var(--space-4)*2)}
+.rm-branch-column{grid-row:1;display:flex;flex-direction:column;gap:var(--space-2);min-width:0;align-self:center}
+.rm-branch-column[data-side=left]{grid-column:1}.rm-branch-column[data-side=right]{grid-column:3}
+.rm-branch-group{display:grid;gap:var(--space-1);min-width:0;position:relative}
+.rm-branch-framed{padding:var(--space-1);border:2px solid var(--surface-border);border-radius:6px;background:var(--surface-soft)}
+.rm-branch-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+.algorithm-roadmap .rm-branch-heading{grid-column:1/-1;text-align:center;font-size:13px;font-weight:650;line-height:1.5;padding:var(--space-1);margin:0;color:var(--content-primary)!important;-webkit-text-fill-color:currentColor!important}
+.algorithm-roadmap .rm-branch-hub{background:var(--rm-accent);color:var(--surface-page)!important;-webkit-text-fill-color:currentColor!important;border:2px solid var(--rm-accent);border-radius:5px;font-size:16px;min-height:var(--rm-node-height);display:flex;align-items:center;justify-content:center;margin-bottom:var(--space-1)}
+.rm-stage-has-hub>.rm-node{align-self:start!important}
+.algorithm-roadmap .rm-branch-group .rm-node{min-height:var(--rm-node-height);padding:var(--space-1) var(--space-2)!important;border-radius:4px}
+.rm-branch-tiles .rm-node-title{font-size:14px}
+.rm-connections .rm-hub-line{stroke:var(--rm-accent);stroke-width:3}
+@media(max-width:1000px) and (min-width:768px){.rm-stage{grid-template-columns:minmax(0,1fr) minmax(145px,.8fr) minmax(0,1fr);column-gap:var(--space-3)}.rm-branch-tiles{grid-template-columns:1fr}.rm-map{padding-left:var(--space-2);padding-right:var(--space-3)}}
+@media(max-width:767px){.rm-map{padding:var(--space-2) var(--space-1)}.rm-branch-column{width:100%;gap:var(--space-2)}.rm-branch-column:empty{display:none}.rm-branch-group{gap:var(--space-1)}.rm-branch-group .rm-node{margin-left:0;width:100%}.rm-branch-column{padding-left:var(--space-2)}.rm-stage{gap:var(--space-2);padding-bottom:var(--space-4)}}
+@media(prefers-reduced-motion:reduce){.rm-branch-column{width:100%;padding-left:var(--space-2)}.rm-branch-column:empty{display:none}.rm-branch-group .rm-node{margin-left:0;width:100%}}
 .ap-select-label{display:block;font-size:13px;margin-bottom:8px}.algorithm-roadmap #ap-quiz-select{width:100%;font:inherit;background:var(--surface-card)!important;color:var(--content-primary)!important;border:1px solid var(--surface-border);border-radius:9px;padding:12px;margin-bottom:24px}
 .algorithm-quiz .rm-quiz{padding:24px;background:var(--surface-soft);border:1px solid var(--surface-border);border-radius:12px;margin:0 0 20px}.algorithm-quiz .rm-quiz legend{font-size:16px;line-height:1.7;float:left;width:100%;margin-bottom:16px}.algorithm-quiz .rm-quiz label{clear:both;font-size:14px;line-height:1.7;padding:12px;background:var(--surface-card)}
 .ap-answer{font-size:13px;line-height:1.8;color:var(--content-secondary);padding:12px;margin-top:14px!important;border-left:3px solid var(--rm-accent)}
