@@ -87,4 +87,4 @@ function extract(html){
  if(sample){for(const p of previews){const target=path.join(reportDir,'preview',p.file);fs.mkdirSync(path.dirname(target),{recursive:true});fs.writeFileSync(target,p.html);fs.writeFileSync(target+'.diff.txt','--- '+p.file+' (original)\n+++ '+p.file+' (preview)\n- Sidebar, embedded quiz and old lesson shell\n+ Shared roadmap lesson shell, SVG Back/Home, separate quiz link\n+ Preserved lesson content and IDs\n\n'+p.html.slice(0,3500));}console.log('Wrote three lesson previews to reports/course-roadmaps/preview. Live course pages untouched.');}
  if(apply){for(const [file,text] of outputs){fs.mkdirSync(path.dirname(path.join(root,file)),{recursive:true});fs.writeFileSync(path.join(root,file),text);}}
  console.log(JSON.stringify({mode:report.mode,courses:stats.length,lessons:stats.reduce((n,c)=>n+c.lessons,0),redirects:stats.reduce((n,c)=>n+c.redirects,0),questions:stats.reduce((n,c)=>n+c.questions,0),changedFiles:changed.length,report:'reports/course-roadmaps/'+(apply?'migration.json':'dry-run.json')},null,2));
-})().catch(error=>{console.error(er
+})().catch(error=>{console.error(error);process.exitCode=1;});

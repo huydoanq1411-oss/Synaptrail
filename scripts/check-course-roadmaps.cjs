@@ -1,0 +1,35 @@
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict'),{pathToFileURL}=require('node:url');
+const root=path.resolve(__dirname,'..'),out=path.join(root,'reports/course-roadmaps'),manifest=require('../reports/course-roadmaps/migration.json');
+const only=new Set(process.argv.slice(2)),courses=manifest.courses.filter(c=>!only.size||only.has(c.course));
+const dataFor=course=>{const c={};vm.runInNewContext(fs.readFileSync(path.join(root,'assets/roadmaps',course+'.js'),'utf8'),c);return c.SynaptrailRoadmapData;};
+(async()=>{const b=await require('./course-browser.cjs').browser(),{call,evaluate,pause}=b;const results=[],issues=[],shots=[];
+ const navigate=async(file,query='')=>{await call('Page.navigate',{url:pathToFileURL(path.join(root,file)).href+query});await pause(130);};
+ const shot=async(name)=>{const r=await call('Page.captureScreenshot',{format:'png'});const f='screenshots/'+name+'.png';fs.mkdirSync(path.join(out,'screenshots'),{recursive:true});fs.writeFileSync(path.join(out,f),Buffer.from(r.data,'base64'));shots.push(f);};
+ const check=async(label)=>{const r=await evaluate(`(()=>{const nodes=[...document.querySelectorAll('.rm-node')],rects=nodes.map(n=>n.getBoundingClientRect());let overlaps=0;for(let i=0;i<rects.length;i++)for(let j=i+1;j<rects.length;j++)if(Math.min(rects[i].right,rects[j].right)>Math.max(rects[i].left,rects[j].left)+1&&Math.min(rects[i].bottom,rects[j].bottom)>Math.max(rects[i].top,rects[j].top)+1)overlaps++;return{overflow:document.documentElement.scrollWidth>innerWidth,overlaps,clipped:nodes.filter(n=>n.scrollWidth>n.clientWidth+2).map(n=>n.id),navigation:[...document.querySelectorAll('.rm-home,.rm-back')].every(a=>a.querySelector('svg')&&Number(getComputedStyle(a).fontWeight)>=700),sidebar:!!document.querySelector('#sidebar'),external:performance.getEntriesByType('resource').filter(r=>/^https?:/.test(r.name)).map(r=>r.name)}})()`);if(r.overflow||r.overlaps||r.clipped.length||!r.navigation||r.sidebar||r.external.length)issues.push({label,...r});return r;};
+ try{
+  await call('Network.enable');await call('Network.setBlockedURLs',{urls:['http://*','https://*']});
+  for(const course of courses){const data=dataFor(course.course),source=require(path.join(root,'assets/roadmaps',course.course+'-source.json'));
+   for(const n of data.nodes){if(n.chapter)assert.ok(fs.existsSync(path.join(root,n.chapter)),n.chapter);assert.ok(n.title&&n.summary);}
+   for(const lesson of source.lessons.filter(l=>!l.redirect)){const html=fs.readFileSync(path.join(root,course.course,lesson.file),'utf8');assert.ok(html.includes(lesson.content),'Content changed '+lesson.file);assert.ok(!/class="quiz"|data-answer=|onclick=/.test(html),'Inline quiz/handler '+lesson.file);for(const id of lesson.ids)assert.ok(html.includes('id="'+id+'"'),'Lost anchor '+id);}
+   for(const theme of ['dark','light'])for(const width of [375,768,1440]){
+    console.log(course.course+' '+theme+' '+width);await call('Emulation.setDeviceMetricsOverride',{width,height:1000,deviceScaleFactor:1,mobile:false});
+    await navigate('roadmap/'+course.course+'.html');await evaluate('localStorage.setItem("synaptrail-theme",'+JSON.stringify(theme)+')');await call('Page.reload');await pause(180);
+    assert.equal(await evaluate('document.querySelectorAll(".rm-node").length'),data.nodes.length);const map=await check(course.course+' roadmap '+theme+' '+width);await evaluate('document.querySelector("#rm-map").scrollIntoView({block:"start",behavior:"instant"})');await pause(50);await shot(course.course+'-'+theme+'-'+width+'-map');
+    await evaluate('document.querySelector(".rm-stage>.rm-node").click()');await pause(160);assert.ok(await evaluate('location.pathname.endsWith("/chu-de.html")'));assert.equal(await evaluate('document.body.dataset.course'),course.course);assert.equal(await evaluate('document.querySelectorAll(".ap-topic-links a").length'),Math.min(4,source.lessons.length));await check(course.course+' topic '+theme+' '+width);
+    const first=source.lessons.find(l=>!l.redirect);
+    if(first){await navigate(course.course+'/'+first.file);await check(course.course+' lesson '+theme+' '+width);await shot(course.course+'-'+theme+'-'+width+'-lesson');
+     await evaluate('document.querySelector("[data-status=done]").click()');assert.equal(await evaluate('SynaptrailProgress.createStore(localStorage).read()['+JSON.stringify(course.course)+']['+JSON.stringify(first.id)+'].status'),'done');
+     await evaluate('document.querySelector("header .rm-back").click()');await pause(180);assert.equal(await evaluate('document.querySelector("[data-node='+first.id+']").dataset.state'),'done');
+    }
+    if(course.quizChapters){const ctx={};vm.runInNewContext(fs.readFileSync(path.join(root,'assets/roadmaps',course.course+'-quiz.js'),'utf8'),ctx);const [id,q]=Object.entries(ctx.SynaptrailAlgorithmQuizzes.chapters)[0];await navigate(course.course+'/quiz.html','?chapter='+id);assert.equal(await evaluate('document.querySelectorAll(".rm-quiz").length'),q.questions.length);await check(course.course+' quiz '+theme+' '+width);await shot(course.course+'-'+theme+'-'+width+'-quiz');await evaluate('document.querySelectorAll(".rm-quiz").forEach((f,i)=>f.querySelectorAll("input")[SynaptrailAlgorithmQuizzes.chapters['+JSON.stringify(id)+'].questions[i].answer].checked=true);document.querySelector("form").requestSubmit()');assert.equal(await evaluate('SynaptrailProgress.createStore(localStorage).read()['+JSON.stringify(course.course)+']['+JSON.stringify(id)+'].quizScore'),100);await evaluate('document.querySelector("header .rm-back").click()');await pause(130);assert.ok(await evaluate('location.pathname.endsWith('+JSON.stringify('/'+course.course+'/'+q.chapter)+')'));}
+    results.push({course:course.course,theme,width,map});
+   }
+   // All remaining lesson documents are checked at the narrowest viewport.
+   await call('Emulation.setDeviceMetricsOverride',{width:375,height:1000,deviceScaleFactor:1,mobile:false});
+   for(const lesson of source.lessons.filter(l=>!l.redirect)){await navigate(course.course+'/'+lesson.file);await check(course.course+'/'+lesson.file);}
+   await navigate(course.course+'/index.html');assert.equal(await evaluate('document.querySelectorAll(".rm-node").length'),data.nodes.length);
+  }
+  fs.writeFileSync(path.join(out,'browser-checks.json'),JSON.stringify({results,issues,errors:b.errors,screenshots:shots},null,2));
+  assert.deepEqual(issues,[]);assert.deepEqual(b.errors,[]);console.log('Passed '+courses.length+' courses, '+results.length+' theme/viewport cases.');
+ }finally{b.close();}
+})().catch(error=>{console.error(error);process.exitCode=1;});
