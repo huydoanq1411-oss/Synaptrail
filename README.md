@@ -378,3 +378,5 @@ assets/ui.css ??ng b? b?ng m?u xanh ?en pha t?m v? teal cho m?c l?c, b?i h?c, d?
 Hiệu ứng viền card: mở từ giữa trong 900ms, không nâng/phóng card. Theo yêu cầu trực tiếp, riêng transition chiều rộng viền vẫn chạy khi hệ thống bật giảm chuyển động; các chuyển động khác vẫn được tắt.
 
 B?ng m?u hi?n t?i: tr?ng?xanh d??ng (#f8fbff, #2563eb). N?t menu 44px, ba n?t c?n gi?a, ??i th?nh d?u X khi m?; hover/focus r? r?ng. Gi? hi?u ?ng vi?n card m? t? gi?a v? kh?ng ph?ng card.
+
+Lộ trình thử nghiệm: `roadmap/thuat-toan.html` dùng một nguồn dữ liệu `assets/roadmaps/thuat-toan.js` (nodes, liên kết và trích đoạn chương); CSS/JS chung ở `assets/roadmap.css` và `assets/roadmap.js`. Khóa mới chỉ cần thêm file dữ liệu theo schema và trang nạp file đó; chạy `node scripts/sync-algorithm-roadmap.cjs` để cập nhật trích đoạn và danh sách không JavaScript của khóa Thuật toán.
