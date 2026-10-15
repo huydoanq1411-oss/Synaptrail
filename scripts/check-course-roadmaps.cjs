@@ -9,7 +9,8 @@ const dataFor=course=>{const c={};vm.runInNewContext(fs.readFileSync(path.join(r
  try{
   await call('Network.enable');await call('Network.setBlockedURLs',{urls:['http://*','https://*']});
   for(const course of courses){const data=dataFor(course.course),source=require(path.join(root,'assets/roadmaps',course.course+'-source.json'));
-   for(const n of data.nodes){if(n.chapter)assert.ok(fs.existsSync(path.join(root,n.chapter)),n.chapter);assert.ok(n.title&&n.summary);}
+   for(const n of data.nodes){if(n.chapter)assert.ok(fs.existsSync(path.join(root,n.chapter)),n.chapter);assert.ok(n.title&&n.summary);if(n.side==='spine')assert.ok(!/^Chặng\s+\d/.test(n.title),'Generic chapter bucket: '+course.course);}
+   for(const [id,plan]of Object.entries(data.layout)){const actual=Object.values(plan).flatMap(clusters=>clusters.flatMap(c=>c.nodes));assert.equal(new Set(actual).size,actual.length);assert.equal(JSON.stringify([...actual].sort()),JSON.stringify(data.nodes.filter(n=>n.parent===id).map(n=>n.id).sort()));}
    for(const lesson of source.lessons.filter(l=>!l.redirect)){const html=fs.readFileSync(path.join(root,course.course,lesson.file),'utf8');assert.ok(html.includes(lesson.content),'Content changed '+lesson.file);assert.ok(!/class="quiz"|data-answer=|onclick=/.test(html),'Inline quiz/handler '+lesson.file);for(const id of lesson.ids)assert.ok(html.includes('id="'+id+'"'),'Lost anchor '+id);}
    for(const theme of ['dark','light'])for(const width of [375,768,1440]){
     console.log(course.course+' '+theme+' '+width);await call('Emulation.setDeviceMetricsOverride',{width,height:1000,deviceScaleFactor:1,mobile:false});

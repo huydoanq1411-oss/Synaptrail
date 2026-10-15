@@ -1,6 +1,6 @@
 const fs=require('node:fs'),path=require('node:path');
 const root=path.resolve(__dirname,'..'),out=path.join(root,'reports/course-roadmaps'),migration=require('../reports/course-roadmaps/migration.json'),checks=require('../reports/course-roadmaps/browser-checks.json'),layout=require('../reports/course-roadmaps/layout-checks.json');
-const shared=['README.md','assets/algorithm-pages.js','assets/algorithm-topic.js','assets/roadmap.js','assets/progress.js','assets/course-pages.css','assets/course-pages.js','scripts/course-browser.cjs','scripts/audit-course-migration.cjs','scripts/migrate-course-roadmaps.cjs','scripts/check-course-roadmaps.cjs','scripts/check-course-interactions.cjs','scripts/course-screenshot-sheets.cjs','scripts/write-course-roadmap-report.cjs','scripts/check-first-five-quizzes.cjs'];
+const shared=['README.md','assets/roadmaps/course-structure.json','assets/algorithm-pages.js','assets/algorithm-topic.js','assets/roadmap.js','assets/progress.js','assets/course-pages.css','assets/course-pages.js','scripts/course-browser.cjs','scripts/audit-course-migration.cjs','scripts/migrate-course-roadmaps.cjs','scripts/check-course-roadmaps.cjs','scripts/check-course-interactions.cjs','scripts/course-screenshot-sheets.cjs','scripts/write-course-roadmap-report.cjs','scripts/check-first-five-quizzes.cjs'];
 const courseTable=migration.courses.map(c=>'| ['+c.title+'](../../'+c.course+'/index.html) | '+c.lessons+' | '+c.redirects+' | '+c.quizChapters+' | '+c.questions+' |').join('\n');
 const overview=['map','lesson','quiz'].map(kind=>'### '+({map:'Lộ trình',lesson:'Bài học',quiz:'Quiz riêng'}[kind])+'\n\n| Theme | 375px | 768px | 1440px |\n| --- | --- | --- | --- |\n'+['dark','light'].map(theme=>'| '+theme+' | '+[375,768,1440].map(width=>'[Ảnh]('+kind+'-'+theme+'-'+width+'-overview.png)').join(' | ')+' |').join('\n')).join('\n\n');
 const md=`# Đồng bộ các khóa học theo mẫu Thuật toán
@@ -9,7 +9,7 @@ const md=`# Đồng bộ các khóa học theo mẫu Thuật toán
 
 Mỗi mục lục hiển thị sơ đồ trục giữa và nhánh hai bên; dưới 768px chuyển sang danh sách đúng thứ tự học. Card bài mở trang bài riêng, card nhóm mở trang chủ đề. Quiz nằm ở trang riêng. Nút Trang chủ và Quay lại dùng chữ đậm, icon SVG; dữ liệu tiến độ dùng chung kho lưu trữ nhưng tách khóa. Các card Fullstack đọc tiến độ từ bài thật ở khóa đích.
 
-Nguồn được đọc từ các trang gốc trước chuyển đổi (Git revision f10b361); chỉ thay khung trình bày, tách quiz và chuyển sự kiện Copy/mở bài tập vào JS dùng chung. Nguồn sau chuyển đổi ở assets/roadmaps/<khóa>-source.json. Lộ trình chỉ tải dữ liệu nút nhỏ; câu hỏi chỉ tải tại trang quiz. Các khóa chưa có phân nhóm chủ đề sẵn được chia thành chặng bốn bài theo thứ tự hiện có; có thể điều chỉnh nodes/layout mà không sửa logic vẽ.
+Nguồn được đọc từ các trang gốc trước chuyển đổi (Git revision f10b361); chỉ thay khung trình bày, tách quiz và chuyển sự kiện Copy/mở bài tập vào JS dùng chung. Nguồn sau chuyển đổi ở assets/roadmaps/<khóa>-source.json. Lộ trình chỉ tải dữ liệu nút nhỏ; câu hỏi chỉ tải tại trang quiz. Cấu trúc đã sửa theo mẫu Thuật toán: nhóm chủ đề có tên thật thay cho chặng bốn bài; các cụm nhánh một phía, khung nhóm, ô ghép và nút nhánh nâng cao dùng cùng renderer và bảng màu xanh lá của Thuật toán. Cấu hình nhóm theo nội dung từng khóa nằm ở assets/roadmaps/course-structure.json.
 
 ## Phạm vi theo khóa
 
