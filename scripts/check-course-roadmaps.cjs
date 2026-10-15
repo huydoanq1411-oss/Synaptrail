@@ -30,7 +30,7 @@ const dataFor=course=>{const c={};vm.runInNewContext(fs.readFileSync(path.join(r
    if(!layoutOnly)for(const lesson of source.lessons.filter(l=>!l.redirect)){await navigate(course.course+'/'+lesson.file);await check(course.course+'/'+lesson.file);}
    await navigate(course.course+'/index.html');assert.equal(await evaluate('document.querySelectorAll(".rm-node").length'),data.nodes.length);
   }
-  fs.writeFileSync(path.join(out,layoutOnly?'layout-checks.json':'browser-checks.json'),JSON.stringify({results,issues,errors:b.errors,screenshots:shots},null,2));
+  const reportName=(layoutOnly?'layout-checks':'browser-checks')+(only.size?'-'+[...only].join('-'):'')+'.json';fs.writeFileSync(path.join(out,reportName),JSON.stringify({results,issues,errors:b.errors,screenshots:shots},null,2));
   assert.deepEqual(issues,[]);assert.deepEqual(b.errors,[]);console.log('Passed '+courses.length+' courses, '+results.length+' theme/viewport cases.');
  }finally{b.close();}
 })().catch(error=>{console.error(error);process.exitCode=1;});

@@ -1,0 +1,92 @@
+{
+  "results": [
+    {
+      "course": "fullstack-js",
+      "theme": "dark",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "fullstack-js",
+      "theme": "dark",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "fullstack-js",
+      "theme": "dark",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "fullstack-js",
+      "theme": "light",
+      "width": 375,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "fullstack-js",
+      "theme": "light",
+      "width": 768,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    },
+    {
+      "course": "fullstack-js",
+      "theme": "light",
+      "width": 1440,
+      "map": {
+        "overflow": false,
+        "overlaps": 0,
+        "clipped": [],
+        "navigation": true,
+        "sidebar": false,
+        "external": []
+      }
+    }
+  ],
+  "issues": [],
+  "errors": [],
+  "screenshots": [
+    "screenshots/fullstack-js-dark-375-map.png",
+    "screenshots/fullstack-js-dark-768-map.png",
+    "screenshots/fullstack-js-dark-1440-map.png",
+    "screenshots/fullstack-js-light-375-map.png",
+    "screenshots/fullstack-js-light-768-map.png",
+    "screenshots/fullstack-js-light-1440-map.png"
+  ]
+}

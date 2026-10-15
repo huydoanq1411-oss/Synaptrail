@@ -12,6 +12,7 @@
 .algorithm-lesson [data-course-toggle]{width:100%;text-align:left;font-weight:700;white-space:normal}
 .algorithm-lesson .accordion:not(.open)>.accordion-body,.algorithm-lesson .mlchap:not(.open)>.chapter-body{display:none}
 .algorithm-lesson .rm-lesson-content [hidden]{display:none!important}
+.algorithm-lesson:not(.rm-ready) :is(.accordion-body,.chapter-body,.answer-panel){display:block!important}
 .algorithm-lesson .rm-lesson-content :is(.chapter-head,.accordion-head){margin-block:var(--space-1)}
 .algorithm-lesson .rm-lesson-content :is(.stats-row,.cards,.grid-2,.grid-3){display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:var(--space-2)}
 .algorithm-roadmap .rm-home{display:inline-flex;align-items:center}
