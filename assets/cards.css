@@ -66,6 +66,25 @@ html[data-theme] .catalog-page #rolePanel,html[data-theme] .catalog-page #roleMo
 html .catalog-page .grid>.resource-card:not(.learning-card){align-self:start;}
 html .catalog-page{--accent:var(--color-teal);--line:var(--color-teal);}
 html .catalog-page .catalog-start-label{color:var(--color-teal);}
+/* Match the homepage graphite surfaces and mint actions, scoped to catalogue. */
+html .catalog-page{
+ --surface-page:#101214;--surface-card:#1b1e22;--surface-soft:#171a1d;
+ --surface-border:#30353b;--content-primary:#f0f3f5;--content-secondary:#a0a8b3;
+ --color-teal:#77e0b5;--catalog-action:#77e0b5;--catalog-action-hover:#95ebc8;--catalog-action-text:#10221a;
+}
+html[data-theme="light"] .catalog-page{
+ --surface-page:#f2f7f5;--surface-card:#fff;--surface-soft:#edf5f2;
+ --surface-border:#c8d9d2;--content-primary:#203a36;--content-secondary:#506660;
+ --color-teal:#0f766e;--catalog-action:#0f766e;--catalog-action-hover:#095b55;--catalog-action-text:#fff;
+}
+html[data-theme] .catalog-page .btn-primary{background:var(--catalog-action);border-color:var(--catalog-action);color:var(--catalog-action-text)!important;}
+html[data-theme] .catalog-page .btn-primary:hover{background:var(--catalog-action-hover);border-color:var(--catalog-action-hover);}
+html[data-theme] .catalog-page .site-header{background:var(--surface-page);border-color:var(--surface-border);}
+html[data-theme] .catalog-page :is(.brand-text,.brand-text strong){color:var(--content-primary);}
+html[data-theme] .catalog-page .brand-text span{color:var(--content-secondary);}
+html[data-theme] .catalog-page :is(.icon-btn,#menuBtn,.search-box,.fx3d-toggle){background:var(--surface-soft);border-color:var(--surface-border);color:var(--content-primary);}
+html[data-theme] .catalog-page .fx3d-toggle[aria-pressed="true"]{border-color:var(--catalog-action);color:var(--color-teal);}
+html[data-theme] .catalog-page .brand-mark{background:var(--catalog-action);color:var(--catalog-action-text);}
 
 html .catalog-page :is(#allCourses,#best-practices,#project-ideas,#agent-toolbox) .learning-card{padding:0;gap:0;display:flex;flex-direction:column;overflow:hidden;border-radius:16px;transform:none;}
 html .catalog-page :is(#allCourses,#best-practices,#project-ideas,#agent-toolbox) .learning-card .card-art{display:block;position:relative;width:100%;height:auto;aspect-ratio:16/10;margin:0;padding:0;transform:none;}
