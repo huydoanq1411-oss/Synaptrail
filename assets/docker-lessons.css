@@ -1,0 +1,14 @@
+/* Docker sample: shared tokens keep both themes consistent. */
+.docker-intro .docker-outline{display:flex;flex-wrap:wrap;gap:var(--space-2);padding:var(--space-2);background:var(--surface-soft);border-radius:var(--space-2)}
+.docker-intro .docker-concepts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:var(--space-2);margin-block:var(--space-3)}
+.docker-intro .docker-concepts section,.docker-intro .docker-note,.docker-intro .docker-question{padding:var(--space-2);border:1px solid var(--surface-border);border-radius:var(--space-2);background:var(--surface-soft)}
+.docker-intro .docker-concepts h3{margin-top:0}
+.docker-intro .docker-figure{margin:var(--space-3) 0;padding:var(--space-2);border:1px solid var(--surface-border);border-radius:var(--space-2)}
+.docker-intro .docker-figure img{display:block;width:100%;max-width:440px;height:auto;margin-inline:auto}
+.docker-intro figcaption{color:var(--content-secondary);margin-top:var(--space-2)}
+.docker-intro dt{font-weight:700}.docker-intro dd{margin:var(--space-1) 0 var(--space-2)}
+.docker-intro .docker-note{border-inline-start:var(--space-1) solid var(--accent);margin-block:var(--space-3)}
+.docker-intro .docker-question{margin-block:var(--space-2)}
+.docker-intro summary{cursor:pointer;color:var(--content-primary);font-weight:600}
+.docker-intro :is(a,summary):focus-visible{outline:3px solid var(--accent);outline-offset:4px;border-radius:var(--space-1)}
+.docker-intro pre{max-width:100%;overflow-x:auto;white-space:pre;padding:var(--space-2);background:var(--surface-page);border:1px solid var(--surface-border);border-radius:var(--space-1)}
