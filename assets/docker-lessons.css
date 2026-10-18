@@ -4,7 +4,7 @@
 .docker-intro .docker-concepts section,.docker-intro .docker-note,.docker-intro .docker-question{padding:var(--space-2);border:1px solid var(--surface-border);border-radius:var(--space-2);background:var(--surface-soft)}
 .docker-intro .docker-concepts h3{margin-top:0}
 .docker-intro .docker-figure{margin:var(--space-3) 0;padding:var(--space-2);border:1px solid var(--surface-border);border-radius:var(--space-2)}
-.docker-intro .docker-figure img{display:block;width:100%;max-width:440px;height:auto;margin-inline:auto}
+.docker-intro .docker-figure img{display:block;width:100%;max-width:440px;height:auto;margin-inline:auto;color-scheme:light}
 .docker-intro figcaption{color:var(--content-secondary);margin-top:var(--space-2)}
 .docker-intro dt{font-weight:700}.docker-intro dd{margin:var(--space-1) 0 var(--space-2)}
 .docker-intro .docker-note{border-inline-start:var(--space-1) solid var(--accent);margin-block:var(--space-3)}
