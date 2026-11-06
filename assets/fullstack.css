@@ -1,0 +1,44 @@
+/* Full Stack only: real links, static content, no progress or motion. */
+.fs-page:not(.fs-ready) #fs-theme { display: none; }
+.fs-page .fs-intro { margin-block: var(--space-3) var(--space-4); }
+.fs-page .fs-jump { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-block: var(--space-3); }
+.fs-page .fs-jump a { padding: var(--space-1) var(--space-2); border: 1px solid var(--surface-border); border-radius: var(--space-1); }
+.fs-page .fs-note { max-width: 75ch; color: var(--content-secondary); font-size: var(--card-description); }
+.fs-page a.rm-node { display: block; text-decoration: none; color: var(--content-primary); }
+.fs-page .rm-node .rm-node-type { display: block; }
+.fs-page .rm-node:not([data-type=bat-buoc]) { margin-left: 0; width: 100%; text-align: left; }
+.fs-page .rm-branch-column { display: grid; align-content: start; gap: var(--space-2); }
+.fs-page .rm-branch-column[data-side=left] { grid-column: 1; grid-row: 1; }
+.fs-page .rm-branch-column[data-side=right] { grid-column: 3; grid-row: 1; }
+.fs-page .rm-node { scroll-margin-top: var(--space-4); }
+.fs-page .rm-node[data-type=bat-buoc] { color: var(--surface-page); }
+.fs-page .fs-legacy { margin-block: var(--space-4); }
+.fs-page .fs-legacy section { padding-block: var(--space-2); border-bottom: 1px solid var(--surface-border); }
+.fs-page .fs-legacy ul { padding-left: var(--space-3); }
+.fs-page .fs-legacy li { margin-block: var(--space-1); }
+.fs-page .fs-legacy a { text-decoration: underline; text-underline-offset: 3px; }
+.fs-page .fs-resource-group { margin-block: var(--space-4); scroll-margin-top: var(--space-3); }
+.fs-page .fs-resource-group > p { color: var(--content-secondary); margin-block: var(--space-2); }
+.fs-page .fs-resource-index { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-2); margin-block: var(--space-3); }
+.fs-page .fs-resource-index a { text-decoration: underline; text-underline-offset: 3px; padding-block: var(--space-1); }
+.fs-page .fs-resource { padding: var(--space-3); background: var(--surface-card); border: 1px solid var(--surface-border); border-radius: var(--card-radius); margin-block: var(--space-2); scroll-margin-top: var(--space-3); }
+.fs-page .fs-resource :is(p,h4,ul) { margin-block: var(--space-2); }
+.fs-page .fs-resource p { color: var(--content-secondary); }
+.fs-page .fs-resource ul { padding-left: var(--space-3); }
+.fs-page .fs-resource-link { display: inline-flex; align-items: center; gap: var(--space-1); padding-block: var(--space-2); color: var(--color-green); font-weight: 600; }
+.fs-page .fs-resource-link svg { flex: none; }
+.fs-page .fs-return { display: block; color: var(--content-secondary); font-size: var(--card-description); text-decoration: underline; }
+.fs-page :is(a,button):focus-visible { outline: 3px solid var(--color-blue); outline-offset: 4px; }
+@media (max-width: 900px) {
+  .fs-page .rm-stage { display: flex !important; flex-direction: column; gap: var(--space-2); }
+  .fs-page .rm-branch-column { display: contents; }
+  .fs-page .rm-node { width: 100%; }
+  .fs-page .rm-connections { display: none; }
+}
+/* The diagram is static: reduced motion should not remove its desktop structure. */
+@media (min-width: 901px) {
+  .fs-page .rm-stage { display: grid !important; }
+  .fs-page .rm-connections { display: block !important; }
+  .fs-page .rm-branch-column { padding-left: 0; }
+}
+@media print { .fs-page #fs-theme { display: none; } }

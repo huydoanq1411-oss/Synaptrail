@@ -61,7 +61,7 @@ globalThis.SynaptrailRoadmapData = {
       "parent": null,
       "chapter": null,
       "summary": "Kết nối Node.js với MySQL",
-      "time": 5,
+      "time": 13,
       "related": [],
       "comingSoon": false
     },
@@ -72,11 +72,11 @@ globalThis.SynaptrailRoadmapData = {
       "side": "right",
       "parent": "stage-3",
       "chapter": "mysql/chapter03.html",
-      "summary": "Truy vấn database trực tiếp từ code Node.js/Express — bước đệm trước khi dùng ORM tiện lợi hơn ở chương sau.",
-      "time": 5,
+      "summary": "Xây REST API sản phẩm bằng Express 5 và mysql2: kiểm tra dữ liệu, truy vấn tham số và xử lý lỗi HTTP.",
+      "time": 13,
       "related": [],
       "comingSoon": false,
-      "quiz": null
+      "quiz": "mysql/quiz.html?chapter=chapter03"
     }
   ],
   "layout": {

@@ -2,8 +2,8 @@
 <html lang="vi" data-theme="dark">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Kỹ thuật cho phép tra cứu gần như tức thì — nền tảng của dictionary/HashMap trong mọi ngôn ngữ.">
-  <title>Hashing &amp; Tra cứu O(1) | Thuật toán — Synaptrail</title>
+  <meta name="description" content="Băm nhanh khi phân bố và tải phù hợp; cách dò và quy tắc xóa phải nhất quán, không hứa O(1) trong mọi tình huống.">
+  <title>Hashing &amp; Bảng băm | Thuật toán — Synaptrail</title>
   <link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css">
   <script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script>
 </head>
@@ -11,63 +11,69 @@
   <a class="rm-skip" href="#lesson-content">Bỏ qua điều hướng</a>
   <header class="rm-header ap-header"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter15"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">◐ Giao diện</button></nav></header>
   <main class="ap-main" id="lesson-content">
-    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 15</p><h1>Hashing &amp; Tra cứu O(1)</h1><p class="rm-lead">Kỹ thuật cho phép tra cứu gần như tức thì — nền tảng của dictionary/HashMap trong mọi ngôn ngữ.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
+    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 15</p><h1>Hashing &amp; Bảng băm</h1><p class="rm-lead">Băm nhanh khi phân bố và tải phù hợp; cách dò và quy tắc xóa phải nhất quán, không hứa O(1) trong mọi tình huống.</p><p class="ap-meta">Khoảng 11 phút · Thời lượng ước tính</p></div>
     <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter15">Làm quiz ở trang riêng →</a></div>
     <p id="ap-message" role="status" aria-live="polite"></p>
-    <article class="rm-lesson-content"><h3>Hash Function là gì?</h3>
-      <p>Hàm băm (hash function) chuyển đổi một giá trị bất kỳ (chuỗi, số, object...) thành một chỉ số nguyên trong một phạm vi cố định — dùng chỉ số đó để lưu/tra cứu trực tiếp trong mảng, tránh phải tìm kiếm tuần tự.</p>
-
-      <div class="code-wrap">
-        <span class="code-label">hashing_concept.py</span>
-        
-        <pre><code># Minh họa ý tưởng (không phải cài đặt thực tế của Python dict)
-def hash_don_gian(key, kich_thuoc_bang):
-    return sum(ord(c) for c in key) % kich_thuoc_bang    # cộng mã ASCII rồi lấy phần dư
-
-print(hash_don_gian("Huy", 10))     # luôn cho cùng 1 kết quả với cùng input
-print(hash_don_gian("Lan", 10))
-
-# Trong thực tế, chỉ cần dùng dict/set có sẵn - đã cài đặt hashing tối ưu bên dưới
-demo = {}
-demo["Huy"] = 85          # O(1) trung bình để THÊM
-print(demo["Huy"])          # O(1) trung bình để TRA CỨU</code></pre>
-      </div>
-
-      <h3>Xung đột hash (Collision) và cách xử lý</h3>
-      <p>Hai key khác nhau có thể cho ra cùng một chỉ số hash (gọi là "va chạm"/collision). Hai kỹ thuật xử lý phổ biến:</p>
-      <table>
-        <tr><th>Kỹ thuật</th><th>Cách hoạt động</th></tr>
-        <tr><td><strong>Chaining</strong></td><td>Mỗi ô của bảng hash chứa một danh sách liên kết các phần tử va chạm</td></tr>
-        <tr><td><strong>Open Addressing</strong></td><td>Khi va chạm, tìm ô trống tiếp theo theo một quy tắc dò tuyến tính/bậc hai</td></tr>
-      </table>
-
-      <div class="box important">
-        <div class="box-title">Quan trọng</div>
-        Độ phức tạp O(1) của hash table là <strong>trung bình (average case)</strong>, không phải đảm bảo tuyệt đối — trường hợp xấu nhất (rất nhiều va chạm) có thể suy biến thành O(n). Trong thực tế, các cài đặt hash table tốt (như Python dict) hiếm khi rơi vào trường hợp này.
-      </div>
-
-      <h3>Ứng dụng: Two Sum tối ưu bằng Hashing</h3>
-      <div class="code-wrap">
-        <span class="code-label">two_sum_hashing.py</span>
-        
-        <pre><code>def two_sum(ds, target):              # O(n) nhờ hashing, thay vì O(n²) duyệt lồng nhau
-    da_thay = {}
-    for i, x in enumerate(ds):
-        con_lai = target - x
-        if con_lai in da_thay:            # tra cứu O(1) trong dict
-            return [da_thay[con_lai], i]
-        da_thay[x] = i
-    return []
-
-print(two_sum([2, 7, 11, 15], 9))   # [0, 1]</code></pre>
-      </div>
-
-      
-
-      <div class="summary-box">
-        <h4>📌 Tổng kết chương 15</h4>
-        <p>Hashing chuyển key thành chỉ số để tra cứu O(1) trung bình, xử lý va chạm bằng chaining hoặc open addressing — kỹ thuật cực kỳ quan trọng để tối ưu độ phức tạp từ O(n²) xuống O(n) trong nhiều bài toán.</p>
-      </div></article>
+    <article class="rm-lesson-content"><p class="ap-meta">Biên soạn theo tài liệu Cấu trúc dữ liệu và giải thuật — ThS. Bùi Văn Thượng, UTH. Đối chiếu mục 6.1, 6.2, 6.3. <a href="tai-lieu-ctdlgt.html#bang-bam">Nguồn và mục lục đối chiếu</a>.</p>
+<h2 id="muc-tieu">Mục tiêu</h2><ul><li>Phân biệt hàm băm, địa chỉ và đụng độ.</li><li>So sánh nối chuỗi, hợp nhất và ba phương pháp dò.</li><li>Cài thêm/tìm/xóa có tombstone và băm lại.</li></ul>
+<h2 id="van-de-thuc-te">Vấn đề thực tế</h2><p>Tra cứu mã sinh viên cần nhanh nhưng không thể cấp một ô cho mọi mã có thể có; nhiều khóa phải chia sẻ địa chỉ gốc.</p>
+<h2 id="ly-thuyet">Lý thuyết nền</h2><h3>Khái niệm và phép toán</h3><p>Hash table (bảng băm) dùng hash function (hàm băm) ánh xạ khóa vào m ô. Collision (đụng độ) là hai khóa khác nhau có cùng địa chỉ. Hệ số tải α=n/m; cần khởi tạo, kiểm rỗng, đếm, tìm, thêm/cập nhật, xóa, duyệt và rehash (băm lại) khi đổi kích thước. Duyệt ô không tự cho thứ tự khóa tăng. Với phân bố phù hợp và tải được kiểm soát, tra cứu có kỳ vọng O(1); xấu nhất vẫn O(n).</p>
+ <h3>Bốn cách xây hàm băm</h3><ul><li>Bảng tra: miền chữ a…z ánh xạ 0…25 khi chỉ nhận đúng 26 ký tự đó.</li><li>Chia: h(k)=k mod m; chọn m phù hợp phân bố khóa. Chuẩn hóa phần dư âm về 0…m−1.</li><li>Nhân: h(k)=floor(m·frac(kA)), 0&lt;A&lt;1; frac là phần lẻ. Công thức toán học cần chú ý làm tròn số thực khi cài.</li><li>Universal hashing (băm phổ quát): chọn ngẫu nhiên một hàm từ họ H; với mỗi cặp khóa phân biệt, xác suất đụng độ qua lựa chọn hàm ≤1/m. Xác suất không phải một thuộc tính của từng hàm cố định. Ví dụ họ h(a,b,k)=((ak+b) mod p) mod m cho khóa nguyên trong 0…p−1, p nguyên tố, a chọn 1…p−1 và b chọn 0…p−1.</li></ul>
+ <h3>Xử lý đụng độ</h3><ul><li>Separate chaining (kết nối trực tiếp): mỗi ô là đầu một danh sách khóa cùng địa chỉ; tìm/thêm/xóa trong chuỗi, chi phí phụ thuộc chiều dài chuỗi.</li><li>Coalesced hashing (kết nối hợp nhất): các bản ghi nằm trong cùng mảng, trường next lưu chỉ số ô kế tiếp. Ví dụ m=5, khóa 2 và 7 cùng ô 2; đặt 7 ở ô trống 4 và cho next[2]=4. Tìm theo chuỗi chỉ số; xóa phải nối lại và bảo toàn điểm bắt đầu của các chuỗi.</li><li>Linear probing (dò tuần tự): (h(k)+i) mod m; dễ tạo cụm liên tiếp.</li><li>Quadratic probing (dò bậc hai): (h(k)+i²) mod m; không mặc định ghé mọi ô. m=8 cho bình phương mod 8 chỉ có 0,1,4. Cần chọn kích thước, tải và công thức phù hợp.</li><li>Double hashing (băm kép): (h₁(k)+i·h₂(k)) mod m. Bước phải khác 0 và nguyên tố cùng nhau với m để đi đủ ô; m nguyên tố cùng 1≤h₂&lt;m là một lựa chọn.</li></ul>
+ <p>Dò luôn giới hạn tối đa m lượt. Xóa trong open addressing (địa chỉ mở) phải đánh dấu tombstone (ô đã xóa), không biến ngay thành ô chưa từng dùng; tìm kiếm phải đi tiếp qua tombstone. Bản dưới cài tập khóa số nguyên an toàn bằng dò tuần tự, tách EMPTY/DELETED khỏi giá trị khóa. Không phải hàm băm mật mã, không dùng bảo vệ mật khẩu.</p>
+<h2 id="vi-du">Ví dụ có thể chạy</h2><p>JavaScript, Node.js 22 trở lên; không dùng thư viện ngoài. Đây là bản chuyển thể cho website, không phải bản chép mã C/C++ bị dính dòng trong tài liệu Markdown. Lưu thành <code>chapter15.cjs</code> rồi chạy <code>node chapter15.cjs</code>. Các số trong ví dụ nằm trong miền nguyên an toàn, trừ phép chia biểu thức được giải thích riêng.</p>
+<div class="code-wrap"><span class="code-label">chapter15.cjs · JavaScript</span><pre><code>class HashSet {
+   constructor(m = 11) {
+     if (!Number.isInteger(m) || m &lt; 1) throw new RangeError('Kích thước sai');
+     this.empty = Symbol('empty'); this.deleted = Symbol('deleted');
+     this.slots = Array(m).fill(this.empty); this.size = 0;
+   }
+   hash(key) {
+     if (!Number.isSafeInteger(key)) throw new TypeError('Khóa phải là số nguyên an toàn');
+     return ((key % this.slots.length) + this.slots.length) % this.slots.length;
+   }
+   find(key) {
+     const m = this.slots.length, start = this.hash(key);
+     for (let i = 0; i &lt; m; i++) {
+       const pos = (start + i) % m;
+       if (this.slots[pos] === this.empty) return -1;
+       if (this.slots[pos] === key) return pos;
+     }
+     return -1;
+   }
+   add(key) {
+     const start = this.hash(key);
+     if (this.find(key) !== -1) return false;
+     for (let i = 0; i &lt; this.slots.length; i++) {
+       const pos = (start + i) % this.slots.length;
+       if (this.slots[pos] === this.empty || this.slots[pos] === this.deleted) {
+         this.slots[pos] = key; this.size++; return true;
+       }
+     }
+     throw new RangeError('Bảng đầy; cần rehash');
+   }
+   remove(key) {
+     const pos = this.find(key); if (pos &lt; 0) return false;
+     this.slots[pos] = this.deleted; this.size--; return true;
+   }
+   values() { return this.slots.filter(x =&gt; x !== this.empty &amp;&amp; x !== this.deleted); }
+   rehash(m) {
+     const next = new HashSet(m);
+     for (const key of this.values()) next.add(key);
+     this.slots = next.slots; this.empty = next.empty; this.deleted = next.deleted;
+   }
+ }
+ const h = new HashSet(10);
+ for (const key of [32,53,22,92,17,34,24,37,56]) h.add(key);
+ h.remove(22);
+ console.log(h.find(92) !== -1, h.size); // true 8
+ h.rehash(23);
+ console.log(h.values().length); // 8</code></pre></div>
+<h3>Giải thích các đoạn quan trọng</h3><ol><li>Hai Symbol phân biệt ô chưa dùng và đã xóa; các khóa như −1 vẫn hợp lệ.</li><li>hash kiểm miền khóa và chuẩn hóa số dư. find dừng ở EMPTY, bỏ qua DELETED và không lặp quá m ô.</li><li>add kiểm khóa trùng trước khi dùng lại tombstone; remove giữ đường dò cho các khóa phía sau.</li><li>rehash tạo bảng mới và thêm lại từng khóa theo kích thước mới; chỉ gán bảng mới sau khi xây thành công.</li><li>Theo dãy ví dụ, 32 ở ô 2; 53 ở 3; 22 dò đến 4; 92 đến 5. Xóa 22 vẫn phải tìm được 92 ở phía sau.</li></ol>
+<h2 id="loi-thuong-gap">Lỗi thường gặp</h2><ul><li>Dùng −1 làm ô rỗng khi −1 là khóa hợp lệ.</li><li>Tìm dừng ở ô đã xóa, làm mất dấu khóa phía sau.</li><li>Băm kép có bước 0 hoặc không nguyên tố cùng nhau với m.</li></ul>
+<h2 id="bai-tap">Bài tập ba mức</h2><h3>Mức 1 — Cơ bản</h3><p>Lập bảng dò tuần tự m=10 với 32,53,22,92,17,34,24,37,56; ghi từng lần đụng độ.</p><h3>Mức 2 — Vận dụng</h3><p>Thêm/tìm/xóa cùng bộ khóa bằng nối chuỗi; so sánh trạng thái sau xóa với tombstone.</p><h3>Mức 3 — Nâng cao</h3><p>Thiết kế bảng tra, hàm chia/nhân, họ phổ quát và băm kép; nêu miền khóa, tải, cách rehash và giới hạn lượt dò. Đây là bài tập bổ sung: chương 6 nguồn không có bài tập riêng.</p>
+<div class="summary-box"><h2 id="tom-tat">Tóm tắt</h2><p>Băm nhanh khi phân bố và tải phù hợp; cách dò và quy tắc xóa phải nhất quán, không hứa O(1) trong mọi tình huống.</p></div>
+<h2 id="quiz">Quiz</h2><p>Câu hỏi chỉ dựa trên lý thuyết và ví dụ của bài này. <a href="quiz.html?chapter=chapter15">Mở quiz Hashing &amp; Bảng băm</a>.</p></article>
     
     <nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter14.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Bài trước</span></a><a href="chapter16.html"><span>Bài tiếp theo →</span></a></nav>
     <footer class="rm-footer"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter15"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a href="../index.html">Trang chủ</a></footer>

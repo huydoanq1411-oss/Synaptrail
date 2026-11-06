@@ -2,7 +2,7 @@
 <html lang="vi" data-theme="dark">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Đo lượng bộ nhớ bổ sung mà thuật toán cần — cũng quan trọng không kém độ phức tạp thời gian.">
+  <meta name="description" content="Tách chi phí của hàm khỏi phần chuẩn bị dữ liệu; ghi rõ bộ nhớ phụ, đầu ra và stack.">
   <title>Độ phức tạp không gian (Space Complexity) | Thuật toán — Synaptrail</title>
   <link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css">
   <script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script>
@@ -11,46 +11,30 @@
   <a class="rm-skip" href="#lesson-content">Bỏ qua điều hướng</a>
   <header class="rm-header ap-header"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter04"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">◐ Giao diện</button></nav></header>
   <main class="ap-main" id="lesson-content">
-    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 4</p><h1>Độ phức tạp không gian (Space Complexity)</h1><p class="rm-lead">Đo lượng bộ nhớ bổ sung mà thuật toán cần — cũng quan trọng không kém độ phức tạp thời gian.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
+    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 4</p><h1>Độ phức tạp không gian (Space Complexity)</h1><p class="rm-lead">Tách chi phí của hàm khỏi phần chuẩn bị dữ liệu; ghi rõ bộ nhớ phụ, đầu ra và stack.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
     <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter04">Làm quiz ở trang riêng →</a></div>
     <p id="ap-message" role="status" aria-live="polite"></p>
-    <article class="rm-lesson-content"><div class="code-wrap">
-        <span class="code-label">space_complexity.py</span>
-        
-        <pre><code>def tong_O1_space(ds):          # O(1) space - chỉ dùng thêm 1 biến "tong", KHÔNG phụ thuộc n
-    tong = 0
-    for x in ds:
-        tong += x
-    return tong
-
-def nhan_doi_On_space(ds):       # O(n) space - tạo MẢNG MỚI có kích thước tỉ lệ với n
-    ket_qua = []
-    for x in ds:
-        ket_qua.append(x * 2)
-    return ket_qua
-
-def giai_thua_de_quy(n):           # O(n) space - MỖI lần gọi đệ quy tốn thêm 1 khung trên call stack
-    if n <= 1:
-        return 1
-    return n * giai_thua_de_quy(n - 1)   # n lời gọi lồng nhau -> n khung stack</code></pre>
-      </div>
-
-      <div class="box important">
-        <div class="box-title">Quan trọng — Đánh đổi Time vs Space</div>
-        Rất nhiều kỹ thuật tối ưu (như memoization ở chương Quy hoạch động) đánh đổi <strong>tốn thêm bộ nhớ để đổi lấy tốc độ nhanh hơn</strong> — đây là sự đánh đổi (trade-off) kinh điển mà người viết thuật toán phải cân nhắc tùy theo bài toán và giới hạn tài nguyên thực tế.
-      </div>
-
-      <div class="box note">
-        <div class="box-title">Ghi chú</div>
-        Độ phức tạp không gian thường KHÔNG tính bộ nhớ của chính input đầu vào — chỉ tính bộ nhớ <strong>bổ sung (auxiliary space)</strong> mà thuật toán cần thêm để chạy.
-      </div>
-
-      
-
-      <div class="summary-box">
-        <h4>📌 Tổng kết chương 4</h4>
-        <p>Space complexity đo bộ nhớ bổ sung cần thiết, bao gồm cả call stack của đệ quy. Time và space thường đánh đổi lẫn nhau — tối ưu cái này có thể phải hy sinh cái kia.</p>
-      </div></article>
+    <article class="rm-lesson-content"><p class="ap-meta">Biên soạn theo tài liệu Cấu trúc dữ liệu và giải thuật — ThS. Bùi Văn Thượng, UTH. Đối chiếu mục 1.2.2, 1.3.3, 4.1.1. <a href="tai-lieu-ctdlgt.html#tong-quan">Nguồn và mục lục đối chiếu</a>.</p>
+<h2 id="muc-tieu">Mục tiêu</h2><ul><li>Phân biệt bộ nhớ đầu vào và bộ nhớ phụ.</li><li>Tính cả ngăn xếp lời gọi đệ quy.</li></ul>
+<h2 id="van-de-thuc-te">Vấn đề thực tế</h2><p>Cùng một kết quả nhưng một lời giải tạo bản sao mảng, lời giải khác cập nhật tại chỗ; cần biết phần bộ nhớ tăng thêm.</p>
+<h2 id="ly-thuyet">Lý thuyết nền</h2><p>Space complexity (độ phức tạp không gian) đo bộ nhớ theo kích thước đầu vào. Auxiliary space (bộ nhớ phụ) không tính vùng chứa đầu vào; cần ghi rõ có tính đầu ra không. Một vài biến số là O(1) theo mô hình số có kích thước cố định; bản sao n phần tử là O(n).</p><p>In-place (tại chỗ) thường chỉ cần O(1) bộ nhớ phụ ngoài đầu vào, nhưng thuật toán đệ quy vẫn có stack lời gọi. Merge Sort mảng dùng bộ đệm O(n); Quick Sort tại chỗ có stack theo chiều sâu, xấu nhất O(n).</p><p>Trong C++, thời gian sống tự động, static storage và dynamic allocation là các khái niệm khác nhau. Không đồng nhất “biến có tên” với static. new cấp phát đối tượng động; phải quản lý vòng đời đúng. Ví dụ JavaScript dùng tham chiếu và garbage collection (thu gom rác), không có delete con trỏ như C++.</p>
+<h2 id="vi-du">Ví dụ có thể chạy</h2><p>JavaScript, Node.js 22 trở lên; không dùng thư viện ngoài. Đây là bản chuyển thể cho website, không phải bản chép mã C/C++ bị dính dòng trong tài liệu Markdown. Lưu thành <code>chapter04.cjs</code> rồi chạy <code>node chapter04.cjs</code>. Các số trong ví dụ nằm trong miền nguyên an toàn, trừ phép chia biểu thức được giải thích riêng.</p>
+<div class="code-wrap"><span class="code-label">chapter04.cjs · JavaScript</span><pre><code>function daoTaiCho(a) {
+   let trai = 0, phai = a.length - 1;
+   while (trai &lt; phai) {
+     [a[trai], a[phai]] = [a[phai], a[trai]];
+     trai++; phai--;
+   }
+   return a;
+ }
+ const a = [1, 2, 3, 4];
+ const b = [...a]; // Bản sao n phần tử: O(n) bộ nhớ phụ.
+ console.log(daoTaiCho(a), b); // [4,3,2,1] [1,2,3,4]</code></pre></div>
+<h3>Giải thích các đoạn quan trọng</h3><ol><li>Hai chỉ số tiến vào giữa; mỗi lượt đổi hai phần tử, lượng biến tạm không tăng theo n.</li><li>return a trả cùng mảng, không tạo bản sao.</li><li>[...a] tạo mảng khác trước khi đảo; tổng đoạn ví dụ vẫn có bản sao O(n), dù riêng hàm đảo dùng O(1) phụ.</li></ol>
+<h2 id="loi-thuong-gap">Lỗi thường gặp</h2><ul><li>Bỏ qua bộ nhớ stack đệ quy.</li><li>Nhầm gán b = a là sao chép các phần tử.</li></ul>
+<h2 id="bai-tap">Bài tập ba mức</h2><h3>Mức 1 — Cơ bản</h3><p>Phân loại bộ nhớ phụ của lấy phần tử đầu và sao chép mảng.</p><h3>Mức 2 — Vận dụng</h3><p>So sánh đảo tại chỗ với tạo mảng đảo mới.</p><h3>Mức 3 — Nâng cao</h3><p>Phân tích cả thời gian và stack của đệ quy đi qua danh sách n nút.</p>
+<div class="summary-box"><h2 id="tom-tat">Tóm tắt</h2><p>Tách chi phí của hàm khỏi phần chuẩn bị dữ liệu; ghi rõ bộ nhớ phụ, đầu ra và stack.</p></div>
+<h2 id="quiz">Quiz</h2><p>Câu hỏi chỉ dựa trên lý thuyết và ví dụ của bài này. <a href="quiz.html?chapter=chapter04">Mở quiz Độ phức tạp không gian (Space Complexity)</a>.</p></article>
     
     <nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter03.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Bài trước</span></a><a href="chapter05.html"><span>Bài tiếp theo →</span></a></nav>
     <footer class="rm-footer"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter04"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a href="../index.html">Trang chủ</a></footer>

@@ -2,7 +2,7 @@
 <html lang="vi" data-theme="dark">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Tự xây dựng Singly và Doubly Linked List từ đầu — hiểu rõ cách con trỏ hoạt động bên dưới.">
+  <meta name="description" content="Mọi thao tác phải giữ head/tail và liên kết cuối; kiểm rỗng, một nút, đầu/cuối và không tìm thấy.">
   <title>Cài đặt Linked List | Thuật toán — Synaptrail</title>
   <link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css">
   <script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script>
@@ -11,86 +11,60 @@
   <a class="rm-skip" href="#lesson-content">Bỏ qua điều hướng</a>
   <header class="rm-header ap-header"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter17"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">◐ Giao diện</button></nav></header>
   <main class="ap-main" id="lesson-content">
-    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 17</p><h1>Cài đặt Linked List</h1><p class="rm-lead">Tự xây dựng Singly và Doubly Linked List từ đầu — hiểu rõ cách con trỏ hoạt động bên dưới.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
-    <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div></div>
+    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 17</p><h1>Cài đặt Linked List</h1><p class="rm-lead">Mọi thao tác phải giữ head/tail và liên kết cuối; kiểm rỗng, một nút, đầu/cuối và không tìm thấy.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
+    <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter17">Làm quiz ở trang riêng</a></div>
     <p id="ap-message" role="status" aria-live="polite"></p>
-    <article class="rm-lesson-content"><h3>Singly Linked List — liên kết một chiều</h3>
-      <div class="code-wrap">
-        <span class="code-label">singly_linked_list.py</span>
-        
-        <pre><code>class Node:
-    def __init__(self, gia_tri):
-        self.gia_tri = gia_tri
-        self.tiep_theo = None
-
-class SinglyLinkedList:
-    def __init__(self):
-        self.dau = None
-
-    def them_dau(self, gia_tri):          # O(1) - điểm mạnh của linked list
-        node_moi = Node(gia_tri)
-        node_moi.tiep_theo = self.dau
-        self.dau = node_moi
-
-    def them_cuoi(self, gia_tri):          # O(n) - phải duyệt tới cuối
-        node_moi = Node(gia_tri)
-        if not self.dau:
-            self.dau = node_moi
-            return
-        hien_tai = self.dau
-        while hien_tai.tiep_theo:
-            hien_tai = hien_tai.tiep_theo
-        hien_tai.tiep_theo = node_moi
-
-    def xoa(self, gia_tri):                  # O(n) - phải tìm trước khi xóa
-        if not self.dau:
-            return
-        if self.dau.gia_tri == gia_tri:
-            self.dau = self.dau.tiep_theo
-            return
-        hien_tai = self.dau
-        while hien_tai.tiep_theo:
-            if hien_tai.tiep_theo.gia_tri == gia_tri:
-                hien_tai.tiep_theo = hien_tai.tiep_theo.tiep_theo
-                return
-            hien_tai = hien_tai.tiep_theo
-
-    def hien_thi(self):
-        ket_qua = []
-        hien_tai = self.dau
-        while hien_tai:
-            ket_qua.append(hien_tai.gia_tri)
-            hien_tai = hien_tai.tiep_theo
-        return ket_qua
-
-ll = SinglyLinkedList()
-ll.them_dau(3); ll.them_dau(2); ll.them_dau(1)
-print(ll.hien_thi())   # [1, 2, 3]</code></pre>
-      </div>
-
-      <h3>Doubly Linked List — liên kết hai chiều</h3>
-      <div class="code-wrap">
-        <span class="code-label">doubly_linked_list.py</span>
-        
-        <pre><code>class DoublyNode:
-    def __init__(self, gia_tri):
-        self.gia_tri = gia_tri
-        self.tiep_theo = None
-        self.truoc = None      # con trỏ THÊM trỏ về node TRƯỚC - điểm khác biệt so với singly
-
-# Ưu điểm: có thể duyệt CẢ HAI CHIỀU, xóa node hiện tại KHÔNG CẦN biết node trước nó
-# Đánh đổi: tốn thêm bộ nhớ cho con trỏ "truoc" ở mỗi node</code></pre>
-      </div>
-
-      <div class="box note">
-        <div class="box-title">Ghi chú</div>
-        Python's <code>collections.deque</code> (đã dùng ở giáo trình Python chương 31) thực chất được cài đặt dựa trên ý tưởng tương tự doubly linked list — cho phép thêm/xóa O(1) ở CẢ HAI đầu.
-      </div>
-
-      <div class="summary-box">
-        <h4>📌 Tổng kết chương 17</h4>
-        <p>Singly Linked List chỉ có con trỏ tiến, đơn giản và tiết kiệm bộ nhớ hơn. Doubly Linked List có thêm con trỏ lùi, cho phép duyệt hai chiều và xóa node hiệu quả hơn, đánh đổi bằng bộ nhớ.</p>
-      </div></article>
+    <article class="rm-lesson-content"><p class="ap-meta">Biên soạn theo tài liệu Cấu trúc dữ liệu và giải thuật — ThS. Bùi Văn Thượng, UTH. Đối chiếu mục 4.2, BT4. <a href="tai-lieu-ctdlgt.html#danh-sach">Nguồn và mục lục đối chiếu</a>.</p>
+<h2 id="muc-tieu">Mục tiêu</h2><ul><li>Cài đầu/cuối, chèn, tìm, duyệt, sửa và xóa.</li><li>Giữ bất biến ở danh sách rỗng và một nút.</li></ul>
+<h2 id="van-de-thuc-te">Vấn đề thực tế</h2><p>Quản lý sinh viên cần thêm sau mã chỉ định và xóa đúng bản ghi, kể cả khi đó là phần tử đầu hoặc cuối duy nhất.</p>
+<h2 id="ly-thuyet">Lý thuyết nền</h2><p>Danh sách rỗng có head=tail=null. Nếu không rỗng thì tail.next=null. Thêm đầu: nối nút mới với head cũ rồi đổi head; thêm cuối: nối tail cũ với nút mới rồi đổi tail. Khi đang rỗng phải cập nhật cả hai.</p><p>Thêm sau q: nút mới nhận q.next trước, rồi q.next nhận nút mới. Nếu q là tail thì cập nhật tail. Bản này tìm q theo khóa, không nhận nút từ danh sách khác; không có khóa thì trả null để báo thất bại.</p><p>Xóa cần biết nút trước. Nếu xóa head thì đổi head; nếu xóa tail thì đổi tail; xóa nút duy nhất làm cả hai bằng null. JavaScript bỏ liên kết và để bộ thu gom rác thu hồi khi không còn tham chiếu; trong C++ phải giải phóng đúng đối tượng, không dùng lại con trỏ đã giải phóng.</p>
+<h2 id="vi-du">Ví dụ có thể chạy</h2><p>JavaScript, Node.js 22 trở lên; không dùng thư viện ngoài. Đây là bản chuyển thể cho website, không phải bản chép mã C/C++ bị dính dòng trong tài liệu Markdown. Lưu thành <code>chapter17.cjs</code> rồi chạy <code>node chapter17.cjs</code>. Các số trong ví dụ nằm trong miền nguyên an toàn, trừ phép chia biểu thức được giải thích riêng.</p>
+<div class="code-wrap"><span class="code-label">chapter17.cjs · JavaScript</span><pre><code>class LinkedList {
+   constructor() { this.head = null; this.tail = null; }
+   prepend(value) {
+     const node = {value, next: this.head};
+     this.head = node; if (!this.tail) this.tail = node;
+     return node;
+   }
+   append(value) {
+     const node = {value, next: null};
+     if (this.tail) this.tail.next = node; else this.head = node;
+     this.tail = node; return node;
+   }
+   find(value) {
+     for (let p = this.head; p; p = p.next) if (p.value === value) return p;
+     return null;
+   }
+   insertAfter(value, newValue) {
+     const q = this.find(value); if (!q) return null;
+     const node = {value: newValue, next: q.next}; q.next = node;
+     if (this.tail === q) this.tail = node;
+     return node;
+   }
+   remove(value) {
+     let prev = null, p = this.head;
+     while (p &amp;&amp; p.value !== value) { prev = p; p = p.next; }
+     if (!p) return false;
+     if (prev) prev.next = p.next; else this.head = p.next;
+     if (this.tail === p) this.tail = prev;
+     p.next = null; return true;
+   }
+   values() {
+     const out = []; for (let p = this.head; p; p = p.next) out.push(p.value);
+     return out;
+   }
+   clear() { this.head = this.tail = null; }
+ }
+ const list = new LinkedList();
+ list.append(12); list.prepend(3); list.insertAfter(12, 20);
+ list.find(3).value = 4; // Sửa dữ liệu của nút đã tìm.
+ list.remove(20);
+ console.log(list.values(), list.tail.value); // [4,12] 12</code></pre></div>
+<h3>Giải thích các đoạn quan trọng</h3><ol><li>constructor thiết lập danh sách rỗng. prepend và append luôn trả nút vừa tạo.</li><li>find đi theo next; insertAfter lấy liên kết cũ trước khi đổi q.next.</li><li>remove giữ prev để nối bỏ p; cập nhật tail cả khi xóa nút duy nhất.</li><li>values duyệt hết, chi phí O(n); clear bỏ hai điểm giữ danh sách. Nếu code bên ngoài giữ tham chiếu node thì node đó vẫn còn sống.</li></ol>
+<h2 id="loi-thuong-gap">Lỗi thường gặp</h2><ul><li>Đổi q.next trước khi lưu phần đuôi, làm mất đoạn sau.</li><li>Xóa tail mà không đổi tail.</li><li>Cho rằng clear trong JavaScript tương đương delete từng nút C++.</li></ul>
+<h2 id="bai-tap">Bài tập ba mức</h2><h3>Mức 1 — Cơ bản</h3><p>Thêm/xóa trên danh sách rỗng, một nút và nhiều nút; kiểm head/tail.</p><h3>Mức 2 — Vận dụng</h3><p>Quản lý sinh viên (mã, họ tên, năm sinh, điểm): nhập, in, tìm theo tên, chèn sau mã, xóa theo mã, sắp mã/tên và hủy danh sách (BT4.1).</p><h3>Mức 3 — Nâng cao</h3><p>Quản lý thành phố (tên, diện tích, dân số): nhập/xuất, tìm diện tích lớn nhất và chèn sau, xóa Ha Noi nếu có, sắp dân số tăng (BT4.5).</p>
+<div class="summary-box"><h2 id="tom-tat">Tóm tắt</h2><p>Mọi thao tác phải giữ head/tail và liên kết cuối; kiểm rỗng, một nút, đầu/cuối và không tìm thấy.</p></div>
+<h2 id="quiz">Quiz</h2><p>Câu hỏi chỉ dựa trên lý thuyết và ví dụ của bài này. <a href="quiz.html?chapter=chapter17">Mở quiz Cài đặt Linked List</a>.</p></article>
     <section class="ap-related"><h2>Bài học liên quan</h2><a href="chapter16.html">Array vs Linked List →</a></section>
     <nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter16.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Bài trước</span></a><a href="chapter18.html"><span>Bài tiếp theo →</span></a></nav>
     <footer class="rm-footer"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter17"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a href="../index.html">Trang chủ</a></footer>

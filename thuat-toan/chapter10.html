@@ -2,7 +2,7 @@
 <html lang="vi" data-theme="dark">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Các thuật toán sắp xếp &quot;phi so sánh&quot; (non-comparison) — có thể nhanh hơn O(n log n) trong điều kiện đặc biệt.">
+  <meta name="description" content="Sắp phân phối cần điều kiện miền khóa; chi phí phụ thuộc K hoặc số chữ số d và cơ số b.">
   <title>Counting Sort &amp; Radix Sort | Thuật toán — Synaptrail</title>
   <link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css">
   <script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script>
@@ -11,44 +11,45 @@
   <a class="rm-skip" href="#lesson-content">Bỏ qua điều hướng</a>
   <header class="rm-header ap-header"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter10"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">◐ Giao diện</button></nav></header>
   <main class="ap-main" id="lesson-content">
-    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 10</p><h1>Counting Sort &amp; Radix Sort</h1><p class="rm-lead">Các thuật toán sắp xếp &quot;phi so sánh&quot; (non-comparison) — có thể nhanh hơn O(n log n) trong điều kiện đặc biệt.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
-    <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div></div>
+    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 10</p><h1>Counting Sort &amp; Radix Sort</h1><p class="rm-lead">Sắp phân phối cần điều kiện miền khóa; chi phí phụ thuộc K hoặc số chữ số d và cơ số b.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
+    <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter10">Làm quiz ở trang riêng</a></div>
     <p id="ap-message" role="status" aria-live="polite"></p>
-    <article class="rm-lesson-content"><h3>Counting Sort — đếm tần suất</h3>
-      <div class="code-wrap">
-        <span class="code-label">counting_sort.py</span>
-        
-        <pre><code>def counting_sort(ds):
-    if not ds: return ds
-    max_val = max(ds)
-    dem = [0] * (max_val + 1)
-    for x in ds:
-        dem[x] += 1                  # đếm số lần xuất hiện của mỗi giá trị
-
-    ket_qua = []
-    for gia_tri, so_lan in enumerate(dem):
-        ket_qua.extend([gia_tri] * so_lan)   # ghi lại theo đúng tần suất, tự động có thứ tự
-    return ket_qua
-
-print(counting_sort([4, 2, 2, 8, 3, 3, 1]))   # [1, 2, 2, 3, 3, 4, 8]</code></pre>
-      </div>
-
-      <div class="box important">
-        <div class="box-title">Quan trọng — Điều kiện áp dụng</div>
-        Counting Sort đạt <strong>O(n + k)</strong> (k = giá trị lớn nhất) — nhanh hơn O(n log n) khi k không quá lớn so với n. Nhưng nếu dữ liệu có giá trị rất lớn (VD: k = 10 tỷ), thuật toán này sẽ tốn RẤT nhiều bộ nhớ và trở nên vô dụng.
-      </div>
-
-      <h3>Radix Sort — sắp xếp theo từng chữ số</h3>
-      <p>Sắp xếp số nguyên bằng cách xử lý từng chữ số một, từ hàng đơn vị tới hàng cao nhất, dùng Counting Sort ổn định (stable) làm bước phụ trợ cho mỗi chữ số.</p>
-      <div class="box note">
-        <div class="box-title">Ghi chú</div>
-        Radix Sort đạt độ phức tạp <strong>O(d × (n + k))</strong> với d là số chữ số — rất hiệu quả để sắp xếp số nguyên hoặc chuỗi có độ dài cố định, thường dùng trong các hệ thống xử lý dữ liệu lớn.
-      </div>
-
-      <div class="summary-box">
-        <h4>📌 Tổng kết chương 10</h4>
-        <p>Counting Sort và Radix Sort là thuật toán phi so sánh, có thể nhanh hơn O(n log n) trong điều kiện đặc biệt (giá trị giới hạn, số nguyên) — nhưng không tổng quát cho mọi loại dữ liệu.</p>
-      </div></article>
+    <article class="rm-lesson-content"><p class="ap-meta">Biên soạn theo tài liệu Cấu trúc dữ liệu và giải thuật — ThS. Bùi Văn Thượng, UTH. Đối chiếu mục 3.10, 3.11. <a href="tai-lieu-ctdlgt.html#sap-xep">Nguồn và mục lục đối chiếu</a>.</p>
+<h2 id="muc-tieu">Mục tiêu</h2><ul><li>Sắp theo tần suất hoặc từng chữ số.</li><li>Nêu miền giá trị, tính ổn định và chi phí.</li></ul>
+<h2 id="van-de-thuc-te">Vấn đề thực tế</h2><p>Điểm nguyên thuộc một miền hẹp hoặc mã số có số chữ số hữu hạn có thể được sắp bằng phân phối thay vì so mọi cặp.</p>
+<h2 id="ly-thuyet">Lý thuyết nền</h2><p>Counting Sort đếm tần suất từng giá trị trong miền K, rồi phát lại theo thứ tự: O(n+K) thời gian, bản dưới dùng O(n+K) bộ nhớ kể cả đầu ra. Bản phát giá trị số không giữ dữ liệu bản ghi; muốn ổn định cho bản ghi cần mảng vị trí cộng dồn và đặt phần tử đúng thứ tự.</p><p>Radix Sort LSD (least significant digit, chữ số ít quan trọng trước) phân phối vào các bucket 0…b−1 từ hàng đơn vị lên. Mỗi lượt phải ổn định, giữ thứ tự trong từng bucket; nếu phá thứ tự thì kết quả từ lượt trước bị mất. Với d chữ số cơ số b, thời gian O(d(n+b)), bộ nhớ phụ O(n+b); không mặc định O(n log n).</p><p>Ví dụ dưới nhận số nguyên không âm an toàn của JavaScript. Số âm phải có quy ước xử lý dấu riêng. Counting Sort không phù hợp miền cực rộng; ví dụ giới hạn max ≤ 100000 để tránh cấp phát quá lớn.</p>
+<h2 id="vi-du">Ví dụ có thể chạy</h2><p>JavaScript, Node.js 22 trở lên; không dùng thư viện ngoài. Đây là bản chuyển thể cho website, không phải bản chép mã C/C++ bị dính dòng trong tài liệu Markdown. Lưu thành <code>chapter10.cjs</code> rồi chạy <code>node chapter10.cjs</code>. Các số trong ví dụ nằm trong miền nguyên an toàn, trừ phép chia biểu thức được giải thích riêng.</p>
+<div class="code-wrap"><span class="code-label">chapter10.cjs · JavaScript</span><pre><code>function kiemTra(a) {
+   if (!a.every(x =&gt; Number.isSafeInteger(x) &amp;&amp; x &gt;= 0))
+     throw new RangeError('Cần số nguyên không âm an toàn');
+ }
+ function countingSort(a) {
+   kiemTra(a); if (!a.length) return [];
+   let max = 0; for (const x of a) max = Math.max(max, x);
+   if (max &gt; 100000) throw new RangeError('Miền đếm quá rộng');
+   const count = Array(max + 1).fill(0), out = [];
+   for (const x of a) count[x]++;
+   for (let x = 0; x &lt;= max; x++)
+     for (let k = 0; k &lt; count[x]; k++) out.push(x);
+   return out;
+ }
+ function radixSort(a) {
+   kiemTra(a); let out = [...a], max = 0;
+   for (const x of a) max = Math.max(max, x);
+   for (let exp = 1; Math.floor(max / exp) &gt; 0; exp *= 10) {
+     const buckets = Array.from({length: 10}, () =&gt; []);
+     for (const x of out) buckets[Math.floor(x / exp) % 10].push(x);
+     out = buckets.flat();
+   }
+   return out;
+ }
+ console.log(radixSort([7013,8425,1239,428,1424,7009,4518,3252,9170,999,1725,701]));
+ // [428,701,999,1239,1424,1725,3252,4518,7009,7013,8425,9170]</code></pre></div>
+<h3>Giải thích các đoạn quan trọng</h3><ol><li>kiemTra ngăn số âm, số lẻ và số vượt miền nguyên chính xác.</li><li>Counting tăng ô tần suất rồi phát lại count[x] lần.</li><li>Radix dùng exp=1,10,100… để lấy từng chữ số; push giữ thứ tự vào bucket.</li><li>flat nối bucket theo thứ tự chữ số. Số 0 và dãy rỗng không cần lượt phân phối nào và vẫn đúng.</li></ol>
+<h2 id="loi-thuong-gap">Lỗi thường gặp</h2><ul><li>Dùng Array.fill([]) làm mọi bucket trỏ cùng mảng.</li><li>Đưa số âm trực tiếp vào chỉ số chữ số.</li></ul>
+<h2 id="bai-tap">Bài tập ba mức</h2><h3>Mức 1 — Cơ bản</h3><p>Đếm tần suất [2, 0, 2, 1].</p><h3>Mức 2 — Vận dụng</h3><p>Lập các bucket cho hàng đơn vị và chục của dãy trong ví dụ.</p><h3>Mức 3 — Nâng cao</h3><p>Bổ sung xử lý số âm và kiểm tra thứ tự, hoặc viết Counting ổn định cho bản ghi có cùng điểm.</p>
+<div class="summary-box"><h2 id="tom-tat">Tóm tắt</h2><p>Sắp phân phối cần điều kiện miền khóa; chi phí phụ thuộc K hoặc số chữ số d và cơ số b.</p></div>
+<h2 id="quiz">Quiz</h2><p>Câu hỏi chỉ dựa trên lý thuyết và ví dụ của bài này. <a href="quiz.html?chapter=chapter10">Mở quiz Counting Sort &amp; Radix Sort</a>.</p></article>
     
     <nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter09.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Bài trước</span></a><a href="chapter11.html"><span>Bài tiếp theo →</span></a></nav>
     <footer class="rm-footer"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter10"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a href="../index.html">Trang chủ</a></footer>

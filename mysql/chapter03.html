@@ -1,62 +1,213 @@
 <!DOCTYPE html>
-<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kết nối Node.js với MySQL — MySQL | Synaptrail</title><meta name="description" content="Truy vấn database trực tiếp từ code Node.js/Express — bước đệm trước khi dùng ORM tiện lợi hơn ở chương sau."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="mysql" data-skill="mysql" data-node="chapter03"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/mysql.html#chapter03"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">MySQL / BÀI 3</p><h1>Kết nối Node.js với MySQL</h1><p class="rm-lead">Truy vấn database trực tiếp từ code Node.js/Express — bước đệm trước khi dùng ORM tiện lợi hơn ở chương sau.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s11">
-      
-      <p class="lead">Truy vấn database trực tiếp từ code Node.js/Express — bước đệm trước khi dùng ORM tiện lợi hơn ở chương sau.</p>
+<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kết nối Node.js với MySQL — MySQL | Synaptrail</title><meta name="description" content="Xây REST API sản phẩm bằng Express 5 và mysql2: kiểm tra dữ liệu, truy vấn tham số và xử lý lỗi HTTP."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="mysql" data-skill="mysql" data-node="chapter03"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/mysql.html#chapter03"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">MySQL / BÀI 3</p><h1>Kết nối Node.js với MySQL</h1><p class="rm-lead">Xây REST API sản phẩm bằng Express 5 và mysql2: kiểm tra dữ liệu, truy vấn tham số và xử lý lỗi HTTP.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter03">Làm quiz ở trang riêng <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s11">
+<h2>1. Mục tiêu học</h2>
+<p>Sau bài này, bạn giải thích được đường đi của một request HTTP từ Express tới MySQL, viết API đọc và tạo sản phẩm, kiểm tra đầu vào và trả lỗi JSON có chủ đích. Điều kiện trước: đã biết Promise, async/await, Express cơ bản và SQL ở hai chương trước. Nếu chưa vững, đọc lại <a href="../javascript-nnlt/chapter23.html">Express cơ bản</a> và <a href="../javascript-nnlt/chapter24.html">REST API &amp; Middleware</a>.</p>
+<p><strong>Môi trường của ví dụ:</strong> Node.js 24.x, Express 5.x, mysql2 3.x, MySQL Server 8.4; mã CommonJS dùng đuôi <code>.cjs</code>. Đây là phạm vi phiên bản của bài, không phải tuyên bố phiên bản mới nhất. Xem tài liệu chính thức cuối bài trước khi đổi major version. Không cần cài các thư viện này để đọc Synaptrail.</p>
+<div class="box note"><div class="box-title">Phạm vi kiểm chứng</div><p>Bản mẫu đã kiểm tra cú pháp và logic bằng test double (đối tượng giả thay Express/database). Chưa chạy tích hợp Express/mysql2 với MySQL thật vì môi trường kiểm thử chưa có các package và Docker Engine không hoạt động. Các kết quả HTTP dưới đây là kết quả kỳ vọng để bạn tự kiểm chứng, không phải log chạy database thật.</p></div>
 
-      <div class="code-wrap">
-        <span class="code-label">terminal</span>
-        
-        <pre><code>npm install mysql2</code></pre>
-      </div>
+<h2>2. Vấn đề thực tế</h2>
+<p>Một trang bán hàng cần giữ sản phẩm sau khi tắt trình duyệt. Mảng JavaScript trong server mất khi tiến trình dừng; localStorage chỉ thuộc trình duyệt. Ta dùng MySQL lưu dữ liệu và Node.js làm nơi xử lý truy cập. Trình duyệt không giữ mật khẩu MySQL, không kết nối database trực tiếp. Ví dụ chỉ mở tại máy cá nhân, chưa có đăng nhập/phân quyền và chưa phù hợp đưa công khai.</p>
+<p>Luồng tạo sản phẩm: client gửi JSON → Express đọc body → kiểm tra tên/giá → mysql2 gửi câu SQL và giá trị riêng → MySQL ghi hàng → server nhận ID → trả HTTP 201. Luồng đọc không ghi dữ liệu: SELECT lấy hàng và trả HTTP 200. Viết API ở đây là bài tập riêng; không biến website Synaptrail thành một backend đang vận hành.</p>
 
-      <div class="code-wrap">
-        <span class="code-label">db.js</span>
-        
-        <pre><code>const mysql = require('mysql2/promise');
+<h2>3. Lý thuyết nền</h2>
+<p>API (Application Programming Interface) là giao diện để chương trình trao đổi dữ liệu. HTTP là giao thức trao đổi request (yêu cầu) và response (phản hồi). Trong bài, REST API tổ chức đường dẫn quanh tài nguyên sản phẩm và dùng GET/POST cùng status để diễn đạt thao tác và kết quả.</p>
+<h3>Connection pool và truy vấn bất đồng bộ</h3>
+<p>Connection pool là nhóm kết nối được tái sử dụng. Tạo pool một lần khi khởi động thay vì mỗi request tạo một kết nối mới. Với <code>mysql2/promise</code>, <code>await pool.execute(...)</code> trả một mảng: phần tử đầu là dữ liệu hàng khi SELECT, hoặc thông tin ghi như <code>insertId</code> khi INSERT. Pool giúp quản lý tài nguyên, không tự làm mọi truy vấn nhanh hoặc an toàn.</p>
+<h3>Parameter binding và prepared statement</h3>
+<p>Cả <code>query(sql, values)</code> và <code>execute(sql, values)</code> có thể nhận giá trị riêng, nhưng không nên gọi mọi dấu <code>?</code> là server-side prepared statement. MySQL2 cung cấp <code>execute()</code> để prepare rồi execute trên server và tái sử dụng statement theo kết nối. Bài này dùng execute để minh họa đúng cơ chế. Không nối input vào SQL; placeholder dành cho giá trị, không thay tên bảng, cột hoặc từ khóa ORDER BY. Chọn identifier từ danh sách cố định nếu sau này cần sắp xếp động.</p>
+<p>Prepared statement không thay validation, phân quyền hay giới hạn kết quả. Tên chứa dấu nháy vẫn là dữ liệu hợp lệ; giá sai kiểu vẫn phải từ chối. Ví dụ dùng giá nguyên theo đồng Việt Nam trong khoảng 0 đến 1.000.000.000; không dùng số thực để biểu diễn tiền lẻ. Tên được trim và giới hạn 100 Unicode code point để phù hợp cột VARCHAR(100) với utf8mb4.</p>
+<h3>Hợp đồng API nhỏ</h3>
+<table><thead><tr><th>Request</th><th>Thành công</th><th>Trường hợp lỗi</th></tr></thead><tbody>
+<tr><td>GET /api/san-pham</td><td>200, mảng tối đa 50 sản phẩm mới nhất</td><td>500 hoặc 503 khi xử lý/database lỗi</td></tr>
+<tr><td>GET /api/san-pham/:id</td><td>200, đối tượng id/ten/gia</td><td>400 khi ID sai; 404 khi ID đúng định dạng nhưng không có hàng</td></tr>
+<tr><td>POST /api/san-pham</td><td>201, đối tượng vừa tạo và header Location</td><td>400 JSON/đầu vào sai; 413 body quá lớn; 415 không phải application/json</td></tr>
+</tbody></table>
+<p>Mã 503 dành cho một số lỗi kết nối đã nhận diện; lỗi bất ngờ khác trả 500. Không gửi câu SQL, mật khẩu hoặc stack trace cho client. GET danh sách giới hạn 50 để tránh trả toàn bộ bảng; đây chưa phải phân trang. POST chưa có chống gửi trùng: chạy lại có thể tạo thêm sản phẩm cùng tên, không có bảo đảm idempotency.</p>
 
-const pool = mysql.createPool({            // connection pool - tái sử dụng kết nối, hiệu quả hơn tạo mới mỗi lần
-    host: 'localhost',
-    user: 'root',
-    password: process.env.DB_PASSWORD,        // luôn đọc từ biến môi trường, không hardcode
-    database: 'cua_hang',
+<h2>4. Ví dụ hoàn chỉnh và giải thích</h2>
+<h3>Bước 1 — chuẩn bị dự án thực hành riêng</h3>
+<p>Tạo thư mục <code>api-san-pham-mau</code> ngoài repo Synaptrail, mở terminal tại đó. Các lệnh sau là hướng dẫn cho người học, không phải yêu cầu thay package.json của website. Cần có Node.js 24 và MySQL 8.4 đang chạy, SQL client như mysql hoặc Workbench. Bài không tự cài hay bật dịch vụ.</p>
+<div class="code-wrap"><span class="code-label">Terminal trong thư mục thực hành</span><pre><code>npm init -y
+npm install express@5 mysql2@3
+node --version
+npm ls express mysql2</code></pre></div>
+<p>Lệnh cài đặt chọn major version của bài; phiên bản patch thực tế ghi trong package-lock.json. Giữ lockfile của dự án thực hành, không commit node_modules, .env hoặc thông tin đăng nhập. Ghi phiên bản thực tế vào báo cáo của bạn thay vì giả định cùng patch với tác giả.</p>
+<h3>Bước 2 — tạo schema thử riêng</h3>
+<p>Trong SQL client, dùng tài khoản có quyền tạo database để chạy schema.sql bên dưới. Chọn database mới cho bài, không trỏ vào dữ liệu thật. Nếu tên đã tồn tại, dừng và chọn tên mới rồi đổi DB_NAME; không dùng DROP để làm lại. Quản trị viên cần tạo/cấp cho tài khoản ứng dụng quyền SELECT và INSERT trên database mẫu; API không dùng root, không cần quyền CREATE/DROP khi chạy.</p>
+<div class="code-wrap"><span class="code-label">schema.sql — chạy trong SQL client</span><pre><code>CREATE DATABASE synaptrail_api_mau CHARACTER SET utf8mb4;
+USE synaptrail_api_mau;
+
+CREATE TABLE san_pham (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  ten VARCHAR(100) NOT NULL,
+  gia INT UNSIGNED NOT NULL,
+  CONSTRAINT ck_ten CHECK (CHAR_LENGTH(TRIM(ten)) &gt;= 1),
+  CONSTRAINT ck_gia CHECK (gia &lt;= 1000000000)
+);</code></pre></div>
+<p>Khóa chính tự tăng tạo ID để client tham chiếu. NOT NULL, kiểu UNSIGNED và CHECK là lớp ràng buộc dữ liệu tại database; validation Node.js giúp phản hồi dễ hiểu trước khi gửi SQL. Cấu hình client dùng utf8mb4 để tên tiếng Việt và emoji không bị mất ký tự. Ví dụ giả định MySQL ở cổng 3306; nếu máy bạn dùng cổng khác, đổi trường port trong pool theo cấu hình thật.</p>
+<h3>Bước 3 — cấu hình môi trường, không đặt bí mật vào code</h3>
+<p>Tạo file .env tại thư mục thực hành với DB_HOST=127.0.0.1, DB_NAME=synaptrail_api_mau, DB_USER là tài khoản ứng dụng đã được cấp quyền, DB_PASSWORD là mật khẩu local của chính bạn. Không gửi giá trị thật qua chat hoặc đưa vào repo. Có thể thêm .env và node_modules/ vào .gitignore của dự án thực hành. Chạy Node với --env-file=.env để đọc các biến này; không cần thêm dotenv. Thiếu file hay biến bắt buộc phải được sửa tại máy, không thay bằng thông tin đăng nhập hard-code.</p>
+<h3>Bước 4 — API trong một file để quan sát toàn bộ luồng</h3>
+<p>Lưu nguyên khối dưới đây thành app.cjs. Số endpoint và trường dữ liệu được giữ ít để bạn tập trung vào request, SQL và phản hồi.</p>
+<div class="code-wrap"><span class="code-label">app.cjs</span><pre><code>'use strict';
+const express = require('express');
+const mysql = require('mysql2/promise');
+
+for (const name of ['DB_HOST', 'DB_USER', 'DB_PASSWORD', 'DB_NAME']) {
+  if (!process.env[name]) throw new Error(`Thiếu biến môi trường ${name}`);
+}
+const pool = mysql.createPool({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  port: 3306,
+  charset: 'utf8mb4',
+  waitForConnections: true,
+  connectionLimit: 5,
+  queueLimit: 20,
+  connectTimeout: 5000,
+});
+const app = express();
+app.use(express.json({ limit: '16kb' }));
+
+function validateProduct(body) {
+  if (!body || typeof body !== 'object' || Array.isArray(body)) return null;
+  if (typeof body.ten !== 'string') return null;
+  const ten = body.ten.trim();
+  const gia = body.gia;
+  if ([...ten].length &lt; 1 || [...ten].length &gt; 100) return null;
+  if (!Number.isSafeInteger(gia) || gia &lt; 0 || gia &gt; 1000000000) return null;
+  return { ten, gia };
+}
+
+app.get('/api/san-pham', async (_req, res) =&gt; {
+  const [rows] = await pool.execute(
+    'SELECT id, ten, gia FROM san_pham ORDER BY id DESC LIMIT 50'
+  );
+  res.json(rows);
 });
 
-module.exports = pool;</code></pre>
-      </div>
-
-      <div class="code-wrap">
-        <span class="code-label">routes/sanPham.js</span>
-        
-        <pre><code>const express = require('express');
-const router = express.Router();
-const pool = require('../db');
-
-router.get('/san-pham', async (req, res) =&gt; {
-    const [rows] = await pool.query('SELECT * FROM san_pham');
-    res.json(rows);
+app.get('/api/san-pham/:id', async (req, res) =&gt; {
+  const id = req.params.id;
+  if (!/^[1-9]\d{0,9}$/.test(id) || Number(id) &gt; 4294967295) {
+    return res.status(400).json({ error: 'INVALID_ID' });
+  }
+  const [rows] = await pool.execute(
+    'SELECT id, ten, gia FROM san_pham WHERE id = ?', [Number(id)]
+  );
+  if (rows.length === 0) return res.status(404).json({ error: 'NOT_FOUND' });
+  res.json(rows[0]);
 });
 
-router.post('/san-pham', async (req, res) =&gt; {
-    const { ten, gia } = req.body;
-    // DÙNG DẤU ? (prepared statement) - KHÔNG BAO GIỜ nối chuỗi trực tiếp
-    const [ketQua] = await pool.query(
-        'INSERT INTO san_pham (ten, gia) VALUES (?, ?)', [ten, gia]
-    );
-    res.status(201).json({ id: ketQua.insertId, ten, gia });
+app.post('/api/san-pham', async (req, res) =&gt; {
+  if (!req.is('application/json')) {
+    return res.status(415).json({ error: 'JSON_REQUIRED' });
+  }
+  const product = validateProduct(req.body);
+  if (!product) return res.status(400).json({ error: 'INVALID_PRODUCT' });
+  const [result] = await pool.execute(
+    'INSERT INTO san_pham (ten, gia) VALUES (?, ?)',
+    [product.ten, product.gia]
+  );
+  res.location(`/api/san-pham/${result.insertId}`).status(201).json({
+    id: result.insertId, ...product,
+  });
 });
 
-module.exports = router;</code></pre>
-      </div>
+app.use((_req, res) =&gt; res.status(404).json({ error: 'ROUTE_NOT_FOUND' }));
+app.use((err, _req, res, _next) =&gt; {
+  if (err.type === 'entity.parse.failed') {
+    return res.status(400).json({ error: 'INVALID_JSON' });
+  }
+  if (err.type === 'entity.too.large') {
+    return res.status(413).json({ error: 'BODY_TOO_LARGE' });
+  }
+  console.error('API thất bại:', err.code || err.name);
+  const unavailable = ['ECONNREFUSED', 'ETIMEDOUT', 'PROTOCOL_CONNECTION_LOST']
+    .includes(err.code);
+  res.status(unavailable ? 503 : 500).json({
+    error: unavailable ? 'DATABASE_UNAVAILABLE' : 'INTERNAL_ERROR',
+  });
+});
 
-      <div class="box important">
-        <div class="box-title">Quan trọng — SQL Injection</div>
-        <strong>TUYỆT ĐỐI KHÔNG</strong> nối chuỗi trực tiếp để tạo câu SQL (VD: <code>`SELECT * FROM users WHERE ten='${ten}'`</code>) — kẻ tấn công có thể chèn SQL độc hại qua input. Luôn dùng dấu <code>?</code> (prepared statement) như ví dụ trên để thư viện tự động escape dữ liệu an toàn.
-      </div>
+async function start() {
+  try {
+    await pool.execute('SELECT 1');
+    const server = app.listen(3000, '127.0.0.1', (error) =&gt; {
+      if (error) return; // The server error listener below handles startup failure.
+      console.log('API: http://127.0.0.1:3000/api/san-pham');
+    });
+    server.on('error', async (err) =&gt; {
+      console.error('Không mở được server:', err.code || err.name);
+      await pool.end();
+      process.exitCode = 1;
+    });
+  } catch (err) {
+    console.error('Không kết nối được database:', err.code || err.name);
+    await pool.end();
+    process.exitCode = 1;
+  }
+}
+if (require.main === module) start();
+module.exports = { app, pool, validateProduct };</code></pre></div>
+<h3>Giải thích từng đoạn quan trọng</h3>
+<ol>
+<li><code>require('express')</code> và <code>require('mysql2/promise')</code> nạp HTTP framework và driver Promise. Vòng for kiểm biến cấu hình trước khi tạo pool; thông báo chỉ nêu tên biến thiếu.</li>
+<li><code>createPool</code> tái sử dụng tối đa 5 kết nối, giới hạn hàng chờ 20 và thời gian thiết lập kết nối 5 giây. connectTimeout không phải thời gian tối đa cho mọi truy vấn SQL. Không gọi pool.end sau mỗi request.</li>
+<li><code>express.json</code> đọc JSON với giới hạn 16 KB. <code>validateProduct</code> chỉ lấy ten và gia; trim tên, đếm code point và kiểm số nguyên an toàn. Giá dạng chuỗi như "250000" không được tự ép kiểu. Trường thừa được bỏ qua, không ghép vào SQL.</li>
+<li>GET danh sách trả mảng; GET chi tiết kiểm ID nguyên dương trong miền INT UNSIGNED rồi truyền ID qua placeholder. Mảng rỗng ở GET chi tiết dẫn tới 404, không phải lỗi kết nối.</li>
+<li>POST kiểm Content-Type trước khi dùng body. Khi validation sai, return kết thúc handler và chưa gọi INSERT. Khi đúng, tên và giá nằm trong mảng tham số, tách khỏi cấu trúc SQL; insertId tạo Location và nội dung HTTP 201.</li>
+<li>Handler async dùng await. Trong Express 5, Promise reject được chuyển tới error middleware; middleware lỗi có bốn tham số, kể cả _next không sử dụng. Các lỗi parser trả mã riêng; lỗi khác chỉ log mã/tên lỗi, không log body hoặc mật khẩu.</li>
+<li><code>start</code> thử SELECT 1 trước khi listen; lỗi database thì đóng pool và đặt exitCode=1. Server chỉ bind 127.0.0.1:3000. Callback listen của Express 5 có thể nhận lỗi; kiểm error trước khi in thông báo thành công, còn listener error bên dưới đóng pool khi mở cổng thất bại. Điều kiện require.main giúp file không tự mở cổng khi được nạp bởi công cụ kiểm tra.</li>
+</ol>
+<div class="code-wrap"><span class="code-label">Khởi động, dừng bằng Ctrl+C trong đúng terminal</span><pre><code>node --env-file=.env app.cjs</code></pre></div>
+<p>Khi kết nối thành công, thông báo kỳ vọng là <code>API: http://127.0.0.1:3000/api/san-pham</code>. Nếu bảng mới chưa có dữ liệu, mở endpoint danh sách sẽ nhận []. Mẫu này chưa có cơ chế graceful shutdown cho triển khai production; Ctrl+C kết thúc tiến trình thực hành.</p>
+<h3>Bước 5 — gửi request bằng Node, tránh khác biệt cú pháp curl trên Windows</h3>
+<p>Mở terminal thứ hai cùng thư mục, lưu thu-api.cjs rồi chạy node thu-api.cjs. Chương trình dùng fetch có sẵn ở phiên bản Node của bài. Mỗi lần chạy sẽ tạo thêm một hàng trong database thử.</p>
+<div class="code-wrap"><span class="code-label">thu-api.cjs</span><pre><code>'use strict';
+async function main() {
+  const base = 'http://127.0.0.1:3000/api/san-pham';
+  const created = await fetch(base, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ ten: 'Bàn phím', gia: 250000 }),
+  });
+  if (created.status !== 201) throw new Error(`POST trả ${created.status}`);
+  const product = await created.json();
+  console.log('POST', created.status, product);
+  const detail = await fetch(`${base}/${product.id}`);
+  console.log('GET chi tiết', detail.status, await detail.json());
+  const invalid = await fetch(base, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ ten: 'Bàn phím', gia: '250000' }),
+  });
+  console.log('POST sai kiểu', invalid.status, await invalid.json());
+}
+main().catch(error =&gt; { console.error(error.message); process.exitCode = 1; });</code></pre></div>
+<p>Kỳ vọng: dòng POST có status 201 và id do MySQL cấp; GET chi tiết có status 200 và cùng sản phẩm; POST giá chuỗi trả 400 với INVALID_PRODUCT. Không cố định ID bằng 1 vì auto-increment phụ thuộc dữ liệu đã ghi. Sau khi dừng và mở lại API, GET vẫn tìm được ID đó nếu MySQL giữ nguyên database.</p>
 
-      <div class="summary-box">
-        <h4>📌 Tổng kết chương 3</h4>
-        <p>mysql2 kết nối Node.js với MySQL qua connection pool. Luôn dùng prepared statement (dấu ?) thay vì nối chuỗi trực tiếp để tránh lỗ hổng SQL Injection nghiêm trọng.</p>
-      </div>
-    </section>
+<h2>5. Lỗi thường gặp và cách phân biệt</h2>
+<ul>
+<li><strong>ECONNREFUSED:</strong> kiểm MySQL có chạy, host/port có đúng; không liên tục tạo tài khoản hoặc tắt kiểm soát truy cập để chữa lỗi.</li>
+<li><strong>Access denied hoặc unknown database:</strong> đối chiếu biến môi trường, quyền và tên database mẫu. Quyền CREATE của người chuẩn bị schema khác quyền SELECT/INSERT của API.</li>
+<li><strong>req.body không có dữ liệu:</strong> kiểm middleware JSON và header Content-Type; form gửi lên không tự biến thành JSON. Body JSON sai cú pháp trả 400; quá 16 KB trả 413.</li>
+<li><strong>Chấm điểm HTTP nhầm:</strong> ID abc là 400; ID hợp lệ không tìm thấy là 404; không trả 200 cho mọi lỗi. Không trả err.message trực tiếp ra client.</li>
+<li><strong>Nhầm execute với validation:</strong> tham số SQL không bảo đảm tên không rỗng hoặc giá có kiểu đúng. Cả hai lớp đều cần; không dùng placeholder thay tên bảng.</li>
+<li><strong>POST hai lần có hai hàng:</strong> đây là hành vi của mẫu, không phải bằng chứng request bị xử lý sai. Chống gửi trùng cần thiết kế riêng khi nghiệp vụ yêu cầu.</li>
+</ul>
 
-    <!-- ================= CHƯƠNG 16 ================= --></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter02.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bài trước</a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/mysql.html#chapter03"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>
+<h2>6. Bài tập ba mức</h2>
+<div class="box note"><div class="box-title">Dễ — quan sát HTTP và validation</div><p>Thử tên chỉ có khoảng trắng, tên 101 ký tự, giá -1, giá "1000" và giá 0. Ghi status/body và số lần INSERT; bốn đầu vào đầu phải bị từ chối trước database, giá 0 hợp lệ. Thử ID abc và một ID hợp lệ chắc chắn chưa có. Lưu kết quả thực thay vì chép kết quả kỳ vọng.</p></div>
+<div class="box note"><div class="box-title">Vừa — chứng minh lưu bền</div><p>Tạo ba sản phẩm ở database thử, lưu ID, dừng/mở lại tiến trình Node và đọc lại từng ID. Xác nhận dữ liệu còn khi chỉ Node khởi động lại; phân biệt việc xóa database với khởi động lại API. Tên có dấu nháy phải được lưu như văn bản, không làm thay đổi cấu trúc SQL. Không thử trên dữ liệu thật.</p></div>
+<div class="box note"><div class="box-title">Khó — kiểm đường lỗi có kiểm soát</div><p>Trên môi trường thử của riêng bạn, cấu hình một cổng MySQL không có dịch vụ để quan sát khởi động thất bại; khôi phục cấu hình rồi chạy lại. Gửi JSON hỏng/quá dung lượng và đường dẫn không tồn tại; lập bảng kỳ vọng/thực tế cho 400, 413, 415, 404. Viết test handler với pool giả và ghi rõ test đó chưa thay thế chạy Express/MySQL thật. Không tự dừng database được người khác sử dụng.</p></div>
+
+<h2>7. Tóm tắt</h2>
+<p>Pool được tạo một lần, SQL cố định và giá trị được bind qua execute. Validation quyết định dữ liệu hợp lệ; HTTP status thể hiện kết quả; database giữ dữ liệu ngoài vòng đời Node. Mẫu chưa có tài khoản/phân quyền, chống gửi trùng hoặc vận hành production; không public API ghi dữ liệu trước khi thiết kế và kiểm thử những phần đó. ORM ở khóa riêng là bước tiếp theo, không phải lý do bỏ qua SQL và hợp đồng HTTP.</p>
+<h2>8. Quiz và nguồn đối chiếu</h2>
+<p>Làm <a href="quiz.html?chapter=chapter03">năm câu quiz của chương 3</a> sau khi tự giải thích được từng đoạn code. Tất cả câu dựa trên nội dung bài này; quiz nằm ở trang riêng, giữ cơ chế tiến độ hiện có.</p>
+<ul><li><a href="https://sidorares.github.io/node-mysql2/docs/documentation/prepared-statements">MySQL2 — Prepared Statements</a></li><li><a href="https://sidorares.github.io/node-mysql2/docs/documentation/promise-wrapper">MySQL2 — Promise Wrapper</a></li><li><a href="https://expressjs.com/en/guide/error-handling/">Express 5 — Error Handling</a></li><li><a href="https://expressjs.com/en/guide/migrating-5/#app.listen">Express 5 — thay đổi app.listen</a></li><li><a href="https://nodejs.org/docs/latest-v24.x/api/cli.html#--env-filefile">Node.js 24 — --env-file</a></li><li><a href="https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html">MySQL 8.4 — CHECK Constraints</a></li></ul>
+<p>Đối chiếu tài liệu ngày 01/11/2026; trạng thái kiểm tra tại bản mẫu này không thay bằng chứng chạy thực tế trên máy của bạn.</p>
+</section>
+</article><nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter02.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bài trước</a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/mysql.html#chapter03"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>

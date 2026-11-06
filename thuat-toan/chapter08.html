@@ -2,7 +2,7 @@
 <html lang="vi" data-theme="dark">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Thuật toán sắp xếp nhanh nhất trong thực tế trung bình — được dùng làm mặc định trong nhiều ngôn ngữ.">
+  <meta name="description" content="Phân hoạch phải tiến triển và đoạn đệ quy phải nhỏ đi; trường hợp xấu của Quick Sort vẫn bậc hai.">
   <title>Quick Sort | Thuật toán — Synaptrail</title>
   <link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css">
   <script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script>
@@ -11,47 +11,37 @@
   <a class="rm-skip" href="#lesson-content">Bỏ qua điều hướng</a>
   <header class="rm-header ap-header"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter08"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">◐ Giao diện</button></nav></header>
   <main class="ap-main" id="lesson-content">
-    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 8</p><h1>Quick Sort</h1><p class="rm-lead">Thuật toán sắp xếp nhanh nhất trong thực tế trung bình — được dùng làm mặc định trong nhiều ngôn ngữ.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
-    <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div></div>
+    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 8</p><h1>Quick Sort</h1><p class="rm-lead">Phân hoạch phải tiến triển và đoạn đệ quy phải nhỏ đi; trường hợp xấu của Quick Sort vẫn bậc hai.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
+    <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter08">Làm quiz ở trang riêng</a></div>
     <p id="ap-message" role="status" aria-live="polite"></p>
-    <article class="rm-lesson-content"><div class="code-wrap">
-        <span class="code-label">quick_sort.py</span>
-        
-        <pre><code>def quick_sort(ds):
-    if len(ds) <= 1:
-        return ds
-    diem_chot = ds[len(ds) // 2]          # chọn pivot (điểm chốt) - ở đây chọn phần tử giữa
-    nho_hon = [x for x in ds if x < diem_chot]
-    bang = [x for x in ds if x == diem_chot]
-    lon_hon = [x for x in ds if x > diem_chot]
-    return quick_sort(nho_hon) + bang + quick_sort(lon_hon)   # đệ quy 2 nửa rồi ghép lại
-
-print(quick_sort([5, 2, 8, 1, 9, 3]))   # [1, 2, 3, 5, 8, 9]</code></pre>
-      </div>
-
-      <h3>Cách hoạt động</h3>
-      <ol>
-        <li>Chọn một phần tử làm <strong>pivot</strong> (điểm chốt).</li>
-        <li>Phân hoạch (partition): đưa phần tử nhỏ hơn pivot sang trái, lớn hơn sang phải.</li>
-        <li>Đệ quy sắp xếp hai nửa trái/phải độc lập.</li>
-      </ol>
-
-      <div class="box warning">
-        <div class="box-title">Cảnh báo — Trường hợp xấu nhất O(n²)</div>
-        Nếu luôn chọn pivot là phần tử nhỏ nhất/lớn nhất (VD: mảng đã sắp xếp sẵn, chọn pivot là phần tử đầu), Quick Sort suy biến thành O(n²). Cách khắc phục: chọn pivot ngẫu nhiên, hoặc dùng kỹ thuật "median-of-three".
-      </div>
-
-      <table>
-        <tr><th>Trường hợp</th><th>Độ phức tạp</th></tr>
-        <tr><td>Trung bình</td><td>O(n log n)</td></tr>
-        <tr><td>Xấu nhất (pivot chọn tệ liên tục)</td><td>O(n²)</td></tr>
-        <tr><td>Không gian</td><td>O(log n) - đệ quy, sắp xếp gần tại chỗ</td></tr>
-      </table>
-
-      <div class="summary-box">
-        <h4>📌 Tổng kết chương 8</h4>
-        <p>Quick Sort chọn pivot, phân hoạch rồi đệ quy — nhanh nhất trong thực tế trung bình (O(n log n)) nhưng có thể suy biến O(n²) nếu chọn pivot tệ liên tục.</p>
-      </div></article>
+    <article class="rm-lesson-content"><p class="ap-meta">Biên soạn theo tài liệu Cấu trúc dữ liệu và giải thuật — ThS. Bùi Văn Thượng, UTH. Đối chiếu mục 3.6. <a href="tai-lieu-ctdlgt.html#sap-xep">Nguồn và mục lục đối chiếu</a>.</p>
+<h2 id="muc-tieu">Mục tiêu</h2><ul><li>Hiểu pivot và phân hoạch hai đầu.</li><li>Xử lý đúng dãy trùng khóa, rỗng và một phần tử.</li></ul>
+<h2 id="van-de-thuc-te">Vấn đề thực tế</h2><p>Cần sắp một mảng ngay trong vùng dữ liệu hiện có bằng cách đưa phần tử nhỏ về trái, lớn về phải một giá trị chốt.</p>
+<h2 id="ly-thuyet">Lý thuyết nền</h2><p>Quick Sort chọn pivot (chốt), quét từ hai đầu để tìm phần tử nằm sai phía rồi đổi. Sau phân hoạch, tiếp tục sắp các đoạn chưa hoàn tất. Biến thể dưới lấy giá trị giữa làm chốt, dùng hai chỉ số i và j; pivot không nhất thiết nằm ở vị trí cuối cùng sau một lượt.</p><p>Ngay cả khi hai phần tử bằng pivot, sau đổi vẫn phải tăng i và giảm j để vòng lặp tiến triển. Dừng đệ quy khi left ≥ right trước khi đọc pivot. Phân hoạch cân đối cho Θ(n log n); trung bình cần giả thiết đầu vào/chọn chốt; xấu nhất Θ(n²). Stack thường O(log n) khi cân đối và có thể O(n) khi lệch.</p>
+<h2 id="vi-du">Ví dụ có thể chạy</h2><p>JavaScript, Node.js 22 trở lên; không dùng thư viện ngoài. Đây là bản chuyển thể cho website, không phải bản chép mã C/C++ bị dính dòng trong tài liệu Markdown. Lưu thành <code>chapter08.cjs</code> rồi chạy <code>node chapter08.cjs</code>. Các số trong ví dụ nằm trong miền nguyên an toàn, trừ phép chia biểu thức được giải thích riêng.</p>
+<div class="code-wrap"><span class="code-label">chapter08.cjs · JavaScript</span><pre><code>function quickSort(a, left = 0, right = a.length - 1) {
+   if (left &gt;= right) return a;
+   const pivot = a[Math.floor((left + right) / 2)];
+   let i = left, j = right;
+   while (i &lt;= j) {
+     while (a[i] &lt; pivot) i++;
+     while (a[j] &gt; pivot) j--;
+     if (i &lt;= j) {
+       [a[i], a[j]] = [a[j], a[i]];
+       i++; j--;
+     }
+   }
+   if (left &lt; j) quickSort(a, left, j);
+   if (i &lt; right) quickSort(a, i, right);
+   return a;
+ }
+ console.log(quickSort([1, 4, 8, 9, 0, 12, -5]));
+ // [-5, 0, 1, 4, 8, 9, 12]</code></pre></div>
+<h3>Giải thích các đoạn quan trọng</h3><ol><li>Điều kiện đầu hàm bảo vệ mảng rỗng và đoạn đơn.</li><li>Hai while dừng tại cặp sai phía hoặc bằng chốt; đổi cặp rồi tiến cả hai chỉ số.</li><li>Khi i vượt j, phân hoạch đã hoàn tất; đệ quy chỉ trên left…j và i…right.</li><li>Chốt đầu tiên bằng 9; đổi 9 với −5, sau đó tiếp tục chia các đoạn còn lại.</li></ol>
+<h2 id="loi-thuong-gap">Lỗi thường gặp</h2><ul><li>Quên cập nhật i/j khi khóa trùng.</li><li>Khẳng định mọi cách chọn chốt đều đảm bảo O(n log n).</li></ul>
+<h2 id="bai-tap">Bài tập ba mức</h2><h3>Mức 1 — Cơ bản</h3><p>Theo dõi i/j trên [3, 1, 2].</p><h3>Mức 2 — Vận dụng</h3><p>Thử dãy tất cả phần tử bằng nhau và giải thích vì sao dừng.</p><h3>Mức 3 — Nâng cao</h3><p>So sánh chọn chốt đầu, giữa và ngẫu nhiên trên các họ đầu vào; trình bày rủi ro stack.</p>
+<div class="summary-box"><h2 id="tom-tat">Tóm tắt</h2><p>Phân hoạch phải tiến triển và đoạn đệ quy phải nhỏ đi; trường hợp xấu của Quick Sort vẫn bậc hai.</p></div>
+<h2 id="quiz">Quiz</h2><p>Câu hỏi chỉ dựa trên lý thuyết và ví dụ của bài này. <a href="quiz.html?chapter=chapter08">Mở quiz Quick Sort</a>.</p></article>
     <section class="ap-related"><h2>Bài học liên quan</h2><a href="chapter07.html">Merge Sort →</a></section>
     <nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter07.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Bài trước</span></a><a href="chapter09.html"><span>Bài tiếp theo →</span></a></nav>
     <footer class="rm-footer"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter08"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a href="../index.html">Trang chủ</a></footer>

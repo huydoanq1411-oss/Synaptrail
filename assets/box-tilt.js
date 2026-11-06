@@ -1,7 +1,7 @@
 /* CSS-only rendering; pointer coordinates are batched into one animation frame. */
 (() => {
   'use strict';
-  const cards = [...document.querySelectorAll('#allCourses .resource-card')];
+  const cards = [...document.querySelectorAll('#allCourses .resource-card, .landing-page .path-card')];
   if (!cards.length) return;
   const abort = new AbortController();
   let active = null, frame = 0, point = null, bounds = null;

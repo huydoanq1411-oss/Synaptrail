@@ -3,17 +3,21 @@
 <head>
 <script>
 (function(){
+  var t = 'dark';
   try{
-    var t = localStorage.getItem('synaptrail-theme') || 'dark';
-    if(!localStorage.getItem('synaptrail-glass-design')){t='dark';localStorage.setItem('synaptrail-theme',t);localStorage.setItem('synaptrail-glass-design','1');}
-    document.documentElement.setAttribute('data-theme', t);
-  }catch(e){
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
+    var saved = localStorage.getItem('synaptrail-theme');
+    if(saved === 'light' || saved === 'dark') t = saved;
+  }catch(e){}
+  document.documentElement.setAttribute('data-theme', t);
+  // Legacy design marker must never replace a saved theme or block rendering.
+  try{
+    if(!localStorage.getItem('synaptrail-glass-design')) localStorage.setItem('synaptrail-glass-design','1');
+  }catch(e){}
 })();
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Khám phá tài liệu học lập trình Synaptrail theo nghề nghiệp, kỹ năng, hướng dẫn thực hành và ý tưởng dự án.">
 <title>Synaptrail — Học Toàn Diện</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -906,6 +910,7 @@ html[data-theme="dark"] .prompt-copy-btn{ background: var(--line); color:#04121f
 <link rel="stylesheet" href="assets/fx3d.css">
 <link rel="stylesheet" href="assets/role3d.css">
 <link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/interaction-fx.css">
 <link rel="stylesheet" href="assets/cards.css">
 </head>
 <body class="catalog-page">
@@ -1139,11 +1144,8 @@ html[data-theme="dark"] .prompt-copy-btn{ background: var(--line); color:#04121f
    DARK / LIGHT MODE — lưu lựa chọn bằng localStorage
    ============================================================ */
 (function initTheme(){
-  let saved; try { saved = localStorage.getItem('synaptrail-theme'); } catch {}
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const theme = saved || 'light';
-  document.documentElement.setAttribute('data-theme', theme);
-  updateThemeIcon(theme);
+  // The head initializer already validated the choice; only synchronize the icon.
+  updateThemeIcon(document.documentElement.getAttribute('data-theme'));
 })();
 
 function updateThemeIcon(theme){
@@ -1333,6 +1335,7 @@ function fallbackCopy(text, cb){
 <script src="assets/catalog.js" defer></script>
 <script src="assets/fx3d.js" defer></script>
 <script src="assets/box-tilt.js" defer></script>
+<script src="assets/search-fx.js" defer></script>
 <script src="assets/role3d.js" defer></script>
 <script src="assets/progress.js"></script>
 <dialog id="roleModal" class="role-modal" aria-labelledby="roleModalTitle"><div class="role-panel-head"><h2 id="roleModalTitle" data-role-title></h2><button type="button" data-close-role aria-label="Đóng bảng kỹ năng">Đóng ×</button></div><div class="role-skills"></div></dialog></body>

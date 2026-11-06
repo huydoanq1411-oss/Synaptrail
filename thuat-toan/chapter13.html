@@ -2,7 +2,7 @@
 <html lang="vi" data-theme="dark">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Tìm kiếm nhị phân — O(log n), nhanh vượt trội so với Linear Search, nhưng YÊU CẦU dữ liệu đã sắp xếp.">
+  <meta name="description" content="Điều kiện có thứ tự và quy ước biên phải được giữ xuyên suốt; chi phí thao tác sau tìm phải tính riêng.">
   <title>Binary Search | Thuật toán — Synaptrail</title>
   <link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css">
   <script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script>
@@ -11,64 +11,34 @@
   <a class="rm-skip" href="#lesson-content">Bỏ qua điều hướng</a>
   <header class="rm-header ap-header"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter13"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">◐ Giao diện</button></nav></header>
   <main class="ap-main" id="lesson-content">
-    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 13</p><h1>Binary Search</h1><p class="rm-lead">Tìm kiếm nhị phân — O(log n), nhanh vượt trội so với Linear Search, nhưng YÊU CẦU dữ liệu đã sắp xếp.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
+    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 13</p><h1>Binary Search</h1><p class="rm-lead">Điều kiện có thứ tự và quy ước biên phải được giữ xuyên suốt; chi phí thao tác sau tìm phải tính riêng.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
     <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter13">Làm quiz ở trang riêng →</a></div>
     <p id="ap-message" role="status" aria-live="polite"></p>
-    <article class="rm-lesson-content"><div class="code-wrap">
-        <span class="code-label">binary_search.py</span>
-        
-        <pre><code>def binary_search(ds, target):
-    trai, phai = 0, len(ds) - 1
-    while trai <= phai:
-        giua = trai + (phai - trai) // 2       # tránh tràn số so với (trai+phai)//2 ở ngôn ngữ khác
-        if ds[giua] == target:
-            return giua
-        elif ds[giua] < target:
-            trai = giua + 1                        # target ở nửa PHẢI
-        else:
-            phai = giua - 1                          # target ở nửa TRÁI
-    return -1
-
-ds = [1, 3, 5, 7, 9, 11, 13, 15]
-print(binary_search(ds, 11))   # 5</code></pre>
-      </div>
-
-      <h3>Trực quan hóa quá trình tìm kiếm</h3>
-      <pre><code>Tìm 11 trong [1, 3, 5, 7, 9, 11, 13, 15]
-
-Bước 1: trai=0, phai=7, giua=3 -> ds[3]=7 < 11  -> tìm nửa PHẢI
-Bước 2: trai=4, phai=7, giua=5 -> ds[5]=11 == 11 -> TÌM THẤY tại chỉ số 5
-
-Chỉ mất 2 bước thay vì phải duyệt 6 phần tử như Linear Search!</code></pre>
-
-      <div class="code-wrap">
-        <span class="code-label">binary_search_de_quy.py</span>
-        
-        <pre><code>def binary_search_de_quy(ds, target, trai=0, phai=None):
-    if phai is None:
-        phai = len(ds) - 1
-    if trai > phai:
-        return -1
-    giua = trai + (phai - trai) // 2
-    if ds[giua] == target:
-        return giua
-    elif ds[giua] < target:
-        return binary_search_de_quy(ds, target, giua + 1, phai)
-    else:
-        return binary_search_de_quy(ds, target, trai, giua - 1)</code></pre>
-      </div>
-
-      <div class="box important">
-        <div class="box-title">Quan trọng</div>
-        Binary Search <strong>BẮT BUỘC</strong> dữ liệu phải đã được sắp xếp trước. Áp dụng lên dữ liệu chưa sắp xếp sẽ cho kết quả sai (hoặc không tìm thấy dù phần tử tồn tại) mà không hề báo lỗi — đây là bug rất khó phát hiện.
-      </div>
-
-      
-
-      <div class="summary-box">
-        <h4>📌 Tổng kết chương 13</h4>
-        <p>Binary Search liên tục chia đôi phạm vi tìm kiếm, đạt O(log n) — nhưng yêu cầu bắt buộc dữ liệu đã sắp xếp. Có thể cài đặt bằng vòng lặp hoặc đệ quy.</p>
-      </div></article>
+    <article class="rm-lesson-content"><p class="ap-meta">Biên soạn theo tài liệu Cấu trúc dữ liệu và giải thuật — ThS. Bùi Văn Thượng, UTH. Đối chiếu mục 2.3, 2.4, BT2. <a href="tai-lieu-ctdlgt.html#tim-kiem">Nguồn và mục lục đối chiếu</a>.</p>
+<h2 id="muc-tieu">Mục tiêu</h2><ul><li>Cài Binary Search với biên đóng.</li><li>Giữ điều kiện mảng tăng không giảm.</li></ul>
+<h2 id="van-de-thuc-te">Vấn đề thực tế</h2><p>Đã có mảng mã tăng dần và cần tra cứu nhiều lần; bỏ một nửa phạm vi sau mỗi phép so sánh.</p>
+<h2 id="ly-thuyet">Lý thuyết nền</h2><p>Binary Search (tìm nhị phân) cần dữ liệu có thứ tự theo đúng comparator tìm kiếm, và truy cập phần tử giữa hiệu quả. Mảng tăng không giảm có thể chứa khóa trùng; không bắt buộc tăng nghiêm ngặt. Với đoạn đóng [left,right], nếu a[mid]&lt;x thì loại cả nửa trái gồm mid; nếu lớn hơn thì loại nửa phải.</p><p>Bất biến: nếu x còn tồn tại trong phần chưa loại, nó nằm trong [left,right]. Dùng while(left ≤ right) để mảng rỗng không bị đọc. Thời gian tốt nhất O(1), xấu nhất O(log n); bộ nhớ phụ O(1). Sắp trước tốn chi phí riêng; không nên sắp chỉ cho một lần tìm khi tuyến tính là đủ.</p>
+<h2 id="vi-du">Ví dụ có thể chạy</h2><p>JavaScript, Node.js 22 trở lên; không dùng thư viện ngoài. Đây là bản chuyển thể cho website, không phải bản chép mã C/C++ bị dính dòng trong tài liệu Markdown. Lưu thành <code>chapter13.cjs</code> rồi chạy <code>node chapter13.cjs</code>. Các số trong ví dụ nằm trong miền nguyên an toàn, trừ phép chia biểu thức được giải thích riêng.</p>
+<div class="code-wrap"><span class="code-label">chapter13.cjs · JavaScript</span><pre><code>function binarySearch(a, x) {
+   let left = 0, right = a.length - 1;
+   while (left &lt;= right) {
+     const mid = left + Math.floor((right - left) / 2);
+     if (a[mid] === x) return mid;
+     if (a[mid] &lt; x) left = mid + 1;
+     else right = mid - 1;
+   }
+   return -1;
+ }
+ const a = [1,2,3,4,5,6,7,8,9];
+ const viTri = binarySearch(a, 5);
+ if (viTri !== -1) a.splice(viTri, 1);
+ console.log(a); // [1,2,3,4,6,7,8,9]
+ console.log(binarySearch([], 5)); // -1</code></pre></div>
+<h3>Giải thích các đoạn quan trọng</h3><ol><li>right=n−1 làm đoạn rỗng khi n=0; while không chạy nên an toàn.</li><li>mid tính từ độ dài đoạn; công thức cũng tránh cộng hai chỉ số lớn trong ngôn ngữ số nguyên hữu hạn.</li><li>mid±1 bỏ vị trí đã xét và làm đoạn nhỏ lại.</li><li>splice xóa một phần tử sau khi tìm, cần dịch phần sau nên tổng tìm-rồi-xóa vẫn có thể O(n).</li></ol>
+<h2 id="loi-thuong-gap">Lỗi thường gặp</h2><ul><li>Tìm nhị phân trên dữ liệu chưa sắp.</li><li>Dùng do…while khiến mảng rỗng vẫn đọc mid một lần.</li><li>Kết luận thao tác xóa mảng O(log n) chỉ vì tìm vị trí O(log n).</li></ul>
+<h2 id="bai-tap">Bài tập ba mức</h2><h3>Mức 1 — Cơ bản</h3><p>Theo dõi left/right/mid khi tìm 8 trong [1…9].</p><h3>Mức 2 — Vận dụng</h3><p>Nhập mảng, sắp tăng, tìm X và xóa một lần xuất hiện nếu có; thử X ngoài miền.</p><h3>Mức 3 — Nâng cao</h3><p>So sánh một lần tìm với nhiều lần tìm, tính cả chi phí sắp trước và dịch sau xóa.</p>
+<div class="summary-box"><h2 id="tom-tat">Tóm tắt</h2><p>Điều kiện có thứ tự và quy ước biên phải được giữ xuyên suốt; chi phí thao tác sau tìm phải tính riêng.</p></div>
+<h2 id="quiz">Quiz</h2><p>Câu hỏi chỉ dựa trên lý thuyết và ví dụ của bài này. <a href="quiz.html?chapter=chapter13">Mở quiz Binary Search</a>.</p></article>
     <section class="ap-related"><h2>Bài học liên quan</h2><a href="chapter14.html">Biến thể Binary Search →</a><a href="chapter12.html">Linear Search →</a></section>
     <nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter12.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Bài trước</span></a><a href="chapter14.html"><span>Bài tiếp theo →</span></a></nav>
     <footer class="rm-footer"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter13"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a href="../index.html">Trang chủ</a></footer>

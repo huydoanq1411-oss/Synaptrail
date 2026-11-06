@@ -2,7 +2,7 @@
 <html lang="vi" data-theme="dark">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="BST tự động &quot;cân bằng lại&quot; sau mỗi lần thêm/xóa — đảm bảo O(log n) LUÔN ĐÚNG, không suy biến như BST thường.">
+  <meta name="description" content="AVL giữ thứ tự BST và bất biến chiều cao; xóa cần phục hồi từ điểm xóa về tận gốc khi cần.">
   <title>Cây cân bằng (AVL) | Thuật toán — Synaptrail</title>
   <link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css">
   <script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script>
@@ -11,58 +11,72 @@
   <a class="rm-skip" href="#lesson-content">Bỏ qua điều hướng</a>
   <header class="rm-header ap-header"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter22"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">◐ Giao diện</button></nav></header>
   <main class="ap-main" id="lesson-content">
-    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 22</p><h1>Cây cân bằng (AVL)</h1><p class="rm-lead">BST tự động &quot;cân bằng lại&quot; sau mỗi lần thêm/xóa — đảm bảo O(log n) LUÔN ĐÚNG, không suy biến như BST thường.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
-    <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div></div>
+    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 22</p><h1>Cây cân bằng (AVL)</h1><p class="rm-lead">AVL giữ thứ tự BST và bất biến chiều cao; xóa cần phục hồi từ điểm xóa về tận gốc khi cần.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
+    <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter22">Làm quiz ở trang riêng</a></div>
     <p id="ap-message" role="status" aria-live="polite"></p>
-    <article class="rm-lesson-content"><h3>Hệ số cân bằng (Balance Factor)</h3>
-      <p>Với mỗi node, <code>hệ số cân bằng = chiều cao(nhánh trái) - chiều cao(nhánh phải)</code>. Cây AVL yêu cầu hệ số này luôn nằm trong khoảng <strong>[-1, 0, 1]</strong> ở MỌI node.</p>
-
-      <div class="code-wrap">
-        <span class="code-label">avl_rotation.py</span>
-        
-        <pre><code>def chieu_cao(node):
-    return node.chieu_cao if node else 0
-
-def he_so_can_bang(node):
-    return chieu_cao(node.trai) - chieu_cao(node.phai)
-
-def xoay_phai(y):                        # xoay để cân bằng lại khi lệch trái quá nhiều
-    x = y.trai
-    T2 = x.phai
-    x.phai = y
-    y.trai = T2
-    y.chieu_cao = 1 + max(chieu_cao(y.trai), chieu_cao(y.phai))
-    x.chieu_cao = 1 + max(chieu_cao(x.trai), chieu_cao(x.phai))
-    return x                                # x trở thành gốc mới của nhánh con này
-
-def xoay_trai(x):                        # xoay để cân bằng lại khi lệch phải quá nhiều
-    y = x.phai
-    T2 = y.trai
-    y.trai = x
-    x.phai = T2
-    x.chieu_cao = 1 + max(chieu_cao(x.trai), chieu_cao(x.phai))
-    y.chieu_cao = 1 + max(chieu_cao(y.trai), chieu_cao(y.phai))
-    return y</code></pre>
-      </div>
-
-      <h3>4 trường hợp mất cân bằng cần xử lý</h3>
-      <table>
-        <tr><th>Trường hợp</th><th>Cách xử lý</th></tr>
-        <tr><td>Left-Left (lệch trái của trái)</td><td>Xoay phải MỘT LẦN</td></tr>
-        <tr><td>Right-Right (lệch phải của phải)</td><td>Xoay trái MỘT LẦN</td></tr>
-        <tr><td>Left-Right (lệch trái rồi phải)</td><td>Xoay trái nhánh con, rồi xoay phải</td></tr>
-        <tr><td>Right-Left (lệch phải rồi trái)</td><td>Xoay phải nhánh con, rồi xoay trái</td></tr>
-      </table>
-
-      <div class="box note">
-        <div class="box-title">Ghi chú thực tế</div>
-        Trong công việc hàng ngày, bạn hầu như <strong>không bao giờ tự cài đặt AVL Tree từ đầu</strong> — hiểu nguyên lý là đủ. Các ngôn ngữ/thư viện đã có cấu trúc cân bằng sẵn (VD: <code>TreeMap</code> trong Java dùng Red-Black Tree, một biến thể cây cân bằng khác).
-      </div>
-
-      <div class="summary-box">
-        <h4>📌 Tổng kết chương 22</h4>
-        <p>AVL Tree tự cân bằng bằng các phép xoay (rotation) sau mỗi lần thêm/xóa, đảm bảo hệ số cân bằng luôn trong [-1,1] — giữ O(log n) trong MỌI trường hợp, khắc phục nhược điểm suy biến của BST thường.</p>
-      </div></article>
+    <article class="rm-lesson-content"><p class="ap-meta">Biên soạn theo tài liệu Cấu trúc dữ liệu và giải thuật — ThS. Bùi Văn Thượng, UTH. Đối chiếu mục 5.4, BT5.c. <a href="tai-lieu-ctdlgt.html#cay">Nguồn và mục lục đối chiếu</a>.</p>
+<h2 id="muc-tieu">Mục tiêu</h2><ul><li>Nhận biết LL/LR/RR/RL.</li><li>Cài thêm/xóa và cập nhật chiều cao AVL.</li></ul>
+<h2 id="van-de-thuc-te">Vấn đề thực tế</h2><p>BST thêm dãy đã tăng bị dài như danh sách; cần tự phục hồi chiều cao sau các lần thêm hoặc xóa.</p>
+<h2 id="ly-thuyet">Lý thuyết nền</h2><p>AVL là BST có chênh lệch chiều cao hai cây con tại mọi nút không quá 1. Quy ước trong code: height(null)=0, lá=1 (đếm theo số nút), balance=height(left)−height(right). Quy ước này khác bài chiều cao theo cạnh đúng 1 đơn vị, nhưng chênh lệch không đổi. Tài liệu gọi LH/EH/RH là lệch trái/cân bằng/lệch phải; không suy diễn dấu khi tài liệu dùng quy ước khác.</p><ul><li>LL: nút lệch trái và con trái không lệch phải → quay phải.</li><li>LR: lệch trái nhưng con trái lệch phải → quay trái con trái, rồi quay phải nút.</li><li>RR: lệch phải và con phải không lệch trái → quay trái.</li><li>RL: lệch phải nhưng con phải lệch trái → quay phải con phải, rồi quay trái nút.</li></ul><p>Phép quay giữ thứ tự LNR; phải cập nhật chiều cao nút cũ trước nút mới. Thêm như BST rồi cân bằng từ dưới lên. Xóa như BST rồi cân bằng mọi tổ tiên bị ảnh hưởng, có thể lan đến gốc; không chỉ xử lý một điểm. Tìm/thêm/xóa O(log n) vì AVL giữ chiều cao logarit. Code tự chứa, dùng khóa số hữu hạn, bỏ qua trùng.</p>
+<h2 id="vi-du">Ví dụ có thể chạy</h2><p>JavaScript, Node.js 22 trở lên; không dùng thư viện ngoài. Đây là bản chuyển thể cho website, không phải bản chép mã C/C++ bị dính dòng trong tài liệu Markdown. Lưu thành <code>chapter22.cjs</code> rồi chạy <code>node chapter22.cjs</code>. Các số trong ví dụ nằm trong miền nguyên an toàn, trừ phép chia biểu thức được giải thích riêng.</p>
+<div class="code-wrap"><span class="code-label">chapter22.cjs · JavaScript</span><pre><code>const height = n =&gt; n ? n.height : 0;
+ const balance = n =&gt; n ? height(n.left) - height(n.right) : 0;
+ function update(n) { n.height = 1 + Math.max(height(n.left), height(n.right)); return n; }
+ function rotateRight(y) {
+   const x = y.left, middle = x.right;
+   x.right = y; y.left = middle;
+   update(y); return update(x);
+ }
+ function rotateLeft(x) {
+   const y = x.right, middle = y.left;
+   y.left = x; x.right = middle;
+   update(x); return update(y);
+ }
+ function rebalance(n) {
+   if (!n) return null; update(n);
+   if (balance(n) &gt; 1) {
+     if (balance(n.left) &lt; 0) n.left = rotateLeft(n.left);
+     return rotateRight(n);
+   }
+   if (balance(n) &lt; -1) {
+     if (balance(n.right) &gt; 0) n.right = rotateRight(n.right);
+     return rotateLeft(n);
+   }
+   return n;
+ }
+ function avlInsert(n, key) {
+   if (!Number.isFinite(key)) throw new TypeError('Khóa phải là số hữu hạn');
+   if (!n) return {key, left:null, right:null, height:1};
+   if (key &lt; n.key) n.left = avlInsert(n.left, key);
+   else if (key &gt; n.key) n.right = avlInsert(n.right, key);
+   else return n;
+   return rebalance(n);
+ }
+ function avlRemove(n, key) {
+   if (!n) return null;
+   if (key &lt; n.key) n.left = avlRemove(n.left, key);
+   else if (key &gt; n.key) n.right = avlRemove(n.right, key);
+   else {
+     if (!n.left) return n.right;
+     if (!n.right) return n.left;
+     let successor = n.right; while (successor.left) successor = successor.left;
+     n.key = successor.key; n.right = avlRemove(n.right, successor.key);
+   }
+   return rebalance(n);
+ }
+ function inorder(n, out = []) {
+   if (n) { inorder(n.left, out); out.push(n.key); inorder(n.right, out); }
+   return out;
+ }
+ let root = null;
+ for (const x of [54,31,43,29,65,10,20,36,78,59]) root = avlInsert(root, x);
+ root = avlRemove(root, 31);
+ console.log(inorder(root)); // [10,20,29,36,43,54,59,65,78]</code></pre></div>
+<h3>Giải thích các đoạn quan trọng</h3><ol><li>height/balance dùng số nút, update lấy chiều cao con rồi cộng 1.</li><li>rotateRight chuyển cây giữa từ x.right sang y.left trước khi nối x làm gốc mới; thứ tự khóa được giữ.</li><li>rebalance chọn phép quay từ dấu của nút và con, nên dùng được cả khi xóa (con có thể balance=0).</li><li>avlInsert/avlRemove cập nhật liên kết bằng gốc trả về; mỗi tầng quay về rebalance.</li><li>Xóa hai con dùng successor giống BST; chiều cao và cân bằng phải được kiểm lại dọc đường trở về.</li></ol>
+<h2 id="loi-thuong-gap">Lỗi thường gặp</h2><ul><li>Cập nhật chiều cao gốc mới trước khi cập nhật nút cũ sau quay.</li><li>Chọn phép quay chỉ dựa trên khóa vừa thêm khi đang xử lý xóa.</li><li>Dừng cân bằng ngay sau một phép quay trong quá trình xóa.</li></ul>
+<h2 id="bai-tap">Bài tập ba mức</h2><h3>Mức 1 — Cơ bản</h3><p>Dùng [30,20,10], [30,10,20], [10,20,30], [10,30,20] để tạo bốn kiểu lệch.</p><h3>Mức 2 — Vận dụng</h3><p>BT5.c: xây lại cây từ bộ khóa bài 5 bằng AVL insert; vẽ các phép quay và kiểm LNR.</p><h3>Mức 3 — Nâng cao</h3><p>Xóa nhiều khóa liên tiếp, sau mỗi bước kiểm thứ tự, height lưu và |balance|≤1 ở mọi nút; có ít nhất một ca lan cân bằng nhiều tầng.</p>
+<div class="summary-box"><h2 id="tom-tat">Tóm tắt</h2><p>AVL giữ thứ tự BST và bất biến chiều cao; xóa cần phục hồi từ điểm xóa về tận gốc khi cần.</p></div>
+<h2 id="quiz">Quiz</h2><p>Câu hỏi chỉ dựa trên lý thuyết và ví dụ của bài này. <a href="quiz.html?chapter=chapter22">Mở quiz Cây cân bằng (AVL)</a>.</p></article>
     <section class="ap-related"><h2>Bài học liên quan</h2><a href="chapter21.html">Binary Search Tree (BST) →</a></section>
     <nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter21.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Bài trước</span></a><a href="chapter23.html"><span>Bài tiếp theo →</span></a></nav>
     <footer class="rm-footer"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter22"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a href="../index.html">Trang chủ</a></footer>

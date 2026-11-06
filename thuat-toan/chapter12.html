@@ -2,7 +2,7 @@
 <html lang="vi" data-theme="dark">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Thuật toán tìm kiếm đơn giản nhất — duyệt tuần tự từng phần tử cho tới khi tìm thấy.">
+  <meta name="description" content="Tìm một khóa có thể dừng sớm; lọc/xóa toàn bộ phải quét hết và bảo vệ dữ liệu chưa đọc.">
   <title>Linear Search | Thuật toán — Synaptrail</title>
   <link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css">
   <script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script>
@@ -11,37 +11,38 @@
   <a class="rm-skip" href="#lesson-content">Bỏ qua điều hướng</a>
   <header class="rm-header ap-header"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter12"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">◐ Giao diện</button></nav></header>
   <main class="ap-main" id="lesson-content">
-    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 12</p><h1>Linear Search</h1><p class="rm-lead">Thuật toán tìm kiếm đơn giản nhất — duyệt tuần tự từng phần tử cho tới khi tìm thấy.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
-    <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div></div>
+    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 12</p><h1>Linear Search</h1><p class="rm-lead">Tìm một khóa có thể dừng sớm; lọc/xóa toàn bộ phải quét hết và bảo vệ dữ liệu chưa đọc.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
+    <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter12">Làm quiz ở trang riêng</a></div>
     <p id="ap-message" role="status" aria-live="polite"></p>
-    <article class="rm-lesson-content"><div class="code-wrap">
-        <span class="code-label">linear_search.py</span>
-        
-        <pre><code>def linear_search(ds, target):
-    for i, x in enumerate(ds):
-        if x == target:
-            return i          # trả về chỉ số ngay khi tìm thấy
-    return -1                    # không tìm thấy
-
-print(linear_search([4, 2, 7, 1, 9], 7))   # 2
-print(linear_search([4, 2, 7, 1, 9], 100)) # -1</code></pre>
-      </div>
-
-      <table>
-        <tr><th>Trường hợp</th><th>Độ phức tạp</th></tr>
-        <tr><td>Tốt nhất (phần tử đầu tiên)</td><td>O(1)</td></tr>
-        <tr><td>Xấu nhất (phần tử cuối/không có)</td><td>O(n)</td></tr>
-      </table>
-
-      <div class="box tip">
-        <div class="box-title">Mẹo</div>
-        Linear Search là lựa chọn DUY NHẤT khi dữ liệu <strong>chưa được sắp xếp</strong> — không có cách nào tìm nhanh hơn O(n) nếu không biết trước thứ tự của dữ liệu.
-      </div>
-
-      <div class="summary-box">
-        <h4>📌 Tổng kết chương 12</h4>
-        <p>Linear Search duyệt tuần tự, O(n), hoạt động với mọi loại dữ liệu kể cả chưa sắp xếp — nhưng chậm hơn nhiều so với Binary Search khi dữ liệu đã sắp xếp.</p>
-      </div></article>
+    <article class="rm-lesson-content"><p class="ap-meta">Biên soạn theo tài liệu Cấu trúc dữ liệu và giải thuật — ThS. Bùi Văn Thượng, UTH. Đối chiếu mục 2.1, 2.2, 2.4, BT2. <a href="tai-lieu-ctdlgt.html#tim-kiem">Nguồn và mục lục đối chiếu</a>.</p>
+<h2 id="muc-tieu">Mục tiêu</h2><ul><li>Cài tìm tuyến tính và lính canh.</li><li>Lọc/xóa theo điều kiện mà không bỏ sót phần tử.</li></ul>
+<h2 id="van-de-thuc-te">Vấn đề thực tế</h2><p>Dữ liệu chưa sắp cần tìm mã, lọc số dương chia hết cho 3 hoặc xóa các số dương có hai chữ số.</p>
+<h2 id="ly-thuyet">Lý thuyết nền</h2><p>Linear Search / Sequential Search (tìm tuyến tính/tuần tự) so khóa từng phần tử đến khi tìm thấy hoặc hết dãy. Không cần dữ liệu đã sắp; trả chỉ số đầu tiên hoặc −1. Tốt nhất Θ(1), xấu nhất Θ(n), phụ O(1). Tìm mọi phần tử thỏa điều kiện vẫn phải xét hết.</p><p>Sentinel (lính canh) đặt một bản sao của khóa ở ô cuối bổ sung để vòng quét không cần kiểm biên mỗi lượt. Trong C/C++ phải thật sự có ô hợp lệ a[n], không được ghi ngoài vùng cấp phát. Bản dưới sao chép rồi thêm lính canh nên dùng O(n) phụ; kiểm i &lt; n để phân biệt khóa thật với lính canh.</p><p>Xóa nhiều phần tử bằng dịch trái cần kiểm lại vị trí vừa dịch về. Có thể dùng kỹ thuật hai chỉ số đọc/ghi để nén mảng một lượt; chỉ ghi những phần tử muốn giữ, rồi thu ngắn length.</p>
+<h2 id="vi-du">Ví dụ có thể chạy</h2><p>JavaScript, Node.js 22 trở lên; không dùng thư viện ngoài. Đây là bản chuyển thể cho website, không phải bản chép mã C/C++ bị dính dòng trong tài liệu Markdown. Lưu thành <code>chapter12.cjs</code> rồi chạy <code>node chapter12.cjs</code>. Các số trong ví dụ nằm trong miền nguyên an toàn, trừ phép chia biểu thức được giải thích riêng.</p>
+<div class="code-wrap"><span class="code-label">chapter12.cjs · JavaScript</span><pre><code>function linearSearch(a, x) {
+   for (let i = 0; i &lt; a.length; i++) if (a[i] === x) return i;
+   return -1;
+ }
+ function sentinelSearch(a, x) {
+   const b = [...a, x], n = a.length; let i = 0;
+   while (b[i] !== x) i++;
+   return i &lt; n ? i : -1;
+ }
+ function xoaDuongHaiChuSo(a) {
+   let ghi = 0;
+   for (let doc = 0; doc &lt; a.length; doc++)
+     if (!(a[doc] &gt;= 10 &amp;&amp; a[doc] &lt;= 99)) a[ghi++] = a[doc];
+   a.length = ghi;
+   return a;
+ }
+ console.log([0,9,12,-4,5,-1,22,4].filter(x =&gt; x &gt; 0 &amp;&amp; x % 3 === 0)); // [9,12]
+ console.log(xoaDuongHaiChuSo([3,11,44,55,6,9,122])); // [3,6,9,122]
+ console.log(sentinelSearch([2, 4, 4], 4)); // 1</code></pre></div>
+<h3>Giải thích các đoạn quan trọng</h3><ol><li>linearSearch trả ngay chỉ số đầu tiên. −1 là tín hiệu không có khóa, không phải chỉ số cần đọc.</li><li>b có n+1 ô, nên chắc chắn gặp x; chỉ số n chỉ là lính canh.</li><li>doc quét mọi ô ban đầu; ghi luôn không vượt doc nên không ghi hỏng phần chưa đọc.</li><li>Cuối vòng, length=ghi bỏ các ô dư. Ví dụ áp dụng trên số nguyên, không dùng khoảng 10…99 để phân loại số thực.</li></ol>
+<h2 id="loi-thuong-gap">Lỗi thường gặp</h2><ul><li>Xem chỉ số 0 là false và kết luận không tìm thấy.</li><li>Tăng chỉ số sau xóa bằng dịch trái làm bỏ sót hai phần tử liên tiếp cần xóa.</li></ul>
+<h2 id="bai-tap">Bài tập ba mức</h2><h3>Mức 1 — Cơ bản</h3><p>Tìm các số lẻ trong A và lưu sang B; thử cả số âm, rỗng và không có số lẻ.</p><h3>Mức 2 — Vận dụng</h3><p>Đếm khoảng trắng, chữ số ASCII 0–9 và chữ hoa A–Z trong chuỗi; ghi rõ nếu mở rộng Unicode.</p><h3>Mức 3 — Nâng cao</h3><p>Viết và so sánh xóa bằng dịch trái với nén hai chỉ số trên dãy có nhiều số hai chữ số liên tiếp.</p>
+<div class="summary-box"><h2 id="tom-tat">Tóm tắt</h2><p>Tìm một khóa có thể dừng sớm; lọc/xóa toàn bộ phải quét hết và bảo vệ dữ liệu chưa đọc.</p></div>
+<h2 id="quiz">Quiz</h2><p>Câu hỏi chỉ dựa trên lý thuyết và ví dụ của bài này. <a href="quiz.html?chapter=chapter12">Mở quiz Linear Search</a>.</p></article>
     
     <nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter11.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Bài trước</span></a><a href="chapter13.html"><span>Bài tiếp theo →</span></a></nav>
     <footer class="rm-footer"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter12"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a href="../index.html">Trang chủ</a></footer>

@@ -2,7 +2,7 @@
 <html lang="vi" data-theme="dark">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Hai cách cơ bản nhất để lưu trữ một dãy phần tử — mỗi cách có đánh đổi (trade-off) riêng.">
+  <meta name="description" content="Chi phí tìm vị trí thường lớn hơn sửa liên kết; kiểu danh sách quyết định bất biến cần giữ.">
   <title>Array vs Linked List | Thuật toán — Synaptrail</title>
   <link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css">
   <script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script>
@@ -11,33 +11,35 @@
   <a class="rm-skip" href="#lesson-content">Bỏ qua điều hướng</a>
   <header class="rm-header ap-header"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter16"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">◐ Giao diện</button></nav></header>
   <main class="ap-main" id="lesson-content">
-    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 16</p><h1>Array vs Linked List</h1><p class="rm-lead">Hai cách cơ bản nhất để lưu trữ một dãy phần tử — mỗi cách có đánh đổi (trade-off) riêng.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
-    <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div></div>
+    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 16</p><h1>Array vs Linked List</h1><p class="rm-lead">Chi phí tìm vị trí thường lớn hơn sửa liên kết; kiểu danh sách quyết định bất biến cần giữ.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
+    <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter16">Làm quiz ở trang riêng</a></div>
     <p id="ap-message" role="status" aria-live="polite"></p>
-    <article class="rm-lesson-content"><h3>Array (Mảng) — lưu liên tục trong bộ nhớ</h3>
-      <p>Mảng lưu các phần tử ở các ô nhớ LIÊN TỤC, liền kề nhau — nhờ đó có thể tính trực tiếp địa chỉ của phần tử thứ i bằng công thức, cho phép truy cập O(1).</p>
-
-      <h3>Linked List (Danh sách liên kết) — lưu rải rác, nối bằng con trỏ</h3>
-      <p>Mỗi phần tử (node) nằm ở một vị trí bộ nhớ bất kỳ, chỉ được "nối" với nhau qua con trỏ trỏ tới node kế tiếp.</p>
-
-      <table>
-        <tr><th>Thao tác</th><th>Array</th><th>Linked List</th></tr>
-        <tr><td>Truy cập theo chỉ số</td><td>O(1)</td><td>O(n)</td></tr>
-        <tr><td>Tìm kiếm giá trị</td><td>O(n)</td><td>O(n)</td></tr>
-        <tr><td>Chèn/xóa ở ĐẦU</td><td>O(n) - phải dịch chuyển</td><td>O(1)</td></tr>
-        <tr><td>Chèn/xóa ở CUỐI</td><td>O(1) amortized</td><td>O(1) nếu có con trỏ đuôi, O(n) nếu không</td></tr>
-        <tr><td>Bộ nhớ</td><td>Liên tục, tiết kiệm hơn</td><td>Rải rác, tốn thêm bộ nhớ cho con trỏ</td></tr>
-      </table>
-
-      <div class="box tip">
-        <div class="box-title">Mẹo ghi nhớ</div>
-        Array mạnh khi cần <strong>truy cập ngẫu nhiên nhiều</strong> (VD: tra bảng). Linked List mạnh khi cần <strong>chèn/xóa thường xuyên ở đầu danh sách</strong> mà không muốn tốn chi phí dịch chuyển toàn bộ phần tử còn lại.
-      </div>
-
-      <div class="summary-box">
-        <h4>📌 Tổng kết chương 16</h4>
-        <p>Array truy cập nhanh O(1) nhưng chèn/xóa đầu chậm O(n). Linked List chèn/xóa đầu nhanh O(1) nhưng truy cập chậm O(n) — lựa chọn phụ thuộc vào thao tác nào được thực hiện thường xuyên hơn.</p>
-      </div></article>
+    <article class="rm-lesson-content"><p class="ap-meta">Biên soạn theo tài liệu Cấu trúc dữ liệu và giải thuật — ThS. Bùi Văn Thượng, UTH. Đối chiếu mục 4.1, 4.5. <a href="tai-lieu-ctdlgt.html#danh-sach">Nguồn và mục lục đối chiếu</a>.</p>
+<h2 id="muc-tieu">Mục tiêu</h2><ul><li>So sánh truy cập, thêm/xóa và chi phí bộ nhớ.</li><li>Nhận biết danh sách đơn, kép và vòng.</li></ul>
+<h2 id="van-de-thuc-te">Vấn đề thực tế</h2><p>Danh sách sinh viên thay đổi thường xuyên; cần chọn mảng hay các nút liên kết theo thao tác chính thay vì chỉ theo số lượng dữ liệu.</p>
+<h2 id="ly-thuyet">Lý thuyết nền</h2><p>Mảng cổ điển chứa các phần tử liên tiếp; chỉ số cho truy cập O(1). Chèn/xóa giữa mảng cần dịch O(n). Mảng động có thể tăng dung lượng; không nên phát biểu mọi mảng có kích thước cố định. JavaScript Array là cấu trúc của ngôn ngữ, không đảm bảo mọi kiểu phần tử có biểu diễn liên tiếp như mảng C++.</p><p>Linked List (danh sách liên kết) dùng node (nút) có dữ liệu và liên kết. Truy cập vị trí thứ i cần đi từ đầu O(n). Thêm sau một nút đã biết là O(1); nếu phải tìm nút trước thì tổng thao tác vẫn O(n). Nút và các liên kết có chi phí bộ nhớ; danh sách không mặc định tiết kiệm hơn mảng.</p><ul><li>Đơn: mỗi nút có next; nút cuối next=null.</li><li>Kép: thêm prev, liên kết hai chiều; khi chèn/xóa phải sửa cả hai phía.</li><li>Vòng đơn: tail.next=head; vòng kép thêm head.prev=tail. Duyệt dừng khi quay lại nút đầu, không chờ null.</li></ul><p>Trong C++ con trỏ là địa chỉ, cấp phát/giải phóng phải khớp nhau; JavaScript dùng tham chiếu đối tượng. Biến trỏ null khác với một nút chứa dữ liệu null.</p>
+<h2 id="vi-du">Ví dụ có thể chạy</h2><p>JavaScript, Node.js 22 trở lên; không dùng thư viện ngoài. Đây là bản chuyển thể cho website, không phải bản chép mã C/C++ bị dính dòng trong tài liệu Markdown. Lưu thành <code>chapter16.cjs</code> rồi chạy <code>node chapter16.cjs</code>. Các số trong ví dụ nằm trong miền nguyên an toàn, trừ phép chia biểu thức được giải thích riêng.</p>
+<div class="code-wrap"><span class="code-label">chapter16.cjs · JavaScript</span><pre><code>const dau = {value: 'An', next: null};
+ const cuoi = {value: 'Bình', next: null};
+ dau.next = cuoi;
+ function layTai(head, index) {
+   if (!Number.isInteger(index) || index &lt; 0) return null;
+   let node = head;
+   for (let i = 0; node &amp;&amp; i &lt; index; i++) node = node.next;
+   return node;
+ }
+ console.log(layTai(dau, 1).value); // Bình
+ const a = {value: 1, next: null, prev: null};
+ const b = {value: 2, next: a, prev: a};
+ a.next = b; a.prev = b; // Hai nút tạo danh sách kép vòng.
+ const values = []; let p = a;
+ do { values.push(p.value); p = p.next; } while (p !== a);
+ console.log(values); // [1, 2]</code></pre></div>
+<h3>Giải thích các đoạn quan trọng</h3><ol><li>dau.next=cuoi thiết lập liên kết; không sao chép bản ghi cuối.</li><li>layTai tăng qua next đúng index lần hoặc dừng khi hết.</li><li>Hai nút vòng có cả next và prev trỏ đúng phía; nút cuối không chứa next=null.</li><li>do…while ở đây chỉ dùng vì đã biết vòng không rỗng; với vòng rỗng phải kiểm head trước.</li></ol>
+<h2 id="loi-thuong-gap">Lỗi thường gặp</h2><ul><li>Nói mọi thêm/xóa Linked List đều O(1) dù phải tìm vị trí.</li><li>Duyệt danh sách vòng bằng while(node !== null).</li></ul>
+<h2 id="bai-tap">Bài tập ba mức</h2><h3>Mức 1 — Cơ bản</h3><p>Lập bảng chi phí truy cập, tìm và chèn của mảng/danh sách.</p><h3>Mức 2 — Vận dụng</h3><p>Vẽ lại prev/next khi chèn một nút giữa hai nút của danh sách kép.</p><h3>Mức 3 — Nâng cao</h3><p>Thiết kế danh sách kép vòng cho chuyến bay, chèn tăng theo mã; truy vấn theo ngày và hủy danh sách khi kết thúc (BT4.6).</p>
+<div class="summary-box"><h2 id="tom-tat">Tóm tắt</h2><p>Chi phí tìm vị trí thường lớn hơn sửa liên kết; kiểu danh sách quyết định bất biến cần giữ.</p></div>
+<h2 id="quiz">Quiz</h2><p>Câu hỏi chỉ dựa trên lý thuyết và ví dụ của bài này. <a href="quiz.html?chapter=chapter16">Mở quiz Array vs Linked List</a>.</p></article>
     <section class="ap-related"><h2>Bài học liên quan</h2><a href="chapter17.html">Cài đặt Linked List →</a></section>
     <nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter15.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Bài trước</span></a><a href="chapter17.html"><span>Bài tiếp theo →</span></a></nav>
     <footer class="rm-footer"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter16"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a href="../index.html">Trang chủ</a></footer>

@@ -2,7 +2,7 @@
 <html lang="vi" data-theme="dark">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Định nghĩa, tính chất, và tại sao việc học thuật toán quan trọng hơn việc học riêng một ngôn ngữ lập trình.">
+  <meta name="description" content="Xác định bài toán và dữ liệu trước khi chọn thuật toán; kiểm tra cả tính đúng, điều kiện dừng và tài nguyên.">
   <title>Thuật toán là gì? | Thuật toán — Synaptrail</title>
   <link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css">
   <script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script>
@@ -11,39 +11,32 @@
   <a class="rm-skip" href="#lesson-content">Bỏ qua điều hướng</a>
   <header class="rm-header ap-header"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter01"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">◐ Giao diện</button></nav></header>
   <main class="ap-main" id="lesson-content">
-    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 1</p><h1>Thuật toán là gì?</h1><p class="rm-lead">Định nghĩa, tính chất, và tại sao việc học thuật toán quan trọng hơn việc học riêng một ngôn ngữ lập trình.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
+    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 1</p><h1>Thuật toán là gì?</h1><p class="rm-lead">Xác định bài toán và dữ liệu trước khi chọn thuật toán; kiểm tra cả tính đúng, điều kiện dừng và tài nguyên.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
     <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter01">Làm quiz ở trang riêng →</a></div>
     <p id="ap-message" role="status" aria-live="polite"></p>
-    <article class="rm-lesson-content"><h3>Định nghĩa</h3>
-      <p>Thuật toán (algorithm) là một chuỗi các bước hữu hạn, rõ ràng, có thứ tự để giải quyết một vấn đề hoặc thực hiện một tác vụ cụ thể. Một công thức nấu ăn, hướng dẫn lắp ráp đồ nội thất — về bản chất đều là "thuật toán" theo nghĩa đời thường.</p>
-
-      <h3>5 tính chất của một thuật toán đúng</h3>
-      <table>
-        <tr><th>Tính chất</th><th>Ý nghĩa</th></tr>
-        <tr><td><strong>Đầu vào (Input)</strong></td><td>Có 0 hoặc nhiều giá trị đầu vào xác định</td></tr>
-        <tr><td><strong>Đầu ra (Output)</strong></td><td>Cho ra ít nhất một kết quả</td></tr>
-        <tr><td><strong>Rõ ràng (Definiteness)</strong></td><td>Mỗi bước phải rõ ràng, không mập mờ</td></tr>
-        <tr><td><strong>Hữu hạn (Finiteness)</strong></td><td>Phải kết thúc sau một số bước hữu hạn</td></tr>
-        <tr><td><strong>Khả thi (Effectiveness)</strong></td><td>Mỗi bước phải thực hiện được trong thời gian hữu hạn</td></tr>
-      </table>
-
-      <h3>Tại sao học thuật toán quan trọng?</h3>
-      <ul>
-        <li><strong>Độc lập ngôn ngữ</strong> — hiểu Quick Sort thì viết được bằng Python, Java, C++ hay bất kỳ ngôn ngữ nào.</li>
-        <li><strong>Giải quyết vấn đề hiệu quả</strong> — cùng một bài toán, thuật toán tốt có thể nhanh hơn hàng triệu lần so với cách giải "ngây thơ".</li>
-        <li><strong>Nền tảng phỏng vấn kỹ thuật</strong> — hầu hết phỏng vấn lập trình viên đều kiểm tra tư duy thuật toán.</li>
-        <li><strong>Tư duy giải quyết vấn đề</strong> — rèn khả năng chia nhỏ vấn đề phức tạp thành các bước đơn giản hơn.</li>
-      </ul>
-
-      <div class="box note">
-        <div class="box-title">Ghi chú về mã giả (Pseudocode)</div>
-        Trong giáo trình này, phần lớn ví dụ dùng Python vì cú pháp gần với ngôn ngữ tự nhiên nhất — nhưng ý tưởng thuật toán hoàn toàn có thể "dịch" sang bất kỳ ngôn ngữ nào khác trong bộ giáo trình (C++, Java, JavaScript).
-      </div>
-
-      <div class="summary-box">
-        <h4>📌 Tổng kết chương 1</h4>
-        <p>Thuật toán là chuỗi bước hữu hạn, rõ ràng để giải quyết vấn đề. Học thuật toán là học tư duy giải quyết vấn đề, độc lập với bất kỳ ngôn ngữ lập trình cụ thể nào.</p>
-      </div></article>
+    <article class="rm-lesson-content"><p class="ap-meta">Biên soạn theo tài liệu Cấu trúc dữ liệu và giải thuật — ThS. Bùi Văn Thượng, UTH. Đối chiếu mục 1.1, 1.2, 1.3.1, 1.3.2, 1.4. <a href="tai-lieu-ctdlgt.html#tong-quan">Nguồn và mục lục đối chiếu</a>.</p>
+<h2 id="muc-tieu">Mục tiêu</h2><ul><li>Mô hình hóa đầu vào, đầu ra và ràng buộc.</li><li>Chọn cấu trúc dữ liệu theo thao tác cần thực hiện.</li><li>Phân biệt thuật toán đúng với chương trình chạy được.</li></ul>
+<h2 id="van-de-thuc-te">Vấn đề thực tế</h2><p>Một lớp cần tìm sinh viên có mã số cho trước. Trước khi viết chương trình, phải xác định mã số có duy nhất không, dữ liệu nằm ở đâu và phải trả về gì khi không tìm thấy.</p>
+<h2 id="ly-thuyet">Lý thuyết nền</h2><h3>Từ bài toán thực tế đến mô hình</h3><p>Mô hình hóa là giữ lại dữ liệu và quan hệ cần cho lời giải. Bài tô màu bản đồ có thể biểu diễn mỗi vùng bằng một đỉnh, biên giới chung bằng một cạnh; yêu cầu trở thành tô màu các đỉnh kề nhau khác màu. Đây là ví dụ mô hình hóa, chưa phải một thuật toán tìm số màu tối thiểu.</p>
+ <h3>Kiểu dữ liệu và cấu trúc dữ liệu</h3><p>Kiểu dữ liệu gồm tập giá trị và các phép toán hợp lệ. Boolean có hai giá trị đúng/sai; cấu trúc dữ liệu tổ chức nhiều giá trị cùng quan hệ: mảng và danh sách là tuyến tính, cây phân cấp, bảng băm ánh xạ khóa đến ô chứa, đồ thị diễn tả quan hệ tổng quát. Miền số nguyên phụ thuộc ngôn ngữ và kiểu cụ thể, không mặc định là số nguyên 16 bit.</p>
+ <p>Chọn cấu trúc phải đủ thông tin nhập/xuất, phù hợp thao tác, khả năng ngôn ngữ và tài nguyên. Mảng thuận tiện truy cập theo chỉ số; danh sách thuận tiện đổi liên kết khi đã biết vị trí; bảng băm phục vụ tra cứu khóa.</p>
+ <h3>Thuật toán và chương trình</h3><p>Algorithm (thuật toán) là dãy bước xác định để giải bài toán trong miền đầu vào đã nêu. Cần đầu vào/đầu ra rõ, các bước khả thi, tính hữu hạn và tính đúng. Kết thúc không đồng nghĩa kết quả đúng. Có thể biểu diễn bằng ngôn ngữ tự nhiên, lưu đồ, pseudocode (mã giả) hoặc mã thực thi.</p>
+ <p>Chương trình kết hợp cấu trúc dữ liệu và thuật toán. Tiêu chí gồm tin cậy, dễ sửa đổi, dễ đọc và hiệu quả. Quy trình: xác định yêu cầu; phân tích và thiết kế; cài đặt; thử nghiệm; vận hành, theo dõi và bảo trì. Đoạn dưới quy ước trả về bản ghi đầu tiên hoặc null.</p>
+<h2 id="vi-du">Ví dụ có thể chạy</h2><p>JavaScript, Node.js 22 trở lên; không dùng thư viện ngoài. Đây là bản chuyển thể cho website, không phải bản chép mã C/C++ bị dính dòng trong tài liệu Markdown. Lưu thành <code>chapter01.cjs</code> rồi chạy <code>node chapter01.cjs</code>. Các số trong ví dụ nằm trong miền nguyên an toàn, trừ phép chia biểu thức được giải thích riêng.</p>
+<div class="code-wrap"><span class="code-label">chapter01.cjs · JavaScript</span><pre><code>function timSinhVien(danhSach, ma) {
+   for (const sinhVien of danhSach) { // Xét từng bản ghi theo thứ tự.
+     if (sinhVien.ma === ma) return sinhVien; // Trả đúng bản ghi cần tìm.
+   }
+   return null; // Đã xét hết mà không thấy.
+ }
+ const lop = [{ma: 12, ten: 'An'}, {ma: 34, ten: 'Bình'}];
+ console.log(timSinhVien(lop, 34)); // {ma: 34, ten: 'Bình'}
+ console.log(timSinhVien(lop, 99)); // null</code></pre></div>
+<h3>Giải thích các đoạn quan trọng</h3><ol><li>Khai báo hàm với danh sách bản ghi và mã cần tìm; không trộn đọc bàn phím vào thuật toán.</li><li>for…of lần lượt lấy từng bản ghi; phép === kiểm tra khóa.</li><li>return trong if kết thúc ngay khi tìm thấy; return null chỉ chạy sau khi đã xét hết.</li><li>Hai lời gọi minh họa cả tìm thành công và thất bại.</li></ol>
+<h2 id="loi-thuong-gap">Lỗi thường gặp</h2><ul><li>Viết code trước khi thống nhất đầu ra khi thất bại.</li><li>Cho rằng một chương trình chạy không lỗi cú pháp thì thuật toán đã đúng.</li></ul>
+<h2 id="bai-tap">Bài tập ba mức</h2><h3>Mức 1 — Cơ bản</h3><p>Mô tả input/output và các bước tìm bội chung nhỏ nhất của hai số nguyên dương; kiểm tra với 6 và 8 được 24.</p><h3>Mức 2 — Vận dụng</h3><p>Viết các nhánh giải ax² + bx + c = 0, kể cả a = 0; biểu diễn bằng lưu đồ hoặc mô tả từng bước.</p><h3>Mức 3 — Nâng cao</h3><p>Tìm Fibonacci thứ n với F₀ = 0, F₁ = 1; nêu miền n nguyên không âm, điều kiện dừng và thử n = 0, 1, 10.</p>
+<div class="summary-box"><h2 id="tom-tat">Tóm tắt</h2><p>Xác định bài toán và dữ liệu trước khi chọn thuật toán; kiểm tra cả tính đúng, điều kiện dừng và tài nguyên.</p></div>
+<h2 id="quiz">Quiz</h2><p>Câu hỏi chỉ dựa trên lý thuyết và ví dụ của bài này. <a href="quiz.html?chapter=chapter01">Mở quiz Thuật toán là gì?</a>.</p></article>
     
     <nav class="ap-pagination" aria-label="Điều hướng bài học"><span></span><a href="chapter02.html"><span>Bài tiếp theo →</span></a></nav>
     <footer class="rm-footer"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter01"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a href="../index.html">Trang chủ</a></footer>

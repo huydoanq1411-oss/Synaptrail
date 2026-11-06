@@ -318,7 +318,7 @@ globalThis.SynaptrailRoadmapData = {
       "parent": null,
       "chapter": null,
       "summary": "Giới thiệu Node.js · NPM & package.json · File System (fs module) · Express — Server cơ bản · Express — REST API & Middleware",
-      "time": 25,
+      "time": 41,
       "related": [],
       "comingSoon": false
     },
@@ -355,11 +355,11 @@ globalThis.SynaptrailRoadmapData = {
       "side": "left",
       "parent": "stage-6",
       "chapter": "javascript-nnlt/chapter22.html",
-      "summary": "Đọc và ghi file trên server bằng module fs có sẵn của Node.js.",
-      "time": 5,
+      "summary": "Đọc JSON, kiểm dữ liệu và tạo file không ghi đè bằng Node.js; thực hành trong thư mục tạm riêng.",
+      "time": 9,
       "related": [],
       "comingSoon": false,
-      "quiz": null
+      "quiz": "javascript-nnlt/quiz.html?chapter=chapter22"
     },
     {
       "id": "chapter23",
@@ -368,11 +368,11 @@ globalThis.SynaptrailRoadmapData = {
       "side": "right",
       "parent": "stage-6",
       "chapter": "javascript-nnlt/chapter23.html",
-      "summary": "Framework phổ biến nhất để xây dựng web server và API bằng Node.js.",
-      "time": 5,
+      "summary": "Khởi động Express local, kiểm params/query và trả text/JSON với status rõ ràng; nền tảng trước REST API.",
+      "time": 10,
       "related": [],
       "comingSoon": false,
-      "quiz": null
+      "quiz": "javascript-nnlt/quiz.html?chapter=chapter23"
     },
     {
       "id": "chapter24",
@@ -381,8 +381,8 @@ globalThis.SynaptrailRoadmapData = {
       "side": "right",
       "parent": "stage-6",
       "chapter": "javascript-nnlt/chapter24.html",
-      "summary": "Xây dựng REST API hoàn chỉnh và hiểu khái niệm middleware — trái tim của Express.",
-      "time": 5,
+      "summary": "Thực hành REST API local với Express: hợp đồng HTTP, middleware, validation và CRUD lưu tạm trong RAM.",
+      "time": 12,
       "related": [],
       "comingSoon": false,
       "quiz": "javascript-nnlt/quiz.html?chapter=chapter24"

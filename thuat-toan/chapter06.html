@@ -2,8 +2,8 @@
 <html lang="vi" data-theme="dark">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Xây dựng mảng đã sắp xếp từng phần tử một — giống cách con người sắp xếp bài trên tay khi chơi bài.">
-  <title>Insertion Sort | Thuật toán — Synaptrail</title>
+  <meta name="description" content="Insertion tận dụng thứ tự có sẵn; Shell cho phần tử dịch xa trước nhưng cần khai báo rõ dãy gap.">
+  <title>Insertion Sort &amp; Shell Sort | Thuật toán — Synaptrail</title>
   <link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css">
   <script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script>
 </head>
@@ -11,41 +11,44 @@
   <a class="rm-skip" href="#lesson-content">Bỏ qua điều hướng</a>
   <header class="rm-header ap-header"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter06"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">◐ Giao diện</button></nav></header>
   <main class="ap-main" id="lesson-content">
-    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 6</p><h1>Insertion Sort</h1><p class="rm-lead">Xây dựng mảng đã sắp xếp từng phần tử một — giống cách con người sắp xếp bài trên tay khi chơi bài.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
-    <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div></div>
+    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 6</p><h1>Insertion Sort &amp; Shell Sort</h1><p class="rm-lead">Insertion tận dụng thứ tự có sẵn; Shell cho phần tử dịch xa trước nhưng cần khai báo rõ dãy gap.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
+    <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter06">Làm quiz ở trang riêng</a></div>
     <p id="ap-message" role="status" aria-live="polite"></p>
-    <article class="rm-lesson-content"><div class="code-wrap">
-        <span class="code-label">insertion_sort.py</span>
-        
-        <pre><code>def insertion_sort(ds):
-    for i in range(1, len(ds)):
-        gia_tri = ds[i]
-        j = i - 1
-        while j >= 0 and ds[j] > gia_tri:     # dịch các phần tử lớn hơn sang phải
-            ds[j + 1] = ds[j]
-            j -= 1
-        ds[j + 1] = gia_tri                     # chèn gia_tri vào đúng vị trí
-
-d = [5, 2, 8, 1, 9]
-print(insertion_sort(d))   # [1, 2, 5, 8, 9]</code></pre>
-      </div>
-
-      <div class="box tip">
-        <div class="box-title">Mẹo — Ứng dụng thực tế</div>
-        Insertion Sort có độ phức tạp trung bình O(n²) nhưng đạt <strong>O(n)</strong> khi dữ liệu gần như đã sắp xếp sẵn — đây là lý do các thuật toán lai (như Timsort mà Python's <code>sorted()</code> sử dụng) dùng Insertion Sort cho các đoạn dữ liệu nhỏ.
-      </div>
-
-      <table>
-        <tr><th>Trường hợp</th><th>Độ phức tạp</th></tr>
-        <tr><td>Tốt nhất (đã sắp xếp sẵn)</td><td>O(n)</td></tr>
-        <tr><td>Trung bình / Xấu nhất</td><td>O(n²)</td></tr>
-        <tr><td>Không gian</td><td>O(1) - sắp xếp tại chỗ (in-place)</td></tr>
-      </table>
-
-      <div class="summary-box">
-        <h4>📌 Tổng kết chương 6</h4>
-        <p>Insertion Sort xây dựng phần đã sắp xếp dần dần, hiệu quả đặc biệt với dữ liệu gần như đã sắp xếp (O(n)) — được dùng thực tế trong các thuật toán lai hiện đại cho đoạn dữ liệu nhỏ.</p>
-      </div></article>
+    <article class="rm-lesson-content"><p class="ap-meta">Biên soạn theo tài liệu Cấu trúc dữ liệu và giải thuật — ThS. Bùi Văn Thượng, UTH. Đối chiếu mục 3.4, 3.8. <a href="tai-lieu-ctdlgt.html#sap-xep">Nguồn và mục lục đối chiếu</a>.</p>
+<h2 id="muc-tieu">Mục tiêu</h2><ul><li>Cài Insertion Sort và Shell Sort.</li><li>Giải thích ảnh hưởng của khoảng cách gap.</li></ul>
+<h2 id="van-de-thuc-te">Vấn đề thực tế</h2><p>Xếp một lá bài mới vào phần bài đã có thứ tự; nếu phần tử cách vị trí đúng rất xa thì có thể dịch chuyển theo khoảng lớn trước.</p>
+<h2 id="ly-thuyet">Lý thuyết nền</h2><p>Insertion Sort (chèn trực tiếp) duy trì đoạn đầu đã sắp. Giữ key, dịch các phần tử lớn hơn sang phải rồi chèn key vào chỗ trống. Với dãy đã tăng, vòng trong dừng ngay: Θ(n); trung bình và xấu nhất Θ(n²). Dùng so sánh nghiêm ngặt &gt; để giữ ổn định, bộ nhớ phụ O(1).</p><p>Shell Sort áp dụng chèn trực tiếp trên các dãy con cách nhau gap vị trí. Giảm gap dần và kết thúc bằng gap = 1. Ví dụ tài liệu dùng 3 rồi 1 cho dãy bảy phần tử. Bản dưới chọn floor(n/2), chia đôi đến 1. Không ổn định; cận phụ thuộc dãy gap, bản chia đôi có xấu nhất O(n²), không gán chung O(n log n).</p>
+<h2 id="vi-du">Ví dụ có thể chạy</h2><p>JavaScript, Node.js 22 trở lên; không dùng thư viện ngoài. Đây là bản chuyển thể cho website, không phải bản chép mã C/C++ bị dính dòng trong tài liệu Markdown. Lưu thành <code>chapter06.cjs</code> rồi chạy <code>node chapter06.cjs</code>. Các số trong ví dụ nằm trong miền nguyên an toàn, trừ phép chia biểu thức được giải thích riêng.</p>
+<div class="code-wrap"><span class="code-label">chapter06.cjs · JavaScript</span><pre><code>function insertionSort(a) {
+   for (let i = 1; i &lt; a.length; i++) {
+     const key = a[i]; let j = i - 1;
+     while (j &gt;= 0 &amp;&amp; a[j] &gt; key) {
+       a[j + 1] = a[j]; j--;
+     }
+     a[j + 1] = key;
+   }
+   return a;
+ }
+ function shellSort(a) {
+   for (let gap = Math.floor(a.length / 2); gap &gt; 0;
+        gap = Math.floor(gap / 2)) {
+     for (let i = gap; i &lt; a.length; i++) {
+       const key = a[i]; let j = i;
+       while (j &gt;= gap &amp;&amp; a[j - gap] &gt; key) {
+         a[j] = a[j - gap]; j -= gap;
+       }
+       a[j] = key;
+     }
+   }
+   return a;
+ }
+ console.log(shellSort([1, 4, 8, 9, 0, 12, -5]));
+ // [-5, 0, 1, 4, 8, 9, 12]</code></pre></div>
+<h3>Giải thích các đoạn quan trọng</h3><ol><li>key giữ giá trị trước khi dịch để không ghi mất phần tử cần chèn.</li><li>Kiểm tra j >= 0 trước truy cập a[j]; chèn tại j+1 khi vòng trong dừng.</li><li>Shell thay bước 1 bằng gap; j >= gap đảm bảo j−gap hợp lệ.</li><li>Với n=7, gap lần lượt là 3 và 1; lượt cuối chèn trên toàn dãy.</li></ol>
+<h2 id="loi-thuong-gap">Lỗi thường gặp</h2><ul><li>Đọc a[j] trước khi kiểm tra chỉ số trong C/C++.</li><li>Quên gap=1 hoặc để gap không giảm, làm sai kết quả hay không dừng.</li></ul>
+<h2 id="bai-tap">Bài tập ba mức</h2><h3>Mức 1 — Cơ bản</h3><p>Chèn 0 vào đoạn [1, 4, 8, 9] và ghi các lần dịch.</p><h3>Mức 2 — Vận dụng</h3><p>Theo dõi Shell với gap 3, 1 trên dãy bảy số trong tài liệu.</p><h3>Mức 3 — Nâng cao</h3><p>So sánh số lần dịch trên dãy đã sắp và đảo; nêu rõ không suy ra cận tổng quát từ một lần đo.</p>
+<div class="summary-box"><h2 id="tom-tat">Tóm tắt</h2><p>Insertion tận dụng thứ tự có sẵn; Shell cho phần tử dịch xa trước nhưng cần khai báo rõ dãy gap.</p></div>
+<h2 id="quiz">Quiz</h2><p>Câu hỏi chỉ dựa trên lý thuyết và ví dụ của bài này. <a href="quiz.html?chapter=chapter06">Mở quiz Insertion Sort &amp; Shell Sort</a>.</p></article>
     
     <nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter05.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Bài trước</span></a><a href="chapter07.html"><span>Bài tiếp theo →</span></a></nav>
     <footer class="rm-footer"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter06"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a href="../index.html">Trang chủ</a></footer>

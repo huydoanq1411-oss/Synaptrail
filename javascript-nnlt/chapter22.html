@@ -1,43 +1,91 @@
 <!DOCTYPE html>
-<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>File System (fs module) — JavaScript | Synaptrail</title><meta name="description" content="Đọc và ghi file trên server bằng module fs có sẵn của Node.js."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="javascript-nnlt" data-skill="javascript-nnlt" data-node="chapter22"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/javascript-nnlt.html#chapter22"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">JavaScript / BÀI 22</p><h1>File System (fs module)</h1><p class="rm-lead">Đọc và ghi file trên server bằng module fs có sẵn của Node.js.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s22">
-      
-      <p class="lead">Đọc và ghi file trên server bằng module <code>fs</code> có sẵn của Node.js.</p>
+<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>File System (fs module) — JavaScript | Synaptrail</title><meta name="description" content="Đọc JSON, kiểm dữ liệu và tạo file không ghi đè bằng Node.js; thực hành trong thư mục tạm riêng."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="javascript-nnlt" data-skill="javascript-nnlt" data-node="chapter22"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/javascript-nnlt.html#chapter22"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">JavaScript / BÀI 22</p><h1>File System (fs module)</h1><p class="rm-lead">Đọc JSON, kiểm dữ liệu và tạo file không ghi đè bằng Node.js; thực hành trong thư mục tạm riêng.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter22">Làm quiz ở trang riêng <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s22">
+<h2>1. Mục tiêu học</h2>
+<p>Sau bài, bạn đọc được file UTF-8 bằng node:fs/promises, phân biệt dữ liệu JSON với object JavaScript, xử lý file chưa tồn tại và tạo file mà không ghi đè bản cũ. Cần biết async/await, Promise, object và CommonJS. Ví dụ dùng Node.js 24.x, đuôi .cjs, không cần npm install. Đây là bài Node chạy trong terminal, không phải script chạy trong trình duyệt.</p>
+<div class="box note"><div class="box-title">Ranh giới bài thực hành</div><p>Ví dụ tạo thư mục thử riêng trong vùng tạm của hệ điều hành. Không đọc localStorage, không nhập dữ liệu tiến độ thật của Synaptrail và không sửa website. File JSON có schema riêng để học, không tương thích trực tiếp với chức năng nhập tiến độ của site. Chỉ một chương mẫu được nâng cấp.</p></div>
+<h2>2. Vấn đề thực tế</h2>
+<p>Trong <a href="chapter24.html">bài REST API</a>, Map mất khi tiến trình kết thúc. Một công cụ học local có thể xuất bản chụp tiến độ ra JSON để mở lại sau. Nhưng ghi file không chỉ là gọi writeFile: chạy từ terminal khác có thể trỏ nhầm thư mục, dữ liệu JSON hợp lệ có thể sai cấu trúc và một lần chạy lại có thể xóa nội dung cũ nếu dùng chế độ ghi mặc định.</p>
+<p>Ta làm một công cụ nhỏ: chưa có file thì đọc ra danh sách rỗng; tạo một bản chụp mới; đọc lại; từ chối tạo lần hai cùng tên. Bài cố tình chưa cập nhật file có sẵn, chưa xử lý nhiều người ghi và chưa biến file thành database.</p>
+<h2>3. Lý thuyết nền</h2>
+<h3>Promise, callback và synchronous</h3>
+<p>node:fs có API callback và synchronous; node:fs/promises trả Promise để dùng await. Callback vẫn được Node hỗ trợ, không phải API bị loại bỏ. Promise giúp viết luồng tuần tự dễ đọc; nó không khiến thao tác I/O hoàn tất ngay. Các hàm đồng bộ như readFileSync chặn luồng đang chạy trong lúc đọc, nên cần cân nhắc khi dùng trong request handler. Trong bài ta dùng await để lần đọc diễn ra sau khi lần ghi hoàn tất.</p>
+<h3>Đường dẫn và encoding</h3>
+<p>Đường dẫn tương đối như progress.json được giải theo thư mục làm việc hiện tại, không tự động theo nơi đặt script. path.join ghép các đoạn theo quy tắc hệ điều hành, tránh tự viết dấu phân cách Windows. os.tmpdir trả vùng tạm; mkdtemp tạo một thư mục tên riêng từ tiền tố. Không nối đường dẫn nhận từ người dùng rồi cho rằng path.join đã chống được truy cập ra ngoài thư mục: hàm này không phải cơ chế phân quyền.</p>
+<p>readFile không chỉ định encoding trả Buffer, tức vùng byte; dùng utf8 để nhận chuỗi. JSON.parse chuyển chuỗi JSON thành giá trị JavaScript, nhưng không kiểm schema nghiệp vụ. JSON.stringify chuyển object thành văn bản để lưu. JSON rỗng hoặc sai cú pháp không phải “file chưa tồn tại”.</p>
+<h3>Tạo mới khác ghi đè</h3>
+<p>writeFile mặc định có thể thay nội dung file đã có. Cờ wx yêu cầu tạo mới độc quyền: file đã tồn tại thì báo EEXIST. Không kiểm exists rồi mới ghi để thay cho wx, vì một tiến trình khác có thể tạo file giữa hai bước. wx không bảo đảm một lần ghi dài không bị dở dang khi máy mất điện; nó cũng không phải transaction hoặc cơ chế khóa cho cập nhật nhiều người.</p>
+<table><thead><tr><th>Tình huống</th><th>Xử lý trong mẫu</th></tr></thead><tbody><tr><td>ENOENT khi đọc</td><td>Trả dữ liệu ban đầu; không tự ghi file</td></tr><tr><td>EEXIST khi tạo</td><td>Từ chối ghi đè, giữ bản cũ</td></tr><tr><td>JSON hỏng hoặc sai schema</td><td>Ném lỗi, không âm thầm xóa/reset</td></tr><tr><td>EACCES hoặc lỗi I/O khác</td><td>Chuyển lỗi lên nơi gọi; không coi là dữ liệu rỗng</td></tr></tbody></table>
+<h2>4. Ví dụ hoàn chỉnh và giải thích</h2>
+<p>Lưu mã dưới thành doc-tien-do.cjs trong thư mục thực hành riêng. Chạy bằng Node, không dán vào console trình duyệt. Mỗi lần chạy tạo một thư mục thử mới; đường dẫn thật được in ra để bạn xem file. Dữ liệu có thể bị hệ điều hành dọn khỏi vùng tạm, vì vậy đây không phải nơi lưu bản sao quan trọng lâu dài.</p>
+<div class="code-wrap"><span class="code-label">doc-tien-do.cjs</span><pre><code>'use strict';
+const fs = require('node:fs/promises');
+const path = require('node:path');
+const os = require('node:os');
 
-      <div class="code-wrap">
-        <span class="code-label">fs_basic.js</span>
-        
-        <pre><code>const fs = require('fs');
-const fsPromises = require('fs/promises');   // phiên bản dùng Promise, hiện đại hơn
-
-// Cách CŨ - callback (dễ gây callback hell)
-fs.readFile('data.txt', 'utf8', (err, data) =&gt; {
-    if (err) { console.error(err); return; }
-    console.log(data);
-});
-
-// Cách HIỆN ĐẠI - dùng async/await
-async function docFile() {
-    try {
-        const noiDung = await fsPromises.readFile('data.txt', 'utf8');
-        console.log(noiDung);
-
-        await fsPromises.writeFile('output.txt', 'Nội dung mới');
-    } catch (err) {
-        console.error('Lỗi:', err.message);
-    }
+function validate(value) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) {
+    throw new Error('INVALID_PROGRESS');
+  }
+  if (value.version !== 1 || !Array.isArray(value.completed)) {
+    throw new Error('INVALID_PROGRESS');
+  }
+  if (value.completed.length &gt; 100 || !value.completed.every(
+    id =&gt; typeof id === 'string' &amp;&amp; /^chapter\d{2}$/.test(id)
+  )) throw new Error('INVALID_PROGRESS');
+  return { version: 1, completed: [...new Set(value.completed)] };
 }
-docFile();</code></pre>
-      </div>
-
-      <div class="box tip">
-        <div class="box-title">Mẹo</div>
-        Luôn ưu tiên phiên bản <code>fs/promises</code> kết hợp <code>async/await</code> thay vì callback API cũ — code sạch hơn nhiều và tránh được callback hell khi cần đọc/ghi nhiều file liên tiếp.
-      </div>
-
-      <div class="summary-box">
-        <h4>📌 Tổng kết chương 22</h4>
-        <p>Module <code>fs</code> đọc/ghi file trên server. Nên dùng <code>fs/promises</code> với <code>async/await</code> thay vì API callback truyền thống để code dễ đọc hơn.</p>
-      </div>
-    </section>
-
-    <!-- ================= CHƯƠNG 23 ================= --></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter21.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bài trước</a><a href="chapter23.html">Bài tiếp theo<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/javascript-nnlt.html#chapter22"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>
+async function readProgress(file) {
+  let text;
+  try {
+    text = await fs.readFile(file, 'utf8');
+  } catch (error) {
+    if (error.code === 'ENOENT') return { version: 1, completed: [] };
+    throw error;
+  }
+  return validate(JSON.parse(text));
+}
+async function createProgress(file, value) {
+  const normalized = validate(value);
+  const text = JSON.stringify(normalized, null, 2) + '\n';
+  await fs.writeFile(file, text, { encoding: 'utf8', flag: 'wx' });
+  return normalized;
+}
+async function main() {
+  const directory = await fs.mkdtemp(path.join(os.tmpdir(), 'synaptrail-fs-'));
+  const file = path.join(directory, 'progress.json');
+  console.log('File thử riêng:', file);
+  console.log('Trước tạo:', await readProgress(file));
+  await createProgress(file, {
+    version: 1, completed: ['chapter22', 'chapter22', 'chapter24'],
+  });
+  console.log('Sau tạo:', await readProgress(file));
+  try {
+    await createProgress(file, { version: 1, completed: [] });
+  } catch (error) {
+    if (error.code !== 'EEXIST') throw error;
+    console.log('Đã từ chối ghi đè file có sẵn.');
+  }
+  console.log('Dữ liệu còn nguyên:', await readProgress(file));
+}
+if (require.main === module) {
+  main().catch(error =&gt; {
+    console.error('Không hoàn tất:', error.code || error.message);
+    process.exitCode = 1;
+  });
+}
+module.exports = { validate, readProgress, createProgress };</code></pre></div>
+<div class="code-wrap"><span class="code-label">Terminal — trong thư mục chứa ví dụ</span><pre><code>node --version
+node doc-tien-do.cjs</code></pre></div>
+<ol><li>Ba require nạp module có sẵn. Tiền tố node: làm rõ nguồn thư viện; .cjs xác định CommonJS kể cả khi thư mục ngoài có package.json dùng type module.</li><li>validate từ chối null, mảng, version khác 1 và completed không phải mảng. Giới hạn 100 phần tử là hợp đồng của mẫu; chapterNN chỉ là định dạng, chưa xác nhận chương đó thực sự tồn tại trong website.</li><li>every kiểm từng ID, Set loại trùng và trả object mới chỉ có hai trường được chấp nhận. Đầu vào có trường khác không được sao chép tùy tiện. Không sửa object đầu vào.</li><li>readProgress chỉ bắt lỗi từ thao tác đọc. Riêng ENOENT trở thành trạng thái ban đầu; lỗi khác được ném lại. JSON.parse và validate nằm ngoài catch đọc nên dữ liệu hỏng không bị hiểu thành file thiếu.</li><li>createProgress kiểm dữ liệu trước khi chạm file, tuần tự hóa rồi await writeFile với wx. Nếu tên đã tồn tại, Promise bị reject; không ghi đè để “sửa” lỗi.</li><li>main tạo thư mục riêng rồi dùng path.join đặt tên cố định progress.json. Không nhận đường dẫn tùy ý từ request, không dùng dữ liệu thật của bạn.</li><li>Lần tạo thứ hai cố tình gặp EEXIST. Nhánh catch chỉ chấp nhận lỗi này; bất kỳ lỗi khác vẫn làm main thất bại. Đọc cuối cùng chứng minh dữ liệu trước đó còn nguyên.</li><li>require.main chỉ chạy minh họa khi gọi file trực tiếp; module.exports cho phép kiểm thử hàm mà không tự chạy main. Catch cuối đặt exitCode 1 khi thất bại thay vì in thông báo thành công giả.</li></ol>
+<p>Kết quả mong đợi: lần đọc đầu có completed rỗng; lần sau có chapter22 và chapter24 mỗi ID một lần; lần tạo lặp báo từ chối ghi đè; lần đọc cuối vẫn hai ID. Đường dẫn thư mục tạm thay đổi giữa các lần chạy. Mở progress.json sẽ thấy JSON có version 1 và completed, không phải đoạn mã JavaScript cần thực thi.</p>
+<h2>5. Lỗi thường gặp</h2>
+<ul><li><strong>Không thấy file:</strong> đọc đường dẫn được in, đừng tìm theo thư mục terminal một cách suy đoán.</li><li><strong>Nhận Buffer thay chuỗi:</strong> kiểm tham số utf8. Không tự đổi encoding để che lỗi dữ liệu nguồn.</li><li><strong>Quên await:</strong> lần đọc có thể chạy trước ghi, catch bên ngoài không nhận rejection như mong muốn.</li><li><strong>Catch mọi lỗi rồi trả []:</strong> cách này che JSON hỏng và quyền truy cập. Chỉ ENOENT có chính sách mặc định trong mẫu.</li><li><strong>Dùng Promise.all để ghi cùng file:</strong> API Promise không tự tuần tự hóa hay khóa dữ liệu; mẫu không hỗ trợ cập nhật đồng thời.</li><li><strong>Tưởng file là database:</strong> không có transaction, truy vấn nhiều bản ghi hoặc bảo đảm phục hồi sau mất điện. Xem <a href="../mysql/chapter03.html">bài MySQL</a> để học tầng lưu trữ khác.</li></ul>
+<h2>6. Bài tập ba mức</h2>
+<div class="box note"><div class="box-title">Dễ</div><p>Chạy ví dụ, mở đúng file được in ra, giải thích vì sao ID trùng chỉ còn một lần. Chạy lại: vì sao có đường dẫn mới và bản cũ không bị ghi đè? Không sửa file tiến độ thật của site.</p></div>
+<div class="box note"><div class="box-title">Vừa</div><p>Trong thư mục thử riêng, tạo bản JSON sai cú pháp và bản đúng cú pháp nhưng completed là chuỗi. Gọi readProgress và ghi nhận hai loại lỗi. Chứng minh nội dung file vẫn nguyên sau lỗi; không thay catch bằng reset dữ liệu.</p></div>
+<div class="box note"><div class="box-title">Khó</div><p>Kiểm thử bằng node:assert/strict: file thiếu, tên có sẵn, ID sai mẫu, 100/101 phần tử và đầu vào không bị sửa. Thử hai createProgress cùng tên bằng Promise.allSettled trong thư mục mới: dự đoán một thành công, một EEXIST, rồi đọc bản cuối. Giải thích điều này chưa chứng minh cập nhật đồng thời hoặc chịu mất điện.</p></div>
+<h2>7. Tóm tắt</h2>
+<p>Đọc file là đọc byte/văn bản; parse JSON và kiểm schema là hai bước khác nhau. Đường dẫn cần rõ ràng; await xác định thứ tự trong luồng của bạn. Tạo mới bằng wx tránh ghi đè bản có sẵn, còn lỗi I/O phải được phân loại. Mẫu chỉ tạo bản chụp local, không đồng bộ với localStorage hay thay database của ứng dụng.</p>
+<h2>8. Quiz và tài liệu chính thức</h2>
+<p>Làm <a href="quiz.html?chapter=chapter22">năm câu quiz chương 22</a>. Các câu đều dựa trên bài. Đối chiếu <a href="https://nodejs.org/docs/latest-v24.x/api/fs.html">Node.js 24 — File system</a> về readFile, writeFile, mkdtemp, cờ file và cảnh báo ghi đồng thời; <a href="https://nodejs.org/api/path.html">Node.js — Path</a> về cách ghép đường dẫn. Phiên bản runtime và kết quả thực tế được ghi trong STATUS; hướng dẫn chạy không tự chứng minh mọi hệ điều hành đều đạt.</p>
+</section></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter21.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bài trước</a><a href="chapter23.html">Bài tiếp theo<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/javascript-nnlt.html#chapter22"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>

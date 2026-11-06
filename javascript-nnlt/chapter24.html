@@ -1,68 +1,221 @@
 <!DOCTYPE html>
-<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Express — REST API &amp; Middleware — JavaScript | Synaptrail</title><meta name="description" content="Xây dựng REST API hoàn chỉnh và hiểu khái niệm middleware — trái tim của Express."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="javascript-nnlt" data-skill="javascript-nnlt" data-node="chapter24"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/javascript-nnlt.html#chapter24"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">JavaScript / BÀI 24</p><h1>Express — REST API &amp; Middleware</h1><p class="rm-lead">Xây dựng REST API hoàn chỉnh và hiểu khái niệm middleware — trái tim của Express.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter24">Làm quiz ở trang riêng <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s24">
-      
-      <p class="lead">Xây dựng REST API hoàn chỉnh và hiểu khái niệm middleware — trái tim của Express.</p>
+<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Express — REST API &amp; Middleware — JavaScript | Synaptrail</title><meta name="description" content="Thực hành REST API local với Express: hợp đồng HTTP, middleware, validation và CRUD lưu tạm trong RAM."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="javascript-nnlt" data-skill="javascript-nnlt" data-node="chapter24"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/javascript-nnlt.html#chapter24"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">JavaScript / BÀI 24</p><h1>Express — REST API &amp; Middleware</h1><p class="rm-lead">Thực hành REST API local với Express: hợp đồng HTTP, middleware, validation và CRUD lưu tạm trong RAM.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter24">Làm quiz ở trang riêng <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s24">
+<h2>1. Mục tiêu học</h2>
+<p>Sau bài, bạn viết được API đọc, tạo, sửa và xóa sinh viên; phân biệt lỗi đầu vào với không tìm thấy tài nguyên; giải thích khi nào middleware phải gọi next và khi nào phải kết thúc phản hồi. Cần biết hàm, object, module CommonJS, HTTP và Express ở <a href="chapter23.html">chương 23</a>. Chưa cần MySQL để học phần hợp đồng HTTP.</p>
+<p><strong>Phiên bản ví dụ:</strong> Node.js 24.x, Express 5.x, file .cjs. Đây là phạm vi của bài, không phải tuyên bố phiên bản mới nhất. Tài liệu chính thức cuối bài là nơi đối chiếu khi thay major version. Các lệnh cài package chỉ dành cho thư mục thực hành riêng, không thay dependency của Synaptrail.</p>
+<div class="box note"><div class="box-title">Lưu trữ và kiểm chứng</div><p>Dữ liệu dưới đây là Map trong RAM để học request/response, không phải database hoặc hệ thống quản lý sinh viên thật. Dừng Node thì dữ liệu và bộ đếm ID mất. Đã kiểm HTTP thật ngày 01/11/2026 bằng Node 24.21.0/Express 5.3.0 trong môi trường cô lập: CRUD, Location, 204 không body, JSON hỏng 400, quá 16 KB trả 413 và media sai 415 đều đạt. Client cũng chạy qua server thật, chỉ thay base URL sang cổng local ngẫu nhiên. Store mới rỗng đã được thử bằng app instance mới; chưa thử khởi động lại tiến trình hoặc mất điện.</p></div>
 
-      <div class="code-wrap">
-        <span class="code-label">rest_api.js</span>
-        
-        <pre><code>const express = require('express');
-const app = express();
-app.use(express.json());
+<h2>2. Vấn đề thực tế</h2>
+<p>Giao diện cần hỏi server danh sách sinh viên, gửi tên mới và nhận ID để mở trang chi tiết. Nếu API luôn trả 200, client khó biết đã tạo thành công hay đầu vào sai. Nếu lấy ID bằng độ dài mảng cộng một, xóa một hàng có thể khiến lần tạo sau trùng ID đang tồn tại. Nếu coi một chuỗi bất kỳ trong Authorization là đăng nhập, kẻ gửi request tự đặt header cũng đi qua được.</p>
+<p>Ta giải quyết phần HTTP và kiểm dữ liệu trước: tên hợp lệ, ID tăng độc lập với số bản ghi, mã phản hồi có ý nghĩa và middleware đi đúng thứ tự. Mẫu không có tài khoản hay quyền admin. Server chỉ bind loopback để thử local; không công khai API ghi dữ liệu chưa có xác thực/phân quyền.</p>
 
-let sinhVienDB = [{id: 1, ten: "Huy"}];
+<h2>3. Lý thuyết nền</h2>
+<h3>REST API và tài nguyên</h3>
+<p>API (Application Programming Interface) là giao diện cho chương trình trao đổi dữ liệu. HTTP request là yêu cầu, response là phản hồi; method diễn đạt thao tác và status diễn đạt kết quả. Bài dùng cách tổ chức theo tài nguyên của REST: /api/sinh-vien là tập hợp, /api/sinh-vien/42 là một phần tử. Dùng đường dẫn và JSON chưa tự chứng minh đã thỏa mọi ràng buộc của kiến trúc REST; đây là mẫu thực hành HTTP nhỏ.</p>
+<table><thead><tr><th>Request</th><th>Thành công</th><th>Lỗi của mẫu</th></tr></thead><tbody>
+<tr><td>GET /api/sinh-vien</td><td>200, mảng sinh viên</td><td>500 khi có lỗi bất ngờ</td></tr>
+<tr><td>GET /api/sinh-vien/:id</td><td>200, một đối tượng</td><td>400 ID sai; 404 ID hợp lệ nhưng không có</td></tr>
+<tr><td>POST /api/sinh-vien</td><td>201, đối tượng và Location</td><td>400 tên/JSON sai; 413 quá dung lượng; 415 sai Content-Type</td></tr>
+<tr><td>PATCH /api/sinh-vien/:id</td><td>200, tên sau khi cập nhật</td><td>400 dữ liệu sai; 404 không có; 413/415 như POST</td></tr>
+<tr><td>DELETE /api/sinh-vien/:id</td><td>204, không có body</td><td>400 ID sai; 404 không có</td></tr>
+</tbody></table>
+<p>PATCH ở mẫu này chỉ cập nhật trường ten; chưa triển khai PUT thay thế tài nguyên. DELETE lặp lại có thể trả 404 sau lần đầu 204: trạng thái cuối vẫn là tài nguyên không tồn tại. Idempotent nói về tác động mong muốn khi lặp lại, không bắt status mọi lần giống nhau. POST chưa có chống gửi trùng, gửi hai lần có thể tạo hai hàng.</p>
+<h3>Middleware: chuyển tiếp hoặc kết thúc</h3>
+<p>Middleware là hàm nhận req, res và next, chạy theo thứ tự đăng ký. Nếu tiếp tục chuỗi, gọi next(); nếu đã trả response thì kết thúc và không gọi next tiếp. Vì vậy, câu “luôn phải gọi next” không đúng. Quên cả việc gửi phản hồi lẫn gọi next mới khiến request chờ. next không phải lệnh mở server và không tự gửi HTTP 200.</p>
+<p>express.json phải đứng trước route cần đọc req.body. Middleware requireJson dùng ở POST/PATCH: không đúng application/json thì trả 415; đúng loại thì gọi next để handler chạy. Không tự parse form thành JSON, không tin req.body chỉ vì client đã có form validation. Error middleware đặt sau route, nhận bốn tham số; 404 cho đường dẫn không có là một nhánh riêng, không tự trở thành exception.</p>
+<h3>Hiểu đúng xác thực/phân quyền</h3>
+<p>Xác thực kiểm danh tính; phân quyền kiểm người đó được phép làm gì trên dữ liệu nào. Có header Authorization không chứng minh token hợp lệ. Kiểm tra token/session cần xác minh theo cơ chế được chọn, vòng đời và quyền truy cập; ẩn nút frontend không thay kiểm quyền phía server. Bài này chủ động không viết middleware “đăng nhập” giả. Học tiếp <a href="../security/chapter05.html">xác thực</a>, <a href="../security/chapter06.html">JWT/session</a> và <a href="../security/chapter08.html">phân quyền</a> trước khi thêm tài khoản.</p>
 
-app.get('/sinh-vien', (req, res) =&gt; {
-    res.json(sinhVienDB);
-});
+<h2>4. Ví dụ hoàn chỉnh và giải thích</h2>
+<h3>Chuẩn bị dự án thực hành</h3>
+<p>Tạo thư mục api-sinh-vien-mau ngoài repo Synaptrail; mở terminal tại thư mục đó và dùng các lệnh sau khi Node.js 24 đã có trên máy. Không chạy các lệnh cài đặt trong website chỉ để xem bài.</p>
+<div class="code-wrap"><span class="code-label">Terminal ở thư mục thực hành</span><pre><code>npm init -y
+npm install express@5
+node --version
+npm ls express</code></pre></div>
+<p>Giữ package-lock.json để ghi phiên bản patch thực tế. Không commit node_modules. Ví dụ không cần mật khẩu hay khóa API; không có lý do đặt thông tin đăng nhập thật vào bài thử. Khi thêm cấu hình nhạy cảm ở bài khác, giữ ngoài code và repository.</p>
+<h3>rest-api.cjs — một ứng dụng có điểm khởi động rõ ràng</h3>
+<div class="code-wrap"><span class="code-label">rest-api.cjs</span><pre><code>'use strict';
 
-app.post('/sinh-vien', (req, res) =&gt; {
-    const svMoi = {id: sinhVienDB.length + 1, ten: req.body.ten};
-    sinhVienDB.push(svMoi);
-    res.status(201).json(svMoi);       // 201 = Created
-});
-
-app.delete('/sinh-vien/:id', (req, res) =&gt; {
-    sinhVienDB = sinhVienDB.filter(sv =&gt; sv.id != req.params.id);
-    res.status(204).send();               // 204 = No Content
-});</code></pre>
-      </div>
-
-      <h3>Middleware — hàm chạy "ở giữa" request và response</h3>
-      <div class="code-wrap">
-        <span class="code-label">middleware.js</span>
-        
-        <pre><code>function ghiLog(req, res, next) {          // middleware TỰ VIẾT
-    console.log(`${req.method} ${req.url} - ${new Date().toISOString()}`);
-    next();                                        // BẮT BUỘC gọi next() để chuyển sang middleware/route kế tiếp
+function parseId(raw) {
+  if (typeof raw !== 'string' || !/^[1-9]\d*$/.test(raw)) return null;
+  const id = Number(raw);
+  return Number.isSafeInteger(id) ? id : null;
 }
+function readName(body) {
+  if (!body || typeof body !== 'object' || Array.isArray(body)) return null;
+  if (typeof body.ten !== 'string') return null;
+  const ten = body.ten.trim();
+  return [...ten].length &gt;= 1 &amp;&amp; [...ten].length &lt;= 100 ? ten : null;
+}
+function createStore() {
+  const students = new Map();
+  let nextId = 1;
+  return {
+    list: () =&gt; [...students.values()].map(value =&gt; ({ ...value })),
+    get(id) {
+      const value = students.get(id);
+      return value ? { ...value } : null;
+    },
+    create(ten) {
+      if (!Number.isSafeInteger(nextId)) throw new Error('ID_EXHAUSTED');
+      const value = { id: nextId++, ten };
+      students.set(value.id, value);
+      return { ...value };
+    },
+    rename(id, ten) {
+      if (!students.has(id)) return null;
+      students.set(id, { id, ten });
+      return { id, ten };
+    },
+    remove: id =&gt; students.delete(id),
+  };
+}
+function createApp() {
+  const express = require('express');
+  const app = express();
+  const store = createStore();
+  app.use(express.json({ limit: '16kb' }));
 
-function kiemTraDangNhap(req, res, next) {
-    const token = req.headers['authorization'];
-    if (!token) {
-        return res.status(401).json({loi: "Chưa đăng nhập"});   // KHÔNG gọi next() -&gt; dừng lại tại đây
+  function requireJson(req, res, next) {
+    if (!req.is('application/json')) {
+      return res.status(415).json({ error: 'JSON_REQUIRED' });
     }
     next();
+  }
+  app.get('/api/sinh-vien', (_req, res) =&gt; res.json(store.list()));
+  app.get('/api/sinh-vien/:id', (req, res) =&gt; {
+    const id = parseId(req.params.id);
+    if (id === null) return res.status(400).json({ error: 'INVALID_ID' });
+    const value = store.get(id);
+    if (!value) return res.status(404).json({ error: 'NOT_FOUND' });
+    res.json(value);
+  });
+  app.post('/api/sinh-vien', requireJson, (req, res) =&gt; {
+    const ten = readName(req.body);
+    if (ten === null) return res.status(400).json({ error: 'INVALID_NAME' });
+    const value = store.create(ten);
+    res.location(`/api/sinh-vien/${value.id}`).status(201).json(value);
+  });
+  app.patch('/api/sinh-vien/:id', requireJson, (req, res) =&gt; {
+    const id = parseId(req.params.id);
+    if (id === null) return res.status(400).json({ error: 'INVALID_ID' });
+    const ten = readName(req.body);
+    if (ten === null) return res.status(400).json({ error: 'INVALID_NAME' });
+    const value = store.rename(id, ten);
+    if (!value) return res.status(404).json({ error: 'NOT_FOUND' });
+    res.json(value);
+  });
+  app.delete('/api/sinh-vien/:id', (req, res) =&gt; {
+    const id = parseId(req.params.id);
+    if (id === null) return res.status(400).json({ error: 'INVALID_ID' });
+    if (!store.remove(id)) return res.status(404).json({ error: 'NOT_FOUND' });
+    res.status(204).end();
+  });
+  app.use((_req, res) =&gt; res.status(404).json({ error: 'ROUTE_NOT_FOUND' }));
+  app.use((err, _req, res, _next) =&gt; {
+    if (err.type === 'entity.parse.failed') {
+      return res.status(400).json({ error: 'INVALID_JSON' });
+    }
+    if (err.type === 'entity.too.large') {
+      return res.status(413).json({ error: 'BODY_TOO_LARGE' });
+    }
+    console.error('API thất bại:', err.code || err.name);
+    res.status(500).json({ error: 'INTERNAL_ERROR' });
+  });
+  return app;
 }
+if (require.main === module) {
+  createApp().listen(3000, '127.0.0.1', error =&gt; {
+    if (error) {
+      console.error('Không mở được cổng:', error.code || error.name);
+      process.exitCode = 1;
+      return;
+    }
+    console.log('API: http://127.0.0.1:3000/api/sinh-vien');
+  });
+}
+module.exports = { createApp, createStore, parseId, readName };</code></pre></div>
+<h3>Giải thích từng đoạn quan trọng</h3>
+<ol>
+<li><code>parseId</code> chỉ chấp nhận chuỗi số nguyên dương an toàn: không chấp nhận 0, số âm, 01 hoặc 1abc. parseInt đơn thuần có thể đọc một phần chuỗi, không phải kiểm tra toàn bộ định dạng. ID đúng nhưng không có bản ghi dẫn tới 404.</li>
+<li><code>readName</code> từ chối body null/mảng, kiểm ten là string, trim và giới hạn 1–100 Unicode code point. Không ép số thành tên. Lấy riêng trường được cho phép, không trộn toàn bộ body vào đối tượng lưu trữ.</li>
+<li><code>createStore</code> tạo Map và bộ đếm nextId riêng. create lấy ID rồi tăng bộ đếm; remove không giảm nó. Xóa ID 1 khi còn ID 2 rồi tạo mới phải cho ID 3, không ghi đè ID 2. Counter chỉ có ý nghĩa trong tiến trình mẫu, không bảo đảm duy nhất giữa nhiều server.</li>
+<li>list/get/create trả bản sao đối tượng để người gọi không vô tình đổi dữ liệu lưu chỉ bằng sửa object nhận được. rename là đường cập nhật có chủ đích; trả null nếu không có ID.</li>
+<li><code>createApp</code> tạo store mới cho mỗi app và nạp Express. Việc tách hàm cho phép chạy test logic store không cần mở cổng. JSON middleware giới hạn 16 KB; Content-Type sai ở route ghi bị chặn bởi requireJson trước handler.</li>
+<li>POST trả Location trỏ tới tài nguyên vừa tạo. PATCH kiểm tên rồi gọi rename; DELETE kiểm kết quả remove và dùng <code>res.status(204).end()</code>, không gửi JSON sau khi tuyên bố không có body.</li>
+<li>Middleware cuối trả 404 cho route không tồn tại. Error middleware nhận lỗi parser để trả 400/413, còn lỗi bất ngờ trả 500 JSON chung; không đưa stack hay dữ liệu người dùng vào response. Handler đồng bộ ném lỗi được Express xử lý; với handler async ở bài sau, Express 5 chuyển Promise reject tới error middleware.</li>
+<li>Điều kiện require.main chỉ mở server khi chạy trực tiếp. listen bind 127.0.0.1:3000 và kiểm error trước khi in thành công; cổng đang bận thì ghi mã lỗi và exitCode=1. Ctrl+C trong đúng terminal kết thúc phiên thử và làm mất Map.</li>
+</ol>
+<div class="code-wrap"><span class="code-label">Chạy API mẫu</span><pre><code>node rest-api.cjs</code></pre></div>
+<p>Khi mở cổng thành công, thông báo kỳ vọng là API: http://127.0.0.1:3000/api/sinh-vien. Mở URL danh sách khi app vừa khởi động sẽ nhận []. Không sửa hoặc dừng server của người khác nếu cổng 3000 đang được dùng; chọn một cổng thử khác trong mã và client.</p>
+<h3>Gửi request bằng fetch có sẵn của Node</h3>
+<p>Lưu thu-rest.cjs và chạy trong terminal thứ hai khi API đang hoạt động. Không đọc response.json cho 204 vì không có JSON để parse. Trên một app mới, ID tạo đầu tiên là 1; nếu bạn đã gửi request trước đó, ID phụ thuộc lịch sử bộ đếm, không cố định.</p>
+<div class="code-wrap"><span class="code-label">thu-rest.cjs</span><pre><code>'use strict';
+const assert = require('node:assert/strict');
+const base = 'http://127.0.0.1:3000/api/sinh-vien';
+async function send(method, url, body) {
+  return fetch(url, {
+    method,
+    signal: AbortSignal.timeout(5000),
+    ...(body === undefined ? {} : {
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    }),
+  });
+}
+async function main() {
+  let response = await send('POST', base, { ten: 'An' });
+  assert.equal(response.status, 201);
+  const first = await response.json();
+  assert(Number.isSafeInteger(first.id) &amp;&amp; first.id &gt; 0);
+  assert.equal(first.ten, 'An');
+  assert.equal(response.headers.get('location'), `/api/sinh-vien/${first.id}`);
+  console.log('Đạt: tạo', first.id);
+  response = await send('DELETE', `${base}/${first.id}`);
+  assert.equal(response.status, 204);
+  assert.equal(await response.text(), '');
+  console.log('Đạt: xóa 204, body rỗng');
+  response = await send('POST', base, { ten: 'Bình' });
+  assert.equal(response.status, 201);
+  const second = await response.json();
+  assert(Number.isSafeInteger(second.id) &amp;&amp; second.id &gt; first.id);
+  assert.equal(second.ten, 'Bình');
+  console.log('Đạt: ID mới tăng', second.id);
+  response = await send('PATCH', `${base}/${second.id}`, { ten: 'Bình mới' });
+  assert.equal(response.status, 200);
+  const changed = await response.json();
+  assert.equal(changed.id, second.id);
+  assert.equal(changed.ten, 'Bình mới');
+  console.log('Đạt: sửa giữ ID, đổi tên');
+  response = await send('GET', `${base}/${first.id}`);
+  assert.equal(response.status, 404);
+  assert.equal((await response.json()).error, 'NOT_FOUND');
+  console.log('Đạt: đọc ID đã xóa trả 404');
+}
+main().catch(error =&gt; { console.error('Kiểm tra thất bại:', error.message); process.exitCode = 1; });</code></pre></div>
+<div class="code-wrap"><span class="code-label">Chạy client mẫu</span><pre><code>node thu-rest.cjs</code></pre></div>
+<p>Kỳ vọng: tạo trả 201; xóa trả 204 và chuỗi rỗng; ID tiếp theo lớn hơn ID đã xóa; sửa trả 200 với tên mới; đọc ID bị xóa trả 404 NOT_FOUND. Dừng/mở lại API làm danh sách rỗng, khác database trong <a href="../mysql/chapter03.html">bài Node.js kết nối MySQL</a>. Các bước này đã chạy qua Express thật trong môi trường thử nêu đầu bài. Client dùng assert để dừng khi status/payload sai và timeout 5 giây cho mỗi request; không coi việc chỉ in status là kiểm chứng.</p>
 
-app.use(ghiLog);                                    // áp dụng cho MỌI route
-app.get('/admin', kiemTraDangNhap, (req, res) =&gt; {    // áp dụng cho MỘT route cụ thể
-    res.send('Trang quản trị');
-});</code></pre>
-      </div>
+<h2>5. Lỗi thường gặp</h2>
+<ul>
+<li><strong>Request chờ:</strong> kiểm middleware nào chưa gửi phản hồi và chưa gọi next. Thêm return sau nhánh res.status(...).json(...) để tránh chạy tiếp hoặc gửi hai lần.</li>
+<li><strong>req.body undefined:</strong> kiểm Content-Type, JSON hợp lệ và vị trí express.json. Chuỗi tên chỉ có khoảng trắng vẫn phải bị validation từ chối.</li>
+<li><strong>ID trùng sau xóa:</strong> không dùng length + 1. Bộ đếm tăng của mẫu sửa lỗi trong một tiến trình, không thay khóa chính do database quản lý ở sản phẩm nhiều người dùng.</li>
+<li><strong>Client lỗi parse JSON:</strong> phân biệt 204 không body với 200/201 có JSON; không bắt mọi status vào cùng một hàm đọc JSON.</li>
+<li><strong>Nhầm bảo mật:</strong> token hiện diện không đồng nghĩa đã được xác minh, và người đã xác thực chưa chắc có quyền sửa mọi sinh viên. Không public bài mẫu để quản lý dữ liệu cá nhân.</li>
+<li><strong>Tưởng dữ liệu đã lưu bền:</strong> Map mất sau restart, mỗi app instance có bộ nhớ riêng. Nối MySQL là thay tầng lưu trữ, không phải chỉ đổi status 200 thành 201.</li>
+</ul>
 
-      <div class="box important">
-        <div class="box-title">Quan trọng</div>
-        Middleware là khái niệm cốt lõi của Express: mỗi request đi qua một "chuỗi" các hàm middleware trước khi tới route handler cuối cùng. Quên gọi <code>next()</code> sẽ khiến request bị "treo" mãi mãi, không bao giờ có phản hồi.
-      </div>
+<h2>6. Bài tập ba mức</h2>
+<div class="box note"><div class="box-title">Dễ — kiểm hợp đồng</div><p>Thử POST tên hợp lệ, tên rỗng, body mảng và text/plain. Thử GET ID abc, 01, số dương không tồn tại. Ghi status/body mong đợi trước khi chạy: 201, 400, 415 hoặc 404 tùy trường hợp. Kiểm bản ghi không tăng khi validation thất bại.</p></div>
+<div class="box note"><div class="box-title">Vừa — lỗi ID và dữ liệu</div><p>Tạo hai sinh viên; xóa người thứ nhất; tạo người thứ ba. Chứng minh người thứ hai vẫn còn và ID mới không trùng. PATCH tên người thứ hai, kiểm ID không đổi; xóa lại ID đã xóa, kiểm trạng thái cuối vẫn không có bản ghi dù status khác lần đầu. Dừng và mở lại server để xác nhận dữ liệu RAM mất.</p></div>
+<div class="box note"><div class="box-title">Khó — ranh giới middleware và lưu trữ</div><p>Viết test độc lập cho parseId/readName/createStore, gồm Unicode và số vượt Number.MAX_SAFE_INTEGER. Dùng test double cho handler để kiểm return/next và 204.end; ghi rõ test double chưa thử HTTP parser thật. Sau khi chuẩn bị Express local, gửi JSON hỏng/quá 16 KB và kiểm 400/413. Vẽ thiết kế thay Map bằng MySQL: SQL tham số, lỗi kết nối, khóa chính và khả năng lưu sau restart; chưa thêm auth giả để lấp chỗ trống.</p></div>
 
-      
-
-      <div class="summary-box">
-        <h4>📌 Tổng kết chương 24</h4>
-        <p>REST API trong Express định nghĩa qua các route GET/POST/PUT/DELETE. Middleware (qua <code>app.use()</code> hoặc tham số route) xử lý logic chung như logging, xác thực — luôn nhớ gọi <code>next()</code>.</p>
-      </div>
-
-    </section>
-
-    <!-- ================= CHƯƠNG 25 ================= --></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter23.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bài trước</a><a href="chapter25.html">Bài tiếp theo<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/javascript-nnlt.html#chapter24"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>
+<h2>7. Tóm tắt</h2>
+<p>Mỗi request đi qua chuỗi middleware có thứ tự. Một nhánh phải chuyển tiếp hoặc phản hồi, không mặc định luôn gọi next. API dùng ID ổn định trong phạm vi mẫu, validation phía server, status phù hợp và 204 không body. Dữ liệu RAM, thiếu auth, thiếu phân trang và giới hạn tài nguyên khiến đây là bài thực hành local, chưa phải backend production. Không suy từ việc nhận JSON thành xác thực, phân quyền hoặc lưu trữ bền.</p>
+<h2>8. Quiz và tài liệu chính thức</h2>
+<p>Làm <a href="quiz.html?chapter=chapter24">năm câu quiz chương 24</a>. Tất cả câu hỏi dựa trên phần vừa học; link và tiến độ vẫn dùng cơ chế quiz riêng hiện có.</p>
+<ul><li><a href="https://expressjs.com/en/guide/using-middleware/">Express 5 — Using middleware</a></li><li><a href="https://expressjs.com/en/guide/error-handling/">Express 5 — Error handling</a></li><li><a href="https://expressjs.com/en/guide/migrating-5/#app.listen">Express 5 — app.listen</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc9110.html#name-delete">RFC 9110 — DELETE</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc9110.html#name-204-no-content">RFC 9110 — 204 No Content</a></li></ul>
+<p>Đối chiếu ngày 01/11/2026. Kiểm tra bằng chứng thực thi khi dùng lại bài ở môi trường khác; không coi hướng dẫn cài đặt là lệnh đã được tự chạy trên máy bạn.</p>
+</section></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter23.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bài trước</a><a href="chapter25.html">Bài tiếp theo<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/javascript-nnlt.html#chapter24"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>

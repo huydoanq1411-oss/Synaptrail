@@ -2,7 +2,7 @@
 <html lang="vi" data-theme="dark">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Sắp xếp dựa trên cấu trúc dữ liệu Heap — đảm bảo O(n log n) mọi trường hợp, sắp xếp tại chỗ (in-place).">
+  <meta name="description" content="Xây heap một lần rồi thu nhỏ miền; chỉ số và biên size quyết định tính đúng.">
   <title>Heap Sort | Thuật toán — Synaptrail</title>
   <link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css">
   <script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script>
@@ -11,54 +11,39 @@
   <a class="rm-skip" href="#lesson-content">Bỏ qua điều hướng</a>
   <header class="rm-header ap-header"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter09"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">◐ Giao diện</button></nav></header>
   <main class="ap-main" id="lesson-content">
-    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 9</p><h1>Heap Sort</h1><p class="rm-lead">Sắp xếp dựa trên cấu trúc dữ liệu Heap — đảm bảo O(n log n) mọi trường hợp, sắp xếp tại chỗ (in-place).</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
+    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 9</p><h1>Heap Sort</h1><p class="rm-lead">Xây heap một lần rồi thu nhỏ miền; chỉ số và biên size quyết định tính đúng.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
     <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter09">Làm quiz ở trang riêng →</a></div>
     <p id="ap-message" role="status" aria-live="polite"></p>
-    <article class="rm-lesson-content"><div class="code-wrap">
-        <span class="code-label">heap_sort.py</span>
-        
-        <pre><code>def heapify(ds, n, i):
-    lon_nhat = i
-    trai, phai = 2 * i + 1, 2 * i + 2
-
-    if trai < n and ds[trai] > ds[lon_nhat]:
-        lon_nhat = trai
-    if phai < n and ds[phai] > ds[lon_nhat]:
-        lon_nhat = phai
-
-    if lon_nhat != i:
-        ds[i], ds[lon_nhat] = ds[lon_nhat], ds[i]
-        heapify(ds, n, lon_nhat)          # tiếp tục "vun đống" xuống dưới
-
-def heap_sort(ds):
-    n = len(ds)
-    for i in range(n // 2 - 1, -1, -1):        # xây max-heap từ dưới lên
-        heapify(ds, n, i)
-
-    for i in range(n - 1, 0, -1):
-        ds[0], ds[i] = ds[i], ds[0]               # đưa phần tử lớn nhất (gốc heap) ra cuối
-        heapify(ds, i, 0)                            # "vun đống" lại phần còn lại
-    return ds</code></pre>
-      </div>
-
-      <div class="box tip">
-        <div class="box-title">Mẹo</div>
-        Nhắc lại từ giáo trình Python (chương 62): module <code>heapq</code> cài đặt sẵn min-heap. Heap Sort tận dụng tính chất "gốc heap luôn là phần tử lớn nhất/nhỏ nhất" để liên tục trích xuất và sắp xếp.
-      </div>
-
-      <table>
-        <tr><th>Tiêu chí</th><th>Merge Sort</th><th>Quick Sort</th><th>Heap Sort</th></tr>
-        <tr><td>Xấu nhất</td><td>O(n log n)</td><td>O(n²)</td><td>O(n log n)</td></tr>
-        <tr><td>Không gian</td><td>O(n)</td><td>O(log n)</td><td>O(1)</td></tr>
-        <tr><td>Ổn định</td><td>Có</td><td>Không</td><td>Không</td></tr>
-      </table>
-
-      
-
-      <div class="summary-box">
-        <h4>📌 Tổng kết chương 9</h4>
-        <p>Heap Sort dùng cấu trúc heap để đạt O(n log n) mọi trường hợp với O(1) bộ nhớ phụ — đánh đổi bằng việc không ổn định (stable) như Merge Sort.</p>
-      </div></article>
+    <article class="rm-lesson-content"><p class="ap-meta">Biên soạn theo tài liệu Cấu trúc dữ liệu và giải thuật — ThS. Bùi Văn Thượng, UTH. Đối chiếu mục 3.7. <a href="tai-lieu-ctdlgt.html#sap-xep">Nguồn và mục lục đối chiếu</a>.</p>
+<h2 id="muc-tieu">Mục tiêu</h2><ul><li>Xây max-heap từ dưới lên.</li><li>Tách vùng heap khỏi vùng đã sắp.</li></ul>
+<h2 id="van-de-thuc-te">Vấn đề thực tế</h2><p>Cần liên tục lấy số lớn nhất và đặt về cuối mảng mà không tìm lại toàn bộ dãy mỗi lần.</p>
+<h2 id="ly-thuyet">Lý thuyết nền</h2><p>Max-heap là cây nhị phân hoàn chỉnh có khóa cha ≥ khóa con. Với chỉ số từ 0, con của i ở 2i+1 và 2i+2. Sift-down (vun xuống) đổi nút với con lớn hơn cho đến khi đúng tính chất heap.</p><p>Xây heap bắt đầu từ nút cha cuối floor(n/2)−1 về gốc; chi phí tổng O(n), không phải n lần vun từ gốc. Heap Sort đổi gốc lớn nhất với cuối vùng heap, thu nhỏ vùng rồi vun lại gốc. Bản này có thời gian O(n log n), xấu nhất Θ(n log n), bộ nhớ phụ O(1), không ổn định. Heap chỉ đảm bảo quan hệ cha-con, chưa phải toàn mảng đã sắp.</p>
+<h2 id="vi-du">Ví dụ có thể chạy</h2><p>JavaScript, Node.js 22 trở lên; không dùng thư viện ngoài. Đây là bản chuyển thể cho website, không phải bản chép mã C/C++ bị dính dòng trong tài liệu Markdown. Lưu thành <code>chapter09.cjs</code> rồi chạy <code>node chapter09.cjs</code>. Các số trong ví dụ nằm trong miền nguyên an toàn, trừ phép chia biểu thức được giải thích riêng.</p>
+<div class="code-wrap"><span class="code-label">chapter09.cjs · JavaScript</span><pre><code>function siftDown(a, i, size) {
+   while (2 * i + 1 &lt; size) {
+     let child = 2 * i + 1;
+     if (child + 1 &lt; size &amp;&amp; a[child + 1] &gt; a[child]) child++;
+     if (a[i] &gt;= a[child]) break;
+     [a[i], a[child]] = [a[child], a[i]];
+     i = child;
+   }
+ }
+ function heapSort(a) {
+   for (let i = Math.floor(a.length / 2) - 1; i &gt;= 0; i--)
+     siftDown(a, i, a.length);
+   for (let end = a.length - 1; end &gt; 0; end--) {
+     [a[0], a[end]] = [a[end], a[0]];
+     siftDown(a, 0, end);
+   }
+   return a;
+ }
+ console.log(heapSort([1, 4, 8, 9, 0, 12, -5]));
+ // [-5, 0, 1, 4, 8, 9, 12]</code></pre></div>
+<h3>Giải thích các đoạn quan trọng</h3><ol><li>size là biên loại trừ; chỉ các vị trí nhỏ hơn size còn thuộc heap.</li><li>Chọn con lớn hơn trước khi so với cha, nhờ vậy đổi chỗ giữ heap của cây con.</li><li>Xây từ cha cuối vì các lá vốn đã là heap đơn.</li><li>Sau đổi gốc với end, gọi size=end để không kéo phần tử đã sắp trở vào heap.</li></ol>
+<h2 id="loi-thuong-gap">Lỗi thường gặp</h2><ul><li>Nhầm size là chỉ số cuối có tính cả phần tử đó.</li><li>Chọn con trái mà không so con phải.</li></ul>
+<h2 id="bai-tap">Bài tập ba mức</h2><h3>Mức 1 — Cơ bản</h3><p>Vẽ max-heap cho [1, 4, 8, 9, 0, 12, −5].</p><h3>Mức 2 — Vận dụng</h3><p>Ghi trạng thái sau mỗi lần lấy gốc và vun lại.</p><h3>Mức 3 — Nâng cao</h3><p>Giải thích vì sao cộng chi phí vun theo chiều cao nút cho O(n) ở bước xây heap.</p>
+<div class="summary-box"><h2 id="tom-tat">Tóm tắt</h2><p>Xây heap một lần rồi thu nhỏ miền; chỉ số và biên size quyết định tính đúng.</p></div>
+<h2 id="quiz">Quiz</h2><p>Câu hỏi chỉ dựa trên lý thuyết và ví dụ của bài này. <a href="quiz.html?chapter=chapter09">Mở quiz Heap Sort</a>.</p></article>
     <section class="ap-related"><h2>Bài học liên quan</h2><a href="chapter23.html">Heap &amp; Priority Queue →</a></section>
     <nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter08.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Bài trước</span></a><a href="chapter10.html"><span>Bài tiếp theo →</span></a></nav>
     <footer class="rm-footer"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter09"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a href="../index.html">Trang chủ</a></footer>

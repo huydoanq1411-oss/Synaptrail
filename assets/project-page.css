@@ -1,0 +1,7 @@
+/* Preserve the existing chapter title sizing after correcting its heading level. */
+.project-page .chapter > h1 {
+  font-size: clamp(1.5rem, 2.5vw, 2.15rem);
+  line-height: 1.4;
+  letter-spacing: -.035em;
+  margin: 0 0 14px;
+}

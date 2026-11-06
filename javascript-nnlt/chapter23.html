@@ -1,45 +1,115 @@
 <!DOCTYPE html>
-<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Express — Server cơ bản — JavaScript | Synaptrail</title><meta name="description" content="Framework phổ biến nhất để xây dựng web server và API bằng Node.js."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="javascript-nnlt" data-skill="javascript-nnlt" data-node="chapter23"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/javascript-nnlt.html#chapter23"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">JavaScript / BÀI 23</p><h1>Express — Server cơ bản</h1><p class="rm-lead">Framework phổ biến nhất để xây dựng web server và API bằng Node.js.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s23">
-      
-      <p class="lead">Framework phổ biến nhất để xây dựng web server và API bằng Node.js.</p>
-
-      <div class="code-wrap">
-        <span class="code-label">server.js</span>
-        
-        <pre><code>// npm install express
-const express = require('express');
-const app = express();
-const PORT = 3000;
-
-app.use(express.json());     // middleware - tự động parse JSON trong request body
-
-app.get('/', (req, res) =&gt; {
-    res.send('Chào mừng đến với Express!');
-});
-
-app.get('/sinh-vien/:id', (req, res) =&gt; {    // :id - route parameter
-    const id = req.params.id;
-    res.json({id: id, ten: "Huy"});
-});
-
-app.listen(PORT, () =&gt; {
-    console.log(`Server đang chạy tại http://localhost:${PORT}`);
-});</code></pre>
-      </div>
-
-      <table>
-        <tbody><tr><th>Thành phần</th><th>Ý nghĩa</th></tr>
-        <tr><td><code>app.get/post/put/delete</code></td><td>Định nghĩa route ứng với từng phương thức HTTP</td></tr>
-        <tr><td><code>req</code></td><td>Object chứa thông tin request (params, query, body...)</td></tr>
-        <tr><td><code>res</code></td><td>Object dùng để gửi phản hồi (send, json, status...)</td></tr>
-        <tr><td><code>req.params</code></td><td>Tham số trên đường dẫn (VD: <code>/sinh-vien/:id</code>)</td></tr>
-        <tr><td><code>req.query</code></td><td>Tham số trên query string (VD: <code>?trang=2</code>)</td></tr>
-      </tbody></table>
-
-      <div class="summary-box">
-        <h4>📌 Tổng kết chương 23</h4>
-        <p>Express định nghĩa route bằng <code>app.get/post/...</code>, xử lý request qua <code>req</code> và phản hồi qua <code>res</code> — nền tảng xây dựng REST API bằng Node.js.</p>
-      </div>
-    </section>
-
-    <!-- ================= CHƯƠNG 24 ================= --></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter22.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bài trước</a><a href="chapter24.html">Bài tiếp theo<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/javascript-nnlt.html#chapter23"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>
+<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Express — Server cơ bản — JavaScript | Synaptrail</title><meta name="description" content="Khởi động Express local, kiểm params/query và trả text/JSON với status rõ ràng; nền tảng trước REST API."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="javascript-nnlt" data-skill="javascript-nnlt" data-node="chapter23"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/javascript-nnlt.html#chapter23"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">JavaScript / BÀI 23</p><h1>Express — Server cơ bản</h1><p class="rm-lead">Khởi động Express local, kiểm params/query và trả text/JSON với status rõ ràng; nền tảng trước REST API.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter23">Làm quiz ở trang riêng <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s23">
+<h2>1. Mục tiêu học</h2>
+<p>Sau bài, bạn tạo được ứng dụng Express, mở cổng local, định nghĩa route GET và trả text/JSON. Bạn phân biệt route parameter (tham số đường dẫn), query string (tham số truy vấn), dữ liệu không hợp lệ và tài nguyên không tồn tại. Cần biết hàm, object, mảng, CommonJS, Promise và thao tác terminal; xem lại <a href="chapter21.html">npm</a> nếu chưa biết dependency là gì.</p>
+<p><strong>Phạm vi phiên bản:</strong> Node.js 24.x, Express 5.x, file .cjs. Đây là môi trường mục tiêu của ví dụ, không phải khẳng định phiên bản mới nhất. Tham khảo tài liệu chính thức cuối bài khi đổi major version. Synaptrail vẫn là website tĩnh; server bên dưới là bài thực hành riêng.</p>
+<h2>2. Vấn đề thực tế</h2>
+<p>Frontend muốn mở hồ sơ sinh viên ID 1 hoặc xem trang thứ hai của danh sách. Một hàm luôn trả tên Huy cho mọi ID có thể minh họa JSON, nhưng khiến người học tưởng server đã tra cứu dữ liệu. Ta dùng hai sinh viên cố định trong bộ nhớ: ID 1 và 2. ID 99 không tồn tại; abc không phải ID hợp lệ. Hai lỗi này cần phản hồi khác nhau để client hiểu chuyện gì xảy ra.</p>
+<p>Trước khi xây CRUD hay nối MySQL, cần trả lời ba câu: request nào được route nhận, dữ liệu đầu vào nằm ở đâu, và server kết thúc response thế nào? Mẫu chỉ đọc dữ liệu công khai giả lập, không có ghi dữ liệu, tài khoản hoặc quyền truy cập. Nó chưa phải dịch vụ production.</p>
+<h2>3. Lý thuyết nền</h2>
+<h3>Ứng dụng khác server đang lắng nghe</h3>
+<p>express() tạo app chứa cấu hình và handler. app.get đăng ký xử lý cho method GET cùng mẫu đường dẫn. app.listen mới mở HTTP server trên cổng; chỉ tạo app chưa làm URL truy cập được. Handler nhận req (request — yêu cầu) và res (response — phản hồi). Trình duyệt thanh địa chỉ gửi GET; query string không đổi method thành POST.</p>
+<h3>Params, query và body</h3>
+<table><thead><tr><th>Nguồn</th><th>Ví dụ</th><th>Cách hiểu</th></tr></thead><tbody><tr><td>req.params.id</td><td>/sinh-vien/2</td><td>Giá trị khớp vị trí :id; cần kiểm định dạng và chuyển số</td></tr><tr><td>req.query.trang</td><td>/sinh-vien?trang=2</td><td>Điều khiển trang danh sách; không phải ID sinh viên</td></tr><tr><td>req.body</td><td>Payload gửi trong request</td><td>Muốn nhận JSON cần middleware parser; bài chỉ GET nên chưa dùng</td></tr></tbody></table>
+<p>Đừng gọi Number rồi chấp nhận mọi kết quả: chuỗi rỗng, số âm, số thập phân hay số vượt giới hạn chính xác cần chính sách rõ. Query là đầu vào không tin cậy, không bảo đảm luôn là một chuỗi; tham số lặp có thể tạo giá trị khác tùy query parser. Mẫu chỉ nhận một chuỗi số dương chuẩn; thiếu trang thì mặc định 1, giới hạn tối đa 1000.</p>
+<h3>Status và kết thúc phản hồi</h3>
+<p>200 là thành công; 400 dùng khi ID hoặc trang sai định dạng; 404 khi không tìm thấy sinh viên hoặc route; 500 cho lỗi xử lý bất ngờ. Trang danh sách hợp lệ nhưng hết kết quả trả 200 với items rỗng, không biến thành lỗi ID. res.json gửi JSON và kết thúc phản hồi. return ở nhánh lỗi giúp JavaScript không chạy tiếp tới lần gửi thứ hai; nó không phải lệnh tạo response riêng.</p>
+<p>Middleware là hàm nằm trong luồng xử lý request. app.use cuối chuỗi ở mẫu trả 404 khi các route trên không xử lý. Error middleware có bốn tham số, đặt sau route; lỗi đồng bộ được Express chuyển tới nó. Trong Express 5, Promise bị reject từ handler trả Promise cũng được chuyển tiếp; lỗi phát sinh trong callback tách rời vẫn cần truyền đúng cách, không phải mọi lỗi trong tiến trình đều tự được bắt. Bài này chỉ dùng handler đồng bộ; xem sâu hơn ở <a href="chapter24.html">REST API và Middleware</a>.</p>
+<h2>4. Ví dụ hoàn chỉnh và giải thích</h2>
+<p>Tạo một thư mục thực hành mới ngoài repo Synaptrail, mở terminal tại đó rồi chạy các lệnh sau. npm install sẽ tải dependency và có thể chạy lifecycle script của package; đây là hướng dẫn cho môi trường thực hành bạn quản lý, không phải lệnh đã được tự chạy trong repo. Giữ package-lock.json nếu muốn tái tạo chính xác bản đã cài.</p>
+<div class="code-wrap"><span class="code-label">Terminal — thư mục thực hành riêng</span><pre><code>node --version
+npm init -y
+npm install express@5
+npm ls express</code></pre></div>
+<p>Lưu mã dưới thành server.cjs. File .cjs dùng CommonJS kể cả khi thư mục ngoài có type module. Dữ liệu An/Bình là dữ liệu mẫu viết trong code; không được lấy dữ liệu cá nhân thật để thử public.</p>
+<div class="code-wrap"><span class="code-label">server.cjs</span><pre><code>'use strict';
+function parseId(raw) {
+  if (typeof raw !== 'string' || !/^[1-9]\d*$/.test(raw)) return null;
+  const id = Number(raw);
+  return Number.isSafeInteger(id) ? id : null;
+}
+function parsePage(raw) {
+  if (raw === undefined) return 1;
+  const page = parseId(raw);
+  return page !== null &amp;&amp; page &lt;= 1000 ? page : null;
+}
+function createApp() {
+  const express = require('express');
+  const app = express();
+  const students = [{ id: 1, ten: 'An' }, { id: 2, ten: 'Bình' }];
+  app.get('/', (_req, res) =&gt; {
+    res.type('text/plain').send('API học Express đang chạy.');
+  });
+  app.get('/sinh-vien', (req, res) =&gt; {
+    const page = parsePage(req.query.trang);
+    if (page === null) return res.status(400).json({ error: 'INVALID_PAGE' });
+    const pageSize = 1;
+    const start = (page - 1) * pageSize;
+    res.json({ page, pageSize, total: students.length,
+      items: students.slice(start, start + pageSize) });
+  });
+  app.get('/sinh-vien/:id', (req, res) =&gt; {
+    const id = parseId(req.params.id);
+    if (id === null) return res.status(400).json({ error: 'INVALID_ID' });
+    const student = students.find(value =&gt; value.id === id);
+    if (!student) return res.status(404).json({ error: 'NOT_FOUND' });
+    res.json(student);
+  });
+  app.use((_req, res) =&gt; res.status(404).json({ error: 'ROUTE_NOT_FOUND' }));
+  app.use((error, _req, res, _next) =&gt; {
+    console.error('Lỗi xử lý:', error.code || error.name);
+    res.status(500).json({ error: 'INTERNAL_ERROR' });
+  });
+  return app;
+}
+function start(app, report = console, markFailed = () =&gt; { process.exitCode = 1; }) {
+  return app.listen(3000, '127.0.0.1', error =&gt; {
+    if (error) {
+      report.error('Không mở được cổng:', error.code || error.name);
+      markFailed();
+      return;
+    }
+    report.log('API: http://127.0.0.1:3000');
+  });
+}
+if (require.main === module) start(createApp());
+module.exports = { parseId, parsePage, createApp, start };</code></pre></div>
+<ol><li>parseId kiểm chuỗi số nguyên dương chuẩn trước khi Number, rồi kiểm Number.isSafeInteger. abc, 01, 0 và số quá lớn bị từ chối. Đây là quy tắc ID của bài, không phải mọi API phải có cùng định dạng.</li><li>parsePage xử lý trường hợp không có query bằng mặc định 1; mảng/object hoặc giá trị không chuẩn bị từ chối. Giới hạn 1000 là quyết định minh họa, không tự suy ra lượng dữ liệu thật.</li><li>createApp nạp Express và tạo danh sách cố định. Đường dẫn / trả text/plain; vì vậy client đọc text, không gọi response.json cho route này.</li><li>GET /sinh-vien tính offset từ page và pageSize=1. slice chọn tối đa một hàng; total vẫn là tổng hai sinh viên. Trang 3 hợp lệ nên trả mảng rỗng. Phân trang mẫu không phải truy vấn database.</li><li>GET /sinh-vien/:id kiểm ID rồi find bản ghi. Input không hợp lệ trả INVALID_ID/400; ID chuẩn không có trong dữ liệu trả NOT_FOUND/404. Không tạo tên giả để lấp bản ghi thiếu.</li><li>Middleware 404 nằm sau route, nếu đặt trước nó sẽ chặn các route tiếp theo. Error middleware trả mã chung, không đưa stack hoặc lỗi nội bộ vào JSON; ghi mã/tên lỗi phía terminal để điều tra.</li><li>start bind 127.0.0.1:3000 để chỉ thử trên máy local. Callback listen của Express 5 nhận lỗi mở cổng; phải kiểm error trước khi in URL. Khi cổng bận, mẫu đặt exitCode 1 thay vì in thành công giả.</li><li>require.main tách chạy trực tiếp khỏi import kiểm thử. Chỉ import module để thử parseId không tự mở cổng hoặc cần nạp Express. Hàm start nhận report/markFailed để kiểm luồng thành công/lỗi mà không chiếm cổng thật.</li></ol>
+<div class="code-wrap"><span class="code-label">Terminal 1</span><pre><code>node server.cjs</code></pre></div>
+<p>Khi mở cổng thành công, kỳ vọng terminal in API: http://127.0.0.1:3000. Mở URL gốc bằng trình duyệt nhận dòng text. Dùng Ctrl+C trong đúng terminal để dừng mẫu. Nếu cổng đã được app khác dùng, không dừng app đó một cách tùy tiện; chọn cổng thử khác ở cả server và client.</p>
+<h3>Client kiểm status và JSON</h3>
+<p>Lưu thu-server.cjs rồi chạy trong terminal thứ hai tại thư mục thực hành. Client dùng fetch có sẵn trong Node và timeout 5 giây cho mỗi request; HTTP 400/404 không tự làm fetch reject, nên cần kiểm response.status và payload. assert thất bại làm chương trình báo lỗi, không chỉ in ra status rồi coi là đạt.</p>
+<div class="code-wrap"><span class="code-label">thu-server.cjs</span><pre><code>'use strict';
+const assert = require('node:assert/strict');
+const base = 'http://127.0.0.1:3000';
+async function main() {
+  const cases = [
+    ['/sinh-vien/1', 200, body =&gt; body.id === 1 &amp;&amp; body.ten === 'An'],
+    ['/sinh-vien/99', 404, body =&gt; body.error === 'NOT_FOUND'],
+    ['/sinh-vien/abc', 400, body =&gt; body.error === 'INVALID_ID'],
+    ['/sinh-vien?trang=2', 200, body =&gt; body.page === 2 &amp;&amp; body.items[0].id === 2],
+    ['/sinh-vien?trang=3', 200, body =&gt; body.items.length === 0],
+    ['/sinh-vien?trang=0', 400, body =&gt; body.error === 'INVALID_PAGE'],
+    ['/khong-co', 404, body =&gt; body.error === 'ROUTE_NOT_FOUND'],
+  ];
+  for (const [route, expected, check] of cases) {
+    const response = await fetch(base + route, { signal: AbortSignal.timeout(5000) });
+    assert.equal(response.status, expected);
+    assert(check(await response.json()));
+    console.log('Đạt:', route, response.status);
+  }
+}
+main().catch(error =&gt; { console.error('Kiểm tra thất bại:', error.message); process.exitCode = 1; });</code></pre></div>
+<div class="code-wrap"><span class="code-label">Terminal 2</span><pre><code>node thu-server.cjs</code></pre></div>
+<p>Kỳ vọng bảy dòng Đạt theo bảng ca trong client. Đã kiểm HTTP thật ngày 01/11/2026 bằng Node 24.21.0 và Express 5.3.0 trong môi trường thử cô lập: bảy ca client đạt, query lặp bị từ chối, text/JSON và 400/404 đúng hợp đồng. Cũng đã thử lỗi cổng bận bằng cổng do harness sở hữu: báo thất bại và không in URL thành công. Khi chạy client kiểm thử, chỉ thay base URL sang cổng local ngẫu nhiên; không chiếm cổng 3000 của ứng dụng khác. Kết quả không thay kiểm tra production hoặc mọi cấu hình query parser.</p>
+<h2>5. Lỗi thường gặp</h2>
+<ul><li><strong>MODULE_NOT_FOUND:</strong> kiểm đúng thư mục thực hành, npm ls express và package đã cài; không cài thêm vào website để chữa ví dụ.</li><li><strong>require không tồn tại:</strong> giữ đuôi .cjs hoặc chuyển toàn bộ module theo cấu hình ESM có chủ đích, không trộn cú pháp ngẫu nhiên.</li><li><strong>ERR_HTTP_HEADERS_SENT:</strong> tìm nhánh đã res.json nhưng vẫn tiếp tục gửi lần nữa; dùng return để dừng nhánh.</li><li><strong>EADDRINUSE:</strong> cổng bận không đồng nghĩa app mới chạy; kiểm callback lỗi, chọn cổng thử thống nhất với client.</li><li><strong>Nhầm params/query:</strong> /sinh-vien/2 và /sinh-vien?trang=2 đi hai route khác nhau và trả hai hình dạng JSON khác nhau.</li><li><strong>404 mọi URL:</strong> kiểm method, đường dẫn và thứ tự middleware. Không trả 200 kèm lỗi để che cấu hình route sai.</li></ul>
+<h2>6. Bài tập ba mức</h2>
+<div class="box note"><div class="box-title">Dễ — hợp đồng request</div><p>Chạy bảy ca client, ghi status/payload mong đợi trước. Thêm ca /sinh-vien/01; giải thích khác nhau giữa input sai 400 và ID 99 không tồn tại 404. Kiểm đường gốc bằng response.text.</p></div>
+<div class="box note"><div class="box-title">Vừa — phân trang và lỗi</div><p>Thử thiếu trang, trang 1/2/3, -1, abc, 1001 và query trang lặp. Kiểm input không chuẩn bị từ chối thay vì coercion thành số. Không suy kết quả query parser thật từ test double; ghi rõ môi trường Express đã cài khi thử HTTP.</p></div>
+<div class="box note"><div class="box-title">Khó — kiểm khởi động</div><p>Viết test parseId/parsePage độc lập. Dùng app.listen double gọi callback lỗi EADDRINUSE; chứng minh không in URL và có báo thất bại. Sau đó thiết kế cách thêm POST/validation trong chương 24; chưa đưa auth hoặc MySQL vào bài cơ bản này chỉ để đủ stack.</p></div>
+<h2>7. Tóm tắt</h2>
+<p>Express app đăng ký route trước khi listen mở cổng. Params nhận ID trên đường dẫn; query điều khiển cách lấy danh sách; cả hai đều cần kiểm kiểu/giá trị. Response có status phù hợp và chỉ kết thúc một lần. Dữ liệu cố định trong RAM, thiếu auth, chưa có CRUD hoặc database nên đây là bài local. Tiếp tục sang <a href="chapter24.html">chương 24</a>, sau đó <a href="../mysql/chapter03.html">Node.js kết nối MySQL</a>.</p>
+<h2>8. Quiz và tài liệu chính thức</h2>
+<p>Làm <a href="quiz.html?chapter=chapter23">năm câu quiz chương 23</a>, đều dựa trên bài. Tài liệu đối chiếu: <a href="https://expressjs.com/en/5x/api/">Express 5 API</a>, <a href="https://expressjs.com/en/guide/error-handling/">Error handling</a>, <a href="https://expressjs.com/en/guide/migrating-5/#app.listen">Express 5 app.listen</a>. Giữ tách biệt ví dụ hướng dẫn, code đã kiểm logic và tích hợp HTTP chưa chạy.</p>
+</section></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter22.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bài trước</a><a href="chapter24.html">Bài tiếp theo<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/javascript-nnlt.html#chapter23"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>

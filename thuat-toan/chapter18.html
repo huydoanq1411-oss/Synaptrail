@@ -2,7 +2,7 @@
 <html lang="vi" data-theme="dark">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Cấu trúc LIFO (Last In First Out) — không chỉ là lý thuyết, mà là nền tảng của rất nhiều tính năng bạn dùng hàng ngày.">
+  <meta name="description" content="Stack giữ thứ tự ngược; kiểm đầy/rỗng, thứ tự toán hạng và trạng thái khung công việc là phần quyết định tính đúng.">
   <title>Stack — Ứng dụng thực tế | Thuật toán — Synaptrail</title>
   <link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css">
   <script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script>
@@ -11,71 +11,105 @@
   <a class="rm-skip" href="#lesson-content">Bỏ qua điều hướng</a>
   <header class="rm-header ap-header"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter18"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">◐ Giao diện</button></nav></header>
   <main class="ap-main" id="lesson-content">
-    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 18</p><h1>Stack — Ứng dụng thực tế</h1><p class="rm-lead">Cấu trúc LIFO (Last In First Out) — không chỉ là lý thuyết, mà là nền tảng của rất nhiều tính năng bạn dùng hàng ngày.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
-    <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div></div>
+    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 18</p><h1>Stack — Ứng dụng thực tế</h1><p class="rm-lead">Stack giữ thứ tự ngược; kiểm đầy/rỗng, thứ tự toán hạng và trạng thái khung công việc là phần quyết định tính đúng.</p><p class="ap-meta">Khoảng 13 phút · Thời lượng ước tính</p></div>
+    <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter18">Làm quiz ở trang riêng</a></div>
     <p id="ap-message" role="status" aria-live="polite"></p>
-    <article class="rm-lesson-content"><div class="code-wrap">
-        <span class="code-label">stack_basic.py</span>
-        
-        <pre><code>stack = []
-stack.append(1)     # push
-stack.append(2)
-stack.append(3)
-print(stack.pop())    # 3 - lấy ra phần tử THÊM SAU CÙNG</code></pre>
-      </div>
-
-      <h3>Ứng dụng 1: Kiểm tra ngoặc hợp lệ</h3>
-      <div class="code-wrap">
-        <span class="code-label">valid_parentheses.py</span>
-        
-        <pre><code>def ngoac_hop_le(s):
-    stack = []
-    cap = {")": "(", "]": "[", "}": "{"}
-    for ky_tu in s:
-        if ky_tu in "([{":
-            stack.append(ky_tu)
-        elif ky_tu in cap:
-            if not stack or stack.pop() != cap[ky_tu]:
-                return False
-    return len(stack) == 0</code></pre>
-      </div>
-
-      <h3>Ứng dụng 2: Chức năng Undo (hoàn tác)</h3>
-      <div class="code-wrap">
-        <span class="code-label">undo_feature.py</span>
-        
-        <pre><code>class TrinhSoanThao:
-    def __init__(self):
-        self.noi_dung = ""
-        self.lich_su = []           # stack lưu lịch sử các trạng thái
-
-    def go_chu(self, chu):
-        self.lich_su.append(self.noi_dung)    # lưu trạng thái TRƯỚC khi thay đổi
-        self.noi_dung += chu
-
-    def hoan_tac(self):                          # Ctrl+Z
-        if self.lich_su:
-            self.noi_dung = self.lich_su.pop()      # quay về trạng thái gần nhất
-
-soan_thao = TrinhSoanThao()
-soan_thao.go_chu("Xin"); soan_thao.go_chu(" chào")
-print(soan_thao.noi_dung)   # "Xin chào"
-soan_thao.hoan_tac()
-print(soan_thao.noi_dung)   # "Xin"</code></pre>
-      </div>
-
-      <h3>Ứng dụng 3: Duyệt DFS trên đồ thị (xem lại ở phần Đồ thị)</h3>
-      <p>Cả đệ quy VÀ Depth-First Search (DFS) đều dựa trên nguyên lý stack — thực tế, đệ quy chính là dùng "call stack" của chương trình một cách ngầm định.</p>
-
-      <div class="box tip">
-        <div class="box-title">Mẹo ghi nhớ</div>
-        Dấu hiệu nhận biết bài toán cần Stack: cần xử lý theo thứ tự <strong>"cái vào sau cùng, xử lý trước"</strong> — undo/redo, kiểm tra cân bằng ngoặc, đánh giá biểu thức toán học, duyệt DFS.
-      </div>
-
-      <div class="summary-box">
-        <h4>📌 Tổng kết chương 18</h4>
-        <p>Stack (LIFO) ứng dụng trong kiểm tra ngoặc hợp lệ, tính năng Undo, và là nền tảng ngầm định của đệ quy/DFS — một trong những cấu trúc dữ liệu được dùng nhiều nhất trong thực tế.</p>
-      </div></article>
+    <article class="rm-lesson-content"><p class="ap-meta">Biên soạn theo tài liệu Cấu trúc dữ liệu và giải thuật — ThS. Bùi Văn Thượng, UTH. Đối chiếu mục 4.3, BT4.2, BT4.3. <a href="tai-lieu-ctdlgt.html#danh-sach">Nguồn và mục lục đối chiếu</a>.</p>
+<h2 id="muc-tieu">Mục tiêu</h2><ul><li>Cài Stack bằng mảng và danh sách.</li><li>Áp dụng đổi cơ số, đảo chuỗi, biểu thức và khử đệ quy.</li></ul>
+<h2 id="van-de-thuc-te">Vấn đề thực tế</h2><p>Nút Undo phải hoàn tác thao tác vừa thực hiện; xử lý ngoặc phải ghép dấu đóng với dấu mở gần nhất chưa ghép.</p>
+<h2 id="ly-thuyet">Lý thuyết nền</h2><p>Stack (ngăn xếp) theo LIFO: vào sau ra trước. push thêm đỉnh, pop lấy và bỏ đỉnh, peek xem đỉnh, isEmpty kiểm rỗng. Với mảng cố định capacity, top=−1 khi rỗng, đầy khi top=capacity−1. Kiểm đầy trước ghi và kiểm rỗng trước đọc. Với danh sách đơn, dùng head làm đỉnh; push/pop sửa liên kết O(1), mỗi nút có chi phí vùng nhớ.</p>
+ <h3>Ứng dụng</h3><ul><li>Đổi cơ số: chia liên tiếp số nguyên không âm cho b, đẩy các phần dư; pop cho chữ số từ cao xuống thấp. Số 0 cần trả riêng “0”.</li><li>Đảo chuỗi: đẩy từng ký tự, lấy ngược. Ví dụ dùng Array.from để không tách đôi surrogate pair; chưa xử lý mọi grapheme gồm nhiều code point.</li><li>Hậu tố (postfix): toán hạng vào stack; gặp toán tử lấy phải trước, trái sau. Ví dụ 2 3 + 4 * cho 20. Biểu thức sai phải báo lỗi, không dùng eval.</li><li>Trung tố sang hậu tố: toán hạng ra output, dấu mở vào stack, dấu đóng lấy đến dấu mở; toán tử chờ các toán tử ưu tiên cao hơn hoặc bằng ở đỉnh rồi mới push. Ví dụ chỉ hỗ trợ + − * / hai ngôi, ngoặc và số nguyên không âm, không có dấu âm đơn ngôi.</li><li>Khử đệ quy: lưu khung công việc vào stack thay call stack. Tháp Hà Nội: chuyển n−1 từ nguồn sang tạm, chuyển đĩa lớn sang đích, chuyển n−1 từ tạm sang đích. Vì LIFO, đẩy ba việc theo thứ tự ngược. Số bước 2ⁿ−1; dùng stack không làm bài toán thành thời gian tuyến tính.</li></ul>
+<h2 id="vi-du">Ví dụ có thể chạy</h2><p>JavaScript, Node.js 22 trở lên; không dùng thư viện ngoài. Đây là bản chuyển thể cho website, không phải bản chép mã C/C++ bị dính dòng trong tài liệu Markdown. Lưu thành <code>chapter18.cjs</code> rồi chạy <code>node chapter18.cjs</code>. Các số trong ví dụ nằm trong miền nguyên an toàn, trừ phép chia biểu thức được giải thích riêng.</p>
+<div class="code-wrap"><span class="code-label">chapter18.cjs · JavaScript</span><pre><code>class ArrayStack {
+   constructor(capacity = 100) {
+     if (!Number.isInteger(capacity) || capacity &lt; 1) throw new RangeError('Sức chứa sai');
+     this.a = Array(capacity); this.top = -1;
+   }
+   isEmpty() { return this.top === -1; }
+   push(x) {
+     if (this.top + 1 === this.a.length) throw new RangeError('Stack đầy');
+     this.a[++this.top] = x;
+   }
+   peek() { if (this.isEmpty()) throw new RangeError('Stack rỗng'); return this.a[this.top]; }
+   pop() { const x = this.peek(); this.a[this.top--] = undefined; return x; }
+ }
+ class LinkedStack {
+   constructor() { this.head = null; }
+   isEmpty() { return this.head === null; }
+   push(value) { this.head = {value, next: this.head}; }
+   peek() { if (this.isEmpty()) throw new RangeError('Stack rỗng'); return this.head.value; }
+   pop() { const x = this.peek(); this.head = this.head.next; return x; }
+ }
+ function doiCoSo(n, b) {
+   if (!Number.isSafeInteger(n) || n &lt; 0 || !Number.isInteger(b) || b &lt; 2 || b &gt; 36)
+     throw new RangeError('Cần n nguyên không âm, cơ số 2..36');
+   if (n === 0) return '0';
+   const stack = new LinkedStack(), digits = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+   while (n &gt; 0) { stack.push(n % b); n = Math.floor(n / b); }
+   let out = ''; while (!stack.isEmpty()) out += digits[stack.pop()];
+   return out;
+ }
+ function daoChuoi(s) {
+   const stack = Array.from(s), out = [];
+   while (stack.length) out.push(stack.pop()); return out.join('');
+ }
+ function hauTo(tokens) {
+   const s = [];
+   for (const token of tokens) {
+     if (/^\d+$/.test(token)) { s.push(Number(token)); continue; }
+     if (!['+', '-', '*', '/'].includes(token) || s.length &lt; 2)
+       throw new SyntaxError('Hậu tố sai');
+     const right = s.pop(), left = s.pop();
+     if (token === '/' &amp;&amp; right === 0) throw new RangeError('Chia cho 0');
+     s.push(token === '+' ? left + right : token === '-' ? left - right :
+       token === '*' ? left * right : left / right);
+   }
+   if (s.length !== 1) throw new SyntaxError('Thừa hoặc thiếu toán hạng');
+   return s[0];
+ }
+ function sangHauTo(tokens) {
+   const out = [], ops = [], rank = {'+':1, '-':1, '*':2, '/':2};
+   let canSo = true;
+   for (const t of tokens) {
+     if (/^\d+$/.test(t)) {
+       if (!canSo) throw new SyntaxError('Thiếu toán tử');
+       out.push(t); canSo = false;
+     } else if (t === '(') {
+       if (!canSo) throw new SyntaxError('Thiếu toán tử trước ngoặc'); ops.push(t);
+     } else if (t === ')') {
+       if (canSo) throw new SyntaxError('Thiếu toán hạng');
+       while (ops.length &amp;&amp; ops.at(-1) !== '(') out.push(ops.pop());
+       if (ops.pop() !== '(') throw new SyntaxError('Lệch ngoặc');
+     } else if (Object.hasOwn(rank, t)) {
+       if (canSo) throw new SyntaxError('Thiếu toán hạng');
+       while (ops.length &amp;&amp; ops.at(-1) !== '(' &amp;&amp; rank[ops.at(-1)] &gt;= rank[t]) out.push(ops.pop());
+       ops.push(t); canSo = true;
+     } else throw new SyntaxError('Token không hỗ trợ');
+   }
+   if (canSo) throw new SyntaxError('Biểu thức chưa đủ');
+   while (ops.length) { const t = ops.pop(); if (t === '(') throw new SyntaxError('Lệch ngoặc'); out.push(t); }
+   return out;
+ }
+ function haNoi(n) {
+   if (!Number.isInteger(n) || n &lt; 0 || n &gt; 15) throw new RangeError('Ví dụ giới hạn 0..15 đĩa');
+   const todo = [{n, from:'A', to:'B', via:'C'}], moves = [];
+   while (todo.length) {
+     const t = todo.pop(); if (t.n === 0) continue;
+     if (t.n === 1) { moves.push([t.from, t.to]); continue; }
+     todo.push({n:t.n-1, from:t.via, to:t.to, via:t.from});
+     todo.push({n:1, from:t.from, to:t.to, via:t.via});
+     todo.push({n:t.n-1, from:t.from, to:t.via, via:t.to});
+   }
+   return moves;
+ }
+ console.log(doiCoSo(26, 16), daoChuoi('An')); // 1A nA
+ console.log(hauTo(sangHauTo(['(', '2', '+', '3', ')', '*', '4']))); // 20
+ console.log(haNoi(3).length); // 7</code></pre></div>
+<h3>Giải thích các đoạn quan trọng</h3><ol><li>ArrayStack dùng ++top trước ghi và giảm top sau đọc; LinkedStack đặt node mới trước head.</li><li>Đổi cơ số đẩy phần dư theo thứ tự từ thấp lên cao, lấy ra theo thứ tự ngược.</li><li>hauTo luôn pop right trước left: phép trừ/chia sẽ sai nếu đảo.</li><li>sangHauTo kiểm tra thứ tự token và ngoặc; rank quy định * / cao hơn + −, đều kết hợp trái.</li><li>haNoi đẩy việc cuối trước; đầu stack luôn là việc cần làm tiếp. Giới hạn 15 đĩa chỉ bảo vệ ví dụ khỏi tạo quá nhiều bước.</li></ol>
+<h2 id="loi-thuong-gap">Lỗi thường gặp</h2><ul><li>Pop/peek khi rỗng hoặc ghi vượt mảng cố định.</li><li>Đảo thứ tự toán hạng phép trừ và chia.</li><li>Đẩy ba việc Hà Nội theo thứ tự thực hiện thay vì thứ tự ngược.</li></ul>
+<h2 id="bai-tap">Bài tập ba mức</h2><h3>Mức 1 — Cơ bản</h3><p>Đổi 0, 10, 26 sang cơ số 2/8/16 bằng Stack danh sách (BT4.2); kiểm số âm/cơ số sai.</p><h3>Mức 2 — Vận dụng</h3><p>Đổi (2 + 3) * 4 sang hậu tố và tính; thử ngoặc sai, chia 0, thiếu toán hạng.</p><h3>Mức 3 — Nâng cao</h3><p>BT4.3 toa tàu: mô hình hóa A là đầu vào 1…n, B là một stack, C là đầu ra. Kiểm tra một hoán vị có thể đạt bằng push/pop và in các bước. Hình đường ray không có đầy đủ trong bản Markdown; đây là giả thiết của mô hình chuẩn, cần đối chiếu bản hình nếu tuyến khác.</p>
+<div class="summary-box"><h2 id="tom-tat">Tóm tắt</h2><p>Stack giữ thứ tự ngược; kiểm đầy/rỗng, thứ tự toán hạng và trạng thái khung công việc là phần quyết định tính đúng.</p></div>
+<h2 id="quiz">Quiz</h2><p>Câu hỏi chỉ dựa trên lý thuyết và ví dụ của bài này. <a href="quiz.html?chapter=chapter18">Mở quiz Stack — Ứng dụng thực tế</a>.</p></article>
     <section class="ap-related"><h2>Bài học liên quan</h2><a href="chapter20.html">Binary Tree &amp; Duyệt cây →</a></section>
     <nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter17.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Bài trước</span></a><a href="chapter19.html"><span>Bài tiếp theo →</span></a></nav>
     <footer class="rm-footer"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter18"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a href="../index.html">Trang chủ</a></footer>

@@ -1,0 +1,44 @@
+/* Decorative layers never intercept links or alter editable text. */
+:root {
+  --fx-duration: 180ms;
+  --fx-ease: cubic-bezier(.23, 1, .32, 1);
+  --fx-shine: color-mix(in srgb, var(--color-teal) 20%, transparent);
+}
+.landing-page .path-card {
+  --rx: 0deg; --ry: 0deg; --mx: 50%; --my: 50%;
+  position: relative;
+  transition: transform var(--fx-duration) var(--fx-ease), border-color var(--fx-duration) var(--fx-ease);
+}
+.landing-page .path-card::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit;
+  background: radial-gradient(circle at var(--mx) var(--my), var(--fx-shine), transparent 65%);
+  opacity: 0; pointer-events: none;
+  transition: opacity var(--fx-duration) var(--fx-ease);
+}
+.landing-page .path-card:focus-visible {
+  outline: 2px solid var(--color-teal); outline-offset: 4px;
+}
+.catalog-page .search-box { position: relative; }
+.catalog-page .typing-indicator {
+  display: flex; gap: 3px; pointer-events: none; opacity: 0;
+  position: absolute; right: var(--space-1); bottom: 4px;
+  color: var(--color-teal);
+  transition: opacity var(--fx-duration) var(--fx-ease);
+}
+.typing-indicator span { width: 3px; height: 3px; border-radius: 50%; background: currentColor; }
+.catalog-page .search-box.is-typing .typing-indicator { opacity: 1; }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  html[data-fx3d-motion="on"] .landing-page .path-card.fx3d-tracking {
+    transform: perspective(1100px) rotateX(var(--rx)) rotateY(var(--ry));
+    transition: border-color var(--fx-duration) var(--fx-ease);
+    will-change: transform;
+  }
+  html[data-fx3d-motion="on"] .landing-page .path-card.fx3d-tracking::before { opacity: 1; }
+}
+@media (hover: none), (pointer: coarse) {
+  .landing-page .path-card:hover { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .landing-page .path-card, .catalog-page .typing-indicator { transition: none; }
+  .landing-page .path-card::before { display: none; }
+}

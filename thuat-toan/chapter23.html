@@ -2,7 +2,7 @@
 <html lang="vi" data-theme="dark">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Cây nhị phân đặc biệt luôn giữ phần tử ưu tiên nhất ở gốc — nền tảng của hàng đợi ưu tiên và Heap Sort (đã học ở chương 9).">
+  <meta name="description" content="Heap phục vụ cực trị hiệu quả; không thay thế BST cho duyệt có thứ tự hoặc tìm khóa bất kỳ.">
   <title>Heap &amp; Priority Queue | Thuật toán — Synaptrail</title>
   <link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css">
   <script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script>
@@ -11,68 +11,49 @@
   <a class="rm-skip" href="#lesson-content">Bỏ qua điều hướng</a>
   <header class="rm-header ap-header"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter23"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">◐ Giao diện</button></nav></header>
   <main class="ap-main" id="lesson-content">
-    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 23</p><h1>Heap &amp; Priority Queue</h1><p class="rm-lead">Cây nhị phân đặc biệt luôn giữ phần tử ưu tiên nhất ở gốc — nền tảng của hàng đợi ưu tiên và Heap Sort (đã học ở chương 9).</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
+    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 23</p><h1>Heap &amp; Priority Queue</h1><p class="rm-lead">Heap phục vụ cực trị hiệu quả; không thay thế BST cho duyệt có thứ tự hoặc tìm khóa bất kỳ.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
     <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter23">Làm quiz ở trang riêng →</a></div>
     <p id="ap-message" role="status" aria-live="polite"></p>
-    <article class="rm-lesson-content"><div class="code-wrap">
-        <span class="code-label">heap_module.py</span>
-        
-        <pre><code>import heapq
-
-min_heap = [5, 2, 8, 1, 9]
-heapq.heapify(min_heap)              # biến list thành min-heap tại chỗ, O(n)
-print(min_heap[0])                      # phần tử NHỎ NHẤT luôn ở gốc -> 1
-
-heapq.heappush(min_heap, 0)              # thêm - O(log n)
-print(heapq.heappop(min_heap))             # lấy + xóa phần tử nhỏ nhất - O(log n) -> 0
-
-print(heapq.nsmallest(3, [9,3,7,1,8,2]))    # 3 phần tử nhỏ nhất -> [1, 2, 3]</code></pre>
-      </div>
-
-      <h3>Ứng dụng thực tế: Hệ thống ưu tiên xử lý ticket hỗ trợ</h3>
-      <div class="code-wrap">
-        <span class="code-label">priority_queue_demo.py</span>
-        
-        <pre><code>import heapq
-
-hang_doi = []
-heapq.heappush(hang_doi, (1, "Server sập - khẩn cấp"))      # (độ ưu tiên, mô tả)
-heapq.heappush(hang_doi, (3, "Yêu cầu thêm tính năng"))
-heapq.heappush(hang_doi, (2, "Lỗi hiển thị giao diện"))
-
-while hang_doi:
-    uu_tien, mo_ta = heapq.heappop(hang_doi)
-    print(f"[Ưu tiên {uu_tien}] {mo_ta}")
-# Xử lý ĐÚNG THỨ TỰ ưu tiên, không phải thứ tự đưa vào</code></pre>
-      </div>
-
-      <h3>Ứng dụng: Tìm K phần tử lớn nhất (Top-K)</h3>
-      <div class="code-wrap">
-        <span class="code-label">top_k.py</span>
-        
-        <pre><code>import heapq
-
-def top_k_lon_nhat(ds, k):
-    return heapq.nlargest(k, ds)           # hiệu quả hơn sort() toàn bộ rồi lấy k phần tử
-
-print(top_k_lon_nhat([5, 2, 8, 1, 9, 3], 3))   # [9, 8, 5]</code></pre>
-      </div>
-
-      <div class="box tip">
-        <div class="box-title">Mẹo ghi nhớ</div>
-        Dấu hiệu nhận biết bài toán cần Heap/Priority Queue: cần liên tục lấy ra phần tử <strong>"tốt nhất/ưu tiên nhất"</strong> trong một tập hợp đang thay đổi động — lập lịch, thuật toán Dijkstra (chương Đồ thị), tìm K phần tử lớn/nhỏ nhất.
-      </div>
-
-      
-
-      <div class="summary-box">
-        <h4>📌 Tổng kết chương 23</h4>
-        <p>Heap giữ phần tử ưu tiên nhất ở gốc, thao tác thêm/lấy đạt O(log n). Priority Queue (cài bằng heap) dùng cho lập lịch theo độ ưu tiên, tìm Top-K, và là thành phần cốt lõi của thuật toán Dijkstra sắp học.</p>
-      </div>
-
-      <div class="next-hint">
-        ✅ Đã hoàn thành 23 chương (Nền tảng + Sắp xếp + Tìm kiếm + Cấu trúc tuyến tính + Cây). Đang tiếp tục ngay với <strong>Phần 6 — Đồ thị (BFS, DFS, Dijkstra, MST)</strong>, không dừng lại.
-      </div></article>
+    <article class="rm-lesson-content"><p class="ap-meta">Biên soạn theo tài liệu Cấu trúc dữ liệu và giải thuật — ThS. Bùi Văn Thượng, UTH. Đối chiếu mục 3.7. <a href="tai-lieu-ctdlgt.html#cay">Nguồn và mục lục đối chiếu</a>.</p>
+<h2 id="muc-tieu">Mục tiêu</h2><ul><li>Phân biệt heap với BST.</li><li>Cài min-heap và hàng ưu tiên.</li></ul>
+<h2 id="van-de-thuc-te">Vấn đề thực tế</h2><p>Tác vụ có độ ưu tiên nhỏ hơn phải chạy trước; không cần sắp cả tập sau mỗi lần thêm một tác vụ.</p>
+<h2 id="ly-thuyet">Lý thuyết nền</h2><p>Phần mở rộng của heap trong tài liệu: Priority Queue (hàng ưu tiên) hỗ trợ push, peek phần tử ưu tiên nhất, pop lấy phần tử đó. Min-heap lưu cha ≤ con; trái/phải không có quan hệ thứ tự BST. peek O(1), push/pop O(log n) xấu nhất theo thao tác heap; mảng động có chi phí cấp phát riêng.</p><p>push nối ở cuối rồi sift-up (vun lên) theo cha floor((i−1)/2). pop lấy gốc, chuyển phần tử cuối về đầu rồi sift-down. Trả undefined khi rỗng trong bản này, khác với Stack/Queue bài trước dùng ngoại lệ; phải ghi rõ hợp đồng API. Nếu cần FIFO khi bằng ưu tiên, comparator phải xét thêm số thứ tự đưa vào.</p>
+<h2 id="vi-du">Ví dụ có thể chạy</h2><p>JavaScript, Node.js 22 trở lên; không dùng thư viện ngoài. Đây là bản chuyển thể cho website, không phải bản chép mã C/C++ bị dính dòng trong tài liệu Markdown. Lưu thành <code>chapter23.cjs</code> rồi chạy <code>node chapter23.cjs</code>. Các số trong ví dụ nằm trong miền nguyên an toàn, trừ phép chia biểu thức được giải thích riêng.</p>
+<div class="code-wrap"><span class="code-label">chapter23.cjs · JavaScript</span><pre><code>class MinHeap {
+   constructor() { this.a = []; }
+   peek() { return this.a[0]; }
+   push(x) {
+     if (!Number.isFinite(x)) throw new TypeError('Ưu tiên phải là số hữu hạn');
+     this.a.push(x); let i = this.a.length - 1;
+     while (i &gt; 0) {
+       const p = Math.floor((i - 1) / 2);
+       if (this.a[p] &lt;= this.a[i]) break;
+       [this.a[p], this.a[i]] = [this.a[i], this.a[p]]; i = p;
+     }
+   }
+   pop() {
+     if (!this.a.length) return undefined;
+     const result = this.a[0], last = this.a.pop();
+     if (!this.a.length) return result;
+     this.a[0] = last; let i = 0;
+     while (2 * i + 1 &lt; this.a.length) {
+       let c = 2 * i + 1;
+       if (c + 1 &lt; this.a.length &amp;&amp; this.a[c + 1] &lt; this.a[c]) c++;
+       if (this.a[i] &lt;= this.a[c]) break;
+       [this.a[i], this.a[c]] = [this.a[c], this.a[i]]; i = c;
+     }
+     return result;
+   }
+ }
+ const pq = new MinHeap();
+ for (const x of [5,1,3,1]) pq.push(x);
+ console.log(pq.pop(), pq.pop(), pq.pop(), pq.pop(), pq.pop());
+ // 1 1 3 5 undefined</code></pre></div>
+<h3>Giải thích các đoạn quan trọng</h3><ol><li>push giữ chỉ số mới và đổi lên cha đến khi đúng heap hoặc tới gốc.</li><li>pop lưu gốc trước khi lấy cuối; ca một phần tử trả ngay, không gán lại ô 0.</li><li>Trong sift-down chọn con nhỏ hơn, ngược max-heap ở bài Heap Sort.</li><li>Ví dụ có hai ưu tiên bằng 1: đảm bảo giá trị đúng, chưa đảm bảo thứ tự tác vụ nếu dùng bản ghi.</li></ol>
+<h2 id="loi-thuong-gap">Lỗi thường gặp</h2><ul><li>Tìm khóa tùy ý trong heap rồi cho rằng O(log n) như BST.</li><li>Trộn quy tắc min-heap và max-heap.</li><li>Giả định hàng ưu tiên mặc định giữ FIFO khi bằng khóa.</li></ul>
+<h2 id="bai-tap">Bài tập ba mức</h2><h3>Mức 1 — Cơ bản</h3><p>Theo dõi mảng khi push 5,1,3 và pop hai lần.</p><h3>Mức 2 — Vận dụng</h3><p>Mở rộng heap nhận bản ghi {priority, sequence, task}, ưu tiên nhỏ trước và FIFO khi bằng.</p><h3>Mức 3 — Nâng cao</h3><p>Giữ k giá trị lớn nhất bằng min-heap kích thước k; nêu chi phí O(n log k) khi 1<k≤n. Bài tập này là phần mở rộng, không thuộc bài tập nguồn.</p>
+<div class="summary-box"><h2 id="tom-tat">Tóm tắt</h2><p>Heap phục vụ cực trị hiệu quả; không thay thế BST cho duyệt có thứ tự hoặc tìm khóa bất kỳ.</p></div>
+<h2 id="quiz">Quiz</h2><p>Câu hỏi chỉ dựa trên lý thuyết và ví dụ của bài này. <a href="quiz.html?chapter=chapter23">Mở quiz Heap &amp; Priority Queue</a>.</p></article>
     <section class="ap-related"><h2>Bài học liên quan</h2><a href="chapter09.html">Heap Sort →</a></section>
     <nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter22.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Bài trước</span></a></nav>
     <footer class="rm-footer"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter23"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a href="../index.html">Trang chủ</a></footer>

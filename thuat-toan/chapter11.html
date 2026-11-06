@@ -2,7 +2,7 @@
 <html lang="vi" data-theme="dark">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Tổng hợp toàn bộ các thuật toán đã học và hướng dẫn chọn đúng thuật toán cho từng tình huống.">
+  <meta name="description" content="Chọn theo kích thước, thứ tự có sẵn, miền khóa, tính ổn định và giới hạn bộ nhớ; không có một thuật toán tối ưu cho mọi trường hợp.">
   <title>So sánh &amp; lựa chọn thuật toán sắp xếp | Thuật toán — Synaptrail</title>
   <link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css">
   <script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script>
@@ -11,39 +11,32 @@
   <a class="rm-skip" href="#lesson-content">Bỏ qua điều hướng</a>
   <header class="rm-header ap-header"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter11"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">◐ Giao diện</button></nav></header>
   <main class="ap-main" id="lesson-content">
-    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 11</p><h1>So sánh &amp; lựa chọn thuật toán sắp xếp</h1><p class="rm-lead">Tổng hợp toàn bộ các thuật toán đã học và hướng dẫn chọn đúng thuật toán cho từng tình huống.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
+    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 11</p><h1>So sánh &amp; lựa chọn thuật toán sắp xếp</h1><p class="rm-lead">Chọn theo kích thước, thứ tự có sẵn, miền khóa, tính ổn định và giới hạn bộ nhớ; không có một thuật toán tối ưu cho mọi trường hợp.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
     <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter11">Làm quiz ở trang riêng →</a></div>
     <p id="ap-message" role="status" aria-live="polite"></p>
-    <article class="rm-lesson-content"><table>
-        <tr><th>Thuật toán</th><th>Tốt nhất</th><th>Trung bình</th><th>Xấu nhất</th><th>Không gian</th><th>Ổn định</th></tr>
-        <tr><td>Bubble Sort</td><td>O(n)</td><td>O(n²)</td><td>O(n²)</td><td>O(1)</td><td>Có</td></tr>
-        <tr><td>Selection Sort</td><td>O(n²)</td><td>O(n²)</td><td>O(n²)</td><td>O(1)</td><td>Không</td></tr>
-        <tr><td>Insertion Sort</td><td>O(n)</td><td>O(n²)</td><td>O(n²)</td><td>O(1)</td><td>Có</td></tr>
-        <tr><td>Merge Sort</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n)</td><td>Có</td></tr>
-        <tr><td>Quick Sort</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n²)</td><td>O(log n)</td><td>Không</td></tr>
-        <tr><td>Heap Sort</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n log n)</td><td>O(1)</td><td>Không</td></tr>
-        <tr><td>Counting Sort</td><td>O(n+k)</td><td>O(n+k)</td><td>O(n+k)</td><td>O(k)</td><td>Có</td></tr>
-      </table>
-
-      <h3>Hướng dẫn lựa chọn thực tế</h3>
-      <div class="box tip">
-        <div class="box-title">Mẹo lựa chọn</div>
-        <ul style="margin-bottom:0">
-          <li><strong>Dữ liệu nhỏ (&lt; 50 phần tử):</strong> Insertion Sort đủ nhanh, code đơn giản.</li>
-          <li><strong>Cần ổn định (stable) + không giới hạn bộ nhớ:</strong> Merge Sort.</li>
-          <li><strong>Cần nhanh trung bình, có thể chấp nhận rủi ro xấu nhất:</strong> Quick Sort (với pivot ngẫu nhiên).</li>
-          <li><strong>Cần đảm bảo O(n log n) VÀ tiết kiệm bộ nhớ:</strong> Heap Sort.</li>
-          <li><strong>Dữ liệu là số nguyên trong phạm vi nhỏ:</strong> Counting Sort/Radix Sort.</li>
-          <li><strong>Không muốn tự cài đặt gì cả:</strong> Dùng hàm <code>sorted()</code>/<code>.sort()</code> có sẵn của ngôn ngữ — hầu hết đã tối ưu bằng thuật toán lai (Timsort, Introsort...).</li>
-        </ul>
-      </div>
-
-      
-
-      <div class="summary-box">
-        <h4>📌 Tổng kết chương 11</h4>
-        <p>Không có thuật toán sắp xếp nào "tốt nhất tuyệt đối" — lựa chọn phụ thuộc vào yêu cầu cụ thể: tốc độ trung bình, đảm bảo xấu nhất, bộ nhớ, tính ổn định. Trong thực tế, luôn ưu tiên hàm sắp xếp có sẵn của ngôn ngữ trừ khi có lý do đặc biệt để tự cài đặt.</p>
-      </div></article>
+    <article class="rm-lesson-content"><p class="ap-meta">Biên soạn theo tài liệu Cấu trúc dữ liệu và giải thuật — ThS. Bùi Văn Thượng, UTH. Đối chiếu mục 3.1, 3.11, BT3. <a href="tai-lieu-ctdlgt.html#sap-xep">Nguồn và mục lục đối chiếu</a>.</p>
+<h2 id="muc-tieu">Mục tiêu</h2><ul><li>Chọn thuật toán theo dữ liệu và tài nguyên.</li><li>Sắp bản ghi theo nhiều tiêu chí.</li></ul>
+<h2 id="van-de-thuc-te">Vấn đề thực tế</h2><p>Danh sách sinh viên cần xem theo mã, theo điểm giảm dần và theo tên; cùng dữ liệu nhưng khóa và quy tắc bằng nhau khác nhau.</p>
+<h2 id="ly-thuyet">Lý thuyết nền</h2><h3>So sánh để lựa chọn</h3><ul><li>Interchange và Selection: Θ(n²) so sánh, O(1) phụ, không ổn định trong bản đổi chỗ thông thường.</li><li>Insertion: tốt nhất Θ(n), trung bình/xấu nhất Θ(n²), O(1) phụ, ổn định. Hữu ích cho dãy nhỏ hoặc gần sắp.</li><li>Bubble có cờ dừng: tốt nhất Θ(n), xấu nhất Θ(n²), O(1) phụ, ổn định.</li><li>Merge: Θ(n log n), O(n) phụ trên mảng, ổn định khi ưu tiên phần tử trái lúc bằng khóa.</li><li>Quick: phân hoạch cân đối Θ(n log n), xấu nhất Θ(n²); stack có thể O(n), không ổn định.</li><li>Heap: O(n log n), xấu nhất Θ(n log n), O(1) phụ với bản lặp, không ổn định.</li><li>Shell: phụ thuộc dãy gap, bản chia đôi xấu nhất O(n²), O(1) phụ, không ổn định.</li><li>Counting: O(n+K); Radix: O(d(n+b)); phải biết miền giá trị.</li></ul>
+ <p>Thứ tự so sánh phải nhất quán. Với bản ghi, nêu khóa chính và khóa phụ. Sắp tên tiếng Việt cần quy ước: toàn bộ họ tên hay chỉ tên gọi, dùng collation (quy tắc đối chiếu chuỗi) nào; không coi thứ tự mã Unicode là thứ tự từ điển tiếng Việt.</p><p>Ví dụ dùng Array.sort của JavaScript để minh họa comparator (hàm so sánh), không dùng nó để khẳng định cận của một thuật toán tự cài. Tạo bản sao trước khi sort để giữ dữ liệu gốc.</p>
+<h2 id="vi-du">Ví dụ có thể chạy</h2><p>JavaScript, Node.js 22 trở lên; không dùng thư viện ngoài. Đây là bản chuyển thể cho website, không phải bản chép mã C/C++ bị dính dòng trong tài liệu Markdown. Lưu thành <code>chapter11.cjs</code> rồi chạy <code>node chapter11.cjs</code>. Các số trong ví dụ nằm trong miền nguyên an toàn, trừ phép chia biểu thức được giải thích riêng.</p>
+<div class="code-wrap"><span class="code-label">chapter11.cjs · JavaScript</span><pre><code>const sinhVien = [
+   {ma: 3, ten: 'Bình', diem: 8},
+   {ma: 1, ten: 'An', diem: 9},
+   {ma: 2, ten: 'Châu', diem: 8}
+ ];
+ const theoMa = [...sinhVien].sort((a, b) =&gt; a.ma - b.ma);
+ const theoDiem = [...sinhVien].sort((a, b) =&gt; b.diem - a.diem || a.ma - b.ma);
+ const doiChieu = new Intl.Collator('vi');
+ const theoTen = [...sinhVien].sort((a, b) =&gt; doiChieu.compare(a.ten, b.ten));
+ console.log(theoMa.map(x =&gt; x.ma)); // [1, 2, 3]
+ console.log(theoDiem.map(x =&gt; x.ma)); // [1, 2, 3]
+ console.log(theoTen.map(x =&gt; x.ten)); // ['An', 'Bình', 'Châu']</code></pre></div>
+<h3>Giải thích các đoạn quan trọng</h3><ol><li>Mỗi bản ghi giữ mã, tên và điểm; comparator chỉ chọn trường khóa.</li><li>a.ma−b.ma cho thứ tự mã tăng. b.diem−a.diem cho điểm giảm, || dùng mã tăng để phá hòa.</li><li>Intl.Collator dùng quy tắc tiếng Việt của môi trường chạy; cần thống nhất yêu cầu tên gọi/toàn họ tên.</li><li>map chỉ lấy trường muốn in; các bản sao không làm đổi vị trí bản ghi trong mảng gốc.</li></ol>
+<h2 id="loi-thuong-gap">Lỗi thường gặp</h2><ul><li>Gọi sort() không comparator để sắp số, dẫn đến thứ tự chuỗi.</li><li>Nhầm “ổn định” với việc tất cả khóa đã đúng thứ tự.</li></ul>
+<h2 id="bai-tap">Bài tập ba mức</h2><h3>Mức 1 — Cơ bản</h3><p>Cài đủ chín thuật toán trong chương 3 tài liệu và kiểm tra cùng một dãy số.</p><h3>Mức 2 — Vận dụng</h3><p>Sắp nửa đầu tăng bằng một thuật toán, nửa sau giảm bằng thuật toán khác; nếu n lẻ giữ nguyên phần tử giữa.</p><h3>Mức 3 — Nâng cao</h3><p>Quản lý mảng sinh viên: sắp mã tăng, điểm giảm và tên theo quy ước đã nêu; kiểm tra khi trùng khóa và tên tiếng Việt.</p>
+<div class="summary-box"><h2 id="tom-tat">Tóm tắt</h2><p>Chọn theo kích thước, thứ tự có sẵn, miền khóa, tính ổn định và giới hạn bộ nhớ; không có một thuật toán tối ưu cho mọi trường hợp.</p></div>
+<h2 id="quiz">Quiz</h2><p>Câu hỏi chỉ dựa trên lý thuyết và ví dụ của bài này. <a href="quiz.html?chapter=chapter11">Mở quiz So sánh &amp; lựa chọn thuật toán sắp xếp</a>.</p></article>
     
     <nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter10.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Bài trước</span></a><a href="chapter12.html"><span>Bài tiếp theo →</span></a></nav>
     <footer class="rm-footer"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter11"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a href="../index.html">Trang chủ</a></footer>

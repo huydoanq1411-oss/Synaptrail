@@ -2,7 +2,7 @@
 <html lang="vi" data-theme="dark">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Cách tự tính Big O cho một đoạn code bất kỳ — kỹ năng thực hành quan trọng nhất của chương này.">
+  <meta name="description" content="Viết tổng số lượt thực tế trước khi rút gọn; ghi rõ giả thiết khi tính trung bình.">
   <title>Phân tích độ phức tạp | Thuật toán — Synaptrail</title>
   <link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css">
   <script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script>
@@ -11,54 +11,32 @@
   <a class="rm-skip" href="#lesson-content">Bỏ qua điều hướng</a>
   <header class="rm-header ap-header"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter03"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">◐ Giao diện</button></nav></header>
   <main class="ap-main" id="lesson-content">
-    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 3</p><h1>Phân tích độ phức tạp</h1><p class="rm-lead">Cách tự tính Big O cho một đoạn code bất kỳ — kỹ năng thực hành quan trọng nhất của chương này.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
+    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 3</p><h1>Phân tích độ phức tạp</h1><p class="rm-lead">Viết tổng số lượt thực tế trước khi rút gọn; ghi rõ giả thiết khi tính trung bình.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
     <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter03">Làm quiz ở trang riêng →</a></div>
     <p id="ap-message" role="status" aria-live="polite"></p>
-    <article class="rm-lesson-content"><h3>Quy tắc cộng và nhân</h3>
-      <div class="code-wrap">
-        <span class="code-label">quy_tac_phan_tich.py</span>
-        
-        <pre><code>def vi_du_cong(ds):        # O(n) + O(n) = O(2n) -> RÚT GỌN thành O(n)
-    for x in ds: print(x)      # O(n)
-    for x in ds: print(x)      # O(n) - hai vòng lặp KHÔNG lồng nhau -> CỘNG
-
-def vi_du_nhan(ds):        # O(n) * O(n) = O(n²)
-    for i in ds:                # O(n)
-        for j in ds:               # O(n) - LỒNG NHAU -> NHÂN
-            print(i, j)
-
-def vi_du_giam_bien(ds):   # O(n + m), giữ riêng biến cho từng input khác nhau
-    for x in ds: print(x)       # n phần tử
-    # for y in ds2: print(y)    # m phần tử (danh sách khác) -> KHÔNG được gộp thành O(n) nếu n≠m</code></pre>
-      </div>
-
-      <h3>Quy tắc bỏ qua hằng số và số hạng bậc thấp</h3>
-      <div class="code-wrap">
-        <span class="code-label">quy_tac_rut_gon.py</span>
-        
-        <pre><code># Độ phức tạp thực tế: 3n² + 5n + 100
-# Big O chỉ giữ lại số hạng TĂNG NHANH NHẤT khi n rất lớn, bỏ hằng số nhân:
-# -> O(n²)  (bỏ 3, bỏ 5n, bỏ 100 vì khi n cực lớn, n² áp đảo hoàn toàn các số hạng còn lại)</code></pre>
-      </div>
-
-      <table>
-        <tr><th>Cấu trúc code</th><th>Độ phức tạp</th></tr>
-        <tr><td>Vòng lặp đơn duyệt hết n phần tử</td><td>O(n)</td></tr>
-        <tr><td>Hai vòng lặp liên tiếp (không lồng)</td><td>O(n) + O(n) = O(n)</td></tr>
-        <tr><td>Hai vòng lặp lồng nhau</td><td>O(n) × O(n) = O(n²)</td></tr>
-        <tr><td>Vòng lặp chia đôi mỗi bước (VD: i *= 2)</td><td>O(log n)</td></tr>
-        <tr><td>Đệ quy chia đôi + xử lý tuyến tính mỗi bước (Merge Sort)</td><td>O(n log n)</td></tr>
-      </table>
-
-      <div class="box tip">
-        <div class="box-title">Mẹo thực hành</div>
-        Khi phân tích code, hãy tự hỏi: "Vòng lặp này chạy bao nhiêu lần theo n?" và "Các vòng lặp có LỒNG NHAU hay chỉ ĐỨNG CẠNH NHAU?" — lồng nhau thì nhân, đứng cạnh nhau thì cộng (rồi lấy số hạng lớn nhất).
-      </div>
-
-      <div class="summary-box">
-        <h4>📌 Tổng kết chương 3</h4>
-        <p>Vòng lặp lồng nhau nhân độ phức tạp, vòng lặp liên tiếp cộng rồi lấy số hạng lớn nhất. Big O luôn bỏ qua hằng số nhân và số hạng bậc thấp hơn.</p>
-      </div></article>
+    <article class="rm-lesson-content"><p class="ap-meta">Biên soạn theo tài liệu Cấu trúc dữ liệu và giải thuật — ThS. Bùi Văn Thượng, UTH. Đối chiếu mục 1.3.3, 2.4, 3.11. <a href="tai-lieu-ctdlgt.html#tong-quan">Nguồn và mục lục đối chiếu</a>.</p>
+<h2 id="muc-tieu">Mục tiêu</h2><ul><li>Đếm vòng lặp liên tiếp, lồng nhau và chia đôi.</li><li>Phân biệt phân tích toán học với đo thực nghiệm.</li></ul>
+<h2 id="van-de-thuc-te">Vấn đề thực tế</h2><p>Cần dự đoán thuật toán còn dùng được khi số bản ghi tăng lên, thay vì chỉ đo một bộ dữ liệu nhỏ.</p>
+<h2 id="ly-thuyet">Lý thuyết nền</h2><p>Vòng lặp liên tiếp cộng chi phí; lồng nhau phải tính tổng số lượt thực tế. Hai vòng mỗi vòng n lượt cho Θ(n²); vòng trong chỉ chạy j &lt; i cho n(n−1)/2, vẫn Θ(n²). Nếu mỗi bước giảm một nửa miền tìm kiếm thì số bước Θ(log n).</p><p>Tìm tuyến tính thành công ở vị trí i cần i+1 so sánh khóa. Với các vị trí có xác suất bằng nhau, trung bình (n+1)/2; tìm thất bại cần n. Binary Search cần tối đa bậc logarit trên mảng đã sắp.</p><p>Thực nghiệm đo phụ thuộc bộ dữ liệu, mã, trình chạy và máy. Thử dữ liệu rỗng, đã sắp, đảo, trùng và ngẫu nhiên; dùng cùng điều kiện khi so sánh. Phân tích tiệm cận bổ sung chứ không thay cho kiểm thử tính đúng.</p>
+<h2 id="vi-du">Ví dụ có thể chạy</h2><p>JavaScript, Node.js 22 trở lên; không dùng thư viện ngoài. Đây là bản chuyển thể cho website, không phải bản chép mã C/C++ bị dính dòng trong tài liệu Markdown. Lưu thành <code>chapter03.cjs</code> rồi chạy <code>node chapter03.cjs</code>. Các số trong ví dụ nằm trong miền nguyên an toàn, trừ phép chia biểu thức được giải thích riêng.</p>
+<div class="code-wrap"><span class="code-label">chapter03.cjs · JavaScript</span><pre><code>function demCap(n) {
+   let dem = 0;
+   for (let i = 0; i &lt; n; i++) {
+     for (let j = 0; j &lt; i; j++) dem++;
+   }
+   return dem;
+ }
+ function demChiaDoi(n) {
+   let buoc = 0;
+   while (n &gt; 1) { n = Math.floor(n / 2); buoc++; }
+   return buoc;
+ }
+ console.log(demCap(5), demChiaDoi(16)); // 10 4</code></pre></div>
+<h3>Giải thích các đoạn quan trọng</h3><ol><li>Với i cố định, j nhận i giá trị; cộng i từ 0 đến n−1 được n(n−1)/2.</li><li>demChiaDoi giảm n bằng phép chia nguyên mỗi lượt; n = 16 đi qua 8, 4, 2, 1.</li><li>console.log kiểm chứng một đầu vào, không chứng minh cận cho mọi n.</li></ol>
+<h2 id="loi-thuong-gap">Lỗi thường gặp</h2><ul><li>Thấy hai vòng lặp là kết luận ngay n² mà không xem giới hạn.</li><li>Đếm thời gian nhập/xuất chung với phần thuật toán rồi so sánh thiếu công bằng.</li></ul>
+<h2 id="bai-tap">Bài tập ba mức</h2><h3>Mức 1 — Cơ bản</h3><p>Tính demCap với n = 0, 1, 4.</p><h3>Mức 2 — Vận dụng</h3><p>Phân tích một vòng n lượt tiếp theo một vòng n² lượt.</p><h3>Mức 3 — Nâng cao</h3><p>Đếm phép so sánh của Insertion Sort trên dãy tăng và đảo; giải thích vì sao hai kết quả khác bậc.</p>
+<div class="summary-box"><h2 id="tom-tat">Tóm tắt</h2><p>Viết tổng số lượt thực tế trước khi rút gọn; ghi rõ giả thiết khi tính trung bình.</p></div>
+<h2 id="quiz">Quiz</h2><p>Câu hỏi chỉ dựa trên lý thuyết và ví dụ của bài này. <a href="quiz.html?chapter=chapter03">Mở quiz Phân tích độ phức tạp</a>.</p></article>
     
     <nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter02.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Bài trước</span></a><a href="chapter04.html"><span>Bài tiếp theo →</span></a></nav>
     <footer class="rm-footer"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter03"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a href="../index.html">Trang chủ</a></footer>

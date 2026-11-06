@@ -2,7 +2,7 @@
 <html lang="vi" data-theme="dark">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Cây nhị phân với ràng buộc đặc biệt: trái luôn nhỏ hơn gốc, phải luôn lớn hơn gốc — cho phép tìm kiếm O(log n).">
+  <meta name="description" content="BST duy trì thứ tự trên toàn cây con; gốc có thể thay đổi sau cập nhật và độ cao không tự được đảm bảo.">
   <title>Binary Search Tree (BST) | Thuật toán — Synaptrail</title>
   <link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css">
   <script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script>
@@ -11,80 +11,53 @@
   <a class="rm-skip" href="#lesson-content">Bỏ qua điều hướng</a>
   <header class="rm-header ap-header"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter21"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">◐ Giao diện</button></nav></header>
   <main class="ap-main" id="lesson-content">
-    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 21</p><h1>Binary Search Tree (BST)</h1><p class="rm-lead">Cây nhị phân với ràng buộc đặc biệt: trái luôn nhỏ hơn gốc, phải luôn lớn hơn gốc — cho phép tìm kiếm O(log n).</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
+    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 21</p><h1>Binary Search Tree (BST)</h1><p class="rm-lead">BST duy trì thứ tự trên toàn cây con; gốc có thể thay đổi sau cập nhật và độ cao không tự được đảm bảo.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
     <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter21">Làm quiz ở trang riêng →</a></div>
     <p id="ap-message" role="status" aria-live="polite"></p>
-    <article class="rm-lesson-content"><div class="code-wrap">
-        <span class="code-label">bst.py</span>
-        
-        <pre><code>class BSTNode:
-    def __init__(self, gia_tri):
-        self.gia_tri = gia_tri
-        self.trai = None
-        self.phai = None
-
-def them(node, gia_tri):
-    if node is None:
-        return BSTNode(gia_tri)
-    if gia_tri < node.gia_tri:
-        node.trai = them(node.trai, gia_tri)
-    else:
-        node.phai = them(node.phai, gia_tri)
-    return node
-
-def tim_kiem(node, gia_tri):
-    if node is None or node.gia_tri == gia_tri:
-        return node
-    if gia_tri < node.gia_tri:
-        return tim_kiem(node.trai, gia_tri)      # chỉ cần đi MỘT NHÁNH, không cần xét nhánh kia
-    return tim_kiem(node.phai, gia_tri)
-
-goc = None
-for x in [5, 3, 8, 1, 4, 7, 9]:
-    goc = them(goc, x)
-
-print(tim_kiem(goc, 7) is not None)   # True</code></pre>
-      </div>
-
-      <h3>Xóa node trong BST — trường hợp phức tạp nhất</h3>
-      <div class="code-wrap">
-        <span class="code-label">bst_xoa.py</span>
-        
-        <pre><code>def tim_min(node):                   # tìm giá trị nhỏ nhất - luôn ở TẬN CÙNG BÊN TRÁI
-    while node.trai:
-        node = node.trai
-    return node
-
-def xoa(node, gia_tri):
-    if node is None:
-        return None
-    if gia_tri < node.gia_tri:
-        node.trai = xoa(node.trai, gia_tri)
-    elif gia_tri > node.gia_tri:
-        node.phai = xoa(node.phai, gia_tri)
-    else:                                  # đã tìm thấy node cần xóa - 3 trường hợp:
-        if node.trai is None:                # TH1: không có con trái -> thay bằng con phải
-            return node.phai
-        elif node.phai is None:                # TH2: không có con phải -> thay bằng con trái
-            return node.trai
-        else:                                    # TH3: có ĐỦ 2 con -> phức tạp nhất
-            ke_thua = tim_min(node.phai)             # tìm giá trị nhỏ nhất bên nhánh phải
-            node.gia_tri = ke_thua.gia_tri              # thay giá trị node bằng giá trị đó
-            node.phai = xoa(node.phai, ke_thua.gia_tri)   # rồi xóa node kế thừa (giờ đã trùng)
-    return node</code></pre>
-      </div>
-
-      <div class="box important">
-        <div class="box-title">Quan trọng</div>
-        Độ phức tạp của BST (tìm kiếm/thêm/xóa) là <strong>O(log n) chỉ khi cây cân bằng</strong>. Nếu thêm dữ liệu đã sắp xếp sẵn vào BST thông thường, cây sẽ suy biến thành một danh sách liên kết — độ phức tạp tệ đi thành O(n). Đây là lý do cần AVL Tree (chương 22).
-      </div>
-
-      
-
-      <div class="summary-box">
-        <h4>📌 Tổng kết chương 21</h4>
-        <p>BST giữ ràng buộc trái-nhỏ/phải-lớn, cho phép tìm kiếm O(log n) khi cân bằng. Xóa node có đủ 2 con là trường hợp phức tạp nhất, cần tìm giá trị kế thừa (successor) để thay thế.</p>
-      </div></article>
+    <article class="rm-lesson-content"><p class="ap-meta">Biên soạn theo tài liệu Cấu trúc dữ liệu và giải thuật — ThS. Bùi Văn Thượng, UTH. Đối chiếu mục 5.3, BT5. <a href="tai-lieu-ctdlgt.html#cay">Nguồn và mục lục đối chiếu</a>.</p>
+<h2 id="muc-tieu">Mục tiêu</h2><ul><li>Cài tìm/thêm/xóa BST.</li><li>Xử lý ba trường hợp xóa và khóa trùng.</li></ul>
+<h2 id="van-de-thuc-te">Vấn đề thực tế</h2><p>Một tập khóa thay đổi cần duy trì thứ tự để tra cứu và liệt kê tăng dần mà không sắp lại toàn bộ sau mỗi lần thêm.</p>
+<h2 id="ly-thuyet">Lý thuyết nền</h2><p>BST (Binary Search Tree, cây nhị phân tìm kiếm): mọi khóa trong cây con trái nhỏ hơn khóa nút, mọi khóa bên phải lớn hơn. Đây là điều kiện trên toàn cây con, không chỉ hai nút con trực tiếp. Khóa phải so sánh nhất quán; bản này dùng khóa số hữu hạn và bỏ qua lần thêm khóa trùng.</p><p>Tìm/thêm đi theo một nhánh từ gốc, chi phí O(h+1). Cây cân bằng h=O(log n); thêm dãy tăng vào BST thường có thể làm h=n−1, chi phí O(n). Duyệt LNR cho tăng dần.</p><p>Xóa: lá thành null; một con trả con thay thế; hai con thay khóa bằng successor (nút nhỏ nhất của cây con phải) rồi xóa successor ở vị trí cũ. Có thể dùng predecessor lớn nhất bên trái thay thế nhưng phải thống nhất. Mỗi thao tác trả gốc mới để bên gọi cập nhật, kể cả khi xóa gốc.</p>
+<h2 id="vi-du">Ví dụ có thể chạy</h2><p>JavaScript, Node.js 22 trở lên; không dùng thư viện ngoài. Đây là bản chuyển thể cho website, không phải bản chép mã C/C++ bị dính dòng trong tài liệu Markdown. Lưu thành <code>chapter21.cjs</code> rồi chạy <code>node chapter21.cjs</code>. Các số trong ví dụ nằm trong miền nguyên an toàn, trừ phép chia biểu thức được giải thích riêng.</p>
+<div class="code-wrap"><span class="code-label">chapter21.cjs · JavaScript</span><pre><code>function node(key) { return {key, left:null, right:null}; }
+ function insert(root, key) {
+   if (!Number.isFinite(key)) throw new TypeError('Khóa phải là số hữu hạn');
+   if (!root) return node(key);
+   if (key &lt; root.key) root.left = insert(root.left, key);
+   else if (key &gt; root.key) root.right = insert(root.right, key);
+   return root;
+ }
+ function search(root, key) {
+   while (root &amp;&amp; root.key !== key) root = key &lt; root.key ? root.left : root.right;
+   return root;
+ }
+ function minimum(root) { while (root.left) root = root.left; return root; }
+ function remove(root, key) {
+   if (!root) return null;
+   if (key &lt; root.key) root.left = remove(root.left, key);
+   else if (key &gt; root.key) root.right = remove(root.right, key);
+   else {
+     if (!root.left) return root.right;
+     if (!root.right) return root.left;
+     root.key = minimum(root.right).key;
+     root.right = remove(root.right, root.key);
+   }
+   return root;
+ }
+ function inorder(root, out = []) {
+   if (root) { inorder(root.left, out); out.push(root.key); inorder(root.right, out); }
+   return out;
+ }
+ let root = null;
+ for (const x of [54,31,43,29,65,10,20,36,78,59]) root = insert(root, x);
+ root = remove(root, 31);
+ console.log(inorder(root)); // [10,20,29,36,43,54,59,65,78]
+ console.log(search(root, 31)); // null</code></pre></div>
+<h3>Giải thích các đoạn quan trọng</h3><ol><li>node tạo lá. insert trả root ở mỗi mức và gán kết quả vào liên kết con phù hợp.</li><li>search chỉ đi một nhánh; null báo không tìm thấy.</li><li>remove trả ngay con thay thế ở trường hợp có tối đa một con.</li><li>Với hai con, minimum đi hết nhánh trái của cây con phải; xóa bản sao cũ sau khi thay khóa.</li><li>Lệnh root=remove(...) giữ được gốc mới; quy tắc tương tự cho thêm và cân bằng.</li></ol>
+<h2 id="loi-thuong-gap">Lỗi thường gặp</h2><ul><li>Chỉ kiểm cha với con trực tiếp khi xác minh BST.</li><li>Bỏ qua giá trị trả về sau khi xóa gốc.</li><li>Thay khóa successor nhưng không xóa nút successor cũ.</li></ul>
+<h2 id="bai-tap">Bài tập ba mức</h2><h3>Mức 1 — Cơ bản</h3><p>Tìm 36 và 100 trong cây ví dụ, ghi đường đi.</p><h3>Mức 2 — Vận dụng</h3><p>BT5.b: vẽ cây trước/sau khi xóa 31 bằng successor, kiểm LNR vẫn tăng.</p><h3>Mức 3 — Nâng cao</h3><p>BT5.d: viết chương trình tương tác thêm/tìm/xóa/in cây, kiểm đủ lá/một con/hai con/gốc/khóa không có và giải phóng khi kết thúc.</p>
+<div class="summary-box"><h2 id="tom-tat">Tóm tắt</h2><p>BST duy trì thứ tự trên toàn cây con; gốc có thể thay đổi sau cập nhật và độ cao không tự được đảm bảo.</p></div>
+<h2 id="quiz">Quiz</h2><p>Câu hỏi chỉ dựa trên lý thuyết và ví dụ của bài này. <a href="quiz.html?chapter=chapter21">Mở quiz Binary Search Tree (BST)</a>.</p></article>
     <section class="ap-related"><h2>Bài học liên quan</h2><a href="chapter22.html">Cây cân bằng (AVL) →</a></section>
     <nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter20.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Bài trước</span></a><a href="chapter22.html"><span>Bài tiếp theo →</span></a></nav>
     <footer class="rm-footer"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter21"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a href="../index.html">Trang chủ</a></footer>

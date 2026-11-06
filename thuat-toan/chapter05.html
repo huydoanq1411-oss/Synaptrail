@@ -2,8 +2,8 @@
 <html lang="vi" data-theme="dark">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Hai thuật toán sắp xếp đơn giản nhất — dễ hiểu nhưng kém hiệu quả, chủ yếu mang tính giáo dục.">
-  <title>Bubble Sort &amp; Selection Sort | Thuật toán — Synaptrail</title>
+  <meta name="description" content="Ba thuật toán khác thời điểm và khoảng cách đổi chỗ; số phép so sánh không đồng nghĩa số lần đổi.">
+  <title>Interchange, Selection &amp; Bubble Sort | Thuật toán — Synaptrail</title>
   <link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css">
   <script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script>
 </head>
@@ -11,59 +11,47 @@
   <a class="rm-skip" href="#lesson-content">Bỏ qua điều hướng</a>
   <header class="rm-header ap-header"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter05"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">◐ Giao diện</button></nav></header>
   <main class="ap-main" id="lesson-content">
-    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 5</p><h1>Bubble Sort &amp; Selection Sort</h1><p class="rm-lead">Hai thuật toán sắp xếp đơn giản nhất — dễ hiểu nhưng kém hiệu quả, chủ yếu mang tính giáo dục.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
+    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 5</p><h1>Interchange, Selection &amp; Bubble Sort</h1><p class="rm-lead">Ba thuật toán khác thời điểm và khoảng cách đổi chỗ; số phép so sánh không đồng nghĩa số lần đổi.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
     <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter05">Làm quiz ở trang riêng →</a></div>
     <p id="ap-message" role="status" aria-live="polite"></p>
-    <article class="rm-lesson-content"><h3>Bubble Sort — "nổi bọt"</h3>
-      <p>Liên tục so sánh và đổi chỗ hai phần tử liền kề nếu sai thứ tự — phần tử lớn "nổi" dần lên cuối mảng sau mỗi lượt.</p>
-      <div class="code-wrap">
-        <span class="code-label">bubble_sort.py</span>
-        
-        <pre><code>def bubble_sort(ds):
-    n = len(ds)
-    for i in range(n):
-        da_doi_cho = False
-        for j in range(0, n - i - 1):
-            if ds[j] > ds[j + 1]:
-                ds[j], ds[j + 1] = ds[j + 1], ds[j]
-                da_doi_cho = True
-        if not da_doi_cho:          # tối ưu: nếu không có đổi chỗ nào -> đã sắp xếp xong, dừng sớm
-            break
-    return ds</code></pre>
-      </div>
-
-      <h3>Selection Sort — "chọn lựa"</h3>
-      <p>Mỗi lượt tìm phần tử nhỏ nhất trong phần chưa sắp xếp, đưa nó về đúng vị trí.</p>
-      <div class="code-wrap">
-        <span class="code-label">selection_sort.py</span>
-        
-        <pre><code>def selection_sort(ds):
-    n = len(ds)
-    for i in range(n):
-        idx_min = i
-        for j in range(i + 1, n):
-            if ds[j] < ds[idx_min]:
-                idx_min = j
-        ds[i], ds[idx_min] = ds[idx_min], ds[i]   # chỉ đổi chỗ MỘT LẦN mỗi lượt
-    return ds</code></pre>
-      </div>
-
-      <table>
-        <tr><th>Tiêu chí</th><th>Bubble Sort</th><th>Selection Sort</th></tr>
-        <tr><td>Độ phức tạp thời gian</td><td>O(n²), tốt nhất O(n) nếu đã sắp xếp</td><td>O(n²) luôn luôn</td></tr>
-        <tr><td>Số lần đổi chỗ (swap)</td><td>Nhiều</td><td>Ít hơn (tối đa n lần)</td></tr>
-        <tr><td>Ổn định (stable)</td><td>Có</td><td>Không</td></tr>
-      </table>
-
-      <div class="box note">
-        <div class="box-title">Ghi chú — Thuật toán ổn định (Stable)</div>
-        Thuật toán sắp xếp "ổn định" giữ nguyên thứ tự tương đối của các phần tử bằng nhau. Điều này quan trọng khi sắp xếp dữ liệu theo nhiều tiêu chí (VD: sắp theo điểm, nếu bằng điểm giữ nguyên thứ tự alphabet đã có).
-      </div>
-
-      <div class="summary-box">
-        <h4>📌 Tổng kết chương 5</h4>
-        <p>Bubble Sort và Selection Sort đều O(n²), đơn giản để học nhưng không dùng trong thực tế với dữ liệu lớn. Bubble Sort ổn định và có thể tối ưu dừng sớm; Selection Sort ít swap hơn nhưng không ổn định.</p>
-      </div></article>
+    <article class="rm-lesson-content"><p class="ap-meta">Biên soạn theo tài liệu Cấu trúc dữ liệu và giải thuật — ThS. Bùi Văn Thượng, UTH. Đối chiếu mục 3.1, 3.2, 3.3, 3.5. <a href="tai-lieu-ctdlgt.html#sap-xep">Nguồn và mục lục đối chiếu</a>.</p>
+<h2 id="muc-tieu">Mục tiêu</h2><ul><li>Phân biệt đổi chỗ trực tiếp, chọn trực tiếp và nổi bọt.</li><li>Theo dõi bất biến sau mỗi lượt.</li></ul>
+<h2 id="van-de-thuc-te">Vấn đề thực tế</h2><p>Cần sắp danh sách điểm tăng dần và hiểu vì sao có thuật toán đổi nhiều lần, có thuật toán chỉ đổi một lần mỗi lượt.</p>
+<h2 id="ly-thuyet">Lý thuyết nền</h2><p>Sắp xếp là đổi thứ tự bản ghi theo khóa. Interchange Sort (đổi chỗ trực tiếp) so sánh a[i] với mọi a[j] phía sau và đổi ngay nếu nhỏ hơn. Selection Sort (chọn trực tiếp) tìm vị trí nhỏ nhất rồi mới đổi một lần. Sau lượt i, a[i] là phần tử nhỏ nhất của đoạn chưa sắp.</p><p>Bubble Sort (nổi bọt) chỉ đổi cặp kề nhau. Biến thể đi từ cuối về đầu đưa phần tử nhỏ nhất về vị trí i. Nếu một lượt không đổi thì dừng sớm. Đổi chỗ trực tiếp và chọn trực tiếp so sánh n(n−1)/2 lần: Θ(n²) cả dãy đã sắp. Bubble có cờ dừng: tốt nhất Θ(n), trung bình/xấu nhất Θ(n²). Các bản ở đây dùng O(1) phụ.</p><p>Stable (ổn định) là giữ thứ tự tương đối của các bản ghi có khóa bằng nhau. Bubble chỉ đổi khi lớn hơn nên ổn định; Selection và Interchange với đổi chỗ xa không đảm bảo ổn định.</p>
+<h2 id="vi-du">Ví dụ có thể chạy</h2><p>JavaScript, Node.js 22 trở lên; không dùng thư viện ngoài. Đây là bản chuyển thể cho website, không phải bản chép mã C/C++ bị dính dòng trong tài liệu Markdown. Lưu thành <code>chapter05.cjs</code> rồi chạy <code>node chapter05.cjs</code>. Các số trong ví dụ nằm trong miền nguyên an toàn, trừ phép chia biểu thức được giải thích riêng.</p>
+<div class="code-wrap"><span class="code-label">chapter05.cjs · JavaScript</span><pre><code>function interchangeSort(a) {
+   for (let i = 0; i &lt; a.length - 1; i++)
+     for (let j = i + 1; j &lt; a.length; j++)
+       if (a[j] &lt; a[i]) [a[i], a[j]] = [a[j], a[i]];
+   return a;
+ }
+ function selectionSort(a) {
+   for (let i = 0; i &lt; a.length - 1; i++) {
+     let min = i;
+     for (let j = i + 1; j &lt; a.length; j++)
+       if (a[j] &lt; a[min]) min = j;
+     [a[i], a[min]] = [a[min], a[i]];
+   }
+   return a;
+ }
+ function bubbleSort(a) {
+   for (let i = 0; i &lt; a.length - 1; i++) {
+     let doi = false;
+     for (let j = a.length - 1; j &gt; i; j--)
+       if (a[j] &lt; a[j - 1]) {
+         [a[j], a[j - 1]] = [a[j - 1], a[j]]; doi = true;
+       }
+     if (!doi) break;
+   }
+   return a;
+ }
+ console.log(selectionSort([1, 4, 8, 9, 0, 12, -5]));
+ // [-5, 0, 1, 4, 8, 9, 12]</code></pre></div>
+<h3>Giải thích các đoạn quan trọng</h3><ol><li>Interchange đổi ngay trong vòng j; Selection chỉ cập nhật min trong vòng j và đổi sau vòng đó.</li><li>Bubble đi j từ cuối về i+1; so sánh hai hàng xóm và ghi nhận có đổi.</li><li>doi được đặt lại mỗi lượt i. Không có đổi nghĩa là đoạn còn lại đã có thứ tự.</li><li>Với dãy minh họa, lượt Selection đầu đưa −5 về đầu; lượt kế đưa 0 về vị trí 1.</li></ol>
+<h2 id="loi-thuong-gap">Lỗi thường gặp</h2><ul><li>Nhầm Interchange với Selection chỉ vì cùng hai vòng lặp.</li><li>Dùng >= ở Bubble khiến bản ghi bằng khóa có thể đổi thứ tự.</li></ul>
+<h2 id="bai-tap">Bài tập ba mức</h2><h3>Mức 1 — Cơ bản</h3><p>Ghi từng lần đổi của ba thuật toán với [3, 1, 2].</p><h3>Mức 2 — Vận dụng</h3><p>Dùng dãy [1, 4, 8, 9, 0, 12, −5] để lập bảng trạng thái sau từng lượt.</p><h3>Mức 3 — Nâng cao</h3><p>Sắp các bản ghi có khóa trùng và nhãn khác nhau; tìm phản ví dụ tính ổn định của Selection.</p>
+<div class="summary-box"><h2 id="tom-tat">Tóm tắt</h2><p>Ba thuật toán khác thời điểm và khoảng cách đổi chỗ; số phép so sánh không đồng nghĩa số lần đổi.</p></div>
+<h2 id="quiz">Quiz</h2><p>Câu hỏi chỉ dựa trên lý thuyết và ví dụ của bài này. <a href="quiz.html?chapter=chapter05">Mở quiz Interchange, Selection &amp; Bubble Sort</a>.</p></article>
     
     <nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter04.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Bài trước</span></a><a href="chapter06.html"><span>Bài tiếp theo →</span></a></nav>
     <footer class="rm-footer"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter05"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a href="../index.html">Trang chủ</a></footer>

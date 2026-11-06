@@ -4,6 +4,17 @@ Không gian tự học lập trình, Full Stack và AI. Synaptrail tập hợp l
 
 Website sử dụng **HTML, CSS và JavaScript thuần**, không cần cài dependency hoặc chạy build để xem nội dung.
 
+## Tài liệu hiện hành
+
+Đã áp dụng có chọn lọc **Vibe Web Playbook 1.4.0** ngày **2026-10-30**, theo hồ sơ **static**. Giữ stack, URL/anchor, quiz, tiến độ và quy tắc riêng; chưa cài plugin hoặc thêm dịch vụ.
+
+- [AGENTS.md](AGENTS.md): quy tắc làm việc, gồm yêu cầu duyệt phạm vi/mẫu và kiểm tra UI.
+- [PROJECT](docs/PROJECT.md): kiến trúc, bảy phần, dữ liệu và lệnh thực tế.
+- [SPEC](docs/SPEC.md): phạm vi được giao và tiêu chí nghiệm thu.
+- [STATUS](docs/STATUS.md): kết quả có ngày, baseline, giới hạn và bước tiếp theo.
+
+Lát tích hợp chỉ thay tài liệu. Backend, DB server, API riêng và tài khoản chưa cần cho nghiệp vụ hiện tại; hosting public/domain hoãn. Repo được người dùng mô tả là private; chưa xác minh quyền truy cập production. Không suy ra website đã public hay an toàn từ trạng thái repo.
+
 ## Giấy phép
 
 Dự án sử dụng [giấy phép MIT](LICENSE). Copyright (c) 2026 Synaptrail.
@@ -15,6 +26,8 @@ Dự án sử dụng [giấy phép MIT](LICENSE). Copyright (c) 2026 Synaptrail.
 1. Mở thư mục dự án và nhấp đúp vào [index.html](index.html).
 2. Bấm **Khám phá khóa học** để đến trang danh mục.
 3. Chọn role hoặc kỹ năng, sau đó mở bài học.
+
+Theo mã loader 3D, mở bằng `file://` giữ fallback tĩnh, không import Three.js. Dùng HTTP local nếu muốn thử hiệu ứng WebGL hoặc quyền clipboard; chưa coi hai phần này là đã kiểm chứng chỉ vì mở được trang.
 
 ### Dùng VS Code và Live Server
 
@@ -40,8 +53,8 @@ Truy cập `http://localhost:8000/`. Nhấn **Ctrl + C** trong terminal để d�
 
 | Khu vực | Nội dung | Cách sử dụng |
 | --- | --- | --- |
-| **Role-based** | 5 vai trò nghề nghiệp | Chọn role để hiển thị kỹ năng liên quan trong Skill-based |
-| **Skill-based** | 20 chủ đề kỹ năng | Chọn box kỹ năng để vào bài học |
+| **Role-based** | 5 vai trò nghề nghiệp | Chọn role để mở nhóm kỹ năng trong panel hoặc modal |
+| **Skill-based** | 22 chủ đề kỹ năng | Chọn box kỹ năng để mở mục lục/lộ trình |
 | **Best Practices** | 6 box hướng dẫn | Đọc về Git, bảo mật, thiết kế hệ thống, triển khai, AI production và cheatsheet |
 | **Project Ideas** | 4 box thực hành | Mở dự án cuối khóa, công cụ ôn tập, bài tập hoặc tài liệu API |
 
@@ -49,17 +62,43 @@ Truy cập `http://localhost:8000/`. Nhấn **Ctrl + C** trong terminal để d�
 
 | Role | Kỹ năng được hiển thị |
 | --- | --- |
-| Frontend Developer | HTML/CSS, JavaScript, React, Bootstrap & SASS/SCSS |
-| Full Stack Developer | HTML/CSS, JavaScript, React, Git, TypeScript, MySQL, GraphQL, Socket.IO, NestJS, Docker, System Design, Security |
-| AI Engineer | Python, Machine Learning, AI Engineer (LLM/RAG), System Design, Security |
+| Frontend Developer | Git, HTML/CSS, JavaScript, TypeScript, Bootstrap, SASS, React |
+| Full Stack Developer | Git, HTML/CSS, JavaScript, TypeScript, Bootstrap, SASS, React, MySQL, ORM, GraphQL, Socket.IO, NestJS, Docker, System Design, Security |
+| AI Engineer | Python, thuật toán, Machine Learning, AI Engineer, System Design, Security |
 | Security Engineer | Python, C++, thuật toán, System Design, Security |
 | System / DevOps | Git, Docker, System Design, Security |
 
-Chọn **Xem tất cả kỹ năng** để bỏ bộ lọc role. Ô tìm kiếm hỗ trợ tiếng Việt không dấu và kết hợp với role đang chọn; tìm kiếm cũng lọc các box Best Practices và Project Ideas. Khi không có kết quả, trang hiển thị thông báo để bạn đổi từ khóa hoặc bỏ bộ lọc.
+Theo `assets/catalog.js`, role mở panel trên màn hình lớn và modal ở độ rộng tối đa 600px; **Xem tất cả kỹ năng** đóng role và đưa focus về danh mục. Ô tìm kiếm hỗ trợ tiếng Việt không dấu, hoạt động độc lập với role đang mở, đồng thời lọc tài nguyên thực hành. Khi không có kết quả có thông báo. Role nghề nghiệp không phải phân quyền tài khoản.
 
 Các nhóm được phân loại từ tài liệu có sẵn. Project Ideas dẫn đến tài liệu thực hành, không phải danh sách ứng dụng đã được triển khai. Tài liệu AI Agent Toolbox và kiến thức AI production nằm ở cuối danh mục.
 
-## Nội dung học tập
+## Học, quiz và tiến độ hiện tại
+
+Ở các khóa đã chuyển sang roadmap, chọn node để mở bài hoặc trang chủ đề; quiz nằm riêng tại `<khóa>/quiz.html`. Mã dùng chung: `assets/roadmap.js`, `algorithm-pages.js`, `algorithm-topic.js`; dữ liệu nằm trong `assets/roadmaps/`. Nguồn sinh trang cần đọc và đối chiếu trước khi sửa, không tự chạy migration để xem website.
+
+Tiến độ dùng `assets/progress.js` và key `synaptrail-progress`: đang học/xong/bỏ qua, điểm quiz cao nhất và thời gian cập nhật. Dữ liệu nằm trong trình duyệt theo origin/profile, không đồng bộ tài khoản. Xuất JSON trước khi đổi trình duyệt, origin hoặc xóa dữ liệu. Nhập giữ toàn bộ bản ghi mới hơn theo thời gian, vì vậy có thể thay điểm bằng điểm của bản ghi nhập. Reset có xác nhận và xóa toàn bộ key tiến độ, không chỉ khóa đang xem. Xem chi tiết và giới hạn trong PROJECT.
+
+Khung chương chuẩn vẫn theo AGENTS; quiz có thể ở trang riêng. Các node “Sắp có” và đề cương trong `reports/` chưa phải bài học hoàn chỉnh. Chưa kiểm chứng toàn bộ code giáo trình.
+
+## Kiểm tra hiện hành
+
+Node >=22 chỉ cần cho script kiểm tra; không cần `npm install` hoặc build:
+
+```sh
+node scripts/check-ui.cjs
+```
+
+`npm run check` gọi cùng checker. Script kiểm tra cú pháp, CSS chung, h1/description/alt, link/anchor và catalog; quét cả `Synaptrail-main/` và `reports/`. Baseline trước lát tài liệu: **877 HTML, 817 script inline, 739 lỗi**; **10 lỗi ở site chính**, **729 lỗi ở bản lồng**. Kết quả sau sửa và lỗi phát sinh được ghi riêng trong [STATUS](docs/STATUS.md). Không loại bản lồng hay hạ mức lỗi để làm xanh kiểm tra.
+
+Các kiểm tra bổ sung có sẵn: `check-progress.cjs`, `check-highlighter.cjs`, `check-card-images.cjs`, `check-first-five-quizzes.cjs` trong `scripts/`. Kết quả giai đoạn đánh giá và phần chưa chạy lại được phân biệt trong STATUS. CI tại `.github/workflows/check.yml` dùng Node 24 và `npm run check`; chưa kiểm chứng lần chạy CI từ xa.
+
+`scripts/browser-check.cjs` dò Chrome/Chromium hoặc dùng `CHROME_PATH`, mở cổng debug 9333, ghi ảnh vào `artifacts/` và còn giả định UI/quiz cũ. Đọc trước khi chạy; chỉ thử ghi/reset trong profile cô lập. Nếu không tìm thấy Chrome, báo đường dẫn/cấu hình thực tế thay vì đoán. Lát tài liệu chưa chạy lại browser checker và không thay UI.
+
+## Ghi chép lịch sử — chưa xác minh lại toàn bộ
+
+Phần từ đây đến cuối README giữ ghi chép trước khi chuẩn hóa tài liệu, gồm kết quả Java, migration, UI và kế hoạch cũ. Các câu “đã đạt”, “mới nhất”, “chờ duyệt”, số trang hoặc hướng dẫn sidebar/quiz nhúng chỉ có giá trị lịch sử, không phải kết quả hiện tại hay quyền tự chạy script. Một số đoạn cũ có chữ lỗi `?`; không đoán khôi phục thông tin chưa chắc. Ưu tiên tài liệu hiện hành và mã nguồn khi tiếp tục; giữ nguyên giới hạn chưa xác minh. Generator, migration và lệnh ghi file dưới đây cần đọc và có phạm vi được giao trước khi chạy.
+
+### Nội dung học tập đã ghi nhận
 
 ### Đề xuất mở rộng MySQL và Docker — chưa sửa catalog
 

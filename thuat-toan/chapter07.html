@@ -2,7 +2,7 @@
 <html lang="vi" data-theme="dark">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Thuật toán &quot;chia để trị&quot; kinh điển — hiệu năng ổn định O(n log n) trong MỌI trường hợp.">
+  <meta name="description" content="Trộn tuyến tính từng tầng, có số tầng logarit; phải giữ cả phần dư và thứ tự các khóa bằng nhau.">
   <title>Merge Sort | Thuật toán — Synaptrail</title>
   <link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css">
   <script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script>
@@ -11,56 +11,48 @@
   <a class="rm-skip" href="#lesson-content">Bỏ qua điều hướng</a>
   <header class="rm-header ap-header"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter07"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">◐ Giao diện</button></nav></header>
   <main class="ap-main" id="lesson-content">
-    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 7</p><h1>Merge Sort</h1><p class="rm-lead">Thuật toán &quot;chia để trị&quot; kinh điển — hiệu năng ổn định O(n log n) trong MỌI trường hợp.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
-    <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div></div>
+    <div class="ap-heading"><p class="rm-eyebrow">THUẬT TOÁN / CHƯƠNG 7</p><h1>Merge Sort</h1><p class="rm-lead">Trộn tuyến tính từng tầng, có số tầng logarit; phải giữ cả phần dư và thứ tự các khóa bằng nhau.</p><p class="ap-meta">Khoảng 10 phút · Thời lượng ước tính</p></div>
+    <div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">◐ Đang học</button><button type="button" data-status="done" aria-pressed="false">✓ Đã xong</button><button type="button" data-status="skip" aria-pressed="false">↷ Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter07">Làm quiz ở trang riêng</a></div>
     <p id="ap-message" role="status" aria-live="polite"></p>
-    <article class="rm-lesson-content"><div class="code-wrap">
-        <span class="code-label">merge_sort.py</span>
-        
-        <pre><code>def merge_sort(ds):
-    if len(ds) <= 1:
-        return ds
-    giua = len(ds) // 2
-    trai = merge_sort(ds[:giua])        # chia (divide)
-    phai = merge_sort(ds[giua:])
-    return tron(trai, phai)                # trị (conquer) - trộn 2 mảng đã sắp xếp
-
-def tron(trai, phai):
-    ket_qua = []
-    i = j = 0
-    while i < len(trai) and j < len(phai):
-        if trai[i] <= phai[j]:
-            ket_qua.append(trai[i]); i += 1
-        else:
-            ket_qua.append(phai[j]); j += 1
-    ket_qua.extend(trai[i:])                # thêm phần còn lại (nếu có)
-    ket_qua.extend(phai[j:])
-    return ket_qua</code></pre>
-      </div>
-
-      <h3>Trực quan hóa quá trình chia và trộn</h3>
-      <div class="code-wrap">
-        <span class="code-label">minh_hoa</span>
-        <pre><code>[5, 2, 8, 1]
-   /        \
-[5, 2]      [8, 1]
- /  \        /  \
-[5] [2]    [8]  [1]
- \  /        \  /
-[2, 5]      [1, 8]      <- TRỘN từng cặp đã sắp xếp
-      \    /
-    [1, 2, 5, 8]         <- TRỘN kết quả cuối cùng</code></pre>
-      </div>
-
-      <div class="box important">
-        <div class="box-title">Quan trọng</div>
-        Merge Sort đảm bảo <strong>O(n log n) trong MỌI trường hợp</strong> (tốt nhất, trung bình, xấu nhất đều như nhau) — khác với Quick Sort có thể suy biến thành O(n²) trong trường hợp xấu nhất. Đánh đổi: Merge Sort cần O(n) bộ nhớ phụ, không sắp xếp tại chỗ.
-      </div>
-
-      <div class="summary-box">
-        <h4>📌 Tổng kết chương 7</h4>
-        <p>Merge Sort chia mảng thành nửa, sắp xếp đệ quy rồi trộn lại — đạt O(n log n) ổn định trong mọi trường hợp, đánh đổi bằng O(n) bộ nhớ phụ.</p>
-      </div></article>
+    <article class="rm-lesson-content"><p class="ap-meta">Biên soạn theo tài liệu Cấu trúc dữ liệu và giải thuật — ThS. Bùi Văn Thượng, UTH. Đối chiếu mục 3.9. <a href="tai-lieu-ctdlgt.html#sap-xep">Nguồn và mục lục đối chiếu</a>.</p>
+<h2 id="muc-tieu">Mục tiêu</h2><ul><li>Trộn hai đoạn đã sắp.</li><li>Cài bản đệ quy và bản lặp bottom-up.</li></ul>
+<h2 id="van-de-thuc-te">Vấn đề thực tế</h2><p>Hai lớp đã xếp điểm tăng dần cần gộp thành một danh sách có thứ tự mà không sắp lại từ đầu bằng thuật toán bậc hai.</p>
+<h2 id="ly-thuyet">Lý thuyết nền</h2><p>Merge Sort (sắp xếp trộn) chia để trị: sắp hai nửa rồi trộn. Trong bước trộn, so phần tử chưa lấy đầu tiên của mỗi nửa; lấy phần tử nhỏ hơn và nối phần dư khi một nửa hết. Lấy bên trái khi bằng nhau để ổn định.</p><p>Bottom-up (từ dưới lên) đúng với ý tưởng của tài liệu: ban đầu mỗi phần tử là một run (đoạn đã sắp) dài 1; trộn từng cặp run với độ dài 1, 2, 4… cho đến phủ cả dãy. Đoạn cuối có thể thiếu phần tử, luôn chặn biên bằng min. Thời gian Θ(n log n) với n ≥ 2, bộ nhớ phụ O(n); bản đệ quy thêm stack O(log n).</p>
+<h2 id="vi-du">Ví dụ có thể chạy</h2><p>JavaScript, Node.js 22 trở lên; không dùng thư viện ngoài. Đây là bản chuyển thể cho website, không phải bản chép mã C/C++ bị dính dòng trong tài liệu Markdown. Lưu thành <code>chapter07.cjs</code> rồi chạy <code>node chapter07.cjs</code>. Các số trong ví dụ nằm trong miền nguyên an toàn, trừ phép chia biểu thức được giải thích riêng.</p>
+<div class="code-wrap"><span class="code-label">chapter07.cjs · JavaScript</span><pre><code>function merge(left, right) {
+   const out = []; let i = 0, j = 0;
+   while (i &lt; left.length &amp;&amp; j &lt; right.length) {
+     if (left[i] &lt;= right[j]) out.push(left[i++]);
+     else out.push(right[j++]);
+   }
+   while (i &lt; left.length) out.push(left[i++]);
+   while (j &lt; right.length) out.push(right[j++]);
+   return out;
+ }
+ function mergeSort(a) {
+   if (a.length &lt; 2) return [...a];
+   const mid = Math.floor(a.length / 2);
+   return merge(mergeSort(a.slice(0, mid)), mergeSort(a.slice(mid)));
+ }
+ function mergeBottomUp(a) {
+   let out = [...a];
+   for (let width = 1; width &lt; out.length; width *= 2) {
+     const next = [];
+     for (let i = 0; i &lt; out.length; i += 2 * width) {
+       const end = Math.min(i + 2 * width, out.length);
+       next.push(...merge(out.slice(i, i + width), out.slice(i + width, end)));
+     }
+     out = next;
+   }
+   return out;
+ }
+ console.log(mergeBottomUp([1, 4, 8, 9, 0, 12, -5]));
+ // [-5, 0, 1, 4, 8, 9, 12]</code></pre></div>
+<h3>Giải thích các đoạn quan trọng</h3><ol><li>i và j đánh dấu đầu phần chưa lấy; mỗi lượt tăng đúng một chỉ số.</li><li>Hai vòng sau nối phần dư; bỏ chúng sẽ làm mất dữ liệu.</li><li>Bản đệ quy dừng với 0 hoặc 1 phần tử. Bản lặp nhân đôi width sau mỗi tầng.</li><li>Ví dụ bảy phần tử có các run cuối không đều, nên cần chặn end. Spread vào push phù hợp dữ liệu nhỏ của bài; bản sản phẩm lớn nên nối bằng vòng lặp để tránh giới hạn số đối số.</li></ol>
+<h2 id="loi-thuong-gap">Lỗi thường gặp</h2><ul><li>Trộn hai đoạn chưa sắp.</li><li>Chỉ xử lý cặp đủ độ dài rồi bỏ đoạn dư ở cuối.</li></ul>
+<h2 id="bai-tap">Bài tập ba mức</h2><h3>Mức 1 — Cơ bản</h3><p>Trộn [1, 4, 8] và [0, 9, 12].</p><h3>Mức 2 — Vận dụng</h3><p>Vẽ các run độ dài 1, 2, 4 với dãy bảy phần tử.</p><h3>Mức 3 — Nâng cao</h3><p>Viết bản dùng một bộ đệm tái sử dụng và comparator cho bản ghi sinh viên; kiểm tra tính ổn định.</p>
+<div class="summary-box"><h2 id="tom-tat">Tóm tắt</h2><p>Trộn tuyến tính từng tầng, có số tầng logarit; phải giữ cả phần dư và thứ tự các khóa bằng nhau.</p></div>
+<h2 id="quiz">Quiz</h2><p>Câu hỏi chỉ dựa trên lý thuyết và ví dụ của bài này. <a href="quiz.html?chapter=chapter07">Mở quiz Merge Sort</a>.</p></article>
     <section class="ap-related"><h2>Bài học liên quan</h2><a href="chapter08.html">Quick Sort →</a><a href="chapter04.html">Độ phức tạp không gian (Space Complexity) →</a></section>
     <nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter06.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Bài trước</span></a><a href="chapter08.html"><span>Bài tiếp theo →</span></a></nav>
     <footer class="rm-footer"><a class="rm-back" href="../roadmap/thuat-toan.html#chapter07"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a href="../index.html">Trang chủ</a></footer>
