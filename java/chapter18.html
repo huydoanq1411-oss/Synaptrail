@@ -1,45 +1,106 @@
 <!DOCTYPE html>
-<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Generics — Java | Synaptrail</title><meta name="description" content="Cho phép viết class/method hoạt động với nhiều kiểu dữ liệu khác nhau mà vẫn an toàn về kiểu (type-safe)."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="java" data-skill="java" data-node="chapter18"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/java.html#chapter18"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">Java / BÀI 18</p><h1>Generics</h1><p class="rm-lead">Cho phép viết class/method hoạt động với nhiều kiểu dữ liệu khác nhau mà vẫn an toàn về kiểu (type-safe).</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s18">
-      
-      <p class="lead">Cho phép viết class/method hoạt động với nhiều kiểu dữ liệu khác nhau mà vẫn an toàn về kiểu (type-safe).</p>
+<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Generics — Java | Synaptrail</title><meta name="description" content="Dùng class/method tổng quát, phân biệt wildcard extends/super, hiểu tính bất biến và giới hạn type erasure."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="java" data-skill="java" data-node="chapter18"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/java.html#chapter18"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">Java / BÀI 18</p><h1>Generics</h1><p class="rm-lead">Dùng class/method tổng quát, phân biệt wildcard extends/super, hiểu tính bất biến và giới hạn type erasure.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter18">Làm quiz ở trang riêng</a></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s18">
+<p class="lead">Viết một kiểu hoặc phương thức dùng lại cho nhiều loại dữ liệu mà vẫn để trình biên dịch kiểm tra cách dùng. Bài dùng Java 8 trở lên, nối tiếp kiến thức List của bài 16.</p>
+<h2 id="muc-tieu">Mục tiêu</h2>
+<ul><li>Phân biệt type parameter (tham số kiểu) và type argument (đối số kiểu).</li><li>Viết class và method tổng quát, xử lý đầu vào rỗng có chủ đích.</li><li>Hiểu tính bất biến của List, wildcard (ký tự đại diện kiểu) và giới hạn của type erasure.</li></ul>
+<h2 id="van-de-thuc-te">Vấn đề thực tế</h2>
+<p>Bạn cần một hộp lưu tên bài học và một hộp lưu điểm. Nếu cả hai dùng Object, đoạn đọc phải ép kiểu; một chỗ ghi nhầm loại dữ liệu có thể làm đoạn đọc hỏng lúc chạy. Nếu viết riêng hai class gần giống nhau, mỗi lần sửa phải sửa hai nơi. Generics cho phép mô tả một Hop&lt;T&gt; và chọn T khi sử dụng.</p>
+<h2 id="ly-thuyet">Lý thuyết nền</h2>
+<h3>Tham số kiểu và kiểm tra lúc biên dịch</h3>
+<p>Trong khai báo Hop&lt;T&gt;, T là tên tham số kiểu do bạn đặt. Trong Hop&lt;String&gt;, String là đối số kiểu cụ thể. T không phải tên biến và không phải từ khóa đặc biệt; E thường chỉ phần tử, K/V thường chỉ khóa/giá trị. Cú pháp diamond &lt;&gt; cho phép compiler suy ra đối số từ ngữ cảnh.</p>
+<p>Đối số kiểu phải là reference type (kiểu tham chiếu): dùng Integer thay cho int, Double thay cho double. Autoboxing tự chuyển giá trị nguyên thủy sang đối tượng wrapper tương ứng khi cần. Generics giúp phát hiện nhiều lỗi kiểu lúc biên dịch, không bảo đảm dữ liệu khác null hoặc mọi lỗi runtime đều biến mất.</p>
+<h3>Generic method và ràng buộc</h3>
+<p>Method có thể khai báo tham số kiểu riêng bằng &lt;T&gt; trước kiểu trả về. Ví dụ static &lt;T&gt; T dau(List&lt;T&gt; ds) liên hệ kiểu phần tử đầu vào và giá trị trả ra. Một method static không dùng trực tiếp tham số T của class bao ngoài; hãy khai báo tham số kiểu riêng nếu cần. Với &lt;T extends Number&gt;, compiler chỉ nhận đối số kiểu là Number hoặc lớp con và cho phép gọi các method của Number.</p>
+<h3>List&lt;Integer&gt; không phải List&lt;Number&gt;</h3>
+<p>Integer kế thừa Number, nhưng quan hệ này không tự chuyển sang List: generic type như List là invariant (bất biến về đối số kiểu). Nếu một List&lt;Integer&gt; được dùng như List&lt;Number&gt; có thể ghi, người khác có thể thêm Double vào nó. Vì vậy phép gán như thế bị từ chối. Có thể đưa một Integer vào List&lt;Number&gt;, nhưng đó là thao tác với phần tử, không phải gán cả danh sách.</p>
+<h3 id="wildcard">Chọn kiểu theo thao tác của method</h3>
+<dl>
+<dt><strong>List&lt;T&gt;</strong></dt><dd>Đọc được T; thêm được T nếu danh sách hỗ trợ sửa.</dd>
+<dt><strong>List&lt;? extends Number&gt;</strong></dt><dd>Đọc được Number; không thêm được giá trị Number cụ thể khác null qua tham chiếu này.</dd>
+<dt><strong>List&lt;? super Integer&gt;</strong></dt><dd>Đọc chỉ bảo đảm Object; thêm được Integer nếu danh sách hỗ trợ sửa.</dd>
+<dt><strong>List&lt;?&gt;</strong></dt><dd>Đọc được Object; không biết kiểu phần tử để thêm giá trị khác null.</dd>
+</dl>
+<p>PECS là mẹo nhớ Producer Extends, Consumer Super: đầu vào cung cấp giá trị để đọc thì cân nhắc extends; nơi nhận giá trị để ghi thì cân nhắc super. Đây không phải luật dùng wildcard cho mọi tham số. Wildcard không biến danh sách thành bất biến: bạn vẫn có thể gọi clear nếu implementation cho phép. Những mô tả thêm phần tử ở trên là quy tắc kiểu, không hứa mọi implementation đều hỗ trợ add.</p>
+<h2 id="vi-du">Ví dụ có thể chạy</h2>
+<p>Mỗi khối là một chương trình độc lập, có main và import đầy đủ, dùng JDK 8 trở lên. Lưu đúng tên tệp; chạy javac -encoding UTF-8 GenericBoxDemo.java rồi java GenericBoxDemo. Ví dụ sau thay tên bằng WildcardDemo. Chú thích sau lệnh in là output dự kiến để tự đối chiếu.</p>
+<div class="code-wrap"><span class="code-label">GenericBoxDemo.java</span><pre><code>import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
 
-      <div class="code-wrap">
-        <span class="code-label">Generics.java</span>
-        
-        <pre><code>class Hop&lt;T&gt; {                    // T là kiểu tổng quát (type parameter) - có thể đặt tên khác
-    private T noiDung;
-
-    public void dat(T noiDung) {
-        this.noiDung = noiDung;
+public class GenericBoxDemo {
+    static class Hop&lt;T&gt; {
+        private T noiDung;
+        Hop(T noiDung) { this.noiDung = noiDung; }
+        void dat(T noiDung) { this.noiDung = noiDung; }
+        T lay() { return noiDung; }
     }
 
-    public T lay() {
-        return noiDung;
+    static &lt;T&gt; T dau(List&lt;T&gt; ds) {
+        Objects.requireNonNull(ds, "ds");
+        if (ds.isEmpty()) {
+            throw new IllegalArgumentException("Danh sach rong");
+        }
+        return ds.get(0);
     }
-}
 
-Hop&lt;String&gt; hopChuoi = new Hop&lt;&gt;();     // T được thay bằng String
-hopChuoi.dat("Xin chào");
-String s = hopChuoi.lay();                    // KHÔNG cần ép kiểu, an toàn tại thời điểm biên dịch
+    public static void main(String[] args) {
+        Hop&lt;String&gt; ten = new Hop&lt;&gt;("Java");
+        ten.dat("Generics");
+        String bai = ten.lay();
+        System.out.println(bai); // Generics
+        Hop&lt;Integer&gt; diem = new Hop&lt;&gt;(8);
+        System.out.println(diem.lay()); // 8
+        System.out.println(dau(Arrays.asList(4, 7, 4))); // 4
+        try {
+            dau(Collections.&lt;String&gt;emptyList());
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage()); // Danh sach rong
+        }
+    }
+}</code></pre></div>
+<ol><li>Hop có T ở field, constructor, method ghi và method đọc. Nhờ dùng cùng T, hộp String chỉ nhận giá trị tương thích String.</li><li>Hop&lt;Integer&gt; nhận 8 nhờ autoboxing. lay trả đúng kiểu đã khai báo nên không cần ép từ Object.</li><li>&lt;T&gt; trước kiểu trả về của dau khai báo tham số kiểu riêng. Với danh sách số nguyên, T được suy ra là Integer.</li><li>requireNonNull từ chối tham chiếu danh sách null. Nhánh isEmpty ném lỗi có thông báo trước khi get(0); try/catch trong main kiểm tra chính trường hợp này. Hàm không loại bỏ phần tử null nếu bản thân danh sách chứa null.</li></ol>
+<div class="code-wrap"><span class="code-label">WildcardDemo.java</span><pre><code>import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-Hop&lt;Integer&gt; hopSo = new Hop&lt;&gt;();
-hopSo.dat(42);
+public class WildcardDemo {
+    static double tong(List&lt;? extends Number&gt; nguon) {
+        double total = 0;
+        for (Number n : nguon) {
+            total += n.doubleValue();
+        }
+        return total;
+    }
 
-// Generic method
-static &lt;T&gt; T phanTuDauTien(List&lt;T&gt; ds) {
-    return ds.get(0);
-}</code></pre>
-      </div>
+    static void themDiem(List&lt;? super Integer&gt; dich) {
+        dich.add(7);
+        dich.add(9);
+    }
 
-      <div class="box note">
-        <div class="box-title">Ghi chú</div>
-        Trước khi có Generics (trước Java 5), lập trình viên phải dùng <code>Object</code> chung chung rồi tự ép kiểu thủ công — dễ gây lỗi <code>ClassCastException</code> lúc runtime. Generics chuyển việc kiểm tra kiểu sang <strong>lúc biên dịch</strong>, an toàn hơn nhiều.
-      </div>
-
-      <div class="summary-box">
-        <h4>📌 Tổng kết chương 18</h4>
-        <p>Generics (<code>&lt;T&gt;</code>) cho phép class/method hoạt động với nhiều kiểu dữ liệu mà vẫn kiểm tra kiểu tại thời điểm biên dịch, tránh lỗi ép kiểu runtime.</p>
-      </div>
-    </section>
-
-    <!-- ================= CHƯƠNG 19 ================= --></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter17.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bài trước</a><a href="chapter19.html">Bài tiếp theo<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/java.html#chapter18"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>
+    public static void main(String[] args) {
+        List&lt;Integer&gt; soNguyen = Arrays.asList(1, 2, 3);
+        List&lt;Double&gt; soThuc = Arrays.asList(1.5, 2.5);
+        System.out.println(tong(soNguyen)); // 6.0
+        System.out.println(tong(soThuc));   // 4.0
+        System.out.println(tong(new ArrayList&lt;Integer&gt;())); // 0.0
+        List&lt;Number&gt; dich = new ArrayList&lt;&gt;();
+        themDiem(dich);
+        System.out.println(dich); // [7, 9]
+        List&lt;? super Integer&gt; gocNhin = dich;
+        Object dauTien = gocNhin.get(0);
+        System.out.println(dauTien); // 7
+    }
+}</code></pre></div>
+<ol><li>tong chỉ cần đọc Number, nên nhận được cả List&lt;Integer&gt; và List&lt;Double&gt; qua ? extends Number. Không cần ép cả danh sách thành List&lt;Number&gt;.</li><li>total bắt đầu bằng 0 nên danh sách rỗng trả 0.0. Quy ước đầu vào của tong là danh sách và các phần tử đều khác null; tổng dùng double nên có thể có sai số với số thập phân.</li><li>themDiem ghi Integer nên nhận ? super Integer, bao gồm List&lt;Integer&gt;, List&lt;Number&gt; và List&lt;Object&gt;. dich là ArrayList hỗ trợ add.</li><li>Khi nhìn qua List&lt;? super Integer&gt;, đọc chỉ bảo đảm Object: không được tự giả định mọi phần tử là Integer, vì danh sách gốc có thể chứa Number khác.</li></ol>
+<h2 id="loi-thuong-gap">Lỗi thường gặp và giới hạn</h2>
+<ul><li>Dùng raw type như Hop không có &lt;T&gt; làm mất một phần kiểm tra kiểu, có thể tạo cảnh báo unchecked và lỗi ép kiểu. Giữ đối số kiểu, đọc cảnh báo thay vì tắt bằng annotation.</li><li>Type erasure (xóa kiểu khi biên dịch) thay tham số kiểu bằng bound hoặc Object và chèn cast khi cần. Không có class runtime riêng cho mỗi đối số kiểu; không dùng instanceof List&lt;String&gt; để kiểm tra kiểu phần tử, có thể dùng instanceof List&lt;?&gt;.</li><li>Không viết Hop&lt;int&gt;, new T() hoặc new T[10] trong kiểu tổng quát thông thường. Nhận giá trị qua constructor như ví dụ; dùng wrapper cho primitive.</li><li>Không nhầm ? extends Number là danh sách cho phép thêm mọi Number, hoặc ? super Integer là danh sách đọc được Integer chắc chắn.</li><li>Hai overload nhận List&lt;String&gt; và List&lt;Integer&gt; với cùng tên và không có tham số khác bị trùng chữ ký sau erasure. Đặt tên diễn đạt mục đích hoặc thiết kế một method tổng quát.</li></ul>
+<h2 id="bai-tap">Bài tập ba mức</h2>
+<ol><li><strong>Cơ bản:</strong> tạo Hop&lt;String&gt; chứa SQL rồi đổi thành Java; tạo Hop&lt;Integer&gt; chứa 10. Tự kiểm: lần lượt in Java và 10, không dùng cast.</li><li><strong>Vận dụng:</strong> dùng dau với [2, 2], ["A"] và danh sách rỗng. Tự kiểm: trả 2, trả A, rồi ném IllegalArgumentException theo hợp đồng; thử null thì nhận NullPointerException từ requireNonNull.</li><li><strong>Nâng cao:</strong> viết method &lt;T&gt; void chep(List&lt;? extends T&gt; nguon, List&lt;? super T&gt; dich), thêm từng phần tử nguồn vào đích. Quy ước hai danh sách khác đối tượng, không null và đích hỗ trợ add. Tự kiểm: [1, 1, 2] sang List&lt;Number&gt; rỗng giữ đủ [1, 1, 2]; nguồn rỗng không đổi đích; nguồn [3] và đích [9] thành [9, 3]. Giải thích extends/super và vì sao không cần cast.</li></ol>
+<h2 id="tom-tat">Tóm tắt</h2>
+<p>Generics liên hệ các vị trí dùng cùng kiểu và đưa nhiều lỗi về lúc biên dịch. Dùng &lt;T&gt; khi cần gọi tên mối quan hệ kiểu; chọn wildcard theo hướng đọc/ghi. List&lt;Integer&gt; không phải List&lt;Number&gt;. Xử lý null, danh sách rỗng và khả năng sửa vẫn là trách nhiệm của hợp đồng method.</p>
+<h2 id="quiz">Quiz</h2>
+<p><a href="quiz.html?chapter=chapter18">Làm năm câu quiz Generics</a>. Câu hỏi dựa trên nội dung bài, có giải thích và lưu điểm trên trình duyệt hiện tại.</p>
+<h2 id="tai-lieu">Tài liệu đối chiếu</h2>
+<p>Đọc ngày 08/11/2026; các hướng dẫn Oracle này nhắm JDK 8: <a href="https://docs.oracle.com/javase/tutorial/java/generics/types.html">Generic types</a>, <a href="https://docs.oracle.com/javase/tutorial/java/generics/methods.html">Generic methods</a>, <a href="https://docs.oracle.com/javase/tutorial/java/generics/inheritance.html">Inheritance và subtypes</a>, <a href="https://docs.oracle.com/javase/tutorial/java/generics/upperBounded.html">Upper bounded wildcards</a>, <a href="https://docs.oracle.com/javase/tutorial/java/generics/lowerBounded.html">Lower bounded wildcards</a>, <a href="https://docs.oracle.com/javase/tutorial/java/generics/erasure.html">Type erasure</a>, <a href="https://docs.oracle.com/javase/tutorial/java/generics/restrictions.html">Restrictions</a>.</p>
+</section></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter17.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bài trước</a><a href="chapter19.html">Bài tiếp theo<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/java.html#chapter18"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>

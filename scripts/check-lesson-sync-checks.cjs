@@ -1,0 +1,10 @@
+const assert=require('node:assert/strict');
+const {normalizeLesson,assertLessonMatches,checkLesson}=require('./check-lesson-sync.cjs');
+const lesson='<section id="s19" class="chapter"><p>A &amp; B</p><a href="quiz.html?chapter=chapter01" title="Quiz">Quiz</a><pre><code>const n = 1;\n  n++;</code></pre></section>';
+const formatted="<section class='chapter docker-intro' id='s19'>\n<!-- formatting -->\n<p> A &#38; B </p>\n<a title='Quiz' href='quiz.html?chapter=chapter01'>Quiz</a>\n<pre><code>const n = 1;\r\n  n++;</code></pre>\n</section>";
+assert.deepEqual(normalizeLesson(lesson),normalizeLesson(formatted));
+const wrap=body=>'<article class="rm-lesson-content">'+body+'</article>';
+assert.doesNotThrow(()=>assertLessonMatches(lesson,wrap(formatted),'formatting'));
+for(const changed of [lesson.replace('A &amp; B','Different lesson'),lesson.replace('n = 1','n = 2'),lesson.replace('  n++','n++'),lesson.replace('id="s19"','id="other"'),lesson.replace('chapter01','chapter02')])assert.throws(()=>assertLessonMatches(lesson,wrap(changed),'changed'),/source\/output differ/);
+assert.throws(()=>assertLessonMatches(lesson,'<main>Missing</main>','missing'),/Missing/);
+const result=checkLesson();console.log(JSON.stringify({formattingEquivalent:true,contentCodeAndRouteRegressionsRejected:5,missingArticleRejected:true,current:result},null,2));

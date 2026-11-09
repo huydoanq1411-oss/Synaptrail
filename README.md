@@ -21,6 +21,16 @@ Dự án sử dụng [giấy phép MIT](LICENSE). Copyright (c) 2026 Synaptrail.
 
 ## Mở website
 
+### Dùng npm run dev (Node.js >=22)
+
+Trong terminal tại thư mục gốc dự án, chạy:
+
+```sh
+npm run dev
+```
+
+Mở `http://localhost:8000/`. Không cần `npm install` hoặc Python. Server chỉ nghe tại `127.0.0.1`, dành cho máy này; sửa tệp rồi tải lại trang, không có tự động reload. Nhấn **Ctrl+C** để dừng. Nếu cổng bị chiếm, dừng server cũ hoặc dùng PowerShell: `$env:PORT=8001; npm run dev` và mở cổng 8001. Đổi cổng sẽ đổi origin lưu tiến độ; xuất JSON trước khi chuyển.
+
 ### Mở trực tiếp
 
 1. Mở thư mục dự án và nhấp đúp vào [index.html](index.html).

@@ -9,6 +9,8 @@ a,button,input,select,textarea{touch-action:manipulation}
 :where(a,button,input,select,textarea,[tabindex]):focus-visible{outline:3px solid var(--accent);outline-offset:4px}
 input,select,textarea{max-width:100%;font:inherit;accent-color:var(--accent)}
 input::placeholder,textarea::placeholder{color:var(--text-dim);opacity:1}
+:root{--field-label-gap:.5rem;--field-label-size:.85rem}
+.field-label{display:block;margin-block-end:var(--field-label-gap);font-size:var(--field-label-size);font-weight:600;color:var(--text)}
 button:disabled,[aria-busy="true"]{opacity:.65;cursor:wait}
 input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:#fb7185}
 pre{max-width:100%;overflow:auto}img,svg,video{max-width:100%}

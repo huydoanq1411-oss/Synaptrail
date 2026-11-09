@@ -1,45 +1,91 @@
 <!DOCTYPE html>
-<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ArrayList &amp; LinkedList — Java | Synaptrail</title><meta name="description" content="Hai cài đặt phổ biến của interface List trong Collections Framework — danh sách động, khác mảng cố định."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="java" data-skill="java" data-node="chapter16"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/java.html#chapter16"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">Java / BÀI 16</p><h1>ArrayList &amp; LinkedList</h1><p class="rm-lead">Hai cài đặt phổ biến của interface List trong Collections Framework — danh sách động, khác mảng cố định.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s16">
-      
-      <p class="lead">Hai cài đặt phổ biến của interface <code>List</code> trong Collections Framework — danh sách động, khác mảng cố định.</p>
-
-      <div class="code-wrap">
-        <span class="code-label">ArrayListDemo.java</span>
-        
-        <pre><code>import java.util.ArrayList;
+<html lang="vi" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ArrayList &amp; LinkedList — Java | Synaptrail</title><meta name="description" content="Chọn ArrayList hoặc LinkedList theo thao tác, phân biệt xóa theo chỉ số/giá trị và dùng Iterator an toàn."><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/ui.css"><link rel="stylesheet" href="../assets/tokens.css"><link rel="stylesheet" href="../assets/roadmap.css"><link rel="stylesheet" href="../assets/thuat-toan-roadmap.css"><link rel="stylesheet" href="../assets/course-pages.css"><script src="../assets/progress.js" defer></script><script src="../assets/algorithm-pages.js" defer></script><script src="../assets/course-pages.js" defer></script><script src="../assets/code-highlighter.js" defer></script></head><body class="algorithm-roadmap algorithm-lesson" data-course="java" data-skill="java" data-node="chapter16"><a class="rm-skip" href="#course-content">Bỏ qua điều hướng</a><header class="rm-header ap-header"><a class="rm-back"  href="../roadmap/java.html#chapter16"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại</span></a><nav aria-label="Điều hướng"><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a><button type="button" id="rm-theme">Giao diện</button></nav></header><main class="ap-main" id="course-content"><div class="ap-heading"><p class="rm-eyebrow">Java / BÀI 16</p><h1>ArrayList &amp; LinkedList</h1><p class="rm-lead">Chọn ArrayList hoặc LinkedList theo thao tác, phân biệt xóa theo chỉ số/giá trị và dùng Iterator an toàn.</p></div><div class="ap-toolbar"><div class="rm-status-actions" aria-label="Trạng thái học"><button type="button" data-status="learning" aria-pressed="false">Đang học</button><button type="button" data-status="done" aria-pressed="false">Đã xong</button><button type="button" data-status="skip" aria-pressed="false">Bỏ qua</button></div><a class="ap-quiz-link" href="quiz.html?chapter=chapter16">Làm quiz ở trang riêng</a></div><p id="ap-message" role="status" aria-live="polite"></p><article class="rm-lesson-content"><section class="chapter" id="s16">
+<p class="lead">Quản lý một danh sách có thứ tự, chọn cấu trúc theo thao tác thực tế và tránh xóa nhầm phần tử khi dùng List&lt;Integer&gt;.</p>
+<h2 id="muc-tieu">Mục tiêu</h2>
+<ul><li>Dùng List để thêm, đọc, sửa, xóa và duyệt dữ liệu.</li><li>Phân biệt ArrayList với LinkedList theo chi phí thao tác.</li><li>Hiểu hai overload (phiên bản cùng tên) của remove và xóa an toàn qua Iterator.</li></ul>
+<h2 id="van-de-thuc-te">Vấn đề thực tế</h2>
+<p>Bạn lưu các bài cần học theo thứ tự: Java, SQL, Java. Hai lần Java là hai lượt ôn khác nhau nên không được tự loại trùng. Bạn cần xem bài đầu, đổi tên một mục và xóa đúng lượt đã hoàn thành. Mảng có kích thước cố định; List cung cấp thao tác thay đổi số phần tử phù hợp hơn cho trường hợp này.</p>
+<h2 id="ly-thuyet">Lý thuyết nền</h2>
+<h3>List là hợp đồng, ArrayList và LinkedList là cách cài đặt</h3>
+<p>List là interface (giao diện) cho danh sách có thứ tự; chỉ số bắt đầu từ 0. Hai cài đặt trong bài cho phép phần tử trùng và null. Khai báo List&lt;String&gt; giúp đoạn xử lý chỉ phụ thuộc thao tác cần dùng. Khi cần thao tác hai đầu, Deque (hàng đợi hai đầu) diễn đạt mục đích rõ hơn; không phải mọi biến đều bắt buộc có kiểu List.</p>
+<table><caption>Chi phí theo n phần tử; không phải số đo tốc độ thực tế</caption><thead><tr><th scope="col">Thao tác</th><th scope="col">ArrayList</th><th scope="col">LinkedList</th></tr></thead><tbody>
+<tr><th scope="row">Cấu trúc</th><td>Mảng có thể tăng dung lượng</td><td>Các nút liên kết đôi</td></tr>
+<tr><th scope="row">get(i), set(i, value)</th><td>O(1)</td><td>O(n) trong trường hợp xấu nhất, phải đi tới nút</td></tr>
+<tr><th scope="row">Thêm cuối</th><td>O(1) khấu hao; lần tăng dung lượng có thể O(n)</td><td>O(1)</td></tr>
+<tr><th scope="row">Chèn/xóa đầu</th><td>O(n), phải dịch phần tử</td><td>O(1) qua thao tác đầu danh sách</td></tr>
+<tr><th scope="row">Chèn/xóa theo chỉ số ở giữa</th><td>O(n) trường hợp xấu nhất</td><td>O(n) để tìm vị trí; nối/bỏ nút khi iterator đã ở đó là O(1)</td></tr>
+<tr><th scope="row">Tìm hoặc xóa theo giá trị</th><td>O(n) trường hợp xấu nhất</td><td>O(n) trường hợp xấu nhất</td></tr>
+</tbody></table>
+<p>Khấu hao nghĩa là xét tổng chi phí của nhiều lần thêm: một lần có thể đắt nhưng trung bình trên chuỗi thao tác vẫn có cận hằng số. size là số phần tử đang có; capacity là số chỗ mảng nền có thể chứa. Tăng capacity không tạo thêm phần tử để get.</p>
+<p>Đừng kết luận “LinkedList chèn/xóa luôn nhanh”: tìm vị trí vẫn mất thời gian. Duyệt LinkedList bằng get(i) trong vòng lặp chỉ số có thể O(n²); enhanced for (vòng lặp for-each) hoặc Iterator duyệt một lượt O(n). LinkedList còn có chi phí lưu các liên kết. Hãy bắt đầu bằng ArrayList cho danh sách thường đọc/duyệt, sau đó chọn lại theo thao tác và phép đo của bài toán; bảng Big O không thay benchmark.</p>
+<h2 id="vi-du">Ví dụ có thể chạy và giải thích</h2>
+<p>Hai chương trình độc lập dùng Java 8 trở lên, không thư viện ngoài. Cần JDK có javac; JRE chỉ chạy chương trình đã biên dịch. Lưu đúng tên tệp ghi trên mỗi khối, chạy javac -encoding UTF-8 ListDemo.java rồi java ListDemo; ví dụ thứ hai thay tên bằng ListRemovalDemo. Các dòng output dự kiến được chú thích ngay sau lệnh in.</p>
+<div class="code-wrap"><span class="code-label">ListDemo.java</span><pre><code>import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 
-List&lt;String&gt; ds = new ArrayList&lt;&gt;();    // khai báo kiểu interface List, khởi tạo ArrayList
-ds.add("Táo");
-ds.add("Cam");
-ds.add("Chuối");
+public class ListDemo {
+    public static void main(String[] args) {
+        List&lt;String&gt; lessons = new ArrayList&lt;&gt;();
+        lessons.add("Java");
+        lessons.add("SQL");
+        lessons.add("Java");
+        lessons.set(1, "HTML");
+        System.out.println(lessons.get(0)); // Java
+        System.out.println(lessons);        // [Java, HTML, Java]
+        lessons.remove("Java");
+        System.out.println(lessons);        // [HTML, Java]
+        for (String lesson : lessons) {
+            System.out.println(lesson);     // HTML, roi Java tren dong rieng
+        }
+        Deque&lt;String&gt; review = new LinkedList&lt;&gt;();
+        System.out.println(review.pollFirst()); // null: dang rong
+        review.addLast("Java");
+        review.addFirst("SQL");
+        System.out.println(review.pollFirst()); // SQL
+        System.out.println(review);             // [Java]
+    }
+}</code></pre></div>
+<ol><li>Các import chỉ rõ kiểu dùng từ java.util. main là điểm vào khi chạy java ListDemo.</li><li>new ArrayList&lt;&gt;() tạo danh sách rỗng. Ba lần add giữ cả hai mục Java và thứ tự thêm.</li><li>set(1, "HTML") thay SQL, không tăng size. get(0) đọc mục đầu; chỉ số đọc/sửa hợp lệ là 0 đến size() - 1.</li><li>remove("Java") chọn overload nhận đối tượng, chỉ bỏ lần xuất hiện đầu. Vòng for-each đọc hai mục còn lại.</li><li>Deque khai báo nhu cầu thao tác hai đầu. pollFirst trả null nếu rỗng; addLast thêm cuối và addFirst thêm đầu. Ví dụ không lưu null để có thể dùng null làm dấu hiệu rỗng.</li></ol>
+<h3>Phân biệt xóa theo chỉ số với xóa theo giá trị</h3>
+<div class="code-wrap"><span class="code-label">ListRemovalDemo.java</span><pre><code>import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
 
-System.out.println(ds.get(0));               // "Táo" - truy cập theo chỉ số
-ds.remove("Cam");                                // xóa theo GIÁ TRỊ
-System.out.println(ds.size());                    // 2
-
-for (String tc : ds) {                            // duyệt bằng enhanced for
-    System.out.println(tc);
-}</code></pre>
-      </div>
-
-      <table>
-        <tbody><tr><th>Tiêu chí</th><th>ArrayList</th><th>LinkedList</th></tr>
-        <tr><td>Cấu trúc bên trong</td><td>Mảng động</td><td>Danh sách liên kết đôi</td></tr>
-        <tr><td>Truy cập theo chỉ số</td><td>O(1) - nhanh</td><td>O(n) - chậm</td></tr>
-        <tr><td>Thêm/xóa ở đầu</td><td>O(n) - chậm</td><td>O(1) - nhanh</td></tr>
-        <tr><td>Dùng khi</td><td>Truy cập ngẫu nhiên nhiều</td><td>Thêm/xóa ở đầu/cuối thường xuyên</td></tr>
-      </tbody></table>
-
-      <div class="box tip">
-        <div class="box-title">Mẹo</div>
-        Luôn khai báo biến theo kiểu <strong>interface</strong> (<code>List&lt;String&gt; ds = new ArrayList&lt;&gt;()</code>) thay vì kiểu cụ thể — giúp dễ dàng đổi cài đặt (VD: sang LinkedList) sau này mà không cần sửa code sử dụng.
-      </div>
-
-      <div class="summary-box">
-        <h4>📌 Tổng kết chương 16</h4>
-        <p><code>ArrayList</code> phù hợp khi cần truy cập ngẫu nhiên nhanh, <code>LinkedList</code> phù hợp khi thêm/xóa nhiều ở đầu danh sách — cả hai đều triển khai interface <code>List</code>.</p>
-      </div>
-    </section>
-
-    <!-- ================= CHƯƠNG 17 ================= --></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter15.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bài trước</a><a href="chapter17.html">Bài tiếp theo<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/java.html#chapter16"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>
+public class ListRemovalDemo {
+    public static void main(String[] args) {
+        List&lt;Integer&gt; scores = new ArrayList&lt;&gt;(Arrays.asList(10, 20, 10));
+        int removed = scores.remove(1);
+        System.out.println(removed); // 20: xoa theo chi so
+        boolean found = scores.remove(Integer.valueOf(10));
+        System.out.println(found);   // true: xoa gia tri 10 dau tien
+        System.out.println(scores);  // [10]
+        System.out.println(scores.remove(Integer.valueOf(99))); // false
+        scores.add(3);
+        scores.add(4);
+        Iterator&lt;Integer&gt; it = scores.iterator();
+        while (it.hasNext()) {
+            int score = it.next();
+            if (score &lt; 5) {
+                it.remove();
+            }
+        }
+        System.out.println(scores); // [10]
+        scores.clear();
+        System.out.println(scores.isEmpty()); // true
+    }
+}</code></pre></div>
+<ol><li>Arrays.asList tạo danh sách kích thước cố định; bọc bằng new ArrayList để có bản sao cho phép thêm/xóa.</li><li>Đối số 1 có kiểu int nên remove(1) xóa phần tử ở chỉ số 1 và trả giá trị 20. Trên List&lt;Integer&gt;, remove(10) cũng là xóa chỉ số 10, không phải tìm số 10.</li><li>Integer.valueOf(10) tạo đối số kiểu Integer để chọn remove(Object). Phương thức trả boolean; giá trị không tồn tại trả false.</li><li>Iterator là đối tượng duyệt. hasNext kiểm tra còn phần tử, next lấy phần tử và tiến vị trí; remove bỏ đúng phần tử vừa lấy.</li><li>Chỉ gọi it.remove một lần sau mỗi next. Không gọi scores.remove trong lúc iterator đang duyệt. clear xóa tất cả; isEmpty kiểm tra danh sách rỗng.</li></ol>
+<h2 id="loi-thuong-gap">Lỗi thường gặp</h2>
+<ul><li>get(size()) gây IndexOutOfBoundsException. Với danh sách rỗng, không có chỉ số đọc hợp lệ; kiểm isEmpty trước khi đọc đầu.</li><li>Nhầm size với capacity: new ArrayList&lt;String&gt;(100) vẫn có size bằng 0.</li><li>Xóa trực tiếp khỏi danh sách trong for-each có thể làm iterator phát hiện thay đổi cấu trúc và ném ConcurrentModificationException. Đừng dựa vào việc một lần thử chưa ném lỗi; dùng iterator.remove đúng quy tắc như ví dụ.</li><li>Gọi it.remove trước next hoặc hai lần sau cùng một next gây IllegalStateException với iterator trong bài.</li><li>Hai cấu trúc này không tự đồng bộ khi nhiều thread cùng sửa. Bài này chỉ dùng một thread; xem phần concurrency trước khi chia sẻ danh sách giữa các thread.</li></ul>
+<h2 id="bai-tap">Bài tập ba mức</h2>
+<ol><li><strong>Cơ bản:</strong> tạo danh sách rỗng, thêm Java, SQL, Java; sửa SQL thành HTML, xóa một Java theo giá trị. Tự kiểm: còn [HTML, Java], size bằng 2.</li><li><strong>Vận dụng:</strong> với [10, 20, 10], chạy hai chương trình riêng: một xóa chỉ số 1; một xóa giá trị 10. Tự kiểm: lần lượt [10, 10] và [20, 10]. Thử tiếp giá trị 99 không tồn tại và danh sách rỗng; không gọi remove(int) khi chỉ số không hợp lệ.</li><li><strong>Nâng cao:</strong> viết hàm xóa mọi điểm dưới 5 bằng Iterator; chạy cùng logic trên ArrayList và LinkedList. Ca tự kiểm: [] thành [], [3] thành [], [5, 7] giữ nguyên, [2, 2, 6, 1] thành [6]. Giải thích vì sao dùng iterator thay cho get(i) khi duyệt LinkedList.</li></ol>
+<h2 id="tom-tat">Tóm tắt</h2>
+<p>List giữ thứ tự và cho phép phần tử trùng trong các cài đặt đã học. ArrayList thuận tiện cho đọc theo chỉ số; LinkedList cung cấp thao tác đầu/cuối nhưng truy cập vị trí giữa vẫn cần duyệt. Chọn remove(int) hoặc remove(Object) có chủ đích, và dùng iterator.remove để xóa trong khi duyệt.</p>
+<h2 id="quiz">Quiz</h2>
+<p><a href="quiz.html?chapter=chapter16">Làm năm câu quiz bài 16</a>. Câu hỏi chỉ dựa trên bài này; trang quiz giải thích đáp án và lưu điểm trên trình duyệt hiện tại.</p>
+<h2 id="tai-lieu">Tài liệu đối chiếu</h2>
+<p>Đối chiếu ngày 08/11/2026: <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html">Oracle ArrayList (Java 21)</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/LinkedList.html">LinkedList (Java 21)</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">List (Java 8)</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html">Iterator (Java 8)</a>. Mã trong bài dùng API đã có ở Java 8; không dùng API mới của List trong Java 21.</p>
+</section></article><nav class="ap-pagination" aria-label="Điều hướng bài học"><a href="chapter15.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bài trước</a><a href="chapter17.html">Bài tiếp theo<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav><footer class="rm-footer"><a class="rm-back"  href="../roadmap/java.html#chapter16"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m12 5-7 7 7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quay lại lộ trình</span></a><a class="rm-home" href="../index.html"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trang chủ</span></a></footer></main></body></html>

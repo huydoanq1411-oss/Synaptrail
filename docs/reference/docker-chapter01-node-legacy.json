@@ -1,0 +1,16 @@
+{
+  "status": "Historical reference only; expanded docker/chapter01.html is canonical by user decision on 2026-11-09.",
+  "origin": "assets/roadmaps/docker-source.json before audit fixes",
+  "lesson": {
+    "id": "chapter01",
+    "file": "chapter01.html",
+    "title": "Docker — Đóng gói ứng dụng",
+    "summary": "Giải quyết vĩnh viễn câu nói kinh điển \"chạy được trên máy tôi mà\" — đóng gói ứng dụng cùng toàn bộ môi trường cần thiết.",
+    "content": "<section class=\"chapter\" id=\"s19\">\n      \n      <p class=\"lead\">Giải quyết vĩnh viễn câu nói kinh điển \"chạy được trên máy tôi mà\" — đóng gói ứng dụng cùng toàn bộ môi trường cần thiết.</p>\n\n      <h3>Container khác Máy ảo (Virtual Machine) thế nào?</h3>\n      <p>Máy ảo mô phỏng TOÀN BỘ hệ điều hành (nặng, khởi động chậm). Container chia sẻ kernel của hệ điều hành host, chỉ đóng gói ứng dụng + thư viện cần thiết — nhẹ hơn nhiều, khởi động gần như tức thì.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">Dockerfile</span>\n        \n        <pre><code>FROM node:20-alpine              # image nền - Node.js bản nhẹ (alpine)\n\nWORKDIR /app                       # thư mục làm việc BÊN TRONG container\n\nCOPY package*.json ./                # copy trước để tận dụng cache - nếu package.json không đổi, không cần cài lại\nRUN npm install\n\nCOPY . .                                # copy toàn bộ code còn lại\n\nEXPOSE 3000                              # khai báo cổng ứng dụng lắng nghe\nCMD [\"node\", \"server.js\"]                  # lệnh chạy khi container khởi động</code></pre>\n      </div>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">terminal</span>\n        \n        <pre><code>docker build -t ten-du-an .              # build image từ Dockerfile\ndocker run -p 3000:3000 ten-du-an           # chạy container, ánh xạ cổng máy thật:cổng container\ndocker ps                                     # xem các container đang chạy\ndocker stop &lt;container_id&gt;                     # dừng container</code></pre>\n      </div>\n\n      <div class=\"box important\">\n        <div class=\"box-title\">Quan trọng</div>\n        Thứ tự các lệnh trong Dockerfile ảnh hưởng tới <strong>tốc độ build</strong> — Docker cache từng bước; copy <code>package.json</code> và <code>npm install</code> TRƯỚC khi copy toàn bộ code giúp lần build sau không phải cài lại dependency nếu chỉ code thay đổi (không phải package.json).\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 1</h4>\n        <p>Docker đóng gói ứng dụng + môi trường vào \"image\", chạy thành \"container\" nhẹ và nhất quán trên mọi máy. Dockerfile mô tả từng bước xây dựng image, cần sắp xếp đúng thứ tự để tận dụng cache hiệu quả.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 24 ================= -->",
+    "questions": [],
+    "ids": [
+      "s19"
+    ],
+    "words": 280
+  }
+}

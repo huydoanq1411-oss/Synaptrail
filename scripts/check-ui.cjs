@@ -9,6 +9,7 @@ if(fs.existsSync(path.join(root,'assets/quiz-feedback.js')))new vm.Script(fs.rea
 if(fs.existsSync(path.join(root,'assets/code-highlighter.js')))new vm.Script(fs.readFileSync(path.join(root,'assets/code-highlighter.js'),'utf8'),{filename:'assets/code-highlighter.js'});
 function walk(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.name.startsWith('.')||['node_modules','artifacts'].includes(e.name)?[]:e.isDirectory()?walk(path.join(dir,e.name)):e.name.endsWith('.html')?[path.join(dir,e.name)]:[])}
 let scripts=0;const errors=[];
+try{require('./check-lesson-sync.cjs').checkLesson({root});}catch(error){errors.push('Lesson source mismatch: '+error.message);}
 const htmlCache=new Map();
 for(const file of walk(root)){
  const html=fs.readFileSync(file,'utf8');
@@ -40,5 +41,16 @@ for(const [,href]of landing.matchAll(/href="([^"]+)"/g)){
  if(!fs.existsSync(target)){errors.push('Missing homepage route '+href);continue;}
  if(anchor&&!fs.readFileSync(target,'utf8').includes('id="'+anchor+'"'))errors.push('Missing homepage anchor '+href);
 }
-console.log(JSON.stringify({pages:walk(root).length,inlineScripts:scripts,errors},null,2));
+// Preserve the complete error list and failing exit code; groups describe scope only.
+const groups=Object.fromEntries(['main','nested','reports'].map(key=>[key,{pages:0,errors:[]}]));
+const groupFor=file=>file.replaceAll('\\','/').startsWith('Synaptrail-main/')?'nested':file.replaceAll('\\','/').startsWith('reports/')?'reports':'main';
+for(const file of walk(root))groups[groupFor(path.relative(root,file))].pages++;
+for(const error of errors){
+ const normalized=error.replaceAll('\\','/');
+ const origin=normalized.match(/^(.+?\.html): /)?.[1] || normalized.match(/ in (.+\.html)$/)?.[1] || normalized.match(/^Missing shared CSS: (.+)$/)?.[1];
+ const relative=origin&&path.isAbsolute(origin)?path.relative(root,origin):origin;
+ const group=relative?groupFor(relative):'main';
+ groups[group].errors.push(error);
+}
+console.log(JSON.stringify({pages:walk(root).length,inlineScripts:scripts,groups,errors},null,2));
 process.exitCode=errors.length?1:0;

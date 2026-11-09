@@ -539,13 +539,83 @@
       "id": "chapter16",
       "file": "chapter16.html",
       "title": "ArrayList & LinkedList",
-      "summary": "Hai cài đặt phổ biến của interface List trong Collections Framework — danh sách động, khác mảng cố định.",
-      "content": "<section class=\"chapter\" id=\"s16\">\n      \n      <p class=\"lead\">Hai cài đặt phổ biến của interface <code>List</code> trong Collections Framework — danh sách động, khác mảng cố định.</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">ArrayListDemo.java</span>\n        \n        <pre><code>import java.util.ArrayList;\nimport java.util.List;\n\nList&lt;String&gt; ds = new ArrayList&lt;&gt;();    // khai báo kiểu interface List, khởi tạo ArrayList\nds.add(\"Táo\");\nds.add(\"Cam\");\nds.add(\"Chuối\");\n\nSystem.out.println(ds.get(0));               // \"Táo\" - truy cập theo chỉ số\nds.remove(\"Cam\");                                // xóa theo GIÁ TRỊ\nSystem.out.println(ds.size());                    // 2\n\nfor (String tc : ds) {                            // duyệt bằng enhanced for\n    System.out.println(tc);\n}</code></pre>\n      </div>\n\n      <table>\n        <tbody><tr><th>Tiêu chí</th><th>ArrayList</th><th>LinkedList</th></tr>\n        <tr><td>Cấu trúc bên trong</td><td>Mảng động</td><td>Danh sách liên kết đôi</td></tr>\n        <tr><td>Truy cập theo chỉ số</td><td>O(1) - nhanh</td><td>O(n) - chậm</td></tr>\n        <tr><td>Thêm/xóa ở đầu</td><td>O(n) - chậm</td><td>O(1) - nhanh</td></tr>\n        <tr><td>Dùng khi</td><td>Truy cập ngẫu nhiên nhiều</td><td>Thêm/xóa ở đầu/cuối thường xuyên</td></tr>\n      </tbody></table>\n\n      <div class=\"box tip\">\n        <div class=\"box-title\">Mẹo</div>\n        Luôn khai báo biến theo kiểu <strong>interface</strong> (<code>List&lt;String&gt; ds = new ArrayList&lt;&gt;()</code>) thay vì kiểu cụ thể — giúp dễ dàng đổi cài đặt (VD: sang LinkedList) sau này mà không cần sửa code sử dụng.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 16</h4>\n        <p><code>ArrayList</code> phù hợp khi cần truy cập ngẫu nhiên nhanh, <code>LinkedList</code> phù hợp khi thêm/xóa nhiều ở đầu danh sách — cả hai đều triển khai interface <code>List</code>.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 17 ================= -->",
-      "questions": [],
-      "ids": [
-        "s16"
+      "summary": "Chọn ArrayList hoặc LinkedList theo thao tác, phân biệt xóa theo chỉ số/giá trị và dùng Iterator an toàn.",
+      "content": "<section class=\"chapter\" id=\"s16\">\n<p class=\"lead\">Quản lý một danh sách có thứ tự, chọn cấu trúc theo thao tác thực tế và tránh xóa nhầm phần tử khi dùng List&lt;Integer&gt;.</p>\n<h2 id=\"muc-tieu\">Mục tiêu</h2>\n<ul><li>Dùng List để thêm, đọc, sửa, xóa và duyệt dữ liệu.</li><li>Phân biệt ArrayList với LinkedList theo chi phí thao tác.</li><li>Hiểu hai overload (phiên bản cùng tên) của remove và xóa an toàn qua Iterator.</li></ul>\n<h2 id=\"van-de-thuc-te\">Vấn đề thực tế</h2>\n<p>Bạn lưu các bài cần học theo thứ tự: Java, SQL, Java. Hai lần Java là hai lượt ôn khác nhau nên không được tự loại trùng. Bạn cần xem bài đầu, đổi tên một mục và xóa đúng lượt đã hoàn thành. Mảng có kích thước cố định; List cung cấp thao tác thay đổi số phần tử phù hợp hơn cho trường hợp này.</p>\n<h2 id=\"ly-thuyet\">Lý thuyết nền</h2>\n<h3>List là hợp đồng, ArrayList và LinkedList là cách cài đặt</h3>\n<p>List là interface (giao diện) cho danh sách có thứ tự; chỉ số bắt đầu từ 0. Hai cài đặt trong bài cho phép phần tử trùng và null. Khai báo List&lt;String&gt; giúp đoạn xử lý chỉ phụ thuộc thao tác cần dùng. Khi cần thao tác hai đầu, Deque (hàng đợi hai đầu) diễn đạt mục đích rõ hơn; không phải mọi biến đều bắt buộc có kiểu List.</p>\n<table><caption>Chi phí theo n phần tử; không phải số đo tốc độ thực tế</caption><thead><tr><th scope=\"col\">Thao tác</th><th scope=\"col\">ArrayList</th><th scope=\"col\">LinkedList</th></tr></thead><tbody>\n<tr><th scope=\"row\">Cấu trúc</th><td>Mảng có thể tăng dung lượng</td><td>Các nút liên kết đôi</td></tr>\n<tr><th scope=\"row\">get(i), set(i, value)</th><td>O(1)</td><td>O(n) trong trường hợp xấu nhất, phải đi tới nút</td></tr>\n<tr><th scope=\"row\">Thêm cuối</th><td>O(1) khấu hao; lần tăng dung lượng có thể O(n)</td><td>O(1)</td></tr>\n<tr><th scope=\"row\">Chèn/xóa đầu</th><td>O(n), phải dịch phần tử</td><td>O(1) qua thao tác đầu danh sách</td></tr>\n<tr><th scope=\"row\">Chèn/xóa theo chỉ số ở giữa</th><td>O(n) trường hợp xấu nhất</td><td>O(n) để tìm vị trí; nối/bỏ nút khi iterator đã ở đó là O(1)</td></tr>\n<tr><th scope=\"row\">Tìm hoặc xóa theo giá trị</th><td>O(n) trường hợp xấu nhất</td><td>O(n) trường hợp xấu nhất</td></tr>\n</tbody></table>\n<p>Khấu hao nghĩa là xét tổng chi phí của nhiều lần thêm: một lần có thể đắt nhưng trung bình trên chuỗi thao tác vẫn có cận hằng số. size là số phần tử đang có; capacity là số chỗ mảng nền có thể chứa. Tăng capacity không tạo thêm phần tử để get.</p>\n<p>Đừng kết luận “LinkedList chèn/xóa luôn nhanh”: tìm vị trí vẫn mất thời gian. Duyệt LinkedList bằng get(i) trong vòng lặp chỉ số có thể O(n²); enhanced for (vòng lặp for-each) hoặc Iterator duyệt một lượt O(n). LinkedList còn có chi phí lưu các liên kết. Hãy bắt đầu bằng ArrayList cho danh sách thường đọc/duyệt, sau đó chọn lại theo thao tác và phép đo của bài toán; bảng Big O không thay benchmark.</p>\n<h2 id=\"vi-du\">Ví dụ có thể chạy và giải thích</h2>\n<p>Hai chương trình độc lập dùng Java 8 trở lên, không thư viện ngoài. Cần JDK có javac; JRE chỉ chạy chương trình đã biên dịch. Lưu đúng tên tệp ghi trên mỗi khối, chạy javac -encoding UTF-8 ListDemo.java rồi java ListDemo; ví dụ thứ hai thay tên bằng ListRemovalDemo. Các dòng output dự kiến được chú thích ngay sau lệnh in.</p>\n<div class=\"code-wrap\"><span class=\"code-label\">ListDemo.java</span><pre><code>import java.util.ArrayList;\nimport java.util.Deque;\nimport java.util.LinkedList;\nimport java.util.List;\n\npublic class ListDemo {\n    public static void main(String[] args) {\n        List&lt;String&gt; lessons = new ArrayList&lt;&gt;();\n        lessons.add(\"Java\");\n        lessons.add(\"SQL\");\n        lessons.add(\"Java\");\n        lessons.set(1, \"HTML\");\n        System.out.println(lessons.get(0)); // Java\n        System.out.println(lessons);        // [Java, HTML, Java]\n        lessons.remove(\"Java\");\n        System.out.println(lessons);        // [HTML, Java]\n        for (String lesson : lessons) {\n            System.out.println(lesson);     // HTML, roi Java tren dong rieng\n        }\n        Deque&lt;String&gt; review = new LinkedList&lt;&gt;();\n        System.out.println(review.pollFirst()); // null: dang rong\n        review.addLast(\"Java\");\n        review.addFirst(\"SQL\");\n        System.out.println(review.pollFirst()); // SQL\n        System.out.println(review);             // [Java]\n    }\n}</code></pre></div>\n<ol><li>Các import chỉ rõ kiểu dùng từ java.util. main là điểm vào khi chạy java ListDemo.</li><li>new ArrayList&lt;&gt;() tạo danh sách rỗng. Ba lần add giữ cả hai mục Java và thứ tự thêm.</li><li>set(1, \"HTML\") thay SQL, không tăng size. get(0) đọc mục đầu; chỉ số đọc/sửa hợp lệ là 0 đến size() - 1.</li><li>remove(\"Java\") chọn overload nhận đối tượng, chỉ bỏ lần xuất hiện đầu. Vòng for-each đọc hai mục còn lại.</li><li>Deque khai báo nhu cầu thao tác hai đầu. pollFirst trả null nếu rỗng; addLast thêm cuối và addFirst thêm đầu. Ví dụ không lưu null để có thể dùng null làm dấu hiệu rỗng.</li></ol>\n<h3>Phân biệt xóa theo chỉ số với xóa theo giá trị</h3>\n<div class=\"code-wrap\"><span class=\"code-label\">ListRemovalDemo.java</span><pre><code>import java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Iterator;\nimport java.util.List;\n\npublic class ListRemovalDemo {\n    public static void main(String[] args) {\n        List&lt;Integer&gt; scores = new ArrayList&lt;&gt;(Arrays.asList(10, 20, 10));\n        int removed = scores.remove(1);\n        System.out.println(removed); // 20: xoa theo chi so\n        boolean found = scores.remove(Integer.valueOf(10));\n        System.out.println(found);   // true: xoa gia tri 10 dau tien\n        System.out.println(scores);  // [10]\n        System.out.println(scores.remove(Integer.valueOf(99))); // false\n        scores.add(3);\n        scores.add(4);\n        Iterator&lt;Integer&gt; it = scores.iterator();\n        while (it.hasNext()) {\n            int score = it.next();\n            if (score &lt; 5) {\n                it.remove();\n            }\n        }\n        System.out.println(scores); // [10]\n        scores.clear();\n        System.out.println(scores.isEmpty()); // true\n    }\n}</code></pre></div>\n<ol><li>Arrays.asList tạo danh sách kích thước cố định; bọc bằng new ArrayList để có bản sao cho phép thêm/xóa.</li><li>Đối số 1 có kiểu int nên remove(1) xóa phần tử ở chỉ số 1 và trả giá trị 20. Trên List&lt;Integer&gt;, remove(10) cũng là xóa chỉ số 10, không phải tìm số 10.</li><li>Integer.valueOf(10) tạo đối số kiểu Integer để chọn remove(Object). Phương thức trả boolean; giá trị không tồn tại trả false.</li><li>Iterator là đối tượng duyệt. hasNext kiểm tra còn phần tử, next lấy phần tử và tiến vị trí; remove bỏ đúng phần tử vừa lấy.</li><li>Chỉ gọi it.remove một lần sau mỗi next. Không gọi scores.remove trong lúc iterator đang duyệt. clear xóa tất cả; isEmpty kiểm tra danh sách rỗng.</li></ol>\n<h2 id=\"loi-thuong-gap\">Lỗi thường gặp</h2>\n<ul><li>get(size()) gây IndexOutOfBoundsException. Với danh sách rỗng, không có chỉ số đọc hợp lệ; kiểm isEmpty trước khi đọc đầu.</li><li>Nhầm size với capacity: new ArrayList&lt;String&gt;(100) vẫn có size bằng 0.</li><li>Xóa trực tiếp khỏi danh sách trong for-each có thể làm iterator phát hiện thay đổi cấu trúc và ném ConcurrentModificationException. Đừng dựa vào việc một lần thử chưa ném lỗi; dùng iterator.remove đúng quy tắc như ví dụ.</li><li>Gọi it.remove trước next hoặc hai lần sau cùng một next gây IllegalStateException với iterator trong bài.</li><li>Hai cấu trúc này không tự đồng bộ khi nhiều thread cùng sửa. Bài này chỉ dùng một thread; xem phần concurrency trước khi chia sẻ danh sách giữa các thread.</li></ul>\n<h2 id=\"bai-tap\">Bài tập ba mức</h2>\n<ol><li><strong>Cơ bản:</strong> tạo danh sách rỗng, thêm Java, SQL, Java; sửa SQL thành HTML, xóa một Java theo giá trị. Tự kiểm: còn [HTML, Java], size bằng 2.</li><li><strong>Vận dụng:</strong> với [10, 20, 10], chạy hai chương trình riêng: một xóa chỉ số 1; một xóa giá trị 10. Tự kiểm: lần lượt [10, 10] và [20, 10]. Thử tiếp giá trị 99 không tồn tại và danh sách rỗng; không gọi remove(int) khi chỉ số không hợp lệ.</li><li><strong>Nâng cao:</strong> viết hàm xóa mọi điểm dưới 5 bằng Iterator; chạy cùng logic trên ArrayList và LinkedList. Ca tự kiểm: [] thành [], [3] thành [], [5, 7] giữ nguyên, [2, 2, 6, 1] thành [6]. Giải thích vì sao dùng iterator thay cho get(i) khi duyệt LinkedList.</li></ol>\n<h2 id=\"tom-tat\">Tóm tắt</h2>\n<p>List giữ thứ tự và cho phép phần tử trùng trong các cài đặt đã học. ArrayList thuận tiện cho đọc theo chỉ số; LinkedList cung cấp thao tác đầu/cuối nhưng truy cập vị trí giữa vẫn cần duyệt. Chọn remove(int) hoặc remove(Object) có chủ đích, và dùng iterator.remove để xóa trong khi duyệt.</p>\n<h2 id=\"quiz\">Quiz</h2>\n<p><a href=\"quiz.html?chapter=chapter16\">Làm năm câu quiz bài 16</a>. Câu hỏi chỉ dựa trên bài này; trang quiz giải thích đáp án và lưu điểm trên trình duyệt hiện tại.</p>\n<h2 id=\"tai-lieu\">Tài liệu đối chiếu</h2>\n<p>Đối chiếu ngày 08/11/2026: <a href=\"https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html\">Oracle ArrayList (Java 21)</a>, <a href=\"https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/LinkedList.html\">LinkedList (Java 21)</a>, <a href=\"https://docs.oracle.com/javase/8/docs/api/java/util/List.html\">List (Java 8)</a>, <a href=\"https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html\">Iterator (Java 8)</a>. Mã trong bài dùng API đã có ở Java 8; không dùng API mới của List trong Java 21.</p>\n</section>",
+      "questions": [
+        {
+          "question": "1. Với ArrayList, thao tác nào có chi phí O(1)?",
+          "code": "",
+          "options": [
+            "get(i) với chỉ số hợp lệ",
+            "Chèn phần tử vào đầu",
+            "Tìm giá trị chưa biết vị trí",
+            "Xóa phần tử đầu"
+          ],
+          "answer": 0,
+          "explanation": "ArrayList dùng mảng nền nên đọc một vị trí hợp lệ là O(1). Chèn/xóa đầu cần dịch phần tử; tìm giá trị có thể cần duyệt cả danh sách."
+        },
+        {
+          "question": "2. Vì sao không thể kết luận LinkedList chèn ở giữa luôn là O(1)?",
+          "code": "",
+          "options": [
+            "LinkedList không hỗ trợ chèn",
+            "Có thể phải duyệt O(n) để tìm vị trí trước khi nối nút",
+            "Mọi thao tác đều phải sắp xếp danh sách",
+            "Vì LinkedList dùng mảng cố định"
+          ],
+          "answer": 1,
+          "explanation": "Nối nút khi iterator đã ở vị trí là O(1), nhưng chèn theo chỉ số có thể tốn O(n) để tới vị trí đó."
+        },
+        {
+          "question": "3. Chương trình in danh sách nào?",
+          "code": "List<Integer> scores = new ArrayList<>(Arrays.asList(10, 20, 10));\nscores.remove(1);\nSystem.out.println(scores);",
+          "options": [
+            "[20, 10]",
+            "[10, 20, 10]",
+            "[10, 10]",
+            "[10, 20]"
+          ],
+          "answer": 2,
+          "explanation": "Đối số int chọn remove(int), xóa phần tử chỉ số 1 là 20, còn [10, 10]. Đoạn trích dùng các import và main của ví dụ ListRemovalDemo."
+        },
+        {
+          "question": "4. Muốn xóa giá trị 10 đầu tiên khỏi List<Integer>, dùng cách nào?",
+          "code": "",
+          "options": [
+            "scores.remove(10)",
+            "scores.get(10)",
+            "scores.set(10, 0)",
+            "scores.remove(Integer.valueOf(10))"
+          ],
+          "answer": 3,
+          "explanation": "Integer.valueOf(10) chọn overload remove(Object). Nếu tìm thấy, phương thức xóa lần xuất hiện đầu và trả true; nếu không có thì trả false."
+        },
+        {
+          "question": "5. Cách nào xóa phần tử hiện tại đúng quy tắc Iterator trong ví dụ?",
+          "code": "",
+          "options": [
+            "Sau it.next(), gọi it.remove() tối đa một lần",
+            "Gọi it.remove() trước lần next đầu tiên",
+            "Gọi scores.remove(value) trong khi iterator vẫn duyệt",
+            "Sau một next(), gọi it.remove() hai lần"
+          ],
+          "answer": 0,
+          "explanation": "Iterator.remove xóa phần tử vừa được next trả về và chỉ được gọi một lần cho mỗi next; các lời gọi sai trạng thái có thể gây IllegalStateException."
+        }
       ],
-      "words": 179
+      "ids": [
+        "s16",
+        "muc-tieu",
+        "van-de-thuc-te",
+        "ly-thuyet",
+        "vi-du",
+        "loi-thuong-gap",
+        "bai-tap",
+        "tom-tat",
+        "quiz",
+        "tai-lieu"
+      ],
+      "words": 1334
     },
     {
       "id": "chapter17",
@@ -619,13 +689,84 @@
       "id": "chapter18",
       "file": "chapter18.html",
       "title": "Generics",
-      "summary": "Cho phép viết class/method hoạt động với nhiều kiểu dữ liệu khác nhau mà vẫn an toàn về kiểu (type-safe).",
-      "content": "<section class=\"chapter\" id=\"s18\">\n      \n      <p class=\"lead\">Cho phép viết class/method hoạt động với nhiều kiểu dữ liệu khác nhau mà vẫn an toàn về kiểu (type-safe).</p>\n\n      <div class=\"code-wrap\">\n        <span class=\"code-label\">Generics.java</span>\n        \n        <pre><code>class Hop&lt;T&gt; {                    // T là kiểu tổng quát (type parameter) - có thể đặt tên khác\n    private T noiDung;\n\n    public void dat(T noiDung) {\n        this.noiDung = noiDung;\n    }\n\n    public T lay() {\n        return noiDung;\n    }\n}\n\nHop&lt;String&gt; hopChuoi = new Hop&lt;&gt;();     // T được thay bằng String\nhopChuoi.dat(\"Xin chào\");\nString s = hopChuoi.lay();                    // KHÔNG cần ép kiểu, an toàn tại thời điểm biên dịch\n\nHop&lt;Integer&gt; hopSo = new Hop&lt;&gt;();\nhopSo.dat(42);\n\n// Generic method\nstatic &lt;T&gt; T phanTuDauTien(List&lt;T&gt; ds) {\n    return ds.get(0);\n}</code></pre>\n      </div>\n\n      <div class=\"box note\">\n        <div class=\"box-title\">Ghi chú</div>\n        Trước khi có Generics (trước Java 5), lập trình viên phải dùng <code>Object</code> chung chung rồi tự ép kiểu thủ công — dễ gây lỗi <code>ClassCastException</code> lúc runtime. Generics chuyển việc kiểm tra kiểu sang <strong>lúc biên dịch</strong>, an toàn hơn nhiều.\n      </div>\n\n      <div class=\"summary-box\">\n        <h4>📌 Tổng kết chương 18</h4>\n        <p>Generics (<code>&lt;T&gt;</code>) cho phép class/method hoạt động với nhiều kiểu dữ liệu mà vẫn kiểm tra kiểu tại thời điểm biên dịch, tránh lỗi ép kiểu runtime.</p>\n      </div>\n    </section>\n\n    <!-- ================= CHƯƠNG 19 ================= -->",
-      "questions": [],
-      "ids": [
-        "s18"
+      "summary": "Dùng class/method tổng quát, phân biệt wildcard extends/super, hiểu tính bất biến và giới hạn type erasure.",
+      "content": "<section class=\"chapter\" id=\"s18\">\n<p class=\"lead\">Viết một kiểu hoặc phương thức dùng lại cho nhiều loại dữ liệu mà vẫn để trình biên dịch kiểm tra cách dùng. Bài dùng Java 8 trở lên, nối tiếp kiến thức List của bài 16.</p>\n<h2 id=\"muc-tieu\">Mục tiêu</h2>\n<ul><li>Phân biệt type parameter (tham số kiểu) và type argument (đối số kiểu).</li><li>Viết class và method tổng quát, xử lý đầu vào rỗng có chủ đích.</li><li>Hiểu tính bất biến của List, wildcard (ký tự đại diện kiểu) và giới hạn của type erasure.</li></ul>\n<h2 id=\"van-de-thuc-te\">Vấn đề thực tế</h2>\n<p>Bạn cần một hộp lưu tên bài học và một hộp lưu điểm. Nếu cả hai dùng Object, đoạn đọc phải ép kiểu; một chỗ ghi nhầm loại dữ liệu có thể làm đoạn đọc hỏng lúc chạy. Nếu viết riêng hai class gần giống nhau, mỗi lần sửa phải sửa hai nơi. Generics cho phép mô tả một Hop&lt;T&gt; và chọn T khi sử dụng.</p>\n<h2 id=\"ly-thuyet\">Lý thuyết nền</h2>\n<h3>Tham số kiểu và kiểm tra lúc biên dịch</h3>\n<p>Trong khai báo Hop&lt;T&gt;, T là tên tham số kiểu do bạn đặt. Trong Hop&lt;String&gt;, String là đối số kiểu cụ thể. T không phải tên biến và không phải từ khóa đặc biệt; E thường chỉ phần tử, K/V thường chỉ khóa/giá trị. Cú pháp diamond &lt;&gt; cho phép compiler suy ra đối số từ ngữ cảnh.</p>\n<p>Đối số kiểu phải là reference type (kiểu tham chiếu): dùng Integer thay cho int, Double thay cho double. Autoboxing tự chuyển giá trị nguyên thủy sang đối tượng wrapper tương ứng khi cần. Generics giúp phát hiện nhiều lỗi kiểu lúc biên dịch, không bảo đảm dữ liệu khác null hoặc mọi lỗi runtime đều biến mất.</p>\n<h3>Generic method và ràng buộc</h3>\n<p>Method có thể khai báo tham số kiểu riêng bằng &lt;T&gt; trước kiểu trả về. Ví dụ static &lt;T&gt; T dau(List&lt;T&gt; ds) liên hệ kiểu phần tử đầu vào và giá trị trả ra. Một method static không dùng trực tiếp tham số T của class bao ngoài; hãy khai báo tham số kiểu riêng nếu cần. Với &lt;T extends Number&gt;, compiler chỉ nhận đối số kiểu là Number hoặc lớp con và cho phép gọi các method của Number.</p>\n<h3>List&lt;Integer&gt; không phải List&lt;Number&gt;</h3>\n<p>Integer kế thừa Number, nhưng quan hệ này không tự chuyển sang List: generic type như List là invariant (bất biến về đối số kiểu). Nếu một List&lt;Integer&gt; được dùng như List&lt;Number&gt; có thể ghi, người khác có thể thêm Double vào nó. Vì vậy phép gán như thế bị từ chối. Có thể đưa một Integer vào List&lt;Number&gt;, nhưng đó là thao tác với phần tử, không phải gán cả danh sách.</p>\n<h3 id=\"wildcard\">Chọn kiểu theo thao tác của method</h3>\n<dl>\n<dt><strong>List&lt;T&gt;</strong></dt><dd>Đọc được T; thêm được T nếu danh sách hỗ trợ sửa.</dd>\n<dt><strong>List&lt;? extends Number&gt;</strong></dt><dd>Đọc được Number; không thêm được giá trị Number cụ thể khác null qua tham chiếu này.</dd>\n<dt><strong>List&lt;? super Integer&gt;</strong></dt><dd>Đọc chỉ bảo đảm Object; thêm được Integer nếu danh sách hỗ trợ sửa.</dd>\n<dt><strong>List&lt;?&gt;</strong></dt><dd>Đọc được Object; không biết kiểu phần tử để thêm giá trị khác null.</dd>\n</dl>\n<p>PECS là mẹo nhớ Producer Extends, Consumer Super: đầu vào cung cấp giá trị để đọc thì cân nhắc extends; nơi nhận giá trị để ghi thì cân nhắc super. Đây không phải luật dùng wildcard cho mọi tham số. Wildcard không biến danh sách thành bất biến: bạn vẫn có thể gọi clear nếu implementation cho phép. Những mô tả thêm phần tử ở trên là quy tắc kiểu, không hứa mọi implementation đều hỗ trợ add.</p>\n<h2 id=\"vi-du\">Ví dụ có thể chạy</h2>\n<p>Mỗi khối là một chương trình độc lập, có main và import đầy đủ, dùng JDK 8 trở lên. Lưu đúng tên tệp; chạy javac -encoding UTF-8 GenericBoxDemo.java rồi java GenericBoxDemo. Ví dụ sau thay tên bằng WildcardDemo. Chú thích sau lệnh in là output dự kiến để tự đối chiếu.</p>\n<div class=\"code-wrap\"><span class=\"code-label\">GenericBoxDemo.java</span><pre><code>import java.util.Arrays;\nimport java.util.Collections;\nimport java.util.List;\nimport java.util.Objects;\n\npublic class GenericBoxDemo {\n    static class Hop&lt;T&gt; {\n        private T noiDung;\n        Hop(T noiDung) { this.noiDung = noiDung; }\n        void dat(T noiDung) { this.noiDung = noiDung; }\n        T lay() { return noiDung; }\n    }\n\n    static &lt;T&gt; T dau(List&lt;T&gt; ds) {\n        Objects.requireNonNull(ds, \"ds\");\n        if (ds.isEmpty()) {\n            throw new IllegalArgumentException(\"Danh sach rong\");\n        }\n        return ds.get(0);\n    }\n\n    public static void main(String[] args) {\n        Hop&lt;String&gt; ten = new Hop&lt;&gt;(\"Java\");\n        ten.dat(\"Generics\");\n        String bai = ten.lay();\n        System.out.println(bai); // Generics\n        Hop&lt;Integer&gt; diem = new Hop&lt;&gt;(8);\n        System.out.println(diem.lay()); // 8\n        System.out.println(dau(Arrays.asList(4, 7, 4))); // 4\n        try {\n            dau(Collections.&lt;String&gt;emptyList());\n        } catch (IllegalArgumentException e) {\n            System.out.println(e.getMessage()); // Danh sach rong\n        }\n    }\n}</code></pre></div>\n<ol><li>Hop có T ở field, constructor, method ghi và method đọc. Nhờ dùng cùng T, hộp String chỉ nhận giá trị tương thích String.</li><li>Hop&lt;Integer&gt; nhận 8 nhờ autoboxing. lay trả đúng kiểu đã khai báo nên không cần ép từ Object.</li><li>&lt;T&gt; trước kiểu trả về của dau khai báo tham số kiểu riêng. Với danh sách số nguyên, T được suy ra là Integer.</li><li>requireNonNull từ chối tham chiếu danh sách null. Nhánh isEmpty ném lỗi có thông báo trước khi get(0); try/catch trong main kiểm tra chính trường hợp này. Hàm không loại bỏ phần tử null nếu bản thân danh sách chứa null.</li></ol>\n<div class=\"code-wrap\"><span class=\"code-label\">WildcardDemo.java</span><pre><code>import java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.List;\n\npublic class WildcardDemo {\n    static double tong(List&lt;? extends Number&gt; nguon) {\n        double total = 0;\n        for (Number n : nguon) {\n            total += n.doubleValue();\n        }\n        return total;\n    }\n\n    static void themDiem(List&lt;? super Integer&gt; dich) {\n        dich.add(7);\n        dich.add(9);\n    }\n\n    public static void main(String[] args) {\n        List&lt;Integer&gt; soNguyen = Arrays.asList(1, 2, 3);\n        List&lt;Double&gt; soThuc = Arrays.asList(1.5, 2.5);\n        System.out.println(tong(soNguyen)); // 6.0\n        System.out.println(tong(soThuc));   // 4.0\n        System.out.println(tong(new ArrayList&lt;Integer&gt;())); // 0.0\n        List&lt;Number&gt; dich = new ArrayList&lt;&gt;();\n        themDiem(dich);\n        System.out.println(dich); // [7, 9]\n        List&lt;? super Integer&gt; gocNhin = dich;\n        Object dauTien = gocNhin.get(0);\n        System.out.println(dauTien); // 7\n    }\n}</code></pre></div>\n<ol><li>tong chỉ cần đọc Number, nên nhận được cả List&lt;Integer&gt; và List&lt;Double&gt; qua ? extends Number. Không cần ép cả danh sách thành List&lt;Number&gt;.</li><li>total bắt đầu bằng 0 nên danh sách rỗng trả 0.0. Quy ước đầu vào của tong là danh sách và các phần tử đều khác null; tổng dùng double nên có thể có sai số với số thập phân.</li><li>themDiem ghi Integer nên nhận ? super Integer, bao gồm List&lt;Integer&gt;, List&lt;Number&gt; và List&lt;Object&gt;. dich là ArrayList hỗ trợ add.</li><li>Khi nhìn qua List&lt;? super Integer&gt;, đọc chỉ bảo đảm Object: không được tự giả định mọi phần tử là Integer, vì danh sách gốc có thể chứa Number khác.</li></ol>\n<h2 id=\"loi-thuong-gap\">Lỗi thường gặp và giới hạn</h2>\n<ul><li>Dùng raw type như Hop không có &lt;T&gt; làm mất một phần kiểm tra kiểu, có thể tạo cảnh báo unchecked và lỗi ép kiểu. Giữ đối số kiểu, đọc cảnh báo thay vì tắt bằng annotation.</li><li>Type erasure (xóa kiểu khi biên dịch) thay tham số kiểu bằng bound hoặc Object và chèn cast khi cần. Không có class runtime riêng cho mỗi đối số kiểu; không dùng instanceof List&lt;String&gt; để kiểm tra kiểu phần tử, có thể dùng instanceof List&lt;?&gt;.</li><li>Không viết Hop&lt;int&gt;, new T() hoặc new T[10] trong kiểu tổng quát thông thường. Nhận giá trị qua constructor như ví dụ; dùng wrapper cho primitive.</li><li>Không nhầm ? extends Number là danh sách cho phép thêm mọi Number, hoặc ? super Integer là danh sách đọc được Integer chắc chắn.</li><li>Hai overload nhận List&lt;String&gt; và List&lt;Integer&gt; với cùng tên và không có tham số khác bị trùng chữ ký sau erasure. Đặt tên diễn đạt mục đích hoặc thiết kế một method tổng quát.</li></ul>\n<h2 id=\"bai-tap\">Bài tập ba mức</h2>\n<ol><li><strong>Cơ bản:</strong> tạo Hop&lt;String&gt; chứa SQL rồi đổi thành Java; tạo Hop&lt;Integer&gt; chứa 10. Tự kiểm: lần lượt in Java và 10, không dùng cast.</li><li><strong>Vận dụng:</strong> dùng dau với [2, 2], [\"A\"] và danh sách rỗng. Tự kiểm: trả 2, trả A, rồi ném IllegalArgumentException theo hợp đồng; thử null thì nhận NullPointerException từ requireNonNull.</li><li><strong>Nâng cao:</strong> viết method &lt;T&gt; void chep(List&lt;? extends T&gt; nguon, List&lt;? super T&gt; dich), thêm từng phần tử nguồn vào đích. Quy ước hai danh sách khác đối tượng, không null và đích hỗ trợ add. Tự kiểm: [1, 1, 2] sang List&lt;Number&gt; rỗng giữ đủ [1, 1, 2]; nguồn rỗng không đổi đích; nguồn [3] và đích [9] thành [9, 3]. Giải thích extends/super và vì sao không cần cast.</li></ol>\n<h2 id=\"tom-tat\">Tóm tắt</h2>\n<p>Generics liên hệ các vị trí dùng cùng kiểu và đưa nhiều lỗi về lúc biên dịch. Dùng &lt;T&gt; khi cần gọi tên mối quan hệ kiểu; chọn wildcard theo hướng đọc/ghi. List&lt;Integer&gt; không phải List&lt;Number&gt;. Xử lý null, danh sách rỗng và khả năng sửa vẫn là trách nhiệm của hợp đồng method.</p>\n<h2 id=\"quiz\">Quiz</h2>\n<p><a href=\"quiz.html?chapter=chapter18\">Làm năm câu quiz Generics</a>. Câu hỏi dựa trên nội dung bài, có giải thích và lưu điểm trên trình duyệt hiện tại.</p>\n<h2 id=\"tai-lieu\">Tài liệu đối chiếu</h2>\n<p>Đọc ngày 08/11/2026; các hướng dẫn Oracle này nhắm JDK 8: <a href=\"https://docs.oracle.com/javase/tutorial/java/generics/types.html\">Generic types</a>, <a href=\"https://docs.oracle.com/javase/tutorial/java/generics/methods.html\">Generic methods</a>, <a href=\"https://docs.oracle.com/javase/tutorial/java/generics/inheritance.html\">Inheritance và subtypes</a>, <a href=\"https://docs.oracle.com/javase/tutorial/java/generics/upperBounded.html\">Upper bounded wildcards</a>, <a href=\"https://docs.oracle.com/javase/tutorial/java/generics/lowerBounded.html\">Lower bounded wildcards</a>, <a href=\"https://docs.oracle.com/javase/tutorial/java/generics/erasure.html\">Type erasure</a>, <a href=\"https://docs.oracle.com/javase/tutorial/java/generics/restrictions.html\">Restrictions</a>.</p>\n</section>",
+      "questions": [
+        {
+          "question": "1. Trong Hop<T> và Hop<String>, T và String lần lượt là gì?",
+          "code": "",
+          "options": [
+            "Tên biến và giá trị chuỗi",
+            "Tham số kiểu và đối số kiểu",
+            "Hai từ khóa bắt buộc của Java",
+            "Hai kiểu nguyên thủy"
+          ],
+          "answer": 1,
+          "explanation": "T được khai báo làm tham số kiểu của Hop; String là kiểu cụ thể được chọn khi dùng Hop<String>."
+        },
+        {
+          "question": "2. Vì sao List<Integer> không gán trực tiếp cho List<Number>?",
+          "code": "",
+          "options": [
+            "Integer không kế thừa Number",
+            "List không lưu số nguyên",
+            "List là invariant; phép gán đó có thể cho phép thêm Double vào danh sách Integer",
+            "Mọi List đều không sửa được"
+          ],
+          "answer": 2,
+          "explanation": "Quan hệ kế thừa giữa Integer và Number không tự mở rộng thành quan hệ tương ứng giữa hai List có đối số kiểu khác nhau."
+        },
+        {
+          "question": "3. Method chỉ đọc các Number từ List<Integer> hoặc List<Double> nên nhận kiểu nào?",
+          "code": "",
+          "options": [
+            "List<Object>",
+            "List<Number> bắt buộc",
+            "List<? super Integer>",
+            "List<? extends Number>"
+          ],
+          "answer": 3,
+          "explanation": "Wildcard extends cho phép đọc giá trị dưới góc nhìn Number từ những danh sách này. Không thêm được một Number cụ thể khác null qua tham chiếu đó."
+        },
+        {
+          "question": "4. Qua List<? super Integer>, điều nào đúng về kiểu?",
+          "code": "",
+          "options": [
+            "Có thể thêm Integer nếu danh sách hỗ trợ add; đọc chỉ bảo đảm Object",
+            "Đọc luôn ra Integer mà không cần kiểm tra",
+            "Thêm được mọi Number, kể cả Double",
+            "Danh sách tự trở thành bất biến"
+          ],
+          "answer": 0,
+          "explanation": "Kiểu thực có thể là Integer, Number hoặc Object; thêm Integer là phù hợp về kiểu nhưng phần tử đọc ra không chắc là Integer. Khả năng sửa còn tùy implementation."
+        },
+        {
+          "question": "5. Vì sao không khai báo hai overload cùng tên chỉ khác List<String> và List<Integer>?",
+          "code": "",
+          "options": [
+            "Tên String và Integer bị cấm",
+            "Hai kiểu tham số cùng xóa thành List, gây trùng chữ ký",
+            "Generics không dùng trong method",
+            "Mọi method phải có cùng một tham số T"
+          ],
+          "answer": 1,
+          "explanation": "Type erasure xóa đối số kiểu; hai chữ ký đó không còn phân biệt được. Cần thiết kế lại tên hoặc dùng method tổng quát phù hợp."
+        }
       ],
-      "words": 181
+      "ids": [
+        "s18",
+        "muc-tieu",
+        "van-de-thuc-te",
+        "ly-thuyet",
+        "wildcard",
+        "vi-du",
+        "loi-thuong-gap",
+        "bai-tap",
+        "tom-tat",
+        "quiz",
+        "tai-lieu"
+      ],
+      "words": 1561
     },
     {
       "id": "chapter19",

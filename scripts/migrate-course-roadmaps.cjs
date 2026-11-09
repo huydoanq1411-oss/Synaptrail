@@ -51,6 +51,13 @@ function extract(html){
     const lesson=await browser.evaluate('('+extract.toString()+')('+JSON.stringify(html)+')');lessons.push({id:path.basename(file,'.html'),file,...lesson});
    }
   }
+  // Protect the reviewed Docker introduction in every mode, including --from-revision.
+  // Compare the proposed content before planning any output for this course.
+  if(course==='docker'){
+   const introduction=lessons.find(l=>l.id==='chapter01');
+   if(!introduction?.content)throw Error('Missing Docker introduction source');
+   require('./check-lesson-sync.cjs').assertLessonMatches(introduction.content,fs.readFileSync(path.join(root,course,introduction.file),'utf8'),'docker/chapter01');
+  }
   put(sourceFile,JSON.stringify({course,title:name,lessons},null,2)+'\n');
   const nodes=[],layout={},groups=[];
   const structure=require('../assets/roadmaps/course-structure.json')[course];if(!structure)throw Error('Missing semantic structure '+course);

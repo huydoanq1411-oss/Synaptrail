@@ -36,3 +36,10 @@
 :is(.catalog-page,.landing-page) :is(.resource-card,.role-box,.role-skill,.path-card)::after{content:"";display:block;position:absolute;inset:0 0 auto;height:3px;background:#27b6a4;border:0;border-radius:0;opacity:1;z-index:3;pointer-events:none;transform:scaleX(0);transform-origin:50% 50%;transition:transform 300ms cubic-bezier(.2,.7,.2,1)}
 :is(.catalog-page,.landing-page) :is(.resource-card,.role-box,.role-skill,.path-card):is(:hover,:focus-visible,:focus-within)::after{transform:scaleX(1)}
 @media(prefers-reduced-motion:reduce){:is(.catalog-page,.landing-page) :is(.resource-card,.role-box,.role-skill,.path-card)::after{transition:none}}
+/* Only the catalog introduction CTA: pair semantic foreground/background tokens. */
+.catalog-page .catalog-intro-copy > .btn-primary,
+.catalog-page .catalog-intro-copy > .btn-primary:hover {
+  background:var(--color-teal)!important;
+  color:var(--surface-page)!important;
+  border-color:var(--color-teal);
+}

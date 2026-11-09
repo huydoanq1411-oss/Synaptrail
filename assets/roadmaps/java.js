@@ -254,7 +254,7 @@ globalThis.SynaptrailRoadmapData = {
       "parent": null,
       "chapter": null,
       "summary": "ArrayList & LinkedList · HashMap & HashSet · Generics · Stream API & Lambda",
-      "time": 21,
+      "time": 28,
       "related": [],
       "comingSoon": false
     },
@@ -265,11 +265,11 @@ globalThis.SynaptrailRoadmapData = {
       "side": "left",
       "parent": "stage-5",
       "chapter": "java/chapter16.html",
-      "summary": "Hai cài đặt phổ biến của interface List trong Collections Framework — danh sách động, khác mảng cố định.",
-      "time": 5,
+      "summary": "Chọn ArrayList hoặc LinkedList theo thao tác, phân biệt xóa theo chỉ số/giá trị và dùng Iterator an toàn.",
+      "time": 8,
       "related": [],
       "comingSoon": false,
-      "quiz": null
+      "quiz": "java/quiz.html?chapter=chapter16"
     },
     {
       "id": "chapter17",
@@ -291,11 +291,11 @@ globalThis.SynaptrailRoadmapData = {
       "side": "right",
       "parent": "stage-5",
       "chapter": "java/chapter18.html",
-      "summary": "Cho phép viết class/method hoạt động với nhiều kiểu dữ liệu khác nhau mà vẫn an toàn về kiểu (type-safe).",
-      "time": 5,
+      "summary": "Dùng class/method tổng quát, phân biệt wildcard extends/super, hiểu tính bất biến và giới hạn type erasure.",
+      "time": 9,
       "related": [],
       "comingSoon": false,
-      "quiz": null
+      "quiz": "java/quiz.html?chapter=chapter18"
     },
     {
       "id": "chapter19",

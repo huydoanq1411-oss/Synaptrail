@@ -6,6 +6,8 @@
   const abort = new AbortController();
   let active = null, frame = 0, point = null, bounds = null;
   const allowed = event => event.pointerType === 'mouse'
+    && !event.buttons
+    && !matchMedia('(prefers-reduced-motion: reduce)').matches
     && document.documentElement.dataset.fx3dMotion === 'on';
   const reset = () => {
     cancelAnimationFrame(frame); frame = 0;
@@ -40,6 +42,7 @@
     card.addEventListener('pointermove', move, {signal: abort.signal, passive: true});
     card.addEventListener('pointerleave', reset, {signal: abort.signal});
     card.addEventListener('pointercancel', reset, {signal: abort.signal});
+    card.addEventListener('pointerdown', reset, {signal: abort.signal});
   }
   const observer = new MutationObserver(() => {
     if (document.documentElement.dataset.fx3dMotion !== 'on') reset();

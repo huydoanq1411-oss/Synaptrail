@@ -1,5 +1,84 @@
 # Trạng thái Synaptrail
 
+## 2026-11-09 — Đồng bộ GitHub theo yêu cầu mới
+
+Người dùng yêu cầu đọc playbook và commit/push lên https://github.com/huydoanq1411-oss/Synaptrail.git với thông điệp chính xác `add new knowlegde`. Quyền mới này thay thế giới hạn không commit/push của các lượt sửa trước; không phải yêu cầu deploy. Đã đọc AGENTS và GIT-PUSH của playbook, dùng cách đồng bộ vào bản clone sạch artifacts/push-sync-20261106 vì gốc hiện không có .git. Fetch origin thành công; HEAD và origin/main cùng commit 73232a2, không có commit lệch tại lúc đối chiếu. Không force push, không khởi tạo Git ở gốc.
+
+Xem trước đồng bộ: 31 file thêm/sửa, không xóa file đích; nội dung gồm Java 16/18, motion trang chủ, sửa audit, nguồn Docker, tài liệu và npm run dev. Không đồng bộ artifacts/dependency/cache, cấu hình IDE/agent/secret cục bộ; các file IDE/agent đã có trong lịch sử remote được giữ nguyên, không tuyên bố đã xóa khỏi repo. Danh sách thực tế sau stage và commit/remote hash được đối chiếu trong quá trình push, báo ở phản hồi cuối; đoạn này ghi trạng thái chuẩn bị, không tự chứng minh push đã thành công.
+
+Kiểm tra trước push đã chạy: check-first-five-quizzes (15 bài/75 câu/275 lựa chọn/75 giải thích/57 assertion JS), check-lesson-sync (424 token), check-lesson-sync-checks, check-progress, check-highlighter (14 ca), check-card-images (38 card) đều đạt. check-ui exit 1, 879 HTML/817 inline script/729 lỗi cũ bản lồng, danh sách khớp baseline audit. Không hạ mức lỗi/đổi CI; workflow GitHub có thể vẫn báo lỗi do baseline này. Không chạy lại browser/JDK/production trong lượt push; kết quả các lượt trước vẫn có giới hạn đã ghi.
+
+## 2026-11-09 — Thêm npm run dev
+
+Theo yêu cầu chạy bằng npm: thêm scripts/dev-server.cjs và script dev trong package.json; cập nhật README.md, docs/PROJECT.md, docs/STATUS.md (đúng năm file). Dùng HTTP static Node built-in, chỉ bind 127.0.0.1:8000, không thêm dependency/backend nghiệp vụ/database. Không build, generator, commit/push/deploy. PORT tùy chọn, không tự chọn cổng khác để tránh làm đổi origin tiến độ; không tự reload. Chặn đường dẫn ngoài gốc/ẩn, artifacts/node_modules, không liệt kê thư mục; bản lồng vẫn được phục vụ khi gọi đường dẫn.
+
+Đã chạy thật npm run dev và kiểm HTTP bằng Node/fetch: 12 assertion đạt (trang chủ/catalog/Docker, CSS/JS/SVG và MIME; 404, chặn dotfile/artifacts, redirect thư mục giữ query, HEAD không body, POST 405). Đây là kiểm server, chưa chạy browser kiểm toàn bộ UI trong lượt này. Dừng server kiểm thử sau khi chạy; người dùng tự mở lại bằng npm run dev. Chưa kiểm LAN/production, không tuyên bố server này bảo vệ bản hosting khác.
+
+node scripts/check-ui.cjs: 879 HTML, 817 inline script, exit 1 với 729 lỗi cũ thuộc Synaptrail-main/, danh sách không đổi so với baseline audit; không hạ mức lỗi hoặc đổi CI. Tiếp theo: npm run dev rồi mở http://localhost:8000/; nếu cổng bị chiếm, dừng server cũ hoặc đặt PORT khác, lưu ý origin tiến độ thay đổi theo cổng.
+
+## 2026-11-09 — Xác minh nguồn chuẩn và code sinh tự động
+
+Chỉ kiểm tra và sửa tài liệu: docs/PROJECT.md, docs/STATUS.md. Đã đọc AGENTS, PROJECT/SPEC/STATUS, package, workflow, các generator/migration và công cụ tác giả liên quan; dùng rg và kiểm kê tên tệp/cấu hình. Không chạy generator kể cả chế độ preview/dry-run, không ghi nội dung bài, đổi CI, xóa/di chuyển bản lưu, commit/push/deploy. Giữ kiến trúc static; backend/database/API server/auth không cần cho lượt này, hosting/domain/HTTPS chưa xác minh ngoài máy local.
+
+PROJECT có mục “Nguồn chuẩn và code sinh tự động”: phân biệt HTML/asset sửa trực tiếp với nguồn JSON của 22 khóa; luồng thuật toán, cây Full Stack, công cụ tác giả lịch sử; template, lệnh/cờ thực tế, output/phạm vi ghi đè, cách thử trong bản sao, diff và phục hồi. Không coi generator toàn khóa là cách tái tạo an toàn bản hiện hành. Đặc biệt sync-algorithm-roadmap không xử lý --dry-run và ghi cả JS nguồn trước khi sinh bài; migration tổng quát --dry-run vẫn ghi báo cáo, còn --apply có thể ghi đè cây Full Stack và shell tùy biến. Công cụ tác giả trong artifacts bị gitignore, không bảo đảm tồn tại trên checkout khác; Java18 đọc snapshot before nên không được chạy lại mù quáng trên nguồn mới.
+
+Đã chạy kiểm chỉ đọc:
+
+- node scripts/check-lesson-sync.cjs: Docker chapter01 khớp 424 token chuẩn hóa.
+- node scripts/check-lesson-sync-checks.cjs: định dạng tương đương đạt; phát hiện đủ năm thay đổi nội dung/code/anchor/route và thiếu article.
+- Node assertion riêng: JSON Docker bài 1 bằng nguyên chuỗi article HTML.trim() (9.113 ký tự), sáu id khớp. Snapshot Node.js cũ khác bản hiện tại và bị hàm guard từ chối khi so với HTML mở rộng. Nguồn này được giữ theo quyết định người dùng đã ghi ở SPEC, không chọn vì dài/mới hơn. Bằng chứng: docker-source.json:6–20, check-lesson-sync.cjs:29–45, migrate-course-roadmaps.cjs:44–60, docs/reference/docker-chapter01-node-legacy.json:2–9. Không thấy luồng generator đọc snapshot tham khảo; nếu dùng --from-revision thì có thể đọc HTML cũ từ Git nhưng vẫn qua guard Docker. Không chạy end-to-end generator; guard chỉ bảo vệ article, không chứng nhận head/CSS toàn trang.
+- Đối chiếu mẫu source.content thuật toán chapter01 có nguyên trong HTML: đạt. Chưa đối chiếu toàn bộ 23 bài hoặc tất cả nguồn/output các khóa; không tuyên bố toàn site đồng bộ.
+- node scripts/check-ui.cjs: 879 HTML/817 script inline, exit 1; 729 lỗi bản lồng cũ, danh sách không đổi so với artifacts/audit-fixes-20261109/check-after.json; main 487 trang/0 lỗi, nested 384/729, reports 8/0 theo checker. Kết quả này không xác định phạm vi phát hành.
+
+Synaptrail-main/ vẫn **chưa xác định** là bản lưu hoặc phần được phát hành. Không thấy cấu hình host/publish hay workflow deploy trong cây được khảo sát; workflow hiện có chỉ chạy kiểm tra, baseUrl rỗng. Tìm tham chiếu code/runtime đã đọc không thấy nạp bản lồng; .gitignore không loại thư mục này. Những điểm này không chứng minh host công khai có loại nó. Chưa có URL public/cấu hình dashboard để kiểm chứng; giữ đủ 729 lỗi và CI như cũ. Cần cấu hình publish thực và URL để chốt vai trò, không cần quyết định lại nội dung Docker đã có lựa chọn rõ.
+
+Tiếp theo: cung cấp/đối chiếu phạm vi publish và URL; nếu cần sửa bài thì dùng bản đồ nguồn để chọn đúng lát; muốn tái sinh phải thử trong bản sao và review diff trước. Chưa chạy lại browser, JDK, ví dụ Docker/C++ hoặc kiểm production vì lượt này chỉ xác minh nguồn và sửa tài liệu.
+
+## 2026-11-09 — Làm rõ phạm vi đã kiểm chứng và việc còn lại
+
+**Web tĩnh đã kiểm chứng các bản sửa ở local; chưa xác định phạm vi phát hành của bản lồng và chưa kiểm URL public.** Các kết quả chi tiết ở mục sửa audit bên dưới là bằng chứng local, không phải xác nhận toàn bộ website hoặc production đạt.
+
+- **Synaptrail-main/:** cần đối chiếu cấu hình hosting, thư mục được publish và URL thực để xác định có được phục vụ công khai không. Site tĩnh vẫn có thể vô tình phát hành cả bản lưu; tên thư mục hoặc việc không có link từ catalog không đủ chứng minh nó không được phát hành.
+- **729 lỗi cũ:** giữ đầy đủ trong báo cáo và kết quả check-ui. Nếu bản lồng được phát hành, lỗi vẫn thuộc phạm vi website; nếu chỉ là bản lưu, báo riêng với căn cứ về phạm vi publish rõ ràng. Chưa loại lỗi hay thay đổi baseline/CI khi chưa có bằng chứng.
+- **JDK:** chỉ cần để biên dịch/chạy và kiểm chứng ví dụ Java trong giáo trình; không cần để chạy website HTML/CSS/JS tĩnh. Các ví dụ Java chưa chạy vẫn ghi là chưa kiểm tra.
+- **Production:** khi có URL và phạm vi được phép kiểm tra, kiểm link, asset, tải lại trang con, HTTPS và lưu tiến độ trên trình duyệt bằng profile/dữ liệu thử riêng. Hiện chưa có kết quả kiểm tra URL public trong lượt này.
+
+Lượt làm rõ này chỉ đổi docs/STATUS.md, không sửa code hoặc cấu hình hosting, không commit/push/deploy. Ưu tiên tiếp: xác minh phạm vi publish của bản lồng; kiểm URL public khi có; kiểm chứng ví dụ Java khi có JDK phù hợp.
+
+## 2026-11-09 — Sửa audit tương tác, fixture và Docker bài 1
+
+Đã sửa trong phạm vi người dùng giao, không commit/push/deploy, không dependency hay thay đổi kiến trúc. Backend/database/API server/auth không áp dụng cho lát sửa site static này; hosting/domain/DNS/HTTPS không tác động và chưa kiểm tra URL production. Thư mục làm việc không có Git nên dùng snapshot/hash, không git init. Bằng chứng: artifacts/audit-fixes-20261109/ (profile thử cô lập, không reset dữ liệu cá nhân).
+
+Tương tác: flashcard bỏ qua đường đi sự kiện từ vùng nhập/chỉnh sửa; label nhìn thấy cho năm trường trên bốn trang; CTA catalog có màu giới hạn ở intro, favicon dùng asset hiện có. algorithm-pages xử lý storage không khởi tạo được và báo lỗi tiếng Việt khi lưu. Quiz vẫn chấm được nếu không lưu được điểm. Phím tắt ngoài vùng nhập vẫn hoạt động.
+
+Kiểm tra thực chạy:
+
+- node scripts/check-progress.cjs; node scripts/check-highlighter.cjs (14 ca); node scripts/check-card-images.cjs (38 ảnh); node scripts/check-checkers.cjs: đạt.
+- node scripts/check-first-five-quizzes.cjs: 15 bài, 75 câu, 275 lựa chọn, 75 giải thích, 25 cơ sở nội dung thuật toán và 57 assertion ví dụ JS đạt. Không sửa nội dung quiz đúng để khớp fixture cũ. Fixture tác giả lịch sử được giữ nguyên; checker dùng fixture hiện hành riêng.
+- node scripts/check-lesson-sync.cjs: Docker bài 1 khớp 424 token. node scripts/check-lesson-sync-checks.cjs: định dạng tương đương đạt, năm thay đổi nội dung/code/anchor/route và thiếu article bị phát hiện. node --check scripts/migrate-course-roadmaps.cjs và assets/algorithm-pages.js: đạt. Không chạy generator/upgrade-ui.
+- node artifacts/audit-fixes-20261109/regression-browser.cjs --flows-only: Chrome HTTP loopback/profile Temp riêng; tìm/lọc, bàn phím, lưu/reload, quiz đúng/sai/giữ điểm cao nhất, export/import hợp lệ và sai/hết giới hạn, hủy/xác nhận reset dữ liệu thử, fallback không JS và reduced motion đạt. Không có runtime exception. Có request mặc định /favicon.ico 404 ở các trang cũ khác; catalog dùng SVG trả 200.
+- node artifacts/audit-fixes-20261109/focused-browser.cjs: 30 ca bố cục (5 trang × 375/768/1440 × sáng/tối), không tràn ngang; 36 ảnh. Đã xem ảnh catalog và vùng tìm glossary đủ sáu tổ hợp, flashcard desktop tối và project mobile sáng. Tên truy cập năm trường được kiểm tra bằng Chrome Accessibility tree. CTA đo 10,36:1 tối và 5,47:1 sáng. Space/mũi tên thật trong search và ngoài vùng nhập đạt; 12 sự kiện kiểm tra textarea/select/contenteditable/phần tử con không đổi thẻ. Storage SecurityError và quota: đọc bài/chấm quiz được, thông báo tiếng Việt, không exception.
+- node scripts/check-ui.cjs trước/sau: 879 HTML, 817 script inline, exit 1 với 729 lỗi cũ; site chính 487 trang/0 lỗi, bản lồng 384 trang/729 lỗi (346 h1, 383 description), reports 8 trang/0 lỗi. Giữ errors đầy đủ và CI lỗi, không loại thư mục/giảm assertion. Đối chiếu danh sách lỗi và hash trong manifest.json.
+
+Docker: đã so sánh JSON cũ, article HTML mở rộng và đường đọc/ghi generator. Theo lựa chọn người dùng, giữ nguyên byte HTML mở rộng, đồng bộ riêng bài 1 trong JSON; mọi bài khác không đổi. Snapshot Node.js cũ có trong docs/reference/docker-chapter01-node-legacy.json và bản chụp trước sửa trong artifacts. Guard generator không cho nguồn cũ lệch HTML đi tiếp; không chứng nhận toàn bộ output của generator vì không chạy nó.
+
+File sản phẩm/tài liệu thay đổi chính xác: courses.html; Quiz_and_other/flashcards.html; Quiz_and_other/glossary.html; Quiz_and_other/quiz-tong-hop.html; projects/fullstack-js.html; assets/courses.css; assets/ui.css; assets/algorithm-pages.js; assets/roadmaps/docker-source.json; scripts/check-ui.cjs; scripts/check-first-five-quizzes.cjs; scripts/quiz-first-five-algorithm.cjs (mới); scripts/check-lesson-sync.cjs (mới); scripts/check-lesson-sync-checks.cjs (mới); scripts/migrate-course-roadmaps.cjs; docs/reference/docker-chapter01-node-legacy.json (mới); docs/PROJECT.md; docs/SPEC.md; docs/STATUS.md. HTML Docker và quiz-first-five-data.cjs không đổi. Harness, snapshot và ảnh thử riêng trong artifacts không phải nội dung phát hành.
+
+Còn lại/chưa kiểm tra: 729 lỗi bản lồng chưa sửa theo phạm vi; cần chủ dự án xác nhận Synaptrail-main/ là bản lưu hay phần phát hành trước quyết định baseline/CI. Không có javac trong PATH hoặc JAVA_HOME/SYNAPTRAIL_TEST_JDK nên chưa biên dịch/chạy ví dụ Java, không tự cài. Chưa chạy ví dụ C++/Docker, chưa kiểm tra production, điện thoại thật, screen reader hoặc chứng nhận WCAG/bảo mật/hiệu năng toàn site. Browser-check lịch sử có giả định UI/quiz cũ nên dùng harness riêng đã đọc thay thế; không tuyên bố script đó đạt. Ba ưu tiên tiếp: xác nhận vai trò bản lồng; xử lý metadata bản lồng theo vai trò đã chọn; có JDK rồi biên dịch/chạy ví dụ Java.
+
+
+## 2026-11-08 — Java bài 18: Generics
+
+Người dùng duyệt tiếp tục sau mẫu bài 16. File đổi chính xác: java/chapter18.html, assets/roadmaps/java-source.json, assets/roadmaps/java.js, assets/roadmaps/java-quiz.js, docs/SPEC.md, docs/STATUS.md. Bổ sung khung bài chuẩn, tham số/đối số kiểu, generic class/method, wrapper, invariant, wildcard/PECS, erasure; hai ví dụ có main/import Java 8+, bài tập ba mức và năm câu quiz có giải thích. Các trang Oracle về types/methods/inheritance/wildcards/erasure/restrictions đã được đọc và dẫn trong bài. Không đổi bài 16 hoặc chương khác. Không thêm dependency, CSS/JS inline, backend/database/API/auth; hosting/domain/DNS/HTTPS không tác động.
+
+Bằng chứng trong artifacts/java18-20261108/: before/ và before-hashes.json; content.html, update.cjs (preview rồi apply), preview/, check-content.cjs/content-results.json, hai file Java được trích từ bài; browser.cjs/checks.json và PNG. Self-review diff: java.js đổi đúng summary/time/quiz chapter18 và tổng time stage-5; java-quiz.js thêm đúng entry chapter18. Kiểm dữ liệu khẳng định mọi lesson/quiz entry cũ giữ nguyên, source.content nằm nguyên trong HTML, anchor/route/node cũ giữ nguyên. Cú pháp hai JS dữ liệu đạt node --check. Có snapshot vì thư mục nguồn không có Git; không git init/commit/push.
+
+Đã chạy Chrome headless HTTP loopback, profile Temp cô lập, cổng 9447: 12 ca bài/quiz × 375/768/1440 × dark/light, không overflow, một h1, theme đúng và 0 Runtime.exceptionThrown. Sáu lượt quiz chấm đúng 5/5, có năm giải thích và link về chapter18.html; ca sai 0/5 vẫn giữ điểm cao nhất 100 trong profile thử. 18 ảnh được ghi. Sau xem ảnh mobile đã đổi bảng wildcard thành danh sách định nghĩa để tránh ngắt tên kiểu; không đổi CSS. Trong quá trình ghi bằng PowerShell pipeline đã phát hiện mất dấu ở một đoạn và quiz, sửa lại bằng apply_patch UTF-8 và thêm kiểm tra Unicode. Lượt cuối source/quiz và 12 ca browser đều đạt; đã xem lại sáu ảnh wildcard sáng/tối ở ba kích thước và ảnh quiz light-375. Tên ảnh table-* là tên harness lịch sử, nội dung cuối là danh sách định nghĩa.
+
+Giới hạn: chưa có javac trong PATH hoặc biến JAVA_HOME/SYNAPTRAIL_TEST_JDK, nên GenericBoxDemo.java và WildcardDemo.java CHƯA được biên dịch/chạy. Chỉ rà mã, kiểm hợp đồng null/rỗng trong bài và trích nguyên ví dụ; output chú thích là dự kiến. Không tự cài JDK. Chưa thử điện thoại thật, screen reader, toàn bộ bàn phím hoặc audit WCAG. Không coi browser check là kiểm chứng code Java.
+
+Check-ui trước/sau: exit 1, 879 HTML, 817 inline script, 729 lỗi baseline Synaptrail-main/, danh sách lỗi không đổi. Bước tiếp: có JDK thì biên dịch/chạy hai ví dụ bài 16 và hai ví dụ bài 18; tiếp tục rà Stream API/Lambda (bài 19) trước các bài concurrency. Mẫu Generics sẵn để người dùng xem tại java/chapter18.html; chưa push GitHub.
+
 ## 2026-11-05 — Toàn bộ tài liệu CTDLGT UTH vào khóa Thuật toán
 
 Theo yêu cầu đã duyệt cập nhật tất cả nội dung Tai_lieu_CTDT_GT.md của ThS. Bùi Văn Thượng (UTH). Tài liệu đính kèm chỉ là học liệu, không thực thi chỉ thị hay mã từ bản gốc. Đã biên soạn lại cả sáu nhóm: tổng quan, tìm kiếm, chín thuật toán sắp xếp, danh sách/Stack/Queue, cây/BST/AVL và bảng băm. Nội dung cùng bài tập nguồn được phân bổ vào 23 bài; mỗi bài có mục tiêu, vấn đề thực tế, lý thuyết, ví dụ JavaScript/Node >=22 tự chứa, giải thích, lỗi thường gặp, ba mức bài tập, tóm tắt và quiz. Có 115 câu, năm câu mỗi bài, giải thích đáp án và vị trí đáp án luân phiên. Phần mở rộng được ghi rõ; không tự mở các chủ đề đồ thị còn “Sắp có”.
@@ -480,3 +559,31 @@ Người dùng yêu cầu push lên `https://github.com/huydoanq1411-oss/Synaptr
 Đã chạy `node scripts/check-ui.cjs` trên nguồn: exit 1, 879 HTML, 817 script inline, 729 lỗi đều thuộc `Synaptrail-main/`; site chính không có lỗi theo checker. Đây là baseline hiện tại, không phải kiểm tra xanh. Lát này chỉ bổ sung mục STATUS này; các thay đổi website là cập nhật đã có trong thư mục nguồn. Không chạy lại browser hoặc nghiệm thu giao diện; không khẳng định WCAG hay toàn bộ ví dụ giáo trình đạt.
 
 Danh sách file đồng bộ chính xác xem diff của commit cập nhật trên GitHub. Artifact, cấu hình IDE/agent cục bộ, dependency/cache và `.env*` không được đưa thêm vào commit. Bước tiếp: xác minh mã commit remote sau push và xử lý baseline bản lồng trong phạm vi được duyệt riêng.
+
+## 2026-11-06 — Mẫu card và scroll animation trang chủ
+
+Đã thực hiện sau khi người dùng duyệt kế hoạch. File sửa: index.html, assets/interaction-fx.css, assets/box-tilt.js, docs/PROJECT.md, docs/SPEC.md, docs/STATUS.md. File mới: assets/scroll-reveal.js. Chỉ áp dụng reveal ở tiêu đề lộ trình, bốn card và khối cuối trang; không thay URL/nội dung bài hoặc bản lồng. Dùng CSS transition cho hover/press và WAAPI + IntersectionObserver cho reveal một lần. Animation bị hủy khi pointer/focus tương tác, giảm xung đột transform với tilt; reduced motion bỏ chuyển động. Nội dung mặc định hiện khi thiếu JS/API.
+
+Baseline check-ui trước/sau: exit 1, 879 HTML, 817 script inline, 729 lỗi đều thuộc Synaptrail-main/. Đối chiếu danh sách lỗi trước/sau không đổi. Không hạ kiểm tra hoặc sửa baseline.
+
+Chrome headless qua HTTP, profile tạm cô lập, cổng 9447: 12 tổ hợp 375/768/1440 × dark/light × no-preference/reduce, không overflow hoặc Runtime.exceptionThrown; card hiện và có href, focus có outline solid. Hover nâng 3px và press scale .98; reduced motion cả hai transform none. Đã chụp 12 ảnh, xem trực tiếp sáu ảnh no-preference để kiểm bố cục/theme. Bằng chứng: artifacts/home-motion-20261106/checks.json, check.cjs và PNG. Harness có kiểm focus lập trình và phát phím Tab, chưa chứng minh toàn bộ thứ tự bàn phím; chưa thử thiết bị cảm ứng thật, screen reader hoặc đo hiệu năng/WCAG. Chưa ghi hình hoặc đo từng frame reveal; hành vi một lần xác nhận từ observer.unobserve trong code.
+
+Bước tiếp: người dùng xem mẫu tại index.html trước khi mở rộng sang catalog. Các lát chuẩn hóa Git/nguồn nội dung vẫn chờ phạm vi riêng; chưa push thay đổi mẫu này.
+
+## 2026-11-06 — Chạy local/LAN theo yêu cầu
+
+Thêm công cụ tạm artifacts/lan-server/server.cjs (không commit), dùng Node có sẵn, bind 0.0.0.0:8000. GET/HEAD, không directory listing; chặn đường dẫn ẩn, artifacts và node_modules. Không sửa frontend/backend sản phẩm, dependency, DNS hoặc hosting public. Địa chỉ Wi-Fi quan sát: 192.168.1.136. Đã fetch trên cùng máy: localhost, địa chỉ LAN và assets/scroll-reveal.js trả 200; đường dẫn artifacts trả 403. Chưa thử từ thiết bị khác, chưa đổi firewall. Dừng bằng Stop-Process -Id 24016 nếu tiến trình vẫn đúng server này; khởi chạy lại bằng node artifacts/lan-server/server.cjs từ gốc repo. IP có thể đổi khi kết nối mạng lại.
+
+Check-ui sau cập nhật: 879 HTML, 817 script inline, 729 lỗi baseline bản lồng; không thay mã website. Bước tiếp: thử URL LAN từ thiết bị cùng Wi-Fi, cho phép Node trên mạng Private nếu Windows hỏi.
+
+## 2026-11-08 — Java bài 16: ArrayList & LinkedList
+
+Hoàn thiện mẫu sau yêu cầu tiếp tục cập nhật kiến thức. File đổi chính xác: java/chapter16.html, assets/roadmaps/java-source.json, assets/roadmaps/java.js, assets/roadmaps/java-quiz.js, docs/SPEC.md, docs/STATUS.md. Không đổi mã giao diện dùng chung, chương khác, URL/ID s16/chapter16 hoặc bản lồng. Bổ sung khung chương chuẩn, bảng chi phí có điều kiện, size/capacity, remove(int)/remove(Object), Iterator, hai chương trình main Java 8+, bài tập ba mức với ca tự kiểm và năm câu quiz có giải thích. Tài liệu Oracle đã đọc và liên kết trong bài. Quiz ở trang riêng; nguồn câu hỏi và output JS trùng nhau. Roadmap thêm đường vào quiz, thời gian bài và tổng chặng được tính lại theo quy tắc cũ; đây là ước lượng, không phải thời gian học đo thực tế.
+
+Công cụ/bằng chứng tạm trong artifacts/java16-20261108/: before/ và before-hashes.json, content.html, update.cjs (preview trước apply), preview/, check-content.cjs/content-results.json, hai file Java được trích từ bài, browser.cjs/checks.json và ảnh. Đã tự review diff: java.js chỉ đổi summary/time/quiz của chapter16 và tổng time stage-5; java-quiz.js thêm đúng một entry năm câu. Kiểm dữ liệu khẳng định các lesson/câu hỏi khác giữ nguyên, HTML chứa nguyên source.content, anchor cũ và route/node giữ nguyên. Cú pháp hai JS dữ liệu đạt node --check. Thư mục nguồn chưa có Git nên dùng snapshot và đối chiếu; không tự git init, không push.
+
+Browser HTTP loopback/Chrome headless/profile Temp cô lập/cổng 9447: 12 ca (bài và quiz × 375/768/1440 × dark/light), tất cả không overflow, một h1 và đúng theme, 0 Runtime.exceptionThrown. Quiz có năm câu, chấm đúng 5/5 ở sáu tổ hợp, đủ năm giải thích và link quay lại chapter16.html. Ca trả lời sai 0/5 vẫn giữ điểm cao nhất 100 trong profile thử. Đã chụp 18 ảnh (12 đầu bài/quiz và sáu bảng), xem trực tiếp sáu ảnh bảng và bốn ảnh đầu bài/quiz; bảng xuống dòng trong khung ở 375px. Không sửa CSS/theme/nút chung; chưa chứng nhận WCAG, thiết bị thật hoặc toàn bộ tương tác bàn phím.
+
+Giới hạn quan trọng: chỉ tìm thấy JRE 8, không có javac trong PATH hoặc các vị trí JDK đã kiểm tra (Program Files/Java, Eclipse Adoptium, Microsoft, thư mục .jdks người dùng và F:/App_Data). Hai chương trình đã được rà mã và trích nguyên từ HTML, CHƯA biên dịch/chạy Java; không coi output chú thích là kết quả thực thi. Không tự cài JDK/dependency. Khi có JDK cần chạy javac -encoding UTF-8 ListDemo.java ListRemovalDemo.java, rồi java ListDemo và java ListRemovalDemo, đối chiếu output chú thích và bổ sung ca rỗng/trùng trước khi coi nghiệm thu code hoàn tất.
+
+Check-ui trước/sau: 879 HTML, 817 inline script, exit 1 do 729 lỗi baseline Synaptrail-main/. Danh sách lỗi trước/sau được đối chiếu bằng JSON, không phát sinh lỗi mới. Bước tiếp: xác minh ví dụ với JDK và người dùng xem mẫu bài 16 trước khi mở rộng Generics (bài 18), concurrency hoặc File I/O. Frontend/nội dung static cần; backend/database/API/auth không áp dụng cho lát này; hosting/domain/DNS/HTTPS không tác động.

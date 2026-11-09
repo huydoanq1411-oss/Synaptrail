@@ -210,6 +210,7 @@ tr td{transition:background .15s;}
   <aside id="sidebar">
     <div class="brand">🧰 Quiz & Tiện ích</div>
     <div class="sub">6 chương</div>
+    <label class="field-label" for="search-box">Tìm chương</label>
     <input type="text" id="search-box" placeholder="Tìm chương…" oninput="filterNav(this.value)">
     <div class="nav-group-title">Danh sách chương</div>
     <a class="nav-link" href="cheatsheet.html">📋 Cheat Sheet thuật toán</a>
@@ -523,6 +524,9 @@ document.querySelectorAll('.deck-chip').forEach(chip=>{
 
 // Keyboard navigation
 document.addEventListener('keydown',(e)=>{
+  if(e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey) return;
+  if(e.composedPath().some(node => node instanceof HTMLElement &&
+    (node.matches('input, textarea, select') || node.isContentEditable))) return;
   if(e.key==='ArrowLeft')prevBtn.click();
   else if(e.key==='ArrowRight')nextBtn.click();
   else if(e.key===' '){e.preventDefault();flipCard.classList.toggle('flipped');}

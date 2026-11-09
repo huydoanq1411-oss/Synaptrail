@@ -1,5 +1,20 @@
 # Đặc tả và nghiệm thu
 
+## 2026-11-09 — Sửa audit theo phạm vi đã duyệt
+
+Giữ site static, stack và nội dung hiện có; không dependency/backend/DB/auth, không commit/push/deploy. Sửa phím tắt flashcards để bỏ qua input/textarea/select/contenteditable kể cả phần tử con; thêm label nhìn thấy liên kết đúng cho các ô tìm kiếm được audit; giới hạn màu CTA catalog đạt 4,5:1 ở hai theme; khai báo favicon hiện có. Khi storage bị chặn/hết quota, bài vẫn đọc được và thao tác lưu có thông báo tiếng Việt, không có lỗi JS chưa xử lý.
+
+Fixture phải đối chiếu câu hỏi, mọi lựa chọn, đáp án và giải thích với bài hiện hành. Giữ quét đầy đủ Synaptrail-main/ và exit lỗi; phân nhóm để nhìn rõ site chính/bản lồng/reports, chưa tự đặt baseline CI mới. Java chỉ chạy nếu có JDK phù hợp.
+
+Quyết định người dùng: HTML mở rộng docker/chapter01.html (ví dụ Nginx) là bản chuẩn; đồng bộ riêng content/ids/words của bài này vào JSON, giữ snapshot Node.js cũ trong docs/reference/docker-chapter01-node-legacy.json. Kiểm tra nguồn/output đã chuẩn hóa và chặn generator nếu hai bản lệch trước khi ghi. Không chạy generator toàn site.
+
+
+## 2026-11-08 — Java bài 18: Generics, đã duyệt tiếp tục
+
+Sau mẫu bài 16, người dùng duyệt tiếp tục bổ sung Generics. Phạm vi: java/chapter18.html, assets/roadmaps/java-source.json, assets/roadmaps/java.js, assets/roadmaps/java-quiz.js, docs/SPEC.md, docs/STATUS.md. Nội dung theo khung chuẩn: tham số/đối số kiểu, class/method tổng quát, wrapper, invariant, wildcard extends/super/PECS, erasure và giới hạn; hai chương trình Java 8+ độc lập, bài tập ba mức và năm câu quiz chỉ dựa trên bài. Có nguồn Oracle đối chiếu. Giữ s18/chapter18, route, navigation, tiến độ và nội dung các chương khác, gồm bài 16 vừa cập nhật.
+
+Nghiệm thu: source/HTML/quiz đồng bộ, không mất dấu tiếng Việt, cú pháp JS, browser bài/quiz ở 375/768/1440 × sáng/tối, chấm đúng/sai và giữ điểm cao nhất, baseline check-ui không tăng. Không thêm CSS/JS inline hoặc animation vào bài. Không cài dependency/JDK nếu chưa được giao; ghi rõ khi chưa biên dịch/chạy ví dụ. Không đổi kiến trúc, hosting hoặc push/deploy.
+
 ## 2026-11-05 — Cập nhật toàn bộ tài liệu CTDLGT UTH
 
 Người dùng duyệt và yêu cầu cập nhật tất cả nội dung từ Tai_lieu_CTDT_GT.md của ThS. Bùi Văn Thượng. Phạm vi: 23 bài thuat-toan/chapter01.html đến chapter23.html; assets/roadmaps/thuat-toan.js và thuat-toan-quiz.js; lối vào roadmap/thuat-toan.html; thêm trang đối chiếu thuat-toan/tai-lieu-ctdlgt.html và bản nguồn Markdown nguyên byte. Hồ sơ PROJECT/SPEC/STATUS và công cụ tác giả trong artifacts/ctdlgt-20261105. Không đổi URL, ID node, dữ liệu tiến độ, khóa khác hay bản lồng.
@@ -129,3 +144,15 @@ Không có quyền tài khoản/server trong phạm vi này. Dữ liệu chỉ c
 | 2026-10-30 | Đánh giá trước, chưa sửa file ở giai đoạn 1 | Đã thực hiện; kết quả lịch sử ở STATUS |
 | 2026-10-30 | Áp dụng playbook theo kế hoạch; thực hiện lát chuẩn hóa tài liệu | Người dùng đã giao; không cần hỏi lại quyền trong lát này |
 | 2026-10-30 | Lát đề xuất tiếp: kiểm thử hành trình Java trên profile cô lập | Chưa triển khai; không tự nhân rộng hoặc sửa mọi lỗi baseline |
+
+## 2026-11-06 — Mẫu animation trang chủ đã duyệt
+
+Phạm vi mẫu: bốn path-card, tiêu đề lộ trình và khối cuối trang chủ. Card nâng nhẹ khi hover chuột, thu nhỏ khi nhấn; focus bàn phím rõ ràng. Scroll reveal chạy một lần, 280ms, stagger 50ms, dịch 8px và opacity. Không áp dụng trang chương. Giữ URL, dữ liệu và stack; không dependency. Reduced motion bỏ chuyển động; nội dung mặc định hiện khi không có JS. Animation nhường ngay cho pointer/focus để không tranh transform với tilt.
+
+Nghiệm thu: check-ui trước/sau, Chrome profile cô lập ở 375/768/1440 × sáng/tối, giảm chuyển động, hover/press và focus. Dừng ở mẫu để người dùng xem trước khi nhân rộng.
+
+## 2026-11-08 — Mẫu Java bài 16: List và lựa chọn cấu trúc
+
+Người dùng yêu cầu tiếp tục cập nhật kiến thức và cho phép tiếp tục sau đề xuất mẫu bài 16. Phạm vi: java/chapter16.html, assets/roadmaps/java-source.json, assets/roadmaps/java.js, assets/roadmaps/java-quiz.js, docs/SPEC.md và docs/STATUS.md. Bổ sung khung mục tiêu, vấn đề thực tế, lý thuyết, hai ví dụ main độc lập Java 8+, giải thích, lỗi thường gặp, bài tập ba mức, tóm tắt và năm câu quiz ở trang riêng. Đối chiếu tài liệu Oracle List/Iterator Java 8 và ArrayList/LinkedList Java 21; chỉ dùng API Java 8 trong mã.
+
+Giữ s16, ID node, URL, parent/side và dữ liệu tiến độ; source.content phải khớp HTML. Thêm quiz đúng nội dung bài, giải thích đáp án và đường vào từ bài/roadmap; không thay câu hỏi chương khác. Nghiệm thu check-ui trước/sau, source/HTML/quiz, browser responsive và chấm đúng/sai. Biên dịch/chạy ví dụ nếu tìm thấy JDK; không tự cài thêm công cụ, báo rõ giới hạn nếu chỉ có JRE. Không thêm animation trang chương, dependency, backend/database/API/auth; hosting/domain/DNS/HTTPS ngoài phạm vi, không deploy/push.

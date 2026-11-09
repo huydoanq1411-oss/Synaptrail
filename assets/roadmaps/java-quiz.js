@@ -401,6 +401,72 @@ globalThis.SynaptrailAlgorithmQuizzes = {
         }
       ]
     },
+    "chapter16": {
+      "title": "ArrayList & LinkedList",
+      "chapter": "chapter16.html",
+      "questions": [
+        {
+          "question": "1. Với ArrayList, thao tác nào có chi phí O(1)?",
+          "code": "",
+          "options": [
+            "get(i) với chỉ số hợp lệ",
+            "Chèn phần tử vào đầu",
+            "Tìm giá trị chưa biết vị trí",
+            "Xóa phần tử đầu"
+          ],
+          "answer": 0,
+          "explanation": "ArrayList dùng mảng nền nên đọc một vị trí hợp lệ là O(1). Chèn/xóa đầu cần dịch phần tử; tìm giá trị có thể cần duyệt cả danh sách."
+        },
+        {
+          "question": "2. Vì sao không thể kết luận LinkedList chèn ở giữa luôn là O(1)?",
+          "code": "",
+          "options": [
+            "LinkedList không hỗ trợ chèn",
+            "Có thể phải duyệt O(n) để tìm vị trí trước khi nối nút",
+            "Mọi thao tác đều phải sắp xếp danh sách",
+            "Vì LinkedList dùng mảng cố định"
+          ],
+          "answer": 1,
+          "explanation": "Nối nút khi iterator đã ở vị trí là O(1), nhưng chèn theo chỉ số có thể tốn O(n) để tới vị trí đó."
+        },
+        {
+          "question": "3. Chương trình in danh sách nào?",
+          "code": "List<Integer> scores = new ArrayList<>(Arrays.asList(10, 20, 10));\nscores.remove(1);\nSystem.out.println(scores);",
+          "options": [
+            "[20, 10]",
+            "[10, 20, 10]",
+            "[10, 10]",
+            "[10, 20]"
+          ],
+          "answer": 2,
+          "explanation": "Đối số int chọn remove(int), xóa phần tử chỉ số 1 là 20, còn [10, 10]. Đoạn trích dùng các import và main của ví dụ ListRemovalDemo."
+        },
+        {
+          "question": "4. Muốn xóa giá trị 10 đầu tiên khỏi List<Integer>, dùng cách nào?",
+          "code": "",
+          "options": [
+            "scores.remove(10)",
+            "scores.get(10)",
+            "scores.set(10, 0)",
+            "scores.remove(Integer.valueOf(10))"
+          ],
+          "answer": 3,
+          "explanation": "Integer.valueOf(10) chọn overload remove(Object). Nếu tìm thấy, phương thức xóa lần xuất hiện đầu và trả true; nếu không có thì trả false."
+        },
+        {
+          "question": "5. Cách nào xóa phần tử hiện tại đúng quy tắc Iterator trong ví dụ?",
+          "code": "",
+          "options": [
+            "Sau it.next(), gọi it.remove() tối đa một lần",
+            "Gọi it.remove() trước lần next đầu tiên",
+            "Gọi scores.remove(value) trong khi iterator vẫn duyệt",
+            "Sau một next(), gọi it.remove() hai lần"
+          ],
+          "answer": 0,
+          "explanation": "Iterator.remove xóa phần tử vừa được next trả về và chỉ được gọi một lần cho mỗi next; các lời gọi sai trạng thái có thể gây IllegalStateException."
+        }
+      ]
+    },
     "chapter17": {
       "title": "HashMap & HashSet",
       "chapter": "chapter17.html",
@@ -459,6 +525,72 @@ globalThis.SynaptrailAlgorithmQuizzes = {
           ],
           "answer": 1,
           "explanation": ""
+        }
+      ]
+    },
+    "chapter18": {
+      "title": "Generics",
+      "chapter": "chapter18.html",
+      "questions": [
+        {
+          "question": "1. Trong Hop<T> và Hop<String>, T và String lần lượt là gì?",
+          "code": "",
+          "options": [
+            "Tên biến và giá trị chuỗi",
+            "Tham số kiểu và đối số kiểu",
+            "Hai từ khóa bắt buộc của Java",
+            "Hai kiểu nguyên thủy"
+          ],
+          "answer": 1,
+          "explanation": "T được khai báo làm tham số kiểu của Hop; String là kiểu cụ thể được chọn khi dùng Hop<String>."
+        },
+        {
+          "question": "2. Vì sao List<Integer> không gán trực tiếp cho List<Number>?",
+          "code": "",
+          "options": [
+            "Integer không kế thừa Number",
+            "List không lưu số nguyên",
+            "List là invariant; phép gán đó có thể cho phép thêm Double vào danh sách Integer",
+            "Mọi List đều không sửa được"
+          ],
+          "answer": 2,
+          "explanation": "Quan hệ kế thừa giữa Integer và Number không tự mở rộng thành quan hệ tương ứng giữa hai List có đối số kiểu khác nhau."
+        },
+        {
+          "question": "3. Method chỉ đọc các Number từ List<Integer> hoặc List<Double> nên nhận kiểu nào?",
+          "code": "",
+          "options": [
+            "List<Object>",
+            "List<Number> bắt buộc",
+            "List<? super Integer>",
+            "List<? extends Number>"
+          ],
+          "answer": 3,
+          "explanation": "Wildcard extends cho phép đọc giá trị dưới góc nhìn Number từ những danh sách này. Không thêm được một Number cụ thể khác null qua tham chiếu đó."
+        },
+        {
+          "question": "4. Qua List<? super Integer>, điều nào đúng về kiểu?",
+          "code": "",
+          "options": [
+            "Có thể thêm Integer nếu danh sách hỗ trợ add; đọc chỉ bảo đảm Object",
+            "Đọc luôn ra Integer mà không cần kiểm tra",
+            "Thêm được mọi Number, kể cả Double",
+            "Danh sách tự trở thành bất biến"
+          ],
+          "answer": 0,
+          "explanation": "Kiểu thực có thể là Integer, Number hoặc Object; thêm Integer là phù hợp về kiểu nhưng phần tử đọc ra không chắc là Integer. Khả năng sửa còn tùy implementation."
+        },
+        {
+          "question": "5. Vì sao không khai báo hai overload cùng tên chỉ khác List<String> và List<Integer>?",
+          "code": "",
+          "options": [
+            "Tên String và Integer bị cấm",
+            "Hai kiểu tham số cùng xóa thành List, gây trùng chữ ký",
+            "Generics không dùng trong method",
+            "Mọi method phải có cùng một tham số T"
+          ],
+          "answer": 1,
+          "explanation": "Type erasure xóa đối số kiểu; hai chữ ký đó không còn phân biệt được. Cần thiết kế lại tên hoặc dùng method tổng quát phù hợp."
         }
       ]
     },
